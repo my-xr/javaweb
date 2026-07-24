@@ -1,0 +1,1265 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>综合项目实践一核心业务接口开发</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 21 次课 · 题库</div>
+      <h1>综合项目实践一核心业务接口开发</h1>
+      <p>面向练习、测验、考试与参考解析 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 21 次课</span>
+        <span class="hero-chip"><b>主题</b>综合项目实践一核心业务接口开发</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一单项选择题30-题">一、单项选择题（30 题）</a>
+<ul>
+<li><a href="#21-单选-01-">21-单选-01 ★</a></li>
+<li><a href="#21-单选-02-">21-单选-02 ★</a></li>
+<li><a href="#21-单选-03-">21-单选-03 ★</a></li>
+<li><a href="#21-单选-04-">21-单选-04 ★</a></li>
+<li><a href="#21-单选-05-">21-单选-05 ★</a></li>
+<li><a href="#21-单选-06-">21-单选-06 ★★</a></li>
+<li><a href="#21-单选-07-">21-单选-07 ★★</a></li>
+<li><a href="#21-单选-08-">21-单选-08 ★★</a></li>
+<li><a href="#21-单选-09-">21-单选-09 ★★</a></li>
+<li><a href="#21-单选-10-">21-单选-10 ★★</a></li>
+<li><a href="#21-单选-11-">21-单选-11 ★★</a></li>
+<li><a href="#21-单选-12-">21-单选-12 ★</a></li>
+<li><a href="#21-单选-13-">21-单选-13 ★★</a></li>
+<li><a href="#21-单选-14-">21-单选-14 ★</a></li>
+<li><a href="#21-单选-15-">21-单选-15 ★★</a></li>
+<li><a href="#21-单选-16-">21-单选-16 ★</a></li>
+<li><a href="#21-单选-17-">21-单选-17 ★★</a></li>
+<li><a href="#21-单选-18-">21-单选-18 ★★</a></li>
+<li><a href="#21-单选-19-">21-单选-19 ★★★</a></li>
+<li><a href="#21-单选-20-">21-单选-20 ★★</a></li>
+<li><a href="#21-单选-21-">21-单选-21 ★</a></li>
+<li><a href="#21-单选-22-">21-单选-22 ★★</a></li>
+<li><a href="#21-单选-23-">21-单选-23 ★★★</a></li>
+<li><a href="#21-单选-24-">21-单选-24 ★★</a></li>
+<li><a href="#21-单选-25-">21-单选-25 ★★</a></li>
+<li><a href="#21-单选-26-">21-单选-26 ★★</a></li>
+<li><a href="#21-单选-27-">21-单选-27 ★★★</a></li>
+<li><a href="#21-单选-28-">21-单选-28 ★★</a></li>
+<li><a href="#21-单选-29-">21-单选-29 ★★</a></li>
+<li><a href="#21-单选-30-">21-单选-30 ★★★</a></li>
+</ul></li>
+<li><a href="#二多项选择题10-题">二、多项选择题（10 题）</a>
+<ul>
+<li><a href="#21-多选-01-">21-多选-01 ★</a></li>
+<li><a href="#21-多选-02-">21-多选-02 ★★</a></li>
+<li><a href="#21-多选-03-">21-多选-03 ★★</a></li>
+<li><a href="#21-多选-04-">21-多选-04 ★★</a></li>
+<li><a href="#21-多选-05-">21-多选-05 ★★</a></li>
+<li><a href="#21-多选-06-">21-多选-06 ★★★</a></li>
+<li><a href="#21-多选-07-">21-多选-07 ★★</a></li>
+<li><a href="#21-多选-08-">21-多选-08 ★★</a></li>
+<li><a href="#21-多选-09-">21-多选-09 ★★</a></li>
+<li><a href="#21-多选-10-">21-多选-10 ★★★</a></li>
+</ul></li>
+<li><a href="#三判断题20-题">三、判断题（20 题）</a>
+<ul>
+<li><a href="#21-判断-01-">21-判断-01 ★</a></li>
+<li><a href="#21-判断-02-">21-判断-02 ★</a></li>
+<li><a href="#21-判断-03-">21-判断-03 ★★</a></li>
+<li><a href="#21-判断-04-">21-判断-04 ★★</a></li>
+<li><a href="#21-判断-05-">21-判断-05 ★</a></li>
+<li><a href="#21-判断-06-">21-判断-06 ★★</a></li>
+<li><a href="#21-判断-07-">21-判断-07 ★★</a></li>
+<li><a href="#21-判断-08-">21-判断-08 ★</a></li>
+<li><a href="#21-判断-09-">21-判断-09 ★★</a></li>
+<li><a href="#21-判断-10-">21-判断-10 ★★</a></li>
+<li><a href="#21-判断-11-">21-判断-11 ★</a></li>
+<li><a href="#21-判断-12-">21-判断-12 ★★</a></li>
+<li><a href="#21-判断-13-">21-判断-13 ★★</a></li>
+<li><a href="#21-判断-14-">21-判断-14 ★★</a></li>
+<li><a href="#21-判断-15-">21-判断-15 ★</a></li>
+<li><a href="#21-判断-16-">21-判断-16 ★★</a></li>
+<li><a href="#21-判断-17-">21-判断-17 ★★★</a></li>
+<li><a href="#21-判断-18-">21-判断-18 ★★</a></li>
+<li><a href="#21-判断-19-">21-判断-19 ★★</a></li>
+<li><a href="#21-判断-20-">21-判断-20 ★★</a></li>
+</ul></li>
+<li><a href="#四填空题10-题">四、填空题（10 题）</a>
+<ul>
+<li><a href="#21-填空-01-">21-填空-01 ★</a></li>
+<li><a href="#21-填空-02-">21-填空-02 ★</a></li>
+<li><a href="#21-填空-03-">21-填空-03 ★★</a></li>
+<li><a href="#21-填空-04-">21-填空-04 ★★</a></li>
+<li><a href="#21-填空-05-">21-填空-05 ★★</a></li>
+<li><a href="#21-填空-06-">21-填空-06 ★★</a></li>
+<li><a href="#21-填空-07-">21-填空-07 ★★</a></li>
+<li><a href="#21-填空-08-">21-填空-08 ★★</a></li>
+<li><a href="#21-填空-09-">21-填空-09 ★★★</a></li>
+<li><a href="#21-填空-10-">21-填空-10 ★★</a></li>
+</ul></li>
+<li><a href="#五论述简答题4-题">五、论述简答题（4 题）</a>
+<ul>
+<li><a href="#21-论述-01-">21-论述-01 ★★</a></li>
+<li><a href="#21-论述-02-">21-论述-02 ★★</a></li>
+<li><a href="#21-论述-03-">21-论述-03 ★★★</a></li>
+<li><a href="#21-论述-04-">21-论述-04 ★★</a></li>
+</ul></li>
+<li><a href="#六程序阅读补全题2-题">六、程序阅读补全题（2 题）</a>
+<ul>
+<li><a href="#21-程序阅读-01-">21-程序阅读-01 ★★★</a></li>
+<li><a href="#21-程序阅读-02-">21-程序阅读-02 ★★★</a></li>
+</ul></li>
+<li><a href="#七编程接口设计题2-题">七、编程接口设计题（2 题）</a>
+<ul>
+<li><a href="#21-编程-01-">21-编程-01 ★★★</a></li>
+<li><a href="#21-编程-02-">21-编程-02 ★★★</a></li>
+</ul></li>
+<li><a href="#附题库统计表">附：题库统计表</a>
+<ul>
+<li><a href="#知识点覆盖统计">知识点覆盖统计</a></li>
+<li><a href="#难度分布说明">难度分布说明</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 21 次课 <span>｜</span> <strong>文档：</strong>题库</p>
+<blockquote>
+<p>项目：CTTS 校园实训任务管理系统 题量：78 题（40 选择 [30 单 + 10 多]
++ 20 判断 + 10 填空 + 4 论述简答 + 2 程序阅读补全 + 2 编程接口设计）
+难度：★ 基础 / ★★ 进阶 / ★★★ 综合
+编号规则：21-题型-序号（题型：单选/多选/判断/填空/论述/程序阅读/编程）</p>
+</blockquote>
+<hr />
+<h2 id="一单项选择题30-题">一、单项选择题（30 题）</h2>
+<h3 id="21-单选-01-">21-单选-01 ★</h3>
+<p>CTTS 系统中，教师端"创建实训项目"接口的请求路径应为？ A.
+<code>POST /api/projects</code> B.
+<code>POST /api/teacher/projects</code> C.
+<code>POST /api/admin/projects</code> D.
+<code>POST /teacher/projects</code></p>
+<p><strong>答案</strong>：B <strong>解析</strong>：教师端接口统一以
+<code>/api/teacher</code> 为前缀，创建项目属于教师端业务，路径为
+<code>POST /api/teacher/projects</code>。</p>
+<hr />
+<h3 id="21-单选-02-">21-单选-02 ★</h3>
+<p>CTTS 系统包含的三种角色是？ A. 学生、教师、访客 B. 学生、教师、管理员
+C. 用户、管理员、超级管理员 D. 学生、助教、教师</p>
+<p><strong>答案</strong>：B <strong>解析</strong>：CTTS
+系统设计三角色：STUDENT（学生）、TEACHER（教师）、ADMIN（管理员）。</p>
+<hr />
+<h3 id="21-单选-03-">21-单选-03 ★</h3>
+<p>本项目技术栈中，用于接口文档的工具是？ A. Swagger2 B. Knife4j C.
+Postman D. YApi</p>
+<p><strong>答案</strong>：B <strong>解析</strong>：项目使用 Knife4j
+作为接口文档工具，访问路径为
+<code>http://localhost:8080/doc.html</code>。</p>
+<hr />
+<h3 id="21-单选-04-">21-单选-04 ★</h3>
+<p>统一响应类 <code>Result&lt;T&gt;</code> 中不包含以下哪个字段？ A.
+code B. message C. data D. method</p>
+<p><strong>答案</strong>：D
+<strong>解析</strong>：<code>Result&lt;T&gt;</code> 包含
+code、message、data、timestamp 四个字段，不包含 method。</p>
+<hr />
+<h3 id="21-单选-05-">21-单选-05 ★</h3>
+<p>全局异常处理器 <code>GlobalExceptionHandler</code> 使用的注解是？ A.
+<code>@ControllerAdvice</code> B. <code>@RestControllerAdvice</code> C.
+<code>@Component</code> D. <code>@Configuration</code></p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：<code>@RestControllerAdvice</code> =
+<code>@ControllerAdvice</code> + <code>@ResponseBody</code>，返回 JSON
+格式异常信息。</p>
+<hr />
+<h3 id="21-单选-06-">21-单选-06 ★★</h3>
+<p>教师端"查看项目下任务列表"接口需要返回任务所属项目标题和提交人数，这种查询属于？
+A. 单表查询 B. 多表关联查询 C. 聚合统计查询 D. 子查询</p>
+<p><strong>答案</strong>：B <strong>解析</strong>：需要关联
+task、project、submission 三张表，属于多表关联查询。</p>
+<hr />
+<h3 id="21-单选-07-">21-单选-07 ★★</h3>
+<p>MyBatis-Plus 中，用于自定义多表关联 SQL 的文件是？ A. Entity.java B.
+Mapper.java C. Mapper.xml D. Service.java</p>
+<p><strong>答案</strong>：C <strong>解析</strong>：复杂的多表关联 SQL 在
+Mapper.xml 中编写，通过 namespace 与 Mapper 接口方法绑定。</p>
+<hr />
+<h3 id="21-单选-08-">21-单选-08 ★★</h3>
+<p><code>TaskCreateDTO</code> 中 <code>deadline</code> 字段标注
+<code>@Future</code> 注解的作用是？ A. 校验日期格式 B.
+校验时间必须晚于当前时间 C. 校验时间不能为空 D. 校验时间必须为工作日</p>
+<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Future</code>
+确保 LocalDateTime 值必须是将来的时间，用于任务截止时间校验。</p>
+<hr />
+<h3 id="21-单选-09-">21-单选-09 ★★</h3>
+<p>学生端"提交任务成果"接口中，同一学生对同一任务未评审前不可重复提交，该校验属于？
+A. 参数格式校验 B. 唯一性业务校验 C. 权限校验 D. 非空校验</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：这是基于业务规则的唯一性校验，需查询数据库判断是否存在
+PENDING 状态的提交。</p>
+<hr />
+<h3 id="21-单选-10-">21-单选-10 ★★</h3>
+<p>评审提交接口中，若得分超过任务满分，应抛出的异常是？ A.
+<code>NullPointerException</code> B. <code>BusinessException</code> C.
+<code>IllegalArgumentException</code> D.
+<code>RuntimeException</code></p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：业务规则校验失败应抛出
+<code>BusinessException</code>，由全局异常处理器捕获并返回友好提示。</p>
+<hr />
+<h3 id="21-单选-11-">21-单选-11 ★★</h3>
+<p><code>SubmissionMapper.xml</code> 中查询学生提交情况时，LEFT JOIN
+的表是？ A. task B. project C. user D. role</p>
+<p><strong>答案</strong>：C <strong>解析</strong>：需要关联 user
+表获取学生姓名（real_name）和班级（class_name）信息。</p>
+<hr />
+<h3 id="21-单选-12-">21-单选-12 ★</h3>
+<p><code>@Transactional</code> 注解的 rollbackFor 属性默认回滚的异常是？
+A. <code>Exception</code> B. <code>RuntimeException</code> C.
+<code>IOException</code> D. <code>Throwable</code></p>
+<p><strong>答案</strong>：B <strong>解析</strong>：默认只回滚
+<code>RuntimeException</code> 和 <code>Error</code>，建议显式指定
+<code>rollbackFor = Exception.class</code> 以覆盖所有受检异常。</p>
+<hr />
+<h3 id="21-单选-13-">21-单选-13 ★★</h3>
+<p>管理员端创建用户时，密码应如何存储？ A. 明文存储 B. Base64 编码 C.
+MD5 加密 D. BCrypt 加密</p>
+<p><strong>答案</strong>：D <strong>解析</strong>：使用
+<code>BCryptPasswordEncoder</code> 加密，每次加密结果不同，安全性高于
+MD5。</p>
+<hr />
+<h3 id="21-单选-14-">21-单选-14 ★</h3>
+<p><code>Project</code> 实体的 <code>status</code>
+字段不包含以下哪个值？ A. DRAFT B. PUBLISHED C. ARCHIVED D. CLOSED</p>
+<p><strong>答案</strong>：C
+<strong>解析</strong>：项目状态有三种：DRAFT（草稿）、PUBLISHED（已发布）、CLOSED（已关闭），不包含
+ARCHIVED。</p>
+<hr />
+<h3 id="21-单选-15-">21-单选-15 ★★</h3>
+<p>学生端"查看实训项目列表"接口只返回 status 为 PUBLISHED
+的项目，这体现了？ A. 参数校验 B. 权限隔离 / 数据范围控制 C. 事务管理 D.
+接口文档规范</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：不同角色可见数据范围不同，学生只能看到已发布项目，属于权限隔离中的数据范围控制。</p>
+<hr />
+<h3 id="21-单选-16-">21-单选-16 ★</h3>
+<p>Knife4j 接口文档的访问地址是？ A.
+<code>http://localhost:8080/swagger-ui.html</code> B.
+<code>http://localhost:8080/doc.html</code> C.
+<code>http://localhost:8080/api-docs</code> D.
+<code>http://localhost:8080/knife4j</code></p>
+<p><strong>答案</strong>：B <strong>解析</strong>：Knife4j
+默认访问路径为 <code>/doc.html</code>。</p>
+<hr />
+<h3 id="21-单选-17-">21-单选-17 ★★</h3>
+<p><code>Result.fail(ResultCode.NOT_FOUND)</code> 返回的 code 是？ A.
+200 B. 400 C. 404 D. 500</p>
+<p><strong>答案</strong>：C
+<strong>解析</strong>：<code>ResultCode.NOT_FOUND</code> 的 code 为
+404。</p>
+<hr />
+<h3 id="21-单选-18-">21-单选-18 ★★</h3>
+<p>以下哪个注解用于校验请求体参数？ A. <code>@Validated</code> B.
+<code>@Valid</code> C. <code>@RequestParam</code> D.
+<code>@PathVariable</code></p>
+<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Valid</code>
+用于标注在 <code>@RequestBody</code> 参数前，触发 JSR-303 校验。</p>
+<hr />
+<h3 id="21-单选-19-">21-单选-19 ★★★</h3>
+<p>在 <code>TaskMapper.xml</code> 中统计每个任务的提交人数，正确的 SQL
+片段是？ A. <code>SELECT task_id, COUNT(*) FROM submission</code> B.
+<code>SELECT task_id, COUNT(*) FROM submission GROUP BY task_id</code>
+C.
+<code>SELECT COUNT(*) FROM submission WHERE task_id = #{taskId}</code>
+D.
+<code>SELECT task_id, SUM(*) FROM submission GROUP BY task_id</code></p>
+<p><strong>答案</strong>：B <strong>解析</strong>：按 task_id
+分组统计，需使用 <code>GROUP BY task_id</code> 和
+<code>COUNT(*)</code>。</p>
+<hr />
+<h3 id="21-单选-20-">21-单选-20 ★★</h3>
+<p><code>Submission</code> 实体的 <code>status</code> 字段值为 GRADED
+表示？ A. 待评审 B. 已评分 C. 已删除 D. 已驳回</p>
+<p><strong>答案</strong>：B <strong>解析</strong>：PENDING
+表示待评审，GRADED 表示已评分。</p>
+<hr />
+<h3 id="21-单选-21-">21-单选-21 ★</h3>
+<p>本项目基础包名是？ A. <code>com.example</code> B.
+<code>com.ctts</code> C. <code>cn.ctts</code> D.
+<code>org.ctts</code></p>
+<p><strong>答案</strong>：B <strong>解析</strong>：项目基础包名为
+<code>com.ctts</code>。</p>
+<hr />
+<h3 id="21-单选-22-">21-单选-22 ★★</h3>
+<p><code>@TableField(fill = FieldFill.INSERT)</code> 的作用是？ A.
+插入时自动填充 B. 更新时自动填充 C. 查询时自动填充 D. 删除时自动填充</p>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：<code>FieldFill.INSERT</code>
+表示在插入时自动填充字段（如 createTime）。</p>
+<hr />
+<h3 id="21-单选-23-">21-单选-23 ★★★</h3>
+<p>教师端"查看学生提交情况"返回的 <code>SubmissionReviewVO</code>
+中，<code>studentName</code> 字段对应数据库 user 表的哪个字段？ A.
+<code>username</code> B. <code>real_name</code> C. <code>password</code>
+D. <code>role</code></p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：<code>studentName</code> 显示学生真实姓名，对应
+user 表的 <code>real_name</code> 字段。</p>
+<hr />
+<h3 id="21-单选-24-">21-单选-24 ★★</h3>
+<p><code>AdminUserCreateDTO</code> 中 <code>username</code> 字段的
+<code>@Pattern</code> 正则 <code>^[a-zA-Z0-9_]{4,20}$</code> 表示？ A.
+4-20 位字母数字下划线 B. 4-20 位任意字符 C. 只能字母 D. 只能数字</p>
+<p><strong>答案</strong>：A <strong>解析</strong>：正则要求用户名长度
+4-20，仅允许字母、数字、下划线。</p>
+<hr />
+<h3 id="21-单选-25-">21-单选-25 ★★</h3>
+<p>以下哪个接口需要 <code>@PathVariable</code> 注解获取参数？ A.
+创建项目 B. 发布任务 C. 查看项目下任务列表 D. 提交任务成果</p>
+<p><strong>答案</strong>：C
+<strong>解析</strong>：查看项目下任务列表路径为
+<code>/api/teacher/projects/{pid}/tasks</code>，需用
+<code>@PathVariable</code> 获取 pid。</p>
+<hr />
+<h3 id="21-单选-26-">21-单选-26 ★★</h3>
+<p><code>ProjectStatusDTO</code> 中 <code>status</code> 字段使用
+<code>@Pattern</code> 校验，允许的值不包括？ A. DRAFT B. PUBLISHED C.
+CLOSED D. PENDING</p>
+<p><strong>答案</strong>：D
+<strong>解析</strong>：<code>@Pattern(regexp = "DRAFT|PUBLISHED|CLOSED")</code>
+不允许 PENDING（PENDING 是 submission 的状态）。</p>
+<hr />
+<h3 id="21-单选-27-">21-单选-27 ★★★</h3>
+<p>学生端"查看个人成绩"接口的 SQL 需要关联几张表？ A. 1 张 B. 2 张 C. 3
+张 D. 4 张</p>
+<p><strong>答案</strong>：C <strong>解析</strong>：关联
+submission、task、project 三张表，获取成绩、任务标题、项目标题。</p>
+<hr />
+<h3 id="21-单选-28-">21-单选-28 ★★</h3>
+<p><code>@Size(min = 10, max = 5000)</code> 注解校验的是？ A.
+字符串长度在 10-5000 之间 B. 数字大小在 10-5000 之间 C. 集合元素数量在
+10-5000 之间 D. 数组长度在 10-5000 之间</p>
+<p><strong>答案</strong>：A <strong>解析</strong>：<code>@Size</code>
+用于字符串时校验长度，用于集合时校验元素数量。此处应用于提交内容字符串。</p>
+<hr />
+<h3 id="21-单选-29-">21-单选-29 ★★</h3>
+<p>评审接口 <code>PUT /api/teacher/submissions/{sid}/review</code>
+中，评审完成后 submission 的 status 应更新为？ A. PENDING B. GRADED C.
+REVIEWED D. CLOSED</p>
+<p><strong>答案</strong>：B <strong>解析</strong>：评审后状态变为
+GRADED（已评分）。</p>
+<hr />
+<h3 id="21-单选-30-">21-单选-30 ★★★</h3>
+<p>以下关于接口设计的说法，错误的是？ A. RESTful 风格使用 HTTP
+方法区分操作 B. 路径中的资源名应使用复数 C. 所有接口必须使用 POST 方法
+D. 接口应返回统一的响应结构</p>
+<p><strong>答案</strong>：C <strong>解析</strong>：RESTful
+风格应根据操作语义使用 GET/POST/PUT/DELETE 等方法，并非全部用 POST。</p>
+<hr />
+<h2 id="二多项选择题10-题">二、多项选择题（10 题）</h2>
+<h3 id="21-多选-01-">21-多选-01 ★</h3>
+<p>CTTS 系统的 5 张表包括以下哪些？（多选） A. user B. project C. task
+D. submission E. role F. log</p>
+<p><strong>答案</strong>：ABCDE <strong>解析</strong>：5 张表为
+user、project、task、submission、role，不包含 log。</p>
+<hr />
+<h3 id="21-多选-02-">21-多选-02 ★★</h3>
+<p>教师端核心业务接口包括以下哪些？（多选） A. 创建实训项目 B. 发布任务
+C. 查看项目下任务列表 D. 查看学生提交情况 E. 评审提交 F.
+提交任务成果</p>
+<p><strong>答案</strong>：ABCDE
+<strong>解析</strong>：F（提交任务成果）属于学生端接口。</p>
+<hr />
+<h3 id="21-多选-03-">21-多选-03 ★★</h3>
+<p>以下哪些属于 <code>ProjectCreateDTO</code> 的校验注解？（多选） A.
+<code>@NotBlank</code> B. <code>@Size</code> C. <code>@Future</code> D.
+<code>@Min</code> E. <code>@Pattern</code></p>
+<p><strong>答案</strong>：AB <strong>解析</strong>：ProjectCreateDTO 中
+title 用 <code>@NotBlank</code> 和 <code>@Size</code>，description 用
+<code>@Size</code>；<code>@Future</code> 用于
+TaskCreateDTO，<code>@Min</code> 用于 maxScore，<code>@Pattern</code>
+用于角色字段。</p>
+<hr />
+<h3 id="21-多选-04-">21-多选-04 ★★</h3>
+<p>全局异常处理器 <code>GlobalExceptionHandler</code>
+能捕获以下哪些异常？（多选） A. <code>BusinessException</code> B.
+<code>MethodArgumentNotValidException</code> C.
+<code>BindException</code> D. <code>ConstraintViolationException</code>
+E. <code>Exception</code></p>
+<p><strong>答案</strong>：ABCDE
+<strong>解析</strong>：全局异常处理器配置了上述所有异常的
+@ExceptionHandler 方法。</p>
+<hr />
+<h3 id="21-多选-05-">21-多选-05 ★★</h3>
+<p>以下哪些是学生端核心接口？（多选） A. 查看实训项目列表 B.
+查看任务详情 C. 提交任务成果 D. 查看评审反馈 E. 查看个人成绩 F.
+评审提交</p>
+<p><strong>答案</strong>：ABCDE
+<strong>解析</strong>：F（评审提交）是教师端接口。</p>
+<hr />
+<h3 id="21-多选-06-">21-多选-06 ★★★</h3>
+<p>在 <code>TaskMapper.xml</code> 的 <code>selectVOByProject</code>
+中，使用了以下哪些 SQL 关键字？（多选） A. LEFT JOIN B. GROUP BY C.
+IFNULL D. ORDER BY E. HAVING</p>
+<p><strong>答案</strong>：ABCD <strong>解析</strong>：SQL 使用了 LEFT
+JOIN 关联 project 和 submission 子查询，子查询内用 GROUP BY，外层用
+IFNULL 处理空值，ORDER BY 排序；未使用 HAVING。</p>
+<hr />
+<h3 id="21-多选-07-">21-多选-07 ★★</h3>
+<p>管理员端 AdminUserController 包含以下哪些接口？（多选） A.
+用户列表查询 B. 新增用户 C. 修改用户 D. 删除用户 E. 项目状态管理 F.
+发布任务</p>
+<p><strong>答案</strong>：ABCDE
+<strong>解析</strong>：F（发布任务）是教师端接口，其余均为管理员端接口。</p>
+<hr />
+<h3 id="21-多选-08-">21-多选-08 ★★</h3>
+<p>以下哪些属于 MyBatis-Plus 的 BaseMapper 内置方法？（多选） A.
+<code>selectById</code> B. <code>insert</code> C.
+<code>updateById</code> D. <code>deleteById</code> E.
+<code>selectVOByProject</code></p>
+<p><strong>答案</strong>：ABCD
+<strong>解析</strong>：E（selectVOByProject）是自定义方法，非 BaseMapper
+内置。</p>
+<hr />
+<h3 id="21-多选-09-">21-多选-09 ★★</h3>
+<p><code>SubmissionServiceImpl.submit</code>
+方法中包含哪些校验？（多选） A. 唯一性校验（未评审不可重复提交） B.
+任务存在性校验 C. 截止时间校验 D. 满分校验 E. 角色校验</p>
+<p><strong>答案</strong>：ABC <strong>解析</strong>：submit
+方法校验了唯一性、任务存在性、截止时间；满分校验在 review
+方法中，角色校验由拦截器完成。</p>
+<hr />
+<h3 id="21-多选-10-">21-多选-10 ★★★</h3>
+<p>本课的实践验收标准包括以下哪些？（多选） A. 所有接口在 Knife4j
+中可访问 B. 返回统一 Result<T> 结构 C. 参数校验生效 D.
+多表关联查询结果正确 E. Apifox 联调测试用例全部通过</p>
+<p><strong>答案</strong>：ABCDE
+<strong>解析</strong>：以上均为本课验收标准。</p>
+<hr />
+<h2 id="三判断题20-题">三、判断题（20 题）</h2>
+<h3 id="21-判断-01-">21-判断-01 ★</h3>
+<p>CTTS 系统的教师端、学生端、管理员端接口共用同一个 Controller 类。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：三端接口分别在不同
+Controller 包下，教师端在 controller.teacher，学生端在
+controller.student，管理员端在 controller.admin。</p>
+<hr />
+<h3 id="21-判断-02-">21-判断-02 ★</h3>
+<p><code>Result&lt;T&gt;</code> 类的 <code>success()</code> 方法可以不传
+data 参数。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：<code>Result.success()</code> 无参重载方法返回
+data 为 null 的成功响应。</p>
+<hr />
+<h3 id="21-判断-03-">21-判断-03 ★★</h3>
+<p><code>@RestControllerAdvice</code> 注解等同于
+<code>@ControllerAdvice</code> + <code>@ResponseBody</code>。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：<code>@RestControllerAdvice</code>
+是组合注解，返回值自动转为 JSON。</p>
+<hr />
+<h3 id="21-判断-04-">21-判断-04 ★★</h3>
+<p>在 MyBatis-Plus 中，所有多表关联查询都可以通过 LambdaQueryWrapper
+实现，无需写 XML。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：复杂的多表关联查询（如带子查询、聚合统计）仍需通过
+XML 自定义 SQL 实现。</p>
+<hr />
+<h3 id="21-判断-05-">21-判断-05 ★</h3>
+<p>学生端只能查看 status 为 PUBLISHED 的项目。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A <strong>解析</strong>：学生端
+<code>listProjects</code> 方法通过
+<code>eq(Project::getStatus, "PUBLISHED")</code> 过滤。</p>
+<hr />
+<h3 id="21-判断-06-">21-判断-06 ★★</h3>
+<p>评审提交时，得分可以超过任务的 maxScore。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：<code>review</code>
+方法会校验 score 不超过 task.maxScore，否则抛出 BusinessException。</p>
+<hr />
+<h3 id="21-判断-07-">21-判断-07 ★★</h3>
+<p>同一学生对同一任务可以无限次提交，只要尚未评审。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：存在 PENDING
+状态的提交时，不允许重复提交，会抛出 SUBMISSION_DUPLICATE 异常。</p>
+<hr />
+<h3 id="21-判断-08-">21-判断-08 ★</h3>
+<p>管理员创建用户时密码使用明文存储。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：使用
+BCryptPasswordEncoder 加密存储。</p>
+<hr />
+<h3 id="21-判断-09-">21-判断-09 ★★</h3>
+<p><code>@Future</code> 注解可以用于校验 LocalDateTime 类型的字段。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A <strong>解析</strong>：<code>@Future</code>
+支持校验 Date、Calendar、LocalDateTime 等时间类型。</p>
+<hr />
+<h3 id="21-判断-10-">21-判断-10 ★★</h3>
+<p><code>SubmissionMapper.xml</code> 中查询学生提交情况时使用的是 INNER
+JOIN。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：使用的是 LEFT
+JOIN，确保即使 user 表无对应记录也能返回 submission 数据。</p>
+<hr />
+<h3 id="21-判断-11-">21-判断-11 ★</h3>
+<p>本项目所有接口均需要 JWT 鉴权。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：所有业务接口都需在请求头携带 Authorization:
+Bearer <token>。</p>
+<hr />
+<h3 id="21-判断-12-">21-判断-12 ★★</h3>
+<p><code>@TableField(fill = FieldFill.INSERT_UPDATE)</code>
+表示插入和更新时都自动填充。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A <strong>解析</strong>：INSERT_UPDATE
+表示插入和更新时均触发自动填充，常用于 updateTime 字段。</p>
+<hr />
+<h3 id="21-判断-13-">21-判断-13 ★★</h3>
+<p>教师端"查看项目下任务列表"返回的 VO 类型是 <code>Task</code>。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：返回
+<code>TaskVO</code>，包含关联字段 projectTitle 和 submissionCount。</p>
+<hr />
+<h3 id="21-判断-14-">21-判断-14 ★★</h3>
+<p><code>BusinessException</code> 继承自
+<code>RuntimeException</code>。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：<code>BusinessException extends RuntimeException</code>，属于非受检异常。</p>
+<hr />
+<h3 id="21-判断-15-">21-判断-15 ★</h3>
+<p><code>@Tag</code> 注解用于 Knife4j 接口分组。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：<code>@Tag(name = "...")</code> 用于给 Controller
+分类，在 Knife4j 文档中显示为分组标题。</p>
+<hr />
+<h3 id="21-判断-16-">21-判断-16 ★★</h3>
+<p><code>@Transactional</code> 注解可以加在 Service 实现类的方法上。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：<code>@Transactional</code> 通常加在 Service
+实现类的方法上，用于声明事务。</p>
+<hr />
+<h3 id="21-判断-17-">21-判断-17 ★★★</h3>
+<p>在 <code>selectVOByProject</code> 的 SQL 中，子查询
+<code>(SELECT task_id, COUNT(*) FROM submission GROUP BY task_id)</code>
+的作用是统计每个任务的提交人数。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A <strong>解析</strong>：子查询按 task_id
+分组统计提交数，再通过 LEFT JOIN 关联到 task 表。</p>
+<hr />
+<h3 id="21-判断-18-">21-判断-18 ★★</h3>
+<p><code>@PathVariable</code> 用于获取 URL
+路径中的参数，<code>@RequestParam</code> 用于获取查询字符串参数。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：两者获取参数的位置不同，<code>@PathVariable</code>
+从路径占位符获取，<code>@RequestParam</code> 从 query string 获取。</p>
+<hr />
+<h3 id="21-判断-19-">21-判断-19 ★★</h3>
+<p>管理员端修改项目状态时，status 值为 INVALID 也能通过校验。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：<code>@Pattern(regexp = "DRAFT|PUBLISHED|CLOSED")</code>
+校验，INVALID 不在允许范围内。</p>
+<hr />
+<h3 id="21-判断-20-">21-判断-20 ★★</h3>
+<p>接口契约的设计只影响后端开发，与前端无关。</p>
+<ul>
+<li>A. 正确</li>
+<li>B. 错误</li>
+</ul>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：接口契约是前后端协作的基础，前端按契约调用接口，后端按契约实现。</p>
+<hr />
+<h2 id="四填空题10-题">四、填空题（10 题）</h2>
+<h3 id="21-填空-01-">21-填空-01 ★</h3>
+<p>CTTS 系统包含 ________ 个角色，分别是学生、教师、管理员。</p>
+<p><strong>答案</strong>：3
+<strong>解析</strong>：三角色：STUDENT、TEACHER、ADMIN。</p>
+<hr />
+<h3 id="21-填空-02-">21-填空-02 ★</h3>
+<p>本项目统一响应类 <code>Result&lt;T&gt;</code>
+包含四个字段：code、message、________、timestamp。</p>
+<p><strong>答案</strong>：data <strong>解析</strong>：data 字段为泛型
+T，承载业务数据。</p>
+<hr />
+<h3 id="21-填空-03-">21-填空-03 ★★</h3>
+<p>教师端"查看项目下任务列表"接口的路径是
+<code>GET /api/teacher/projects/{________}/tasks</code>。</p>
+<p><strong>答案</strong>：pid <strong>解析</strong>：pid 为项目 ID
+路径变量。</p>
+<hr />
+<h3 id="21-填空-04-">21-填空-04 ★★</h3>
+<p>MyBatis-Plus 中，自定义多表关联 SQL 需在 ________ 文件中编写。</p>
+<p><strong>答案</strong>：Mapper.xml（或 XML）
+<strong>解析</strong>：复杂 SQL 在对应的 Mapper.xml 中编写，通过
+namespace 绑定 Mapper 接口。</p>
+<hr />
+<h3 id="21-填空-05-">21-填空-05 ★★</h3>
+<p>学生端"提交任务成果"接口中，若同一任务存在 ________
+状态的提交，则不允许重复提交。</p>
+<p><strong>答案</strong>：PENDING <strong>解析</strong>：PENDING
+表示待评审，未评审前不可重复提交。</p>
+<hr />
+<h3 id="21-填空-06-">21-填空-06 ★★</h3>
+<p>评审提交后，submission 的 status 字段应更新为 ________。</p>
+<p><strong>答案</strong>：GRADED <strong>解析</strong>：GRADED
+表示已评分。</p>
+<hr />
+<h3 id="21-填空-07-">21-填空-07 ★★</h3>
+<p>管理员创建用户时，密码使用 ________ 算法加密存储。</p>
+<p><strong>答案</strong>：BCrypt <strong>解析</strong>：使用 Spring
+Security 的 BCryptPasswordEncoder。</p>
+<hr />
+<h3 id="21-填空-08-">21-填空-08 ★★</h3>
+<p><code>TaskCreateDTO</code> 中 <code>deadline</code> 字段使用
+<code>@________</code> 注解校验时间必须晚于当前时间。</p>
+<p><strong>答案</strong>：Future
+<strong>解析</strong>：<code>@Future</code> 确保时间为将来值。</p>
+<hr />
+<h3 id="21-填空-09-">21-填空-09 ★★★</h3>
+<p>在 <code>TaskMapper.xml</code> 的 <code>selectVOByProject</code> SQL
+中，使用 ________ 函数将 NULL 转换为 0，确保无提交的任务
+submission_count 显示为 0。</p>
+<p><strong>答案</strong>：IFNULL
+<strong>解析</strong>：<code>IFNULL(s.cnt, 0)</code> 在 cnt 为 NULL
+时返回 0。</p>
+<hr />
+<h3 id="21-填空-10-">21-填空-10 ★★</h3>
+<p>全局异常处理器使用 <code>@________</code> 注解声明，可捕获所有
+Controller 抛出的异常。</p>
+<p><strong>答案</strong>：RestControllerAdvice
+<strong>解析</strong>：<code>@RestControllerAdvice</code> 是
+<code>@ControllerAdvice</code> + <code>@ResponseBody</code>
+的组合注解。</p>
+<hr />
+<h2 id="五论述简答题4-题">五、论述简答题（4 题）</h2>
+<h3 id="21-论述-01-">21-论述-01 ★★</h3>
+<p>请简述 CTTS 系统中 Controller-Service-Mapper
+三层架构的职责划分，并说明在本课"教师端-评审提交"接口中各层分别承担了什么工作。</p>
+<p><strong>参考答案</strong>：</p>
+<ul>
+<li><strong>Controller 层</strong>：接收 HTTP 请求，解析参数，调用
+Service，返回
+<code>Result&lt;T&gt;</code>。在评审接口中，<code>ReviewController</code>
+接收 <code>PUT /api/teacher/submissions/{sid}/review</code> 请求，通过
+<code>@PathVariable</code> 获取 sid，通过
+<code>@Valid @RequestBody</code> 接收并校验 ReviewDTO，调用
+<code>submissionService.review()</code>。</li>
+<li><strong>Service
+层</strong>：承载业务逻辑，包括业务规则校验、事务管理。在
+<code>SubmissionServiceImpl.review</code> 中，校验 submission
+是否存在、score 是否超过 maxScore，更新 submission 的
+score、comment、status、reviewTime，并通过 <code>@Transactional</code>
+保证事务一致性。</li>
+<li><strong>Mapper 层</strong>：负责数据库操作，提供 CRUD
+和自定义查询。<code>SubmissionMapper</code> 继承 BaseMapper 提供
+<code>selectById</code>、<code>updateById</code>
+等方法，<code>TaskMapper</code> 提供 <code>selectById</code>
+查询任务满分用于校验。</li>
+</ul>
+<p><strong>评分标准</strong>（10 分）：</p>
+<ul>
+<li>三层职责各 2 分，共 6 分</li>
+<li>结合评审接口具体说明各层工作 4 分</li>
+</ul>
+<hr />
+<h3 id="21-论述-02-">21-论述-02 ★★</h3>
+<p>请说明统一响应结构 <code>Result&lt;T&gt;</code>
+和全局异常处理器的设计意义，并分析"接口契约让前后端各司其职"这一思政理念如何体现在代码中。</p>
+<p><strong>参考答案</strong>：</p>
+<ul>
+<li><strong>统一响应意义</strong>：所有接口返回
+<code>{code, message, data, timestamp}</code>
+结构，前端无需针对不同接口写不同的解析逻辑，降低沟通成本；统一的 code
+便于前端做错误分支处理；体现行业规范化。</li>
+<li><strong>全局异常意义</strong>：将异常处理从业务代码中抽离，Service
+只需抛出 <code>BusinessException</code>，由
+<code>GlobalExceptionHandler</code> 统一转换为
+<code>Result.fail()</code>，避免向前端暴露堆栈信息，提升安全性和可维护性。</li>
+<li><strong>思政体现</strong>：接口契约（接口清单表）规定了请求路径、参数、响应结构，前端按契约开发页面调用，后端按契约实现逻辑，双方各司其职、互不阻塞。统一响应就是契约的具体形式，全局异常保证了契约在任何异常情况下都不被破坏（始终返回结构化
+JSON）。这体现了团队协作中"契约精神"的价值：每个人做好本职、遵守约定，系统才能高效运转。</li>
+</ul>
+<p><strong>评分标准</strong>（10 分）：</p>
+<ul>
+<li>统一响应意义 3 分</li>
+<li>全局异常意义 3 分</li>
+<li>思政理念结合代码分析 4 分</li>
+</ul>
+<hr />
+<h3 id="21-论述-03-">21-论述-03 ★★★</h3>
+<p>学生端"提交任务成果"接口中包含多项校验（参数校验、唯一性校验、任务存在性校验、截止时间校验），请分析这些校验为何要分层放置（Controller
+层 vs Service 层），并说明如果将所有校验都放在 Controller
+层会有什么问题。</p>
+<p><strong>参考答案</strong>：</p>
+<ul>
+<li><strong>分层放置原则</strong>：
+<ul>
+<li>Controller 层：参数格式校验（<code>@Valid</code> + JSR-303
+注解），如 content 非空、长度
+10-5000。这类校验与业务无关，只关心参数格式。</li>
+<li>Service 层：业务规则校验，如唯一性（是否已有 PENDING
+提交）、任务存在性、截止时间。这类校验需要查询数据库，依赖业务状态。</li>
+</ul></li>
+<li><strong>全部放 Controller 层的问题</strong>：
+<ol type="1">
+<li>Controller 职责膨胀，既处理请求又处理业务，违反单一职责原则。</li>
+<li>业务校验逻辑无法复用，若其他入口（如批量导入）也需同样校验，只能复制代码。</li>
+<li>数据库访问提前到 Controller 层，破坏分层架构，Service
+层失去对业务的一致性控制。</li>
+<li>事务边界不清晰，业务校验与业务操作可能不在同一事务中，导致一致性风险。</li>
+</ol></li>
+<li><strong>结论</strong>：参数校验在 Controller，业务校验在
+Service，是分层架构的最佳实践，保证职责清晰、可复用、事务一致。</li>
+</ul>
+<p><strong>评分标准</strong>（10 分）：</p>
+<ul>
+<li>分层原则说明 4 分</li>
+<li>Controller 层 / Service 层校验举例各 2 分，共 4 分</li>
+<li>全放 Controller 层的问题分析 2 分</li>
+</ul>
+<hr />
+<h3 id="21-论述-04-">21-论述-04 ★★</h3>
+<p>请结合本课"教师端-查看项目下任务列表"的多表关联查询，说明为什么使用
+LEFT JOIN 而非 INNER JOIN，以及 <code>IFNULL</code>
+函数在此查询中的作用。</p>
+<p><strong>参考答案</strong>：</p>
+<ul>
+<li><strong>使用 LEFT JOIN
+的原因</strong>：查询需要返回项目下所有任务，即使某任务还没有任何提交记录。若用
+INNER JOIN，无提交的任务会被过滤掉，导致任务列表不完整。LEFT JOIN 保证
+task 表的记录全部返回，submission 子查询无匹配时字段为 NULL。</li>
+<li><strong>IFNULL 的作用</strong>：LEFT JOIN
+后，若某任务无提交记录，子查询的 <code>cnt</code> 字段为 NULL。直接返回
+NULL 会让前端处理麻烦（需判空）。<code>IFNULL(s.cnt, 0)</code> 将 NULL
+转换为 0，让 submissionCount
+字段始终是整数，便于前端直接显示"提交人数：0"。</li>
+<li><strong>延伸</strong>：这是 SQL
+查询中处理"可能无匹配"场景的常见模式，体现对数据完整性和前端友好性的兼顾。</li>
+</ul>
+<p><strong>评分标准</strong>（10 分）：</p>
+<ul>
+<li>LEFT JOIN 原因 4 分</li>
+<li>IFNULL 作用 4 分</li>
+<li>延伸理解 2 分</li>
+</ul>
+<hr />
+<h2 id="六程序阅读补全题2-题">六、程序阅读补全题（2 题）</h2>
+<h3 id="21-程序阅读-01-">21-程序阅读-01 ★★★</h3>
+<p>阅读以下 <code>SubmissionServiceImpl.submit</code>
+方法代码，补全空缺处（①②③）的代码。</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Override</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> Submission <span class="fu">submit</span><span class="op">(</span><span class="bu">Long</span> taskId<span class="op">,</span> <span class="bu">Long</span> studentId<span class="op">,</span> <span class="bu">String</span> content<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ① 唯一性校验:同一学生同一任务,若存在PENDING提交,不允许重复提交</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Long</span> exists <span class="op">=</span> ________①________</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">eq</span><span class="op">(</span>Submission<span class="op">::</span>getTaskId<span class="op">,</span> taskId<span class="op">)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">eq</span><span class="op">(</span>Submission<span class="op">::</span>getStudentId<span class="op">,</span> studentId<span class="op">)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">eq</span><span class="op">(</span>Submission<span class="op">::</span>getStatus<span class="op">,</span> <span class="st">&quot;PENDING&quot;</span><span class="op">)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">count</span><span class="op">();</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>exists <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span>ResultCode<span class="op">.</span><span class="fu">SUBMISSION_DUPLICATE</span><span class="op">);</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    Task task <span class="op">=</span> taskMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>task <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span>ResultCode<span class="op">.</span><span class="fu">NOT_FOUND</span><span class="op">.</span><span class="fu">getCode</span><span class="op">(),</span> <span class="st">&quot;任务不存在&quot;</span><span class="op">);</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ② 截止时间校验</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>________②________<span class="op">.</span><span class="fu">isAfter</span><span class="op">(</span>task<span class="op">.</span><span class="fu">getDeadline</span><span class="op">()))</span> <span class="op">{</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span>ResultCode<span class="op">.</span><span class="fu">BUSINESS_ERROR</span><span class="op">.</span><span class="fu">getCode</span><span class="op">(),</span> <span class="st">&quot;任务已过截止时间&quot;</span><span class="op">);</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    Submission sub <span class="op">=</span> <span class="kw">new</span> <span class="fu">Submission</span><span class="op">();</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    sub<span class="op">.</span><span class="fu">setTaskId</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    sub<span class="op">.</span><span class="fu">setStudentId</span><span class="op">(</span>studentId<span class="op">);</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    sub<span class="op">.</span><span class="fu">setContent</span><span class="op">(</span>content<span class="op">);</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    sub<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="st">&quot;PENDING&quot;</span><span class="op">);</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    sub<span class="op">.</span><span class="fu">setSubmitTime</span><span class="op">(</span>________③________<span class="op">);</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">save</span><span class="op">(</span>sub<span class="op">);</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sub<span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>参考答案</strong>：</p>
+<ul>
+<li>① <code>lambdaQuery()</code></li>
+<li>② <code>LocalDateTime.now()</code></li>
+<li>③ <code>LocalDateTime.now()</code></li>
+</ul>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>① 处使用 MyBatis-Plus 的 <code>lambdaQuery()</code>
+链式查询构建器统计符合条件的记录数。</li>
+<li>② 处获取当前时间与截止时间比较，判断是否超时。</li>
+<li>③ 处设置提交时间为当前时间。</li>
+</ul>
+<p><strong>评分标准</strong>（15 分）：每空 5 分。</p>
+<hr />
+<h3 id="21-程序阅读-02-">21-程序阅读-02 ★★★</h3>
+<p>阅读以下 <code>TaskMapper.xml</code> 的多表关联
+SQL，补全空缺处（①②③）。</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">select</span><span class="ot"> id=</span><span class="st">&quot;selectVOByProject&quot;</span><span class="ot"> resultMap=</span><span class="st">&quot;taskVOMap&quot;</span>&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    SELECT</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        t.id, t.project_id, t.title, t.description,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        t.deadline, t.max_score, t.create_time,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        p.title AS project_title,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        ________①________(s.cnt, 0) AS submission_count</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    FROM task t</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    ________②________ JOIN project p ON t.project_id = p.id</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    LEFT JOIN (</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        SELECT task_id, COUNT(*) AS cnt</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        FROM submission</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        ________③________ BY task_id</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    ) s ON s.task_id = t.id</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    WHERE t.project_id = #{projectId}</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    ORDER BY t.create_time DESC</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">select</span>&gt;</span></code></pre></div>
+<p><strong>参考答案</strong>：</p>
+<ul>
+<li>① <code>IFNULL</code></li>
+<li>② <code>LEFT</code></li>
+<li>③ <code>GROUP</code></li>
+</ul>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>① IFNULL 将无提交任务时 cnt 的 NULL 转为 0。</li>
+<li>② LEFT JOIN 确保所有任务都返回，即使项目被删除。</li>
+<li>③ GROUP BY task_id 按任务分组统计提交数。</li>
+</ul>
+<p><strong>评分标准</strong>（15 分）：每空 5 分。</p>
+<hr />
+<h2 id="七编程接口设计题2-题">七、编程接口设计题（2 题）</h2>
+<h3 id="21-编程-01-">21-编程-01 ★★★</h3>
+<p>请为 CTTS 系统设计并实现"教师端-批量评审"接口，要求：</p>
+<ol type="1">
+<li>教师可一次性对某任务下的多个学生提交进行批量打分。</li>
+<li>每条提交的得分不能超过任务满分。</li>
+<li>批量操作需在同一个事务中完成，任一失败则全部回滚。</li>
+<li>返回成功评审的数量。</li>
+</ol>
+<p><strong>要求产出</strong>：</p>
+<ul>
+<li>接口路径、方法、请求参数（DTO）、响应结构</li>
+<li>Controller 方法代码</li>
+<li>Service 方法代码（含事务）</li>
+</ul>
+<p><strong>参考答案</strong>：</p>
+<p><strong>接口设计</strong>：</p>
+<ul>
+<li>方法：<code>POST</code></li>
+<li>路径：<code>/api/teacher/tasks/{tid}/submissions/batch-review</code></li>
+<li>请求参数：<code>BatchReviewDTO</code>（含 reviews 列表）</li>
+<li>响应：<code>Result&lt;Integer&gt;</code>（成功评审数量）</li>
+</ul>
+<p><strong>DTO 定义</strong>：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> BatchReviewDTO <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotNull</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;评审列表不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Size</span><span class="op">(</span>min <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> max <span class="op">=</span> <span class="dv">100</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;单次批量评审1-100条&quot;</span><span class="op">)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Valid</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">List</span><span class="op">&lt;</span>ReviewItemDTO<span class="op">&gt;</span> reviews<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ReviewItemDTO <span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotNull</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;提交ID不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> submissionId<span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotNull</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;得分不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Min</span><span class="op">(</span>value <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;得分不能小于0&quot;</span><span class="op">)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> score<span class="op">;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Size</span><span class="op">(</span>max <span class="op">=</span> <span class="dv">500</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;评语最长500字符&quot;</span><span class="op">)</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> comment<span class="op">;</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Controller</strong>：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Operation</span><span class="op">(</span>summary <span class="op">=</span> <span class="st">&quot;批量评审提交&quot;</span><span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/tasks/{tid}/submissions/batch-review&quot;</span><span class="op">)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> <span class="fu">batchReview</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> tid<span class="op">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">@Valid</span> <span class="at">@RequestBody</span> BatchReviewDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span>submissionService<span class="op">.</span><span class="fu">batchReview</span><span class="op">(</span>tid<span class="op">,</span> dto<span class="op">));</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Service</strong>：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Override</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Integer</span> <span class="fu">batchReview</span><span class="op">(</span><span class="bu">Long</span> taskId<span class="op">,</span> BatchReviewDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    Task task <span class="op">=</span> taskMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>task <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span>ResultCode<span class="op">.</span><span class="fu">NOT_FOUND</span><span class="op">.</span><span class="fu">getCode</span><span class="op">(),</span> <span class="st">&quot;任务不存在&quot;</span><span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> successCount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>ReviewItemDTO item <span class="op">:</span> dto<span class="op">.</span><span class="fu">getReviews</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        Submission sub <span class="op">=</span> <span class="fu">getById</span><span class="op">(</span>item<span class="op">.</span><span class="fu">getSubmissionId</span><span class="op">());</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>sub <span class="op">==</span> <span class="kw">null</span> <span class="op">||</span> <span class="op">!</span>sub<span class="op">.</span><span class="fu">getTaskId</span><span class="op">().</span><span class="fu">equals</span><span class="op">(</span>taskId<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span>ResultCode<span class="op">.</span><span class="fu">PARAM_ERROR</span><span class="op">.</span><span class="fu">getCode</span><span class="op">(),</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;提交&quot;</span> <span class="op">+</span> item<span class="op">.</span><span class="fu">getSubmissionId</span><span class="op">()</span> <span class="op">+</span> <span class="st">&quot;不属于该任务&quot;</span><span class="op">);</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>item<span class="op">.</span><span class="fu">getScore</span><span class="op">()</span> <span class="op">&gt;</span> task<span class="op">.</span><span class="fu">getMaxScore</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span>ResultCode<span class="op">.</span><span class="fu">PARAM_ERROR</span><span class="op">.</span><span class="fu">getCode</span><span class="op">(),</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;得分不能超过满分&quot;</span> <span class="op">+</span> task<span class="op">.</span><span class="fu">getMaxScore</span><span class="op">());</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setScore</span><span class="op">(</span>item<span class="op">.</span><span class="fu">getScore</span><span class="op">());</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setComment</span><span class="op">(</span>item<span class="op">.</span><span class="fu">getComment</span><span class="op">());</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="st">&quot;GRADED&quot;</span><span class="op">);</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setReviewTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">updateById</span><span class="op">(</span>sub<span class="op">);</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        successCount<span class="op">++;</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> successCount<span class="op">;</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>评分标准</strong>（20 分）：</p>
+<ul>
+<li>接口路径、方法设计合理 3 分</li>
+<li>DTO 定义含校验注解 4 分</li>
+<li>Controller 代码正确 3 分</li>
+<li>Service 事务处理 4 分</li>
+<li>校验逻辑（任务存在、提交归属、满分）4 分</li>
+<li>返回成功数量 2 分</li>
+</ul>
+<hr />
+<h3 id="21-编程-02-">21-编程-02 ★★★</h3>
+<p>请为 CTTS 系统设计并实现"学生端-查看个人成绩统计"接口，要求：</p>
+<ol type="1">
+<li>返回该学生已评分的所有成绩列表。</li>
+<li>额外返回统计信息：已评任务数、平均分、最高分、最低分。</li>
+<li>需多表关联查询 submission、task、project。</li>
+</ol>
+<p><strong>要求产出</strong>：</p>
+<ul>
+<li>接口路径、方法、响应结构（VO）</li>
+<li>Controller 方法代码</li>
+<li>Service 方法代码</li>
+<li>Mapper SQL（多表关联）</li>
+</ul>
+<p><strong>参考答案</strong>：</p>
+<p><strong>接口设计</strong>：</p>
+<ul>
+<li>方法：<code>GET</code></li>
+<li>路径：<code>/api/student/grades/statistics</code></li>
+<li>响应：<code>Result&lt;GradeStatisticsVO&gt;</code></li>
+</ul>
+<p><strong>VO 定义</strong>：</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GradeStatisticsVO <span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">List</span><span class="op">&lt;</span>GradeVO<span class="op">&gt;</span> grades<span class="op">;</span>       <span class="co">// 成绩列表</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> totalCount<span class="op">;</span>         <span class="co">// 已评任务数</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Double</span> averageScore<span class="op">;</span>        <span class="co">// 平均分</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> maxScore<span class="op">;</span>           <span class="co">// 最高分</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> minScore<span class="op">;</span>           <span class="co">// 最低分</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Controller</strong>：</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Operation</span><span class="op">(</span>summary <span class="op">=</span> <span class="st">&quot;查看个人成绩统计&quot;</span><span class="op">)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/grades/statistics&quot;</span><span class="op">)</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span>GradeStatisticsVO<span class="op">&gt;</span> <span class="fu">gradeStatistics</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Long</span> studentId <span class="op">=</span> <span class="dv">2L</span><span class="op">;</span>  <span class="co">// 从JWT上下文获取</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span>submissionService<span class="op">.</span><span class="fu">getGradeStatistics</span><span class="op">(</span>studentId<span class="op">));</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Service</strong>：</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Override</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> GradeStatisticsVO <span class="fu">getGradeStatistics</span><span class="op">(</span><span class="bu">Long</span> studentId<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>GradeVO<span class="op">&gt;</span> grades <span class="op">=</span> submissionMapper<span class="op">.</span><span class="fu">selectGrades</span><span class="op">(</span>studentId<span class="op">);</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    GradeStatisticsVO vo <span class="op">=</span> <span class="kw">new</span> <span class="fu">GradeStatisticsVO</span><span class="op">();</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    vo<span class="op">.</span><span class="fu">setGrades</span><span class="op">(</span>grades<span class="op">);</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>grades<span class="op">.</span><span class="fu">isEmpty</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        vo<span class="op">.</span><span class="fu">setTotalCount</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        vo<span class="op">.</span><span class="fu">setAverageScore</span><span class="op">(</span><span class="fl">0.0</span><span class="op">);</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        vo<span class="op">.</span><span class="fu">setMaxScore</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        vo<span class="op">.</span><span class="fu">setMinScore</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        vo<span class="op">.</span><span class="fu">setTotalCount</span><span class="op">(</span>grades<span class="op">.</span><span class="fu">size</span><span class="op">());</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Double</span> avg <span class="op">=</span> grades<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">mapToInt</span><span class="op">(</span>GradeVO<span class="op">::</span>getScore<span class="op">)</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">average</span><span class="op">()</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">orElse</span><span class="op">(</span><span class="fl">0.0</span><span class="op">);</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        vo<span class="op">.</span><span class="fu">setAverageScore</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">round</span><span class="op">(</span>avg <span class="op">*</span> <span class="dv">100</span><span class="op">)</span> <span class="op">/</span> <span class="fl">100.0</span><span class="op">);</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        vo<span class="op">.</span><span class="fu">setMaxScore</span><span class="op">(</span>grades<span class="op">.</span><span class="fu">stream</span><span class="op">().</span><span class="fu">mapToInt</span><span class="op">(</span>GradeVO<span class="op">::</span>getScore<span class="op">).</span><span class="fu">max</span><span class="op">().</span><span class="fu">orElse</span><span class="op">(</span><span class="dv">0</span><span class="op">));</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        vo<span class="op">.</span><span class="fu">setMinScore</span><span class="op">(</span>grades<span class="op">.</span><span class="fu">stream</span><span class="op">().</span><span class="fu">mapToInt</span><span class="op">(</span>GradeVO<span class="op">::</span>getScore<span class="op">).</span><span class="fu">min</span><span class="op">().</span><span class="fu">orElse</span><span class="op">(</span><span class="dv">0</span><span class="op">));</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> vo<span class="op">;</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Mapper SQL</strong>（复用 selectGrades，见教学资料 5.8
+节）：</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">select</span><span class="ot"> id=</span><span class="st">&quot;selectGrades&quot;</span><span class="ot"> resultType=</span><span class="st">&quot;com.ctts.dto.student.GradeVO&quot;</span>&gt;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    SELECT</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        s.id AS submissionId,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        s.task_id AS taskId,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        t.title AS taskTitle,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        t.project_id AS projectId,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        p.title AS projectTitle,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        s.score,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        t.max_score AS maxScore,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        s.comment,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        s.review_time AS reviewTime</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    FROM submission s</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    LEFT JOIN task t ON s.task_id = t.id</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    LEFT JOIN project p ON t.project_id = p.id</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    WHERE s.student_id = #{studentId}</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>      AND s.status = &#39;GRADED&#39;</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    ORDER BY s.review_time DESC</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">select</span>&gt;</span></code></pre></div>
+<p><strong>评分标准</strong>（20 分）：</p>
+<ul>
+<li>接口设计合理 2 分</li>
+<li>VO 定义包含列表 + 4 项统计 4 分</li>
+<li>Controller 代码正确 3 分</li>
+<li>Service 统计计算逻辑正确 6 分</li>
+<li>Mapper SQL 多表关联正确 5 分</li>
+</ul>
+<hr />
+<h2 id="附题库统计表">附：题库统计表</h2>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>数量</th>
+<th>难度分布</th>
+<th>分值（参考）</th>
+<th>小计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单项选择</td>
+<td>30</td>
+<td>★：8 / ★★：15 / ★★★：7</td>
+<td>每题 2 分</td>
+<td>60 分</td>
+</tr>
+<tr>
+<td>多项选择</td>
+<td>10</td>
+<td>★：1 / ★★：6 / ★★★：3</td>
+<td>每题 3 分</td>
+<td>30 分</td>
+</tr>
+<tr>
+<td>判断题</td>
+<td>20</td>
+<td>★：3 / ★★：13 / ★★★：4</td>
+<td>每题 1 分</td>
+<td>20 分</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>10</td>
+<td>★：2 / ★★：6 / ★★★：2</td>
+<td>每题 2 分</td>
+<td>20 分</td>
+</tr>
+<tr>
+<td>论述简答</td>
+<td>4</td>
+<td>★★：3 / ★★★：1</td>
+<td>每题 10 分</td>
+<td>40 分</td>
+</tr>
+<tr>
+<td>程序阅读补全</td>
+<td>2</td>
+<td>★★★：2</td>
+<td>每题 15 分</td>
+<td>30 分</td>
+</tr>
+<tr>
+<td>编程接口设计</td>
+<td>2</td>
+<td>★★★：2</td>
+<td>每题 20 分</td>
+<td>40 分</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td>★：14 / ★★：44 / ★★★：20</td>
+<td>—</td>
+<td><strong>240 分</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="知识点覆盖统计">知识点覆盖统计</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>涉及题号（示例）</th>
+<th>题量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系统架构与角色</td>
+<td>单选-02、单选-21、判断-01、多选-01</td>
+<td>4</td>
+</tr>
+<tr>
+<td>统一响应与异常处理</td>
+<td>单选-04、单选-05、单选-17、判断-02、判断-03、填空-02、填空-10、论述-02</td>
+<td>8</td>
+</tr>
+<tr>
+<td>接口路径与参数</td>
+<td>单选-01、单选-16、单选-25、填空-03、判断-18</td>
+<td>5</td>
+</tr>
+<tr>
+<td>参数校验</td>
+<td>单选-08、单选-18、单选-24、单选-28、多选-03、判断-04、判断-09、填空-08、论述-03</td>
+<td>9</td>
+</tr>
+<tr>
+<td>多表关联查询</td>
+<td>单选-06、单选-07、单选-11、单选-19、单选-23、单选-27、多选-06、判断-04、判断-10、判断-13、判断-17、填空-04、填空-09、程序阅读-02、编程-02</td>
+<td>15</td>
+</tr>
+<tr>
+<td>业务规则与状态流转</td>
+<td>单选-09、单选-10、单选-14、单选-20、单选-29、多选-09、判断-06、判断-07、填空-05、填空-06、程序阅读-01</td>
+<td>11</td>
+</tr>
+<tr>
+<td>权限隔离与角色</td>
+<td>单选-15、单选-22、判断-05、判断-11、多选-05</td>
+<td>5</td>
+</tr>
+<tr>
+<td>事务管理</td>
+<td>单选-12、判断-16、论述-03、编程-01</td>
+<td>4</td>
+</tr>
+<tr>
+<td>密码安全</td>
+<td>单选-13、判断-08、填空-07</td>
+<td>3</td>
+</tr>
+<tr>
+<td>接口契约与思政</td>
+<td>单选-30、论述-02、判断-20</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Knife4j 与注解</td>
+<td>单选-03、单选-15、判断-15</td>
+<td>3</td>
+</tr>
+<tr>
+<td>管理员端业务</td>
+<td>单选-26、多选-07、多选-10、判断-19</td>
+<td>4</td>
+</tr>
+<tr>
+<td>教师端业务</td>
+<td>单选-01、单选-06、多选-02</td>
+<td>3</td>
+</tr>
+<tr>
+<td>学生端业务</td>
+<td>多选-05、论述-01、编程-02</td>
+<td>3</td>
+</tr>
+<tr>
+<td>综合实践</td>
+<td>编程-01、编程-02、论述-04</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="难度分布说明">难度分布说明</h3>
+<ul>
+<li><strong>★ 基础题（14
+题）</strong>：考查概念记忆和基本理解，适合全体学生。</li>
+<li><strong>★★ 进阶题（44
+题）</strong>：考查应用能力和代码理解，适合多数学生。</li>
+<li><strong>★★★ 综合题（20
+题）</strong>：考查综合分析与设计能力，适合学有余力的学生，包括程序阅读和编程题。</li>
+</ul>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

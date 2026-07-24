@@ -1,0 +1,624 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>持久层开发综合实践</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 09 次课 · 教学设计</div>
+      <h1>持久层开发综合实践</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 09 次课</span>
+        <span class="hero-chip"><b>主题</b>持久层开发综合实践</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务或案例任务">四、项目任务或案例任务</a>
+<ul>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动-1课前-5-分钟复盘开场导入">互动 1：课前 5 分钟复盘（开场导入）</a></li>
+<li><a href="#互动-2代码共写讲解-k9-1k9-3-时">互动 2：代码共写（讲解 K9-1~K9-3 时）</a></li>
+<li><a href="#互动-3踩坑分享会讲解结束前">互动 3：踩坑分享会（讲解结束前）</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习或随堂测验">七、课堂练习或随堂测验</a>
+<ul>
+<li><a href="#随堂练习5-分钟讲解结束前进行">随堂练习（5 分钟，讲解结束前进行）</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+</ul></li>
+<li><a href="#九对应岗位能力或面试考点">九、对应岗位能力或面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 09 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>所属模块：M3 持久层开发（综合实践）｜ 课程：《JavaWeb 后端开发技术》
+配套资料：见同文件夹内
+<code>教学资料.md</code>（学生复习资料）、<code>题库.md</code>（78
+题考试题库）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>次序</td>
+<td>第 9 次课（全课程 24 次之第 9）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>属性</td>
+<td><strong>实践课</strong></td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M3 持久层开发（本次为 M3 综合实践，综合第 6~8 次课内容）</td>
+</tr>
+<tr>
+<td>教学主题</td>
+<td>持久层开发综合实践 — CTTS 剩余三张表的完整持久层落地</td>
+</tr>
+<tr>
+<td>先修基础</td>
+<td>第 6 次课（JDBC/MyBatis 入门）、第 7 次课（Mapper 与 SQL 映射）、第
+8 次课（动态 SQL 与分页）</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java 17 + Spring Boot 3.x + MyBatis-Plus + MySQL 8.x</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>综合理解持久层开发的完整链路：建表 → 实体 → Mapper 接口 → XML/注解
+SQL → 测试验证。</li>
+<li>巩固 MyBatis-Plus
+的核心注解：<code>@TableName</code>、<code>@TableId</code>、<code>@TableField</code>
+的使用场景与写法。</li>
+<li>巩固 <code>BaseMapper</code> 提供的通用 CRUD
+与自定义查询方法的协作方式。</li>
+<li>巩固动态 SQL 标签
+<code>&lt;if&gt;</code>、<code>&lt;where&gt;</code>、<code>&lt;foreach&gt;</code>
+在多条件查询中的应用。</li>
+<li>巩固条件构造器 <code>QueryWrapper</code> /
+<code>LambdaQueryWrapper</code> 与 XML 动态 SQL 的选型思路。</li>
+<li>巩固分页查询 <code>Page</code> + <code>selectPage</code>
+的标准写法与分页插件配置。</li>
+<li>理解多表关联查询（JOIN）与 <code>resultMap</code>
+嵌套映射的搭配使用方式。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够依据表结构独立设计实体类，正确使用 MyBatis-Plus 注解完成 ORM
+映射。</li>
+<li>能够为三张表（task / task_submission / task_review）独立编写 Mapper
+接口，合理拆分通用方法与自定义方法。</li>
+<li>能够编写 XML 映射文件实现动态条件查询、分页查询、多表 JOIN
+查询，并正确配置 <code>resultMap</code> 嵌套映射。</li>
+<li>能够编写 JUnit 测试类对每个 Mapper 方法进行验证，使用断言而非
+<code>System.out.println</code> 验证结果。</li>
+<li>能够定位并排查持久层开发中的常见问题（字段映射、参数绑定、N+1
+查询、分页失效等）。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li><strong>工匠精神</strong>：SQL 写得好不好直接影响系统性能，每一行
+SQL、每一个索引、每一次关联都要认真对待，培养"对每行代码负责"的工程素养。</li>
+<li><strong>工程思维</strong>：从单表 CRUD
+到多表关联，培养从局部到整体的系统化建模能力。</li>
+<li><strong>质量意识</strong>：用测试驱动开发，写一行测一行，建立"代码即文档、测试即证据"的质量意识。</li>
+</ol>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<blockquote>
+<p>本次课为实践课，知识点为第 6~8
+次课的综合应用。详细讲解与完整代码见同文件夹
+<code>教学资料.md</code>。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K9-1</td>
+<td>实体类设计</td>
+<td><code>@TableName</code> 指定表名、<code>@TableId</code>
+主键策略（ASSIGN_ID/INPUT）、<code>@TableField</code>
+字段映射与排除</td>
+</tr>
+<tr>
+<td>K9-2</td>
+<td>Mapper 接口设计</td>
+<td>继承 <code>BaseMapper&lt;T&gt;</code> 获得通用 CRUD；自定义方法用
+<code>@Select</code> 注解或 XML 实现</td>
+</tr>
+<tr>
+<td>K9-3</td>
+<td>注解 SQL 与 XML SQL 选型</td>
+<td>简单单表用注解、动态 SQL 与多表关联用 XML；二者可混用</td>
+</tr>
+<tr>
+<td>K9-4</td>
+<td>动态 SQL 实战</td>
+<td><code>&lt;if&gt;</code> 条件判断、<code>&lt;where&gt;</code> 自动去
+AND/OR、<code>&lt;foreach&gt;</code> 遍历集合（IN 查询、批量插入）</td>
+</tr>
+<tr>
+<td>K9-5</td>
+<td>条件构造器</td>
+<td><code>QueryWrapper</code> 链式调用与 <code>LambdaQueryWrapper</code>
+方法引用；何时用构造器、何时用 XML</td>
+</tr>
+<tr>
+<td>K9-6</td>
+<td>分页查询</td>
+<td><code>Page&lt;T&gt;</code> 对象、<code>selectPage</code>
+方法、MyBatis-Plus 分页插件 <code>MybatisPlusInterceptor</code>
+配置</td>
+</tr>
+<tr>
+<td>K9-7</td>
+<td>多表关联查询</td>
+<td>JOIN 语法、<code>resultMap</code>
+嵌套（<code>association</code>/<code>collection</code>）、别名与字段映射</td>
+</tr>
+<tr>
+<td>K9-8</td>
+<td>持久层测试</td>
+<td><code>@SpringBootTest</code> 注入 Mapper、JUnit 5 断言
+<code>assertEquals</code>/<code>assertTrue</code>/<code>assertNotNull</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务或案例任务">四、项目任务或案例任务</h2>
+<h3
+id="贯穿项目阶段任务ctts-持久层落地剩余三张表">贯穿项目阶段任务：CTTS
+持久层落地（剩余三张表）</h3>
+<p><strong>本次课任务</strong>：完成 CTTS
+剩余三张表（task、task_submission、task_review）的完整持久层开发，并通过
+JUnit 测试验证。</p>
+<h4 id="任务清单">任务清单</h4>
+<table>
+<thead>
+<tr>
+<th>任务编号</th>
+<th>任务内容</th>
+<th>涉及知识点</th>
+<th>预期产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>task 表持久层</td>
+<td>实体类 + BaseMapper + 按项目查询 + 按状态分页查询 +
+动态条件查询</td>
+<td><code>Task.java</code> + <code>TaskMapper.java</code> +
+<code>TaskMapper.xml</code></td>
+</tr>
+<tr>
+<td>T2</td>
+<td>task_submission 表持久层</td>
+<td>实体类 + BaseMapper + 按学生查询 + 按任务查询 + 按状态统计</td>
+<td><code>TaskSubmission.java</code> +
+<code>TaskSubmissionMapper.java</code> +
+<code>TaskSubmissionMapper.xml</code></td>
+</tr>
+<tr>
+<td>T3</td>
+<td>task_review 表持久层</td>
+<td>实体类 + BaseMapper + 按提交查询 + 按教师查询</td>
+<td><code>TaskReview.java</code> + <code>TaskReviewMapper.java</code> +
+<code>TaskReviewMapper.xml</code></td>
+</tr>
+<tr>
+<td>T4</td>
+<td>多表关联查询</td>
+<td>JOIN + resultMap 嵌套映射</td>
+<td>查询某学生所有提交及对应任务信息</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>测试类编写</td>
+<td><code>@SpringBootTest</code> + JUnit 5 断言</td>
+<td><code>TaskMapperTest.java</code>、<code>TaskSubmissionMapperTest.java</code>、<code>TaskReviewMapperTest.java</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="业务背景">业务背景</h4>
+<pre><code>CTTS 业务流：教师发布任务 → 学生提交成果 → 教师评审打分
+                ↓                ↓                ↓
+              task 表      task_submission 表   task_review 表</code></pre>
+<p>三张表通过外键关联：</p>
+<ul>
+<li><code>task.project_id</code> → <code>training_project.id</code></li>
+<li><code>task_submission.task_id</code> → <code>task.id</code></li>
+<li><code>task_submission.student_id</code> →
+<code>sys_user.id</code></li>
+<li><code>task_review.submission_id</code> →
+<code>task_submission.id</code></li>
+<li><code>task_review.reviewer_id</code> → <code>sys_user.id</code></li>
+</ul>
+<blockquote>
+<p>📌 本节课聚焦持久层，不涉及 Service、Controller。业务层整合在第 10
+次课以后。</p>
+</blockquote>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3 id="互动-1课前-5-分钟复盘开场导入">互动 1：课前 5
+分钟复盘（开场导入）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"回顾第 6~8
+次课，请每组用一句话总结：持久层开发最容易踩的坑是什么？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>小组讨论 3 分钟 → 每组派代表发言 30 秒，教师板书关键词</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>字段映射错（驼峰下划线）、<code>&lt;if&gt;</code>
+判空漏写、分页插件没配、<code>resultMap</code>
+字段对不上、参数绑定异常等</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>肯定合理认知，将关键词归类为"映射类、动态 SQL
+类、分页类、多表类"，引出本次课的综合实践目标</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-2代码共写讲解-k9-1k9-3-时">互动 2：代码共写（讲解 K9-1~K9-3
+时）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动任务</td>
+<td>教师在 IDE 现场编写 Task 实体类，故意漏写 <code>@TableField</code>
+注解，学生观察运行结果并定位问题</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>教师演示 → 学生观察报错 → 学生口头定位 → 教师修正</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>发现查询结果中 <code>project_id</code> 字段为
+null，定位到驼峰下划线未映射</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>强调"注解不是装饰，是 ORM 的契约"；引出
+<code>@TableField(value = "project_id")</code> 的作用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-3踩坑分享会讲解结束前">互动
+3：踩坑分享会（讲解结束前）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动任务</td>
+<td>每组分享一个本次实践中遇到的问题和解决方案（限时 2 分钟/组）</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>小组准备 5 分钟 → 轮流分享 →
+教师点评并归档为"班级持久层最佳实践清单"</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>"动态 SQL 里 <code>&lt;if test="status != null"&gt;</code>
+漏判空字符串"、"分页插件忘了注册导致查全表"、"JOIN
+时别名冲突"、"测试没断言只看打印"等</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>将问题归类到"映射、动态
+SQL、分页、多表、测试"五类，形成可复用的避坑清单；强调工匠精神——每个坑都是一次成长</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融入点</td>
+<td>工匠精神——SQL 写得好不好直接影响系统性能，每一行 SQL
+都要认真对待</td>
+</tr>
+<tr>
+<td>技术关联</td>
+<td>一条低效 SQL 可能让整个系统卡顿（如 SELECT *、N+1 查询、缺索引的
+JOIN）；动态 SQL 拼错可能引发 SQL 注入；resultMap
+映射错可能导致数据丢失</td>
+</tr>
+<tr>
+<td>引导问题</td>
+<td>"同样是查询某个学生所有提交，写一条 JOIN 快，还是写两条单表查询再在
+Java 里拼快？为什么？N+1 问题是怎么产生的？"</td>
+</tr>
+<tr>
+<td>预期价值目标</td>
+<td>树立"对每行 SQL
+负责"的工程素养；建立"性能无小事、细节决定成败"的工匠精神；激发对国产
+ORM 框架 MyBatis-Plus 的认同感</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>思政自然融入，不空喊口号。通过真实 SQL 性能案例让学生体会"为什么每行
+SQL 都要认真对待"。</p>
+</blockquote>
+<hr />
+<h2 id="七课堂练习或随堂测验">七、课堂练习或随堂测验</h2>
+<h3 id="随堂练习5-分钟讲解结束前进行">随堂练习（5
+分钟，讲解结束前进行）</h3>
+<p><strong>代码纠错题（口头快速作答）</strong>：以下 XML 动态 SQL
+有几处问题？</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">select</span><span class="ot"> id=</span><span class="st">&quot;selectByCondition&quot;</span><span class="ot"> resultType=</span><span class="st">&quot;Task&quot;</span>&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    SELECT * FROM task</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    WHERE</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;projectId != null&quot;</span>&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        project_id = #{projectId}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;status != null&quot;</span>&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        AND status = #{status}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">select</span>&gt;</span></code></pre></div>
+<blockquote>
+<p>参考答案：① 缺少 <code>&lt;where&gt;</code> 标签，当 projectId 为
+null 时 SQL 会变成 <code>WHERE AND status = ?</code> 语法错误；②
+<code>resultType="Task"</code> 应使用全限定类名或配合
+<code>resultMap</code>；③ 没有处理空字符串情况（建议
+<code>status != null and status != ''</code>）。</p>
+</blockquote>
+<blockquote>
+<p>详细题目与解析见
+<code>题库.md</code>。此处仅作课堂快速互动，不计分。</p>
+</blockquote>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<ol type="1">
+<li><strong>完善</strong>：补全三张表的剩余自定义查询（如按时间范围查询、按分数段统计），并编写对应测试。</li>
+<li><strong>优化</strong>：为本次课写的所有 SQL 添加索引建议，并思考 N+1
+查询问题的规避方案。</li>
+<li><strong>总结</strong>：每组提交一份《持久层踩坑与最佳实践清单》（1
+页），列出本组遇到的至少 3 个问题及解决方案。</li>
+<li><strong>拓展</strong>：阅读 MyBatis-Plus 官方文档关于
+<code>@TableLogic</code> 逻辑删除章节，思考如何为 task
+表增加软删除能力（选做）。</li>
+<li><strong>预习</strong>：第 10 次课将进入 Service 业务层，预习 Spring
+的 <code>@Service</code>、<code>@Transactional</code> 注解基础。</li>
+</ol>
+<hr />
+<h2 id="九对应岗位能力或面试考点">九、对应岗位能力或面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>岗位能力/面试考点</th>
+<th>本次课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MyBatis-Plus 持久层完整开发流程（建表→实体→Mapper→XML→测试）</td>
+<td>T1~T5 全流程</td>
+</tr>
+<tr>
+<td>多表关联查询与 <code>resultMap</code> 嵌套映射（面试高频）</td>
+<td>T4 多表 JOIN</td>
+</tr>
+<tr>
+<td>动态 SQL
+实战（<code>&lt;if&gt;</code>/<code>&lt;where&gt;</code>/<code>&lt;foreach&gt;</code>）</td>
+<td>T1 动态条件查询</td>
+</tr>
+<tr>
+<td>分页查询实战（<code>Page</code> + 分页插件）</td>
+<td>T1 按状态分页</td>
+</tr>
+<tr>
+<td>条件构造器 <code>LambdaQueryWrapper</code> 使用</td>
+<td>T2 按学生/任务查询</td>
+</tr>
+<tr>
+<td>JUnit 测试与断言（工程素养）</td>
+<td>T5 测试类</td>
+</tr>
+<tr>
+<td>N+1 查询问题与规避（面试进阶）</td>
+<td>T4 多表关联延伸</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面试常考"请写一个多表 JOIN 查询的 resultMap"、"动态 SQL
+怎么处理空参数"、"分页插件原理"、"MyBatis-Plus 与原生 MyBatis
+的区别"等，均属本次课范围。</p>
+</blockquote>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生复习资料</td>
+<td><code>教学资料.md</code>（同文件夹）</td>
+<td>8 个知识点详解 + 三张表完整 SQL/实体/Mapper/XML/测试代码 +
+实践步骤指导 + 常见问题排查表</td>
+</tr>
+<tr>
+<td>考试题库</td>
+<td><code>题库.md</code>（同文件夹）</td>
+<td>78 题（40 选择 + 20 判断 + 10 填空 + 4 简答 + 2 程序阅读 + 2
+编程），含答案解析与评分标准</td>
+</tr>
+<tr>
+<td>课程总览</td>
+<td><code>../00 课程设计总览.md</code></td>
+<td>课程整体框架与 24 次课进度</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~10 min</td>
+<td>课前复盘互动 + 任务发布</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>10~25 min</td>
+<td>任务 T1：task 表建表 + 实体类 + Mapper（含代码共写互动）</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>25~40 min</td>
+<td>任务 T1 续：XML 动态 SQL + 分页查询 + 学生动手实现</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>40~55 min</td>
+<td>任务 T2、T3：task_submission 与 task_review
+表持久层（学生分组实现，教师巡场）</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>55~70 min</td>
+<td>任务 T4：多表 JOIN 查询 + resultMap 嵌套映射（教师重点讲解）</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>70~82 min</td>
+<td>任务 T5：测试类编写与运行验证</td>
+<td>12 min</td>
+</tr>
+<tr>
+<td>82~88 min</td>
+<td>踩坑分享会 + 工匠精神思政融入</td>
+<td>6 min</td>
+</tr>
+<tr>
+<td>88~90 min</td>
+<td>小结 + 课后任务布置</td>
+<td>2 min</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 实践课以学生动手为主，教师讲解为辅。时间分配中学生动手时间不少于
+50 分钟，教师重点讲解控制在 30 分钟以内。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

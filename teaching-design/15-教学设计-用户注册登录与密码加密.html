@@ -1,0 +1,359 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>用户注册登录与密码加密</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 15 次课 · 教学设计</div>
+      <h1>用户注册登录与密码加密</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 15 次课</span>
+        <span class="hero-chip"><b>主题</b>用户注册登录与密码加密</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程基本信息">一、课程基本信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#21-知识目标">2.1 知识目标</a></li>
+<li><a href="#22-能力目标">2.2 能力目标</a></li>
+<li><a href="#23-素质目标课程思政">2.3 素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三教学重点">三、教学重点</a>
+<ul>
+</ul></li>
+<li><a href="#四教学难点">四、教学难点</a>
+<ul>
+</ul></li>
+<li><a href="#五学情分析">五、学情分析</a>
+<ul>
+</ul></li>
+<li><a href="#六教学方法">六、教学方法</a>
+<ul>
+</ul></li>
+<li><a href="#七教学准备">七、教学准备</a>
+<ul>
+</ul></li>
+<li><a href="#九课后作业">九、课后作业</a>
+<ul>
+</ul></li>
+<li><a href="#十教学反思课后填写">十、教学反思（课后填写）</a>
+<ul>
+</ul></li>
+<li><a href="#附录板书设计">附录：板书设计</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 15 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<h2 id="一课程基本信息">一、课程基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>Java Web后端开发技术</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程/计算机科学与技术专业 本科三年级</td>
+</tr>
+<tr>
+<td>课时安排</td>
+<td>2学时（90分钟）</td>
+</tr>
+<tr>
+<td>授课类型</td>
+<td>理论课（含代码演示）</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M6 登录认证与权限控制（第1讲）</td>
+</tr>
+<tr>
+<td>项目载体</td>
+<td>CTTS校园实训任务管理系统</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java 17 + Spring Boot 3.x + MyBatis-Plus + MySQL 8.x + Spring
+Security</td>
+</tr>
+<tr>
+<td>包名约定</td>
+<td>com.ctts</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="21-知识目标">2.1 知识目标</h3>
+<ul>
+<li>K1：能够复述用户注册登录的完整流程（注册：用户名唯一性校验→密码加密→入库；登录：查询用户→校验密码→生成凭证→返回；登出）。</li>
+<li>K2：理解明文存储密码的危害，能够对比 MD5 与 BCrypt
+加密算法的优劣，说明加盐（salt）的作用。</li>
+<li>K3：能够阐述 Session 认证的工作机制（服务器存储 Session、Cookie 传递
+SessionID）。</li>
+<li>K4：能够阐述 Token 认证的工作机制（登录返回
+Token、客户端存储、Header 携带、服务端解析）。</li>
+<li>K5：能够从存储位置、扩展性、跨域、前后端分离适配性四个维度对比
+Session 与 Token，并能说明前后端分离架构选择 Token 的原因。</li>
+</ul>
+<h3 id="22-能力目标">2.2 能力目标</h3>
+<ul>
+<li>A1：能够独立配置 <code>BCryptPasswordEncoder</code> 到 Spring
+容器中。</li>
+<li>A2：能够使用 <code>@Valid</code> 配合 DTO 完成注册参数校验。</li>
+<li>A3：能够独立实现注册接口（用户名唯一性校验 + BCrypt 加密 +
+入库）。</li>
+<li>A4：能够独立实现登录接口（查询用户 + BCrypt 校验 + 生成简单 Token
+返回）。</li>
+<li>A5：能够使用 Apifox/Postman 完成接口测试，并能够定位常见报错（如
+405、500、用户名重复、密码不匹配等）。</li>
+</ul>
+<h3 id="23-素质目标课程思政">2.3 素质目标（课程思政）</h3>
+<ul>
+<li>S1：树立数据安全与用户隐私保护意识——密码加密是开发者的法律底线和职业底线（《个人信息保护法》《数据安全法》）。</li>
+<li>S2：培养工程严谨态度——任何一行涉及安全的代码都需经得起审计。</li>
+<li>S3：建立技术选型的辩证思维——没有最好的方案，只有最合适的方案（Session
+与 Token 的取舍）。</li>
+</ul>
+<h2 id="三教学重点">三、教学重点</h2>
+<ol type="1">
+<li>用户注册登录的完整业务流程。</li>
+<li>BCrypt 加密算法的原理与 <code>BCryptPasswordEncoder</code>
+的使用。</li>
+<li>Session 认证与 Token 认证的核心机制对比。</li>
+<li>前后端分离架构下 Token 认证成为主流的原因。</li>
+</ol>
+<h2 id="四教学难点">四、教学难点</h2>
+<ol type="1">
+<li><strong>为什么 MD5 不安全、BCrypt
+安全</strong>：理解彩虹表攻击、加盐的意义以及 BCrypt
+自带盐、慢哈希的设计。</li>
+<li><strong><code>BCryptPasswordEncoder</code>
+的匹配机制</strong>：同一个明文每次加密结果不同，却能正确校验（盐嵌入在哈希结果中）。</li>
+<li><strong>Session 与 Token
+的本质区别</strong>：状态存储位置不同导致扩展性、跨域、CSRF
+等一系列差异。</li>
+</ol>
+<h2 id="五学情分析">五、学情分析</h2>
+<ul>
+<li><strong>前置基础</strong>：学生已学习 Spring Boot IoC/DI、RESTful
+接口设计、MyBatis-Plus
+CRUD、统一响应体、全局异常处理、<code>@Valid</code>
+参数校验等知识，具备独立编写 CRUD 接口的能力。</li>
+<li><strong>薄弱环节</strong>：对"安全"概念停留在感性认识，多数同学听说过
+MD5，但不理解为什么不安全；对 Session/Token
+仅停留在"用过的"层面，未深入思考原理。</li>
+<li><strong>学习诉求</strong>：临近实习面试，学生希望掌握"面试题级别"的深度知识，对"密码为什么不能明文存储"等高频面试题兴趣浓厚。</li>
+<li><strong>班级差异</strong>：约 30% 学生基础扎实，可加速；约 20%
+学生对 Spring Security 较陌生，需要在配置类环节多花时间演示。</li>
+</ul>
+<h2 id="六教学方法">六、教学方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题驱动法</td>
+<td>以"密码为什么不能明文存储"面试题开场导入</td>
+</tr>
+<tr>
+<td>讲授法</td>
+<td>讲解 BCrypt 原理、Session/Token 机制</td>
+</tr>
+<tr>
+<td>对比分析法</td>
+<td>Session vs Token 四维度对比</td>
+</tr>
+<tr>
+<td>案例演示法</td>
+<td>现场演示 CTTS 注册/登录接口完整实现</td>
+</tr>
+<tr>
+<td>小组讨论法</td>
+<td>4人小组讨论"前后端分离为什么选 Token"</td>
+</tr>
+<tr>
+<td>任务驱动法</td>
+<td>课后项目任务：实现 CTTS 注册登录接口</td>
+</tr>
+</tbody>
+</table>
+<h2 id="七教学准备">七、教学准备</h2>
+<ul>
+<li>教师准备：CTTS 项目骨架代码（已含 sys_user 表、User
+实体、UserMapper）、Apifox 测试集合、密码泄漏案例素材（如 CSDN
+600万账号泄漏事件）。</li>
+<li>学生准备：复习 MyBatis-Plus CRUD、<code>@Valid</code>
+校验、统一响应体；预读 Spring Security PasswordEncoder 文档。</li>
+<li>环境准备：JDK 17、IDEA 2023.x、MySQL 8.x、Postman/Apifox、Git。</li>
+</ul>
+<h2
+id="八教学过程与时间分配90分钟">八、教学过程与时间分配（90分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>教学内容</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-5</td>
+<td><strong>开场导入</strong>（5分钟）</td>
+<td>面试题导入："密码为什么不能明文存储？"播放 CSDN
+2011年600万账号明文泄漏事件</td>
+<td>提问+案例讲述</td>
+<td>思考+回答</td>
+<td>激发兴趣、引入思政</td>
+</tr>
+<tr>
+<td>5-10</td>
+<td><strong>课程思政融入</strong>（5分钟）</td>
+<td>数据安全与用户隐私——密码加密是底线。引用《个人信息保护法》第51条</td>
+<td>讲授</td>
+<td>倾听、记录</td>
+<td>培养职业伦理</td>
+</tr>
+<tr>
+<td>10-25</td>
+<td><strong>K15-1 注册登录流程</strong>（15分钟）</td>
+<td>注册流程（唯一校验→加密→入库）、登录流程（查用户→校验→生成凭证→返回）、登出流程</td>
+<td>讲授+流程图</td>
+<td>记录、提问</td>
+<td>建立业务全景</td>
+</tr>
+<tr>
+<td>25-45</td>
+<td><strong>K15-2 密码加密</strong>（20分钟）</td>
+<td>明文危害、MD5+彩虹表、BCrypt加盐+慢哈希、<code>BCryptPasswordEncoder</code>
+用法演示</td>
+<td>讲授+代码演示</td>
+<td>跟随编码</td>
+<td>突破难点</td>
+</tr>
+<tr>
+<td>45-55</td>
+<td><strong>K15-3 Session认证</strong>（10分钟）</td>
+<td>Session创建、SessionID通过Cookie返回、后续请求识别</td>
+<td>讲授+图示</td>
+<td>记录</td>
+<td>理解传统方案</td>
+</tr>
+<tr>
+<td>55-70</td>
+<td><strong>K15-4 Token认证</strong>（15分钟）</td>
+<td>登录返回Token、客户端存储、Header携带、服务端解析</td>
+<td>讲授+图示</td>
+<td>记录</td>
+<td>理解现代方案</td>
+</tr>
+<tr>
+<td>70-80</td>
+<td><strong>K15-5 方案选型对比</strong>（10分钟）</td>
+<td>Session vs Token
+四维度对比表；小组讨论"前后端分离为什么选Token"</td>
+<td>组织讨论</td>
+<td>4人组讨论+发言</td>
+<td>培养辩证思维</td>
+</tr>
+<tr>
+<td>80-88</td>
+<td><strong>项目任务布置</strong>（8分钟）</td>
+<td>布置CTTS注册登录接口实现任务，演示接口预期效果</td>
+<td>演示+讲解</td>
+<td>记录任务</td>
+<td>衔接实践</td>
+</tr>
+<tr>
+<td>88-90</td>
+<td><strong>课堂小结</strong>（2分钟）</td>
+<td>回顾5个知识点、强调安全底线</td>
+<td>总结</td>
+<td>回顾</td>
+<td>巩固记忆</td>
+</tr>
+</tbody>
+</table>
+<h2 id="九课后作业">九、课后作业</h2>
+<ol type="1">
+<li><strong>项目任务（必做）</strong>：在 CTTS
+项目中实现用户注册与登录接口，要求：
+<ul>
+<li>注册接口 <code>/api/auth/register</code>：用户名唯一性校验 +
+<code>@Valid</code> 参数校验 + BCrypt 加密 + 入库。</li>
+<li>登录接口 <code>/api/auth/login</code>：根据用户名查询 + BCrypt
+校验密码 + 生成简单 Token（UUID 即可）返回。</li>
+<li>提交代码到 Git，附带 Apifox 测试截图。</li>
+</ul></li>
+<li><strong>思考题（必做）</strong>：为什么 BCrypt
+每次加密同一明文结果都不同，却能正确校验密码？</li>
+<li><strong>拓展任务（选做）</strong>：尝试将简单 Token 替换为 JWT（Json
+Web Token），对比两者的差异。</li>
+<li><strong>面试题准备</strong>：背诵并理解"密码为什么不能明文存储""Session
+与 Token 区别"两个高频面试题。</li>
+</ol>
+<h2 id="十教学反思课后填写">十、教学反思（课后填写）</h2>
+<ul>
+<li><strong>教学目标达成情况</strong>：______</li>
+<li><strong>学生参与度</strong>：______</li>
+<li><strong>难点突破效果</strong>：______</li>
+<li><strong>时间分配合理性</strong>：______</li>
+<li><strong>改进措施</strong>：______</li>
+</ul>
+<h2 id="附录板书设计">附录：板书设计</h2>
+<pre><code>           第15次课 用户注册登录与密码加密
+┌─────────────────────────────────────────────────┐
+│  注册：唯一校验 → BCrypt加密 → 入库              │
+│  登录：查用户 → BCrypt校验 → 生成Token → 返回    │
+│  登出：销毁Token/Session                         │
+├─────────────────────────────────────────────────┤
+│  密码加密：MD5(不安全) ←对比→ BCrypt(推荐)       │
+│           彩虹表破解         加盐+慢哈希          │
+├─────────────────────────────────────────────────┤
+│  Session：服务端存   Cookie传ID   有状态         │
+│  Token  ：客户端存   Header传    无状态          │
+│  前后端分离 → 选 Token                            │
+└─────────────────────────────────────────────────┘</code></pre>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

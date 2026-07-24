@@ -1,0 +1,596 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpringBoot项目搭建与Maven管理</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 03 次课 · 教学设计</div>
+      <h1>SpringBoot项目搭建与Maven管理</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 03 次课</span>
+        <span class="hero-chip"><b>主题</b>SpringBoot项目搭建与Maven管理</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务或案例任务">四、项目任务或案例任务</a>
+<ul>
+<li><a href="#贯穿项目任务搭建-ctts-后端项目骨架">贯穿项目任务：搭建 CTTS 后端项目骨架</a></li>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动-1开场提问5-分钟">互动 1：开场提问（5 分钟）</a></li>
+<li><a href="#互动-2代码阅读对比讲解-k3-1k3-2-后10-分钟">互动 2：代码阅读对比（讲解 K3-1、K3-2 后，10 分钟）</a></li>
+<li><a href="#互动-3面试题导入讲解-k3-5-后5-分钟">互动 3：面试题导入（讲解 K3-5 后，5 分钟）</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习或随堂测验">七、课堂练习或随堂测验</a>
+<ul>
+<li><a href="#随堂练习5-分钟讲解结束前进行">随堂练习（5 分钟，讲解结束前进行）</a></li>
+<li><a href="#随堂实操验证穿插在演示中">随堂实操验证（穿插在演示中）</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+</ul></li>
+<li><a href="#九对应岗位能力或面试考点">九、对应岗位能力或面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 03 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>所属模块：M2 Spring Boot 后端接口开发 ｜ 课程：《JavaWeb
+后端开发技术》 配套资料：见同文件夹内
+<code>教学资料.md</code>（学生复习资料）、<code>题库.md</code>（78
+题考试题库）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>次序</td>
+<td>第 3 次课（全课程 24 次之三）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>理论课</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M2 Spring Boot 后端接口开发</td>
+</tr>
+<tr>
+<td>教学主题</td>
+<td>Spring Boot 项目搭建与 Maven 管理</td>
+</tr>
+<tr>
+<td>先修基础</td>
+<td>第 1~2 次课（后端认知、HTTP/JSON/RESTful）；Java
+程序设计、面向对象；了解 JDK / IDEA / MySQL 安装</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>理解 Spring Boot 的核心特性：自动配置、起步依赖、内嵌
+Tomcat、约定优于配置。</li>
+<li>掌握 Spring Boot
+标准项目结构（src/main/java、src/main/resources、src/test、pom.xml、启动类位置）。</li>
+<li>掌握 Maven 依赖管理机制：pom.xml
+结构、坐标三元素（groupId/artifactId/version）、常用 starter 依赖。</li>
+<li>掌握 application.yml
+配置文件的写法（端口、上下文路径、数据源占位）。</li>
+<li>理解启动类 @SpringBootApplication 注解与 SpringApplication.run
+方法的作用。</li>
+<li>掌握使用 Spring Initializr / IDEA 创建 Spring Boot
+项目的完整流程。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够独立使用 IntelliJ IDEA 创建一个 Spring Boot 项目骨架。</li>
+<li>能够阅读和修改 pom.xml，正确添加 / 排除依赖。</li>
+<li>能够编写启动类、application.yml，并成功启动项目看到启动
+Banner。</li>
+<li>能够排查常见的 Spring Boot 启动报错（端口占用、依赖缺失、JDK
+版本不符、包结构错误）。</li>
+<li>能够对比传统 SSM 与 Spring Boot 项目结构，说明 Spring Boot
+的简化之处。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li>体会"自主可控与开源生态"——Spring Boot
+简化了开发，国产开源框架（MyBatis-Plus、Knife4j）在 Java
+生态中做出了重要贡献，激发学生对国产开源的认同感与参与意愿。</li>
+<li>培养"约定优于配置"的工程思维——遵循行业规范能减少不必要的决策成本。</li>
+<li>建立"独立动手搭建项目"的工程师自信——从"看老师搭"到"自己搭得起来"。</li>
+</ol>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<blockquote>
+<p>详细讲解内容见同文件夹 <code>教学资料.md</code>，此处为纲要。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K3-1</td>
+<td>Spring Boot 简介与特性</td>
+<td>自动配置、起步依赖、内嵌 Tomcat、约定优于配置；Spring Boot 与
+Spring/Spring MVC 的关系</td>
+</tr>
+<tr>
+<td>K3-2</td>
+<td>Spring Boot 项目结构</td>
+<td>src/main/java、src/main/resources、src/test、pom.xml；启动类必须位于根包；application.yml
+位置</td>
+</tr>
+<tr>
+<td>K3-3</td>
+<td>Maven 依赖管理</td>
+<td>pom.xml
+结构、坐标三元素（groupId/artifactId/version）、dependencies、spring-boot-starter-web、spring-boot-starter-test；依赖传递与排除</td>
+</tr>
+<tr>
+<td>K3-4</td>
+<td>配置文件 application.yml</td>
+<td>YAML
+语法；server.port、server.servlet.context-path；数据源配置占位（MySQL
+待第 4 次课连）</td>
+</tr>
+<tr>
+<td>K3-5</td>
+<td>启动类</td>
+<td>@SpringBootApplication
+注解组成（@SpringBootConfiguration+@EnableAutoConfiguration+@ComponentScan）；main
+方法；SpringApplication.run</td>
+</tr>
+<tr>
+<td>K3-6</td>
+<td>项目创建流程</td>
+<td>Spring Initializr（start.spring.io）/ IDEA 内置创建；选择 JDK
+17、依赖、生成项目；导入 IDEA；首次构建</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务或案例任务">四、项目任务或案例任务</h2>
+<h3 id="贯穿项目任务搭建-ctts-后端项目骨架">贯穿项目任务：搭建 CTTS
+后端项目骨架</h3>
+<p><strong>本次课任务</strong>：</p>
+<ol type="1">
+<li>教师演示使用 Spring Initializr 创建 CTTS 后端项目骨架（项目名
+<code>ctts</code>，groupId <code>com.ctts</code>，artifactId
+<code>ctts</code>，包名 <code>com.ctts</code>）。</li>
+<li>学生跟做：在 IDEA 中创建 Spring Boot 项目，选择 JDK 17 + Spring Boot
+3.x，勾选 Spring Web、Spring Boot DevTools、Lombok。</li>
+<li>配置 pom.xml（添加/校验 starter-web、starter-test 依赖）。</li>
+<li>编写启动类 <code>CttsApplication</code>，配置 application.yml（端口
+8080、上下文路径 <code>/api</code>）。</li>
+<li>启动项目，浏览器访问 <code>http://localhost:8080/api</code> 看到
+404（说明上下文路径生效，无对应接口）即视为骨架搭建成功。</li>
+<li>编写一个最简单的 <code>/hello</code> 接口验证 Web
+依赖生效（接口编写细节第 4 次课详讲，本次只验证可启动）。</li>
+</ol>
+<p><strong>项目背景对齐</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目名</td>
+<td>ctts（Campus Training Task System）</td>
+</tr>
+<tr>
+<td>groupId</td>
+<td>com.ctts</td>
+</tr>
+<tr>
+<td>artifactId</td>
+<td>ctts</td>
+</tr>
+<tr>
+<td>包名</td>
+<td>com.ctts（启动类位于 com.ctts.CttsApplication）</td>
+</tr>
+<tr>
+<td>JDK</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Spring Boot</td>
+<td>3.x（3.2 / 3.3 均可）</td>
+</tr>
+<tr>
+<td>构建工具</td>
+<td>Maven</td>
+</tr>
+<tr>
+<td>端口</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>上下文路径</td>
+<td>/api</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 本次课重点是"搭起来 + 跑起来"，让学生体验 Spring Boot
+的"开箱即用"。接口开发、数据库连接在后续课程展开。</p>
+</blockquote>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3 id="互动-1开场提问5-分钟">互动 1：开场提问（5 分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"上节课我们讲了 HTTP 与 RESTful，大家知道一个 Java
+后端接口要跑起来，最底层需要什么？如果让你从零搭一个 Java Web
+项目，你会想到哪些步骤？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>自由发言，教师板书关键词</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>提到"Tomcat""配置""依赖""jar 包""web.xml"等关键词</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>引出"传统方式需要装 Tomcat、配 web.xml、拷贝一堆 jar
+包"的痛点，自然过渡到 Spring Boot 的"内嵌 Tomcat + 自动配置 +
+起步依赖"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-2代码阅读对比讲解-k3-1k3-2-后10-分钟">互动
+2：代码阅读对比（讲解 K3-1、K3-2 后，10 分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动任务</td>
+<td>教师屏幕展示两份项目结构截图：① 传统 SSM 项目（Spring + Spring MVC +
+MyBatis，含
+web.xml、applicationContext.xml、spring-mvc.xml、mybatis-config.xml
+等大量 XML）；② Spring Boot 项目（零 XML，只有 pom.xml + application.yml
++ 启动类）</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>同桌两人一组，2 分钟讨论："传统 SSM 项目要写哪些配置文件？Spring
+Boot 把它们简化成了什么？"</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>能识别 web.xml、applicationContext.xml；能发现 Spring Boot 没有
+XML；能注意到 application.yml 替代了多个配置文件</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>强调"约定优于配置"——Spring Boot
+把"约定"内置，开发者只需配置"例外"。引出自动配置原理（面试考点伏笔）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-3面试题导入讲解-k3-5-后5-分钟">互动 3：面试题导入（讲解
+K3-5 后，5 分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"Spring Boot 的自动配置原理是什么？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>教师抛出问题，不要求学生立即答出，先记下来；教师给出"线索版"答案：@EnableAutoConfiguration
+→ spring.factories / AutoConfiguration.imports → @Conditional
+条件装配</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>学生可能答出"自动配置""少写配置文件"等浅层理解</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>这是 Spring Boot
+最高频面试题之一，本课不要求深挖原理（后续模块会讲），但要知道"自动配置
+= 根据类路径下的依赖自动装配 Bean"，并记住 @SpringBootApplication
+是个组合注解</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融入点</td>
+<td>自主可控与开源生态——Spring Boot 简化了 Java 开发，而国产开源框架在
+Java 生态中贡献突出</td>
+</tr>
+<tr>
+<td>技术关联</td>
+<td>MyBatis-Plus（国产，增强 MyBatis，本课程第 5~6
+次课使用）、Knife4j（国产，增强 Swagger，本课程第 11
+次课使用）、Sa-Token（国产认证框架）、Hutool（国产工具库）、Druid（阿里开源连接池）</td>
+</tr>
+<tr>
+<td>引导问题</td>
+<td>"大家打开 Maven 中央仓库会发现，很多 Java
+项目用的不是美国公司出的库，而是中国开发者/公司开源的。为什么国产开源能在中国乃至全球
+Java 生态中占有一席之地？"</td>
+</tr>
+<tr>
+<td>预期价值目标</td>
+<td>激发学生对国产开源的认同感与自豪感，鼓励学生关注并参与国产开源社区，理解"自主可控"不是封闭而是"有自己能掌控的技术栈"</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>思政自然融入，不空喊口号。通过 MyBatis-Plus、Knife4j
+等学生即将使用的国产框架，让学生在用的时候体会到国产开源的实力。</p>
+</blockquote>
+<hr />
+<h2 id="七课堂练习或随堂测验">七、课堂练习或随堂测验</h2>
+<h3 id="随堂练习5-分钟讲解结束前进行">随堂练习（5
+分钟，讲解结束前进行）</h3>
+<p><strong>判断题（口头快速作答）</strong>：</p>
+<ol type="1">
+<li>Spring Boot 项目必须单独安装 Tomcat 才能运行。（✗，内嵌
+Tomcat）</li>
+<li>pom.xml 中的坐标三元素是 groupId、artifactId、version。（✓）</li>
+<li>@SpringBootApplication 是一个组合注解，包含自动配置功能。（✓）</li>
+<li>application.yml 必须放在 src/main/java 目录下。（✗，应放在
+src/main/resources）</li>
+</ol>
+<blockquote>
+<p>详细题目与解析见
+<code>题库.md</code>。此处仅作课堂快速互动，不计分。</p>
+</blockquote>
+<h3 id="随堂实操验证穿插在演示中">随堂实操验证（穿插在演示中）</h3>
+<p>教师在演示创建项目后，请 1~2
+名学生上台复述创建步骤（不要求操作，只要求说出步骤顺序），教师纠正遗漏。</p>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<ol type="1">
+<li><strong>实操（必做）</strong>：按 <code>教学资料.md</code> 第 3
+节"项目创建流程"独立创建 CTTS 后端项目骨架，截图提交：① 项目结构树；②
+启动成功日志（含 Banner）；③ 浏览器访问
+<code>http://localhost:8080/api/hello</code> 的返回结果。</li>
+<li><strong>阅读</strong>：通读同文件夹
+<code>教学资料.md</code>，重点理解自动配置原理、pom.xml
+坐标、启动类注解。</li>
+<li><strong>思考</strong>：用自己的话（200 字内）说明"约定优于配置"在
+Spring Boot 中的体现，下次课抽查。</li>
+<li><strong>面试题准备</strong>：整理"Spring Boot
+的自动配置原理""@SpringBootApplication
+注解的作用"两道题的答案要点（下次课课前抽查 2 人）。</li>
+<li><strong>拓展（选做）</strong>：访问 <a
+href="https://start.spring.io">https://start.spring.io</a> 体验网页版
+Spring Initializr；阅读 Spring Boot 官方文档"Using Spring
+Boot"章节。</li>
+</ol>
+<hr />
+<h2 id="九对应岗位能力或面试考点">九、对应岗位能力或面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>岗位能力/面试考点</th>
+<th>本次课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spring Boot
+核心特性（自动配置、起步依赖、内嵌容器）（面试高频基础题）</td>
+<td>K3-1</td>
+</tr>
+<tr>
+<td>能独立搭建 Spring Boot 项目（入职第一天就要做的事）</td>
+<td>K3-6</td>
+</tr>
+<tr>
+<td>能阅读与修改 pom.xml，理解 Maven 坐标与依赖传递（工程基础）</td>
+<td>K3-3</td>
+</tr>
+<tr>
+<td>理解 @SpringBootApplication 注解的组成（面试常考）</td>
+<td>K3-5</td>
+</tr>
+<tr>
+<td>能编写 application.yml 配置文件（端口、上下文路径、数据源）</td>
+<td>K3-4</td>
+</tr>
+<tr>
+<td>对比 SSM 与 Spring Boot，说明后者的优势（技术选型认知）</td>
+<td>K3-1、K3-2</td>
+</tr>
+<tr>
+<td>排查 Spring Boot 启动常见报错（工程实战能力）</td>
+<td>K3-6</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面试常考"Spring Boot 的自动配置原理""@SpringBootApplication
+包含哪些注解""起步依赖是什么""Spring Boot
+内嵌什么容器"等，均属本次课范围。</p>
+</blockquote>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生复习资料</td>
+<td><code>教学资料.md</code>（同文件夹）</td>
+<td>6 个知识点详解 + CTTS 项目搭建完整步骤 + 完整
+pom.xml/启动类/application.yml + 易错点与小结 + 复习思考题</td>
+</tr>
+<tr>
+<td>考试题库</td>
+<td><code>题库.md</code>（同文件夹）</td>
+<td>78 题（40 选择 + 20 判断 + 10 填空 + 4 论述简答 + 2 程序阅读补全 + 2
+编程接口设计），含答案解析与评分标准</td>
+</tr>
+<tr>
+<td>课程总览</td>
+<td><code>../00 课程设计总览.md</code></td>
+<td>课程整体框架与 24 次课进度</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~10 min</td>
+<td>开场互动（提问+回顾第 2 次课） + 课程目标说明</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>10~25 min</td>
+<td>知识点 K3-1：Spring Boot 简介与特性（含 SSM 对比互动）</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>25~40 min</td>
+<td>知识点 K3-2、K3-3：项目结构 + Maven 依赖管理（pom.xml 详解）</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>40~55 min</td>
+<td>知识点 K3-4、K3-5：application.yml 配置 +
+启动类注解（含面试题导入）</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>55~80 min</td>
+<td>知识点 K3-6：项目创建流程演示（教师演示 + 学生跟做创建 CTTS
+骨架）</td>
+<td>25 min</td>
+</tr>
+<tr>
+<td>80~85 min</td>
+<td>随堂练习 + 启动验证</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>85~90 min</td>
+<td>小结 + 课后任务布置</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 本次课"演示+跟做"环节较长（25 分钟），建议教师课前先在 IDEA
+中预创建好项目，避免课堂上因网络/索引慢导致冷场。学生跟做时可允许使用教师课前准备好的项目模板。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

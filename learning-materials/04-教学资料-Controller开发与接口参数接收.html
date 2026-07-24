@@ -1,0 +1,1520 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Controller开发与接口参数接收</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 04 次课 · 教学资料</div>
+      <h1>Controller开发与接口参数接收</h1>
+      <p>面向学生复习、自学、代码示例与知识图示 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 04 次课</span>
+        <span class="hero-chip"><b>主题</b>Controller开发与接口参数接收</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一学习导读">一、学习导读</a>
+<ul>
+<li><a href="#11-本次课定位">1.1 本次课定位</a></li>
+<li><a href="#12-学习目标">1.2 学习目标</a></li>
+<li><a href="#13-学习路径建议">1.3 学习路径建议</a></li>
+<li><a href="#14-前置知识清单">1.4 前置知识清单</a></li>
+</ul></li>
+<li><a href="#二知识点详解">二、知识点详解</a>
+<ul>
+<li><a href="#k4-1-restcontroller-与-controller-区别">K4-1 @RestController 与 @Controller 区别</a></li>
+<li><a href="#k4-2-请求映射注解">K4-2 请求映射注解</a></li>
+<li><a href="#k4-4-json-返回responsebody自动序列化返回-listmap自定义对象">K4-4 JSON 返回：@ResponseBody、自动序列化、返回 List/Map/自定义对象</a></li>
+<li><a href="#k4-5-接口参数设计何时用-query--path--body">K4-5 接口参数设计：何时用 query / path / body</a></li>
+</ul></li>
+<li><a href="#三综合示例">三、综合示例</a>
+<ul>
+<li><a href="#31-项目结构">3.1 项目结构</a></li>
+<li><a href="#32-完整-project-实体类">3.2 完整 Project 实体类</a></li>
+<li><a href="#33-完整-service模拟数据">3.3 完整 Service（模拟数据）</a></li>
+<li><a href="#34-完整-projectcontroller">3.4 完整 ProjectController</a></li>
+<li><a href="#35-启动类">3.5 启动类</a></li>
+<li><a href="#36-applicationyml">3.6 application.yml</a></li>
+<li><a href="#37-测试方法">3.7 测试方法</a></li>
+<li><a href="#38-运行结果示例">3.8 运行结果示例</a></li>
+<li><a href="#39-创建-controller-的标准步骤">3.9 创建 Controller 的标准步骤</a></li>
+</ul></li>
+<li><a href="#四拓展阅读">四、拓展阅读</a>
+<ul>
+<li><a href="#41-restful-api-设计最佳实践">4.1 RESTful API 设计最佳实践</a></li>
+<li><a href="#42-spring-mvc-参数解析器体系">4.2 Spring MVC 参数解析器体系</a></li>
+<li><a href="#43-jackson-常用注解">4.3 Jackson 常用注解</a></li>
+<li><a href="#44-推荐阅读">4.4 推荐阅读</a></li>
+</ul></li>
+<li><a href="#五小结与思维导图">五、小结与思维导图</a>
+<ul>
+<li><a href="#51-本次课核心要点">5.1 本次课核心要点</a></li>
+<li><a href="#52-思维导图">5.2 思维导图</a></li>
+</ul></li>
+<li><a href="#六复习思考题">六、复习思考题</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 04 次课 <span>｜</span> <strong>文档：</strong>教学资料</p>
+<blockquote>
+<p>课程名称：JavaWeb后端开发技术 课次：第4次课（M2模块·理论课）
+主题：Controller开发与接口参数接收 贯穿项目：CTTS校园实训任务管理系统
+技术栈：Java 17 + Spring Boot 3.x + MyBatis-Plus + MySQL + Knife4j +
+Maven</p>
+</blockquote>
+<hr />
+<h2 id="一学习导读">一、学习导读</h2>
+<h3 id="11-本次课定位">1.1 本次课定位</h3>
+<p>在前面三次课中，我们已经完成了 CTTS
+项目的环境搭建、数据库设计（五张表：<code>project</code>、<code>task</code>、<code>user</code>、<code>role</code>、<code>user_task</code>）以及
+MyBatis-Plus 实体与 Mapper 的开发。本次课进入 <strong>M2
+模块的核心</strong>——Controller 层开发，即"如何把后端能力暴露成 HTTP
+接口"。</p>
+<p>Controller 层是前后端分离架构中的"门面"：前端发来的每一个 HTTP
+请求，都会先被 Controller 接收，再被分发给 Service
+处理。因此，Controller
+写得好不好，直接决定了接口是否好用、是否规范、是否安全。</p>
+<h3 id="12-学习目标">1.2 学习目标</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>目标描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知识目标</td>
+<td>理解 <code>@RestController</code> 与 <code>@Controller</code>
+的区别；掌握 <code>@RequestMapping</code> 系列注解的使用；掌握
+<code>@RequestParam</code>、<code>@PathVariable</code>、<code>@RequestBody</code>、<code>@RequestHeader</code>
+四种参数接收方式</td>
+</tr>
+<tr>
+<td>能力目标</td>
+<td>能独立为 CTTS 项目编写"实训项目列表查询"、"根据 ID
+查询项目"、"新增项目"三个接口；能使用浏览器、curl、Knife4j 测试接口</td>
+</tr>
+<tr>
+<td>素养目标</td>
+<td>理解 RESTful
+风格的接口设计原则，能根据业务场景合理选择参数接收方式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-学习路径建议">1.3 学习路径建议</h3>
+<div class="visual">
+  <div class="visual-title">图示 1：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">读导读 <span class="arrow-token">→</span> 通读 5 个知识点（K4-1 ~ K4-5）<span class="arrow-token">→</span> 跟敲综合示例 <span class="arrow-token">→</span> 启动项目测试三接口</span>
+<span class="diagram-line"><span class="arrow-token">→</span> 看易错点对照自己的代码 <span class="arrow-token">→</span> 做复习思考题</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h3 id="14-前置知识清单">1.4 前置知识清单</h3>
+<ul>
+<li>已掌握 Java 17 基本语法（注解、泛型、List/Map）</li>
+<li>已完成 CTTS 项目 Spring Boot
+工程骨架（<code>pom.xml</code>、启动类）</li>
+<li>已完成 <code>Project</code> 实体类与 <code>ProjectMapper</code>
+接口（本次课先用模拟数据，Mapper 后续课再用）</li>
+<li>了解 HTTP 协议基础（GET/POST、URL、Header、Body）</li>
+</ul>
+<hr />
+<h2 id="二知识点详解">二、知识点详解</h2>
+<hr />
+<h3 id="k4-1-restcontroller-与-controller-区别">K4-1 @RestController 与
+@Controller 区别</h3>
+<h4 id="1-定义">1. 定义</h4>
+<ul>
+<li><code>@Controller</code>：Spring MVC
+传统的控制器注解，标记一个类为控制器。<strong>默认返回的是"视图名称"</strong>，方法返回的字符串会被
+<code>ViewResolver</code> 解析成页面（如 JSP、Thymeleaf）。</li>
+<li><code>@RestController</code>：Spring 4.0
+引入的组合注解，<strong>等同于 <code>@Controller</code> +
+<code>@ResponseBody</code></strong>。它标记的控制器中所有方法的返回值都会直接被写入
+HTTP 响应体（通常序列化为 JSON）。</li>
+</ul>
+<p>源码层面：</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Spring 源码：@RestController 的定义</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Target</span><span class="op">(</span><span class="bu">ElementType</span><span class="op">.</span><span class="fu">TYPE</span><span class="op">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">@Retention</span><span class="op">(</span><span class="bu">RetentionPolicy</span><span class="op">.</span><span class="fu">RUNTIME</span><span class="op">)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">@Documented</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">@Controller</span>            <span class="co">// ← 继承了 @Controller</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">@ResponseBody</span>          <span class="co">// ← 组合了 @ResponseBody</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="at">@interface</span> RestController <span class="op">{</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@AliasFor</span><span class="op">(</span>annotation <span class="op">=</span> Controller<span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> <span class="fu">value</span><span class="op">()</span> <span class="kw">default</span> <span class="st">&quot;&quot;</span><span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 id="2-原理">2. 原理</h4>
+<p>Spring MVC 处理请求返回值时，会遍历
+<code>HandlerMethodReturnValueHandler</code> 列表：</p>
+<ul>
+<li>如果方法所在类或方法本身标注了 <code>@ResponseBody</code>，则使用
+<code>RequestResponseBodyMethodProcessor</code> 处理返回值。</li>
+<li>该处理器会调用 <code>HttpMessageConverter</code>（默认
+<code>MappingJackson2HttpMessageConverter</code>）把返回对象序列化为
+JSON，并写入响应体。</li>
+<li>否则使用
+<code>ModelAndViewMethodReturnValueHandler</code>，把返回值当作视图名，跳转到页面。</li>
+</ul>
+<h4 id="3-问题场景">3. 问题/场景</h4>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>前后端分离项目，接口返回 JSON</td>
+<td><code>@RestController</code></td>
+</tr>
+<tr>
+<td>服务端渲染项目，返回页面</td>
+<td><code>@Controller</code></td>
+</tr>
+<tr>
+<td>一个控制器既返回页面又返回 JSON</td>
+<td><code>@Controller</code>，在需要返回 JSON 的方法上加
+<code>@ResponseBody</code></td>
+</tr>
+</tbody>
+</table>
+<p>CTTS 项目是前后端分离架构，<strong>全部使用
+<code>@RestController</code></strong>。</p>
+<h4 id="4-完整示例代码">4. 完整示例代码</h4>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Controller</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">GetMapping</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">ResponseBody</span><span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="co">演示</span> <span class="co">@</span>Controller <span class="co">与</span> <span class="co">@</span>RestController <span class="co">区别</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="co">仅用于教学对比，</span>CTTS <span class="co">项目不使用该类</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">@Controller</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> DemoController <span class="op">{</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 方式1：返回视图名（会跳转到 /WEB-INF/views/hello.jsp）</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/page/hello&quot;</span><span class="op">)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">helloPage</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;hello&quot;</span><span class="op">;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 方式2：返回 JSON（需要方法级加 @ResponseBody）</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/api/hello&quot;</span><span class="op">)</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ResponseBody</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">helloJson</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;{</span><span class="sc">\&quot;</span><span class="st">msg</span><span class="sc">\&quot;</span><span class="st">: </span><span class="sc">\&quot;</span><span class="st">hello</span><span class="sc">\&quot;</span><span class="st">}&quot;</span><span class="op">;</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>对应等价的 <code>@RestController</code> 写法：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">GetMapping</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">RestController</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/demo&quot;</span><span class="op">)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> DemoRestController <span class="op">{</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 直接返回 JSON，无需 @ResponseBody</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/hello&quot;</span><span class="op">)</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">hello</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;{</span><span class="sc">\&quot;</span><span class="st">msg</span><span class="sc">\&quot;</span><span class="st">: </span><span class="sc">\&quot;</span><span class="st">hello</span><span class="sc">\&quot;</span><span class="st">}&quot;</span><span class="op">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 id="5-图示">5. 图示</h4>
+<pre><code>HTTP 请求
+   │
+   ▼
+DispatcherServlet ──&gt; 查找 @RequestMapping 方法
+   │
+   ▼
+Controller 方法执行 ──&gt; 返回值
+   │
+   ├── 类上有 @RestController（或方法上有 @ResponseBody）
+   │       │
+   │       ▼
+   │   HttpMessageConverter
+   │       │
+   │       ▼
+   │   序列化为 JSON，写入响应体
+   │
+   └── 没有 @ResponseBody
+           │
+           ▼
+       ViewResolver 解析视图名
+           │
+           ▼
+       渲染 JSP/Thymeleaf 页面</code></pre>
+<h4 id="6-易错点">6. 易错点</h4>
+<ul>
+<li><strong>易错点 1</strong>：在 <code>@Controller</code>
+类中写接口忘了加
+<code>@ResponseBody</code>，结果返回值被当成视图名，前端 404。</li>
+<li><strong>易错点 2</strong>：以为 <code>@RestController</code>
+只能返回 JSON，其实它也可以返回
+<code>String</code>、<code>Integer</code>、自定义对象，甚至是
+<code>ResponseEntity</code>。</li>
+<li><strong>易错点 3</strong>：在 <code>@RestController</code>
+类中又加了 <code>@ResponseBody</code>，虽然不会报错，但属于冗余。</li>
+<li><strong>易错点 4</strong>：类上忘记加
+<code>@RestController</code>，只有方法上的
+<code>@GetMapping</code>，Spring 不会识别该类为控制器，接口 404。</li>
+</ul>
+<h4 id="7-小结">7. 小结</h4>
+<p><code>@RestController</code> = <code>@Controller</code> +
+<code>@ResponseBody</code>，前后端分离项目无脑选它。记住一句话：<strong>"要
+JSON 就 RestController，要页面就 Controller"</strong>。</p>
+<hr />
+<h3 id="k4-2-请求映射注解">K4-2 请求映射注解</h3>
+<h4 id="1-定义-1">1. 定义</h4>
+<p>Spring MVC 提供了一系列注解用于把 HTTP 请求映射到 Controller
+方法上：</p>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>说明</th>
+<th>常用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@RequestMapping</code></td>
+<td>通用映射，可指定 method</td>
+<td>类级别常用</td>
+</tr>
+<tr>
+<td><code>@GetMapping</code></td>
+<td>等价 <code>@RequestMapping(method = GET)</code></td>
+<td>★★★</td>
+</tr>
+<tr>
+<td><code>@PostMapping</code></td>
+<td>等价 <code>@RequestMapping(method = POST)</code></td>
+<td>★★★</td>
+</tr>
+<tr>
+<td><code>@PutMapping</code></td>
+<td>等价 <code>@RequestMapping(method = PUT)</code></td>
+<td>★★</td>
+</tr>
+<tr>
+<td><code>@DeleteMapping</code></td>
+<td>等价 <code>@RequestMapping(method = DELETE)</code></td>
+<td>★★</td>
+</tr>
+<tr>
+<td><code>@PatchMapping</code></td>
+<td>等价 <code>@RequestMapping(method = PATCH)</code></td>
+<td>★</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-原理-1">2. 原理</h4>
+<ul>
+<li><code>@RequestMapping</code>
+标注在<strong>类上</strong>：定义该控制器所有接口的"统一前缀"（base
+path）。</li>
+<li>标注在<strong>方法上</strong>：定义具体的访问路径。</li>
+<li>最终访问路径 = 类上路径 + 方法上路径。</li>
+</ul>
+<p>路径参数用 <code>{xxx}</code> 占位，配合 <code>@PathVariable</code>
+取值。例如：</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/projects/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<h4 id="3-问题场景-1">3. 问题/场景</h4>
+<p>RESTful 风格约定：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>HTTP 方法</th>
+<th>路径示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查列表</td>
+<td>GET</td>
+<td><code>/projects</code></td>
+</tr>
+<tr>
+<td>查单个</td>
+<td>GET</td>
+<td><code>/projects/{id}</code></td>
+</tr>
+<tr>
+<td>新增</td>
+<td>POST</td>
+<td><code>/projects</code></td>
+</tr>
+<tr>
+<td>全量更新</td>
+<td>PUT</td>
+<td><code>/projects/{id}</code></td>
+</tr>
+<tr>
+<td>删除</td>
+<td>DELETE</td>
+<td><code>/projects/{id}</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="4-完整示例代码-1">4. 完整示例代码</h4>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Project</span><span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">ArrayList</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span>   <span class="co">// 类级别：统一前缀</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">// GET /projects  查询列表</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> list <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        list<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span><span class="dv">1L</span><span class="op">,</span> <span class="st">&quot;电商实训&quot;</span><span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">));</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        list<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span><span class="dv">2L</span><span class="op">,</span> <span class="st">&quot;大数据实训&quot;</span><span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">));</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> list<span class="op">;</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">// GET /projects/1  根据 ID 查询</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span>id<span class="op">,</span> <span class="st">&quot;实训项目&quot;</span> <span class="op">+</span> id<span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">);</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">// POST /projects  新增</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">add</span><span class="op">(</span><span class="at">@RequestBody</span> Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;新增成功：&quot;</span> <span class="op">+</span> project<span class="op">.</span><span class="fu">getName</span><span class="op">();</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">// PUT /projects/1  更新</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PutMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">update</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">,</span> <span class="at">@RequestBody</span> Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;更新项目 &quot;</span> <span class="op">+</span> id <span class="op">+</span> <span class="st">&quot; 成功&quot;</span><span class="op">;</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    <span class="co">// DELETE /projects/1  删除</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">@DeleteMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">delete</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;删除项目 &quot;</span> <span class="op">+</span> id <span class="op">+</span> <span class="st">&quot; 成功&quot;</span><span class="op">;</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 id="5-图示-1">5. 图示</h4>
+<pre><code>GET    /projects          → list()
+GET    /projects/1        → getById(1)
+POST   /projects          → add(project)
+PUT    /projects/1        → update(1, project)
+DELETE /projects/1        → delete(1)
+        │
+        ▼
+  类级别 @RequestMapping(&quot;/projects&quot;) 提供公共前缀
+  方法级别 @GetMapping/@PostMapping 等细化路径与 HTTP 方法</code></pre>
+<h4 id="6-易错点-1">6. 易错点</h4>
+<ul>
+<li><strong>易错点 1</strong>：类上 <code>@RequestMapping</code> 路径以
+<code>/</code> 开头，方法上又写 <code>/</code>，例如
+<code>/projects</code> + <code>//list</code>。Spring
+会自动处理，但建议方法上路径<strong>不要重复以 <code>/</code>
+开头</strong>。</li>
+<li><strong>易错点 2</strong>：<code>@GetMapping</code> 不支持
+<code>method</code> 属性，它已经固定为 GET。</li>
+<li><strong>易错点 3</strong>：路径参数 <code>{id}</code> 与方法参数名
+<code>id</code> 不一致时，必须显式写
+<code>@PathVariable("id") Long projectId</code>，否则报 400。</li>
+<li><strong>易错点 4</strong>：路径参数中包含特殊字符（如
+<code>.</code>），Spring 默认会截断后缀，需要在配置中关闭
+<code>useSuffixPatternMatch</code>。</li>
+<li><strong>易错点
+5</strong>：同一个类中两个方法映射了相同的路径+方法，启动时报
+<code>Ambiguous mapping</code> 异常。</li>
+</ul>
+<h4 id="7-小结-1">7. 小结</h4>
+<p>记住 RESTful 五动词：<strong>Get 查、Post 增、Put 改、Delete
+删</strong>。类上加 <code>@RequestMapping</code> 定前缀，方法上加
+<code>@XxxMapping</code> 定路径与方法。</p>
+<hr />
+<h3
+id="k4-3-参数接收requestparam--pathvariable--requestbody--requestheader">K4-3
+参数接收：@RequestParam / @PathVariable / @RequestBody /
+@RequestHeader</h3>
+<h4 id="1-定义-2">1. 定义</h4>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>参数位置</th>
+<th>典型 Content-Type</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@RequestParam</code></td>
+<td>URL query string</td>
+<td>任意</td>
+<td>简单参数（分页、过滤条件）</td>
+</tr>
+<tr>
+<td><code>@PathVariable</code></td>
+<td>URL 路径段</td>
+<td>任意</td>
+<td>资源 ID 等关键标识</td>
+</tr>
+<tr>
+<td><code>@RequestBody</code></td>
+<td>请求体</td>
+<td><code>application/json</code></td>
+<td>复杂对象（表单、JSON）</td>
+</tr>
+<tr>
+<td><code>@RequestHeader</code></td>
+<td>请求头</td>
+<td>任意</td>
+<td>Token、自定义 Header</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-原理-2">2. 原理</h4>
+<p>Spring MVC 通过 <code>HandlerMethodArgumentResolver</code>
+解析方法参数：</p>
+<ul>
+<li><code>@RequestParam</code> →
+<code>RequestParamMethodArgumentResolver</code>：从
+<code>request.getParameter()</code> 取值。</li>
+<li><code>@PathVariable</code> →
+<code>PathVariableMethodArgumentResolver</code>：从 URL
+模板变量取值。</li>
+<li><code>@RequestBody</code> →
+<code>RequestResponseBodyMethodProcessor</code>：调用
+<code>HttpMessageConverter</code> 反序列化请求体。</li>
+<li><code>@RequestHeader</code> →
+<code>RequestHeaderMethodArgumentResolver</code>：从
+<code>request.getHeader()</code> 取值。</li>
+</ul>
+<h4 id="3-问题场景何时用哪种">3. 问题/场景——何时用哪种？</h4>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查询列表的分页参数 <code>?page=1&amp;size=10</code></td>
+<td><code>@RequestParam</code></td>
+</tr>
+<tr>
+<td>路径中的资源 ID <code>/projects/1</code></td>
+<td><code>@PathVariable</code></td>
+</tr>
+<tr>
+<td>POST 新增一个复杂对象（JSON）</td>
+<td><code>@RequestBody</code></td>
+</tr>
+<tr>
+<td>获取请求头中的 Token</td>
+<td><code>@RequestHeader</code></td>
+</tr>
+<tr>
+<td>表单提交（form-urlencoded）</td>
+<td><code>@RequestParam</code> 或对象绑定</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4-完整示例代码-2">4. 完整示例代码</h4>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Project</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Map</span><span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 1. @RequestParam 接收查询参数</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">//    GET /projects/search?keyword=电商&amp;page=1&amp;size=10</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/search&quot;</span><span class="op">)</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">search</span><span class="op">(</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;keyword&quot;</span><span class="op">,</span> required <span class="op">=</span> <span class="kw">false</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">)</span> <span class="bu">String</span> keyword<span class="op">,</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;page&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;1&quot;</span><span class="op">)</span> <span class="dt">int</span> page<span class="op">,</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;size&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;10&quot;</span><span class="op">)</span> <span class="dt">int</span> size<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;搜索：&quot;</span> <span class="op">+</span> keyword <span class="op">+</span> <span class="st">&quot;，第&quot;</span> <span class="op">+</span> page <span class="op">+</span> <span class="st">&quot;页，每页&quot;</span> <span class="op">+</span> size <span class="op">+</span> <span class="st">&quot;条&quot;</span><span class="op">;</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 2. @PathVariable 接收路径参数</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">//    GET /projects/1</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span><span class="op">(</span><span class="st">&quot;id&quot;</span><span class="op">)</span> <span class="bu">Long</span> projectId<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span>projectId<span class="op">,</span> <span class="st">&quot;实训项目&quot;</span> <span class="op">+</span> projectId<span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">);</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 3. @RequestBody 接收 JSON 请求体</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">//    POST /projects</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">//    Body: {&quot;name&quot;:&quot;电商实训&quot;,&quot;semester&quot;:&quot;2025春季&quot;}</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">add</span><span class="op">(</span><span class="at">@RequestBody</span> Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;新增成功：&quot;</span> <span class="op">+</span> project<span class="op">.</span><span class="fu">getName</span><span class="op">();</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 4. @RequestHeader 接收请求头</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">//    Header: Authorization: Bearer xxx-token</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/me&quot;</span><span class="op">)</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">me</span><span class="op">(</span><span class="at">@RequestHeader</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;Authorization&quot;</span><span class="op">,</span> required <span class="op">=</span> <span class="kw">false</span><span class="op">)</span> <span class="bu">String</span> token<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>token <span class="op">==</span> <span class="kw">null</span> <span class="op">||</span> token<span class="op">.</span><span class="fu">isEmpty</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">&quot;未登录&quot;</span><span class="op">;</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;当前 Token：&quot;</span> <span class="op">+</span> token<span class="op">;</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 5. 用 Map 接收 JSON（不推荐生产用，但灵活）</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/map&quot;</span><span class="op">)</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">addByMap</span><span class="op">(</span><span class="at">@RequestBody</span> <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> body<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;收到 name=&quot;</span> <span class="op">+</span> body<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;name&quot;</span><span class="op">);</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 id="5-图示-2">5. 图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 2：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">HTTP 请求：</span>
+<span class="diagram-line">GET /projects/search?keyword=电商&amp;page=1   Header: Authorization: Bearer xxx</span>
+<span class="diagram-line">            ▲            ▲</span>
+<span class="diagram-line">            <span class="tree-token">│</span>            <span class="tree-token">│</span></span>
+<span class="diagram-line">            <span class="tree-token">│</span>            <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span>&gt; @RequestParam(&quot;keyword&quot;) / @RequestParam(&quot;page&quot;)</span>
+<span class="diagram-line">            <span class="tree-token">│</span></span>
+<span class="diagram-line">GET /projects/123</span>
+<span class="diagram-line">                ▲</span>
+<span class="diagram-line">                <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span>&gt; @PathVariable(&quot;id&quot;)</span>
+<span class="diagram-line">POST /projects   Body: {&quot;name&quot;:&quot;电商实训&quot;,&quot;semester&quot;:&quot;2025春季&quot;}</span>
+<span class="diagram-line">                                  ▲</span>
+<span class="diagram-line">                                  <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span>&gt; @RequestBody Project</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="6-易错点-2">6. 易错点</h4>
+<ul>
+<li><strong>易错点 1</strong>：<code>@RequestParam</code> 默认
+<code>required = true</code>，前端没传该参数会 400。可选参数必须显式写
+<code>required = false</code>。</li>
+<li><strong>易错点 2</strong>：<code>@RequestBody</code>
+一个方法只能有一个，且必须用 POST/PUT/PATCH（有请求体）。</li>
+<li><strong>易错点 3</strong>：GET 请求用 <code>@RequestBody</code>
+接收参数——浏览器 GET 不带 body，会拿不到值。</li>
+<li><strong>易错点 4</strong>：<code>@PathVariable</code>
+的名称与方法参数名不一致，又没写
+<code>@PathVariable("id")</code>，编译报错或运行时报错。</li>
+<li><strong>易错点 5</strong>：JSON 字段名与实体类字段名不匹配（如 JSON
+是 <code>project_name</code>，实体是 <code>name</code>），需要加
+<code>@JsonProperty</code>。</li>
+<li><strong>易错点 6</strong>：日期格式不对，默认要求
+<code>yyyy-MM-dd'T'HH:mm:ss</code>，业务常用 <code>yyyy-MM-dd</code>
+需加 <code>@JsonFormat</code>。</li>
+<li><strong>易错点 7</strong>：<code>@RequestParam</code> 接收
+List：<code>?ids=1,2,3</code> 用
+<code>@RequestParam List&lt;Long&gt; ids</code>，逗号自动分割。</li>
+</ul>
+<h4 id="7-小结-2">7. 小结</h4>
+<p>四句话口诀：</p>
+<ul>
+<li><strong>查 query 用 RequestParam</strong></li>
+<li><strong>路径里用 PathVariable</strong></li>
+<li><strong>复杂 body 用 RequestBody</strong></li>
+<li><strong>请求头用 RequestHeader</strong></li>
+</ul>
+<hr />
+<h3 id="k4-4-json-返回responsebody自动序列化返回-listmap自定义对象">K4-4
+JSON 返回：@ResponseBody、自动序列化、返回 List/Map/自定义对象</h3>
+<h4 id="1-定义-3">1. 定义</h4>
+<ul>
+<li><code>@ResponseBody</code>：把方法返回值直接写入 HTTP
+响应体，而不是当视图名。</li>
+<li><strong>自动序列化</strong>：Spring Boot 默认集成 Jackson，会把 Java
+对象自动转成 JSON 字符串。</li>
+<li>可返回类型：<code>String</code>、<code>Integer</code>、<code>Boolean</code>、<code>List&lt;T&gt;</code>、<code>Map&lt;K,V&gt;</code>、自定义实体
+<code>T</code>、<code>ResponseEntity&lt;T&gt;</code>。</li>
+</ul>
+<h4 id="2-原理-3">2. 原理</h4>
+<p>请求处理流程：</p>
+<div class="visual">
+  <div class="visual-title">图示 3：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">方法返回 Java 对象</span>
+<span class="diagram-line">      <span class="tree-token">│</span></span>
+<span class="diagram-line">      ▼</span>
+<span class="diagram-line">RequestResponseBodyMethodProcessor</span>
+<span class="diagram-line">      <span class="tree-token">│</span></span>
+<span class="diagram-line">      ▼</span>
+<span class="diagram-line">遍历 HttpMessageConverter 列表</span>
+<span class="diagram-line">      <span class="tree-token">│</span></span>
+<span class="diagram-line">      ▼</span>
+<span class="diagram-line">MappingJackson2HttpMessageConverter 命中（对象类型 + application/json）</span>
+<span class="diagram-line">      <span class="tree-token">│</span></span>
+<span class="diagram-line">      ▼</span>
+<span class="diagram-line">ObjectMapper.writeValueAsString(obj)</span>
+<span class="diagram-line">      <span class="tree-token">│</span></span>
+<span class="diagram-line">      ▼</span>
+<span class="diagram-line">写入 response.getOutputStream()</span>
+<span class="diagram-line">      <span class="tree-token">│</span></span>
+<span class="diagram-line">      ▼</span>
+<span class="diagram-line">设置 Content-Type: application/json</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="3-问题场景-2">3. 问题/场景</h4>
+<table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>JSON 示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String</code></td>
+<td><code>"hello"</code></td>
+</tr>
+<tr>
+<td><code>Integer</code></td>
+<td><code>42</code></td>
+</tr>
+<tr>
+<td><code>List&lt;Project&gt;</code></td>
+<td><code>[{...},{...}]</code></td>
+</tr>
+<tr>
+<td><code>Map&lt;String,Object&gt;</code></td>
+<td><code>{"code":0,"data":[...]}</code></td>
+</tr>
+<tr>
+<td><code>Project</code>（自定义）</td>
+<td><code>{"id":1,"name":"电商实训"}</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="4-完整示例代码-3">4. 完整示例代码</h4>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Project</span><span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">fasterxml</span><span class="op">.</span><span class="im">jackson</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">JsonFormat</span><span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">GetMapping</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">RequestMapping</span><span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">RestController</span><span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/demo/json&quot;</span><span class="op">)</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> JsonDemoController <span class="op">{</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 1. 返回 String</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/str&quot;</span><span class="op">)</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">str</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;hello&quot;</span><span class="op">;</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 2. 返回 List</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/list&quot;</span><span class="op">)</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> list <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        list<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span><span class="dv">1L</span><span class="op">,</span> <span class="st">&quot;电商实训&quot;</span><span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">));</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>        list<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span><span class="dv">2L</span><span class="op">,</span> <span class="st">&quot;大数据实训&quot;</span><span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">));</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> list<span class="op">;</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 3. 返回 Map（统一响应格式常用）</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/map&quot;</span><span class="op">)</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> <span class="fu">map</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;code&quot;</span><span class="op">,</span> <span class="dv">200</span><span class="op">);</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;msg&quot;</span><span class="op">,</span> <span class="st">&quot;success&quot;</span><span class="op">);</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;data&quot;</span><span class="op">,</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>                <span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span><span class="dv">1L</span><span class="op">,</span> <span class="st">&quot;电商实训&quot;</span><span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">),</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>                <span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span><span class="dv">2L</span><span class="op">,</span> <span class="st">&quot;大数据实训&quot;</span><span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">)</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>        <span class="op">));</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 4. 返回自定义对象（含日期）</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/obj&quot;</span><span class="op">)</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">obj</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>        Project p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span><span class="dv">1L</span><span class="op">,</span> <span class="st">&quot;电商实训&quot;</span><span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">);</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>        p<span class="op">.</span><span class="fu">setCreateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> p<span class="op">;</span></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>实体类中的日期处理：</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">fasterxml</span><span class="op">.</span><span class="im">jackson</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">JsonFormat</span><span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Project <span class="op">{</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> id<span class="op">;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> semester<span class="op">;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@JsonFormat</span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="op">,</span> timezone <span class="op">=</span> <span class="st">&quot;GMT+8&quot;</span><span class="op">)</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime createTime<span class="op">;</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Project</span><span class="op">()</span> <span class="op">{}</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Project</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">,</span> <span class="bu">String</span> name<span class="op">,</span> <span class="bu">String</span> semester<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">id</span> <span class="op">=</span> id<span class="op">;</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">semester</span> <span class="op">=</span> semester<span class="op">;</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">// getter / setter</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Long</span> <span class="fu">getId</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> id<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setId</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">id</span> <span class="op">=</span> id<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> name<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getSemester</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> semester<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setSemester</span><span class="op">(</span><span class="bu">String</span> semester<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">semester</span> <span class="op">=</span> semester<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> LocalDateTime <span class="fu">getCreateTime</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> createTime<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setCreateTime</span><span class="op">(</span>LocalDateTime createTime<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">createTime</span> <span class="op">=</span> createTime<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 id="5-图示-3">5. 图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 4：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">List&lt;Project&gt;  <span class="tree-token">─</span><span class="tree-token">─</span>&gt; Jackson 序列化  <span class="tree-token">─</span><span class="tree-token">─</span>&gt; [</span>
+<span class="diagram-line">                                            {&quot;id&quot;:1,&quot;name&quot;:&quot;电商实训&quot;,&quot;semester&quot;:&quot;2025 春季&quot;},</span>
+<span class="diagram-line">                                            {&quot;id&quot;:2,&quot;name&quot;:&quot;大数据实训&quot;,&quot;semester&quot;:&quot;2025 春季&quot;}</span>
+<span class="diagram-line">                                         ]</span>
+<span class="diagram-line">Map&lt;String,Object&gt;  <span class="tree-token">─</span><span class="tree-token">─</span>&gt; {</span>
+<span class="diagram-line">                          &quot;code&quot;:200,</span>
+<span class="diagram-line">                          &quot;msg&quot;:&quot;success&quot;,</span>
+<span class="diagram-line">                          &quot;data&quot;:[ ... ]</span>
+<span class="diagram-line">                        }</span>
+<span class="diagram-line">Project（含 createTime）<span class="tree-token">─</span><span class="tree-token">─</span>&gt; {</span>
+<span class="diagram-line">                              &quot;id&quot;:1,</span>
+<span class="diagram-line">                              &quot;name&quot;:&quot;电商实训&quot;,</span>
+<span class="diagram-line">                              &quot;semester&quot;:&quot;2025 春季&quot;,</span>
+<span class="diagram-line">                              &quot;createTime&quot;:&quot;2025-03-15 10:30:00&quot;</span>
+<span class="diagram-line">                            }</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="6-易错点-3">6. 易错点</h4>
+<ul>
+<li><strong>易错点 1</strong>：返回 <code>LocalDateTime</code> 没加
+<code>@JsonFormat</code>，序列化出来是 <code>[2025,3,15,10,30,0]</code>
+数组形式。</li>
+<li><strong>易错点 2</strong>：实体类没有 getter 方法，Jackson
+默认用字段反射，但 Lombok 缺失时返回 <code>{}</code>。</li>
+<li><strong>易错点 3</strong>：返回
+<code>null</code>，前端拿到的是字符串
+<code>null</code>，建议用空集合或空对象替代。</li>
+<li><strong>易错点 4</strong>：循环引用（双向一对多），Jackson
+会无限递归，抛 <code>JsonMappingException</code>。</li>
+<li><strong>易错点 5</strong>：返回 <code>Map</code> 时 key
+顺序不可控，需用 <code>LinkedHashMap</code> 保证顺序。</li>
+<li><strong>易错点 6</strong>：想在序列化时忽略某字段，用
+<code>@JsonIgnore</code>。</li>
+</ul>
+<h4 id="7-小结-3">7. 小结</h4>
+<p>Spring Boot + Jackson = JSON
+全自动。重点掌握：自定义对象、<code>List</code>、<code>Map</code>、日期
+<code>@JsonFormat</code>、忽略字段 <code>@JsonIgnore</code>。</p>
+<hr />
+<h3 id="k4-5-接口参数设计何时用-query--path--body">K4-5
+接口参数设计：何时用 query / path / body</h3>
+<h4 id="1-定义-4">1. 定义</h4>
+<p>RESTful 接口参数三种位置：</p>
+<table>
+<thead>
+<tr>
+<th>位置</th>
+<th>URL 示例</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>path</strong>（路径）</td>
+<td><code>/projects/1</code></td>
+<td>资源唯一标识</td>
+</tr>
+<tr>
+<td><strong>query</strong>（查询串）</td>
+<td><code>/projects?page=1&amp;keyword=电商</code></td>
+<td>过滤、分页、排序等非资源标识的可选参数</td>
+</tr>
+<tr>
+<td><strong>body</strong>（请求体）</td>
+<td>POST <code>/projects</code> + JSON</td>
+<td>创建/更新资源时的完整数据载体</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-原理设计原则">2. 原理（设计原则）</h4>
+<ul>
+<li><strong>path</strong>：路径段语义化，参数少（1~2
+个），表达"哪个资源"。</li>
+<li><strong>query</strong>：可选、可空、数量较多；表达"如何筛选资源"。</li>
+<li><strong>body</strong>：结构化数据，字段多、嵌套深；只在
+POST/PUT/PATCH 使用。</li>
+</ul>
+<h4 id="3-问题场景决策树">3. 问题/场景——决策树</h4>
+<div class="visual">
+  <div class="visual-title">图示 5：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">参数是资源的唯一标识吗？</span>
+<span class="diagram-line">   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 是 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; path  (例：/projects/{id})</span>
+<span class="diagram-line">   <span class="tree-token">│</span></span>
+<span class="diagram-line">   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 否 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; 是创建/更新资源的完整数据吗？</span>
+<span class="diagram-line">                <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 是 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; body  (例：POST /projects + JSON)</span>
+<span class="diagram-line">                <span class="tree-token">│</span></span>
+<span class="diagram-line">                <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 否 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; 是过滤、分页、排序参数吗？</span>
+<span class="diagram-line">                            <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 是 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; query (例：?page=1&amp;size=10)</span>
+<span class="diagram-line">                            <span class="tree-token">│</span></span>
+<span class="diagram-line">                            <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 否 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; 重新审视设计</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="4-完整示例代码ctts-三接口">4. 完整示例代码（CTTS 三接口）</h4>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Project</span><span class="op">;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">ProjectService</span><span class="op">;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">beans</span><span class="op">.</span><span class="im">factory</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Autowired</span><span class="op">;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> ProjectService projectService<span class="op">;</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 接口1：查询实训项目列表</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 设计说明：分页与搜索条件为可选过滤参数 → query</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">(</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;keyword&quot;</span><span class="op">,</span> required <span class="op">=</span> <span class="kw">false</span><span class="op">)</span> <span class="bu">String</span> keyword<span class="op">,</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;page&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;1&quot;</span><span class="op">)</span> <span class="dt">int</span> page<span class="op">,</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;size&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;10&quot;</span><span class="op">)</span> <span class="dt">int</span> size<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">list</span><span class="op">(</span>keyword<span class="op">,</span> page<span class="op">,</span> size<span class="op">);</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 接口2：根据 ID 查询</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 设计说明：ID 是资源唯一标识 → path</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">getById</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 接口3：新增项目</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 设计说明：完整数据载体 → body</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">add</span><span class="op">(</span><span class="at">@RequestBody</span> Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">add</span><span class="op">(</span>project<span class="op">);</span></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 id="5-图示-4">5. 图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 6：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">查询列表  GET /projects?keyword=电商&amp;page=1&amp;size=10</span>
+<span class="diagram-line">                    ▲           ▲           ▲</span>
+<span class="diagram-line">                    <span class="tree-token">│</span>           <span class="tree-token">│</span>           <span class="tree-token">│</span></span>
+<span class="diagram-line">                  query        query       query</span>
+<span class="diagram-line">查单个    GET /projects/1</span>
+<span class="diagram-line">                       ▲</span>
+<span class="diagram-line">                       <span class="tree-token">│</span></span>
+<span class="diagram-line">                     path</span>
+<span class="diagram-line">新增     POST /projects</span>
+<span class="diagram-line">              <span class="tree-token">│</span></span>
+<span class="diagram-line">              <span class="tree-token">│</span>  Body: {&quot;name&quot;:&quot;电商实训&quot;,&quot;semester&quot;:&quot;2025 春季&quot;}</span>
+<span class="diagram-line">              <span class="tree-token">│</span>          ▲</span>
+<span class="diagram-line">              <span class="tree-token">│</span>          <span class="tree-token">│</span></span>
+<span class="diagram-line">              <span class="tree-token">│</span>        body</span>
+<span class="diagram-line">              ▼</span>
+<span class="diagram-line">         Content-Type: application/json</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="6-易错点-4">6. 易错点</h4>
+<ul>
+<li><strong>易错点 1</strong>：把 ID 放到
+query（<code>?id=1</code>）而不是 path，违反 RESTful 习惯。</li>
+<li><strong>易错点 2</strong>：把分页参数塞到 body，导致 GET
+请求拿不到。</li>
+<li><strong>易错点 3</strong>：POST 新增时把字段拆成一堆
+<code>@RequestParam</code>，参数多了维护困难，应该用
+<code>@RequestBody</code>。</li>
+<li><strong>易错点 4</strong>：路径参数与方法语义冲突，如
+<code>DELETE /projects?id=1</code> 应改为
+<code>DELETE /projects/{id}</code>。</li>
+<li><strong>易错点 5</strong>：query 参数过多（&gt;5 个）时建议封装为
+DTO 对象，Spring 能自动绑定。</li>
+</ul>
+<h4 id="7-小结-4">7. 小结</h4>
+<p>三句话口诀：</p>
+<ul>
+<li><strong>资源标识 → path</strong></li>
+<li><strong>筛选过滤 → query</strong></li>
+<li><strong>数据载体 → body</strong></li>
+</ul>
+<hr />
+<h2 id="三综合示例">三、综合示例</h2>
+<h3 id="31-项目结构">3.1 项目结构</h3>
+<div class="visual">
+  <div class="visual-title">图示 7：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">ctts/</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> pom.xml</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src/main/java/com/ctts/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectController.java</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> Project.java</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> service/</span>
+<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectService.java</span>
+<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> impl/</span>
+<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectServiceImpl.java</span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> src/main/resources/</span>
+<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h3 id="32-完整-project-实体类">3.2 完整 Project 实体类</h3>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">fasterxml</span><span class="op">.</span><span class="im">jackson</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">JsonFormat</span><span class="op">;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">fasterxml</span><span class="op">.</span><span class="im">jackson</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">JsonIgnore</span><span class="op">;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="co">实训项目实体</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Project <span class="op">{</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> id<span class="op">;</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> semester<span class="op">;</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> description<span class="op">;</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> status<span class="op">;</span>     <span class="co">// 0 未开始 1 进行中 2 已结束</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">@JsonFormat</span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="op">,</span> timezone <span class="op">=</span> <span class="st">&quot;GMT+8&quot;</span><span class="op">)</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime createTime<span class="op">;</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">@JsonIgnore</span>                 <span class="co">// 演示忽略字段：内部备注不返回前端</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> internalRemark<span class="op">;</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Project</span><span class="op">()</span> <span class="op">{}</span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Project</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">,</span> <span class="bu">String</span> name<span class="op">,</span> <span class="bu">String</span> semester<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">id</span> <span class="op">=</span> id<span class="op">;</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">semester</span> <span class="op">=</span> semester<span class="op">;</span></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">status</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">createTime</span> <span class="op">=</span> LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">();</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Long</span> <span class="fu">getId</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> id<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setId</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">id</span> <span class="op">=</span> id<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> name<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getSemester</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> semester<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setSemester</span><span class="op">(</span><span class="bu">String</span> semester<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">semester</span> <span class="op">=</span> semester<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getDescription</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> description<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setDescription</span><span class="op">(</span><span class="bu">String</span> description<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">description</span> <span class="op">=</span> description<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Integer</span> <span class="fu">getStatus</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> status<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setStatus</span><span class="op">(</span><span class="bu">Integer</span> status<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">status</span> <span class="op">=</span> status<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> LocalDateTime <span class="fu">getCreateTime</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> createTime<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setCreateTime</span><span class="op">(</span>LocalDateTime createTime<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">createTime</span> <span class="op">=</span> createTime<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getInternalRemark</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> internalRemark<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setInternalRemark</span><span class="op">(</span><span class="bu">String</span> internalRemark<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">internalRemark</span> <span class="op">=</span> internalRemark<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="33-完整-service模拟数据">3.3 完整 Service（模拟数据）</h3>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Project</span><span class="op">;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> ProjectService <span class="op">{</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">(</span><span class="bu">String</span> keyword<span class="op">,</span> <span class="dt">int</span> page<span class="op">,</span> <span class="dt">int</span> size<span class="op">);</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    Project <span class="fu">getById</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">);</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    Project <span class="fu">add</span><span class="op">(</span>Project project<span class="op">);</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">impl</span><span class="op">;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Project</span><span class="op">;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">ProjectService</span><span class="op">;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Service</span><span class="op">;</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">ArrayList</span><span class="op">;</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Optional</span><span class="op">;</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">concurrent</span><span class="op">.</span><span class="im">ConcurrentHashMap</span><span class="op">;</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">concurrent</span><span class="op">.</span><span class="im">atomic</span><span class="op">.</span><span class="im">AtomicLong</span><span class="op">;</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">stream</span><span class="op">.</span><span class="im">Collectors</span><span class="op">;</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectServiceImpl <span class="kw">implements</span> ProjectService <span class="op">{</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 模拟数据库：线程安全 Map</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> <span class="bu">ConcurrentHashMap</span><span class="op">&lt;</span><span class="bu">Long</span><span class="op">,</span> Project<span class="op">&gt;</span> DB <span class="op">=</span> <span class="kw">new</span> <span class="bu">ConcurrentHashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> <span class="bu">AtomicLong</span> ID_GEN <span class="op">=</span> <span class="kw">new</span> <span class="bu">AtomicLong</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="op">{</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 初始化两条模拟数据</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>        Project p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span><span class="dv">1L</span><span class="op">,</span> <span class="st">&quot;电商实训&quot;</span><span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">);</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>        p1<span class="op">.</span><span class="fu">setDescription</span><span class="op">(</span><span class="st">&quot;搭建小型电商平台，包含商品、订单、支付&quot;</span><span class="op">);</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>        p1<span class="op">.</span><span class="fu">setInternalRemark</span><span class="op">(</span><span class="st">&quot;校长牵头&quot;</span><span class="op">);</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>        DB<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="dv">1L</span><span class="op">,</span> p1<span class="op">);</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>        Project p2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">(</span><span class="dv">2L</span><span class="op">,</span> <span class="st">&quot;大数据实训&quot;</span><span class="op">,</span> <span class="st">&quot;2025 春季&quot;</span><span class="op">);</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>        p2<span class="op">.</span><span class="fu">setDescription</span><span class="op">(</span><span class="st">&quot;基于 Hadoop 生态完成离线数仓&quot;</span><span class="op">);</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>        p2<span class="op">.</span><span class="fu">setInternalRemark</span><span class="op">(</span><span class="st">&quot;企业合作&quot;</span><span class="op">);</span></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>        DB<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="dv">2L</span><span class="op">,</span> p2<span class="op">);</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>        ID_GEN<span class="op">.</span><span class="fu">set</span><span class="op">(</span><span class="dv">2L</span><span class="op">);</span></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">(</span><span class="bu">String</span> keyword<span class="op">,</span> <span class="dt">int</span> page<span class="op">,</span> <span class="dt">int</span> size<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> all <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;(</span>DB<span class="op">.</span><span class="fu">values</span><span class="op">());</span></span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>keyword <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>keyword<span class="op">.</span><span class="fu">isEmpty</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>            all <span class="op">=</span> all<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>p <span class="op">-&gt;</span> p<span class="op">.</span><span class="fu">getName</span><span class="op">().</span><span class="fu">contains</span><span class="op">(</span>keyword<span class="op">))</span></span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">toList</span><span class="op">());</span></span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 简单分页</span></span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> from <span class="op">=</span> <span class="op">(</span>page <span class="op">-</span> <span class="dv">1</span><span class="op">)</span> <span class="op">*</span> size<span class="op">;</span></span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> to <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span><span class="op">(</span>from <span class="op">+</span> size<span class="op">,</span> all<span class="op">.</span><span class="fu">size</span><span class="op">());</span></span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>from <span class="op">&gt;=</span> all<span class="op">.</span><span class="fu">size</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> all<span class="op">.</span><span class="fu">subList</span><span class="op">(</span>from<span class="op">,</span> to<span class="op">);</span></span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> DB<span class="op">.</span><span class="fu">get</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">add</span><span class="op">(</span>Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a>        <span class="dt">long</span> id <span class="op">=</span> ID_GEN<span class="op">.</span><span class="fu">incrementAndGet</span><span class="op">();</span></span>
+<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a>        project<span class="op">.</span><span class="fu">setId</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a>        project<span class="op">.</span><span class="fu">setCreateTime</span><span class="op">(</span>java<span class="op">.</span><span class="fu">time</span><span class="op">.</span><span class="fu">LocalDateTime</span><span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>project<span class="op">.</span><span class="fu">getStatus</span><span class="op">()</span> <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-64"><a href="#cb21-64" aria-hidden="true" tabindex="-1"></a>            project<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb21-65"><a href="#cb21-65" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a>        DB<span class="op">.</span><span class="fu">put</span><span class="op">(</span>id<span class="op">,</span> project<span class="op">);</span></span>
+<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> project<span class="op">;</span></span>
+<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="34-完整-projectcontroller">3.4 完整 ProjectController</h3>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Project</span><span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">ProjectService</span><span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">beans</span><span class="op">.</span><span class="im">factory</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Autowired</span><span class="op">;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="co">实训项目控制器</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="co">提供：列表查询、根据</span>ID<span class="co">查询、新增项目</span> <span class="co">三个接口</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> ProjectService projectService<span class="op">;</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">接口1：查询实训项目列表</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> GET <span class="co">/</span>projects<span class="co">?</span>keyword<span class="co">=电商</span><span class="er">&amp;</span>page<span class="co">=1</span><span class="er">&amp;</span>size<span class="co">=10</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">(</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;keyword&quot;</span><span class="op">,</span> required <span class="op">=</span> <span class="kw">false</span><span class="op">)</span> <span class="bu">String</span> keyword<span class="op">,</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;page&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;1&quot;</span><span class="op">)</span> <span class="dt">int</span> page<span class="op">,</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;size&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;10&quot;</span><span class="op">)</span> <span class="dt">int</span> size<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">list</span><span class="op">(</span>keyword<span class="op">,</span> page<span class="op">,</span> size<span class="op">);</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">接口2：根据</span> ID <span class="co">查询</span></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> GET <span class="co">/</span>projects<span class="co">/1</span></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">getById</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">接口3：新增项目</span></span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> POST <span class="co">/</span>projects</span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Body<span class="co">:</span> <span class="co">{&quot;</span>name<span class="co">&quot;:&quot;</span>AI <span class="co">训练实训&quot;,&quot;</span>semester<span class="co">&quot;:&quot;2025</span> <span class="co">春季&quot;,&quot;</span>description<span class="co">&quot;:&quot;...&quot;}</span></span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span></span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">add</span><span class="op">(</span><span class="at">@RequestBody</span> Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">add</span><span class="op">(</span>project<span class="op">);</span></span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="35-启动类">3.5 启动类</h3>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">SpringApplication</span><span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">autoconfigure</span><span class="op">.</span><span class="im">SpringBootApplication</span><span class="op">;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CttsApplication <span class="op">{</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>        SpringApplication<span class="op">.</span><span class="fu">run</span><span class="op">(</span>CttsApplication<span class="op">.</span><span class="fu">class</span><span class="op">,</span> args<span class="op">);</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="36-applicationyml">3.6 application.yml</h3>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8080</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">servlet</span><span class="kw">:</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">context-path</span><span class="kw">:</span><span class="at"> /ctts</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">spring</span><span class="kw">:</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">application</span><span class="kw">:</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ctts</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">jackson</span><span class="kw">:</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">date-format</span><span class="kw">:</span><span class="at"> yyyy-MM-dd HH:mm:ss</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">time-zone</span><span class="kw">:</span><span class="at"> GMT+8</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> debug</span></span></code></pre></div>
+<h3 id="37-测试方法">3.7 测试方法</h3>
+<h4 id="371-启动项目">3.7.1 启动项目</h4>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mvn</span> spring-boot:run</span></code></pre></div>
+<p>启动成功后控制台输出：<code>Started CttsApplication in 2.134 seconds</code>。</p>
+<h4 id="372-浏览器测试get-接口">3.7.2 浏览器测试（GET 接口）</h4>
+<p>直接在浏览器输入：</p>
+<ul>
+<li>查列表：<code>http://localhost:8080/ctts/projects</code></li>
+<li>带条件：<code>http://localhost:8080/ctts/projects?keyword=电商&amp;page=1&amp;size=10</code></li>
+<li>根据 ID 查：<code>http://localhost:8080/ctts/projects/1</code></li>
+</ul>
+<h4 id="373-curl-测试post-接口">3.7.3 curl 测试（POST 接口）</h4>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST http://localhost:8080/ctts/projects <span class="dt">\</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-H</span> <span class="st">&quot;Content-Type: application/json&quot;</span> <span class="dt">\</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> <span class="st">&#39;{&quot;name&quot;:&quot;AI 训练实训&quot;,&quot;semester&quot;:&quot;2025 春季&quot;,&quot;description&quot;:&quot;基于 PyTorch 完成图像分类&quot;}&#39;</span></span></code></pre></div>
+<h4 id="374-knife4j-测试">3.7.4 Knife4j 测试</h4>
+<p>访问 <code>http://localhost:8080/ctts/doc.html</code>，在分组中找到
+<code>ProjectController</code>，分别点击三个接口调试。</p>
+<h3 id="38-运行结果示例">3.8 运行结果示例</h3>
+<h4 id="接口1查列表">接口1：查列表</h4>
+<p>请求：<code>GET /ctts/projects</code></p>
+<p>返回：</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;电商实训&quot;</span><span class="fu">,</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;semester&quot;</span><span class="fu">:</span> <span class="st">&quot;2025 春季&quot;</span><span class="fu">,</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;搭建小型电商平台，包含商品、订单、支付&quot;</span><span class="fu">,</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;createTime&quot;</span><span class="fu">:</span> <span class="st">&quot;2025-03-15 10:30:00&quot;</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;大数据实训&quot;</span><span class="fu">,</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;semester&quot;</span><span class="fu">:</span> <span class="st">&quot;2025 春季&quot;</span><span class="fu">,</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;基于 Hadoop 生态完成离线数仓&quot;</span><span class="fu">,</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;createTime&quot;</span><span class="fu">:</span> <span class="st">&quot;2025-03-15 10:30:00&quot;</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<p>注意：<code>internalRemark</code> 字段因 <code>@JsonIgnore</code>
+不会出现。</p>
+<h4 id="接口2根据-id-查询">接口2：根据 ID 查询</h4>
+<p>请求：<code>GET /ctts/projects/1</code></p>
+<p>返回：</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;电商实训&quot;</span><span class="fu">,</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;semester&quot;</span><span class="fu">:</span> <span class="st">&quot;2025 春季&quot;</span><span class="fu">,</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;搭建小型电商平台，包含商品、订单、支付&quot;</span><span class="fu">,</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;createTime&quot;</span><span class="fu">:</span> <span class="st">&quot;2025-03-15 10:30:00&quot;</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h4 id="接口3新增项目">接口3：新增项目</h4>
+<p>请求：<code>POST /ctts/projects</code>，Body：</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;AI 训练实训&quot;</span><span class="fu">,</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;semester&quot;</span><span class="fu">:</span> <span class="st">&quot;2025 春季&quot;</span><span class="fu">,</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;基于 PyTorch 完成图像分类&quot;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>返回：</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;AI 训练实训&quot;</span><span class="fu">,</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;semester&quot;</span><span class="fu">:</span> <span class="st">&quot;2025 春季&quot;</span><span class="fu">,</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;基于 PyTorch 完成图像分类&quot;</span><span class="fu">,</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;createTime&quot;</span><span class="fu">:</span> <span class="st">&quot;2025-03-15 10:35:12&quot;</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 id="39-创建-controller-的标准步骤">3.9 创建 Controller
+的标准步骤</h3>
+<ol type="1">
+<li><strong>建包</strong>：在
+<code>src/main/java/com/ctts/controller/</code> 下新建类文件。</li>
+<li><strong>加注解</strong>：类上加 <code>@RestController</code> +
+<code>@RequestMapping("/xxx")</code>。</li>
+<li><strong>注入
+Service</strong>：<code>@Autowired private XxxService xxxService;</code></li>
+<li><strong>写方法</strong>：方法上加 <code>@GetMapping</code> /
+<code>@PostMapping</code> 等，参数加 <code>@RequestParam</code> /
+<code>@PathVariable</code> / <code>@RequestBody</code>。</li>
+<li><strong>测试</strong>：浏览器测 GET，curl / Knife4j 测 POST。</li>
+<li><strong>看日志</strong>：控制台 <code>com.ctts</code> 包日志级别设为
+<code>debug</code>，方便排查。</li>
+</ol>
+<hr />
+<h2 id="四拓展阅读">四、拓展阅读</h2>
+<h3 id="41-restful-api-设计最佳实践">4.1 RESTful API 设计最佳实践</h3>
+<ul>
+<li><strong>资源用名词复数</strong>：<code>/projects</code> 而非
+<code>/project</code> 或 <code>/getProjects</code>。</li>
+<li><strong>HTTP 方法表达动作</strong>：GET 查、POST 增、PUT 改、DELETE
+删。</li>
+<li><strong>状态码规范</strong>：200 成功、400 参数错误、401 未认证、403
+无权限、404 资源不存在、500 服务器错误。</li>
+<li><strong>统一响应格式</strong>：建议所有接口返回
+<code>{code, msg, data}</code> 结构。</li>
+</ul>
+<h3 id="42-spring-mvc-参数解析器体系">4.2 Spring MVC 参数解析器体系</h3>
+<p><code>HandlerMethodArgumentResolver</code> 是 Spring MVC
+解析控制器方法参数的核心接口，常见实现：</p>
+<table>
+<thead>
+<tr>
+<th>解析器</th>
+<th>对应注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RequestParamMethodArgumentResolver</code></td>
+<td><code>@RequestParam</code></td>
+</tr>
+<tr>
+<td><code>PathVariableMethodArgumentResolver</code></td>
+<td><code>@PathVariable</code></td>
+</tr>
+<tr>
+<td><code>RequestResponseBodyMethodProcessor</code></td>
+<td><code>@RequestBody</code></td>
+</tr>
+<tr>
+<td><code>RequestHeaderMethodArgumentResolver</code></td>
+<td><code>@RequestHeader</code></td>
+</tr>
+<tr>
+<td><code>ServletRequestMethodArgumentResolver</code></td>
+<td><code>HttpServletRequest</code> 等</td>
+</tr>
+<tr>
+<td><code>ModelAttributeMethodProcessor</code></td>
+<td>无注解对象绑定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-jackson-常用注解">4.3 Jackson 常用注解</h3>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@JsonProperty("xxx")</code></td>
+<td>修改序列化后的字段名</td>
+</tr>
+<tr>
+<td><code>@JsonIgnore</code></td>
+<td>序列化时忽略该字段</td>
+</tr>
+<tr>
+<td><code>@JsonFormat(pattern="yyyy-MM-dd")</code></td>
+<td>格式化日期</td>
+</tr>
+<tr>
+<td><code>@JsonInclude(JsonInclude.Include.NON_NULL)</code></td>
+<td>null 字段不序列化</td>
+</tr>
+<tr>
+<td><code>@JsonAlias({"a","b"})</code></td>
+<td>反序列化时接受多个字段名</td>
+</tr>
+<tr>
+<td><code>@JsonSerialize</code> / <code>@JsonDeserialize</code></td>
+<td>自定义序列化器</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-推荐阅读">4.4 推荐阅读</h3>
+<ul>
+<li>Spring 官方文档：<a
+href="https://docs.spring.io/spring-framework/reference/web/webmvc.html">Spring
+Web MVC</a></li>
+<li>RESTful API 设计指南：<a href="https://restfulapi.net/">REST API
+Tutorial</a></li>
+<li>Jackson 官方文档：<a
+href="https://github.com/FasterXML/jackson">Jackson GitHub</a></li>
+</ul>
+<hr />
+<h2 id="五小结与思维导图">五、小结与思维导图</h2>
+<h3 id="51-本次课核心要点">5.1 本次课核心要点</h3>
+<ol type="1">
+<li><strong><code>@RestController</code></strong> =
+<code>@Controller</code> +
+<code>@ResponseBody</code>，前后端分离项目首选。</li>
+<li><strong>请求映射注解</strong>：<code>@RequestMapping</code> +
+<code>@GetMapping/@PostMapping/@PutMapping/@DeleteMapping</code>，类上定前缀，方法上定路径。</li>
+<li><strong>参数接收四件套</strong>：
+<ul>
+<li><code>@RequestParam</code>：query 参数</li>
+<li><code>@PathVariable</code>：路径参数</li>
+<li><code>@RequestBody</code>：请求体 JSON</li>
+<li><code>@RequestHeader</code>：请求头</li>
+</ul></li>
+<li><strong>JSON 返回</strong>：Spring Boot 自动集成 Jackson，可返回
+String/List/Map/自定义对象。</li>
+<li><strong>参数位置决策</strong>：资源标识→path，筛选过滤→query，数据载体→body。</li>
+</ol>
+<h3 id="52-思维导图">5.2 思维导图</h3>
+<pre><code>Controller 开发与接口参数接收
+│
+├── 控制器注解
+│   ├── @Controller        （返回视图）
+│   └── @RestController    （= @Controller + @ResponseBody，返回 JSON）
+│
+├── 请求映射
+│   ├── @RequestMapping    （通用）
+│   ├── @GetMapping        （查）
+│   ├── @PostMapping       （增）
+│   ├── @PutMapping        （改）
+│   └── @DeleteMapping     （删）
+│       └── 路径参数 {id}
+│
+├── 参数接收
+│   ├── @RequestParam      （query）
+│   ├── @PathVariable      （path）
+│   ├── @RequestBody       （body，JSON）
+│   └── @RequestHeader     （header）
+│
+├── JSON 返回
+│   ├── 自动序列化（Jackson）
+│   ├── 返回 String / List / Map / 自定义对象
+│   ├── @JsonFormat        （日期格式）
+│   └── @JsonIgnore        （忽略字段）
+│
+└── 参数设计
+    ├── 资源标识 → path
+    ├── 筛选过滤 → query
+    └── 数据载体 → body</code></pre>
+<hr />
+<h2 id="六复习思考题">六、复习思考题</h2>
+<ol type="1">
+<li>简述 <code>@RestController</code> 与 <code>@Controller</code>
+的区别，并说明为什么 CTTS 项目选 <code>@RestController</code>。</li>
+<li>列举 Spring MVC 提供的 5 个请求映射注解，并说明各自适用的 HTTP
+方法。</li>
+<li><code>@RequestParam</code>、<code>@PathVariable</code>、<code>@RequestBody</code>
+分别接收哪里的参数？给出典型 URL 示例。</li>
+<li>现有一个"用户登录"接口，参数为
+<code>username</code>、<code>password</code>，你认为应该用哪种参数接收方式？为什么？</li>
+<li>现有一个"分页查询任务"接口，参数为
+<code>projectId</code>、<code>status</code>、<code>page</code>、<code>size</code>，请设计
+URL 并说明每个参数的接收方式。</li>
+<li>如何让返回的 JSON 中不包含 <code>internalRemark</code>
+字段？写出注解。</li>
+<li>如何让 <code>LocalDateTime</code> 字段在 JSON 中以
+<code>yyyy-MM-dd HH:mm:ss</code> 格式输出？写出注解。</li>
+<li>写出 CTTS 项目"根据 ID
+查询项目"接口的完整方法签名（含注解、参数、返回值）。</li>
+<li>浏览器无法直接测试 POST 接口，列举至少两种测试 POST
+接口的方法。</li>
+<li>用一句话总结本次课的核心：__________________。</li>
+</ol>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

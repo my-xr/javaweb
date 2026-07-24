@@ -1,0 +1,1467 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>用户注册登录与密码加密</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 15 次课 · 教学资料</div>
+      <h1>用户注册登录与密码加密</h1>
+      <p>面向学生复习、自学、代码示例与知识图示 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 15 次课</span>
+        <span class="hero-chip"><b>主题</b>用户注册登录与密码加密</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一学习导读">一、学习导读</a>
+<ul>
+<li><a href="#11-本课定位">1.1 本课定位</a></li>
+<li><a href="#12-学习目标">1.2 学习目标</a></li>
+<li><a href="#13-学习路径">1.3 学习路径</a></li>
+<li><a href="#14-前置知识检查自测">1.4 前置知识检查（自测）</a></li>
+</ul></li>
+<li><a href="#二知识点详解">二、知识点详解</a>
+<ul>
+<li><a href="#知识点-k15-1-注册登录流程">知识点 K15-1 注册登录流程</a></li>
+<li><a href="#知识点-k15-2-密码加密">知识点 K15-2 密码加密</a></li>
+<li><a href="#知识点-k15-3-session-认证思路">知识点 K15-3 Session 认证思路</a></li>
+<li><a href="#知识点-k15-4-token-认证思路">知识点 K15-4 Token 认证思路</a></li>
+<li><a href="#知识点-k15-5-认证方案选型">知识点 K15-5 认证方案选型</a></li>
+</ul></li>
+<li><a href="#三综合示例ctts-注册登录接口完整联调">三、综合示例：CTTS 注册登录接口完整联调</a>
+<ul>
+<li><a href="#31-测试准备">3.1 测试准备</a></li>
+<li><a href="#32-接口清单">3.2 接口清单</a></li>
+<li><a href="#33-测试用例">3.3 测试用例</a></li>
+<li><a href="#34-数据库验证">3.4 数据库验证</a></li>
+<li><a href="#35-常见报错排查表">3.5 常见报错排查表</a></li>
+</ul></li>
+<li><a href="#四拓展阅读">四、拓展阅读</a>
+<ul>
+<li><a href="#41-jwtjson-web-token">4.1 JWT（Json Web Token）</a></li>
+<li><a href="#42-oauth-20">4.2 OAuth 2.0</a></li>
+<li><a href="#43-密码加密算法演进">4.3 密码加密算法演进</a></li>
+<li><a href="#44-推荐资料">4.4 推荐资料</a></li>
+</ul></li>
+<li><a href="#五思维导图">五、思维导图</a>
+<ul>
+</ul></li>
+<li><a href="#六复习思考题">六、复习思考题</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 15 次课 <span>｜</span> <strong>文档：</strong>教学资料</p>
+<blockquote>
+<p>项目载体：CTTS校园实训任务管理系统 技术栈：Java 17 + Spring Boot 3.x
++ MyBatis-Plus + MySQL 8.x + Spring Security 包名：com.ctts</p>
+</blockquote>
+<hr />
+<h2 id="一学习导读">一、学习导读</h2>
+<h3 id="11-本课定位">1.1 本课定位</h3>
+<p>本课是模块 M6「登录认证与权限控制」的第 1 讲，承接前面已学完的 Spring
+Boot 基础、MyBatis-Plus CRUD、统一响应体、<code>@Valid</code>
+校验、全局异常处理，正式进入"安全"主题。本课的产出将作为后续 JWT、Spring
+Security、RBAC 权限控制课程的基石。</p>
+<h3 id="12-学习目标">1.2 学习目标</h3>
+<ul>
+<li>能够独立实现用户注册接口（用户名唯一校验 + BCrypt 加密 +
+入库）。</li>
+<li>能够独立实现用户登录接口（查询用户 + BCrypt 校验 + 生成 Token
+返回）。</li>
+<li>能够清晰阐述 Session 与 Token
+两种认证方案的差异，并说明前后端分离为何选择 Token。</li>
+<li>树立"密码加密是开发者底线"的安全意识。</li>
+</ul>
+<h3 id="13-学习路径">1.3 学习路径</h3>
+<div class="visual">
+  <div class="visual-title">图示 1：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">复习（MyBatis-Plus CRUD + @Valid）</span>
+<span class="diagram-line">   ↓</span>
+<span class="diagram-line">明文危害 <span class="arrow-token">→</span> MD5 不安全 <span class="arrow-token">→</span> BCrypt 推荐</span>
+<span class="diagram-line">   ↓</span>
+<span class="diagram-line">注册登录业务流程</span>
+<span class="diagram-line">   ↓</span>
+<span class="diagram-line">Session 认证 vs Token 认证</span>
+<span class="diagram-line">   ↓</span>
+<span class="diagram-line">CTTS 注册登录接口实现</span>
+<span class="diagram-line">   ↓</span>
+<span class="diagram-line">测试验证 + 报错排查</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h3 id="14-前置知识检查自测">1.4 前置知识检查（自测）</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />能用 MyBatis-Plus 完成
+<code>sys_user</code> 表的增删改查？</label></li>
+<li><label><input type="checkbox" />能用 <code>@Valid</code> + DTO
+完成参数校验？</label></li>
+<li><label><input type="checkbox" />能写统一响应体
+<code>Result&lt;T&gt;</code> 和全局异常处理器？</label></li>
+<li><label><input type="checkbox" />了解 HTTP Cookie 和 Header
+的基本概念？</label></li>
+</ul>
+<blockquote>
+<p>若以上有 2 项以上不会，请先复习第 7-12 次课内容。</p>
+</blockquote>
+<hr />
+<h2 id="二知识点详解">二、知识点详解</h2>
+<h3 id="知识点-k15-1-注册登录流程">知识点 K15-1 注册登录流程</h3>
+<h4 id="1-定义">1. 定义</h4>
+<p>用户注册登录是系统识别"你是谁"的基础功能。<strong>注册</strong>是用户首次建立身份凭证的过程；<strong>登录</strong>是用户凭已有凭证换取系统访问凭证的过程；<strong>登出</strong>是主动放弃访问凭证的过程。</p>
+<h4 id="2-原理业务流程图">2. 原理（业务流程图）</h4>
+<p><strong>注册流程</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 2：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">客户端                       服务端                          数据库</span>
+<span class="diagram-line">  <span class="tree-token">│</span>  POST /api/auth/register   <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>  {username,password,name}  <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ① @Valid 校验参数格式</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ② 根据 username 查 sys_user</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span> 返回是否存在</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ③ 若存在 <span class="arrow-token">→</span> 抛异常&quot;用户名已存在&quot;</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ④ BCrypt 加密 password</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ⑤ 构建 User 实体 <span class="arrow-token">→</span> INSERT</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span> 影响行数</span>
+<span class="diagram-line">  <span class="tree-token">│</span> ←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span>  返回 Result.ok()</span>
+<span class="diagram-line">  <span class="tree-token">│</span>  200 {&quot;code&quot;:200,...}      <span class="tree-token">│</span></span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p><strong>登录流程</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 3：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">客户端                       服务端                          数据库</span>
+<span class="diagram-line">  <span class="tree-token">│</span>  POST /api/auth/login      <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>  {username,password}       <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ① @Valid 校验</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ② 根据 username 查 sys_user</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span> User 或 null</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ③ 用户不存在 <span class="arrow-token">→</span> 抛异常</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ④ BCrypt.matches(明文,密文)</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ⑤ 不匹配 <span class="arrow-token">→</span> 抛异常&quot;密码错误&quot;</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ⑥ 生成 Token（UUID）</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ⑦ （可选）Token 存 Redis 关联 userId</span>
+<span class="diagram-line">  <span class="tree-token">│</span> ←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span>  返回 Result.ok({token,user})</span>
+<span class="diagram-line">  <span class="tree-token">│</span>  200 {&quot;code&quot;:200,...}      <span class="tree-token">│</span></span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p><strong>登出流程</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 4：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">客户端                       服务端</span>
+<span class="diagram-line">  <span class="tree-token">│</span>  POST /api/auth/logout     <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>  Header: Authorization:xxx <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> <span class="tree-token">│</span> ① 解析 Token 找到用户</span>
+<span class="diagram-line">  <span class="tree-token">│</span>                            <span class="tree-token">│</span> ② 删除 Redis 中 Token / 加黑名单</span>
+<span class="diagram-line">  <span class="tree-token">│</span> ←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span>  返回 Result.ok()</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="3-问题常见疑问">3. 问题（常见疑问）</h4>
+<p><strong>Q1：为什么注册时要做用户名唯一性校验？</strong>
+A：用户名将作为登录的唯一标识，若允许重复则无法区分用户。虽然数据库层面可加
+<code>UNIQUE</code>
+约束兜底，但业务层应主动校验并给出友好提示，避免直接抛
+SQLIntegrityConstraintViolationException。</p>
+<p><strong>Q2：注册和登录中"密码"分别以什么形式传输和存储？</strong>
+A：传输层应由 HTTPS
+保证加密（本课不展开）；应用层密码以<strong>明文</strong>形式从客户端
+POST 到服务端（因为服务端要做 BCrypt
+哈希），存储层必须以<strong>密文</strong>形式入库。任何情况下都不得在数据库中存储明文密码。</p>
+<p><strong>Q3：登录后为什么要返回 Token
+而不是直接返回用户信息就完事？</strong> A：HTTP
+是无状态协议，下一次请求服务端并不知道"你是谁"。Token
+是后续请求携带的身份凭证，相当于"入场手环"。</p>
+<h4 id="4-完整代码">4. 完整代码</h4>
+<p><strong>（1）sys_user 建表 SQL</strong></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- sys_user 用户表</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> `sys_user`;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> `sys_user` (</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  `id`          BIGINT       <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT <span class="kw">COMMENT</span> <span class="st">&#39;主键ID&#39;</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  `username`    <span class="dt">VARCHAR</span>(<span class="dv">50</span>)  <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">COMMENT</span> <span class="st">&#39;登录用户名&#39;</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  `password`    <span class="dt">VARCHAR</span>(<span class="dv">100</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">COMMENT</span> <span class="st">&#39;密码（BCrypt密文）&#39;</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  `name`        <span class="dt">VARCHAR</span>(<span class="dv">50</span>)  <span class="kw">DEFAULT</span> <span class="kw">NULL</span> <span class="kw">COMMENT</span> <span class="st">&#39;真实姓名&#39;</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  `role`        <span class="dt">VARCHAR</span>(<span class="dv">20</span>)  <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="st">&#39;STUDENT&#39;</span> <span class="kw">COMMENT</span> <span class="st">&#39;角色：STUDENT/TEACHER/ADMIN&#39;</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  `create_time` DATETIME     <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;创建时间&#39;</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  `update_time` DATETIME     <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">ON</span> <span class="kw">UPDATE</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;更新时间&#39;</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  `deleted`     TINYINT      <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="dv">0</span> <span class="kw">COMMENT</span> <span class="st">&#39;逻辑删除标识&#39;</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (`id`),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">UNIQUE</span> <span class="kw">KEY</span> `uk_username` (`username`)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>) ENGINE<span class="op">=</span>InnoDB <span class="kw">DEFAULT</span> CHARSET<span class="op">=</span>utf8mb4 <span class="kw">COMMENT</span><span class="op">=</span><span class="st">&#39;系统用户表&#39;</span>;</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">-- 预置一条管理员数据，密码明文为 123456（BCrypt 加密后如下）</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> `sys_user`(`username`,`password`,`name`,`role`)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="st">&#39;admin&#39;</span>,<span class="st">&#39;$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy&#39;</span>,<span class="st">&#39;系统管理员&#39;</span>,<span class="st">&#39;ADMIN&#39;</span>);</span></code></pre></div>
+<blockquote>
+<p>说明：BCrypt 密文长度约 60 字符，<code>password</code> 字段
+<code>VARCHAR(100)</code> 足够。<code>username</code>
+加唯一索引既是性能优化也是兜底防重。</p>
+</blockquote>
+<p><strong>（2）User 实体类</strong></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">@TableName</span><span class="op">(</span><span class="st">&quot;sys_user&quot;</span><span class="op">)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> User <span class="op">{</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@TableId</span><span class="op">(</span>type <span class="op">=</span> IdType<span class="op">.</span><span class="fu">AUTO</span><span class="op">)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> id<span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> username<span class="op">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> password<span class="op">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> role<span class="op">;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">@TableField</span><span class="op">(</span>fill <span class="op">=</span> FieldFill<span class="op">.</span><span class="fu">INSERT</span><span class="op">)</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime createTime<span class="op">;</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">@TableField</span><span class="op">(</span>fill <span class="op">=</span> FieldFill<span class="op">.</span><span class="fu">INSERT_UPDATE</span><span class="op">)</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime updateTime<span class="op">;</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">@TableLogic</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> deleted<span class="op">;</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>（3）UserMapper</strong></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">BaseMapper</span><span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">User</span><span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">apache</span><span class="op">.</span><span class="im">ibatis</span><span class="op">.</span><span class="im">annotations</span><span class="op">.</span><span class="im">Mapper</span><span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">@Mapper</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> UserMapper <span class="kw">extends</span> BaseMapper<span class="op">&lt;</span>User<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>（4）UserRegisterDTO</strong></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">jakarta</span><span class="op">.</span><span class="im">validation</span><span class="op">.</span><span class="im">constraints</span><span class="op">.</span><span class="im">NotBlank</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">jakarta</span><span class="op">.</span><span class="im">validation</span><span class="op">.</span><span class="im">constraints</span><span class="op">.</span><span class="im">Pattern</span><span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">jakarta</span><span class="op">.</span><span class="im">validation</span><span class="op">.</span><span class="im">constraints</span><span class="op">.</span><span class="im">Size</span><span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> UserRegisterDTO <span class="op">{</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotBlank</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;用户名不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Size</span><span class="op">(</span>min <span class="op">=</span> <span class="dv">3</span><span class="op">,</span> max <span class="op">=</span> <span class="dv">20</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;用户名长度3-20&quot;</span><span class="op">)</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Pattern</span><span class="op">(</span>regexp <span class="op">=</span> <span class="st">&quot;^[a-zA-Z0-9_]+$&quot;</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;用户名只能包含字母数字下划线&quot;</span><span class="op">)</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> username<span class="op">;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotBlank</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;密码不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Size</span><span class="op">(</span>min <span class="op">=</span> <span class="dv">6</span><span class="op">,</span> max <span class="op">=</span> <span class="dv">20</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;密码长度6-20&quot;</span><span class="op">)</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> password<span class="op">;</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotBlank</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;姓名不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Size</span><span class="op">(</span>max <span class="op">=</span> <span class="dv">50</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;姓名长度不能超过50&quot;</span><span class="op">)</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotBlank</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;角色不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Pattern</span><span class="op">(</span>regexp <span class="op">=</span> <span class="st">&quot;STUDENT|TEACHER|ADMIN&quot;</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;角色必须为STUDENT/TEACHER/ADMIN&quot;</span><span class="op">)</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> role<span class="op">;</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>（5）UserLoginDTO</strong></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">jakarta</span><span class="op">.</span><span class="im">validation</span><span class="op">.</span><span class="im">constraints</span><span class="op">.</span><span class="im">NotBlank</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> UserLoginDTO <span class="op">{</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotBlank</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;用户名不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> username<span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotBlank</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;密码不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> password<span class="op">;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>（6）统一响应体 Result</strong></p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Result</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> code<span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> message<span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> T data<span class="op">;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="bu">Result</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="fu">ok</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> <span class="fu">ok</span><span class="op">(</span><span class="kw">null</span><span class="op">);</span> <span class="op">}</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="bu">Result</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="fu">ok</span><span class="op">(</span>T data<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Result</span><span class="op">&lt;</span>T<span class="op">&gt;</span> r <span class="op">=</span> <span class="kw">new</span> <span class="bu">Result</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        r<span class="op">.</span><span class="fu">setCode</span><span class="op">(</span><span class="dv">200</span><span class="op">);</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        r<span class="op">.</span><span class="fu">setMessage</span><span class="op">(</span><span class="st">&quot;success&quot;</span><span class="op">);</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        r<span class="op">.</span><span class="fu">setData</span><span class="op">(</span>data<span class="op">);</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> r<span class="op">;</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="bu">Result</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="fu">error</span><span class="op">(</span><span class="bu">Integer</span> code<span class="op">,</span> <span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Result</span><span class="op">&lt;</span>T<span class="op">&gt;</span> r <span class="op">=</span> <span class="kw">new</span> <span class="bu">Result</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        r<span class="op">.</span><span class="fu">setCode</span><span class="op">(</span>code<span class="op">);</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        r<span class="op">.</span><span class="fu">setMessage</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> r<span class="op">;</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>（7）业务异常类</strong></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">exception</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> BusinessException <span class="kw">extends</span> <span class="bu">RuntimeException</span> <span class="op">{</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> <span class="bu">Integer</span> code<span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">BusinessException</span><span class="op">(</span><span class="bu">Integer</span> code<span class="op">,</span> <span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">super</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">code</span> <span class="op">=</span> code<span class="op">;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Integer</span> <span class="fu">getCode</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> code<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>（8）全局异常处理器</strong></p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">exception</span><span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">jakarta</span><span class="op">.</span><span class="im">validation</span><span class="op">.</span><span class="im">ConstraintViolationException</span><span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">extern</span><span class="op">.</span><span class="im">slf4j</span><span class="op">.</span><span class="im">Slf4j</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">validation</span><span class="op">.</span><span class="im">FieldError</span><span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">MethodArgumentNotValidException</span><span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">ExceptionHandler</span><span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">RestControllerAdvice</span><span class="op">;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="at">@RestControllerAdvice</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GlobalExceptionHandler <span class="op">{</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ExceptionHandler</span><span class="op">(</span>BusinessException<span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;?&gt;</span> <span class="fu">handleBusiness</span><span class="op">(</span>BusinessException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">warn</span><span class="op">(</span><span class="st">&quot;业务异常: {}&quot;</span><span class="op">,</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">error</span><span class="op">(</span>e<span class="op">.</span><span class="fu">getCode</span><span class="op">(),</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ExceptionHandler</span><span class="op">(</span>MethodArgumentNotValidException<span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;?&gt;</span> <span class="fu">handleValid</span><span class="op">(</span>MethodArgumentNotValidException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        FieldError fe <span class="op">=</span> e<span class="op">.</span><span class="fu">getBindingResult</span><span class="op">().</span><span class="fu">getFieldError</span><span class="op">();</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> msg <span class="op">=</span> fe <span class="op">!=</span> <span class="kw">null</span> <span class="op">?</span> fe<span class="op">.</span><span class="fu">getDefaultMessage</span><span class="op">()</span> <span class="op">:</span> <span class="st">&quot;参数校验失败&quot;</span><span class="op">;</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> msg<span class="op">);</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ExceptionHandler</span><span class="op">(</span>ConstraintViolationException<span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;?&gt;</span> <span class="fu">handleConstraint</span><span class="op">(</span>ConstraintViolationException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ExceptionHandler</span><span class="op">(</span><span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;?&gt;</span> <span class="fu">handleException</span><span class="op">(</span><span class="bu">Exception</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="st">&quot;系统异常&quot;</span><span class="op">,</span> e<span class="op">);</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="dv">500</span><span class="op">,</span> <span class="st">&quot;系统异常: &quot;</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>（9）BCryptPasswordEncoder 配置类（重点）</strong></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">config</span><span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">context</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Bean</span><span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">context</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Configuration</span><span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">security</span><span class="op">.</span><span class="im">crypto</span><span class="op">.</span><span class="im">bcrypt</span><span class="op">.</span><span class="im">BCryptPasswordEncoder</span><span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">security</span><span class="op">.</span><span class="im">crypto</span><span class="op">.</span><span class="im">password</span><span class="op">.</span><span class="im">PasswordEncoder</span><span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="at">@Configuration</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SecurityConfig <span class="op">{</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">将</span> BCryptPasswordEncoder <span class="co">注册到</span> Spring <span class="co">容器</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> strength<span class="co">（成本因子）默认</span> <span class="co">10，取值</span> <span class="co">4-31</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">值越大越安全但越慢，生产环境推荐</span> <span class="co">10-12</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Bean</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> PasswordEncoder <span class="fu">passwordEncoder</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">BCryptPasswordEncoder</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<blockquote>
+<p>说明：依赖
+<code>spring-boot-starter-security</code>，但本课<strong>暂不启用</strong>
+Security
+的过滤链（默认会拦截所有接口），需要添加一个放行配置或在启动类排除
+<code>SecurityAutoConfiguration</code>。简化做法：仅引入
+<code>spring-security-crypto</code> 子模块。</p>
+</blockquote>
+<p><strong>Maven 依赖（精简版，只引入加密模块，避免 Security
+全套过滤链拦截）</strong>：</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">groupId</span>&gt;org.springframework.security&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">artifactId</span>&gt;spring-security-crypto&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">version</span>&gt;6.2.0&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">dependency</span>&gt;</span></code></pre></div>
+<p>如果使用
+<code>spring-boot-starter-security</code>，则需要追加配置放行：</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Configuration</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SecurityConfig <span class="op">{</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Bean</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> PasswordEncoder <span class="fu">passwordEncoder</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">BCryptPasswordEncoder</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Bean</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> SecurityFilterChain <span class="fu">filterChain</span><span class="op">(</span>HttpSecurity http<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">{</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        http<span class="op">.</span><span class="fu">csrf</span><span class="op">(</span>csrf <span class="op">-&gt;</span> csrf<span class="op">.</span><span class="fu">disable</span><span class="op">())</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">authorizeHttpRequests</span><span class="op">(</span>auth <span class="op">-&gt;</span> auth<span class="op">.</span><span class="fu">anyRequest</span><span class="op">().</span><span class="fu">permitAll</span><span class="op">());</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> http<span class="op">.</span><span class="fu">build</span><span class="op">();</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>（10）UserService 注册登录实现（重点）</strong></p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">conditions</span><span class="op">.</span><span class="im">query</span><span class="op">.</span><span class="im">LambdaQueryWrapper</span><span class="op">;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">.</span><span class="im">UserLoginDTO</span><span class="op">;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">.</span><span class="im">UserRegisterDTO</span><span class="op">;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">User</span><span class="op">;</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">exception</span><span class="op">.</span><span class="im">BusinessException</span><span class="op">;</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">UserMapper</span><span class="op">;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">RequiredArgsConstructor</span><span class="op">;</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">extern</span><span class="op">.</span><span class="im">slf4j</span><span class="op">.</span><span class="im">Slf4j</span><span class="op">;</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">security</span><span class="op">.</span><span class="im">crypto</span><span class="op">.</span><span class="im">password</span><span class="op">.</span><span class="im">PasswordEncoder</span><span class="op">;</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Service</span><span class="op">;</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">HashMap</span><span class="op">;</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Map</span><span class="op">;</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">UUID</span><span class="op">;</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> UserService <span class="op">{</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> UserMapper userMapper<span class="op">;</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> PasswordEncoder passwordEncoder<span class="op">;</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">注册</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">①</span> <span class="co">用户名唯一性校验</span> <span class="co">②</span>BCrypt<span class="co">加密</span> <span class="co">③入库</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">register</span><span class="op">(</span>UserRegisterDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 1. 用户名唯一性校验</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Long</span> count <span class="op">=</span> userMapper<span class="op">.</span><span class="fu">selectCount</span><span class="op">(</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>            <span class="kw">new</span> LambdaQueryWrapper<span class="op">&lt;</span>User<span class="op">&gt;().</span><span class="fu">eq</span><span class="op">(</span>User<span class="op">::</span>getUsername<span class="op">,</span> dto<span class="op">.</span><span class="fu">getUsername</span><span class="op">())</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>        <span class="op">);</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>count <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> <span class="st">&quot;用户名已存在&quot;</span><span class="op">);</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 2. 构建 User，BCrypt 加密密码</span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>        User user <span class="op">=</span> <span class="kw">new</span> <span class="fu">User</span><span class="op">();</span></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>        user<span class="op">.</span><span class="fu">setUsername</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getUsername</span><span class="op">());</span></span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>        user<span class="op">.</span><span class="fu">setPassword</span><span class="op">(</span>passwordEncoder<span class="op">.</span><span class="fu">encode</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getPassword</span><span class="op">()));</span></span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>        user<span class="op">.</span><span class="fu">setName</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>        user<span class="op">.</span><span class="fu">setRole</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getRole</span><span class="op">());</span></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 3. 入库</span></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>        userMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>user<span class="op">);</span></span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">&quot;用户注册成功: {}&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getUsername</span><span class="op">());</span></span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">登录</span></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">①</span> <span class="co">查用户</span> <span class="co">②</span>BCrypt<span class="co">校验密码</span> <span class="co">③生成</span>Token<span class="co">返回</span></span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> <span class="fu">login</span><span class="op">(</span>UserLoginDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 1. 根据用户名查用户</span></span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>        User user <span class="op">=</span> userMapper<span class="op">.</span><span class="fu">selectOne</span><span class="op">(</span></span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>            <span class="kw">new</span> LambdaQueryWrapper<span class="op">&lt;</span>User<span class="op">&gt;().</span><span class="fu">eq</span><span class="op">(</span>User<span class="op">::</span>getUsername<span class="op">,</span> dto<span class="op">.</span><span class="fu">getUsername</span><span class="op">())</span></span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>        <span class="op">);</span></span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>user <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> <span class="st">&quot;用户名或密码错误&quot;</span><span class="op">);</span></span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 2. BCrypt 校验密码</span></span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>passwordEncoder<span class="op">.</span><span class="fu">matches</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getPassword</span><span class="op">(),</span> user<span class="op">.</span><span class="fu">getPassword</span><span class="op">()))</span> <span class="op">{</span></span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> <span class="st">&quot;用户名或密码错误&quot;</span><span class="op">);</span></span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 3. 生成简单 Token（UUID，下节课改用 JWT）</span></span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> token <span class="op">=</span> <span class="bu">UUID</span><span class="op">.</span><span class="fu">randomUUID</span><span class="op">().</span><span class="fu">toString</span><span class="op">().</span><span class="fu">replace</span><span class="op">(</span><span class="st">&quot;-&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">);</span></span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 4. 封装返回结果（注意：不要返回 password）</span></span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;token&quot;</span><span class="op">,</span> token<span class="op">);</span></span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> userInfo <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>        userInfo<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;id&quot;</span><span class="op">,</span> user<span class="op">.</span><span class="fu">getId</span><span class="op">());</span></span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>        userInfo<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;username&quot;</span><span class="op">,</span> user<span class="op">.</span><span class="fu">getUsername</span><span class="op">());</span></span>
+<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>        userInfo<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;name&quot;</span><span class="op">,</span> user<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>        userInfo<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;role&quot;</span><span class="op">,</span> user<span class="op">.</span><span class="fu">getRole</span><span class="op">());</span></span>
+<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;user&quot;</span><span class="op">,</span> userInfo<span class="op">);</span></span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">&quot;用户登录成功: {}&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getUsername</span><span class="op">());</span></span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>（11）UserController（重点）</strong></p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">.</span><span class="im">UserLoginDTO</span><span class="op">;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">.</span><span class="im">UserRegisterDTO</span><span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">UserService</span><span class="op">;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">jakarta</span><span class="op">.</span><span class="im">validation</span><span class="op">.</span><span class="im">Valid</span><span class="op">;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">RequiredArgsConstructor</span><span class="op">;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Map</span><span class="op">;</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/auth&quot;</span><span class="op">)</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> UserController <span class="op">{</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> UserService userService<span class="op">;</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">注册接口</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> POST <span class="co">/</span>api<span class="co">/</span>auth<span class="co">/</span>register</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/register&quot;</span><span class="op">)</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">register</span><span class="op">(</span><span class="at">@Valid</span> <span class="at">@RequestBody</span> UserRegisterDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>        userService<span class="op">.</span><span class="fu">register</span><span class="op">(</span>dto<span class="op">);</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">ok</span><span class="op">();</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">登录接口</span></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> POST <span class="co">/</span>api<span class="co">/</span>auth<span class="co">/</span>login</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/login&quot;</span><span class="op">)</span></span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;&gt;</span> <span class="fu">login</span><span class="op">(</span><span class="at">@Valid</span> <span class="at">@RequestBody</span> UserLoginDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> data <span class="op">=</span> userService<span class="op">.</span><span class="fu">login</span><span class="op">(</span>dto<span class="op">);</span></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">ok</span><span class="op">(</span>data<span class="op">);</span></span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">登出接口（占位，下节课实现）</span></span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> POST <span class="co">/</span>api<span class="co">/</span>auth<span class="co">/</span>logout</span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/logout&quot;</span><span class="op">)</span></span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">logout</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: 下节课实现 Token 失效</span></span>
+<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">ok</span><span class="op">();</span></span>
+<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>（12）application.yml</strong></p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8080</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">spring</span><span class="kw">:</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">datasource</span><span class="kw">:</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">url</span><span class="kw">:</span><span class="at"> jdbc:mysql://localhost:3306/ctts?useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;characterEncoding=utf8</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">username</span><span class="kw">:</span><span class="at"> root</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">password</span><span class="kw">:</span><span class="at"> </span><span class="dv">123456</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">driver-class-name</span><span class="kw">:</span><span class="at"> com.mysql.cj.jdbc.Driver</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mybatis-plus</span><span class="kw">:</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">configuration</span><span class="kw">:</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">log-impl</span><span class="kw">:</span><span class="at"> org.apache.ibatis.logging.stdout.StdOutImpl</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">map-underscore-to-camel-case</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">global-config</span><span class="kw">:</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">db-config</span><span class="kw">:</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">logic-delete-field</span><span class="kw">:</span><span class="at"> deleted</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">logic-delete-value</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">logic-not-delete-value</span><span class="kw">:</span><span class="at"> </span><span class="dv">0</span></span></code></pre></div>
+<h4 id="5-图示">5. 图示</h4>
+<p><strong>注册登录时序图（简化版）</strong>：</p>
+<pre><code>┌────────┐         ┌──────────┐        ┌──────────┐
+│ Client │         │Controller│        │ Service  │
+└───┬────┘         └────┬─────┘        └────┬─────┘
+    │ POST /register     │                   │
+    │──────────────────→│ @Valid 校验       │
+    │                   │─────────────────→│ register()
+    │                   │                   │→ selectCount 查重
+    │                   │                   │→ encode 加密
+    │                   │                   │→ insert 入库
+    │                   │←─────────────────│
+    │  200 OK           │                   │
+    │←──────────────────│                   │
+    │                   │                   │
+    │ POST /login       │                   │
+    │──────────────────→│ @Valid 校验       │
+    │                   │─────────────────→│ login()
+    │                   │                   │→ selectOne 查用户
+    │                   │                   │→ matches 校验
+    │                   │                   │→ UUID 生成Token
+    │                   │←─────────────────│ {token, user}
+    │  200 OK + token   │                   │
+    │←──────────────────│                   │</code></pre>
+<h4 id="6-易错点">6. 易错点</h4>
+<table>
+<thead>
+<tr>
+<th>易错点</th>
+<th>现象</th>
+<th>原因</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>未配置 PasswordEncoder Bean</td>
+<td>启动报 <code>NoSuchBeanDefinitionException</code></td>
+<td>Spring 容器中无 <code>PasswordEncoder</code> 实例</td>
+<td>写 <code>SecurityConfig</code> 配置类，<code>@Bean</code> 注入</td>
+</tr>
+<tr>
+<td>引入 spring-boot-starter-security 后接口全 401</td>
+<td>任何请求返回 401</td>
+<td>Security 默认拦截所有请求</td>
+<td>配置 <code>permitAll()</code> 或排除
+<code>SecurityAutoConfiguration</code></td>
+</tr>
+<tr>
+<td>用 <code>equals</code> 比对密码</td>
+<td>永远登录失败</td>
+<td>BCrypt 每次加密结果不同</td>
+<td>必须用 <code>passwordEncoder.matches(明文,密文)</code></td>
+</tr>
+<tr>
+<td>登录返回了 password 字段</td>
+<td>安全漏洞</td>
+<td>直接序列化整个 User</td>
+<td>用 Map/VO 手动挑选字段，或 <code>@JsonIgnore</code></td>
+</tr>
+<tr>
+<td>用户名唯一校验时机错误</td>
+<td>高并发下重复注册</td>
+<td>业务校验与 INSERT 之间存在时间窗</td>
+<td>数据库加 <code>UNIQUE</code> 约束兜底 + 捕获
+<code>DuplicateKeyException</code></td>
+</tr>
+<tr>
+<td><code>@Valid</code> 不生效</td>
+<td>参数为空也不报错</td>
+<td>漏写 <code>@Valid</code> 或未引入
+<code>spring-boot-starter-validation</code></td>
+<td>检查注解和依赖</td>
+</tr>
+<tr>
+<td>密码字段长度不够</td>
+<td>入库报 <code>Data too long</code></td>
+<td>BCrypt 密文 60 字符，字段太短</td>
+<td><code>VARCHAR(100)</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="7-小结">7. 小结</h4>
+<p>注册登录本质是"建立身份"与"换取凭证"。三个关键动作：<strong>校验（唯一性
++
+参数格式）、加密（BCrypt）、凭证（Token）</strong>。安全的核心是密码绝不入库明文，校验必须用
+<code>matches</code> 而非 <code>equals</code>。</p>
+<hr />
+<h3 id="知识点-k15-2-密码加密">知识点 K15-2 密码加密</h3>
+<h4 id="1-定义-1">1. 定义</h4>
+<p>密码加密是指将用户密码通过单向哈希函数转换为不可逆的密文后存储的过程。"单向"意味着无法从密文反推出明文，校验时只能将明文再次哈希后比对。</p>
+<h4 id="2-原理">2. 原理</h4>
+<p><strong>（1）明文存储的危害</strong></p>
+<ul>
+<li>数据库泄漏 → 所有用户密码直接暴露。</li>
+<li>用户跨站复用密码 → 一个站泄漏导致多个站被攻破（撞库）。</li>
+<li>内部员工可查看所有用户密码。</li>
+</ul>
+<p><strong>（2）MD5 为什么不安全</strong></p>
+<ul>
+<li>MD5 是单向哈希，理论不可逆，但：
+<ul>
+<li><strong>彩虹表攻击</strong>：攻击者预先计算好大量明文→MD5
+的对照表，查询即可反查。</li>
+<li><strong>MD5 计算太快</strong>：现代 GPU 每秒可计算数十亿次
+MD5，暴力破解成本低。</li>
+<li><strong>相同明文 MD5
+相同</strong>：一旦一个站密码泄漏，相同密码的其他账户都被识别。</li>
+</ul></li>
+</ul>
+<p><strong>（3）BCrypt 为什么安全</strong></p>
+<ul>
+<li><strong>自带盐（salt）</strong>：每次加密自动生成随机盐，相同明文每次加密结果不同。</li>
+<li><strong>慢哈希</strong>：成本因子（strength）可调，计算慢，暴力破解成本极高。</li>
+<li><strong>盐嵌入密文</strong>：盐作为密文的一部分存储，无需单独维护盐字段。</li>
+</ul>
+<p><strong>BCrypt 密文结构</strong>（60 字符）：</p>
+<div class="visual">
+  <div class="visual-title">图示 5：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy</span>
+<span class="diagram-line"><span class="tree-token">│</span>  <span class="tree-token">│</span>  <span class="tree-token">│</span>                      <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>  <span class="tree-token">│</span>  <span class="tree-token">│</span>                      <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 哈希值（23字节Base64编码，31字符）</span>
+<span class="diagram-line"><span class="tree-token">│</span>  <span class="tree-token">│</span>  <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 成本因子（10 表示 2^10 = 1024 轮）</span>
+<span class="diagram-line"><span class="tree-token">│</span>  <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 算法版本（2a）</span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 起始标识</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p><strong>（4）Spring Security PasswordEncoder</strong> Spring Security
+提供 <code>PasswordEncoder</code> 接口统一抽象密码加密与校验：</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> PasswordEncoder <span class="op">{</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> <span class="fu">encode</span><span class="op">(</span><span class="bu">CharSequence</span> rawPassword<span class="op">);</span>       <span class="co">// 加密</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">boolean</span> <span class="fu">matches</span><span class="op">(</span><span class="bu">CharSequence</span> rawPassword<span class="op">,</span>      <span class="co">// 校验</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">String</span> encodedPassword<span class="op">);</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">default</span> <span class="dt">boolean</span> <span class="fu">upgradeEncoding</span><span class="op">(</span><span class="bu">String</span> encodedPassword<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><code>BCryptPasswordEncoder</code> 是其最常用的实现。</p>
+<h4 id="3-问题">3. 问题</h4>
+<p><strong>Q1：BCrypt
+每次加密同一明文结果都不同，为什么还能正确校验？</strong>
+A：因为盐被嵌入到密文中（前 22 位字符）。<code>matches</code>
+时会从密文中解析出盐，用相同的盐和成本因子重新哈希明文，再与密文比对。所以即便每次加密结果不同，校验依然正确。</p>
+<p><strong>Q2：成本因子 strength 设多少合适？</strong> A：默认 10（约
+100ms/次）。生产环境推荐 10-12，每增加 1
+计算时间翻倍。太高影响登录性能，太低不安全。</p>
+<p><strong>Q3：BCrypt 密文长度是多少？数据库字段怎么设计？</strong>
+A：标准 BCrypt 密文 60 字符，建议 <code>VARCHAR(100)</code> 留余量。</p>
+<p><strong>Q4：为什么 MD5 + 盐也不推荐？</strong> A：MD5
+计算太快，即便加盐，攻击者拿到盐后仍可针对性暴力破解。BCrypt
+的"慢"是它的优点而非缺点。</p>
+<h4 id="4-完整代码-1">4. 完整代码</h4>
+<p><strong>PasswordEncoder 配置类</strong>：</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">config</span><span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">context</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Bean</span><span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">context</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Configuration</span><span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">security</span><span class="op">.</span><span class="im">crypto</span><span class="op">.</span><span class="im">bcrypt</span><span class="op">.</span><span class="im">BCryptPasswordEncoder</span><span class="op">;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">security</span><span class="op">.</span><span class="im">crypto</span><span class="op">.</span><span class="im">password</span><span class="op">.</span><span class="im">PasswordEncoder</span><span class="op">;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="at">@Configuration</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SecurityConfig <span class="op">{</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Bean</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> PasswordEncoder <span class="fu">passwordEncoder</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">// strength=10 表示 2^10=1024 轮哈希，约 100ms</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">BCryptPasswordEncoder</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>加密与校验演示（可写单元测试验证）</strong>：</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">junit</span><span class="op">.</span><span class="im">jupiter</span><span class="op">.</span><span class="im">api</span><span class="op">.</span><span class="im">Test</span><span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">security</span><span class="op">.</span><span class="im">crypto</span><span class="op">.</span><span class="im">bcrypt</span><span class="op">.</span><span class="im">BCryptPasswordEncoder</span><span class="op">;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> BCryptDemoTest <span class="op">{</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testBCrypt</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>        BCryptPasswordEncoder encoder <span class="op">=</span> <span class="kw">new</span> <span class="fu">BCryptPasswordEncoder</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> raw <span class="op">=</span> <span class="st">&quot;123456&quot;</span><span class="op">;</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> hash1 <span class="op">=</span> encoder<span class="op">.</span><span class="fu">encode</span><span class="op">(</span>raw<span class="op">);</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> hash2 <span class="op">=</span> encoder<span class="op">.</span><span class="fu">encode</span><span class="op">(</span>raw<span class="op">);</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;第一次加密: &quot;</span> <span class="op">+</span> hash1<span class="op">);</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;第二次加密: &quot;</span> <span class="op">+</span> hash2<span class="op">);</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;两次密文是否相同: &quot;</span> <span class="op">+</span> hash1<span class="op">.</span><span class="fu">equals</span><span class="op">(</span>hash2<span class="op">));</span> <span class="co">// false</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;校验 123456 vs hash1: &quot;</span> <span class="op">+</span> encoder<span class="op">.</span><span class="fu">matches</span><span class="op">(</span><span class="st">&quot;123456&quot;</span><span class="op">,</span> hash1<span class="op">));</span> <span class="co">// true</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;校验 123456 vs hash2: &quot;</span> <span class="op">+</span> encoder<span class="op">.</span><span class="fu">matches</span><span class="op">(</span><span class="st">&quot;123456&quot;</span><span class="op">,</span> hash2<span class="op">));</span> <span class="co">// true</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;校验 wrong vs hash1: &quot;</span> <span class="op">+</span> encoder<span class="op">.</span><span class="fu">matches</span><span class="op">(</span><span class="st">&quot;wrong&quot;</span><span class="op">,</span> hash1<span class="op">));</span>    <span class="co">// false</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 id="5-图示-1">5. 图示</h4>
+<p><strong>明文存储 vs MD5 vs BCrypt 对比</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 6：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line"><span class="tree-token">│</span>  存储方式    <span class="tree-token">│</span>  数据库中密码        <span class="tree-token">│</span>  泄漏后风险                  <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┼<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┼<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
+<span class="diagram-line"><span class="tree-token">│</span>  明文        <span class="tree-token">│</span>  123456              <span class="tree-token">│</span>  直接暴露，全军覆没          <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>  MD5         <span class="tree-token">│</span>  e10adc3949ba59ab... <span class="tree-token">│</span>  彩虹表秒查，等同明文        <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>  BCrypt      <span class="tree-token">│</span>  $2a$10$N9qo8uLOi... <span class="tree-token">│</span>  每条盐不同，暴力破解成本极高<span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="6-易错点-1">6. 易错点</h4>
+<table>
+<thead>
+<tr>
+<th>易错点</th>
+<th>后果</th>
+<th>正确做法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自己手写 MD5 加盐</td>
+<td>仍可被暴力破解</td>
+<td>用 <code>BCryptPasswordEncoder</code></td>
+</tr>
+<tr>
+<td>用 <code>equals</code> 比对密码</td>
+<td>永远登录失败</td>
+<td>用 <code>matches(rawPassword, encodedPassword)</code></td>
+</tr>
+<tr>
+<td><code>strength</code> 设过大（如 30）</td>
+<td>登录卡顿</td>
+<td>生产 10-12</td>
+</tr>
+<tr>
+<td>密文字段 <code>VARCHAR(32)</code></td>
+<td>入库失败</td>
+<td>BCrypt 密文 60 字符，建议 <code>VARCHAR(100)</code></td>
+</tr>
+<tr>
+<td>修改密码时未重新加密</td>
+<td>新密码以明文入库</td>
+<td>任何写库前必须 <code>encode</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="7-小结-1">7. 小结</h4>
+<p>密码加密三句话：<strong>明文不可存、MD5 不可用、BCrypt
+是首选</strong>。Spring Security 的 <code>PasswordEncoder</code>
+接口屏蔽了底层细节，开发时只需 <code>encode</code>
+加密、<code>matches</code> 校验。</p>
+<hr />
+<h3 id="知识点-k15-3-session-认证思路">知识点 K15-3 Session
+认证思路</h3>
+<h4 id="1-定义-2">1. 定义</h4>
+<p>Session 认证是服务器端有状态认证方案：服务器为每个登录用户创建一个
+Session 对象存储用户信息，并通过 Cookie 将 SessionID
+返回客户端，后续请求客户端自动携带 Cookie，服务器据此识别用户。</p>
+<h4 id="2-原理-1">2. 原理</h4>
+<p><strong>Session 认证流程</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 7：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">首次登录：</span>
+<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐                       ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line"><span class="tree-token">│</span> Client <span class="tree-token">│</span>  POST /login          <span class="tree-token">│</span>  Server  <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘  {user,pwd}           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+<span class="diagram-line">    <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span>    <span class="tree-token">│</span></span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ① 校验账号密码</span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ② 创建 Session，存用户信息</span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ③ 生成 SessionID</span>
+<span class="diagram-line">    <span class="tree-token">│</span>   Set-Cookie: JSESSIONID=xxx    <span class="tree-token">│</span></span>
+<span class="diagram-line">    <span class="tree-token">│</span>←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span></span>
+<span class="diagram-line">    <span class="tree-token">│</span>  200 OK                         <span class="tree-token">│</span></span>
+<span class="diagram-line">后续请求：</span>
+<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐                       ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line"><span class="tree-token">│</span> Client <span class="tree-token">│</span>  GET /api/xxx          <span class="tree-token">│</span>  Server  <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>        <span class="tree-token">│</span>  Cookie: JSESSIONID=xxx<span class="tree-token">│</span>          <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘                        <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+<span class="diagram-line">    <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span>    <span class="tree-token">│</span></span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ① 根据 SessionID 找 Session</span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ② Session 中取用户信息</span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ③ 处理业务</span>
+<span class="diagram-line">    <span class="tree-token">│</span>←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span></span>
+<span class="diagram-line">    <span class="tree-token">│</span>  200 OK                         <span class="tree-token">│</span></span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="3-问题-1">3. 问题</h4>
+<p><strong>Q1：Session 存在哪里？</strong> A：默认存在服务器内存中（如
+Tomcat 的 <code>StandardManager</code>），也可配置存 Redis
+等外部存储。</p>
+<p><strong>Q2：SessionID 怎么传给客户端？</strong> A：通过 HTTP 响应头
+<code>Set-Cookie: JSESSIONID=xxx</code>，浏览器会自动保存并在后续同域请求中携带。</p>
+<p><strong>Q3：Session 认证的局限？</strong> A：① 服务器需存储大量
+Session，内存压力大；② 多服务器部署时需 Session 共享（粘性会话或
+Redis）；③ 跨域时 Cookie 默认不携带，需配置 CORS + withCredentials；④
+移动端 App 不方便管理 Cookie。</p>
+<h4 id="4-完整代码spring-session-简化演示非本课项目重点">4.
+完整代码（Spring Session 简化演示，非本课项目重点）</h4>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 本段仅为演示 Session 认证思路，CTTS 项目实际使用 Token 认证</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SessionLoginController <span class="op">{</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/session-login&quot;</span><span class="op">)</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">login</span><span class="op">(</span><span class="at">@RequestBody</span> UserLoginDTO dto<span class="op">,</span> HttpSession session<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 校验账号密码（伪代码）</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="fu">checkUser</span><span class="op">(</span>dto<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>            session<span class="op">.</span><span class="fu">setAttribute</span><span class="op">(</span><span class="st">&quot;loginUser&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getUsername</span><span class="op">());</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">ok</span><span class="op">();</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> <span class="st">&quot;用户名或密码错误&quot;</span><span class="op">);</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/me&quot;</span><span class="op">)</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> <span class="fu">me</span><span class="op">(</span>HttpSession session<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Object</span> user <span class="op">=</span> session<span class="op">.</span><span class="fu">getAttribute</span><span class="op">(</span><span class="st">&quot;loginUser&quot;</span><span class="op">);</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>user <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="dv">401</span><span class="op">,</span> <span class="st">&quot;未登录&quot;</span><span class="op">);</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">ok</span><span class="op">(</span>user<span class="op">.</span><span class="fu">toString</span><span class="op">());</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 id="5-图示-2">5. 图示</h4>
+<p>见上文流程图。</p>
+<h4 id="6-易错点-2">6. 易错点</h4>
+<table>
+<thead>
+<tr>
+<th>易错点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>跨域请求 Cookie 不携带</td>
+<td>需 <code>withCredentials=true</code> + 服务端
+<code>allowCredentials=true</code></td>
+</tr>
+<tr>
+<td>多服务器 Session 不共享</td>
+<td>需引入 Spring Session + Redis</td>
+</tr>
+<tr>
+<td>Session 过期未处理</td>
+<td>默认 30 分钟，过期后需重新登录</td>
+</tr>
+</tbody>
+</table>
+<h4 id="7-小结-2">7. 小结</h4>
+<p>Session 认证是"服务器存、Cookie
+传"的有状态方案。简单易用，但在前后端分离、多端、分布式场景下扩展性差。</p>
+<hr />
+<h3 id="知识点-k15-4-token-认证思路">知识点 K15-4 Token 认证思路</h3>
+<h4 id="1-定义-3">1. 定义</h4>
+<p>Token 认证是客户端无状态认证方案：用户登录成功后服务器签发一个
+Token（令牌）返回客户端，客户端自行存储 Token，后续请求通过 HTTP Header
+携带 Token，服务器解析 Token 识别用户身份。</p>
+<h4 id="2-原理-2">2. 原理</h4>
+<p><strong>Token 认证流程</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 8：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">首次登录：</span>
+<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐                       ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line"><span class="tree-token">│</span> Client <span class="tree-token">│</span>  POST /login          <span class="tree-token">│</span>  Server  <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘  {user,pwd}           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+<span class="diagram-line">    <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span>    <span class="tree-token">│</span></span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ① 校验账号密码</span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ② 生成 Token（UUID/JWT）</span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ③ （可选）Token<span class="arrow-token">→</span>userId 存 Redis</span>
+<span class="diagram-line">    <span class="tree-token">│</span>   200 {token: &quot;xxx&quot;}            <span class="tree-token">│</span></span>
+<span class="diagram-line">    <span class="tree-token">│</span>←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span></span>
+<span class="diagram-line">    <span class="tree-token">│</span>  客户端存储 Token（localStorage）<span class="tree-token">│</span></span>
+<span class="diagram-line">后续请求：</span>
+<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐                       ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line"><span class="tree-token">│</span> Client <span class="tree-token">│</span>  GET /api/xxx          <span class="tree-token">│</span>  Server  <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>        <span class="tree-token">│</span>  Header: Authorization <span class="tree-token">│</span>          <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>        <span class="tree-token">│</span>         Bearer xxx     <span class="tree-token">│</span>          <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘                        <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+<span class="diagram-line">    <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span>    <span class="tree-token">│</span></span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ① 从 Header 取 Token</span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ② 解析/校验 Token</span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ③ 得到用户身份</span>
+<span class="diagram-line">    <span class="tree-token">│</span>                                 <span class="tree-token">│</span> ④ 处理业务</span>
+<span class="diagram-line">    <span class="tree-token">│</span>←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span></span>
+<span class="diagram-line">    <span class="tree-token">│</span>  200 OK                         <span class="tree-token">│</span></span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="3-问题-2">3. 问题</h4>
+<p><strong>Q1：Token 存在客户端哪里？</strong> A：浏览器端通常存
+<code>localStorage</code>（关闭浏览器仍在）或
+<code>sessionStorage</code>（关闭即销毁）；移动端存本地存储。注意防范
+XSS 攻击窃取 Token。</p>
+<p><strong>Q2：Token 怎么传给服务端？</strong> A：约定通过 HTTP Header
+<code>Authorization: Bearer &lt;token&gt;</code> 携带，也可自定义 Header
+如 <code>X-Token</code>。</p>
+<p><strong>Q3：Token 怎么失效？</strong> A：① 服务端将 Token 存
+Redis，登出时删除；② 使用 JWT 的过期时间字段 <code>exp</code>；③ 维护
+Token 黑名单。</p>
+<p><strong>Q4：UUID Token 和 JWT 的区别？</strong> A：UUID Token
+是无意义的随机串，服务端必须查 Redis 才能知道属于谁；JWT
+自包含用户信息（Payload），服务端解析即得用户身份，无需查库，但签发后难以主动失效。</p>
+<h4 id="4-完整代码本课使用-uuid-token下节课改-jwt">4. 完整代码（本课使用
+UUID Token，下节课改 JWT）</h4>
+<p>见 K15-1 中 UserService.login 的 Token 生成部分：</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> token <span class="op">=</span> <span class="bu">UUID</span><span class="op">.</span><span class="fu">randomUUID</span><span class="op">().</span><span class="fu">toString</span><span class="op">().</span><span class="fu">replace</span><span class="op">(</span><span class="st">&quot;-&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">);</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">TODO</span><span class="co">: 下节课将 token → userId 存入 Redis</span></span></code></pre></div>
+<h4 id="5-图示-3">5. 图示</h4>
+<p>见上文流程图。</p>
+<h4 id="6-易错点-3">6. 易错点</h4>
+<table>
+<thead>
+<tr>
+<th>易错点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Token 存 localStorage 被 XSS 窃取</td>
+<td>严格过滤用户输入，配置 CSP</td>
+</tr>
+<tr>
+<td>Token 永不过期</td>
+<td>必须设置过期时间或刷新机制</td>
+</tr>
+<tr>
+<td>Header 名大小写敏感问题</td>
+<td>HTTP Header 名不区分大小写，但建议统一规范</td>
+</tr>
+<tr>
+<td>Token 主动失效难</td>
+<td>UUID 方案配合 Redis 可解决；JWT 需黑名单</td>
+</tr>
+</tbody>
+</table>
+<h4 id="7-小结-3">7. 小结</h4>
+<p>Token 认证是"客户端存、Header
+传"的无状态方案。无状态、易扩展、跨域友好，是前后端分离架构的主流选择。</p>
+<hr />
+<h3 id="知识点-k15-5-认证方案选型">知识点 K15-5 认证方案选型</h3>
+<h4 id="1-定义-4">1. 定义</h4>
+<p>认证方案选型指在 Session 与 Token
+两种认证机制之间，根据业务场景、架构特点、扩展需求进行权衡决策的过程。</p>
+<h4 id="2-原理对比分析">2. 原理（对比分析）</h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Session 认证</th>
+<th>Token 认证</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>状态存储</strong></td>
+<td>服务端内存/Redis</td>
+<td>客户端（localStorage）</td>
+</tr>
+<tr>
+<td><strong>传递方式</strong></td>
+<td>Cookie 自动携带</td>
+<td>Header 手动携带</td>
+</tr>
+<tr>
+<td><strong>扩展性</strong></td>
+<td>多服务器需 Session 共享</td>
+<td>无状态，天然支持分布式</td>
+</tr>
+<tr>
+<td><strong>跨域</strong></td>
+<td>Cookie 跨域复杂（CORS+withCredentials）</td>
+<td>Header 传 Token，跨域简单</td>
+</tr>
+<tr>
+<td><strong>前后端分离</strong></td>
+<td>不友好（移动端 App 难管 Cookie）</td>
+<td>友好（统一 Header）</td>
+</tr>
+<tr>
+<td><strong>安全性</strong></td>
+<td>防 CSRF 需额外配置；防 XSS 同样需注意</td>
+<td>防 XSS 需注意；JWT 防篡改靠签名</td>
+</tr>
+<tr>
+<td><strong>主动失效</strong></td>
+<td>简单（删除 Session）</td>
+<td>UUID+Redis 简单；JWT 需黑名单</td>
+</tr>
+<tr>
+<td><strong>移动端适配</strong></td>
+<td>不友好</td>
+<td>友好</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-问题-3">3. 问题</h4>
+<p><strong>Q1：为什么前后端分离架构选 Token？</strong>
+A：前后端分离后，前端可能是 Web/小程序/App，后端是独立的 RESTful API
+服务。① 移动端不方便管理 Cookie；② 跨域请求 Cookie 携带复杂；③ Token
+通过 Header 传递，与客户端类型无关；④ 无状态后端更容易横向扩展。</p>
+<p><strong>Q2：JWT 相比 UUID Token 的优势？</strong> A：JWT
+自包含用户信息，服务端解析即得身份，无需查
+Redis；天然支持过期时间；签名防篡改。缺点是签发后难以主动失效。</p>
+<p><strong>Q3：Session 真的一无是处吗？</strong> A：不是。传统同域 Web
+应用（如 JSP/Thymeleaf 渲染）用 Session
+简单高效；强安全性要求、需主动踢人下线的场景，Session+Redis
+仍是好选择。</p>
+<h4 id="4-完整代码-2">4. 完整代码</h4>
+<p>本知识点无新增代码，对比见上文表格。</p>
+<h4 id="5-图示-4">5. 图示</h4>
+<p><strong>Session vs Token 认证流程对比图</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 9：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">【Session 认证】                          【Token 认证】</span>
+<span class="diagram-line">   Client            Server                  Client            Server</span>
+<span class="diagram-line">     <span class="tree-token">│</span>                  <span class="tree-token">│</span>                      <span class="tree-token">│</span>                  <span class="tree-token">│</span></span>
+<span class="diagram-line">     <span class="tree-token">│</span> POST /login      <span class="tree-token">│</span>                      <span class="tree-token">│</span> POST /login      <span class="tree-token">│</span></span>
+<span class="diagram-line">     <span class="tree-token">│</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span><span class="tree-token">│</span> 创建Session          <span class="tree-token">│</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span><span class="tree-token">│</span> 生成Token</span>
+<span class="diagram-line">     <span class="tree-token">│</span>                  <span class="tree-token">│</span> 存内存               <span class="tree-token">│</span>                  <span class="tree-token">│</span> (不存服务端)</span>
+<span class="diagram-line">     <span class="tree-token">│</span> Set-Cookie       <span class="tree-token">│</span>                      <span class="tree-token">│</span> 200 {token}      <span class="tree-token">│</span></span>
+<span class="diagram-line">     <span class="tree-token">│</span>←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">│</span>                      <span class="tree-token">│</span>←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">│</span></span>
+<span class="diagram-line">     <span class="tree-token">│</span>                  <span class="tree-token">│</span>                      <span class="tree-token">│</span>                  <span class="tree-token">│</span></span>
+<span class="diagram-line">     <span class="tree-token">│</span> GET /api         <span class="tree-token">│</span>                      <span class="tree-token">│</span> GET /api         <span class="tree-token">│</span></span>
+<span class="diagram-line">     <span class="tree-token">│</span> Cookie:JSESSIONID<span class="tree-token">│</span>                      <span class="tree-token">│</span> Header:Auth      <span class="tree-token">│</span></span>
+<span class="diagram-line">     <span class="tree-token">│</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span><span class="tree-token">│</span> 查Session            <span class="tree-token">│</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span><span class="tree-token">│</span> 解析Token</span>
+<span class="diagram-line">     <span class="tree-token">│</span>                  <span class="tree-token">│</span> (查内存/Redis)       <span class="tree-token">│</span>                  <span class="tree-token">│</span> (无需查库-JWT)</span>
+<span class="diagram-line">     <span class="tree-token">│</span> 200 OK           <span class="tree-token">│</span>                      <span class="tree-token">│</span> 200 OK           <span class="tree-token">│</span></span>
+<span class="diagram-line">     <span class="tree-token">│</span>←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">│</span>                      <span class="tree-token">│</span>←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">│</span></span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="6-易错点-4">6. 易错点</h4>
+<table>
+<thead>
+<tr>
+<th>易错点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>以为 Token 一定比 Session 安全</td>
+<td>两者都有 XSS 风险，安全取决于实现</td>
+</tr>
+<tr>
+<td>以为 JWT 就不需要 Redis</td>
+<td>需主动失效时仍需 Redis 黑名单</td>
+</tr>
+<tr>
+<td>跨域场景下硬上 Session</td>
+<td>应改为 Token</td>
+</tr>
+</tbody>
+</table>
+<h4 id="7-小结-4">7. 小结</h4>
+<p>选型口诀：<strong>同域传统 Web → Session 可选；前后端分离/多端/分布式
+→ Token 必选</strong>。CTTS 是前后端分离项目，本课采用 UUID
+Token，下节课升级为 JWT。</p>
+<hr />
+<h2 id="三综合示例ctts-注册登录接口完整联调">三、综合示例：CTTS
+注册登录接口完整联调</h2>
+<h3 id="31-测试准备">3.1 测试准备</h3>
+<ol type="1">
+<li>启动 MySQL，执行 <code>sys_user</code> 建表 SQL（含预置 admin
+数据）。</li>
+<li>启动 CTTS 后端服务，确认控制台无报错。</li>
+<li>打开 Apifox，新建 <code>CTTS-认证模块</code> 测试集合。</li>
+</ol>
+<h3 id="32-接口清单">3.2 接口清单</h3>
+<table>
+<thead>
+<tr>
+<th>接口</th>
+<th>方法</th>
+<th>路径</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>注册</td>
+<td>POST</td>
+<td><code>/api/auth/register</code></td>
+<td>用户名唯一性校验 + BCrypt 加密</td>
+</tr>
+<tr>
+<td>登录</td>
+<td>POST</td>
+<td><code>/api/auth/login</code></td>
+<td>BCrypt 校验 + 返回 Token</td>
+</tr>
+<tr>
+<td>登出</td>
+<td>POST</td>
+<td><code>/api/auth/logout</code></td>
+<td>占位，下节课实现</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-测试用例">3.3 测试用例</h3>
+<p><strong>用例1：注册成功</strong></p>
+<pre><code>POST /api/auth/register
+Content-Type: application/json
+
+{
+  &quot;username&quot;: &quot;zhangsan&quot;,
+  &quot;password&quot;: &quot;123456&quot;,
+  &quot;name&quot;: &quot;张三&quot;,
+  &quot;role&quot;: &quot;STUDENT&quot;
+}
+
+预期响应：
+{
+  &quot;code&quot;: 200,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;data&quot;: null
+}</code></pre>
+<p><strong>用例2：注册失败-用户名已存在</strong></p>
+<pre><code>POST /api/auth/register
+（再次发送用例1的请求体）
+
+预期响应：
+{
+  &quot;code&quot;: 400,
+  &quot;message&quot;: &quot;用户名已存在&quot;,
+  &quot;data&quot;: null
+}</code></pre>
+<p><strong>用例3：注册失败-参数校验</strong></p>
+<pre><code>POST /api/auth/register
+{
+  &quot;username&quot;: &quot;ab&quot;,         // 长度不足
+  &quot;password&quot;: &quot;&quot;,           // 为空
+  &quot;name&quot;: &quot;李四&quot;,
+  &quot;role&quot;: &quot;XXX&quot;             // 角色非法
+}
+
+预期响应：
+{
+  &quot;code&quot;: 400,
+  &quot;message&quot;: &quot;用户名长度3-20&quot;,  // 触发第一个校验错误
+  &quot;data&quot;: null
+}</code></pre>
+<p><strong>用例4：登录成功</strong></p>
+<pre><code>POST /api/auth/login
+{
+  &quot;username&quot;: &quot;zhangsan&quot;,
+  &quot;password&quot;: &quot;123456&quot;
+}
+
+预期响应：
+{
+  &quot;code&quot;: 200,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;data&quot;: {
+    &quot;token&quot;: &quot;a1b2c3d4e5f6...&quot;,
+    &quot;user&quot;: {
+      &quot;id&quot;: 2,
+      &quot;username&quot;: &quot;zhangsan&quot;,
+      &quot;name&quot;: &quot;张三&quot;,
+      &quot;role&quot;: &quot;STUDENT&quot;
+    }
+  }
+}</code></pre>
+<p><strong>用例5：登录失败-密码错误</strong></p>
+<pre><code>POST /api/auth/login
+{
+  &quot;username&quot;: &quot;zhangsan&quot;,
+  &quot;password&quot;: &quot;wrong&quot;
+}
+
+预期响应：
+{
+  &quot;code&quot;: 400,
+  &quot;message&quot;: &quot;用户名或密码错误&quot;,
+  &quot;data&quot;: null
+}</code></pre>
+<p><strong>用例6：登录失败-用户不存在</strong></p>
+<pre><code>POST /api/auth/login
+{
+  &quot;username&quot;: &quot;nobody&quot;,
+  &quot;password&quot;: &quot;123456&quot;
+}
+
+预期响应：
+{
+  &quot;code&quot;: 400,
+  &quot;message&quot;: &quot;用户名或密码错误&quot;,  // 注意：不暴露&quot;用户不存在&quot;
+  &quot;data&quot;: null
+}</code></pre>
+<p><strong>用例7：预置管理员登录</strong></p>
+<pre><code>POST /api/auth/login
+{
+  &quot;username&quot;: &quot;admin&quot;,
+  &quot;password&quot;: &quot;123456&quot;
+}
+
+预期：登录成功，返回 token 和 admin 用户信息</code></pre>
+<h3 id="34-数据库验证">3.4 数据库验证</h3>
+<p>注册成功后，查询数据库：</p>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span>, username, <span class="kw">password</span>, name, <span class="kw">role</span> <span class="kw">FROM</span> sys_user;</span></code></pre></div>
+<p>预期看到 <code>password</code> 字段为 <code>$2a$10$...</code>
+形式的密文，<strong>绝对不应该看到明文
+<code>123456</code></strong>。</p>
+<h3 id="35-常见报错排查表">3.5 常见报错排查表</h3>
+<table>
+<thead>
+<tr>
+<th>报错</th>
+<th>可能原因</th>
+<th>排查步骤</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>404 Not Found</td>
+<td>接口路径错误 / Controller 未被扫描</td>
+<td>检查 <code>@RequestMapping</code> 路径、启动类
+<code>@MapperScan</code>/<code>@ComponentScan</code> 范围</td>
+</tr>
+<tr>
+<td>405 Method Not Allowed</td>
+<td>请求方法与接口定义不符（GET vs POST）</td>
+<td>检查 <code>@PostMapping</code>/<code>@GetMapping</code> 与 Apifox
+方法一致</td>
+</tr>
+<tr>
+<td>400 参数校验失败</td>
+<td>DTO 校验未通过</td>
+<td>看响应 message，按提示修改参数</td>
+</tr>
+<tr>
+<td>500 NoSuchBeanDefinitionException: PasswordEncoder</td>
+<td>未配置 <code>SecurityConfig</code></td>
+<td>检查 <code>@Configuration</code> 类是否被扫描</td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td>引入了 spring-boot-starter-security 默认拦截</td>
+<td>配置 <code>permitAll()</code> 或排除
+<code>SecurityAutoConfiguration</code></td>
+</tr>
+<tr>
+<td>SQLSyntaxErrorException: Table 'ctts.sys_user' doesn't exist</td>
+<td>表未建 / 数据库连错</td>
+<td>执行建表 SQL，检查 <code>application.yml</code> 数据源</td>
+</tr>
+<tr>
+<td>入库后密码是明文</td>
+<td>注册逻辑漏写 <code>encode</code></td>
+<td>检查 <code>UserService.register</code> 是否调用
+<code>passwordEncoder.encode</code></td>
+</tr>
+<tr>
+<td>登录永远失败</td>
+<td>用 <code>equals</code> 而非 <code>matches</code> 校验密码</td>
+<td>改用 <code>passwordEncoder.matches(raw, encoded)</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四拓展阅读">四、拓展阅读</h2>
+<h3 id="41-jwtjson-web-token">4.1 JWT（Json Web Token）</h3>
+<p>JWT 是一种自包含的 Token 格式，由 Header、Payload、Signature
+三部分组成，用 <code>.</code> 分隔。下节课将详细讲解，参考 <a
+href="https://jwt.io。">https://jwt.io。</a></p>
+<h3 id="42-oauth-20">4.2 OAuth 2.0</h3>
+<p>当系统需要支持第三方登录（微信、GitHub）时，OAuth 2.0
+是标准协议。理解 OAuth
+的授权码模式、隐式模式、密码模式、客户端模式。</p>
+<h3 id="43-密码加密算法演进">4.3 密码加密算法演进</h3>
+<ul>
+<li><strong>DES/3DES</strong>：对称加密，可逆，不适用于密码存储。</li>
+<li><strong>SHA 系列</strong>：SHA-1 已不安全，SHA-256
+仍可用但需加盐且计算快。</li>
+<li><strong>BCrypt/PBKDF2/scrypt/Argon2</strong>：慢哈希算法族，专门用于密码存储。Argon2
+是 2015 年密码哈希竞赛冠军，是当前最推荐的选择。</li>
+</ul>
+<h3 id="44-推荐资料">4.4 推荐资料</h3>
+<ul>
+<li>Spring Security 官方文档：<a
+href="https://docs.spring.io/spring-security/reference/">https://docs.spring.io/spring-security/reference/</a></li>
+<li>OWASP 密码存储指南：<a
+href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html</a></li>
+<li>《白帽子讲 Web安全》吴翰清 著</li>
+</ul>
+<hr />
+<h2 id="五思维导图">五、思维导图</h2>
+<div class="visual">
+  <div class="visual-title">图示 10：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">用户注册登录与密码加密</span>
+<span class="diagram-line"><span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 注册登录流程</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 注册：唯一校验 <span class="arrow-token">→</span> BCrypt加密 <span class="arrow-token">→</span> 入库</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 登录：查用户 <span class="arrow-token">→</span> BCrypt校验 <span class="arrow-token">→</span> 生成Token <span class="arrow-token">→</span> 返回</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 登出：销毁Token</span>
+<span class="diagram-line"><span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 密码加密</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 明文存储（危害：泄漏、撞库、内部查看）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> MD5（不推荐：彩虹表、计算快、相同明文相同密文）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> BCrypt（推荐：自带盐、慢哈希、盐嵌入密文）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> Spring Security</span>
+<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> PasswordEncoder接口</span>
+<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> encode(明文) <span class="arrow-token">→</span> 密文</span>
+<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> matches(明文,密文) <span class="arrow-token">→</span> boolean</span>
+<span class="diagram-line"><span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Session认证</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 服务端存Session</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Cookie传SessionID</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 有状态</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 局限：扩展性差、跨域复杂、移动端不友好</span>
+<span class="diagram-line"><span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Token认证</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 登录返回Token</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 客户端存储（localStorage）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Header携带（Authorization）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 无状态</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 形式：UUID（需查Redis）/ JWT（自包含）</span>
+<span class="diagram-line"><span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 方案选型</span>
+<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Session：同域传统Web</span>
+<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> Token：前后端分离/多端/分布式 ← CTTS选择</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<hr />
+<h2 id="六复习思考题">六、复习思考题</h2>
+<ol type="1">
+<li>简述用户注册的完整流程，并说明每一步的作用。</li>
+<li>为什么密码不能明文存储？请从数据库泄漏、撞库、内部审计三个角度说明。</li>
+<li>MD5 为什么不安全？BCrypt 是如何解决 MD5 的安全问题的？</li>
+<li>同一个明文密码用 BCrypt
+加密两次，结果是否相同？为什么？又如何保证能正确校验？</li>
+<li>简述 Session 认证的工作流程。</li>
+<li>简述 Token 认证的工作流程。</li>
+<li>从存储位置、扩展性、跨域、前后端分离适配性四个维度对比 Session 与
+Token。</li>
+<li>为什么前后端分离架构通常选择 Token 而不是 Session？</li>
+<li><code>BCryptPasswordEncoder</code> 的 <code>strength</code>
+参数表示什么？设大设小各有什么影响？</li>
+<li>登录失败时，为什么不应该分别提示"用户不存在"和"密码错误"？</li>
+<li>编程题：实现 CTTS 用户注册接口，要求用户名唯一性校验、BCrypt
+加密、参数校验。</li>
+<li>编程题：实现 CTTS 用户登录接口，要求返回 Token
+和用户基本信息（不含密码）。</li>
+</ol>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

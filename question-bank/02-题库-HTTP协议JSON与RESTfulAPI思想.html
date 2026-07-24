@@ -1,0 +1,956 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTTP协议JSON与RESTfulAPI思想</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 02 次课 · 题库</div>
+      <h1>HTTP协议JSON与RESTfulAPI思想</h1>
+      <p>面向练习、测验、考试与参考解析 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 02 次课</span>
+        <span class="hero-chip"><b>主题</b>HTTP协议JSON与RESTfulAPI思想</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一选择题共-40-题每题-2-分">一、选择题（共 40 题，每题 2 分）</a>
+<ul>
+<li><a href="#11-单项选择题30-题">1.1 单项选择题（30 题）</a></li>
+<li><a href="#12-多项选择题10-题">1.2 多项选择题（10 题）</a></li>
+</ul></li>
+<li><a href="#二判断题共-20-题每题-1-分">二、判断题（共 20 题，每题 1 分）</a>
+<ul>
+</ul></li>
+<li><a href="#三填空题共-10-题每题-2-分">三、填空题（共 10 题，每题 2 分）</a>
+<ul>
+</ul></li>
+<li><a href="#四论述题--简答题共-4-题">四、论述题 / 简答题（共 4 题）</a>
+<ul>
+</ul></li>
+<li><a href="#五程序阅读--补全题共-2-题">五、程序阅读 / 补全题（共 2 题）</a>
+<ul>
+</ul></li>
+<li><a href="#六编程--接口设计题共-2-题">六、编程 / 接口设计题（共 2 题）</a>
+<ul>
+</ul></li>
+<li><a href="#题库统计与组卷说明">题库统计与组卷说明</a>
+<ul>
+<li><a href="#题量统计">题量统计</a></li>
+<li><a href="#难度分布">难度分布</a></li>
+<li><a href="#知识点覆盖">知识点覆盖</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 02 次课 <span>｜</span> <strong>文档：</strong>题库</p>
+<blockquote>
+<p>配套：<code>教学设计.md</code>、<code>教学资料.md</code>（同文件夹）
+题量：40 选择 + 20 判断 + 10 填空 + 4 论述/简答 + 2 程序阅读/补全 + 2
+编程/接口设计 = <strong>78 题</strong>
+全部题目含参考答案与解析；主观题另附评分标准。 难度标注：★ 基础 / ★★
+提高 / ★★★ 综合 题目编号规则：<code>02-题型-序号</code></p>
+</blockquote>
+<hr />
+<h2 id="一选择题共-40-题每题-2-分">一、选择题（共 40 题，每题 2
+分）</h2>
+<h3 id="11-单项选择题30-题">1.1 单项选择题（30 题）</h3>
+<section class="question-card"><p><strong>02-选择-001</strong>（★ 知识点：K2-1） HTTP
+协议采用的通信模型是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>推送模型（服务器主动推送）</span></li><li><span class="option-label">B</span><span>请求-响应模型（客户端请求，服务器响应）</span></li><li><span class="option-label">C</span><span>广播模型</span></li><li><span class="option-label">D</span><span>订阅模型</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：HTTP
+采用请求-响应模型，客户端发起请求，服务器返回响应。服务器不会主动推送（WebSocket
+才支持双向推送）。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-002</strong>（★ 知识点：K2-1） 一个 HTTP
+请求报文不包括以下哪一部分？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>请求行</span></li><li><span class="option-label">B</span><span>请求头</span></li><li><span class="option-label">C</span><span>请求体</span></li><li><span class="option-label">D</span><span>响应行</span></li></ul></div><blockquote>
+<p><strong>答案：D</strong>
+<strong>解析</strong>：请求报文由请求行、请求头、请求体组成。响应行属于响应报文，不属于请求报文。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-003</strong>（★ 知识点：K2-1） HTTP 请求报文中，"POST
+/api/tasks HTTP/1.1" 属于哪一部分？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>请求头</span></li><li><span class="option-label">B</span><span>请求行</span></li><li><span class="option-label">C</span><span>请求体</span></li><li><span class="option-label">D</span><span>状态行</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：请求行由"方法 + 路径
++ 版本"组成，即
+<code>POST /api/tasks HTTP/1.1</code>，是请求报文的第一行。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-004</strong>（★ 知识点：K2-1） HTTP
+请求头与请求体之间的分隔符是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>一个分号</span></li><li><span class="option-label">B</span><span>一个空行</span></li><li><span class="option-label">C</span><span>一个空格</span></li><li><span class="option-label">D</span><span>一个特殊字符 <code>---</code></span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：HTTP
+规范规定，请求头结束后用一个空行（CRLF）分隔，其后才是请求体。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-005</strong>（★ 知识点：K2-2） 下列 URL
+中，<code>http://localhost:8080/api/tasks?projectId=1</code>
+的查询参数部分是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span><code>http://</code></span></li><li><span class="option-label">B</span><span><code>localhost:8080</code></span></li><li><span class="option-label">C</span><span><code>/api/tasks</code></span></li><li><span class="option-label">D</span><span><code>projectId=1</code></span></li></ul></div><blockquote>
+<p><strong>答案：D</strong> <strong>解析</strong>：URL 结构为
+协议://主机:端口/路径?查询参数。<code>?</code> 之后的部分
+<code>projectId=1</code> 是查询参数。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-006</strong>（★ 知识点：K2-2） 按照 RESTful
+规范，"查询某个任务"应使用的 HTTP 方法和路径是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>POST /api/tasks/5</span></li><li><span class="option-label">B</span><span>GET /api/tasks/5</span></li><li><span class="option-label">C</span><span>GET /api/tasks?id=5</span></li><li><span class="option-label">D</span><span>DELETE /api/tasks/5</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：查询用
+GET，单个资源用路径参数标识 ID，即 <code>GET /api/tasks/5</code>。A
+是新增；C 查询单个应路径参数而非 query；D 是删除。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-007</strong>（★ 知识点：K2-2） 下列 HTTP
+方法中，用于新增资源的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>GET</span></li><li><span class="option-label">B</span><span>POST</span></li><li><span class="option-label">C</span><span>PUT</span></li><li><span class="option-label">D</span><span>DELETE</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：POST
+用于新增资源。GET 查询、PUT 更新、DELETE 删除。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-008</strong>（★★ 知识点：K2-2） 关于 GET 和 POST
+的区别，下列说法错误的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>GET 一般无请求体，POST 有请求体</span></li><li><span class="option-label">B</span><span>GET
+参数在 URL 中，POST 参数在请求体中</span></li><li><span class="option-label">C</span><span>GET 是幂等的，POST 是非幂等的</span></li><li><span class="option-label">D</span><span>GET 比 POST 更安全（数据加密层面）</span></li></ul></div><blockquote>
+<p><strong>答案：D</strong> <strong>解析</strong>：GET 和 POST
+都是明文传输，安全性（加密）层面没有区别，要安全都需用 HTTPS。D
+错误。A、B、C 都正确。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-009</strong>（★ 知识点：K2-3） HTTP 状态码 404 表示？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>服务器内部错误</span></li><li><span class="option-label">B</span><span>请求成功</span></li><li><span class="option-label">C</span><span>资源不存在</span></li><li><span class="option-label">D</span><span>未登录</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong> <strong>解析</strong>：404 Not Found
+表示请求的资源不存在。500 是服务器错误；200 是成功；401 是未登录。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-010</strong>（★ 知识点：K2-3） HTTP 状态码 500 表示？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>请求参数错误</span></li><li><span class="option-label">B</span><span>服务器内部错误</span></li><li><span class="option-label">C</span><span>无权限</span></li><li><span class="option-label">D</span><span>资源不存在</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：500 Internal Server
+Error 表示服务器内部错误（如代码异常）。400 是参数错误；403
+是无权限；404 是资源不存在。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-011</strong>（★★ 知识点：K2-3）
+某用户已登录系统，但尝试访问只有管理员才能使用的接口，服务器应返回的状态码是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>401</span></li><li><span class="option-label">B</span><span>403</span></li><li><span class="option-label">C</span><span>404</span></li><li><span class="option-label">D</span><span>500</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong>
+<strong>解析</strong>：用户已登录（已认证）但无权限，应返回 403
+Forbidden。401 是未认证（未登录）；404 是资源不存在；500
+是服务器错误。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-012</strong>（★★ 知识点：K2-3）
+下列状态码中，表示"未认证（未登录）"的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>400</span></li><li><span class="option-label">B</span><span>401</span></li><li><span class="option-label">C</span><span>403</span></li><li><span class="option-label">D</span><span>404</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：401 Unauthorized
+表示未认证（没登录或 Token 失效）。403 是已认证但无权限；400
+是参数错误；404 是资源不存在。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-013</strong>（★ 知识点：K2-3） HTTP 状态码首位数字为
+2 表示？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>信息性</span></li><li><span class="option-label">B</span><span>成功</span></li><li><span class="option-label">C</span><span>重定向</span></li><li><span class="option-label">D</span><span>客户端错误</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：2xx 表示成功（如
+200、201）；1xx 信息性；3xx 重定向；4xx 客户端错误；5xx 服务器错误。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-014</strong>（★ 知识点：K2-4） Cookie 存储的位置是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>服务器端</span></li><li><span class="option-label">B</span><span>客户端（浏览器）</span></li><li><span class="option-label">C</span><span>数据库</span></li><li><span class="option-label">D</span><span>路由器</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Cookie
+存储在客户端（浏览器），服务器通过 Set-Cookie 响应头下发。Session
+存储在服务器端。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-015</strong>（★ 知识点：K2-4） Session 存储的位置是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>客户端浏览器</span></li><li><span class="option-label">B</span><span>服务器端</span></li><li><span class="option-label">C</span><span>客户端硬盘</span></li><li><span class="option-label">D</span><span>DNS 服务器</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Session
+存储在服务器端，客户端只保存 SessionID（通常通过 Cookie 传递）。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-016</strong>（★★ 知识点：K2-4） 关于 Cookie 和
+Session 的区别，下列说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>Cookie 存服务器，Session 存客户端</span></li><li><span class="option-label">B</span><span>Cookie 存客户端，Session 存服务器</span></li><li><span class="option-label">C</span><span>两者都存在客户端</span></li><li><span class="option-label">D</span><span>两者都存在服务器</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Cookie
+存客户端（浏览器），Session 存服务器端。SessionID 通过 Cookie
+传递给客户端。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-017</strong>（★ 知识点：K2-5） 下列哪一个是合法的
+JSON？</p><div class="option-list"><ul><li><span class="option-label">A</span><span><code>{'name': '张三'}</code></span></li><li><span class="option-label">B</span><span><code>{"name": "张三"}</code></span></li><li><span class="option-label">C</span><span><code>{name: "张三"}</code></span></li><li><span class="option-label">D</span><span><code>{"name": "张三",}</code></span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：JSON
+键和字符串必须用双引号，不能有尾逗号。A 单引号错；C 键无引号错；D
+尾逗号错。B 合法。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-018</strong>（★ 知识点：K2-5） JSON
+中，对象的表示方式是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>用 <code>[]</code> 包裹</span></li><li><span class="option-label">B</span><span>用 <code>{}</code>
+包裹</span></li><li><span class="option-label">C</span><span>用 <code>()</code> 包裹</span></li><li><span class="option-label">D</span><span>用 <code>&lt;&gt;</code> 包裹</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：JSON 对象用
+<code>{}</code> 包裹（键值对集合），数组用 <code>[]</code> 包裹。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-019</strong>（★ 知识点：K2-5） JSON
+中，数组的表示方式是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span><code>{}</code></span></li><li><span class="option-label">B</span><span><code>[]</code></span></li><li><span class="option-label">C</span><span><code>()</code></span></li><li><span class="option-label">D</span><span><code>&lt;&gt;</code></span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：JSON 数组用
+<code>[]</code> 包裹，是有序列表。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-020</strong>（★★ 知识点：K2-5） 下列关于 JSON
+的说法，错误的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>JSON 支持字符串、数字、布尔、null 类型</span></li><li><span class="option-label">B</span><span>JSON
+的键必须用双引号</span></li><li><span class="option-label">C</span><span>JSON 支持注释（用 // 表示）</span></li><li><span class="option-label">D</span><span>JSON
+支持对象和数组的嵌套</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong> <strong>解析</strong>：JSON 不支持注释。C
+错误。A、B、D 都正确。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-021</strong>（★ 知识点：K2-6） RESTful API
+设计中，URL 中的资源应使用？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>动词</span></li><li><span class="option-label">B</span><span>名词（通常复数）</span></li><li><span class="option-label">C</span><span>形容词</span></li><li><span class="option-label">D</span><span>副词</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：RESTful 中 URL
+表示资源，用名词复数（如 /api/tasks），操作由 HTTP 方法表达。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-022</strong>（★★ 知识点：K2-6） 下列接口路径中，符合
+RESTful 风格的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span><code>GET /api/deleteTask?id=5</code></span></li><li><span class="option-label">B</span><span><code>POST /api/addTask</code></span></li><li><span class="option-label">C</span><span><code>DELETE /api/tasks/5</code></span></li><li><span class="option-label">D</span><span><code>GET /api/getAllTasks</code></span></li></ul></div><blockquote>
+<p><strong>答案：C</strong> <strong>解析</strong>：C 用 DELETE 方法删除
++ 名词复数路径 + 路径参数 ID，符合 RESTful。A 用 GET 删除且动词；B
+动词；D 动词。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-023</strong>（★ 知识点：K2-6） 按照 RESTful
+规范，"新增一个任务"应使用？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>GET /api/tasks</span></li><li><span class="option-label">B</span><span>POST /api/tasks</span></li><li><span class="option-label">C</span><span>PUT
+/api/tasks</span></li><li><span class="option-label">D</span><span>DELETE /api/tasks</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：新增用
+POST，资源用名词复数，不带
+ID（因为是新增）。<code>POST /api/tasks</code> 正确。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-024</strong>（★★ 知识点：K2-2） 关于 HTTP
+方法的幂等性，下列说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>GET 是非幂等的</span></li><li><span class="option-label">B</span><span>POST 是幂等的</span></li><li><span class="option-label">C</span><span>DELETE 是幂等的</span></li><li><span class="option-label">D</span><span>PUT 是非幂等的</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong>
+<strong>解析</strong>：幂等指多次执行效果相同。GET、PUT、DELETE
+是幂等的；POST 是非幂等的（多次提交创建多条数据）。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-025</strong>（★ 知识点：K2-4） HTTP 请求头
+<code>Content-Type: application/json</code> 的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>表示客户端接受的响应类型</span></li><li><span class="option-label">B</span><span>表示请求体的数据类型是 JSON</span></li><li><span class="option-label">C</span><span>表示服务器返回的状态码</span></li><li><span class="option-label">D</span><span>表示请求的方法</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Content-Type
+表示请求体（或响应体）的数据类型。application/json 表示数据是 JSON
+格式。Accept 表示客户端接受的类型。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-026</strong>（★ 知识点：K2-1） HTTP
+响应报文中，"HTTP/1.1 200 OK" 属于哪一部分？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>响应头</span></li><li><span class="option-label">B</span><span>响应体</span></li><li><span class="option-label">C</span><span>状态行</span></li><li><span class="option-label">D</span><span>请求行</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong> <strong>解析</strong>：状态行由"版本 +
+状态码 + 原因短语"组成，即
+<code>HTTP/1.1 200 OK</code>，是响应报文的第一行。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-027</strong>（★★ 知识点：K2-3）
+"请求参数缺失或格式不正确"应返回的状态码是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>400</span></li><li><span class="option-label">B</span><span>401</span></li><li><span class="option-label">C</span><span>403</span></li><li><span class="option-label">D</span><span>404</span></li></ul></div><blockquote>
+<p><strong>答案：A</strong> <strong>解析</strong>：400 Bad Request
+表示客户端请求参数错误（缺失、格式不对）。401 未认证；403 无权限；404
+资源不存在。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-028</strong>（★★ 知识点：K2-6） "查询项目 1
+下的所有任务"，符合 RESTful 的路径设计是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span><code>GET /api/tasks?projectId=1</code></span></li><li><span class="option-label">B</span><span><code>GET /api/projects/1/tasks</code></span></li><li><span class="option-label">C</span><span><code>GET /api/getTasksByProject?projectId=1</code></span></li><li><span class="option-label">D</span><span><code>POST /api/projects/1/tasks</code></span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：子资源查询用嵌套路径
+<code>/api/projects/1/tasks</code>，表示"项目 1 下的任务"，符合 RESTful
+子资源设计。A 也可接受但 B 更 RESTful；C 动词；D 用 POST 不对（查询用
+GET）。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-029</strong>（★★ 知识点：K2-4）
+前后端分离项目更倾向使用 Token 而非 Session 的主要原因是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>Token 比
+Session 更安全（加密层面）</span></li><li><span class="option-label">B</span><span>Token
+是无状态的，服务器不需存储会话，便于扩展</span></li><li><span class="option-label">C</span><span>Token 不能被篡改</span></li><li><span class="option-label">D</span><span>Session
+不支持 HTTP 协议</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Token（如
+JWT）是无状态的，服务器不存会话数据，多服务器部署时无需共享
+Session，便于扩展。A 错（安全性取决于实现）；C 错（Token
+可被篡改，但有签名校验）；D 错。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-030</strong>（★★ 知识点：K2-1/K2-5） 服务器返回
+<code>Content-Type: application/json</code> 的响应，其响应体最可能是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>一段 HTML 页面</span></li><li><span class="option-label">B</span><span>一段 JSON 数据</span></li><li><span class="option-label">C</span><span>一张图片</span></li><li><span class="option-label">D</span><span>一段 CSS 样式</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Content-Type
+表示数据类型，application/json 表示响应体是 JSON 数据。HTML 是
+text/html；图片是 image/*；CSS 是 text/css。</p>
+</blockquote></section>
+<hr />
+<h3 id="12-多项选择题10-题">1.2 多项选择题（10 题）</h3>
+<blockquote>
+<p>多选题：每题有两个或两个以上正确选项，多选、少选、错选均不得分。</p>
+</blockquote>
+<section class="question-card"><p><strong>02-选择-031</strong>（★★ 知识点：K2-1） HTTP
+请求报文包含的组成部分有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>请求行</span></li><li><span class="option-label">B</span><span>请求头</span></li><li><span class="option-label">C</span><span>请求体</span></li><li><span class="option-label">D</span><span>状态行</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong>
+<strong>解析</strong>：请求报文由请求行、请求头、请求体组成。状态行属于响应报文。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-032</strong>（★★ 知识点：K2-2） 下列 HTTP
+方法中，属于幂等的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>GET</span></li><li><span class="option-label">B</span><span>POST</span></li><li><span class="option-label">C</span><span>PUT</span></li><li><span class="option-label">D</span><span>DELETE</span></li></ul></div><blockquote>
+<p><strong>答案：A、C、D</strong>
+<strong>解析</strong>：GET、PUT、DELETE
+是幂等的（多次执行效果相同）。POST
+是非幂等的（多次提交创建多条数据）。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-033</strong>（★★ 知识点：K2-3）
+下列状态码中，属于客户端错误（4xx）的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>200</span></li><li><span class="option-label">B</span><span>400</span></li><li><span class="option-label">C</span><span>404</span></li><li><span class="option-label">D</span><span>500</span></li></ul></div><blockquote>
+<p><strong>答案：B、C</strong> <strong>解析</strong>：400、404 属于 4xx
+客户端错误。200 是 2xx 成功；500 是 5xx 服务器错误。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-034</strong>（★★ 知识点：K2-5） 下列 JSON
+写法中，合法的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span><code>{"name": "张三", "age": 20}</code></span></li><li><span class="option-label">B</span><span><code>{"courses": ["Java", "DB"]}</code></span></li><li><span class="option-label">C</span><span><code>{"active": true, "score": null}</code></span></li><li><span class="option-label">D</span><span><code>{'name': '张三'}</code></span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：A、B、C
+都是合法 JSON。D 错在用了单引号，JSON 必须用双引号。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-035</strong>（★★ 知识点：K2-6） 下列接口路径中，符合
+RESTful 风格的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span><code>GET /api/tasks</code></span></li><li><span class="option-label">B</span><span><code>POST /api/tasks</code></span></li><li><span class="option-label">C</span><span><code>DELETE /api/tasks/5</code></span></li><li><span class="option-label">D</span><span><code>GET /api/deleteTask?id=5</code></span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：A 查询列表、B
+新增、C 删除，都符合 RESTful（名词复数+HTTP方法）。D 用 GET
+删除且含动词，不符合。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-036</strong>（★★ 知识点：K2-4） 下列关于 Cookie 和
+Session 的说法，正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>Cookie 存储在客户端</span></li><li><span class="option-label">B</span><span>Session
+存储在服务器端</span></li><li><span class="option-label">C</span><span>Session 通常依赖 Cookie 传递 SessionID</span></li><li><span class="option-label">D</span><span>Cookie 比
+Session 更安全</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：A、B、C
+都正确。D 错误，Session 更安全（数据在服务器），Cookie
+在客户端可被查看篡改。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-037</strong>（★★ 知识点：K2-3）
+下列场景与状态码的对应，正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>请求成功 → 200</span></li><li><span class="option-label">B</span><span>未登录 →
+401</span></li><li><span class="option-label">C</span><span>已登录但无权限 → 403</span></li><li><span class="option-label">D</span><span>服务器代码异常 → 400</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：A、B、C
+对应正确。D 错，服务器代码异常应返回 500，400 是参数错误。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-038</strong>（★★ 知识点：K2-2） 关于 GET 和 POST
+的区别，下列说法正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>GET 参数在 URL，POST 参数在请求体</span></li><li><span class="option-label">B</span><span>GET 是幂等的，POST 是非幂等的</span></li><li><span class="option-label">C</span><span>GET 一般无请求体，POST 有请求体</span></li><li><span class="option-label">D</span><span>GET 用于新增数据，POST 用于查询</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：A、B、C
+都正确。D 错，GET 用于查询，POST 用于新增。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-039</strong>（★★ 知识点：K2-5） JSON
+支持的数据类型有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>字符串</span></li><li><span class="option-label">B</span><span>数字</span></li><li><span class="option-label">C</span><span>布尔</span></li><li><span class="option-label">D</span><span>数组</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C、D</strong> <strong>解析</strong>：JSON 支持
+string、number、boolean、null、object、array。四项都是 JSON
+支持的类型。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-选择-040</strong>（★★ 知识点：K2-6） RESTful API
+的核心原则包括？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>资源用名词（通常复数）</span></li><li><span class="option-label">B</span><span>用 HTTP
+方法表达操作</span></li><li><span class="option-label">C</span><span>资源 ID 用路径参数</span></li><li><span class="option-label">D</span><span>每个 URL 必须包含动词</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：A、B、C 是
+RESTful 核心原则。D 错误，RESTful 不在 URL 中用动词，操作由 HTTP
+方法表达。</p>
+</blockquote></section>
+<hr />
+<h2 id="二判断题共-20-题每题-1-分">二、判断题（共 20 题，每题 1
+分）</h2>
+<section class="question-card"><p><strong>02-判断-001</strong>（★ 知识点：K2-1） HTTP
+协议采用请求-响应模型，由客户端发起请求，服务器返回响应。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：HTTP
+是请求-响应模型，客户端请求、服务器响应。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-002</strong>（★ 知识点：K2-1） HTTP
+请求头与请求体之间用空行分隔。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：HTTP
+规范规定请求头结束后用空行分隔请求体。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-003</strong>（★ 知识点：K2-1） GET
+请求通常没有请求体。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：GET
+用于查询，参数在 URL，一般无请求体。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-004</strong>（★ 知识点：K2-2） POST
+请求用于新增资源，是非幂等的。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：POST
+新增资源，多次提交会创建多条数据，非幂等。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-005</strong>（★ 知识点：K2-2） GET
+请求可以用于删除资源。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：删除应使用 DELETE
+方法。GET 只用于查询，不应有副作用。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-006</strong>（★ 知识点：K2-3） HTTP 状态码 404
+表示服务器内部错误。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：404
+表示资源不存在。服务器内部错误是 500。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-007</strong>（★★ 知识点：K2-3） 401
+表示未认证（未登录），403 表示已认证但无权限。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：401 Unauthorized
+是未认证；403 Forbidden 是已认证但无权限。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-008</strong>（★ 知识点：K2-4） Cookie
+存储在服务器端。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：Cookie
+存储在客户端（浏览器），Session 存储在服务器端。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-009</strong>（★ 知识点：K2-4） Session
+存储在服务器端，相对 Cookie 更安全。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：Session
+数据在服务器，客户端只存 SessionID，相对安全。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-010</strong>（★ 知识点：K2-5） JSON
+的键必须用双引号包裹。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：JSON
+规范要求键必须用双引号，不能用单引号或不加引号。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-011</strong>（★ 知识点：K2-5） JSON
+支持使用单引号表示字符串。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：JSON
+字符串必须用双引号，单引号不合法。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-012</strong>（★ 知识点：K2-5） JSON
+允许在数据中添加注释。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：JSON
+不支持注释。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-013</strong>（★ 知识点：K2-6） RESTful API 中，URL
+的资源部分应使用名词（通常复数）。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：RESTful
+资源用名词复数（如 /api/tasks），操作由 HTTP 方法表达。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-014</strong>（★ 知识点：K2-6） RESTful API
+中，删除资源应使用 GET 方法。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：删除应使用 DELETE
+方法，GET 只用于查询。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-015</strong>（★★ 知识点：K2-2） GET 和 POST
+都是明文传输，要保证安全都需使用 HTTPS。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：GET 和 POST
+本身都不加密，安全传输需靠 HTTPS。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-016</strong>（★★ 知识点：K2-3） HTTP 状态码首位为 5
+表示客户端错误。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：5xx
+表示服务器错误。4xx 才是客户端错误。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-017</strong>（★ 知识点：K2-1） HTTP
+响应报文由状态行、响应头、响应体三部分组成。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：响应报文 = 状态行
++ 响应头 + 响应体。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-018</strong>（★★ 知识点：K2-6） "查询项目 1
+下的任务"可设计为 <code>GET /api/projects/1/tasks</code>，符合 RESTful
+子资源设计。（ ）</p><blockquote>
+<p><strong>答案：正确</strong>
+<strong>解析</strong>：嵌套路径表示子资源关系，符合 RESTful。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-019</strong>（★★ 知识点：K2-4）
+前后端分离项目更倾向使用 Token 而非 Session，因为 Token
+是无状态的，便于服务器扩展。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：Token
+无状态，服务器不存会话，多服务器部署无需共享 Session。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-判断-020</strong>（★★ 知识点：K2-5） JSON 数据
+<code>{"name":"张三","age":20,}</code> 是合法的。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：JSON
+不允许最后一个键值对后有尾逗号，此 JSON 非法。</p>
+</blockquote></section>
+<hr />
+<h2 id="三填空题共-10-题每题-2-分">三、填空题（共 10 题，每题 2
+分）</h2>
+<section class="question-card"><p><strong>02-填空-001</strong>（★ 知识点：K2-1） HTTP
+请求报文由________、________和请求体三部分组成。</p><blockquote>
+<p><strong>答案</strong>：请求行；请求头 <strong>解析</strong>：请求报文
+= 请求行 + 请求头 + 请求体。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-填空-002</strong>（★ 知识点：K2-1） HTTP
+响应报文由________、响应头和________三部分组成。</p><blockquote>
+<p><strong>答案</strong>：状态行；响应体 <strong>解析</strong>：响应报文
+= 状态行 + 响应头 + 响应体。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-填空-003</strong>（★ 知识点：K2-2） HTTP
+请求方法中，用于查询的是________，用于新增的是________，用于更新的是________，用于删除的是________。</p><blockquote>
+<p><strong>答案</strong>：GET；POST；PUT；DELETE
+<strong>解析</strong>：GET 查询、POST 新增、PUT 更新、DELETE 删除。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-填空-004</strong>（★ 知识点：K2-3） HTTP
+状态码中，表示请求成功的是________，表示未认证的是________，表示已认证但无权限的是________，表示资源不存在的是________。</p><blockquote>
+<p><strong>答案</strong>：200；401；403；404 <strong>解析</strong>：200
+成功、401 未认证、403 无权限、404 资源不存在。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-填空-005</strong>（★ 知识点：K2-4） Cookie
+存储在________端，Session 存储在________端。</p><blockquote>
+<p><strong>答案</strong>：客户（浏览器）；服务（服务器）
+<strong>解析</strong>：Cookie 存客户端，Session 存服务器端。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-填空-006</strong>（★ 知识点：K2-5） JSON
+中，对象用________包裹，数组用________包裹。</p><blockquote>
+<p><strong>答案</strong>：<code>{}</code>；<code>[]</code>
+<strong>解析</strong>：JSON 对象用花括号，数组用方括号。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-填空-007</strong>（★ 知识点：K2-5） JSON
+的键和字符串必须使用________引号（填"单"或"双"）。</p><blockquote>
+<p><strong>答案</strong>：双 <strong>解析</strong>：JSON
+规范要求键和字符串用双引号，单引号不合法。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-填空-008</strong>（★ 知识点：K2-6） RESTful API 中，URL
+的资源部分应使用________（填"动词"或"名词"），操作由________表达。</p><blockquote>
+<p><strong>答案</strong>：名词；HTTP 方法（请求方法）
+<strong>解析</strong>：资源用名词（复数），操作由 HTTP 方法表达。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-填空-009</strong>（★★ 知识点：K2-2） HTTP
+方法的幂等性中，________方法是幂等的，________方法是非幂等的（各举一例）。</p><blockquote>
+<p><strong>答案</strong>：GET（或 PUT、DELETE）；POST
+<strong>解析</strong>：GET/PUT/DELETE 幂等，POST
+非幂等。第一空答任一幂等方法均可。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-填空-010</strong>（★ 知识点：K2-4） HTTP
+请求头________用于表示请求体的数据类型，当请求体为 JSON
+时其值为________。</p><blockquote>
+<p><strong>答案</strong>：Content-Type；application/json
+<strong>解析</strong>：Content-Type 表示数据类型，JSON 对应
+application/json。</p>
+</blockquote></section>
+<hr />
+<h2 id="四论述题--简答题共-4-题">四、论述题 / 简答题（共 4 题）</h2>
+<section class="question-card"><p><strong>02-简答-001</strong>（★★ 知识点：K2-2，分值：8 分）
+请从语义、参数位置、幂等性、安全性（加密层面）四个方面说明 GET 与 POST
+的区别。</p><blockquote>
+<p><strong>参考答案要点</strong>：</p>
+<ol type="1">
+<li><strong>语义</strong>（2 分）：GET 用于查询资源，POST
+用于新增资源。</li>
+<li><strong>参数位置</strong>（2 分）：GET 参数放在 URL 的 query string
+中；POST 参数放在请求体中。</li>
+<li><strong>幂等性</strong>（2 分）：GET
+是幂等的（多次查询结果相同）；POST
+是非幂等的（多次提交会创建多条数据）。</li>
+<li><strong>安全性（加密层面）</strong>（2 分）：GET 和 POST
+本身都是明文传输，加密层面无区别，要安全都需使用 HTTPS。（注：GET
+参数暴露在 URL，相对更容易被看到，但这不是加密层面的区别。）</li>
+</ol>
+<p><strong>评分标准</strong>：每方面 2 分，共 8 分。第 4
+点需点明"两者都明文传输、需 HTTPS 才安全"，仅说"GET 不安全 POST
+安全"不给分。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-简答-002</strong>（★★ 知识点：K2-3，分值：6 分） 请说明
+HTTP 状态码 401 与 403 的区别，并各举一个 CTTS 系统中的应用场景。</p><blockquote>
+<p><strong>参考答案要点</strong>：</p>
+<ol type="1">
+<li><strong>区别</strong>（3 分）：
+<ul>
+<li>401 Unauthorized：未认证——服务器不知道用户身份（未登录、未带 Token
+或 Token 失效）。</li>
+<li>403
+Forbidden：已认证但无权限——服务器知道用户是谁，但该用户没有权限执行此操作。</li>
+</ul></li>
+<li><strong>CTTS 场景</strong>（每场景 1.5 分，共 3 分）：
+<ul>
+<li>401 场景：学生未登录就直接访问"查看任务列表"接口 → 返回 401。</li>
+<li>403
+场景：学生已登录，但尝试调用"删除任务"接口（只有教师/管理员可删）→ 返回
+403。</li>
+</ul></li>
+</ol>
+<p><strong>评分标准</strong>：区别 3 分 + 场景 3 分 = 6
+分。区别部分需点出"401 是未认证、403 是已认证无权限"这一关键区分。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-简答-003</strong>（★★ 知识点：K2-4，分值：6 分） 请说明
+Cookie 和 Session 的区别，并解释为什么前后端分离项目更倾向使用 Token
+而非 Session。</p><blockquote>
+<p><strong>参考答案要点</strong>：</p>
+<ol type="1">
+<li><strong>Cookie 与 Session 区别</strong>（3 分）：
+<ul>
+<li>存储位置：Cookie 存客户端（浏览器），Session 存服务器端。</li>
+<li>安全性：Session 更安全（数据在服务器），Cookie
+在客户端可被查看篡改。</li>
+<li>依赖关系：Session 通常通过 Cookie 传递 SessionID。</li>
+</ul></li>
+<li><strong>前后端分离倾向 Token 的原因</strong>（3 分）：
+<ul>
+<li>Session 存在服务器，多服务器部署时需共享 Session（复杂）；</li>
+<li>Token（如 JWT）是无状态的，服务器不存会话数据，客户端携带即可；</li>
+<li>Token 便于跨域、多端（网页/APP/小程序）统一认证，利于系统扩展。</li>
+</ul></li>
+</ol>
+<p><strong>评分标准</strong>：区别 3 分 + Token 原因 3 分 = 6 分。Token
+原因需点出"无状态""便于扩展"关键点。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-简答-004</strong>（★★★ 知识点：K2-6，分值：10 分） 请阐述
+RESTful API 的核心设计原则，并为 CTTS
+的"实训项目（project）"资源设计一套完整的 CRUD
+接口（含方法、路径、说明）。</p><blockquote>
+<p><strong>参考答案要点</strong>：</p>
+<ol type="1">
+<li><strong>RESTful 核心原则</strong>（4 分，每点 1 分）：
+<ul>
+<li>资源用名词（通常复数），如 /api/projects；</li>
+<li>用 HTTP 方法表达操作（GET 查、POST 增、PUT 改、DELETE 删）；</li>
+<li>资源 ID 用路径参数，如 /api/projects/5；</li>
+<li>无状态、统一 JSON 响应格式。</li>
+</ul></li>
+<li><strong>project 资源 CRUD 接口设计</strong>（每接口 1.5 分，共 6
+分）： | 操作 | 方法 | 路径 | 说明 | | --- | --- | --- | --- | |
+查询列表 | GET | /api/projects | 获取项目列表 | | 查询单个 | GET |
+/api/projects/5 | 获取 id=5 的项目 | | 新增 | POST | /api/projects |
+请求体带新项目数据 | | 更新 | PUT | /api/projects/5 | 请求体带更新数据 |
+| 删除 | DELETE | /api/projects/5 | 删除 id=5 的项目 | （注：答出 4
+个即给满分 6 分，需含方法+路径+说明）</li>
+</ol>
+<p><strong>评分标准</strong>：原则 4 分 + 接口设计 6 分 = 10
+分。接口需方法与路径匹配正确（如 GET 查询、POST
+新增），路径用名词复数+路径参数。</p>
+</blockquote></section>
+<hr />
+<h2 id="五程序阅读--补全题共-2-题">五、程序阅读 / 补全题（共 2 题）</h2>
+<section class="question-card"><p><strong>02-程序-001</strong>（★★ 知识点：K2-1/K2-3/K2-5，分值：12
+分） 阅读以下完整的 HTTP 请求与响应报文，回答问题。</p>
+<pre><code>===== HTTP 请求 =====
+POST /api/tasks HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 68
+
+{&quot;title&quot;:&quot;实现登录接口&quot;,&quot;projectId&quot;:1,&quot;deadline&quot;:&quot;2026-08-10&quot;}
+
+
+===== HTTP 响应 =====
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{&quot;code&quot;:201,&quot;message&quot;:&quot;创建成功&quot;,&quot;data&quot;:{&quot;id&quot;:101}}</code></pre>
+<p><strong>问题</strong>： （1）该请求使用的 HTTP
+方法是什么？请求路径是什么？（2 分）
+（2）请求行是哪一行？请完整写出。（2 分）
+（3）该请求的请求体是什么格式？包含哪些字段？（3 分）
+（4）响应的状态码是多少？表示什么含义？（2 分）
+（5）响应体是什么格式？包含哪些字段？（3 分）</p><blockquote>
+<p><strong>参考答案</strong>： （1）方法：POST（1
+分）；路径：/api/tasks（1 分）。
+（2）请求行：<code>POST /api/tasks HTTP/1.1</code>（2 分）。
+（3）格式：JSON（1 分）；字段：title、projectId、deadline（每个 0.67
+分，共 2 分，满 2 分止；答出全部 3 个给 2 分）。 （4）状态码：201（1
+分）；含义：资源创建成功（Created）（1 分）。 （5）格式：JSON（1
+分）；字段：code、message、data（每个 0.67 分，共 2 分，满 2
+分止）。</p>
+<p><strong>评分标准</strong>：共 12
+分，按小题分值给分。第（3）（5）小题字段需完整答出。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-程序-002</strong>（★★ 知识点：K2-5/K2-6，分值：12 分）
+补全以下 JSON 数据和 RESTful 接口路径中的空缺部分。</p>
+<p><strong>第一部分</strong>：补全 JSON（描述一个学生的提交记录）</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;student&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">①</span> <span class="fu">:</span> <span class="st">&quot;张三&quot;</span><span class="fu">,</span>         <span class="er">//</span> <span class="er">补全键名（学生姓名）</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;studentId&quot;</span><span class="fu">:</span> <span class="dv">1001</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;taskId&quot;</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;content&quot;</span><span class="fu">:</span> <span class="st">&quot;已完成项目搭建&quot;</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;submitTime&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-07-25T14:30:00&quot;</span><span class="fu">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;isReviewed&quot;</span><span class="fu">:</span> <span class="er">②</span>       <span class="er">//</span> <span class="er">补全布尔值（尚未评审）</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><strong>第二部分</strong>：补全 RESTful 接口路径</p>
+<pre><code>// 更新 id=5 的任务
+③    /api/tasks/④      // ③ 补全HTTP方法，④ 补全资源ID</code></pre>
+<p><strong>问题</strong>： （1）① 处应填什么？（2 分） （2）②
+处应填什么？（2 分） （3）③ 处应填什么 HTTP 方法？（3 分） （4）④
+处应填什么？（2 分） （5）"更新 id=5 的任务"为什么用 PUT 而不是 GET？（3
+分）</p><blockquote>
+<p><strong>参考答案</strong>： （1）① 处填 <code>"name"</code>（2
+分）。键必须用双引号，表示学生姓名。 （2）② 处填 <code>false</code>（2
+分）。尚未评审，布尔值为 false。 （3）③ 处填 <code>PUT</code>（3
+分）。更新资源用 PUT 方法。 （4）④ 处填 <code>5</code>（2 分）。任务 ID
+为 5，用路径参数。 （5）GET
+用于查询（无副作用），更新资源会修改数据，应使用 PUT（2 分）；PUT
+表达"更新"语义且是幂等的（1 分）。</p>
+<p><strong>评分标准</strong>：共 12 分，按小题分值给分。①
+必须带双引号才算合法 JSON 键。</p>
+</blockquote></section>
+<hr />
+<h2 id="六编程--接口设计题共-2-题">六、编程 / 接口设计题（共 2 题）</h2>
+<section class="question-card"><p><strong>02-编程-001</strong>（★★ 知识点：K2-6，分值：15 分）
+<strong>题目</strong>：为 CTTS
+系统的"任务提交（submission）"资源设计一套完整的 RESTful CRUD
+接口，并说明每个接口的方法、路径、用途。</p>
+<p><strong>要求</strong>： （1）设计 5
+个接口：查询列表、查询单个、新增（学生提交）、更新（修改提交内容）、删除。（每个
+2.5 分，共 12.5 分） （2）说明你设计中如何体现 RESTful 原则（至少 2
+点）。（2.5 分）</p><blockquote>
+<p><strong>参考答案</strong>： （1）5 个接口设计（每个 2.5
+分，需方法+路径+用途正确）：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>方法</th>
+<th>路径</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查询列表</td>
+<td>GET</td>
+<td>/api/submissions</td>
+<td>获取提交列表</td>
+</tr>
+<tr>
+<td>查询单个</td>
+<td>GET</td>
+<td>/api/submissions/50</td>
+<td>获取 id=50 的提交</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>POST</td>
+<td>/api/submissions</td>
+<td>学生提交任务（请求体带数据）</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>PUT</td>
+<td>/api/submissions/50</td>
+<td>修改 id=50 的提交内容</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>DELETE</td>
+<td>/api/submissions/50</td>
+<td>删除 id=50 的提交</td>
+</tr>
+</tbody>
+</table>
+<p>评分：方法与路径需匹配（GET 查询、POST 新增、PUT 更新、DELETE
+删除），路径用名词复数 submissions + 路径参数 ID。</p>
+<p>（2）体现 RESTful 原则（每点 1.25 分，答出 2 点得 2.5 分）：</p>
+<ul>
+<li>资源用名词复数（submissions）；</li>
+<li>操作用 HTTP 方法区分（GET/POST/PUT/DELETE）；</li>
+<li>资源 ID 用路径参数（/api/submissions/50）；</li>
+<li>无状态、统一 JSON 响应。</li>
+</ul>
+<p><strong>评分标准</strong>：共 15
+分。接口设计需方法与路径正确匹配，路径用名词复数。原则部分答出任意 2
+点给满分。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>02-编程-002</strong>（★★★
+知识点：K2-1/K2-3/K2-5/K2-6，分值：20 分）
+<strong>题目</strong>：综合设计题。CTTS
+系统需要实现"学生提交任务"接口，请完整设计该接口的请求与响应契约，并回答相关问题。</p>
+<p><strong>业务场景</strong>：学生登录后，针对任务 ID=5
+提交自己的实训成果（文本内容），后端记录提交并返回结果。</p>
+<p><strong>要求</strong>： （1）设计该接口的 HTTP 方法和路径（RESTful
+风格）。（3 分） （2）设计请求头（至少写出关键的一个）。（2 分）
+（3）设计请求体 JSON 结构（含必要字段，至少 3 个）。（4 分）
+（4）设计两种响应场景的 JSON 结构与状态码：① 提交成功；② 参数缺失（如
+content 为空）。（6 分）
+（5）如果该学生未登录就调用此接口，应返回什么状态码？为什么？（3 分）
+（6）说明该接口设计如何体现前后端分离的特点。（2 分）</p><blockquote>
+<p><strong>参考答案</strong>： （1）方法：POST（1
+分）；路径：<code>/api/submissions</code>（2 分）。新增提交用
+POST，资源用名词复数。答 POST + /api/submissions 给满分。</p>
+<p>（2）请求头：<code>Content-Type: application/json</code>（2
+分）。表示请求体是 JSON 格式。</p>
+<p>（3）请求体 JSON（4 分，含 3 个必要字段）：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;taskId&quot;</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;studentId&quot;</span><span class="fu">:</span> <span class="dv">1001</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;content&quot;</span><span class="fu">:</span> <span class="st">&quot;已完成项目搭建，代码已提交&quot;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>评分：含 taskId、studentId、content 三个字段（每个 1 分），格式为合法
+JSON（1 分）。</p>
+<p>（4）两种响应（每个 3 分，共 6 分）： ① 提交成功（状态码 201 或
+200）：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;code&quot;</span><span class="fu">:</span> <span class="dv">201</span><span class="fu">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;message&quot;</span><span class="fu">:</span> <span class="st">&quot;提交成功&quot;</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;data&quot;</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">&quot;submissionId&quot;</span><span class="fu">:</span> <span class="dv">501</span><span class="fu">,</span> <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;已提交&quot;</span><span class="fu">}</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>② 参数缺失（状态码 400）：</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;code&quot;</span><span class="fu">:</span> <span class="dv">400</span><span class="fu">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;message&quot;</span><span class="fu">:</span> <span class="st">&quot;提交内容不能为空&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>评分：每个场景需状态码正确（201/200 与 400）+ JSON 结构含
+code/message（各 1.5 分）。</p>
+<p>（5）状态码：401（1
+分）。原因：未登录即未认证，服务器不知道用户身份，应返回 401
+Unauthorized（2 分）。</p>
+<p>（6）体现前后端分离（2 分）：后端只返回 JSON 数据，不返回 HTML
+页面，前端拿到 JSON 后自行渲染结果（1 分）；前后端通过 API
+契约（接口文档）协作（1 分）。</p>
+<p><strong>评分标准</strong>：共 20 分，按小题分值给分。第（1）题必须
+POST + 名词复数路径；第（4）题两种场景状态码必须正确（成功
+201/200，参数错误 400）；第（5）题必须答 401 而非
+403（未登录是未认证）。本题考察 HTTP 协议、状态码、JSON、RESTful
+的综合应用。</p>
+</blockquote></section>
+<hr />
+<h2 id="题库统计与组卷说明">题库统计与组卷说明</h2>
+<h3 id="题量统计">题量统计</h3>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>数量</th>
+<th>分值</th>
+<th>小计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>选择题（单选 30 + 多选 10）</td>
+<td>40</td>
+<td>每题 2 分</td>
+<td>80 分</td>
+</tr>
+<tr>
+<td>判断题</td>
+<td>20</td>
+<td>每题 1 分</td>
+<td>20 分</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>10</td>
+<td>每题 2 分</td>
+<td>20 分</td>
+</tr>
+<tr>
+<td>论述/简答题</td>
+<td>4</td>
+<td>6~10 分</td>
+<td>30 分</td>
+</tr>
+<tr>
+<td>程序阅读/补全题</td>
+<td>2</td>
+<td>12 分</td>
+<td>24 分</td>
+</tr>
+<tr>
+<td>编程/接口设计题</td>
+<td>2</td>
+<td>15~20 分</td>
+<td>35 分</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td>—</td>
+<td><strong>209 分</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="难度分布">难度分布</h3>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>题量（约）</th>
+<th>占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>★ 基础</td>
+<td>40</td>
+<td>51%</td>
+</tr>
+<tr>
+<td>★★ 提高</td>
+<td>30</td>
+<td>39%</td>
+</tr>
+<tr>
+<td>★★★ 综合</td>
+<td>8</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="知识点覆盖">知识点覆盖</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>覆盖题数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K2-1 HTTP 协议与报文结构</td>
+<td>14</td>
+</tr>
+<tr>
+<td>K2-2 URL 与请求方法</td>
+<td>16</td>
+</tr>
+<tr>
+<td>K2-3 HTTP 状态码</td>
+<td>14</td>
+</tr>
+<tr>
+<td>K2-4 Header/Cookie/Session</td>
+<td>12</td>
+</tr>
+<tr>
+<td>K2-5 JSON 数据格式</td>
+<td>14</td>
+</tr>
+<tr>
+<td>K2-6 RESTful API 设计</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>本题库已确保每题答案唯一明确、无歧义选项、不靠文字游戏，全部含解析，主观题含评分标准，可直接录入考试系统题库。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

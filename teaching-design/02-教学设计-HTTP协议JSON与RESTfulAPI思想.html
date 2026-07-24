@@ -1,0 +1,496 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTTP协议JSON与RESTfulAPI思想</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 02 次课 · 教学设计</div>
+      <h1>HTTP协议JSON与RESTfulAPI思想</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 02 次课</span>
+        <span class="hero-chip"><b>主题</b>HTTP协议JSON与RESTfulAPI思想</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#索质目标课程思政">索质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务或案例任务">四、项目任务或案例任务</a>
+<ul>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动-1课前-5-分钟回顾讨论">互动 1：课前 5 分钟回顾讨论</a></li>
+<li><a href="#互动-2api-路径设计投票讲解-k2-6-后">互动 2：API 路径设计投票（讲解 K2-6 后）</a></li>
+<li><a href="#互动-3状态码连连看讲解-k2-3-后">互动 3：状态码连连看（讲解 K2-3 后）</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习或随堂测验">七、课堂练习或随堂测验</a>
+<ul>
+<li><a href="#随堂练习5-分钟">随堂练习（5 分钟）</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+</ul></li>
+<li><a href="#九对应岗位能力或面试考点">九、对应岗位能力或面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 02 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>所属模块：M1 Web 后端开发认知 ｜ 课程：《JavaWeb 后端开发技术》
+配套资料：见同文件夹内
+<code>教学资料.md</code>（学生复习资料）、<code>题库.md</code>（78
+题考试题库）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>次序</td>
+<td>第 2 次课（全课程 24 次之第 2）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>理论课</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M1 Web 后端开发认知</td>
+</tr>
+<tr>
+<td>教学主题</td>
+<td>HTTP 协议、JSON 与 RESTful API 思想</td>
+</tr>
+<tr>
+<td>先修基础</td>
+<td>第 1 次课（后端开发认知、B/S 架构、前后端分离）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>理解 HTTP 协议的请求-响应模型，掌握 HTTP
+请求报文与响应报文的结构。</li>
+<li>掌握 URL 的组成，理解 GET/POST/PUT/DELETE 等请求方法的语义。</li>
+<li>掌握常见 HTTP 状态码的含义（200/400/401/403/404/500 等）。</li>
+<li>理解 Header、Cookie、Session 的概念与作用。</li>
+<li>掌握 JSON 数据格式的语法与数据类型。</li>
+<li>理解 RESTful API 的设计思想，能区分 RESTful 与非 RESTful
+接口设计。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够阅读并分析一个 HTTP 请求与响应报文的各组成部分。</li>
+<li>能够根据业务场景选择合适的 HTTP 方法和状态码。</li>
+<li>能够编写规范的 JSON 数据结构。</li>
+<li>能够对同一业务设计 RESTful 风格的接口路径，并说明设计理由。</li>
+</ol>
+<h3 id="索质目标课程思政">索质目标（课程思政）</h3>
+<ol type="1">
+<li>建立"接口契约"意识——良好的接口设计是前后端协作的基础，体现职业责任。</li>
+<li>培养规范意识——遵循 HTTP 语义与 RESTful
+约定，是工程师的基本素养。</li>
+<li>树立"用户体验"视角——合理的状态码与错误信息让前端与用户更易理解问题。</li>
+</ol>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<blockquote>
+<p>详细讲解内容见同文件夹 <code>教学资料.md</code>，此处为纲要。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K2-1</td>
+<td>HTTP 协议与报文结构</td>
+<td>请求-响应模型；请求行/请求头/请求体；状态行/响应头/响应体</td>
+</tr>
+<tr>
+<td>K2-2</td>
+<td>URL 与请求方法</td>
+<td>URL 组成（协议/主机/端口/路径/参数）；GET/POST/PUT/DELETE 语义</td>
+</tr>
+<tr>
+<td>K2-3</td>
+<td>HTTP 状态码</td>
+<td>1xx/2xx/3xx/4xx/5xx 分类；200/201/400/401/403/404/500 常用码</td>
+</tr>
+<tr>
+<td>K2-4</td>
+<td>Header / Cookie / Session</td>
+<td>常见请求头/响应头；Cookie 与 Session 的区别与联系</td>
+</tr>
+<tr>
+<td>K2-5</td>
+<td>JSON 数据格式</td>
+<td>JSON
+语法、数据类型（对象/数组/字符串/数字/布尔/null）、嵌套结构</td>
+</tr>
+<tr>
+<td>K2-6</td>
+<td>RESTful API 设计思想</td>
+<td>资源化路径、用 HTTP 方法表达操作、无状态、统一接口</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务或案例任务">四、项目任务或案例任务</h2>
+<h3
+id="贯穿项目任务用-apifox-分析公开-api-的请求与响应">贯穿项目任务：用
+Apifox 分析公开 API 的请求与响应</h3>
+<p><strong>本次课任务</strong>：</p>
+<ol type="1">
+<li>教师演示用 Apifox 访问一个公开 API（如模拟的 CTTS 接口
+<code>GET /api/projects/list</code>），分析其请求行、请求头、响应状态码、响应体（JSON）。</li>
+<li>学生使用 Apifox
+自行访问教师提供的测试接口，记录并提交：请求方法、URL、请求头、响应状态码、响应
+JSON 结构。</li>
+<li>课堂互动环节：对"管理任务"这一业务，设计 RESTful
+接口路径并投票。</li>
+</ol>
+<blockquote>
+<p>📌 本节课不写 Java 代码，重点是理解 HTTP 协议与 RESTful
+设计。动手写接口从第 3 次课开始。</p>
+</blockquote>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3 id="互动-1课前-5-分钟回顾讨论">互动 1：课前 5 分钟回顾讨论</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"上节课我们说前后端分离后后端返回
+JSON。那前端到底是怎么把请求发给后端的？后端又是怎么知道请求对不对的？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>自由发言，引出 HTTP 协议</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>提到"网址""请求""网址带参数""网页报错 404"等</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>肯定学生已有认知，引出 HTTP 协议是前后端通信的语言</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-2api-路径设计投票讲解-k2-6-后">互动 2：API
+路径设计投票（讲解 K2-6 后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动任务</td>
+<td>对"删除一个任务"这个操作，给出 4
+种接口设计方案让学生投票，讨论哪种是 RESTful：<br>A.
+<code>GET /api/deleteTask?id=5</code><br>B.
+<code>POST /api/tasks/delete?id=5</code><br>C.
+<code>DELETE /api/tasks/5</code><br>D.
+<code>POST /api/tasks/5/delete</code></td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>全班投票 → 选 C 的学生陈述理由 → 教师点评</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>能识别 C 是 RESTful（DELETE 方法 + 资源路径 + 资源 ID）</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>强调 RESTful 三要素：资源用名词、操作用 HTTP 方法、ID 用路径参数；C
+最规范</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-3状态码连连看讲解-k2-3-后">互动 3：状态码连连看（讲解 K2-3
+后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动任务</td>
+<td>给出 6 个场景，让学生匹配对应状态码：<br>① 请求成功返回数据 ②
+资源不存在 ③ 未登录 ④ 已登录但无权限 ⑤ 服务器内部错误 ⑥ 参数错误</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>教师报场景，学生抢答状态码</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>①200 ②404 ③401 ④403 ⑤500 ⑥400</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>强调 401（未认证）与
+403（已认证但无权限）的区别，这是面试高频考点</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融入点</td>
+<td>接口设计责任：良好的接口契约是前后端协作的基础</td>
+</tr>
+<tr>
+<td>技术关联</td>
+<td>RESTful 设计遵循 HTTP
+语义，让接口可读、可维护、可预测；状态码准确反馈问题</td>
+</tr>
+<tr>
+<td>引导问题</td>
+<td>"如果接口路径乱起名、状态码乱返回，前端同事会怎样？用户会看到什么？"</td>
+</tr>
+<tr>
+<td>预期价值目标</td>
+<td>培养规范意识与职业责任——接口不仅是给自己写的，更是给协作团队和用户用的</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="七课堂练习或随堂测验">七、课堂练习或随堂测验</h2>
+<h3 id="随堂练习5-分钟">随堂练习（5 分钟）</h3>
+<p><strong>选择题（口头作答）</strong>：</p>
+<ol type="1">
+<li>查询数据应使用哪个 HTTP 方法？（GET）</li>
+<li>服务器内部错误对应的状态码是？（500）</li>
+<li>下列哪个是合法的
+JSON？（<code>{"name":"张三","age":20}</code>）</li>
+</ol>
+<blockquote>
+<p>详细题目与解析见
+<code>题库.md</code>。此处仅作课堂快速互动，不计分。</p>
+</blockquote>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<ol type="1">
+<li><strong>阅读</strong>：通读同文件夹
+<code>教学资料.md</code>，重点掌握 HTTP 报文结构、状态码、JSON
+语法、RESTful 设计。</li>
+<li><strong>实操</strong>：安装 Apifox 或
+Postman，访问教师提供的测试接口，截图提交请求与响应分析。</li>
+<li><strong>设计练习</strong>：为 CTTS
+的"学生""任务""提交"三个资源，各设计一套 CRUD 的 RESTful 接口路径（共约
+12 个接口），下次课抽查。</li>
+<li><strong>JSON 练习</strong>：手写一段描述"一个学生提交了一个任务"的
+JSON 数据，包含学生信息、任务信息、提交内容、提交时间。</li>
+<li><strong>思考</strong>：Cookie 和 Session
+有什么区别？为什么前后端分离后更倾向用 Token 而非 Session？（为第 6
+模块铺垫）</li>
+</ol>
+<hr />
+<h2 id="九对应岗位能力或面试考点">九、对应岗位能力或面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>岗位能力/面试考点</th>
+<th>本次课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTP 请求报文与响应报文结构（面试高频）</td>
+<td>K2-1</td>
+</tr>
+<tr>
+<td>GET 与 POST 的区别（面试经典题）</td>
+<td>K2-2</td>
+</tr>
+<tr>
+<td>常见状态码含义（401/403 区别是高频考点）</td>
+<td>K2-3</td>
+</tr>
+<tr>
+<td>Cookie 与 Session 的区别（面试常考）</td>
+<td>K2-4</td>
+</tr>
+<tr>
+<td>JSON 数据格式（后端开发基础）</td>
+<td>K2-5</td>
+</tr>
+<tr>
+<td>RESTful API 设计原则（接口设计核心能力）</td>
+<td>K2-6</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面试常考"GET 和 POST 的区别""401 和 403 的区别""什么是
+RESTful""Cookie 和 Session 区别"等，均属本次课范围。</p>
+</blockquote>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生复习资料</td>
+<td><code>教学资料.md</code>（同文件夹）</td>
+<td>6 个知识点详解 + HTTP 报文/JSON/RESTful 完整示例 + 思维导图 +
+复习思考题</td>
+</tr>
+<tr>
+<td>考试题库</td>
+<td><code>题库.md</code>（同文件夹）</td>
+<td>78 题（40 选择 + 20 判断 + 10 填空 + 4 论述简答 + 2 程序阅读补全 + 2
+编程接口设计），含答案解析与评分标准</td>
+</tr>
+<tr>
+<td>课程总览</td>
+<td><code>../00 课程设计总览.md</code></td>
+<td>课程整体框架与 24 次课进度</td>
+</tr>
+<tr>
+<td>上次课资料</td>
+<td><code>../01 Web后端开发认知与课程项目导入/教学资料.md</code></td>
+<td>后端开发认知（前置知识）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~10 min</td>
+<td>课前回顾讨论 + 导入 HTTP 协议</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>10~30 min</td>
+<td>知识点 K2-1、K2-2：HTTP 报文结构 + URL 与请求方法</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>30~45 min</td>
+<td>知识点 K2-3、K2-4：状态码 + Header/Cookie/Session +
+状态码连连看</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>45~60 min</td>
+<td>知识点 K2-5：JSON 数据格式 + 示例演示</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>60~80 min</td>
+<td>知识点 K2-6：RESTful API 设计 + 路径设计投票互动 + Apifox 演示</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>80~85 min</td>
+<td>随堂练习</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>85~90 min</td>
+<td>小结 + 课后任务布置</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

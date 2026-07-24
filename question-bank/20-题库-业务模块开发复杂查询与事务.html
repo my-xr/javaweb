@@ -1,0 +1,1676 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>业务模块开发复杂查询与事务</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 20 次课 · 题库</div>
+      <h1>业务模块开发复杂查询与事务</h1>
+      <p>面向练习、测验、考试与参考解析 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 20 次课</span>
+        <span class="hero-chip"><b>主题</b>业务模块开发复杂查询与事务</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一单项选择题30题">一、单项选择题（30题）</a>
+<ul>
+<li><a href="#20-单选-01-">20-单选-01 ★</a></li>
+<li><a href="#20-单选-02-">20-单选-02 ★</a></li>
+<li><a href="#20-单选-03-">20-单选-03 ★★</a></li>
+<li><a href="#20-单选-04-">20-单选-04 ★</a></li>
+<li><a href="#20-单选-05-">20-单选-05 ★★</a></li>
+<li><a href="#20-单选-06-">20-单选-06 ★</a></li>
+<li><a href="#20-单选-07-">20-单选-07 ★★</a></li>
+<li><a href="#20-单选-08-">20-单选-08 ★★</a></li>
+<li><a href="#20-单选-09-">20-单选-09 ★★★</a></li>
+<li><a href="#20-单选-10-">20-单选-10 ★★</a></li>
+<li><a href="#20-单选-11-">20-单选-11 ★★</a></li>
+<li><a href="#20-单选-12-">20-单选-12 ★</a></li>
+<li><a href="#20-单选-13-">20-单选-13 ★★</a></li>
+<li><a href="#20-单选-14-">20-单选-14 ★</a></li>
+<li><a href="#20-单选-15-">20-单选-15 ★★</a></li>
+<li><a href="#20-单选-16-">20-单选-16 ★★★</a></li>
+<li><a href="#20-单选-17-">20-单选-17 ★★</a></li>
+<li><a href="#20-单选-18-">20-单选-18 ★</a></li>
+<li><a href="#20-单选-19-">20-单选-19 ★★</a></li>
+<li><a href="#20-单选-20-">20-单选-20 ★★</a></li>
+<li><a href="#20-单选-21-">20-单选-21 ★</a></li>
+<li><a href="#20-单选-22-">20-单选-22 ★★★</a></li>
+<li><a href="#20-单选-23-">20-单选-23 ★★</a></li>
+<li><a href="#20-单选-24-">20-单选-24 ★★</a></li>
+<li><a href="#20-单选-25-">20-单选-25 ★</a></li>
+<li><a href="#20-单选-26-">20-单选-26 ★★★</a></li>
+<li><a href="#20-单选-27-">20-单选-27 ★★</a></li>
+<li><a href="#20-单选-28-">20-单选-28 ★</a></li>
+<li><a href="#20-单选-29-">20-单选-29 ★★</a></li>
+<li><a href="#20-单选-30-">20-单选-30 ★★★</a></li>
+</ul></li>
+<li><a href="#二多项选择题10题">二、多项选择题（10题）</a>
+<ul>
+<li><a href="#20-多选-01-">20-多选-01 ★★</a></li>
+<li><a href="#20-多选-02-">20-多选-02 ★★</a></li>
+<li><a href="#20-多选-03-">20-多选-03 ★★</a></li>
+<li><a href="#20-多选-04-">20-多选-04 ★★</a></li>
+<li><a href="#20-多选-05-">20-多选-05 ★★★</a></li>
+<li><a href="#20-多选-06-">20-多选-06 ★★</a></li>
+<li><a href="#20-多选-07-">20-多选-07 ★★</a></li>
+<li><a href="#20-多选-08-">20-多选-08 ★★★</a></li>
+<li><a href="#20-多选-09-">20-多选-09 ★★</a></li>
+<li><a href="#20-多选-10-">20-多选-10 ★★</a></li>
+</ul></li>
+<li><a href="#三判断题20题">三、判断题（20题）</a>
+<ul>
+<li><a href="#20-判断-01-">20-判断-01 ★</a></li>
+<li><a href="#20-判断-02-">20-判断-02 ★</a></li>
+<li><a href="#20-判断-03-">20-判断-03 ★</a></li>
+<li><a href="#20-判断-04-">20-判断-04 ★★</a></li>
+<li><a href="#20-判断-05-">20-判断-05 ★★</a></li>
+<li><a href="#20-判断-06-">20-判断-06 ★★</a></li>
+<li><a href="#20-判断-07-">20-判断-07 ★★</a></li>
+<li><a href="#20-判断-08-">20-判断-08 ★</a></li>
+<li><a href="#20-判断-09-">20-判断-09 ★★★</a></li>
+<li><a href="#20-判断-10-">20-判断-10 ★</a></li>
+<li><a href="#20-判断-11-">20-判断-11 ★</a></li>
+<li><a href="#20-判断-12-">20-判断-12 ★★</a></li>
+<li><a href="#20-判断-13-">20-判断-13 ★★</a></li>
+<li><a href="#20-判断-14-">20-判断-14 ★★</a></li>
+<li><a href="#20-判断-15-">20-判断-15 ★</a></li>
+<li><a href="#20-判断-16-">20-判断-16 ★★★</a></li>
+<li><a href="#20-判断-17-">20-判断-17 ★★</a></li>
+<li><a href="#20-判断-18-">20-判断-18 ★★</a></li>
+<li><a href="#20-判断-19-">20-判断-19 ★★</a></li>
+<li><a href="#20-判断-20-">20-判断-20 ★★</a></li>
+</ul></li>
+<li><a href="#四填空题10题">四、填空题（10题）</a>
+<ul>
+<li><a href="#20-填空-01-">20-填空-01 ★</a></li>
+<li><a href="#20-填空-02-">20-填空-02 ★</a></li>
+<li><a href="#20-填空-03-">20-填空-03 ★★</a></li>
+<li><a href="#20-填空-04-">20-填空-04 ★★</a></li>
+<li><a href="#20-填空-05-">20-填空-05 ★★</a></li>
+<li><a href="#20-填空-06-">20-填空-06 ★★</a></li>
+<li><a href="#20-填空-07-">20-填空-07 ★★</a></li>
+<li><a href="#20-填空-08-">20-填空-08 ★★</a></li>
+<li><a href="#20-填空-09-">20-填空-09 ★★★</a></li>
+<li><a href="#20-填空-10-">20-填空-10 ★★</a></li>
+</ul></li>
+<li><a href="#五论述简答题4题">五、论述简答题（4题）</a>
+<ul>
+<li><a href="#20-论述-01-">20-论述-01 ★★</a></li>
+<li><a href="#20-论述-02-">20-论述-02 ★★</a></li>
+<li><a href="#20-论述-03-">20-论述-03 ★★</a></li>
+<li><a href="#20-论述-04-">20-论述-04 ★★★</a></li>
+</ul></li>
+<li><a href="#六程序阅读与补全题2题">六、程序阅读与补全题（2题）</a>
+<ul>
+<li><a href="#20-程序-01-">20-程序-01 ★★</a></li>
+<li><a href="#20-程序-02-">20-程序-02 ★★★</a></li>
+</ul></li>
+<li><a href="#七编程接口设计题2题">七、编程接口设计题（2题）</a>
+<ul>
+<li><a href="#20-编程-01-">20-编程-01 ★★★</a></li>
+<li><a href="#20-编程-02-">20-编程-02 ★★★</a></li>
+</ul></li>
+<li><a href="#附题目统计表">附：题目统计表</a>
+<ul>
+<li><a href="#知识点覆盖统计">知识点覆盖统计</a></li>
+<li><a href="#难度分布统计">难度分布统计</a></li>
+<li><a href="#建议组卷方案">建议组卷方案</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 20 次课 <span>｜</span> <strong>文档：</strong>题库</p>
+<blockquote>
+<p>项目载体：CTTS 校园实训任务管理系统 技术栈：Java 17 + Spring Boot 3.x
++ MyBatis-Plus + MySQL 题目编号规则：<code>20-题型-序号</code>（20 =
+第20次课） 难度标识：★（基础）/ ★★（中等）/ ★★★（进阶） 共 78 题：30
+单选 + 10 多选 + 20 判断 + 10 填空 + 4 论述简答 + 2 程序阅读补全 + 2
+编程接口设计</p>
+</blockquote>
+<hr />
+<h2 id="一单项选择题30题">一、单项选择题（30题）</h2>
+<h3 id="20-单选-01-">20-单选-01 ★</h3>
+<p><strong>题目</strong>：MyBatis-Plus 的 <code>QueryWrapper</code>
+中，以下哪个方法用于拼接 <code>LIKE '%value'</code>（前模糊）？</p>
+<ul>
+<li>A. <code>likeLeft</code></li>
+<li>B. <code>likeRight</code></li>
+<li>C. <code>like</code></li>
+<li>D. <code>notLike</code></li>
+</ul>
+<p><strong>答案</strong>：A <strong>解析</strong>：<code>likeLeft</code>
+生成
+<code>LIKE '%value'</code>（百分号在左，匹配结尾），<code>likeRight</code>
+生成 <code>LIKE 'value%'</code>，<code>like</code> 生成
+<code>LIKE '%value%'</code>。</p>
+<h3 id="20-单选-02-">20-单选-02 ★</h3>
+<p><strong>题目</strong>：以下 QueryWrapper 代码生成的 WHERE
+子句是？</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>wrapper<span class="op">.</span><span class="fu">eq</span><span class="op">(</span><span class="st">&quot;status&quot;</span><span class="op">,</span> <span class="dv">2</span><span class="op">)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       <span class="op">.</span><span class="fu">like</span><span class="op">(</span><span class="st">&quot;name&quot;</span><span class="op">,</span> <span class="st">&quot;张三&quot;</span><span class="op">)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>       <span class="op">.</span><span class="fu">or</span><span class="op">().</span><span class="fu">eq</span><span class="op">(</span><span class="st">&quot;name&quot;</span><span class="op">,</span> <span class="st">&quot;李四&quot;</span><span class="op">);</span></span></code></pre></div>
+<ul>
+<li>A.
+<code>WHERE status = 2 AND name LIKE '%张三%' AND name = '李四'</code></li>
+<li>B.
+<code>WHERE (status = 2 AND name LIKE '%张三%') OR name = '李四'</code></li>
+<li>C.
+<code>WHERE status = 2 AND (name LIKE '%张三%' OR name = '李四')</code></li>
+<li>D.
+<code>WHERE status = 2 AND name LIKE '%张三%' OR name = '李四'</code></li>
+</ul>
+<p><strong>答案</strong>：D <strong>解析</strong>：<code>or()</code>
+只改变下一个条件的连接符为 OR，不会自动加括号。SQL 中 AND 优先级高于
+OR，所以生成
+<code>status=2 AND name LIKE '%张三%' OR name='李四'</code>。注意 D 与 B
+语义相同，但 D 是 SQL 原样输出形式。如果要得到 C 的语义，必须用
+<code>wrapper.and(w -&gt; w.like("name","张三").or().eq("name","李四"))</code>。</p>
+<h3 id="20-单选-03-">20-单选-03 ★★</h3>
+<p><strong>题目</strong>：要实现"查询状态为2，且姓名是张三或李四的记录"，以下写法正确的是？</p>
+<ul>
+<li>A.
+<code>wrapper.eq("status",2).like("name","张三").or().eq("name","李四")</code></li>
+<li>B.
+<code>wrapper.eq("status",2).and(w -&gt; w.eq("name","张三").or().eq("name","李四"))</code></li>
+<li>C.
+<code>wrapper.eq("status",2).or(w -&gt; w.eq("name","张三").eq("name","李四"))</code></li>
+<li>D.
+<code>wrapper.and(w -&gt; w.eq("status",2)).or().eq("name","张三").eq("name","李四")</code></li>
+</ul>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：<code>and(lambda)</code> 会对 lambda
+内的条件整体加括号，生成
+<code>status=2 AND (name='张三' OR name='李四')</code>，符合需求。A
+丢括号导致优先级错乱；C 用 or(lambda) 把最外层改成 OR；D
+整体语义错。</p>
+<h3 id="20-单选-04-">20-单选-04 ★</h3>
+<p><strong>题目</strong>：MyBatis-Plus 的 <code>selectMaps</code>
+方法返回的类型是？</p>
+<ul>
+<li>A. <code>List&lt;Entity&gt;</code></li>
+<li>B. <code>List&lt;Map&lt;String, Object&gt;&gt;</code></li>
+<li>C. <code>Map&lt;String, Object&gt;</code></li>
+<li>D. <code>List&lt;VO&gt;</code></li>
+</ul>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：<code>selectMaps</code> 返回
+<code>List&lt;Map&lt;String, Object&gt;&gt;</code>，每行是一个 Map，key
+是列名（或别名），value 是列值。常用于聚合统计结果。</p>
+<h3 id="20-单选-05-">20-单选-05 ★★</h3>
+<p><strong>题目</strong>：SQL 中 <code>COUNT(字段)</code> 与
+<code>COUNT(*)</code> 的区别是？</p>
+<ul>
+<li>A. 完全一样</li>
+<li>B. <code>COUNT(字段)</code> 不统计 NULL 行，<code>COUNT(*)</code>
+统计所有行</li>
+<li>C. <code>COUNT(*)</code> 不统计 NULL 行</li>
+<li>D. <code>COUNT(字段)</code> 统计所有行</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：<code>COUNT(*)</code>
+统计所有行（包括 NULL），<code>COUNT(字段)</code> 忽略该字段为 NULL
+的行。统计总行数用 <code>COUNT(*)</code>，统计某字段非空数量用
+<code>COUNT(字段)</code>。</p>
+<h3 id="20-单选-06-">20-单选-06 ★</h3>
+<p><strong>题目</strong>：以下哪个 SQL
+子句用于对分组后的结果进行过滤？</p>
+<ul>
+<li>A. WHERE</li>
+<li>B. GROUP BY</li>
+<li>C. HAVING</li>
+<li>D. ORDER BY</li>
+</ul>
+<p><strong>答案</strong>：C <strong>解析</strong>：WHERE
+在分组前过滤行，HAVING 在分组后过滤组。HAVING 可以使用聚合函数（如
+<code>HAVING COUNT(*) &gt; 5</code>），WHERE 不能。</p>
+<h3 id="20-单选-07-">20-单选-07 ★★</h3>
+<p><strong>题目</strong>：<code>@Transactional</code> 注解的
+<code>rollbackFor</code> 属性默认值是？</p>
+<ul>
+<li>A. <code>Exception.class</code></li>
+<li>B. <code>RuntimeException.class</code></li>
+<li>C. <code>Throwable.class</code></li>
+<li>D. <code>IOException.class</code></li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：Spring 默认只对
+<code>RuntimeException</code>（及 Error）回滚，受检异常（如
+IOException、SQLException）不回滚。实际开发中必须显式写
+<code>rollbackFor = Exception.class</code>。</p>
+<h3 id="20-单选-08-">20-单选-08 ★★</h3>
+<p><strong>题目</strong>：以下哪种事务传播行为表示"当前有事务就加入，没有就新建"？</p>
+<ul>
+<li>A. REQUIRES_NEW</li>
+<li>B. NESTED</li>
+<li>C. REQUIRED</li>
+<li>D. SUPPORTS</li>
+</ul>
+<p><strong>答案</strong>：C <strong>解析</strong>：REQUIRED
+是默认传播行为，当前有事务则加入，没有则新建。REQUIRES_NEW
+总是新建独立事务；NESTED 在当前事务内建保存点；SUPPORTS
+有则加入，无则非事务执行。</p>
+<h3 id="20-单选-09-">20-单选-09 ★★★</h3>
+<p><strong>题目</strong>：以下代码的事务是否会生效？</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> FooService <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">outer</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">inner</span><span class="op">();</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">inner</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>A. 生效，因为 <code>@Transactional</code> 注解正确</li>
+<li>B. 不生效，因为 <code>this</code> 调用绕过了 AOP 代理</li>
+<li>C. 生效，因为 Spring 会自动处理自调用</li>
+<li>D. 不生效，因为方法名不是 startTransaction</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：Spring 声明式事务基于
+AOP 代理，<code>this.inner()</code>
+是对象内部直接调用，不经过代理对象，所以 <code>@Transactional</code>
+失效。解决方法：注入自己（<code>@Autowired @Lazy private FooService self;</code>）或用
+<code>ApplicationContext.getBean()</code> 取代理。</p>
+<h3 id="20-单选-10-">20-单选-10 ★★</h3>
+<p><strong>题目</strong>：以下代码事务是否会回滚？</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Transactional</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">submit</span><span class="op">()</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    mapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IOException</span><span class="op">(</span><span class="st">&quot;磁盘满&quot;</span><span class="op">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>A. 回滚，因为抛了异常</li>
+<li>B. 不回滚，因为 IOException 是受检异常且未指定 rollbackFor</li>
+<li>C. 回滚，因为 @Transactional 默认回滚所有异常</li>
+<li>D. 不回滚，因为方法没有返回值</li>
+</ul>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：<code>@Transactional</code> 默认
+<code>rollbackFor = RuntimeException.class</code>，IOException
+是受检异常，不会触发回滚。必须写
+<code>@Transactional(rollbackFor = Exception.class)</code>。</p>
+<h3 id="20-单选-11-">20-单选-11 ★★</h3>
+<p><strong>题目</strong>：以下代码事务是否会回滚？</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">submit</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        mapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span><span class="op">(</span><span class="st">&quot;模拟异常&quot;</span><span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">Exception</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="st">&quot;出错&quot;</span><span class="op">,</span> e<span class="op">);</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>A. 回滚，因为抛了 RuntimeException</li>
+<li>B. 不回滚，因为异常被 catch 吞掉，Spring 看不到异常</li>
+<li>C. 回滚，因为 rollbackFor = Exception.class</li>
+<li>D. 不回滚，因为方法没有 throws</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：Spring AOP
+通过捕获方法抛出的异常来决定是否回滚。异常被 catch 后没有 rethrow，AOP
+看到方法正常返回，不触发回滚。解决方法：catch 后 rethrow，或调用
+<code>TransactionAspectSupport.currentTransactionStatus().setRollbackOnly()</code>。</p>
+<h3 id="20-单选-12-">20-单选-12 ★</h3>
+<p><strong>题目</strong>：<code>@Transactional</code>
+注解加在以下哪种方法上会失效？</p>
+<ul>
+<li>A. public 方法</li>
+<li>B. protected 方法</li>
+<li>C. private 方法</li>
+<li>D. 包级私有（package-private）方法</li>
+</ul>
+<p><strong>答案</strong>：C <strong>解析</strong>：Spring AOP 默认只代理
+public 方法。<code>@Transactional</code> 加在
+private、protected、包级私有方法上都会失效（Spring 5.x
+后部分情况会拒绝代理但注解仍不生效）。实际开发中
+<code>@Transactional</code> 必须加在 public 方法上。</p>
+<h3 id="20-单选-13-">20-单选-13 ★★</h3>
+<p><strong>题目</strong>：CTTS 提交任务的合法状态流转路径是？</p>
+<ul>
+<li>A. 未开始 → 已提交 → 进行中 → 已评审</li>
+<li>B. 未开始 → 进行中 → 已评审 → 已提交</li>
+<li>C. 未开始 → 进行中 → 已提交 → 已评审</li>
+<li>D. 进行中 → 未开始 → 已提交 → 已评审</li>
+</ul>
+<p><strong>答案</strong>：C <strong>解析</strong>：合法流转：未开始(0)
+→进行中(1) →已提交(2)
+→已评审(3)。其他顺序都是非法流转，必须被状态机拦截。</p>
+<h3 id="20-单选-14-">20-单选-14 ★</h3>
+<p><strong>题目</strong>：MyBatis-Plus 中，用于统计满足条件的记录总数的
+API 是？</p>
+<ul>
+<li>A. <code>selectList</code></li>
+<li>B. <code>selectById</code></li>
+<li>C. <code>selectCount</code></li>
+<li>D. <code>selectMaps</code></li>
+</ul>
+<p><strong>答案</strong>：C
+<strong>解析</strong>：<code>selectCount(wrapper)</code> 返回
+<code>Long</code> 类型的记录总数，底层生成
+<code>SELECT COUNT(*) FROM ... WHERE ...</code>。</p>
+<h3 id="20-单选-15-">20-单选-15 ★★</h3>
+<p><strong>题目</strong>：以下哪种方式能让"日志记录"操作不受主业务事务回滚影响？</p>
+<ul>
+<li>A. 日志方法和业务方法都用 <code>propagation = REQUIRED</code></li>
+<li>B. 日志方法用 <code>propagation = REQUIRES_NEW</code></li>
+<li>C. 日志方法用 <code>propagation = REQUIRED</code> 并加
+<code>noRollbackFor = Exception.class</code></li>
+<li>D. 日志方法不加 <code>@Transactional</code></li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：REQUIRES_NEW
+会挂起当前事务，新建一个独立事务。即使主业务事务回滚，日志事务已经独立提交，不受影响。这是日志/审计场景的典型用法。</p>
+<h3 id="20-单选-16-">20-单选-16 ★★★</h3>
+<p><strong>题目</strong>：关于 REQUIRES_NEW 和 NESTED
+的区别，以下说法正确的是？</p>
+<ul>
+<li>A. 两者完全相同</li>
+<li>B. REQUIRES_NEW 开启物理独立事务，NESTED 在当前事务内建保存点</li>
+<li>C. NESTED 开启物理独立事务，REQUIRES_NEW 建保存点</li>
+<li>D. 两者都不能部分回滚</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：REQUIRES_NEW
+挂起当前事务，开启一个全新的物理事务，主从事务完全独立；NESTED
+在当前事务内通过 SAVEPOINT
+建立保存点，子事务回滚只回滚到保存点，但主事务回滚会连带回滚子事务。</p>
+<h3 id="20-单选-17-">20-单选-17 ★★</h3>
+<p><strong>题目</strong>：以下代码的输出是？</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>QueryWrapper<span class="op">&lt;</span>User<span class="op">&gt;</span> w <span class="op">=</span> <span class="kw">new</span> QueryWrapper<span class="op">&lt;&gt;();</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>w<span class="op">.</span><span class="fu">eq</span><span class="op">(</span><span class="kw">false</span><span class="op">,</span> <span class="st">&quot;name&quot;</span><span class="op">,</span> <span class="st">&quot;张三&quot;</span><span class="op">)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> <span class="op">.</span><span class="fu">eq</span><span class="op">(</span><span class="st">&quot;age&quot;</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span></code></pre></div>
+<ul>
+<li>A. <code>WHERE name = '张三' AND age = 20</code></li>
+<li>B. <code>WHERE age = 20</code></li>
+<li>C. <code>WHERE name = '张三'</code></li>
+<li>D. 报错</li>
+</ul>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：<code>eq(boolean condition, ...)</code>
+的第一个参数为 false 时，该条件不会拼接到 SQL 中。这是 MyBatis-Plus
+动态条件拼接的常用写法。</p>
+<h3 id="20-单选-18-">20-单选-18 ★</h3>
+<p><strong>题目</strong>：SQL 中 <code>AVG(score)</code> 返回的类型在
+Java 中通常映射为？</p>
+<ul>
+<li>A. <code>int</code></li>
+<li>B. <code>long</code></li>
+<li>C. <code>double</code> 或 <code>BigDecimal</code></li>
+<li>D. <code>String</code></li>
+</ul>
+<p><strong>答案</strong>：C <strong>解析</strong>：AVG 返回小数，Java
+中映射为 <code>Double</code> 或 <code>BigDecimal</code>（推荐 BigDecimal
+保证精度）。在 MyBatis-Plus 的 selectMaps 中通常是
+<code>BigDecimal</code>。</p>
+<h3 id="20-单选-19-">20-单选-19 ★★</h3>
+<p><strong>题目</strong>：以下哪条 SQL
+能正确统计"每个学生的平均成绩，只显示平均分及格（≥60）的学生"？</p>
+<ul>
+<li>A.
+<code>SELECT student_id, AVG(score) FROM review WHERE AVG(score) &gt;= 60 GROUP BY student_id</code></li>
+<li>B.
+<code>SELECT student_id, AVG(score) FROM review GROUP BY student_id HAVING AVG(score) &gt;= 60</code></li>
+<li>C.
+<code>SELECT student_id, AVG(score) FROM review GROUP BY student_id WHERE AVG(score) &gt;= 60</code></li>
+<li>D.
+<code>SELECT student_id, AVG(score) FROM review HAVING AVG(score) &gt;= 60</code></li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：聚合函数过滤必须用
+HAVING，不能用 WHERE。WHERE 在分组前过滤原始行，HAVING
+在分组后过滤组。GROUP BY 必须在 WHERE 之后、HAVING 之前。</p>
+<h3 id="20-单选-20-">20-单选-20 ★★</h3>
+<p><strong>题目</strong>：<code>@Transactional</code>
+加在类上时，以下说法正确的是？</p>
+<ul>
+<li>A. 只对 public 方法生效</li>
+<li>B. 对该类所有方法生效（包括 private）</li>
+<li>C. 对该类所有 public 方法生效</li>
+<li>D. 加在类上无效</li>
+</ul>
+<p><strong>答案</strong>：C
+<strong>解析</strong>：<code>@Transactional</code>
+加在类上时，对该类的所有 public 方法生效（AOP
+代理规则）。private/protected 方法仍然不生效。</p>
+<h3 id="20-单选-21-">20-单选-21 ★</h3>
+<p><strong>题目</strong>：Spring 声明式事务的底层实现技术是？</p>
+<ul>
+<li>A. 反射</li>
+<li>B. AOP 代理</li>
+<li>C. 字节码增强</li>
+<li>D. 类加载器</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：Spring 声明式事务基于
+AOP（面向切面编程），通过 JDK 动态代理或 CGLIB
+生成代理对象，在方法执行前后织入事务管理逻辑。</p>
+<h3 id="20-单选-22-">20-单选-22 ★★★</h3>
+<p><strong>题目</strong>：以下代码执行后，数据库的 submission 表 status
+字段值是？</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">review</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    Submission sub <span class="op">=</span> mapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>id<span class="op">);</span>  <span class="co">// 假设初始 status=2</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    sub<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    mapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>sub<span class="op">);</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span><span class="op">(</span><span class="st">&quot;异常&quot;</span><span class="op">);</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>A. 3</li>
+<li>B. 2</li>
+<li>C. NULL</li>
+<li>D. 报错</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：方法抛出
+RuntimeException，且指定了
+<code>rollbackFor = Exception.class</code>，事务回滚，updateById
+的修改被撤销，status 保持原值 2。</p>
+<h3 id="20-单选-23-">20-单选-23 ★★</h3>
+<p><strong>题目</strong>：以下代码执行后，数据库状态是？</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">review</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    Submission sub <span class="op">=</span> mapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>id<span class="op">);</span>  <span class="co">// 假设初始 status=2</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    sub<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    mapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>sub<span class="op">);</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IOException</span><span class="op">(</span><span class="st">&quot;IO异常&quot;</span><span class="op">);</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>A. status=3，因为抛了异常</li>
+<li>B. status=2，因为 IOException 触发回滚</li>
+<li>C. status=3，因为 IOException 不触发回滚</li>
+<li>D. status=2，因为所有异常都回滚</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：虽然 IOException
+是受检异常，但 <code>rollbackFor = Exception.class</code> 显式指定了所有
+Exception 子类都回滚，IOException 是 Exception
+的子类，所以触发回滚，status 保持 2。</p>
+<h3 id="20-单选-24-">20-单选-24 ★★</h3>
+<p><strong>题目</strong>：以下代码执行后，submission 和 review
+表的状态是？</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">review</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    Review r <span class="op">=</span> <span class="kw">new</span> <span class="fu">Review</span><span class="op">();</span> r<span class="op">.</span><span class="fu">setSubmissionId</span><span class="op">(</span>id<span class="op">);</span> r<span class="op">.</span><span class="fu">setScore</span><span class="op">(</span><span class="kw">...</span><span class="op">);</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    reviewMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>r<span class="op">);</span>          <span class="co">// ① 插入评审</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    Submission sub <span class="op">=</span> mapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    sub<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    mapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>sub<span class="op">);</span>          <span class="co">// ② 更新状态</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span><span class="op">(</span><span class="st">&quot;异常&quot;</span><span class="op">);</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>A. review 有新记录，submission.status=3</li>
+<li>B. review 有新记录，submission.status 不变</li>
+<li>C. review 无新记录，submission.status 不变</li>
+<li>D. review 无新记录，submission.status=3</li>
+</ul>
+<p><strong>答案</strong>：C
+<strong>解析</strong>：整个方法在一个事务内，抛出 RuntimeException
+触发回滚，① 和 ② 两步操作都被撤销。review 无新记录，submission.status
+保持原值。</p>
+<h3 id="20-单选-25-">20-单选-25 ★</h3>
+<p><strong>题目</strong>：CTTS 提交表 status 字段推荐的数据类型是？</p>
+<ul>
+<li>A. VARCHAR(10)</li>
+<li>B. TINYINT</li>
+<li>C. TEXT</li>
+<li>D. CHAR(1)</li>
+</ul>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：状态字段值是有限整数集合（0/1/2/3），用 TINYINT
+最节省空间且便于枚举映射。不推荐字符串，比较效率低且易出错。</p>
+<h3 id="20-单选-26-">20-单选-26 ★★★</h3>
+<p><strong>题目</strong>：以下哪种方式可以解决"自调用导致 @Transactional
+失效"问题？</p>
+<ul>
+<li>A. 把方法改成 static</li>
+<li>B. 把方法改成 final</li>
+<li>C. 通过 <code>ApplicationContext.getBean()</code>
+获取代理对象调用</li>
+<li>D. 把 <code>@Transactional</code> 加到调用方方法上</li>
+</ul>
+<p><strong>答案</strong>：C <strong>解析</strong>：通过
+<code>ctx.getBean(FooService.class)</code> 获取的是 Spring
+代理对象，调用其方法会经过
+AOP，事务生效。注入自己（<code>@Autowired @Lazy private FooService self;</code>）也是常用方案。static/final
+方法无法被代理。</p>
+<h3 id="20-单选-27-">20-单选-27 ★★</h3>
+<p><strong>题目</strong>：MyBatis-Plus
+中，<code>wrapper.select("task_id", "COUNT(*) AS cnt").groupBy("task_id")</code>
+配合 <code>selectMaps</code> 使用，返回 Map 的 key 是？</p>
+<ul>
+<li>A. <code>taskId</code> 和 <code>cnt</code></li>
+<li>B. <code>task_id</code> 和 <code>cnt</code></li>
+<li>C. <code>task_id</code> 和 <code>COUNT(*)</code></li>
+<li>D. 报错</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：selectMaps 返回的 Map
+的 key 就是 SQL 中的列名（或别名），所以是 <code>task_id</code> 和
+<code>cnt</code>。如果用 <code>COUNT(*)</code> 没起别名，key 会是
+<code>COUNT(*)</code>，不便于取值，所以一定要起别名。</p>
+<h3 id="20-单选-28-">20-单选-28 ★</h3>
+<p><strong>题目</strong>：以下哪个不是 SQL 聚合函数？</p>
+<ul>
+<li>A. COUNT</li>
+<li>B. SUM</li>
+<li>C. GROUP</li>
+<li>D. AVG</li>
+</ul>
+<p><strong>答案</strong>：C <strong>解析</strong>：GROUP 不是函数，是
+<code>GROUP BY</code> 子句的关键字。COUNT/SUM/AVG/MAX/MIN
+才是聚合函数。</p>
+<h3 id="20-单选-29-">20-单选-29 ★★</h3>
+<p><strong>题目</strong>：以下 SQL 语句的执行顺序是？</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> student_id, <span class="fu">AVG</span>(score) <span class="kw">FROM</span> review</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> score <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> student_id</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span> <span class="fu">AVG</span>(score) <span class="op">&gt;</span> <span class="dv">60</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="fu">AVG</span>(score) <span class="kw">DESC</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">10</span></span></code></pre></div>
+<ul>
+<li>A. SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY → LIMIT</li>
+<li>B. FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT</li>
+<li>C. FROM → SELECT → WHERE → GROUP BY → HAVING → ORDER BY → LIMIT</li>
+<li>D. WHERE → FROM → GROUP BY → SELECT → HAVING → ORDER BY → LIMIT</li>
+</ul>
+<p><strong>答案</strong>：B <strong>解析</strong>：SQL
+逻辑执行顺序：FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY →
+LIMIT。注意 SELECT 在 HAVING 之后，所以 HAVING 不能用 SELECT
+中的别名（部分数据库支持，但规范上不行）。</p>
+<h3 id="20-单选-30-">20-单选-30 ★★★</h3>
+<p><strong>题目</strong>：以下代码在批量评审场景下，事务行为是？</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">batchReview</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Long</span><span class="op">&gt;</span> ids<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="bu">Long</span> id <span class="op">:</span> ids<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">reviewOne</span><span class="op">(</span>id<span class="op">);</span>   <span class="co">// reviewOne 上有 @Transactional(rollbackFor=Exception.class)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>A. 每条 reviewOne 独立事务，单条失败不影响其他</li>
+<li>B. 全部在 batchReview 的事务内，任一失败全部回滚</li>
+<li>C. reviewOne 的 @Transactional 不生效（自调用），但 batchReview
+的事务覆盖所有操作</li>
+<li>D. 报错</li>
+</ul>
+<p><strong>答案</strong>：C
+<strong>解析</strong>：<code>this.reviewOne()</code> 是自调用，reviewOne
+上的 <code>@Transactional</code> 失效，但 batchReview
+的事务仍然生效，所有 reviewOne 的操作都在 batchReview
+的事务内，任一失败全部回滚。注意 B 说法也"对"，但 C 更准确——因为
+reviewOne 的传播行为没起作用。</p>
+<hr />
+<h2 id="二多项选择题10题">二、多项选择题（10题）</h2>
+<h3 id="20-多选-01-">20-多选-01 ★★</h3>
+<p><strong>题目</strong>：以下哪些是 <code>@Transactional</code>
+注解的属性？（多选）</p>
+<ul>
+<li>A. propagation</li>
+<li>B. isolation</li>
+<li>C. rollbackFor</li>
+<li>D. noRollbackFor</li>
+<li>E. readOnly</li>
+<li>F. transactionManager</li>
+</ul>
+<p><strong>答案</strong>：ABCDEF
+<strong>解析</strong>：<code>@Transactional</code>
+的属性包括：value/transactionManager（事务管理器）、propagation（传播行为）、isolation（隔离级别）、timeout（超时）、readOnly（只读）、rollbackFor（回滚异常）、noRollbackFor（不回滚异常）、label（标签，Spring
+5.3+）。</p>
+<h3 id="20-多选-02-">20-多选-02 ★★</h3>
+<p><strong>题目</strong>：以下哪些情况会导致 <code>@Transactional</code>
+失效？（多选）</p>
+<ul>
+<li>A. 注解加在 private 方法上</li>
+<li>B. 同一类内 <code>this.method()</code> 自调用</li>
+<li>C. 方法抛出 RuntimeException 但被 catch 吞掉</li>
+<li>D. 注解加在 final 方法上</li>
+<li>E. 注解加在 static 方法上</li>
+<li>F. 类没有被 <code>@Service</code> 等 Spring 注解扫描</li>
+</ul>
+<p><strong>答案</strong>：ABCDEF <strong>解析</strong>：A（AOP
+默认不代理非 public）、B（绕过代理）、C（AOP
+看不到异常不回滚）、D/E（final/static 无法被 CGLIB 覆写）、F（不是
+Spring Bean 不会被代理）都会导致事务失效或部分失效。</p>
+<h3 id="20-多选-03-">20-多选-03 ★★</h3>
+<p><strong>题目</strong>：以下哪些是 SQL 聚合函数？（多选）</p>
+<ul>
+<li>A. COUNT</li>
+<li>B. SUM</li>
+<li>C. AVG</li>
+<li>D. MAX</li>
+<li>E. MIN</li>
+<li>F. GROUP BY</li>
+</ul>
+<p><strong>答案</strong>：ABCDE
+<strong>解析</strong>：COUNT/SUM/AVG/MAX/MIN 是聚合函数，GROUP BY
+是分组子句关键字，不是函数。</p>
+<h3 id="20-多选-04-">20-多选-04 ★★</h3>
+<p><strong>题目</strong>：MyBatis-Plus QueryWrapper
+支持的动态条件拼接方式有？（多选）</p>
+<ul>
+<li>A. <code>eq(boolean condition, column, value)</code></li>
+<li>B. <code>like(boolean condition, column, value)</code></li>
+<li>C. <code>and(Consumer&lt;QueryWrapper&gt;)</code></li>
+<li>D. <code>or(Consumer&lt;QueryWrapper&gt;)</code></li>
+<li>E. <code>nested(Consumer&lt;QueryWrapper&gt;)</code></li>
+</ul>
+<p><strong>答案</strong>：ABCDE <strong>解析</strong>：MyBatis-Plus
+提供了带 <code>condition</code> 参数的重载方法用于动态拼接，以及
+<code>and/or/nested</code> 接收 Lambda 用于嵌套条件组合。</p>
+<h3 id="20-多选-05-">20-多选-05 ★★★</h3>
+<p><strong>题目</strong>：以下哪些是 Spring 事务的传播行为？（多选）</p>
+<ul>
+<li>A. REQUIRED</li>
+<li>B. REQUIRES_NEW</li>
+<li>C. NESTED</li>
+<li>D. SUPPORTS</li>
+<li>E. NOT_SUPPORTED</li>
+<li>F. MANDATORY</li>
+<li>G. NEVER</li>
+</ul>
+<p><strong>答案</strong>：ABCDEFG <strong>解析</strong>：Spring 定义了 7
+种传播行为：REQUIRED（默认）、REQUIRES_NEW、NESTED、SUPPORTS、NOT_SUPPORTED、MANDATORY、NEVER。</p>
+<h3 id="20-多选-06-">20-多选-06 ★★</h3>
+<p><strong>题目</strong>：CTTS 提交任务的合法状态流转包括？（多选）</p>
+<ul>
+<li>A. 未开始 → 进行中</li>
+<li>B. 进行中 → 已提交</li>
+<li>C. 已提交 → 已评审</li>
+<li>D. 已提交 → 进行中（退回修改）</li>
+<li>E. 已评审 → 已提交（重新评审）</li>
+<li>F. 未开始 → 已提交（跳过开始）</li>
+</ul>
+<p><strong>答案</strong>：ABCD <strong>解析</strong>：A/B/C
+是正常流转，D 是允许的退回修改。E（已评审后重新提交）和
+F（跳过开始）是非法流转，应被状态机拦截。</p>
+<h3 id="20-多选-07-">20-多选-07 ★★</h3>
+<p><strong>题目</strong>：以下哪些方式可以用于 MyBatis-Plus
+的统计查询？（多选）</p>
+<ul>
+<li>A. <code>selectCount(wrapper)</code> 返回总数</li>
+<li>B. <code>selectMaps(wrapper)</code> +
+<code>select("...", "COUNT(*) AS cnt")</code> +
+<code>groupBy(...)</code></li>
+<li>C. 自定义 <code>@Select</code> 注解 SQL + VO 映射</li>
+<li>D. XML mapper 自定义 SQL</li>
+<li>E. <code>selectList(wrapper)</code> 返回实体列表</li>
+</ul>
+<p><strong>答案</strong>：ABCD <strong>解析</strong>：A 用于计数；B
+用于分组统计返回 Map；C/D 用于复杂多表统计返回 VO。E
+返回的是实体，无法直接承载聚合字段（除非实体类加临时字段），不适合统计。</p>
+<h3 id="20-多选-08-">20-多选-08 ★★★</h3>
+<p><strong>题目</strong>：以下哪些场景适合使用
+<code>propagation = REQUIRES_NEW</code>？（多选）</p>
+<ul>
+<li>A. 业务方法中调用日志记录</li>
+<li>B. 业务方法中调用审计记录</li>
+<li>C. 业务方法中调用发送通知（即使主事务回滚也要发出）</li>
+<li>D. 主业务的核心写入操作</li>
+<li>E. 系统异常时记录错误日志</li>
+</ul>
+<p><strong>答案</strong>：ABCE <strong>解析</strong>：REQUIRES_NEW
+适合"无论主事务是否成功都要保留"的独立操作，如日志/审计/通知。D（核心业务写入）应该用默认
+REQUIRED，与主事务一起回滚。</p>
+<h3 id="20-多选-09-">20-多选-09 ★★</h3>
+<p><strong>题目</strong>：以下哪些是事务的 ACID 特性？（多选）</p>
+<ul>
+<li>A. 原子性 Atomicity</li>
+<li>B. 一致性 Consistency</li>
+<li>C. 隔离性 Isolation</li>
+<li>D. 持久性 Durability</li>
+<li>E. 并发性 Concurrency</li>
+</ul>
+<p><strong>答案</strong>：ABCD <strong>解析</strong>：ACID
+指原子性、一致性、隔离性、持久性。并发性不是 ACID 特性。</p>
+<h3 id="20-多选-10-">20-多选-10 ★★</h3>
+<p><strong>题目</strong>：以下哪些是事务失效的常见原因？（多选）</p>
+<ul>
+<li>A. 自调用（this 调用本类方法）</li>
+<li>B. 异常被 catch 后未 rethrow</li>
+<li>C. <code>@Transactional</code> 加在 private 方法</li>
+<li>D. 类未被 Spring 容器管理</li>
+<li>E. 方法是 final 或 static</li>
+<li>F. 数据库引擎不支持事务（如 MyISAM）</li>
+</ul>
+<p><strong>答案</strong>：ABCDEF <strong>解析</strong>：A/B/C/D/E 都是
+Spring 层面失效，F 是数据库层面失效（MySQL 的 InnoDB 支持事务，MyISAM
+不支持）。所有这些都会导致事务不生效。</p>
+<hr />
+<h2 id="三判断题20题">三、判断题（20题）</h2>
+<h3 id="20-判断-01-">20-判断-01 ★</h3>
+<p><strong>题目</strong>：MyBatis-Plus 的
+<code>QueryWrapper.eq("name", null)</code> 会拼接
+<code>name = NULL</code>。 <strong>答案</strong>：错误
+<strong>解析</strong>：<code>eq</code> 不带 condition 参数时，value 为
+null 也会拼成 <code>name = NULL</code>，但这在 SQL 中永远为 false（NULL
+比较要用 IS NULL）。动态条件应使用
+<code>eq(value != null, ...)</code>。</p>
+<h3 id="20-判断-02-">20-判断-02 ★</h3>
+<p><strong>题目</strong>：SQL 中 <code>AND</code> 的优先级高于
+<code>OR</code>。 <strong>答案</strong>：正确 <strong>解析</strong>：SQL
+中 AND 优先级高于 OR，所以 <code>A AND B OR C</code> 等价于
+<code>(A AND B) OR C</code>。要改变优先级必须加括号。</p>
+<h3 id="20-判断-03-">20-判断-03 ★</h3>
+<p><strong>题目</strong>：<code>COUNT(*)</code> 会忽略值为 NULL 的行。
+<strong>答案</strong>：错误 <strong>解析</strong>：<code>COUNT(*)</code>
+统计所有行，包括 NULL。<code>COUNT(字段)</code> 才忽略该字段为 NULL
+的行。</p>
+<h3 id="20-判断-04-">20-判断-04 ★★</h3>
+<p><strong>题目</strong>：<code>@Transactional</code> 默认对所有
+Exception 子类回滚。 <strong>答案</strong>：错误
+<strong>解析</strong>：默认只对 RuntimeException（及其子类）和 Error
+回滚，受检异常（IOException 等）不回滚。需要写
+<code>rollbackFor = Exception.class</code>。</p>
+<h3 id="20-判断-05-">20-判断-05 ★★</h3>
+<p><strong>题目</strong>：<code>@Transactional</code> 加在 private
+方法上完全无效。 <strong>答案</strong>：正确
+<strong>解析</strong>：Spring AOP 默认只代理 public 方法，private
+方法上的 <code>@Transactional</code> 不会生效。</p>
+<h3 id="20-判断-06-">20-判断-06 ★★</h3>
+<p><strong>题目</strong>：自调用（<code>this.method()</code>）会导致
+<code>@Transactional</code> 失效。 <strong>答案</strong>：正确
+<strong>解析</strong>：自调用绕过了 Spring 代理对象，注解不生效。需通过
+<code>ctx.getBean()</code> 或注入 self 解决。</p>
+<h3 id="20-判断-07-">20-判断-07 ★★</h3>
+<p><strong>题目</strong>：事务方法中如果异常被 catch 后没有
+rethrow，Spring 不会回滚事务。 <strong>答案</strong>：正确
+<strong>解析</strong>：Spring AOP
+通过捕获方法抛出的异常判断是否回滚。异常被吞，方法正常返回，AOP
+认为事务成功，不回滚。</p>
+<h3 id="20-判断-08-">20-判断-08 ★</h3>
+<p><strong>题目</strong>：<code>REQUIRES_NEW</code>
+传播行为会挂起当前事务，新建一个独立事务。 <strong>答案</strong>：正确
+<strong>解析</strong>：REQUIRES_NEW
+总是新建独立事务，原事务被挂起直到新事务完成。两个事务互不影响。</p>
+<h3 id="20-判断-09-">20-判断-09 ★★★</h3>
+<p><strong>题目</strong>：<code>NESTED</code>
+传播行为在主事务回滚时，子事务可以独立保留。 <strong>答案</strong>：错误
+<strong>解析</strong>：NESTED
+是基于保存点的嵌套事务，子事务在主事务内。主事务回滚，子事务也会一起回滚。只有
+REQUIRES_NEW 才能独立保留。</p>
+<h3 id="20-判断-10-">20-判断-10 ★</h3>
+<p><strong>题目</strong>：<code>HAVING</code>
+子句可以使用聚合函数，<code>WHERE</code> 不可以。
+<strong>答案</strong>：正确 <strong>解析</strong>：WHERE
+在分组前过滤行，不能用聚合函数；HAVING
+在分组后过滤组，可以用聚合函数（如
+<code>HAVING COUNT(*) &gt; 5</code>）。</p>
+<h3 id="20-判断-11-">20-判断-11 ★</h3>
+<p><strong>题目</strong>：MyBatis-Plus 的 <code>selectMaps</code> 返回
+<code>List&lt;Map&lt;String, Object&gt;&gt;</code>。
+<strong>答案</strong>：正确
+<strong>解析</strong>：<code>selectMaps</code> 每行结果封装为
+Map，整体返回 List，常用于聚合统计或部分字段查询。</p>
+<h3 id="20-判断-12-">20-判断-12 ★★</h3>
+<p><strong>题目</strong>：<code>@Transactional</code>
+加在类上时，对该类所有方法（包括 private）都生效。
+<strong>答案</strong>：错误 <strong>解析</strong>：加在类上时只对该类的
+public 方法生效，private/protected/package-private 方法仍然不生效。</p>
+<h3 id="20-判断-13-">20-判断-13 ★★</h3>
+<p><strong>题目</strong>：CTTS
+提交任务的状态流转允许从"已评审"回到"已提交"。
+<strong>答案</strong>：错误
+<strong>解析</strong>：已评审是终态，不允许回退。如果业务上需要重新评审，应设计专门流程而非状态回退。</p>
+<h3 id="20-判断-14-">20-判断-14 ★★</h3>
+<p><strong>题目</strong>：Spring 声明式事务的底层实现是 AOP 代理。
+<strong>答案</strong>：正确 <strong>解析</strong>：Spring 通过 JDK
+动态代理或 CGLIB 生成代理对象，在方法执行前后织入事务管理逻辑。</p>
+<h3 id="20-判断-15-">20-判断-15 ★</h3>
+<p><strong>题目</strong>：<code>AVG(score)</code> 返回值类型是整数。
+<strong>答案</strong>：错误 <strong>解析</strong>：AVG 返回小数，Java
+中映射为 Double 或 BigDecimal。</p>
+<h3 id="20-判断-16-">20-判断-16 ★★★</h3>
+<p><strong>题目</strong>：在 <code>@Transactional</code>
+方法中调用另一个 <code>@Transactional</code>
+方法（同类自调用），两个注解都会生效。 <strong>答案</strong>：错误
+<strong>解析</strong>：自调用导致被调用方法的
+<code>@Transactional</code> 失效，但外层方法的
+<code>@Transactional</code> 仍生效。</p>
+<h3 id="20-判断-17-">20-判断-17 ★★</h3>
+<p><strong>题目</strong>：事务方法抛出 <code>Error</code>（如
+<code>OutOfMemoryError</code>）会触发回滚。 <strong>答案</strong>：正确
+<strong>解析</strong>：Spring 默认对 RuntimeException 和 Error
+都回滚，Error 属于 unchecked。</p>
+<h3 id="20-判断-18-">20-判断-18 ★★</h3>
+<p><strong>题目</strong>：MyBatis-Plus 中
+<code>wrapper.select("task_id", "COUNT(*) AS cnt").groupBy("task_id")</code>
+配合 <code>selectList</code> 可以正常返回聚合结果。
+<strong>答案</strong>：错误
+<strong>解析</strong>：<code>selectList</code>
+返回实体列表，实体类通常没有 <code>cnt</code> 字段，会丢失聚合列。应使用
+<code>selectMaps</code> 返回 Map，或自定义 SQL + VO。</p>
+<h3 id="20-判断-19-">20-判断-19 ★★</h3>
+<p><strong>题目</strong>：批量操作中所有步骤都在一个事务内，任一失败全部回滚，这种设计永远不会出问题。
+<strong>答案</strong>：错误
+<strong>解析</strong>：批量操作如果数据量太大会导致长事务、锁表、性能下降。实际开发要分批提交（如每
+100 条一批）。</p>
+<h3 id="20-判断-20-">20-判断-20 ★★</h3>
+<p><strong>题目</strong>：日志记录操作应该与主业务在同一事务内，保证一致性。
+<strong>答案</strong>：错误 <strong>解析</strong>：日志记录通常应该用
+<code>REQUIRES_NEW</code>
+独立事务，即使主业务回滚，日志也要保留以便排查问题。</p>
+<hr />
+<h2 id="四填空题10题">四、填空题（10题）</h2>
+<h3 id="20-填空-01-">20-填空-01 ★</h3>
+<p><strong>题目</strong>：MyBatis-Plus
+中用于动态条件拼接的方法，第一个参数是 ______
+类型，用于控制该条件是否生效。 <strong>答案</strong>：boolean
+<strong>解析</strong>：<code>eq(boolean condition, column, value)</code>
+等，condition 为 true 才拼接。</p>
+<h3 id="20-填空-02-">20-填空-02 ★</h3>
+<p><strong>题目</strong>：SQL 中用于对分组结果进行过滤的子句是 ______。
+<strong>答案</strong>：HAVING <strong>解析</strong>：HAVING 在 GROUP BY
+之后过滤分组，可以使用聚合函数。</p>
+<h3 id="20-填空-03-">20-填空-03 ★★</h3>
+<p><strong>题目</strong>：<code>@Transactional</code> 注解的
+<code>rollbackFor</code> 属性默认值是 ______。
+<strong>答案</strong>：RuntimeException.class
+<strong>解析</strong>：默认只对 RuntimeException
+回滚，实际开发中应显式写
+<code>rollbackFor = Exception.class</code>。</p>
+<h3 id="20-填空-04-">20-填空-04 ★★</h3>
+<p><strong>题目</strong>：Spring 事务的默认传播行为是 ______。
+<strong>答案</strong>：REQUIRED <strong>解析</strong>：REQUIRED
+表示当前有事务则加入，无则新建，是默认值，也是 90% 场景的选择。</p>
+<h3 id="20-填空-05-">20-填空-05 ★★</h3>
+<p><strong>题目</strong>：CTTS 提交任务的 4
+个状态码依次是：0未开始、1______、2______、3______。
+<strong>答案</strong>：进行中；已提交；已评审
+<strong>解析</strong>：合法流转路径：未开始(0) → 进行中(1) → 已提交(2) →
+已评审(3)。</p>
+<h3 id="20-填空-06-">20-填空-06 ★★</h3>
+<p><strong>题目</strong>：Spring 声明式事务基于 ______
+技术实现，通过生成代理对象在方法前后织入事务逻辑。
+<strong>答案</strong>：AOP（面向切面编程） <strong>解析</strong>：Spring
+AOP 通过 JDK 动态代理或 CGLIB 生成代理对象。</p>
+<h3 id="20-填空-07-">20-填空-07 ★★</h3>
+<p><strong>题目</strong>：解决自调用导致 <code>@Transactional</code>
+失效的两种常用方式是：注入 ______ 或通过 ______ 获取代理对象。
+<strong>答案</strong>：自己（self）；ApplicationContext.getBean()
+<strong>解析</strong>：<code>@Autowired @Lazy private FooService self;</code>
+或 <code>ctx.getBean(FooService.class)</code>。</p>
+<h3 id="20-填空-08-">20-填空-08 ★★</h3>
+<p><strong>题目</strong>：MyBatis-Plus 统计查询中，用于返回
+<code>List&lt;Map&lt;String, Object&gt;&gt;</code> 的方法是 ______。
+<strong>答案</strong>：selectMaps
+<strong>解析</strong>：<code>selectMaps(wrapper)</code> 每行封装为
+Map，适合聚合统计。</p>
+<h3 id="20-填空-09-">20-填空-09 ★★★</h3>
+<p><strong>题目</strong>：事务失效的四宗罪是指：<strong><strong><strong>、</strong></strong></strong>、<strong><strong><strong>、</strong></strong></strong>。
+<strong>答案</strong>：自调用（this 调用本类方法）；异常被 catch
+吞掉；non-public 方法；rollbackFor 默认只回 RuntimeException
+<strong>解析</strong>：这四种是 Spring 事务失效的最常见原因。</p>
+<h3 id="20-填空-10-">20-填空-10 ★★</h3>
+<p><strong>题目</strong>：在 SQL 语句的逻辑执行顺序中，______
+子句最先执行，______ 子句在 GROUP BY 之后、SELECT 之前执行。
+<strong>答案</strong>：FROM；HAVING
+<strong>解析</strong>：执行顺序：FROM → WHERE → GROUP BY → HAVING →
+SELECT → ORDER BY → LIMIT。</p>
+<hr />
+<h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
+<h3 id="20-论述-01-">20-论述-01 ★★</h3>
+<p><strong>题目</strong>：请简述 Spring <code>@Transactional</code>
+注解失效的四种典型场景，并分别给出修复方案。</p>
+<p><strong>答案要点</strong>：</p>
+<ol type="1">
+<li><strong>自调用</strong>：同类内 <code>this.method()</code> 调用绕过
+AOP
+代理。修复：注入自己（<code>@Autowired @Lazy private FooService self;</code>）或通过
+<code>ApplicationContext.getBean()</code> 取代理对象调用。</li>
+<li><strong>异常被 catch 吞掉</strong>：异常被 catch 后未 rethrow，AOP
+看不到异常不回滚。修复：catch 后 rethrow，或调用
+<code>TransactionAspectSupport.currentTransactionStatus().setRollbackOnly()</code>
+手动标记回滚。</li>
+<li><strong>non-public 方法</strong>：<code>@Transactional</code> 加在
+private/protected/包级私有方法上，Spring AOP 默认不代理。修复：改为
+public 方法。</li>
+<li><strong>rollbackFor 默认值</strong>：默认只回滚
+RuntimeException，受检异常（IOException 等）不回滚。修复：显式写
+<code>@Transactional(rollbackFor = Exception.class)</code>。</li>
+</ol>
+<p><strong>评分标准（满分 10 分）</strong>：</p>
+<ul>
+<li>每种场景 2 分（共 8 分）：正确描述场景 + 修复方案</li>
+<li>表述清晰、有条理 2 分</li>
+<li>错列或漏列每种扣 2 分</li>
+</ul>
+<hr />
+<h3 id="20-论述-02-">20-论述-02 ★★</h3>
+<p><strong>题目</strong>：请对比 Spring 事务的三种传播行为
+REQUIRED、REQUIRES_NEW、NESTED 的区别，并分别给出适用场景。</p>
+<p><strong>答案要点</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>传播行为</th>
+<th>当前有事务</th>
+<th>当前无事务</th>
+<th>是否独立</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQUIRED</td>
+<td>加入当前事务</td>
+<td>新建事务</td>
+<td>否</td>
+<td>99% 业务方法，保证整体原子性</td>
+</tr>
+<tr>
+<td>REQUIRES_NEW</td>
+<td>挂起当前事务，新建独立事务</td>
+<td>新建事务</td>
+<td>是</td>
+<td>日志、审计、通知等需要独立保留的操作</td>
+</tr>
+<tr>
+<td>NESTED</td>
+<td>在当前事务内建保存点</td>
+<td>新建事务</td>
+<td>部分</td>
+<td>子操作可独立回滚但不影响主事务，如批量操作中单条失败回滚到保存点继续</td>
+</tr>
+</tbody>
+</table>
+<p><strong>区别</strong>：</p>
+<ul>
+<li>REQUIRED 与主事务同生共死，主回滚子也回滚，子回滚主也回滚。</li>
+<li>REQUIRES_NEW 完全独立，主回滚不影响子，子回滚不影响主。</li>
+<li>NESTED
+是嵌套，子回滚只回滚到保存点不影响主，但主回滚会连带回滚子。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>REQUIRED：业务核心写入（如提交任务+更新状态）。</li>
+<li>REQUIRES_NEW：操作日志、审计记录、异常通知。</li>
+<li>NESTED：批量处理中单条失败不影响其他条目，但整批仍想作为一个事务。</li>
+</ul>
+<p><strong>评分标准（满分 10 分）</strong>：</p>
+<ul>
+<li>三种行为各自描述 2 分（共 6 分）</li>
+<li>区别对比清晰 2 分</li>
+<li>适用场景正确 2 分</li>
+</ul>
+<hr />
+<h3 id="20-论述-03-">20-论述-03 ★★</h3>
+<p><strong>题目</strong>：什么是业务状态机？请结合 CTTS
+提交任务的状态流转，说明为什么要用状态机校验，并给出实现要点。</p>
+<p><strong>答案要点</strong>：</p>
+<p><strong>业务状态机定义</strong>：用一个状态字段记录业务对象当前所处阶段，通过规则约束状态之间的合法转换路径。三要素：状态（State）、事件（Event）、转换（Transition）。</p>
+<p><strong>CTTS 提交任务状态机</strong>：</p>
+<ul>
+<li>状态：未开始(0) → 进行中(1) → 已提交(2) → 已评审(3)</li>
+<li>合法转换：
+<ul>
+<li>未开始 →进行中（学生开始）</li>
+<li>进行中 →已提交（学生提交）</li>
+<li>已提交 →已评审（教师评审）</li>
+<li>已提交 →进行中（退回修改）</li>
+</ul></li>
+<li>终态：已评审（不可回退）</li>
+</ul>
+<p><strong>为什么用状态机校验</strong>：</p>
+<ol type="1">
+<li>防止非法流转（如未开始直接跳到已提交），保证业务流程正确。</li>
+<li>防止重复提交覆盖已评审成绩。</li>
+<li>防止已评审记录被再次"提交"导致状态不一致。</li>
+<li>集中管理转换规则，避免散落各处的 if-else。</li>
+</ol>
+<p><strong>实现要点</strong>：</p>
+<ol type="1">
+<li>状态字段用 TINYINT，配套枚举类（SubmissionStatus）。</li>
+<li>状态机规则集中到 <code>SubmissionStateMachine</code> 类，用
+<code>EnumMap&lt;Status, Set&lt;Status&gt;&gt;</code>
+定义合法转换。</li>
+<li>提供 <code>canTransit(from, to)</code> 判断和
+<code>check(from, to)</code> 校验方法。</li>
+<li>每次更新状态前调用 <code>check</code>，非法流转抛
+<code>IllegalStateException</code>。</li>
+<li>终态（已评审）的转换集合为空，禁止任何回退。</li>
+</ol>
+<p><strong>评分标准（满分 10 分）</strong>：</p>
+<ul>
+<li>状态机定义 2 分</li>
+<li>CTTS 状态列举 2 分</li>
+<li>必要性论述 3 分</li>
+<li>实现要点 3 分</li>
+</ul>
+<hr />
+<h3 id="20-论述-04-">20-论述-04 ★★★</h3>
+<p><strong>题目</strong>：课程思政——为什么说"事务是业务正确性的保障"？请结合
+CTTS"成绩统计错乱"案例，谈一谈工程师对数据一致性负有什么责任。</p>
+<p><strong>答案要点</strong>：</p>
+<p><strong>案例背景</strong>：某校实训成绩统计因事务缺失，导致"评审记录已插入"但"提交状态未更新"，统计查询时这部分数据被遗漏，200
+条成绩错乱，影响学生评优。</p>
+<p><strong>事务是业务正确性的保障</strong>：</p>
+<ol type="1">
+<li>事务的 ACID
+特性中，原子性保证多步操作要么全成功要么全回滚，一致性保证执行前后数据满足约束。</li>
+<li>在 CTTS 评审场景中，"插入评审记录 +
+更新提交状态"必须原子，否则会出现"有评审无状态"或"有状态无评审"的脏数据。</li>
+<li>一行 <code>@Transactional</code>
+背后是"对数据负责的承诺"，不是技术装饰。</li>
+</ol>
+<p><strong>工程师的责任</strong>：</p>
+<ol type="1">
+<li><strong>识别事务边界</strong>：哪些操作必须原子，哪些可以独立。</li>
+<li><strong>正确使用事务</strong>：指定
+rollbackFor、避免失效场景、合理选择传播行为。</li>
+<li><strong>防御性设计</strong>：状态机校验、异常处理、回滚验证。</li>
+<li><strong>职业操守</strong>：数据正确性关乎用户切身利益（如学生成绩），工程师应把"跑得对"置于"跑得通"之上。</li>
+<li><strong>系统思维</strong>：局部正确 ≠
+全局正确，要从业务链整体设计事务边界。</li>
+</ol>
+<p><strong>结论</strong>：事务不是注解的游戏，而是对数据负责的承诺。一行
+<code>@Transactional</code>，写的是技术，守的是信任。</p>
+<p><strong>评分标准（满分 10 分）</strong>：</p>
+<ul>
+<li>案例分析 3 分</li>
+<li>事务与正确性关系 3 分</li>
+<li>工程师责任论述 3 分</li>
+<li>表达清晰、有深度 1 分</li>
+</ul>
+<hr />
+<h2 id="六程序阅读与补全题2题">六、程序阅读与补全题（2题）</h2>
+<h3 id="20-程序-01-">20-程序-01 ★★</h3>
+<p><strong>题目</strong>：阅读以下代码，补全空缺处（①②③），使
+<code>reviewTask</code> 方法实现"插入评审记录 + 校验状态 +
+更新提交状态"的事务操作。</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ReviewServiceImpl <span class="kw">implements</span> ReviewService <span class="op">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Resource</span> <span class="kw">private</span> SubmissionMapper submissionMapper<span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Resource</span> <span class="kw">private</span> ReviewMapper reviewMapper<span class="op">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    _____①_____   <span class="co">// 事务注解，所有异常都回滚</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">reviewTask</span><span class="op">(</span><span class="bu">Long</span> submissionId<span class="op">,</span> <span class="bu">Long</span> teacherId<span class="op">,</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                           <span class="bu">BigDecimal</span> score<span class="op">,</span> <span class="bu">String</span> comment<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 1) 创建评审记录</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        Review review <span class="op">=</span> <span class="kw">new</span> <span class="fu">Review</span><span class="op">();</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        review<span class="op">.</span><span class="fu">setSubmissionId</span><span class="op">(</span>submissionId<span class="op">);</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        review<span class="op">.</span><span class="fu">setTeacherId</span><span class="op">(</span>teacherId<span class="op">);</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        review<span class="op">.</span><span class="fu">setScore</span><span class="op">(</span>score<span class="op">);</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        review<span class="op">.</span><span class="fu">setComment</span><span class="op">(</span>comment<span class="op">);</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        review<span class="op">.</span><span class="fu">setReviewTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        reviewMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>review<span class="op">);</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 2) 校验状态</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        Submission sub <span class="op">=</span> submissionMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>submissionId<span class="op">);</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        SubmissionStatus from <span class="op">=</span> SubmissionStatus<span class="op">.</span><span class="fu">of</span><span class="op">(</span>sub<span class="op">.</span><span class="fu">getStatus</span><span class="op">());</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        _____②_____   <span class="co">// 调用状态机校验，from -&gt; REVIEWED</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span>_____③_____<span class="op">);</span>   <span class="co">// 设置目标状态码</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>        submissionMapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>sub<span class="op">);</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>答案</strong>：</p>
+<ul>
+<li>① <code>@Transactional(rollbackFor = Exception.class)</code></li>
+<li>②
+<code>SubmissionStateMachine.check(from, SubmissionStatus.REVIEWED)</code></li>
+<li>③ <code>SubmissionStatus.REVIEWED.getCode()</code></li>
+</ul>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>① 必须显式
+<code>rollbackFor = Exception.class</code>，否则受检异常不回滚。</li>
+<li>② 状态机校验要在更新前调用，非法流转抛异常。</li>
+<li>③ 设置状态码用枚举的 <code>getCode()</code>，避免硬编码。</li>
+</ul>
+<p><strong>评分标准（满分 10 分）</strong>：每空 3 分，共 9 分；逻辑正确
+1 分。</p>
+<hr />
+<h3 id="20-程序-02-">20-程序-02 ★★★</h3>
+<p><strong>题目</strong>：阅读以下"批量评审"代码，找出 3
+处事务相关问题并给出修复方案。</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> BatchReviewService <span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Resource</span> <span class="kw">private</span> SubmissionMapper submissionMapper<span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Resource</span> <span class="kw">private</span> ReviewMapper reviewMapper<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">batchReview</span><span class="op">(</span><span class="bu">List</span><span class="op">&lt;</span>ReviewDTO<span class="op">&gt;</span> list<span class="op">,</span> <span class="bu">Long</span> teacherId<span class="op">)</span> <span class="op">{</span>   <span class="co">// 问题1</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span>ReviewDTO dto <span class="op">:</span> list<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>            <span class="kw">this</span><span class="op">.</span><span class="fu">reviewOne</span><span class="op">(</span>dto<span class="op">,</span> teacherId<span class="op">);</span>   <span class="co">// 问题2</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Transactional</span>   <span class="co">// 问题3</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">reviewOne</span><span class="op">(</span>ReviewDTO dto<span class="op">,</span> <span class="bu">Long</span> teacherId<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        Review r <span class="op">=</span> <span class="kw">new</span> <span class="fu">Review</span><span class="op">();</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        r<span class="op">.</span><span class="fu">setSubmissionId</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getSubmissionId</span><span class="op">());</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        r<span class="op">.</span><span class="fu">setScore</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getScore</span><span class="op">());</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        r<span class="op">.</span><span class="fu">setComment</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getComment</span><span class="op">());</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        r<span class="op">.</span><span class="fu">setReviewTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        reviewMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>r<span class="op">);</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        Submission sub <span class="op">=</span> submissionMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getSubmissionId</span><span class="op">());</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        submissionMapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>sub<span class="op">);</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>dto<span class="op">.</span><span class="fu">getScore</span><span class="op">().</span><span class="fu">compareTo</span><span class="op">(</span><span class="kw">new</span> <span class="bu">BigDecimal</span><span class="op">(</span><span class="st">&quot;100&quot;</span><span class="op">))</span> <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>                <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">RuntimeException</span><span class="op">(</span><span class="st">&quot;成绩非法&quot;</span><span class="op">);</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">Exception</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>            log<span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="st">&quot;出错&quot;</span><span class="op">,</span> e<span class="op">);</span>   <span class="co">// 问题4（附加）</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>答案</strong>：</p>
+<p><strong>问题1</strong>：<code>batchReview</code> 方法没有
+<code>@Transactional</code>，整个批量操作不在一个事务内，部分失败会导致数据不一致。
+<strong>修复</strong>：加
+<code>@Transactional(rollbackFor = Exception.class)</code>。</p>
+<p><strong>问题2</strong>：<code>this.reviewOne(dto, teacherId)</code>
+是自调用，绕过 AOP 代理，<code>reviewOne</code> 上的
+<code>@Transactional</code> 失效。 <strong>修复</strong>：通过
+<code>ApplicationContext.getBean(BatchReviewService.class)</code>
+获取代理对象调用，或注入自己（<code>@Autowired @Lazy private BatchReviewService self;</code>）。</p>
+<p><strong>问题3</strong>：<code>@Transactional</code> 加在 private
+方法上，Spring AOP 默认不代理非 public 方法，注解失效。
+<strong>修复</strong>：改为 public 方法。</p>
+<p><strong>问题4（附加）</strong>：异常被 catch 吞掉，没有
+rethrow，即使事务生效也不会回滚。 <strong>修复</strong>：catch 后
+rethrow，或删除 try-catch 让异常抛出。</p>
+<p><strong>评分标准（满分 10 分）</strong>：</p>
+<ul>
+<li>每个问题识别 2 分（共 6 分）</li>
+<li>修复方案 1 分（共 3 分）</li>
+<li>附加问题4识别 1 分</li>
+</ul>
+<hr />
+<h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
+<h3 id="20-编程-01-">20-编程-01 ★★★</h3>
+<p><strong>题目</strong>：请实现 CTTS
+的"复杂条件查询提交记录"接口，要求：</p>
+<ol type="1">
+<li>接口路径：<code>POST /api/submission/query</code></li>
+<li>入参
+<code>SubmissionQueryDTO</code>：学生姓名（模糊）、学号（精确）、任务标题（模糊）、状态、提交时间起止</li>
+<li>出参
+<code>List&lt;SubmissionVO&gt;</code>：含提交ID、学生姓名、学号、任务标题、状态、提交时间</li>
+<li>支持动态条件拼接，姓名模糊匹配时同时匹配"张三"或"李四"（嵌套
+or）</li>
+<li>按提交时间倒序</li>
+</ol>
+<p><strong>请给出</strong>：DTO、VO、Service 实现、Mapper 接口（含多表
+JOIN SQL）。</p>
+<p><strong>参考答案</strong>：</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// DTO</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SubmissionQueryDTO <span class="op">{</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> studentName<span class="op">;</span>     <span class="co">// 模糊</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> studentNo<span class="op">;</span>       <span class="co">// 精确</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> taskTitle<span class="op">;</span>       <span class="co">// 模糊</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> status<span class="op">;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime startTime<span class="op">;</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime endTime<span class="op">;</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// VO</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">vo</span><span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SubmissionVO <span class="op">{</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> id<span class="op">;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> studentName<span class="op">;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> studentNo<span class="op">;</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> taskTitle<span class="op">;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> status<span class="op">;</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime submitTime<span class="op">;</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Mapper</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">conditions</span><span class="op">.</span><span class="im">query</span><span class="op">.</span><span class="im">QueryWrapper</span><span class="op">;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">BaseMapper</span><span class="op">;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Submission</span><span class="op">;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">vo</span><span class="op">.</span><span class="im">SubmissionVO</span><span class="op">;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">apache</span><span class="op">.</span><span class="im">ibatis</span><span class="op">.</span><span class="im">annotations</span><span class="op">.</span><span class="im">Param</span><span class="op">;</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">apache</span><span class="op">.</span><span class="im">ibatis</span><span class="op">.</span><span class="im">annotations</span><span class="op">.</span><span class="im">Select</span><span class="op">;</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> SubmissionMapper <span class="kw">extends</span> BaseMapper<span class="op">&lt;</span>Submission<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Select</span><span class="op">(</span><span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="st">        SELECT sub.id, sub.status, sub.submit_time,</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="st">               s.name AS studentName, s.student_no AS studentNo,</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="st">               t.title AS taskTitle</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="st">        FROM submission sub</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="st">        INNER JOIN student s ON sub.student_id = s.id</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="st">        INNER JOIN task t ON sub.task_id = t.id</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="st">        ${ew.customSqlSegment}</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="st">        &quot;&quot;&quot;</span><span class="op">)</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>SubmissionVO<span class="op">&gt;</span> <span class="fu">selectByCondition</span><span class="op">(</span><span class="at">@Param</span><span class="op">(</span><span class="st">&quot;ew&quot;</span><span class="op">)</span> QueryWrapper<span class="op">&lt;</span>SubmissionVO<span class="op">&gt;</span> wrapper<span class="op">);</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Service 实现</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">impl</span><span class="op">;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">conditions</span><span class="op">.</span><span class="im">query</span><span class="op">.</span><span class="im">QueryWrapper</span><span class="op">;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">.</span><span class="im">SubmissionQueryDTO</span><span class="op">;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">SubmissionMapper</span><span class="op">;</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">vo</span><span class="op">.</span><span class="im">SubmissionVO</span><span class="op">;</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Service</span><span class="op">;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">StringUtils</span><span class="op">;</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SubmissionServiceImpl <span class="kw">implements</span> SubmissionService <span class="op">{</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> SubmissionMapper submissionMapper<span class="op">;</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">SubmissionServiceImpl</span><span class="op">(</span>SubmissionMapper m<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">submissionMapper</span> <span class="op">=</span> m<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>SubmissionVO<span class="op">&gt;</span> <span class="fu">query</span><span class="op">(</span>SubmissionQueryDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        QueryWrapper<span class="op">&lt;</span>SubmissionVO<span class="op">&gt;</span> w <span class="op">=</span> <span class="kw">new</span> QueryWrapper<span class="op">&lt;&gt;();</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 动态条件</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>        w<span class="op">.</span><span class="fu">eq</span><span class="op">(</span>StringUtils<span class="op">.</span><span class="fu">hasText</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getStudentNo</span><span class="op">()),</span> <span class="st">&quot;s.student_no&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getStudentNo</span><span class="op">());</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>        w<span class="op">.</span><span class="fu">like</span><span class="op">(</span>StringUtils<span class="op">.</span><span class="fu">hasText</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getTaskTitle</span><span class="op">()),</span> <span class="st">&quot;t.title&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getTaskTitle</span><span class="op">());</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>        w<span class="op">.</span><span class="fu">eq</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getStatus</span><span class="op">()</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">,</span> <span class="st">&quot;sub.status&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getStatus</span><span class="op">());</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>        w<span class="op">.</span><span class="fu">ge</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getStartTime</span><span class="op">()</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">,</span> <span class="st">&quot;sub.submit_time&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getStartTime</span><span class="op">());</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>        w<span class="op">.</span><span class="fu">le</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getEndTime</span><span class="op">()</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">,</span> <span class="st">&quot;sub.submit_time&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getEndTime</span><span class="op">());</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 嵌套 or：姓名匹配张三或李四</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>StringUtils<span class="op">.</span><span class="fu">hasText</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getStudentName</span><span class="op">()))</span> <span class="op">{</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>            w<span class="op">.</span><span class="fu">and</span><span class="op">(</span>x <span class="op">-&gt;</span> x<span class="op">.</span><span class="fu">like</span><span class="op">(</span><span class="st">&quot;s.name&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getStudentName</span><span class="op">())</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">or</span><span class="op">().</span><span class="fu">like</span><span class="op">(</span><span class="st">&quot;s.name&quot;</span><span class="op">,</span> <span class="st">&quot;李四&quot;</span><span class="op">));</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>        w<span class="op">.</span><span class="fu">orderByDesc</span><span class="op">(</span><span class="st">&quot;sub.submit_time&quot;</span><span class="op">);</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> submissionMapper<span class="op">.</span><span class="fu">selectByCondition</span><span class="op">(</span>w<span class="op">);</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>评分标准（满分 20 分）</strong>：</p>
+<ul>
+<li>DTO/VO 字段完整 4 分</li>
+<li>Mapper SQL 正确（多表 JOIN + 字段别名）5 分</li>
+<li>动态条件拼接（5 个条件）5 分</li>
+<li>嵌套 or 写法正确 4 分</li>
+<li>排序 2 分</li>
+<li>缺一项扣对应分</li>
+</ul>
+<hr />
+<h3 id="20-编程-02-">20-编程-02 ★★★</h3>
+<p><strong>题目</strong>：请实现 CTTS
+的"任务提交→状态更新→评审→成绩统计"完整业务链，要求：</p>
+<ol type="1">
+<li><code>submitTask(submissionId, content, fileUrl)</code>：状态从"进行中"→"已提交"，更新内容和提交时间</li>
+<li><code>reviewTask(submissionId, teacherId, score, comment)</code>：插入评审记录
++ 状态"已提交"→"已评审"</li>
+<li><code>statStudentScore()</code>：统计每个学生的平均分、最高分、提交数</li>
+<li>所有写操作在事务内，受检异常也回滚</li>
+<li>用状态机校验合法流转</li>
+<li>评审日志独立事务保存（REQUIRES_NEW）</li>
+</ol>
+<p><strong>请给出</strong>：状态枚举、状态机、Service 实现核心代码、统计
+Mapper SQL。</p>
+<p><strong>参考答案</strong>：</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 1. 状态枚举</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">enums</span><span class="op">;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">AllArgsConstructor</span><span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Getter</span><span class="op">;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="at">@Getter</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="at">@AllArgsConstructor</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">enum</span> SubmissionStatus <span class="op">{</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">NOT_STARTED</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="st">&quot;未开始&quot;</span><span class="op">),</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">IN_PROGRESS</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="st">&quot;进行中&quot;</span><span class="op">),</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUBMITTED</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="st">&quot;已提交&quot;</span><span class="op">),</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">REVIEWED</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="st">&quot;已评审&quot;</span><span class="op">);</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> <span class="bu">Integer</span> code<span class="op">;</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> <span class="bu">String</span> desc<span class="op">;</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> SubmissionStatus <span class="fu">of</span><span class="op">(</span><span class="bu">Integer</span> code<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span>SubmissionStatus s <span class="op">:</span> <span class="fu">values</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>s<span class="op">.</span><span class="fu">code</span><span class="op">.</span><span class="fu">equals</span><span class="op">(</span>code<span class="op">))</span> <span class="cf">return</span> s<span class="op">;</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">&quot;未知状态: &quot;</span> <span class="op">+</span> code<span class="op">);</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 2. 状态机</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">enums</span><span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">EnumMap</span><span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Map</span><span class="op">;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Set</span><span class="op">;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SubmissionStateMachine <span class="op">{</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> <span class="bu">Map</span><span class="op">&lt;</span>SubmissionStatus<span class="op">,</span> <span class="bu">Set</span><span class="op">&lt;</span>SubmissionStatus<span class="op">&gt;&gt;</span> TRANSITIONS <span class="op">=</span> <span class="kw">new</span> <span class="bu">EnumMap</span><span class="op">&lt;&gt;(</span>SubmissionStatus<span class="op">.</span><span class="fu">class</span><span class="op">);</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="op">{</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        TRANSITIONS<span class="op">.</span><span class="fu">put</span><span class="op">(</span>SubmissionStatus<span class="op">.</span><span class="fu">NOT_STARTED</span><span class="op">,</span> <span class="bu">Set</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span>SubmissionStatus<span class="op">.</span><span class="fu">IN_PROGRESS</span><span class="op">));</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        TRANSITIONS<span class="op">.</span><span class="fu">put</span><span class="op">(</span>SubmissionStatus<span class="op">.</span><span class="fu">IN_PROGRESS</span><span class="op">,</span> <span class="bu">Set</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span>SubmissionStatus<span class="op">.</span><span class="fu">SUBMITTED</span><span class="op">));</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        TRANSITIONS<span class="op">.</span><span class="fu">put</span><span class="op">(</span>SubmissionStatus<span class="op">.</span><span class="fu">SUBMITTED</span><span class="op">,</span> <span class="bu">Set</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span>SubmissionStatus<span class="op">.</span><span class="fu">REVIEWED</span><span class="op">,</span> SubmissionStatus<span class="op">.</span><span class="fu">IN_PROGRESS</span><span class="op">));</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        TRANSITIONS<span class="op">.</span><span class="fu">put</span><span class="op">(</span>SubmissionStatus<span class="op">.</span><span class="fu">REVIEWED</span><span class="op">,</span> <span class="bu">Set</span><span class="op">.</span><span class="fu">of</span><span class="op">());</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">check</span><span class="op">(</span>SubmissionStatus from<span class="op">,</span> SubmissionStatus to<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>TRANSITIONS<span class="op">.</span><span class="fu">getOrDefault</span><span class="op">(</span>from<span class="op">,</span> <span class="bu">Set</span><span class="op">.</span><span class="fu">of</span><span class="op">()).</span><span class="fu">contains</span><span class="op">(</span>to<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalStateException</span><span class="op">(</span><span class="st">&quot;非法状态流转: &quot;</span> <span class="op">+</span> from<span class="op">.</span><span class="fu">getDesc</span><span class="op">()</span> <span class="op">+</span> <span class="st">&quot; → &quot;</span> <span class="op">+</span> to<span class="op">.</span><span class="fu">getDesc</span><span class="op">());</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 3. Service 实现核心代码</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">impl</span><span class="op">;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Review</span><span class="op">;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Submission</span><span class="op">;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">enums</span><span class="op">.</span><span class="im">SubmissionStatus</span><span class="op">;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">enums</span><span class="op">.</span><span class="im">SubmissionStateMachine</span><span class="op">;</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">ReviewMapper</span><span class="op">;</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">SubmissionMapper</span><span class="op">;</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">LogService</span><span class="op">;</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">TaskBusinessService</span><span class="op">;</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">vo</span><span class="op">.</span><span class="im">StudentStatVO</span><span class="op">;</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Service</span><span class="op">;</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">transaction</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Propagation</span><span class="op">;</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">transaction</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Transactional</span><span class="op">;</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">math</span><span class="op">.</span><span class="im">BigDecimal</span><span class="op">;</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskBusinessServiceImpl <span class="kw">implements</span> TaskBusinessService <span class="op">{</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> SubmissionMapper submissionMapper<span class="op">;</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> ReviewMapper reviewMapper<span class="op">;</span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> LogService logService<span class="op">;</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">TaskBusinessServiceImpl</span><span class="op">(</span>SubmissionMapper s<span class="op">,</span> ReviewMapper r<span class="op">,</span> LogService l<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">submissionMapper</span> <span class="op">=</span> s<span class="op">;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">reviewMapper</span> <span class="op">=</span> r<span class="op">;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">logService</span> <span class="op">=</span> l<span class="op">;</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">,</span> propagation <span class="op">=</span> Propagation<span class="op">.</span><span class="fu">REQUIRED</span><span class="op">)</span></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">submitTask</span><span class="op">(</span><span class="bu">Long</span> submissionId<span class="op">,</span> <span class="bu">String</span> content<span class="op">,</span> <span class="bu">String</span> fileUrl<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>        Submission sub <span class="op">=</span> submissionMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>submissionId<span class="op">);</span></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>        SubmissionStatus from <span class="op">=</span> SubmissionStatus<span class="op">.</span><span class="fu">of</span><span class="op">(</span>sub<span class="op">.</span><span class="fu">getStatus</span><span class="op">());</span></span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>        SubmissionStateMachine<span class="op">.</span><span class="fu">check</span><span class="op">(</span>from<span class="op">,</span> SubmissionStatus<span class="op">.</span><span class="fu">SUBMITTED</span><span class="op">);</span></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span>SubmissionStatus<span class="op">.</span><span class="fu">SUBMITTED</span><span class="op">.</span><span class="fu">getCode</span><span class="op">());</span></span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setContent</span><span class="op">(</span>content<span class="op">);</span></span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setFileUrl</span><span class="op">(</span>fileUrl<span class="op">);</span></span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setSubmitTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>        submissionMapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>sub<span class="op">);</span></span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>        logService<span class="op">.</span><span class="fu">log</span><span class="op">(</span>submissionId<span class="op">,</span> <span class="st">&quot;SUBMIT&quot;</span><span class="op">,</span> <span class="st">&quot;提交任务&quot;</span><span class="op">);</span></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">,</span> propagation <span class="op">=</span> Propagation<span class="op">.</span><span class="fu">REQUIRED</span><span class="op">)</span></span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">reviewTask</span><span class="op">(</span><span class="bu">Long</span> submissionId<span class="op">,</span> <span class="bu">Long</span> teacherId<span class="op">,</span> <span class="bu">BigDecimal</span> score<span class="op">,</span> <span class="bu">String</span> comment<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 1) 插入评审记录</span></span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>        Review review <span class="op">=</span> <span class="kw">new</span> <span class="fu">Review</span><span class="op">();</span></span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>        review<span class="op">.</span><span class="fu">setSubmissionId</span><span class="op">(</span>submissionId<span class="op">);</span></span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>        review<span class="op">.</span><span class="fu">setTeacherId</span><span class="op">(</span>teacherId<span class="op">);</span></span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>        review<span class="op">.</span><span class="fu">setScore</span><span class="op">(</span>score<span class="op">);</span></span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>        review<span class="op">.</span><span class="fu">setComment</span><span class="op">(</span>comment<span class="op">);</span></span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>        review<span class="op">.</span><span class="fu">setReviewTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>        reviewMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>review<span class="op">);</span></span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 2) 状态校验 + 更新</span></span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>        Submission sub <span class="op">=</span> submissionMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>submissionId<span class="op">);</span></span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>        SubmissionStatus from <span class="op">=</span> SubmissionStatus<span class="op">.</span><span class="fu">of</span><span class="op">(</span>sub<span class="op">.</span><span class="fu">getStatus</span><span class="op">());</span></span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>        SubmissionStateMachine<span class="op">.</span><span class="fu">check</span><span class="op">(</span>from<span class="op">,</span> SubmissionStatus<span class="op">.</span><span class="fu">REVIEWED</span><span class="op">);</span></span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>        sub<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span>SubmissionStatus<span class="op">.</span><span class="fu">REVIEWED</span><span class="op">.</span><span class="fu">getCode</span><span class="op">());</span></span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>        submissionMapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>sub<span class="op">);</span></span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 3) 日志独立事务</span></span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>        logService<span class="op">.</span><span class="fu">log</span><span class="op">(</span>submissionId<span class="op">,</span> <span class="st">&quot;REVIEW&quot;</span><span class="op">,</span> <span class="st">&quot;评审完成，成绩：&quot;</span> <span class="op">+</span> score<span class="op">);</span></span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>StudentStatVO<span class="op">&gt;</span> <span class="fu">statStudentScore</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> reviewMapper<span class="op">.</span><span class="fu">statStudentScore</span><span class="op">();</span></span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 4. 日志服务（独立事务）</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">impl</span><span class="op">;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">OperationLog</span><span class="op">;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">OperationLogMapper</span><span class="op">;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Service</span><span class="op">;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">transaction</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Propagation</span><span class="op">;</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">transaction</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Transactional</span><span class="op">;</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> LogService <span class="op">{</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> OperationLogMapper logMapper<span class="op">;</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">LogService</span><span class="op">(</span>OperationLogMapper m<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">logMapper</span> <span class="op">=</span> m<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Transactional</span><span class="op">(</span>propagation <span class="op">=</span> Propagation<span class="op">.</span><span class="fu">REQUIRES_NEW</span><span class="op">,</span> rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">log</span><span class="op">(</span><span class="bu">Long</span> bizId<span class="op">,</span> <span class="bu">String</span> action<span class="op">,</span> <span class="bu">String</span> desc<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        OperationLog log <span class="op">=</span> <span class="kw">new</span> <span class="fu">OperationLog</span><span class="op">();</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">setBizId</span><span class="op">(</span>bizId<span class="op">);</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">setAction</span><span class="op">(</span>action<span class="op">);</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">setDesc</span><span class="op">(</span>desc<span class="op">);</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">setOperateTime</span><span class="op">(</span>java<span class="op">.</span><span class="fu">time</span><span class="op">.</span><span class="fu">LocalDateTime</span><span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>        logMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>log<span class="op">);</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 5. 统计 Mapper SQL</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Select</span><span class="op">(</span><span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT s.id AS studentId, s.name AS studentName,</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="st">           COUNT(r.id) AS submitCount,</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="st">           AVG(r.score) AS avgScore,</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="st">           MAX(r.score) AS maxScore</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM submission sub</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="st">    INNER JOIN student s ON sub.student_id = s.id</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="st">    LEFT  JOIN review r  ON r.submission_id = sub.id</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="st">    WHERE sub.status = 3</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="st">    GROUP BY s.id, s.name</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="st">    HAVING COUNT(r.id) &gt; 0</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="st">    ORDER BY avgScore DESC</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="st">    &quot;&quot;&quot;</span><span class="op">)</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="bu">List</span><span class="op">&lt;</span>StudentStatVO<span class="op">&gt;</span> <span class="fu">statStudentScore</span><span class="op">();</span></span></code></pre></div>
+<p><strong>评分标准（满分 20 分）</strong>：</p>
+<ul>
+<li>状态枚举完整 3 分</li>
+<li>状态机规则正确 3 分</li>
+<li>submitTask 事务+状态校验+更新 4 分</li>
+<li>reviewTask 事务+插入评审+状态更新 4 分</li>
+<li>日志独立事务 REQUIRES_NEW 3 分</li>
+<li>统计 SQL 正确（JOIN+GROUP BY+HAVING）3 分</li>
+<li>注解配置正确（rollbackFor、propagation）2 分</li>
+<li>编译错误每处扣 1 分</li>
+</ul>
+<hr />
+<h2 id="附题目统计表">附：题目统计表</h2>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>数量</th>
+<th>难度分布</th>
+<th>分值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单项选择题</td>
+<td>30</td>
+<td>★×10 / ★★×15 / ★★★×5</td>
+<td>每题 2 分（共 60 分）</td>
+</tr>
+<tr>
+<td>多项选择题</td>
+<td>10</td>
+<td>★★×7 / ★★★×3</td>
+<td>每题 3 分（共 30 分）</td>
+</tr>
+<tr>
+<td>判断题</td>
+<td>20</td>
+<td>★×4 / ★★×12 / ★★★×4</td>
+<td>每题 1 分（共 20 分）</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>10</td>
+<td>★×2 / ★★×6 / ★★★×2</td>
+<td>每题 2 分（共 20 分）</td>
+</tr>
+<tr>
+<td>论述简答题</td>
+<td>4</td>
+<td>★★×2 / ★★★×2</td>
+<td>每题 10 分（共 40 分）</td>
+</tr>
+<tr>
+<td>程序阅读补全</td>
+<td>2</td>
+<td>★★×1 / ★★★×1</td>
+<td>每题 10 分（共 20 分）</td>
+</tr>
+<tr>
+<td>编程接口设计</td>
+<td>2</td>
+<td>★★★×2</td>
+<td>每题 20 分（共 40 分）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td>★×16 / ★★×43 / ★★★×19</td>
+<td><strong>总分 230 分</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="知识点覆盖统计">知识点覆盖统计</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>题号示例</th>
+<th>题量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K20-1 复杂条件查询</td>
+<td>单选01/02/03/17/27、多选04、判断01/02、填空01、程序01</td>
+<td>14</td>
+</tr>
+<tr>
+<td>K20-2 统计查询</td>
+<td>单选04/05/06/14/18/19/27/28/29、多选03/07、判断03/10/11/15/18、填空02/08/10</td>
+<td>18</td>
+</tr>
+<tr>
+<td>K20-3 事务管理深入</td>
+<td>单选07/08/09/10/11/12/15/16/21/22/23/24、多选01/02/05/08/09/10、判断04/05/06/07/08/09/12/14/16/17/19、填空03/04/06/07/09、论述01/02、程序02</td>
+<td>36</td>
+</tr>
+<tr>
+<td>K20-4 业务状态流转</td>
+<td>单选13/25、多选06、判断13、填空05、论述03</td>
+<td>8</td>
+</tr>
+<tr>
+<td>K20-5 综合业务实现</td>
+<td>单选30、判断20、论述04、编程01/02</td>
+<td>6</td>
+</tr>
+<tr>
+<td>课程思政</td>
+<td>论述04</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="难度分布统计">难度分布统计</h3>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>题量</th>
+<th>占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>★ 基础</td>
+<td>16</td>
+<td>20.5%</td>
+</tr>
+<tr>
+<td>★★ 中等</td>
+<td>43</td>
+<td>55.1%</td>
+</tr>
+<tr>
+<td>★★★ 进阶</td>
+<td>19</td>
+<td>24.4%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="建议组卷方案">建议组卷方案</h3>
+<p><strong>课堂小测验（10 分钟，10 分）</strong>：从以下题中选题</p>
+<ul>
+<li>单选07（rollbackFor 默认）</li>
+<li>单选09（自调用失效）</li>
+<li>单选10（IOException 不回滚）</li>
+<li>单选11（catch 吞异常）</li>
+<li>判断04（rollbackFor 默认值）</li>
+</ul>
+<p><strong>课后作业（30 分）</strong>：</p>
+<ul>
+<li>编程02（业务链实现）</li>
+</ul>
+<p><strong>期中考试组卷参考（100 分）</strong>：</p>
+<ul>
+<li>单选 10 题 × 2 分 = 20 分</li>
+<li>多选 5 题 × 3 分 = 15 分</li>
+<li>判断 10 题 × 1 分 = 10 分</li>
+<li>填空 5 题 × 2 分 = 10 分</li>
+<li>论述 1 题 × 10 分 = 10 分</li>
+<li>程序阅读 1 题 × 10 分 = 10 分</li>
+<li>编程 1 题 × 25 分 = 25 分</li>
+</ul>
+<hr />
+<blockquote>
+<p>本题库所有题目基于 CTTS 校园实训任务管理系统场景，技术栈 Java 17 +
+Spring Boot 3.x + MyBatis-Plus +
+MySQL。题目可自由组合用于课堂测验、课后作业、期中考试、期末复习。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

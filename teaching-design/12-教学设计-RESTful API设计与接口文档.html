@@ -1,0 +1,677 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RESTful API设计与接口文档</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 12 次课 · 教学设计</div>
+      <h1>RESTful API设计与接口文档</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 12 次课</span>
+        <span class="hero-chip"><b>主题</b>RESTful API设计与接口文档</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息表">一、课程信息表</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#21-知识目标">2.1 知识目标</a></li>
+<li><a href="#22-能力目标">2.2 能力目标</a></li>
+<li><a href="#23-素质目标课程思政">2.3 素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三知识点纲要表">三、知识点纲要表</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务">四、项目任务</a>
+<ul>
+<li><a href="#41-总任务">4.1 总任务</a></li>
+<li><a href="#42-子任务分解">4.2 子任务分解</a></li>
+<li><a href="#43-交付标准">4.3 交付标准</a></li>
+</ul></li>
+<li><a href="#五课堂互动">五、课堂互动</a>
+<ul>
+<li><a href="#51-互动主题接口设计评审同学互评接口路径合理性">5.1 互动主题：接口设计评审——同学互评接口路径合理性</a></li>
+<li><a href="#52-互动流程15分钟">5.2 互动流程（15分钟）</a></li>
+<li><a href="#53-评审反例示例">5.3 评审反例示例</a></li>
+<li><a href="#54-评审表学生填写样例">5.4 评审表（学生填写样例）</a></li>
+</ul></li>
+<li><a href="#六课程思政">六、课程思政</a>
+<ul>
+<li><a href="#61-思政主题接口设计责任契约一旦确定就是承诺">6.1 思政主题：接口设计责任——契约一旦确定就是承诺</a></li>
+<li><a href="#62-融入方式5分钟讲授结尾自然过渡">6.2 融入方式（5分钟，讲授结尾自然过渡）</a></li>
+</ul></li>
+<li><a href="#七课堂练习">七、课堂练习</a>
+<ul>
+<li><a href="#练习3k12-53分钟注解匹配">练习3（K12-5，3分钟）——注解匹配</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+<li><a href="#81-必做任务">8.1 必做任务</a></li>
+<li><a href="#82-选做任务加分">8.2 选做任务（加分）</a></li>
+<li><a href="#83-提交要求">8.3 提交要求</a></li>
+</ul></li>
+<li><a href="#九面试考点">九、面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十资料题库索引">十、资料题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#十一教学反思课后填写">十一、教学反思（课后填写）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 12 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>课程名称：Java Web后端开发技术 | 模块：M5 接口规范与工程规范 |
+课型：理论课（含设计实践）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息表">一、课程信息表</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>Java Web后端开发技术</td>
+</tr>
+<tr>
+<td>课程模块</td>
+<td>M5 接口规范与工程规范</td>
+</tr>
+<tr>
+<td>课时编号</td>
+<td>第12次课（共2学时/90分钟）</td>
+</tr>
+<tr>
+<td>课题名称</td>
+<td>RESTful API设计与接口文档</td>
+</tr>
+<tr>
+<td>课型</td>
+<td>理论课（含接口设计实践）</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程/计算机科学与技术 本科三年级</td>
+</tr>
+<tr>
+<td>先修课程</td>
+<td>Java程序设计、数据库原理、Web前端基础</td>
+</tr>
+<tr>
+<td>先修课次</td>
+<td>第4次Controller开发、第5次接口调试与JSON返回、第11次DTO/VO/Result与包结构规范</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java 17 + Spring Boot 3.x + MyBatis-Plus + MySQL 8.x + Knife4j
+4.x</td>
+</tr>
+<tr>
+<td>项目背景</td>
+<td>CTTS校园实训任务管理系统（包名 com.ctts）</td>
+</tr>
+<tr>
+<td>教学方法</td>
+<td>讲授法 + 案例驱动 + 互评评审 + 对比分析</td>
+</tr>
+<tr>
+<td>教学环境</td>
+<td>多媒体教室 + 学生自带IDE + Swagger UI在线演示</td>
+</tr>
+<tr>
+<td>重点</td>
+<td>RESTful设计原则、统一Result/PageResult响应结构、Knife4j注解规范</td>
+</tr>
+<tr>
+<td>难点</td>
+<td>嵌套资源路径设计、HTTP方法语义正确性、接口契约的"承诺"意识</td>
+</tr>
+<tr>
+<td>课后产出</td>
+<td>CTTS全部接口RESTful设计表 + Knife4j文档化的Controller</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="21-知识目标">2.1 知识目标</h3>
+<ul>
+<li><strong>K12-1</strong>：能准确复述RESTful六大设计原则（资源名词复数、HTTP方法表达操作、ID用路径参数、无状态、统一JSON响应、版本管理）。</li>
+<li><strong>K12-2</strong>：能区分资源命名规范与反例，能正确设计嵌套资源路径（如
+<code>/projects/1/tasks</code>）与版本路径（<code>/api/v1</code>）。</li>
+<li><strong>K12-3</strong>：能说明query、path、body、header四类参数的使用场景与设计要点。</li>
+<li><strong>K12-4</strong>：能写出统一 <code>Result&lt;T&gt;</code> 与
+<code>PageResult&lt;T&gt;</code>
+响应结构，能描述错误响应的三要素（code/message/timestamp）。</li>
+<li><strong>K12-5</strong>：能说出Knife4j五大常用注解（<code>@Tag</code>/<code>@Operation</code>/<code>@Parameter</code>/<code>@Schema</code>/<code>@ApiResponse</code>）的作用与使用位置。</li>
+</ul>
+<h3 id="22-能力目标">2.2 能力目标</h3>
+<ul>
+<li>能为CTTS系统的用户、项目、任务、提交、评论五大模块独立完成RESTful接口路径设计。</li>
+<li>能使用Knife4j注解编写"自文档化"的Controller，使接口文档自动生成、无需手写。</li>
+<li>能对他人接口设计进行规范评审，指出至少3类常见问题（动词路径、方法误用、状态码缺失）。</li>
+</ul>
+<h3 id="23-素质目标课程思政">2.3 素质目标（课程思政）</h3>
+<ul>
+<li>树立"接口即契约"的工程责任感——契约一旦确定就是对前后端、对用户的承诺。</li>
+<li>培养规范意识与协作精神——统一规范是团队协作的基石。</li>
+<li>强化"用户视角"——好的接口文档是给同事和未来自己的礼物。</li>
+</ul>
+<hr />
+<h2 id="三知识点纲要表">三、知识点纲要表</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>内容要点</th>
+<th>教学要求</th>
+<th>课时（min）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K12-1</td>
+<td>RESTful设计原则回顾</td>
+<td>资源用名词复数、HTTP方法表达操作、ID用路径参数、无状态、统一JSON响应、版本管理</td>
+<td>掌握</td>
+<td>12</td>
+</tr>
+<tr>
+<td>K12-2</td>
+<td>接口路径设计</td>
+<td>资源命名规范、嵌套资源 <code>/projects/1/tasks</code>、版本管理
+<code>/api/v1</code>、路径层级与深度控制</td>
+<td>掌握</td>
+<td>15</td>
+</tr>
+<tr>
+<td>K12-3</td>
+<td>请求参数设计</td>
+<td>query筛选、path定位、body创建更新、header认证；参数校验提示</td>
+<td>掌握</td>
+<td>13</td>
+</tr>
+<tr>
+<td>K12-4</td>
+<td>响应数据设计</td>
+<td>统一 <code>Result&lt;T&gt;</code>
+结构、<code>PageResult&lt;T&gt;</code>
+分页响应、错误响应规范、HTTP状态码语义</td>
+<td>掌握</td>
+<td>15</td>
+</tr>
+<tr>
+<td>K12-5</td>
+<td>Knife4j接口文档规范</td>
+<td><code>@Tag</code>/<code>@Operation</code>/<code>@Parameter</code>/<code>@Schema</code>/<code>@ApiResponse</code>
+注解、接口分组、示例值、文档自动生成</td>
+<td>应用</td>
+<td>20</td>
+</tr>
+<tr>
+<td>合计</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>75（讲授+实践） + 15（互动+思政+总结）= 90</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务">四、项目任务</h2>
+<h3 id="41-总任务">4.1 总任务</h3>
+<p><strong>完成CTTS全部接口的RESTful设计与Knife4j文档化</strong>，覆盖五大核心模块。</p>
+<h3 id="42-子任务分解">4.2 子任务分解</h3>
+<table>
+<thead>
+<tr>
+<th>子任务</th>
+<th>模块</th>
+<th>接口数量</th>
+<th>交付物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ST-1</td>
+<td>用户模块 User</td>
+<td>5</td>
+<td>登录、注册、查询详情、更新、分页列表</td>
+</tr>
+<tr>
+<td>ST-2</td>
+<td>项目模块 Project</td>
+<td>6</td>
+<td>增删改查 + 分页 + 关闭项目</td>
+</tr>
+<tr>
+<td>ST-3</td>
+<td>任务模块 Task（嵌套于项目）</td>
+<td>6</td>
+<td>增删改查 + 分页 + 指派</td>
+</tr>
+<tr>
+<td>ST-4</td>
+<td>提交模块 Submission</td>
+<td>4</td>
+<td>提交、查询、评分、撤回</td>
+</tr>
+<tr>
+<td>ST-5</td>
+<td>评论模块 Comment</td>
+<td>4</td>
+<td>发表、查询、删除、点赞</td>
+</tr>
+<tr>
+<td>ST-6</td>
+<td>Knife4j文档化</td>
+<td>全部</td>
+<td>五大Controller加注解、分组、示例值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-交付标准">4.3 交付标准</h3>
+<ol type="1">
+<li><strong>RESTful路径设计表</strong>：列出每个接口的方法、路径、参数位置、响应类型、说明。</li>
+<li><strong>Knife4j注解完整的Controller</strong>：每个接口必须含
+<code>@Operation</code>、<code>@Parameter</code>、<code>@Schema</code>。</li>
+<li><strong>统一响应类</strong>：<code>Result&lt;T&gt;</code> 与
+<code>PageResult&lt;T&gt;</code> 可编译通过。</li>
+<li><strong>文档可访问</strong>：启动项目后访问
+<code>http://localhost:8080/doc.html</code> 能看到分组化接口文档。</li>
+</ol>
+<hr />
+<h2 id="五课堂互动">五、课堂互动</h2>
+<h3 id="51-互动主题接口设计评审同学互评接口路径合理性">5.1
+互动主题：接口设计评审——同学互评接口路径合理性</h3>
+<h3 id="52-互动流程15分钟">5.2 互动流程（15分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>时长</th>
+<th>教师活动</th>
+<th>学生活动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>出题</td>
+<td>2min</td>
+<td>投影展示3组"反例接口"（动词路径、方法误用、层级混乱）</td>
+<td>阅读并独立思考</td>
+</tr>
+<tr>
+<td>分组</td>
+<td>1min</td>
+<td>将学生按4人一组分组，每组认领1组反例</td>
+<td>组内分工</td>
+</tr>
+<tr>
+<td>评审</td>
+<td>6min</td>
+<td>巡回指导，提示从"资源命名/HTTP方法/路径层级/状态码"四维度评审</td>
+<td>组内讨论，填写《接口评审表》</td>
+</tr>
+<tr>
+<td>改写</td>
+<td>3min</td>
+<td>提示改写要求：写出规范版路径并说明理由</td>
+<td>改写并准备汇报</td>
+</tr>
+<tr>
+<td>汇报</td>
+<td>3min</td>
+<td>点评并总结常见问题</td>
+<td>每组1人汇报，其他组质询</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-评审反例示例">5.3 评审反例示例</h3>
+<p><strong>反例1（动词路径）</strong>：</p>
+<pre><code>POST /api/getUserById?id=1
+POST /api/createUser
+POST /api/deleteUser?id=1</code></pre>
+<p><strong>反例2（方法误用）</strong>：</p>
+<pre><code>GET    /api/users/create
+POST   /api/users/1        （用于删除）
+GET    /api/users/delete/1</code></pre>
+<p><strong>反例3（层级混乱）</strong>：</p>
+<pre><code>GET /api/tasks/1/project
+GET /api/projects/1/tasks/2/comments/3/users/4
+GET /api/v1/getAllTaskListByProjectId?pid=1</code></pre>
+<h3 id="54-评审表学生填写样例">5.4 评审表（学生填写样例）</h3>
+<table>
+<thead>
+<tr>
+<th>接口反例</th>
+<th>问题类型</th>
+<th>问题描述</th>
+<th>规范改写</th>
+<th>改写理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST /api/getUserById?id=1</td>
+<td>动词路径 + 方法误用 + 参数位置错</td>
+<td>用GET语义却用POST；动词getUserById违反资源命名；id应在path</td>
+<td>GET /api/v1/users/1</td>
+<td>资源用名词复数；ID用path参数；查询用GET</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政">六、课程思政</h2>
+<h3 id="61-思政主题接口设计责任契约一旦确定就是承诺">6.1
+思政主题：接口设计责任——契约一旦确定就是承诺</h3>
+<h3 id="62-融入方式5分钟讲授结尾自然过渡">6.2
+融入方式（5分钟，讲授结尾自然过渡）</h3>
+<p><strong>案例导入</strong>：</p>
+<blockquote>
+<p>某互联网公司因后端同学"随手"修改了 <code>/api/users</code>
+的返回字段名（<code>userName</code> → <code>username</code>），导致前端
+App 崩溃，影响30万用户2小时，直接损失订单约80万元。</p>
+</blockquote>
+<p><strong>思政要点</strong>：</p>
+<ol type="1">
+<li><strong>契约精神</strong>：接口文档就是前后端签订的"工程合同"。一旦发布，任何字段名、类型、路径的变更都需要走"变更流程"——这是工程师对社会、对用户、对同事的承诺。</li>
+<li><strong>规范即责任</strong>：RESTful不是"美观问题"，是"工程问题"。统一规范让团队能协作、让代码可维护、让事故可追溯。</li>
+<li><strong>用户视角</strong>：写文档时心里要装着读文档的人——可能是新同事、可能是三个月后的自己。好的文档是工程师的"职业名片"。</li>
+<li><strong>职业素养</strong>：中国软件产业要走向高质量，靠的不是一两个"大牛"，而是千千万万遵守规范、敬畏契约的普通工程师。</li>
+</ol>
+<p><strong>思政小结</strong>：</p>
+<blockquote>
+<p>"接口设计责任——契约一旦确定就是承诺。"
+这句话不只是口号，而是每一位后端工程师每天写代码时的"底线意识"。</p>
+</blockquote>
+<hr />
+<h2 id="七课堂练习">七、课堂练习</h2>
+<h3
+id="练习1k12-25分钟路径设计改写">练习1（K12-2，5分钟）——路径设计改写</h3>
+<p>将下列非RESTful接口改写为规范形式：</p>
+<ol type="1">
+<li><code>POST /api/getProjectList?page=1</code></li>
+<li><code>POST /api/project/1/task/2/delete</code></li>
+<li><code>GET /api/queryUserByName?name=张三</code></li>
+</ol>
+<p><strong>参考答案</strong>：</p>
+<ol type="1">
+<li><code>GET /api/v1/projects?page=1</code></li>
+<li><code>DELETE /api/v1/projects/1/tasks/2</code></li>
+<li><code>GET /api/v1/users?name=张三</code></li>
+</ol>
+<h3
+id="练习2k12-45分钟响应结构设计">练习2（K12-4，5分钟）——响应结构设计</h3>
+<p>为"查询任务详情失败（任务不存在）"设计统一错误响应JSON，要求含
+code、message、timestamp、path 四个字段。</p>
+<p><strong>参考答案</strong>：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;code&quot;</span><span class="fu">:</span> <span class="dv">40401</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;message&quot;</span><span class="fu">:</span> <span class="st">&quot;任务不存在&quot;</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;timestamp&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-07-22T10:30:00&quot;</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;path&quot;</span><span class="fu">:</span> <span class="st">&quot;/api/v1/projects/1/tasks/999&quot;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 id="练习3k12-53分钟注解匹配">练习3（K12-5，3分钟）——注解匹配</h3>
+<p>为下列Controller方法补充Knife4j注解（<code>@Operation</code> 的
+summary 与 description）：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span>UserVO<span class="op">&gt;</span> <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<p><strong>参考答案</strong>：</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Operation</span><span class="op">(</span>summary <span class="op">=</span> <span class="st">&quot;查询用户详情&quot;</span><span class="op">,</span> description <span class="op">=</span> <span class="st">&quot;根据用户ID查询用户的完整信息&quot;</span><span class="op">)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span>UserVO<span class="op">&gt;</span> <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<h3 id="81-必做任务">8.1 必做任务</h3>
+<ol type="1">
+<li><strong>完成CTTS五大模块全部接口的RESTful路径设计表</strong>（参考教学资料"综合示例"），共25个接口。</li>
+<li><strong>为用户模块Controller补充完整Knife4j注解</strong>，启动项目访问
+<code>doc.html</code> 截图提交。</li>
+<li><strong>编写 <code>PageResult&lt;T&gt;</code> 与
+<code>Result&lt;T&gt;</code>
+类</strong>，要求可编译通过、含完整JavaDoc。</li>
+</ol>
+<h3 id="82-选做任务加分">8.2 选做任务（加分）</h3>
+<ol type="1">
+<li>为CTTS设计一个"任务批量导入"接口，要求：①路径规范；②使用
+<code>@Operation</code> 描述；③响应返回成功/失败条数。</li>
+<li>调研 <code>springdoc-openapi</code> 与 Knife4j
+的关系，写一段200字以内的对比说明。</li>
+</ol>
+<h3 id="83-提交要求">8.3 提交要求</h3>
+<ul>
+<li>截止时间：下次课前一天 23:59</li>
+<li>提交方式：打包 <code>ctts-api-design.zip</code> 上传教学平台</li>
+<li>文件结构：
+<pre><code>ctts-api-design/
+├── api-design-table.md          # 路径设计表
+├── UserController.java          # Knife4j注解完整
+├── Result.java
+├── PageResult.java
+└── doc-screenshot.png           # doc.html截图</code></pre></li>
+</ul>
+<hr />
+<h2 id="九面试考点">九、面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>考点</th>
+<th>难度</th>
+<th>出现频率</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I-1</td>
+<td>RESTful的六个设计原则</td>
+<td>★</td>
+<td>高</td>
+<td>名词复数、HTTP方法、path参数、无状态、统一响应、版本</td>
+</tr>
+<tr>
+<td>I-2</td>
+<td>GET与POST的本质区别</td>
+<td>★</td>
+<td>高</td>
+<td>幂等性、安全性、语义、缓存</td>
+</tr>
+<tr>
+<td>I-3</td>
+<td>PUT与PATCH的区别</td>
+<td>★★</td>
+<td>中</td>
+<td>PUT全量替换、PATCH部分更新</td>
+</tr>
+<tr>
+<td>I-4</td>
+<td>HTTP状态码语义</td>
+<td>★★</td>
+<td>高</td>
+<td>2xx成功、3xx重定向、4xx客户端错误、5xx服务端错误</td>
+</tr>
+<tr>
+<td>I-5</td>
+<td>接口版本管理策略</td>
+<td>★★</td>
+<td>中</td>
+<td>URL版本、Header版本、Query版本优劣</td>
+</tr>
+<tr>
+<td>I-6</td>
+<td>如何设计统一响应结构</td>
+<td>★</td>
+<td>高</td>
+<td>Result<T> + 业务码 + 消息 + 数据</td>
+</tr>
+<tr>
+<td>I-7</td>
+<td>Knife4j/Swagger注解有哪些</td>
+<td>★</td>
+<td>中</td>
+<td>@Tag/@Operation/@Parameter/@Schema/@ApiResponse</td>
+</tr>
+<tr>
+<td>I-8</td>
+<td>接口幂等性如何保证</td>
+<td>★★★</td>
+<td>中</td>
+<td>token机制、唯一索引、状态机、乐观锁</td>
+</tr>
+<tr>
+<td>I-9</td>
+<td>嵌套资源的层级控制</td>
+<td>★★</td>
+<td>低</td>
+<td>一般不超过2层，深层用query或独立资源</td>
+</tr>
+<tr>
+<td>I-10</td>
+<td>接口安全设计要点</td>
+<td>★★★</td>
+<td>中</td>
+<td>认证、授权、防重放、限流、参数校验</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="十资料题库索引">十、资料题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料/题库</th>
+<th>位置</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学资料.md</td>
+<td>本课次文件夹</td>
+<td>学习导读、5个知识点详解、综合示例、思维导图、复习思考题</td>
+</tr>
+<tr>
+<td>题库.md</td>
+<td>本课次文件夹</td>
+<td>78题（40选择+20判断+10填空+4论述+2程序阅读+2编程）</td>
+</tr>
+<tr>
+<td>官方文档</td>
+<td><a
+href="https://doc.xiaominfo.com/">https://doc.xiaominfo.com/</a></td>
+<td>Knife4j 官方文档（4.x版本）</td>
+</tr>
+<tr>
+<td>官方文档</td>
+<td><a href="https://springdoc.org/">https://springdoc.org/</a></td>
+<td>springdoc-openapi 官方文档</td>
+</tr>
+<tr>
+<td>经典论文</td>
+<td>Roy Fielding《Architectural Styles and the Design of Network-based
+Software Architectures》第5章</td>
+<td>REST博士论文原始定义</td>
+</tr>
+<tr>
+<td>推荐书籍</td>
+<td>《RESTful Web APIs》Leonard Richardson</td>
+<td>REST深度理解</td>
+</tr>
+<tr>
+<td>推荐书籍</td>
+<td>《Spring Boot 3企业级应用开发》</td>
+<td>Knife4j集成章节</td>
+</tr>
+<tr>
+<td>在线工具</td>
+<td><a
+href="https://editor.swagger.io/">https://editor.swagger.io/</a></td>
+<td>OpenAPI规范在线编辑器</td>
+</tr>
+<tr>
+<td>往届课次</td>
+<td>第02次课《HTTP协议JSON与RESTfulAPI思想》</td>
+<td>RESTful思想首次引入</td>
+</tr>
+<tr>
+<td>往届课次</td>
+<td>第11次课《DTO VO Result与包结构规范》</td>
+<td>Result结构基础</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="十一教学反思课后填写">十一、教学反思（课后填写）</h2>
+<table>
+<thead>
+<tr>
+<th>反思维度</th>
+<th>反思记录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标达成度</td>
+<td>（课后填写）</td>
+</tr>
+<tr>
+<td>学生难点</td>
+<td>（课后填写）</td>
+</tr>
+<tr>
+<td>互动效果</td>
+<td>（课后填写）</td>
+</tr>
+<tr>
+<td>改进措施</td>
+<td>（课后填写）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>下次课预告</strong>：第13次课《全局异常处理与参数校验》——将本课的"错误响应规范"落地为
+<code>@RestControllerAdvice</code> + <code>@ExceptionHandler</code> +
+<code>@Valid</code> 全套实现。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1013 @@
+/*
+ * MVVM前端框架开发技术 - HTML 公共样式
+ * 来源：01 教学设计 / 教学资料 / 题库 已确认页面样式抽取。
+ * 后续 02-16 课程 HTML 应复用本文件。
+ * 如用户提出新的视觉或排版规则，请同步更新本文件和 docs 规则文档。
+ */
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学设计-前端框架认知与Vue3开发环境搭建.html | style:  ===== */
+:root{
+      --bg:#eef3ff; --paper:#ffffff; --paper2:#f8fafc; --ink:#172033; --muted:#64748b;
+      --line:#dbe4f0; --brand:#2563eb; --brand2:#0f766e; --accent:#f59e0b;
+      --blue-50:#eff6ff; --blue-100:#dbeafe; --green-50:#ecfdf5; --shadow:0 18px 50px rgba(30,64,175,.12);
+      --code-bg:#101827; --code-ink:#e5edf9;
+    }
+    *{box-sizing:border-box}
+    html{background:var(--bg); scroll-behavior:smooth}
+    body{margin:0; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif; line-height:1.78; font-size:16px}
+    .hero{background:linear-gradient(135deg,#1e40af 0%,#2563eb 46%,#0f766e 100%); color:#fff; padding:34px 24px 76px; position:relative; overflow:hidden}
+    .hero:before{content:""; position:absolute; width:420px; height:420px; right:-120px; top:-180px; border-radius:50%; background:rgba(255,255,255,.12)}
+    .hero:after{content:""; position:absolute; width:260px; height:260px; left:-80px; bottom:-140px; border-radius:50%; background:rgba(255,255,255,.10)}
+    .hero-inner{max-width:1180px; margin:0 auto; position:relative; z-index:1}
+    .kicker{display:inline-flex; gap:8px; align-items:center; padding:6px 12px; border:1px solid rgba(255,255,255,.35); border-radius:999px; background:rgba(255,255,255,.13); font-size:.92rem; letter-spacing:.03em}
+    .hero h1{margin:18px 0 8px; color:#fff; font-size:clamp(1.9rem,4vw,3.2rem); line-height:1.18; font-weight:800}
+    .hero p{margin:0; color:rgba(255,255,255,.86); font-size:1.05rem}
+    .layout{max-width:1180px; margin:-48px auto 56px; padding:0 20px; display:grid; grid-template-columns:280px minmax(0,1fr); gap:22px; align-items:start; position:relative; z-index:2}
+    .sidebar{position:sticky; top:18px; max-height:calc(100vh - 36px); overflow:auto; background:rgba(255,255,255,.96); border:1px solid rgba(219,228,240,.95); border-radius:18px; box-shadow:var(--shadow); padding:18px}
+    .toc-heading{font-weight:800; color:#0f172a; margin:0 0 10px; display:flex; align-items:center; gap:8px}
+    .toc-heading:before{content:""; width:8px; height:18px; border-radius:8px; background:linear-gradient(180deg,var(--brand),var(--brand2))}
+    #TOC ul{list-style:none; padding-left:0; margin:0}
+    #TOC li{margin:3px 0}
+    #TOC li ul{padding-left:14px; margin:4px 0 7px; border-left:1px dashed var(--line)}
+    #TOC a{display:block; color:#334155; text-decoration:none; padding:5px 7px; border-radius:8px; font-size:.92rem; line-height:1.35}
+    #TOC a:hover{background:var(--blue-50); color:#1d4ed8}
+    .content{min-width:0}
+    .article{background:var(--paper); border:1px solid rgba(219,228,240,.95); border-radius:22px; box-shadow:var(--shadow); padding:34px 42px 46px; overflow:hidden}
+    .doc-meta{margin:0 0 22px!important; padding:12px 14px; border:1px solid var(--blue-100); background:linear-gradient(90deg,var(--blue-50),#fff); color:#475569; border-radius:12px; font-size:.95rem}
+    h1,h2,h3,h4{color:#0f172a; line-height:1.35; scroll-margin-top:24px}
+    h2{margin:44px 0 18px; padding:0 0 10px; border-bottom:2px solid var(--line); font-size:1.55rem; color:#1e3a8a}
+    h2:before{content:""; display:inline-block; width:9px; height:22px; border-radius:8px; background:var(--brand); margin-right:10px; vertical-align:-4px}
+    h3{margin:30px 0 12px; font-size:1.22rem; color:#0f766e}
+    h4{margin:22px 0 10px; font-size:1.05rem; color:#334155}
+    p{margin:0 0 13px} ul,ol{padding-left:1.35rem} li{margin:.28rem 0}
+    a{color:#2563eb; text-decoration:none} a:hover{text-decoration:underline}
+    strong{font-weight:750}
+    blockquote{margin:16px 0; padding:14px 16px; border:1px solid #bbf7d0; border-left:5px solid #16a34a; background:#f0fdf4; color:#14532d; border-radius:12px}
+    blockquote p:last-child{margin-bottom:0}
+    hr{border:0; border-top:1px solid var(--line); margin:28px 0}
+    table{width:100%; border-collapse:separate; border-spacing:0; margin:16px 0 22px; border:1px solid var(--line); border-radius:14px; overflow:hidden; display:block; overflow-x:auto; background:#fff}
+    thead,tbody,tr{width:100%} th,td{border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:10px 12px; vertical-align:top; min-width:120px}
+    th:last-child,td:last-child{border-right:0} tr:last-child td{border-bottom:0}
+    th{background:#eaf2ff; color:#1e3a8a; font-weight:800; white-space:nowrap} tr:nth-child(even) td{background:#fbfdff}
+    code{font-family:"Cascadia Code",Consolas,"SFMono-Regular",monospace; background:#eef2ff; color:#1e293b; padding:.14rem .35rem; border-radius:6px; font-size:.91em}
+    pre{margin:16px 0 22px; padding:16px 18px; overflow:auto; background:var(--code-bg); color:var(--code-ink); border-radius:14px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+    pre code{background:transparent; color:inherit; padding:0; border-radius:0; font-size:.92rem}
+    .visual{margin:20px 0 26px; padding:22px; border:1px solid #dbe7fb; border-radius:20px; background:radial-gradient(circle at top left,#eff6ff 0,#fff 38%,#f8fafc 100%); box-shadow:0 16px 34px rgba(30,64,175,.10)}
+    .visual-title{margin:0 0 16px; font-weight:850; color:#1e3a8a; display:flex; align-items:center; gap:9px}
+    .visual-title:before{content:""; width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:0 0 0 5px #dbeafe}
+    .flow{display:flex; align-items:stretch; justify-content:space-between; gap:14px; flex-wrap:wrap}
+    .node{flex:1 1 170px; min-width:150px; padding:16px; border-radius:16px; background:#fff; border:1px solid #dbeafe; box-shadow:0 8px 22px rgba(15,23,42,.06)}
+    .node .tag{display:inline-block; padding:3px 9px; border-radius:999px; background:#e0f2fe; color:#0369a1; font-size:.78rem; font-weight:800; margin-bottom:8px}
+    .node h4{margin:0 0 6px; color:#0f172a; font-size:1.05rem}.node p{margin:0; color:#64748b; font-size:.92rem; line-height:1.55}
+    .arrow{align-self:center; flex:0 0 34px; height:34px; border-radius:50%; display:grid; place-items:center; background:#2563eb; color:#fff; font-weight:900; box-shadow:0 8px 18px rgba(37,99,235,.22)}
+    .compare{display:grid; grid-template-columns:1fr 1fr; gap:16px}.compare-card{padding:18px; border-radius:16px; border:1px solid #e2e8f0; background:#fff}.compare-card.good{border-color:#bbf7d0; background:#f0fdf4}.compare-card.bad{border-color:#fed7aa; background:#fff7ed}.compare-card h4{margin:0 0 12px}.steps{display:grid; gap:10px}.step{display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fff; border:1px solid #e2e8f0; border-radius:12px}.step .num{width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:#2563eb;color:#fff;font-weight:800;font-size:.85rem;flex:0 0 auto}
+    .mvvm{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; align-items:center}.mvvm .node{text-align:center}.mvvm-arrow{text-align:center;color:#2563eb;font-weight:900}.mvvm-arrow small{display:block;color:#64748b;font-weight:600}.feature-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}.feature{padding:14px; border-radius:14px; background:#fff; border:1px solid #dbeafe}.feature b{display:block;color:#1d4ed8;margin-bottom:4px}.device-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}.device{padding:18px;border-radius:16px;background:#fff;border:1px solid #dbeafe}.device h4{margin:0 0 10px}.pipeline{display:flex; flex-wrap:wrap; gap:10px; align-items:center}.pill-step{padding:10px 13px;border-radius:999px;background:#fff;border:1px solid #bfdbfe;color:#1e3a8a;font-weight:750}.mindmap{display:grid; grid-template-columns:180px 1fr; gap:18px; align-items:start}.mind-root{padding:18px;border-radius:18px;background:linear-gradient(135deg,#2563eb,#0f766e);color:#fff;font-weight:850;text-align:center}.mind-branches{display:grid;gap:12px}.branch{padding:13px 15px;border-radius:14px;background:#fff;border:1px solid #dbeafe}.branch b{color:#1e3a8a}.file-tree{padding:16px;border-radius:16px;background:#0f172a;color:#e5edf9;font-family:"Cascadia Code",Consolas,monospace}.file-tree ul{list-style:none;margin:0;padding-left:18px}.file-tree > ul{padding-left:0}.file-tree li{margin:4px 0}.file-tree .folder{color:#93c5fd}.file-tree .file{color:#bbf7d0}.file-tree .note{color:#94a3b8;font-family:inherit;font-size:.88rem}
+    .question-card{border:1px solid #d8e3f4; background:linear-gradient(180deg,#fff,#fbfdff); border-radius:16px; padding:18px 18px 16px; margin:18px 0; box-shadow:0 10px 28px rgba(15,23,42,.06)}
+    .question-card > p:first-child{margin-bottom:8px; color:#334155}.question-card > p:first-child strong:first-child{display:inline-flex; margin-right:8px; padding:3px 9px; border-radius:999px; background:#dbeafe; color:#1d4ed8; font-family:"Cascadia Code",Consolas,monospace; font-size:.92rem}.question-card blockquote{margin-top:14px; background:#f0fdf4; border-color:#86efac; border-left-color:#16a34a}
+    .option-list ul{list-style:none; padding:0; margin:12px 0 4px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px}.option-list li{margin:0; display:flex; align-items:flex-start; gap:10px; min-height:44px; padding:10px 12px; border:1px solid #dbe4f0; background:#fff; border-radius:12px; line-height:1.55; box-shadow:0 3px 10px rgba(15,23,42,.035)}.option-list li:hover{border-color:#93c5fd; background:#f8fbff}.option-label{flex:0 0 auto; display:inline-grid; place-items:center; width:26px; height:26px; border-radius:50%; background:#2563eb; color:#fff; font-weight:800; font-family:"Cascadia Code",Consolas,monospace; font-size:.92rem; line-height:1}.option-list li:nth-child(2) .option-label{background:#0f766e}.option-list li:nth-child(3) .option-label{background:#d97706}.option-list li:nth-child(4) .option-label{background:#7c3aed}
+    @media (max-width:980px){.layout{grid-template-columns:1fr}.sidebar{position:relative; top:0; max-height:none}.article{padding:28px 24px}.option-list ul{grid-template-columns:1fr}.mvvm,.compare,.device-grid,.mindmap{grid-template-columns:1fr}.arrow{transform:rotate(90deg); margin:auto}.feature-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.hero{padding:26px 16px 62px}.layout{padding:0 12px}.article{padding:22px 16px; border-radius:16px}.sidebar{border-radius:16px} table{font-size:.92rem}.visual{padding:16px}.feature-grid{grid-template-columns:1fr}}
+    @media print{.hero{padding:0 0 18px; background:#fff; color:#000}.hero h1,.hero p{color:#000}.layout{display:block; margin:0; padding:0}.sidebar{display:none}.article{box-shadow:none; border:0; padding:0}.question-card,pre,table,.visual{break-inside:avoid}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学设计-前端框架认知与Vue3开发环境搭建.html | style: page-polish-v2 ===== */
+body{background:linear-gradient(180deg,#eaf1ff 0,#f7f9fc 360px,#f7f9fc 100%)}
+    .hero{padding:38px 24px 92px;background:linear-gradient(125deg,#172554 0%,#1d4ed8 45%,#0f766e 100%)}
+    .hero:before{width:520px;height:520px;right:-170px;top:-230px;background:rgba(255,255,255,.14);filter:blur(.2px)}
+    .hero:after{width:320px;height:320px;left:-110px;bottom:-170px;background:rgba(255,255,255,.09)}
+    .course-name{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.36);color:#fff;font-size:.96rem;font-weight:800;letter-spacing:.04em;backdrop-filter:blur(8px)}
+    .course-name:before{content:"COURSE";font-size:.72rem;letter-spacing:.08em;color:#bfdbfe;background:rgba(15,23,42,.24);padding:2px 7px;border-radius:999px}
+    .hero .kicker{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32);font-weight:700}
+    .hero h1{max-width:920px;margin-top:16px;text-shadow:0 8px 26px rgba(15,23,42,.18)}
+    .hero p{max-width:760px;font-size:1.08rem;color:rgba(255,255,255,.88)}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .hero-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:.92rem;backdrop-filter:blur(8px)}
+    .hero-chip b{font-weight:850;color:#fff}
+    .layout{margin-top:-58px;grid-template-columns:300px minmax(0,1fr);gap:24px}
+    .sidebar{border-radius:22px;border-color:#d7e3f6;box-shadow:0 20px 55px rgba(15,23,42,.11)}
+    .toc-heading{font-size:1.05rem;margin-bottom:13px}
+    #TOC a{padding:7px 9px;border-radius:10px;color:#475569}
+    #TOC a:hover{background:#eef6ff;color:#1d4ed8;text-decoration:none;transform:translateX(2px)}
+    .article{border-radius:26px;padding:38px 48px 54px;box-shadow:0 24px 70px rgba(15,23,42,.10);border-color:#d7e3f6}
+    .doc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border:0;background:#f8fbff;border-left:5px solid #2563eb;box-shadow:inset 0 0 0 1px #dbeafe}
+    h2{margin-top:48px;border-bottom:0;position:relative;padding-bottom:13px}
+    h2:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:linear-gradient(90deg,#2563eb 0,#0f766e 26%,#e2e8f0 26%,#e2e8f0 100%)}
+    h3{padding-left:12px;border-left:4px solid #14b8a6}
+    .visual{border-radius:22px;border-color:#cfe0fb;background:linear-gradient(145deg,#f8fbff 0%,#ffffff 52%,#f0fdfa 100%);box-shadow:0 18px 42px rgba(15,23,42,.08)}
+    .node,.feature,.device,.step,.pill-step{box-shadow:0 8px 20px rgba(15,23,42,.045)}
+    .question-card{border-radius:20px;border-color:#d4e1f5;box-shadow:0 14px 34px rgba(15,23,42,.07)}
+    .option-list li{border-radius:14px;transition:.16s ease}.option-list li:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(37,99,235,.10)}
+    blockquote{border-radius:14px}
+    @media (max-width:980px){.layout{grid-template-columns:1fr;margin-top:-52px}.article{padding:30px 24px 40px}.hero{padding-bottom:82px}}
+    @media (max-width:640px){.hero{padding:26px 16px 70px}.hero-meta{gap:8px}.hero-chip{width:100%;justify-content:space-between}.article{padding:22px 16px 34px}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学设计-前端框架认知与Vue3开发环境搭建.html | style: toc-scroll-polish-v3 ===== */
+/* 全局滚动条：更细、更浅、更贴合课程蓝绿色视觉 */
+    html{scrollbar-width:thin;scrollbar-color:#93b4e8 #edf4ff}
+    body::-webkit-scrollbar{width:12px;height:12px}
+    body::-webkit-scrollbar-track{background:#edf4ff}
+    body::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#60a5fa,#14b8a6);border:3px solid #edf4ff;border-radius:999px}
+    body::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#2563eb,#0f766e)}
+
+    /* 目录卡片增强 */
+    .sidebar{padding:0;overflow:hidden;background:rgba(255,255,255,.98)}
+    .toc-heading{position:sticky;top:0;z-index:2;margin:0;padding:18px 18px 14px;background:linear-gradient(180deg,#ffffff 0%,rgba(255,255,255,.94) 100%);border-bottom:1px solid #e2e8f0;box-shadow:0 8px 18px rgba(15,23,42,.04)}
+    .toc-heading:after{content:"快速定位";margin-left:auto;font-size:.75rem;font-weight:700;color:#64748b;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;padding:2px 8px}
+    #TOC{padding:12px 12px 16px;max-height:calc(100vh - 92px);overflow:auto;scrollbar-width:thin;scrollbar-color:#9fb9e8 transparent}
+    #TOC::-webkit-scrollbar{width:8px;height:8px}
+    #TOC::-webkit-scrollbar-track{background:transparent;border-radius:999px}
+    #TOC::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#bfdbfe,#99f6e4);border:2px solid #fff;border-radius:999px}
+    #TOC::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#60a5fa,#2dd4bf)}
+
+    /* 目录层级：一级更醒目，二级更轻，三级缩进 */
+    #TOC ul{position:relative}
+    #TOC > ul > li{margin:5px 0 8px}
+    #TOC > ul > li > a{font-weight:850;color:#1e3a8a;background:#f8fbff;border:1px solid #e1ecff;padding:9px 10px 9px 12px;box-shadow:0 4px 12px rgba(30,64,175,.035)}
+    #TOC > ul > li > a:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#2563eb;margin-right:8px;vertical-align:1px;box-shadow:0 0 0 4px #dbeafe}
+    #TOC li ul{margin:7px 0 4px 10px;padding:2px 0 2px 13px;border-left:2px solid #dbeafe}
+    #TOC li ul a{font-size:.88rem;color:#475569;padding:6px 9px;border:1px solid transparent}
+    #TOC li ul a:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#94a3b8;margin-right:8px;vertical-align:1px}
+    #TOC li ul li ul{border-left:1px dashed #cbd5e1;margin-left:12px}
+    #TOC li ul li ul a{font-size:.82rem;color:#64748b;padding:5px 8px}
+    #TOC a{transition:background .16s ease,color .16s ease,transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+    #TOC a:hover{background:#eef6ff;color:#1d4ed8;border-color:#bfdbfe;box-shadow:0 6px 16px rgba(37,99,235,.08);transform:translateX(3px)}
+
+    /* 目录底部淡出，提示可滚动 */
+    .sidebar:after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
+    @media (max-width:980px){.sidebar{max-height:none}.toc-heading{position:relative}#TOC{max-height:360px}.sidebar:after{display:none}}
+    @media print{#TOC{max-height:none;overflow:visible}.toc-heading:after{display:none}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学设计-前端框架认知与Vue3开发环境搭建.html | style: design-toc-layout-v2 ===== */
+/* v2：恢复更接近原本的舒展布局，同时支持隐藏目录 */
+    .layout{max-width:1220px;grid-template-columns:288px minmax(0,1fr);gap:24px;transition:grid-template-columns .22s ease,gap .22s ease}
+    .article{padding:38px 48px 54px}
+    body.toc-collapsed .layout{grid-template-columns:0 minmax(0,1fr);gap:0;max-width:1120px}
+    body.toc-collapsed .sidebar{width:0;border:0;box-shadow:none;opacity:0;pointer-events:none;transform:translateX(-12px);overflow:hidden}
+
+    /* 固定浮动按钮：目录隐藏后仍可恢复 */
+    .toc-float-toggle{position:fixed;left:18px;top:50%;z-index:30;transform:translateY(-50%);display:none;align-items:center;gap:6px;padding:10px 12px;border:1px solid #c7d2fe;border-radius:999px;background:#fff;color:#1d4ed8;font-weight:850;font-size:.86rem;box-shadow:0 14px 36px rgba(15,23,42,.16);cursor:pointer}
+    body.toc-collapsed .toc-float-toggle{display:inline-flex}
+    .toc-float-toggle:hover{background:#eef6ff}
+
+    /* 目录样式：保留卡片质感，不再过度压缩 */
+    .sidebar{width:auto;padding:0;overflow:hidden;border-radius:22px;background:rgba(255,255,255,.98);transition:opacity .18s ease,transform .18s ease;border-color:#d7e3f6;box-shadow:0 20px 55px rgba(15,23,42,.11)}
+    .toc-heading{position:sticky;top:0;z-index:3;margin:0;padding:16px 16px 13px;background:linear-gradient(180deg,#ffffff 0%,rgba(255,255,255,.95) 100%);border-bottom:1px solid #e2e8f0;box-shadow:0 8px 18px rgba(15,23,42,.04);display:flex;align-items:center;gap:10px;font-size:1.05rem}
+    .toc-heading:before{content:"";width:8px;height:18px;border-radius:8px;background:linear-gradient(180deg,#2563eb,#0f766e);flex:0 0 auto}
+    .toc-heading:after{display:none!important}
+    .toc-heading span{font-weight:850;color:#0f172a}
+    .toc-toggle{margin-left:auto;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:999px;padding:4px 9px;font-size:.78rem;font-weight:850;cursor:pointer;line-height:1.3}
+    .toc-toggle:hover{background:#dbeafe}
+
+    .sidebar > ul{list-style:none;margin:0;padding:12px 12px 16px;max-height:calc(100vh - 92px);overflow:auto;scrollbar-width:thin;scrollbar-color:#9fb9e8 transparent}
+    .sidebar > ul::-webkit-scrollbar{width:8px;height:8px}.sidebar > ul::-webkit-scrollbar-track{background:transparent}.sidebar > ul::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#bfdbfe,#99f6e4);border:2px solid #fff;border-radius:999px}
+    .sidebar ul{list-style:none;padding-left:0;margin:0}.sidebar li{margin:0}.sidebar > ul > li{margin:5px 0 8px}
+    .sidebar a{display:block;text-decoration:none;border-radius:10px;transition:background .16s ease,color .16s ease,transform .16s ease,border-color .16s ease,box-shadow .16s ease;white-space:normal;overflow:visible;text-overflow:clip}
+    .sidebar > ul > li > a{font-weight:850;color:#1e3a8a;background:#f8fbff;border:1px solid #e1ecff;padding:9px 10px 9px 30px;line-height:1.42;font-size:.92rem;position:relative;box-shadow:0 4px 12px rgba(30,64,175,.035)}
+    .sidebar > ul > li > a:before{content:"";position:absolute;left:13px;top:17px;width:7px;height:7px;border-radius:50%;background:#2563eb;box-shadow:0 0 0 4px #dbeafe}
+    .sidebar > ul > li > a:hover{background:#eef6ff;color:#1d4ed8;border-color:#bfdbfe;box-shadow:0 6px 16px rgba(37,99,235,.08);transform:translateX(2px)}
+    .sidebar li ul{margin:7px 0 4px 12px;padding:2px 0 2px 13px;border-left:2px solid #dbeafe}
+    .sidebar li ul a{font-size:.86rem;color:#475569;padding:6px 9px 6px 20px;border:1px solid transparent;line-height:1.38;position:relative;background:transparent}
+    .sidebar li ul a:before{content:"";position:absolute;left:8px;top:15px;width:5px;height:5px;border-radius:50%;background:#94a3b8}
+    .sidebar li ul a:hover{background:#f8fbff;color:#2563eb;border-color:#dbeafe;transform:translateX(2px);text-decoration:none}
+    .sidebar:after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
+
+    /* 修复教学设计表格“一半空白”：不用 block 表格，改为正常铺满 */
+    .article table{display:table;width:100%;border-collapse:separate;border-spacing:0;table-layout:auto;overflow:visible}
+    .article thead,.article tbody{display:table-row-group;width:auto}.article thead{display:table-header-group}.article tr{display:table-row;width:auto}
+    .article th,.article td{display:table-cell;min-width:0;word-break:break-word;overflow-wrap:anywhere}
+    .article th:first-child,.article td:first-child{white-space:nowrap;width:1%}
+
+    @media (max-width:1100px){.layout{grid-template-columns:270px minmax(0,1fr);gap:20px}.article{padding:34px 36px 46px}}
+    @media (max-width:980px){.layout,body.toc-collapsed .layout{grid-template-columns:1fr;gap:18px;max-width:1180px}.sidebar{position:relative;top:0;max-height:none;opacity:1!important;pointer-events:auto!important;transform:none!important}.sidebar > ul{max-height:340px}.toc-float-toggle{display:none!important}.article{padding:30px 24px 40px}.sidebar:after{display:none}}
+    @media print{.toc-float-toggle{display:none}.sidebar{display:none}.layout{display:block}.article table{display:table}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学设计-前端框架认知与Vue3开发环境搭建.html | style: design-toc-table-tune-v3 ===== */
+/* 1) 目录章节标题：更像“章节卡片”，增加编号徽章和层级感 */
+    .sidebar > ul{counter-reset:tocMajor}
+    .sidebar > ul > li{counter-increment:tocMajor;margin:7px 0 10px}
+    .sidebar > ul > li > a{display:grid;grid-template-columns:28px minmax(0,1fr);align-items:center;gap:8px;padding:9px 10px;background:linear-gradient(135deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #d7e7ff;border-left:4px solid #2563eb;color:#1e3a8a;font-size:.93rem;font-weight:900;box-shadow:0 7px 18px rgba(30,64,175,.06)}
+    .sidebar > ul > li > a:before{content:counter(tocMajor);position:static;transform:none;width:26px;height:26px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(135deg,#2563eb,#0f766e);color:#fff;font-size:.78rem;font-weight:900;box-shadow:0 6px 14px rgba(37,99,235,.22)}
+    .sidebar > ul > li > a:hover{background:linear-gradient(135deg,#eef6ff 0%,#ecfdf5 100%);border-color:#bfdbfe;border-left-color:#0f766e;transform:translateX(2px)}
+    .sidebar li ul{margin:7px 0 3px 16px;padding:3px 0 3px 12px;border-left:2px solid #dbeafe}
+    .sidebar li ul a{font-size:.84rem;color:#475569;line-height:1.4;padding:6px 8px 6px 18px;border-radius:9px}
+
+    /* 2) 表格列宽：短字段列收窄，长内容列自动多占空间 */
+    .article table{table-layout:auto;width:100%}
+    .article th,.article td{vertical-align:top;line-height:1.62}
+    .article th:first-child,.article td:first-child{width:1%;white-space:nowrap;color:#334155;font-weight:700;background-clip:padding-box}
+    .article th:last-child,.article td:last-child{width:auto;min-width:55%}
+    .article table:has(th:nth-child(3)) th:nth-child(1),.article table:has(th:nth-child(3)) td:nth-child(1){width:1%;white-space:nowrap}
+    .article table:has(th:nth-child(3)) th:nth-child(2),.article table:has(th:nth-child(3)) td:nth-child(2){width:18%;white-space:nowrap}
+    .article table:has(th:nth-child(3)) th:nth-child(3),.article table:has(th:nth-child(3)) td:nth-child(3){width:auto;min-width:52%}
+    .article table:has(th:nth-child(3)) th:last-child,.article table:has(th:nth-child(3)) td:last-child{min-width:0}
+    .article td code{white-space:normal;word-break:break-word}
+
+    /* 时间安排表：内容列多占，时段/时长收窄 */
+    .article table:last-of-type th:nth-child(1),.article table:last-of-type td:nth-child(1){width:1%;white-space:nowrap}
+    .article table:last-of-type th:nth-child(2),.article table:last-of-type td:nth-child(2){width:auto;min-width:60%;white-space:normal}
+    .article table:last-of-type th:nth-child(3),.article table:last-of-type td:nth-child(3){width:1%;white-space:nowrap;min-width:0}
+
+    @media (max-width:760px){.sidebar > ul > li > a{grid-template-columns:24px minmax(0,1fr)}.sidebar > ul > li > a:before{width:24px;height:24px}.article th:first-child,.article td:first-child,.article table:has(th:nth-child(3)) th:nth-child(2),.article table:has(th:nth-child(3)) td:nth-child(2){white-space:normal}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学设计-前端框架认知与Vue3开发环境搭建.html | style: design-toc-simple-v4 ===== */
+/* 目录简化版：保留收起功能，去掉复杂卡片/编号徽章 */
+    .sidebar{border-radius:18px;background:rgba(255,255,255,.98);box-shadow:0 16px 42px rgba(15,23,42,.09);border:1px solid #dbe4f0}
+    .toc-heading{padding:15px 16px 12px;background:#fff;border-bottom:1px solid #edf2f7;box-shadow:none;font-size:1rem}
+    .toc-heading:before{width:4px;height:17px;border-radius:4px;background:#2563eb;box-shadow:none}
+    .toc-heading span{font-weight:800;color:#1f2937}
+    .toc-toggle{background:#fff;border:1px solid #dbe4f0;color:#64748b;border-radius:8px;padding:3px 8px;font-size:.76rem;font-weight:700}
+    .toc-toggle:hover{background:#f8fafc;color:#2563eb;border-color:#bfdbfe}
+
+    .sidebar > ul{counter-reset:none;padding:10px 12px 16px}
+    .sidebar > ul > li{counter-increment:none;margin:2px 0}
+    .sidebar a{box-shadow:none!important;transform:none!important;text-overflow:clip;overflow:visible;white-space:normal}
+    .sidebar > ul > li > a{display:block;padding:8px 9px 8px 13px;border:0;border-left:3px solid transparent;background:transparent;color:#334155;font-size:.92rem;font-weight:750;line-height:1.42;border-radius:8px}
+    .sidebar > ul > li > a:before{display:none!important;content:none!important}
+    .sidebar > ul > li > a:hover{background:#f8fafc;color:#1d4ed8;border-left-color:#93c5fd}
+
+    .sidebar li ul{margin:2px 0 6px 10px;padding:2px 0 2px 10px;border-left:1px solid #e2e8f0}
+    .sidebar li ul a{padding:5px 8px 5px 12px;border:0;background:transparent;color:#64748b;font-size:.84rem;font-weight:500;line-height:1.38;border-radius:7px}
+    .sidebar li ul a:before{content:"";position:absolute;left:3px;top:14px;width:4px;height:4px;border-radius:50%;background:#cbd5e1}
+    .sidebar li ul a:hover{background:#f8fafc;color:#2563eb;border:0;transform:none;text-decoration:none}
+    .sidebar li ul li ul{margin-left:8px;padding-left:8px;border-left:1px dashed #e2e8f0}
+    .sidebar li ul li ul a{font-size:.8rem;color:#64748b}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学设计-前端框架认知与Vue3开发环境搭建.html | style: design-table-auto-width-v5 ===== */
+/* 全文表格列宽自动优化：短列少占，长列多占 */
+    .article table{width:100%;table-layout:fixed;display:table;overflow:visible}
+    .article th,.article td{min-width:0;white-space:normal;word-break:normal;overflow-wrap:anywhere;vertical-align:top}
+    .article th{white-space:nowrap}
+
+    /* 无 JS 时的兜底比例 */
+    .article table:not(.table-auto-ready) th:nth-child(1),
+    .article table:not(.table-auto-ready) td:nth-child(1){width:18%;white-space:nowrap}
+    .article table:not(.table-auto-ready) th:nth-child(2),
+    .article table:not(.table-auto-ready) td:nth-child(2){width:auto}
+    .article table:not(.table-auto-ready):has(th:nth-child(3)) th:nth-child(1),
+    .article table:not(.table-auto-ready):has(th:nth-child(3)) td:nth-child(1){width:12%;white-space:nowrap}
+    .article table:not(.table-auto-ready):has(th:nth-child(3)) th:nth-child(2),
+    .article table:not(.table-auto-ready):has(th:nth-child(3)) td:nth-child(2){width:22%}
+    .article table:not(.table-auto-ready):has(th:nth-child(3)) th:nth-child(3),
+    .article table:not(.table-auto-ready):has(th:nth-child(3)) td:nth-child(3){width:66%}
+
+    .article table col.col-short{width:var(--col-width)}
+    .article table col.col-long{width:var(--col-width)}
+    .article table.table-auto-ready th,.article table.table-auto-ready td{width:auto!important}
+    .article table.table-auto-ready .nowrap-col{white-space:nowrap}
+    @media (max-width:760px){.article th{white-space:normal}.article table.table-auto-ready .nowrap-col{white-space:normal}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学设计-前端框架认知与Vue3开发环境搭建.html | style: design-table-wrap-fix-v6 ===== */
+/* 修复表格内容遮挡：所有列都允许换行，列宽只负责比例，不强制不换行 */
+    .article table{table-layout:fixed;width:100%;max-width:100%}
+    .article th,.article td,
+    .article table.table-auto-ready .nowrap-col,
+    .article th:first-child,.article td:first-child,
+    .article table:last-of-type th:nth-child(1),.article table:last-of-type td:nth-child(1),
+    .article table:last-of-type th:nth-child(3),.article table:last-of-type td:nth-child(3){
+      white-space:normal!important;
+      overflow-wrap:anywhere!important;
+      word-break:break-word!important;
+      overflow:visible!important;
+    }
+    .article table code{white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important}
+    .article td,.article th{max-width:0}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学设计-前端框架认知与Vue3开发环境搭建.html | style: time-table-width-fix-v7 ===== */
+/* 课堂时间分配建议表专用：时段/时长短，内容列占主宽 */
+    .article table:has(th:nth-child(1):first-child):has(th:nth-child(2)):has(th:nth-child(3)) th:nth-child(1),
+    .article table:has(th:nth-child(1):first-child):has(th:nth-child(2)):has(th:nth-child(3)) td:nth-child(1){overflow-wrap:anywhere!important}
+    .article table:has(th:nth-child(1):first-child) th:nth-child(1),
+    .article table:has(th:nth-child(1):first-child) td:nth-child(1){max-width:none}
+    .article table.time-plan-table col:nth-child(1){width:16%!important}
+    .article table.time-plan-table col:nth-child(2){width:70%!important}
+    .article table.time-plan-table col:nth-child(3){width:14%!important}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学资料-前端框架认知与Vue3开发环境搭建.html | style:  ===== */
+:root{
+      --bg:#eef3ff; --paper:#ffffff; --paper2:#f8fafc; --ink:#172033; --muted:#64748b;
+      --line:#dbe4f0; --brand:#2563eb; --brand2:#0f766e; --accent:#f59e0b;
+      --blue-50:#eff6ff; --blue-100:#dbeafe; --green-50:#ecfdf5; --shadow:0 18px 50px rgba(30,64,175,.12);
+      --code-bg:#101827; --code-ink:#e5edf9;
+    }
+    *{box-sizing:border-box}
+    html{background:var(--bg); scroll-behavior:smooth}
+    body{margin:0; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif; line-height:1.78; font-size:16px}
+    .hero{background:linear-gradient(135deg,#1e40af 0%,#2563eb 46%,#0f766e 100%); color:#fff; padding:34px 24px 76px; position:relative; overflow:hidden}
+    .hero:before{content:""; position:absolute; width:420px; height:420px; right:-120px; top:-180px; border-radius:50%; background:rgba(255,255,255,.12)}
+    .hero:after{content:""; position:absolute; width:260px; height:260px; left:-80px; bottom:-140px; border-radius:50%; background:rgba(255,255,255,.10)}
+    .hero-inner{max-width:1180px; margin:0 auto; position:relative; z-index:1}
+    .kicker{display:inline-flex; gap:8px; align-items:center; padding:6px 12px; border:1px solid rgba(255,255,255,.35); border-radius:999px; background:rgba(255,255,255,.13); font-size:.92rem; letter-spacing:.03em}
+    .hero h1{margin:18px 0 8px; color:#fff; font-size:clamp(1.9rem,4vw,3.2rem); line-height:1.18; font-weight:800}
+    .hero p{margin:0; color:rgba(255,255,255,.86); font-size:1.05rem}
+    .layout{max-width:1180px; margin:-48px auto 56px; padding:0 20px; display:grid; grid-template-columns:280px minmax(0,1fr); gap:22px; align-items:start; position:relative; z-index:2}
+    .sidebar{position:sticky; top:18px; max-height:calc(100vh - 36px); overflow:auto; background:rgba(255,255,255,.96); border:1px solid rgba(219,228,240,.95); border-radius:18px; box-shadow:var(--shadow); padding:18px}
+    .toc-heading{font-weight:800; color:#0f172a; margin:0 0 10px; display:flex; align-items:center; gap:8px}
+    .toc-heading:before{content:""; width:8px; height:18px; border-radius:8px; background:linear-gradient(180deg,var(--brand),var(--brand2))}
+    #TOC ul{list-style:none; padding-left:0; margin:0}
+    #TOC li{margin:3px 0}
+    #TOC li ul{padding-left:14px; margin:4px 0 7px; border-left:1px dashed var(--line)}
+    #TOC a{display:block; color:#334155; text-decoration:none; padding:5px 7px; border-radius:8px; font-size:.92rem; line-height:1.35}
+    #TOC a:hover{background:var(--blue-50); color:#1d4ed8}
+    .content{min-width:0}
+    .article{background:var(--paper); border:1px solid rgba(219,228,240,.95); border-radius:22px; box-shadow:var(--shadow); padding:34px 42px 46px; overflow:hidden}
+    .doc-meta{margin:0 0 22px!important; padding:12px 14px; border:1px solid var(--blue-100); background:linear-gradient(90deg,var(--blue-50),#fff); color:#475569; border-radius:12px; font-size:.95rem}
+    h1,h2,h3,h4{color:#0f172a; line-height:1.35; scroll-margin-top:24px}
+    h2{margin:44px 0 18px; padding:0 0 10px; border-bottom:2px solid var(--line); font-size:1.55rem; color:#1e3a8a}
+    h2:before{content:""; display:inline-block; width:9px; height:22px; border-radius:8px; background:var(--brand); margin-right:10px; vertical-align:-4px}
+    h3{margin:30px 0 12px; font-size:1.22rem; color:#0f766e}
+    h4{margin:22px 0 10px; font-size:1.05rem; color:#334155}
+    p{margin:0 0 13px} ul,ol{padding-left:1.35rem} li{margin:.28rem 0}
+    a{color:#2563eb; text-decoration:none} a:hover{text-decoration:underline}
+    strong{font-weight:750}
+    blockquote{margin:16px 0; padding:14px 16px; border:1px solid #bbf7d0; border-left:5px solid #16a34a; background:#f0fdf4; color:#14532d; border-radius:12px}
+    blockquote p:last-child{margin-bottom:0}
+    hr{border:0; border-top:1px solid var(--line); margin:28px 0}
+    table{width:100%; border-collapse:separate; border-spacing:0; margin:16px 0 22px; border:1px solid var(--line); border-radius:14px; overflow:hidden; display:block; overflow-x:auto; background:#fff}
+    thead,tbody,tr{width:100%} th,td{border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:10px 12px; vertical-align:top; min-width:120px}
+    th:last-child,td:last-child{border-right:0} tr:last-child td{border-bottom:0}
+    th{background:#eaf2ff; color:#1e3a8a; font-weight:800; white-space:nowrap} tr:nth-child(even) td{background:#fbfdff}
+    code{font-family:"Cascadia Code",Consolas,"SFMono-Regular",monospace; background:#eef2ff; color:#1e293b; padding:.14rem .35rem; border-radius:6px; font-size:.91em}
+    pre{margin:16px 0 22px; padding:16px 18px; overflow:auto; background:var(--code-bg); color:var(--code-ink); border-radius:14px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+    pre code{background:transparent; color:inherit; padding:0; border-radius:0; font-size:.92rem}
+    .visual{margin:20px 0 26px; padding:22px; border:1px solid #dbe7fb; border-radius:20px; background:radial-gradient(circle at top left,#eff6ff 0,#fff 38%,#f8fafc 100%); box-shadow:0 16px 34px rgba(30,64,175,.10)}
+    .visual-title{margin:0 0 16px; font-weight:850; color:#1e3a8a; display:flex; align-items:center; gap:9px}
+    .visual-title:before{content:""; width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:0 0 0 5px #dbeafe}
+    .flow{display:flex; align-items:stretch; justify-content:space-between; gap:14px; flex-wrap:wrap}
+    .node{flex:1 1 170px; min-width:150px; padding:16px; border-radius:16px; background:#fff; border:1px solid #dbeafe; box-shadow:0 8px 22px rgba(15,23,42,.06)}
+    .node .tag{display:inline-block; padding:3px 9px; border-radius:999px; background:#e0f2fe; color:#0369a1; font-size:.78rem; font-weight:800; margin-bottom:8px}
+    .node h4{margin:0 0 6px; color:#0f172a; font-size:1.05rem}.node p{margin:0; color:#64748b; font-size:.92rem; line-height:1.55}
+    .arrow{align-self:center; flex:0 0 34px; height:34px; border-radius:50%; display:grid; place-items:center; background:#2563eb; color:#fff; font-weight:900; box-shadow:0 8px 18px rgba(37,99,235,.22)}
+    .compare{display:grid; grid-template-columns:1fr 1fr; gap:16px}.compare-card{padding:18px; border-radius:16px; border:1px solid #e2e8f0; background:#fff}.compare-card.good{border-color:#bbf7d0; background:#f0fdf4}.compare-card.bad{border-color:#fed7aa; background:#fff7ed}.compare-card h4{margin:0 0 12px}.steps{display:grid; gap:10px}.step{display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fff; border:1px solid #e2e8f0; border-radius:12px}.step .num{width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:#2563eb;color:#fff;font-weight:800;font-size:.85rem;flex:0 0 auto}
+    .mvvm{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; align-items:center}.mvvm .node{text-align:center}.mvvm-arrow{text-align:center;color:#2563eb;font-weight:900}.mvvm-arrow small{display:block;color:#64748b;font-weight:600}.feature-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}.feature{padding:14px; border-radius:14px; background:#fff; border:1px solid #dbeafe}.feature b{display:block;color:#1d4ed8;margin-bottom:4px}.device-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}.device{padding:18px;border-radius:16px;background:#fff;border:1px solid #dbeafe}.device h4{margin:0 0 10px}.pipeline{display:flex; flex-wrap:wrap; gap:10px; align-items:center}.pill-step{padding:10px 13px;border-radius:999px;background:#fff;border:1px solid #bfdbfe;color:#1e3a8a;font-weight:750}.mindmap{display:grid; grid-template-columns:180px 1fr; gap:18px; align-items:start}.mind-root{padding:18px;border-radius:18px;background:linear-gradient(135deg,#2563eb,#0f766e);color:#fff;font-weight:850;text-align:center}.mind-branches{display:grid;gap:12px}.branch{padding:13px 15px;border-radius:14px;background:#fff;border:1px solid #dbeafe}.branch b{color:#1e3a8a}.file-tree{padding:16px;border-radius:16px;background:#0f172a;color:#e5edf9;font-family:"Cascadia Code",Consolas,monospace}.file-tree ul{list-style:none;margin:0;padding-left:18px}.file-tree > ul{padding-left:0}.file-tree li{margin:4px 0}.file-tree .folder{color:#93c5fd}.file-tree .file{color:#bbf7d0}.file-tree .note{color:#94a3b8;font-family:inherit;font-size:.88rem}
+    .question-card{border:1px solid #d8e3f4; background:linear-gradient(180deg,#fff,#fbfdff); border-radius:16px; padding:18px 18px 16px; margin:18px 0; box-shadow:0 10px 28px rgba(15,23,42,.06)}
+    .question-card > p:first-child{margin-bottom:8px; color:#334155}.question-card > p:first-child strong:first-child{display:inline-flex; margin-right:8px; padding:3px 9px; border-radius:999px; background:#dbeafe; color:#1d4ed8; font-family:"Cascadia Code",Consolas,monospace; font-size:.92rem}.question-card blockquote{margin-top:14px; background:#f0fdf4; border-color:#86efac; border-left-color:#16a34a}
+    .option-list ul{list-style:none; padding:0; margin:12px 0 4px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px}.option-list li{margin:0; display:flex; align-items:flex-start; gap:10px; min-height:44px; padding:10px 12px; border:1px solid #dbe4f0; background:#fff; border-radius:12px; line-height:1.55; box-shadow:0 3px 10px rgba(15,23,42,.035)}.option-list li:hover{border-color:#93c5fd; background:#f8fbff}.option-label{flex:0 0 auto; display:inline-grid; place-items:center; width:26px; height:26px; border-radius:50%; background:#2563eb; color:#fff; font-weight:800; font-family:"Cascadia Code",Consolas,monospace; font-size:.92rem; line-height:1}.option-list li:nth-child(2) .option-label{background:#0f766e}.option-list li:nth-child(3) .option-label{background:#d97706}.option-list li:nth-child(4) .option-label{background:#7c3aed}
+    .mvvm-loop{display:grid;grid-template-columns:minmax(160px,1fr) 118px minmax(180px,1.08fr) 118px minmax(160px,1fr);gap:12px;align-items:center;margin-top:8px}
+    .mvvm-loop .node{min-height:122px;display:flex;flex-direction:column;justify-content:center}
+    .mvvm-loop .node.model{border-color:#bfdbfe;background:linear-gradient(180deg,#fff,#eff6ff)}
+    .mvvm-loop .node.vm{border-color:#99f6e4;background:linear-gradient(180deg,#fff,#f0fdfa)}
+    .mvvm-loop .node.view{border-color:#ddd6fe;background:linear-gradient(180deg,#fff,#f5f3ff)}
+    .loop-link{position:relative;text-align:center;padding:12px 8px;border-radius:14px;border:1px solid #dbeafe;background:#fff;color:#1e3a8a;font-size:.86rem;font-weight:800;box-shadow:0 8px 18px rgba(37,99,235,.08)}
+    .loop-link span{display:block;margin-top:3px;color:#64748b;font-weight:650;font-size:.76rem;line-height:1.35}
+    .loop-link.forward:after{content:"→";position:absolute;right:-17px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#2563eb;color:#fff;font-weight:900}
+    .loop-link.back{border-color:#99f6e4;background:#f0fdfa;color:#0f766e}
+    .loop-link.back:before{content:"←";position:absolute;left:-17px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#0f766e;color:#fff;font-weight:900}
+    .loop-link.view-vm{grid-column:4;grid-row:2}.loop-link.vm-model{grid-column:2;grid-row:2}
+    .mvvm-note{grid-column:1 / -1;margin:4px 0 0;padding:12px 14px;border-radius:14px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:.92rem;line-height:1.65}
+    @media (max-width:980px){.layout{grid-template-columns:1fr}.sidebar{position:relative; top:0; max-height:none}.article{padding:28px 24px}.option-list ul{grid-template-columns:1fr}.mvvm,.compare,.device-grid,.mindmap{grid-template-columns:1fr}.mvvm-loop{grid-template-columns:1fr}.loop-link.view-vm,.loop-link.vm-model{grid-column:auto;grid-row:auto}.loop-link.forward:after{right:50%;top:auto;bottom:-18px;transform:translateX(50%) rotate(90deg)}.loop-link.back:before{left:50%;top:-18px;transform:translateX(-50%) rotate(90deg)}.mvvm-note{grid-column:auto}.arrow{transform:rotate(90deg); margin:auto}.feature-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.hero{padding:26px 16px 62px}.layout{padding:0 12px}.article{padding:22px 16px; border-radius:16px}.sidebar{border-radius:16px} table{font-size:.92rem}.visual{padding:16px}.feature-grid{grid-template-columns:1fr}}
+    @media print{.hero{padding:0 0 18px; background:#fff; color:#000}.hero h1,.hero p{color:#000}.layout{display:block; margin:0; padding:0}.sidebar{display:none}.article{box-shadow:none; border:0; padding:0}.question-card,pre,table,.visual{break-inside:avoid}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学资料-前端框架认知与Vue3开发环境搭建.html | style: page-polish-v2 ===== */
+body{background:linear-gradient(180deg,#eaf1ff 0,#f7f9fc 360px,#f7f9fc 100%)}
+    .hero{padding:38px 24px 92px;background:linear-gradient(125deg,#172554 0%,#1d4ed8 45%,#0f766e 100%)}
+    .hero:before{width:520px;height:520px;right:-170px;top:-230px;background:rgba(255,255,255,.14);filter:blur(.2px)}
+    .hero:after{width:320px;height:320px;left:-110px;bottom:-170px;background:rgba(255,255,255,.09)}
+    .course-name{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.36);color:#fff;font-size:.96rem;font-weight:800;letter-spacing:.04em;backdrop-filter:blur(8px)}
+    .course-name:before{content:"COURSE";font-size:.72rem;letter-spacing:.08em;color:#bfdbfe;background:rgba(15,23,42,.24);padding:2px 7px;border-radius:999px}
+    .hero .kicker{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32);font-weight:700}
+    .hero h1{max-width:920px;margin-top:16px;text-shadow:0 8px 26px rgba(15,23,42,.18)}
+    .hero p{max-width:760px;font-size:1.08rem;color:rgba(255,255,255,.88)}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .hero-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:.92rem;backdrop-filter:blur(8px)}
+    .hero-chip b{font-weight:850;color:#fff}
+    .layout{margin-top:-58px;grid-template-columns:300px minmax(0,1fr);gap:24px}
+    .sidebar{border-radius:22px;border-color:#d7e3f6;box-shadow:0 20px 55px rgba(15,23,42,.11)}
+    .toc-heading{font-size:1.05rem;margin-bottom:13px}
+    #TOC a{padding:7px 9px;border-radius:10px;color:#475569}
+    #TOC a:hover{background:#eef6ff;color:#1d4ed8;text-decoration:none;transform:translateX(2px)}
+    .article{border-radius:26px;padding:38px 48px 54px;box-shadow:0 24px 70px rgba(15,23,42,.10);border-color:#d7e3f6}
+    .doc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border:0;background:#f8fbff;border-left:5px solid #2563eb;box-shadow:inset 0 0 0 1px #dbeafe}
+    h2{margin-top:48px;border-bottom:0;position:relative;padding-bottom:13px}
+    h2:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:linear-gradient(90deg,#2563eb 0,#0f766e 26%,#e2e8f0 26%,#e2e8f0 100%)}
+    h3{padding-left:12px;border-left:4px solid #14b8a6}
+    .visual{border-radius:22px;border-color:#cfe0fb;background:linear-gradient(145deg,#f8fbff 0%,#ffffff 52%,#f0fdfa 100%);box-shadow:0 18px 42px rgba(15,23,42,.08)}
+    .node,.feature,.device,.step,.pill-step{box-shadow:0 8px 20px rgba(15,23,42,.045)}
+    .question-card{border-radius:20px;border-color:#d4e1f5;box-shadow:0 14px 34px rgba(15,23,42,.07)}
+    .option-list li{border-radius:14px;transition:.16s ease}.option-list li:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(37,99,235,.10)}
+    blockquote{border-radius:14px}
+    @media (max-width:980px){.layout{grid-template-columns:1fr;margin-top:-52px}.article{padding:30px 24px 40px}.hero{padding-bottom:82px}}
+    @media (max-width:640px){.hero{padding:26px 16px 70px}.hero-meta{gap:8px}.hero-chip{width:100%;justify-content:space-between}.article{padding:22px 16px 34px}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学资料-前端框架认知与Vue3开发环境搭建.html | style: toc-scroll-polish-v3 ===== */
+/* 全局滚动条：更细、更浅、更贴合课程蓝绿色视觉 */
+    html{scrollbar-width:thin;scrollbar-color:#93b4e8 #edf4ff}
+    body::-webkit-scrollbar{width:12px;height:12px}
+    body::-webkit-scrollbar-track{background:#edf4ff}
+    body::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#60a5fa,#14b8a6);border:3px solid #edf4ff;border-radius:999px}
+    body::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#2563eb,#0f766e)}
+
+    /* 目录卡片增强 */
+    .sidebar{padding:0;overflow:hidden;background:rgba(255,255,255,.98)}
+    .toc-heading{position:sticky;top:0;z-index:2;margin:0;padding:18px 18px 14px;background:linear-gradient(180deg,#ffffff 0%,rgba(255,255,255,.94) 100%);border-bottom:1px solid #e2e8f0;box-shadow:0 8px 18px rgba(15,23,42,.04)}
+    .toc-heading:after{content:"快速定位";margin-left:auto;font-size:.75rem;font-weight:700;color:#64748b;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;padding:2px 8px}
+    #TOC{padding:12px 12px 16px;max-height:calc(100vh - 92px);overflow:auto;scrollbar-width:thin;scrollbar-color:#9fb9e8 transparent}
+    #TOC::-webkit-scrollbar{width:8px;height:8px}
+    #TOC::-webkit-scrollbar-track{background:transparent;border-radius:999px}
+    #TOC::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#bfdbfe,#99f6e4);border:2px solid #fff;border-radius:999px}
+    #TOC::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#60a5fa,#2dd4bf)}
+
+    /* 目录层级：一级更醒目，二级更轻，三级缩进 */
+    #TOC ul{position:relative}
+    #TOC > ul > li{margin:5px 0 8px}
+    #TOC > ul > li > a{font-weight:850;color:#1e3a8a;background:#f8fbff;border:1px solid #e1ecff;padding:9px 10px 9px 12px;box-shadow:0 4px 12px rgba(30,64,175,.035)}
+    #TOC > ul > li > a:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#2563eb;margin-right:8px;vertical-align:1px;box-shadow:0 0 0 4px #dbeafe}
+    #TOC li ul{margin:7px 0 4px 10px;padding:2px 0 2px 13px;border-left:2px solid #dbeafe}
+    #TOC li ul a{font-size:.88rem;color:#475569;padding:6px 9px;border:1px solid transparent}
+    #TOC li ul a:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#94a3b8;margin-right:8px;vertical-align:1px}
+    #TOC li ul li ul{border-left:1px dashed #cbd5e1;margin-left:12px}
+    #TOC li ul li ul a{font-size:.82rem;color:#64748b;padding:5px 8px}
+    #TOC a{transition:background .16s ease,color .16s ease,transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+    #TOC a:hover{background:#eef6ff;color:#1d4ed8;border-color:#bfdbfe;box-shadow:0 6px 16px rgba(37,99,235,.08);transform:translateX(3px)}
+
+    /* 目录底部淡出，提示可滚动 */
+    .sidebar:after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
+    @media (max-width:980px){.sidebar{max-height:none}.toc-heading{position:relative}#TOC{max-height:360px}.sidebar:after{display:none}}
+    @media print{#TOC{max-height:none;overflow:visible}.toc-heading:after{display:none}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学资料-前端框架认知与Vue3开发环境搭建.html | style: quicknote-polish-v1 ===== */
+.quicknote-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0 28px}
+    .quicknote-card{position:relative;display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start;padding:16px 16px 15px;border:1px solid #dbeafe;border-radius:18px;background:linear-gradient(145deg,#ffffff 0%,#f8fbff 56%,#f0fdfa 100%);box-shadow:0 10px 26px rgba(15,23,42,.055);overflow:hidden}
+    .quicknote-card:after{content:"";position:absolute;right:-28px;top:-28px;width:82px;height:82px;border-radius:999px;background:rgba(37,99,235,.07)}
+    .quicknote-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#2563eb,#0f766e);color:#fff;font-weight:900;box-shadow:0 8px 18px rgba(37,99,235,.22);font-family:"Cascadia Code",Consolas,monospace}
+    .quicknote-card h4{margin:0 0 6px;color:#1e3a8a;font-size:1.02rem;line-height:1.35}
+    .quicknote-card p{margin:0;color:#475569;line-height:1.65;font-size:.95rem}
+    .quicknote-card code{white-space:nowrap}
+    .quicknote-card:last-child{grid-column:1/-1}
+    @media (max-width:760px){.quicknote-grid{grid-template-columns:1fr}.quicknote-card,.quicknote-card:last-child{grid-column:auto}.quicknote-card{grid-template-columns:38px 1fr}.quicknote-icon{width:38px;height:38px}}
+    @media print{.quicknote-card{box-shadow:none;break-inside:avoid}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学资料-前端框架认知与Vue3开发环境搭建.html | style: vite-flow-polish-v1 ===== */
+.vite-flow{margin:18px 0 22px;padding:22px;border-radius:22px;border:1px solid #cfe0fb;background:linear-gradient(145deg,#f8fbff 0%,#fff 52%,#f0fdfa 100%);box-shadow:0 18px 42px rgba(15,23,42,.08)}
+    .vite-flow-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .vite-flow-title{font-weight:900;color:#1e3a8a;font-size:1.08rem;display:flex;align-items:center;gap:10px}
+    .vite-flow-title:before{content:"";width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#646cff,#0f766e);box-shadow:0 0 0 6px #e0e7ff}
+    .vite-flow-sub{margin-top:5px;color:#64748b;font-size:.92rem;line-height:1.55}
+    .vite-flow-badge{flex:0 0 auto;padding:6px 10px;border-radius:999px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;font-size:.82rem;font-weight:800}
+    .vite-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:viteStep}
+    .vite-step{position:relative;padding:16px 16px 15px;border-radius:18px;background:#fff;border:1px solid #dbeafe;box-shadow:0 9px 24px rgba(15,23,42,.055);overflow:hidden}
+    .vite-step:before{counter-increment:viteStep;content:counter(viteStep);display:grid;place-items:center;width:30px;height:30px;border-radius:11px;background:linear-gradient(135deg,#2563eb,#0f766e);color:#fff;font-weight:900;font-family:"Cascadia Code",Consolas,monospace;margin-bottom:10px;box-shadow:0 8px 18px rgba(37,99,235,.22)}
+    .vite-step:after{content:"";position:absolute;right:-34px;top:-34px;width:88px;height:88px;border-radius:999px;background:rgba(37,99,235,.06)}
+    .vite-step h4{margin:0 0 7px;color:#0f172a;font-size:1rem;line-height:1.35}
+    .vite-step p{margin:0;color:#64748b;font-size:.9rem;line-height:1.58}
+    .vite-step code{display:inline-block;margin-top:7px;background:#eef2ff;color:#1e3a8a;font-weight:750;white-space:normal;word-break:break-word}
+    .vite-result{margin-top:14px;display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+    .vite-terminal{margin:0;padding:15px 16px;border-radius:16px;background:#0f172a;color:#dbeafe;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);overflow:auto}
+    .vite-terminal code{background:transparent;color:inherit;padding:0;font-size:.9rem;line-height:1.65}
+    .vite-tip{padding:14px 16px;border-radius:16px;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;line-height:1.65;font-size:.92rem}
+    .vite-tip strong{color:#047857}
+    @media (max-width:900px){.vite-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.vite-result{grid-template-columns:1fr}}
+    @media (max-width:620px){.vite-flow{padding:16px}.vite-flow-head{display:block}.vite-flow-badge{display:inline-block;margin-top:10px}.vite-steps{grid-template-columns:1fr}}
+    @media print{.vite-flow,.vite-step{box-shadow:none;break-inside:avoid}.vite-result{grid-template-columns:1fr}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学资料-前端框架认知与Vue3开发环境搭建.html | style: mvvm-loop-fit-v1 ===== */
+/* 修正 MVVM 图示横向溢出：取消节点最小宽度，压缩连接列，并把箭头收回容器内 */
+    .mvvm-loop{width:100%;box-sizing:border-box;grid-template-columns:minmax(0,1fr) minmax(58px,.42fr) minmax(0,1.06fr) minmax(58px,.42fr) minmax(0,1fr);gap:10px;overflow:hidden}
+    .mvvm-loop .node{min-width:0;box-sizing:border-box;padding:14px 12px;word-break:break-word;overflow-wrap:anywhere}
+    .mvvm-loop .node h4{font-size:1rem}
+    .mvvm-loop .node p{font-size:.88rem}
+    .mvvm-loop .node .tag{font-size:.72rem;padding:3px 8px}
+    .mvvm-loop .loop-link{min-width:0;box-sizing:border-box;padding:10px 6px;font-size:.78rem;line-height:1.35;overflow-wrap:anywhere}
+    .mvvm-loop .loop-link span{font-size:.7rem}
+    .mvvm-loop .loop-link.forward:after{right:-11px;width:21px;height:21px;font-size:.88rem}
+    .mvvm-loop .loop-link.back:before{left:-11px;width:21px;height:21px;font-size:.88rem}
+    @media (max-width:1180px){.mvvm-loop{grid-template-columns:1fr}.mvvm-loop .loop-link.view-vm,.mvvm-loop .loop-link.vm-model{grid-column:auto;grid-row:auto}.mvvm-loop .loop-link.forward:after{right:50%;top:auto;bottom:-16px;transform:translateX(50%) rotate(90deg)}.mvvm-loop .loop-link.back:before{left:50%;top:-16px;transform:translateX(-50%) rotate(90deg)}.mvvm-loop .mvvm-note{grid-column:auto}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学资料-前端框架认知与Vue3开发环境搭建.html | style: cart-mvvm-polish-v1 ===== */
+.cart-mvvm{margin:18px 0 24px;padding:22px;border-radius:22px;border:1px solid #cfe0fb;background:linear-gradient(145deg,#f8fbff 0%,#fff 52%,#f0fdfa 100%);box-shadow:0 18px 42px rgba(15,23,42,.08);overflow:hidden;box-sizing:border-box}
+    .cart-mvvm .visual-title{margin-bottom:18px}
+    .cart-track{display:grid;grid-template-columns:minmax(0,1fr) 54px minmax(0,1.08fr) 54px minmax(0,1fr);gap:10px;align-items:stretch}
+    .cart-card{position:relative;min-width:0;padding:16px 15px;border-radius:18px;background:#fff;border:1px solid #dbeafe;box-shadow:0 9px 24px rgba(15,23,42,.055);overflow:hidden;box-sizing:border-box}
+    .cart-card:after{content:"";position:absolute;right:-32px;top:-32px;width:86px;height:86px;border-radius:999px;background:rgba(37,99,235,.055)}
+    .cart-card .tag{display:inline-flex;align-items:center;padding:4px 9px;border-radius:999px;background:#e0f2fe;color:#0369a1;font-size:.74rem;font-weight:850;margin-bottom:9px}
+    .cart-card h4{margin:0 0 8px;color:#0f172a;font-size:1.02rem;line-height:1.35}
+    .cart-card p{margin:0;color:#64748b;font-size:.9rem;line-height:1.58;overflow-wrap:anywhere}
+    .cart-card ul{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:7px}
+    .cart-card li{padding:7px 9px;border-radius:10px;background:#f8fbff;border:1px solid #e2e8f0;color:#475569;font-size:.86rem;line-height:1.45;overflow-wrap:anywhere}
+    .cart-card code{white-space:normal;word-break:break-word;background:#eef2ff;color:#1e3a8a;font-weight:750}
+    .cart-card.model{background:linear-gradient(180deg,#fff,#eff6ff)}
+    .cart-card.vm{background:linear-gradient(180deg,#fff,#f0fdfa);border-color:#99f6e4}
+    .cart-card.view{background:linear-gradient(180deg,#fff,#f5f3ff);border-color:#ddd6fe}
+    .cart-connector{min-width:0;display:grid;place-items:center;text-align:center;color:#1e3a8a;font-weight:850;font-size:.76rem;line-height:1.35}
+    .cart-connector .arrow-dot{width:30px;height:30px;margin:0 auto 6px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(135deg,#2563eb,#0f766e);color:#fff;font-size:1rem;box-shadow:0 8px 18px rgba(37,99,235,.22)}
+    .cart-return{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .cart-return .return-card{padding:12px 14px;border-radius:15px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:.9rem;line-height:1.58}
+    .cart-return strong{color:#c2410c}
+    @media (max-width:1060px){.cart-track{grid-template-columns:1fr}.cart-connector .arrow-dot{transform:rotate(90deg);margin-bottom:4px}.cart-return{grid-template-columns:1fr}}
+    @media (max-width:640px){.cart-mvvm{padding:16px}.cart-card{padding:14px 13px}}
+    @media print{.cart-mvvm,.cart-card{box-shadow:none;break-inside:avoid}.cart-track,.cart-return{grid-template-columns:1fr}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学资料-前端框架认知与Vue3开发环境搭建.html | style: unified-with-design-v1 ===== */
+/* 与 01 教学设计页统一：简洁目录 + 可收起 + 正文自动占位 + 表格安全换行 */
+    .layout{max-width:1220px;grid-template-columns:288px minmax(0,1fr);gap:24px;transition:grid-template-columns .22s ease,gap .22s ease}
+    body.toc-collapsed .layout{grid-template-columns:0 minmax(0,1fr);gap:0;max-width:1120px}
+    body.toc-collapsed .sidebar{width:0!important;border:0!important;box-shadow:none!important;opacity:0;pointer-events:none;transform:translateX(-12px);overflow:hidden!important}
+    .toc-float-toggle{position:fixed;left:18px;top:50%;z-index:30;transform:translateY(-50%);display:none;align-items:center;gap:6px;padding:10px 12px;border:1px solid #c7d2fe;border-radius:999px;background:#fff;color:#1d4ed8;font-weight:850;font-size:.86rem;box-shadow:0 14px 36px rgba(15,23,42,.16);cursor:pointer}
+    body.toc-collapsed .toc-float-toggle{display:inline-flex}.toc-float-toggle:hover{background:#eef6ff}
+
+    .sidebar{width:auto;padding:0!important;overflow:hidden!important;border-radius:18px!important;background:rgba(255,255,255,.98)!important;box-shadow:0 16px 42px rgba(15,23,42,.09)!important;border:1px solid #dbe4f0!important;transition:opacity .18s ease,transform .18s ease}
+    .toc-heading{position:sticky;top:0;z-index:3;margin:0!important;padding:15px 16px 12px!important;background:#fff!important;border-bottom:1px solid #edf2f7!important;box-shadow:none!important;display:flex!important;align-items:center!important;gap:10px!important;font-size:1rem!important}
+    .toc-heading:before{content:""!important;width:4px!important;height:17px!important;border-radius:4px!important;background:#2563eb!important;box-shadow:none!important;flex:0 0 auto!important}
+    .toc-heading:after{display:none!important}.toc-heading span{font-weight:800;color:#1f2937}
+    .toc-toggle{margin-left:auto;background:#fff;border:1px solid #dbe4f0;color:#64748b;border-radius:8px;padding:3px 8px;font-size:.76rem;font-weight:700;cursor:pointer;line-height:1.3}.toc-toggle:hover{background:#f8fafc;color:#2563eb;border-color:#bfdbfe}
+    .sidebar > ul{list-style:none;margin:0;padding:10px 12px 16px;max-height:calc(100vh - 92px);overflow:auto;scrollbar-width:thin;scrollbar-color:#9fb9e8 transparent}
+    .sidebar > ul::-webkit-scrollbar{width:8px;height:8px}.sidebar > ul::-webkit-scrollbar-track{background:transparent}.sidebar > ul::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#bfdbfe,#99f6e4);border:2px solid #fff;border-radius:999px}
+    .sidebar ul{list-style:none;padding-left:0;margin:0}.sidebar li{margin:0}.sidebar > ul > li{margin:2px 0}
+    .sidebar a{display:block;text-decoration:none!important;border-radius:8px;transition:background .16s ease,color .16s ease,border-color .16s ease;white-space:normal;overflow:visible;text-overflow:clip;box-shadow:none!important;transform:none!important}
+    .sidebar > ul > li > a{padding:8px 9px 8px 13px!important;border:0!important;border-left:3px solid transparent!important;background:transparent!important;color:#334155!important;font-size:.92rem!important;font-weight:750!important;line-height:1.42!important}
+    .sidebar > ul > li > a:before{display:none!important;content:none!important}.sidebar > ul > li > a:hover{background:#f8fafc!important;color:#1d4ed8!important;border-left-color:#93c5fd!important}
+    .sidebar li ul{margin:2px 0 6px 10px!important;padding:2px 0 2px 10px!important;border-left:1px solid #e2e8f0!important}.sidebar li ul a{padding:5px 8px 5px 12px!important;border:0!important;background:transparent!important;color:#64748b!important;font-size:.84rem!important;font-weight:500!important;line-height:1.38!important;border-radius:7px!important}.sidebar li ul a:hover{background:#f8fafc!important;color:#2563eb!important}.sidebar li ul li ul{margin-left:8px!important;padding-left:8px!important;border-left:1px dashed #e2e8f0!important}
+
+    .article table{display:table!important;width:100%!important;max-width:100%!important;table-layout:fixed!important;border-collapse:separate;border-spacing:0;overflow:visible!important}.article thead{display:table-header-group!important}.article tbody{display:table-row-group!important}.article tr{display:table-row!important}.article th,.article td{display:table-cell!important;min-width:0!important;max-width:0;white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important;overflow:visible!important;vertical-align:top;line-height:1.62}.article table code{white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important}
+    .article table:not(.table-auto-ready):has(th:nth-child(3)) th:nth-child(1),.article table:not(.table-auto-ready):has(th:nth-child(3)) td:nth-child(1){width:14%}.article table:not(.table-auto-ready):has(th:nth-child(3)) th:nth-child(2),.article table:not(.table-auto-ready):has(th:nth-child(3)) td:nth-child(2){width:24%}.article table:not(.table-auto-ready):has(th:nth-child(3)) th:nth-child(3),.article table:not(.table-auto-ready):has(th:nth-child(3)) td:nth-child(3){width:62%}
+    .visual,.cart-mvvm,.vite-flow{max-width:100%;box-sizing:border-box;overflow:hidden}.node,.feature,.device,.step,.pill-step,.question-card,.option-list li{min-width:0;overflow-wrap:anywhere}.flow,.pipeline{max-width:100%}
+    @media (max-width:980px){.layout,body.toc-collapsed .layout{grid-template-columns:1fr!important;gap:18px;max-width:1180px}.sidebar{position:relative;top:0;max-height:none;opacity:1!important;pointer-events:auto!important;transform:none!important;width:auto!important}.sidebar > ul{max-height:340px}.toc-float-toggle{display:none!important}.article{padding:30px 24px 40px}.sidebar:after{display:none}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-教学资料-前端框架认知与Vue3开发环境搭建.html | style: code-block-format-fix-v1 ===== */
+/* 代码块保持原始换行和缩进；只允许表格内 code 为适应列宽而换行 */
+    pre{white-space:pre!important;overflow:auto!important}
+    pre code{white-space:pre!important;word-break:normal!important;overflow-wrap:normal!important;display:inline!important;background:transparent!important}
+    .sourceCode pre,.sourceCode code{white-space:pre!important;word-break:normal!important;overflow-wrap:normal!important}
+    .article table code{white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-题库-前端框架认知与Vue3开发环境搭建.html | style:  ===== */
+:root{
+      --bg:#eef3ff; --paper:#ffffff; --paper2:#f8fafc; --ink:#172033; --muted:#64748b;
+      --line:#dbe4f0; --brand:#2563eb; --brand2:#0f766e; --accent:#f59e0b;
+      --blue-50:#eff6ff; --blue-100:#dbeafe; --green-50:#ecfdf5; --shadow:0 18px 50px rgba(30,64,175,.12);
+      --code-bg:#101827; --code-ink:#e5edf9;
+    }
+    *{box-sizing:border-box}
+    html{background:var(--bg); scroll-behavior:smooth}
+    body{margin:0; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif; line-height:1.78; font-size:16px}
+    .hero{background:linear-gradient(135deg,#1e40af 0%,#2563eb 46%,#0f766e 100%); color:#fff; padding:34px 24px 76px; position:relative; overflow:hidden}
+    .hero:before{content:""; position:absolute; width:420px; height:420px; right:-120px; top:-180px; border-radius:50%; background:rgba(255,255,255,.12)}
+    .hero:after{content:""; position:absolute; width:260px; height:260px; left:-80px; bottom:-140px; border-radius:50%; background:rgba(255,255,255,.10)}
+    .hero-inner{max-width:1180px; margin:0 auto; position:relative; z-index:1}
+    .kicker{display:inline-flex; gap:8px; align-items:center; padding:6px 12px; border:1px solid rgba(255,255,255,.35); border-radius:999px; background:rgba(255,255,255,.13); font-size:.92rem; letter-spacing:.03em}
+    .hero h1{margin:18px 0 8px; color:#fff; font-size:clamp(1.9rem,4vw,3.2rem); line-height:1.18; font-weight:800}
+    .hero p{margin:0; color:rgba(255,255,255,.86); font-size:1.05rem}
+    .layout{max-width:1180px; margin:-48px auto 56px; padding:0 20px; display:grid; grid-template-columns:280px minmax(0,1fr); gap:22px; align-items:start; position:relative; z-index:2}
+    .sidebar{position:sticky; top:18px; max-height:calc(100vh - 36px); overflow:auto; background:rgba(255,255,255,.96); border:1px solid rgba(219,228,240,.95); border-radius:18px; box-shadow:var(--shadow); padding:18px}
+    .toc-heading{font-weight:800; color:#0f172a; margin:0 0 10px; display:flex; align-items:center; gap:8px}
+    .toc-heading:before{content:""; width:8px; height:18px; border-radius:8px; background:linear-gradient(180deg,var(--brand),var(--brand2))}
+    #TOC ul{list-style:none; padding-left:0; margin:0}
+    #TOC li{margin:3px 0}
+    #TOC li ul{padding-left:14px; margin:4px 0 7px; border-left:1px dashed var(--line)}
+    #TOC a{display:block; color:#334155; text-decoration:none; padding:5px 7px; border-radius:8px; font-size:.92rem; line-height:1.35}
+    #TOC a:hover{background:var(--blue-50); color:#1d4ed8}
+    .content{min-width:0}
+    .article{background:var(--paper); border:1px solid rgba(219,228,240,.95); border-radius:22px; box-shadow:var(--shadow); padding:34px 42px 46px; overflow:hidden}
+    .doc-meta{margin:0 0 22px!important; padding:12px 14px; border:1px solid var(--blue-100); background:linear-gradient(90deg,var(--blue-50),#fff); color:#475569; border-radius:12px; font-size:.95rem}
+    h1,h2,h3,h4{color:#0f172a; line-height:1.35; scroll-margin-top:24px}
+    h2{margin:44px 0 18px; padding:0 0 10px; border-bottom:2px solid var(--line); font-size:1.55rem; color:#1e3a8a}
+    h2:before{content:""; display:inline-block; width:9px; height:22px; border-radius:8px; background:var(--brand); margin-right:10px; vertical-align:-4px}
+    h3{margin:30px 0 12px; font-size:1.22rem; color:#0f766e}
+    h4{margin:22px 0 10px; font-size:1.05rem; color:#334155}
+    p{margin:0 0 13px} ul,ol{padding-left:1.35rem} li{margin:.28rem 0}
+    a{color:#2563eb; text-decoration:none} a:hover{text-decoration:underline}
+    strong{font-weight:750}
+    blockquote{margin:16px 0; padding:14px 16px; border:1px solid #bbf7d0; border-left:5px solid #16a34a; background:#f0fdf4; color:#14532d; border-radius:12px}
+    blockquote p:last-child{margin-bottom:0}
+    hr{border:0; border-top:1px solid var(--line); margin:28px 0}
+    table{width:100%; border-collapse:separate; border-spacing:0; margin:16px 0 22px; border:1px solid var(--line); border-radius:14px; overflow:hidden; display:block; overflow-x:auto; background:#fff}
+    thead,tbody,tr{width:100%} th,td{border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:10px 12px; vertical-align:top; min-width:120px}
+    th:last-child,td:last-child{border-right:0} tr:last-child td{border-bottom:0}
+    th{background:#eaf2ff; color:#1e3a8a; font-weight:800; white-space:nowrap} tr:nth-child(even) td{background:#fbfdff}
+    code{font-family:"Cascadia Code",Consolas,"SFMono-Regular",monospace; background:#eef2ff; color:#1e293b; padding:.14rem .35rem; border-radius:6px; font-size:.91em}
+    pre{margin:16px 0 22px; padding:16px 18px; overflow:auto; background:var(--code-bg); color:var(--code-ink); border-radius:14px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+    pre code{background:transparent; color:inherit; padding:0; border-radius:0; font-size:.92rem}
+    .visual{margin:20px 0 26px; padding:22px; border:1px solid #dbe7fb; border-radius:20px; background:radial-gradient(circle at top left,#eff6ff 0,#fff 38%,#f8fafc 100%); box-shadow:0 16px 34px rgba(30,64,175,.10)}
+    .visual-title{margin:0 0 16px; font-weight:850; color:#1e3a8a; display:flex; align-items:center; gap:9px}
+    .visual-title:before{content:""; width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:0 0 0 5px #dbeafe}
+    .flow{display:flex; align-items:stretch; justify-content:space-between; gap:14px; flex-wrap:wrap}
+    .node{flex:1 1 170px; min-width:150px; padding:16px; border-radius:16px; background:#fff; border:1px solid #dbeafe; box-shadow:0 8px 22px rgba(15,23,42,.06)}
+    .node .tag{display:inline-block; padding:3px 9px; border-radius:999px; background:#e0f2fe; color:#0369a1; font-size:.78rem; font-weight:800; margin-bottom:8px}
+    .node h4{margin:0 0 6px; color:#0f172a; font-size:1.05rem}.node p{margin:0; color:#64748b; font-size:.92rem; line-height:1.55}
+    .arrow{align-self:center; flex:0 0 34px; height:34px; border-radius:50%; display:grid; place-items:center; background:#2563eb; color:#fff; font-weight:900; box-shadow:0 8px 18px rgba(37,99,235,.22)}
+    .compare{display:grid; grid-template-columns:1fr 1fr; gap:16px}.compare-card{padding:18px; border-radius:16px; border:1px solid #e2e8f0; background:#fff}.compare-card.good{border-color:#bbf7d0; background:#f0fdf4}.compare-card.bad{border-color:#fed7aa; background:#fff7ed}.compare-card h4{margin:0 0 12px}.steps{display:grid; gap:10px}.step{display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fff; border:1px solid #e2e8f0; border-radius:12px}.step .num{width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:#2563eb;color:#fff;font-weight:800;font-size:.85rem;flex:0 0 auto}
+    .mvvm{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; align-items:center}.mvvm .node{text-align:center}.mvvm-arrow{text-align:center;color:#2563eb;font-weight:900}.mvvm-arrow small{display:block;color:#64748b;font-weight:600}.feature-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}.feature{padding:14px; border-radius:14px; background:#fff; border:1px solid #dbeafe}.feature b{display:block;color:#1d4ed8;margin-bottom:4px}.device-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}.device{padding:18px;border-radius:16px;background:#fff;border:1px solid #dbeafe}.device h4{margin:0 0 10px}.pipeline{display:flex; flex-wrap:wrap; gap:10px; align-items:center}.pill-step{padding:10px 13px;border-radius:999px;background:#fff;border:1px solid #bfdbfe;color:#1e3a8a;font-weight:750}.mindmap{display:grid; grid-template-columns:180px 1fr; gap:18px; align-items:start}.mind-root{padding:18px;border-radius:18px;background:linear-gradient(135deg,#2563eb,#0f766e);color:#fff;font-weight:850;text-align:center}.mind-branches{display:grid;gap:12px}.branch{padding:13px 15px;border-radius:14px;background:#fff;border:1px solid #dbeafe}.branch b{color:#1e3a8a}.file-tree{padding:16px;border-radius:16px;background:#0f172a;color:#e5edf9;font-family:"Cascadia Code",Consolas,monospace}.file-tree ul{list-style:none;margin:0;padding-left:18px}.file-tree > ul{padding-left:0}.file-tree li{margin:4px 0}.file-tree .folder{color:#93c5fd}.file-tree .file{color:#bbf7d0}.file-tree .note{color:#94a3b8;font-family:inherit;font-size:.88rem}
+    .question-card{border:1px solid #d8e3f4; background:linear-gradient(180deg,#fff,#fbfdff); border-radius:16px; padding:18px 18px 16px; margin:18px 0; box-shadow:0 10px 28px rgba(15,23,42,.06)}
+    .question-card > p:first-child{margin-bottom:8px; color:#334155}.question-card > p:first-child strong:first-child{display:inline-flex; margin-right:8px; padding:3px 9px; border-radius:999px; background:#dbeafe; color:#1d4ed8; font-family:"Cascadia Code",Consolas,monospace; font-size:.92rem}.question-card blockquote{margin-top:14px; background:#f0fdf4; border-color:#86efac; border-left-color:#16a34a}
+    .option-list ul{list-style:none; padding:0; margin:12px 0 4px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px}.option-list li{margin:0; display:flex; align-items:flex-start; gap:10px; min-height:44px; padding:10px 12px; border:1px solid #dbe4f0; background:#fff; border-radius:12px; line-height:1.55; box-shadow:0 3px 10px rgba(15,23,42,.035)}.option-list li:hover{border-color:#93c5fd; background:#f8fbff}.option-label{flex:0 0 auto; display:inline-grid; place-items:center; width:26px; height:26px; border-radius:50%; background:#2563eb; color:#fff; font-weight:800; font-family:"Cascadia Code",Consolas,monospace; font-size:.92rem; line-height:1}.option-list li:nth-child(2) .option-label{background:#0f766e}.option-list li:nth-child(3) .option-label{background:#d97706}.option-list li:nth-child(4) .option-label{background:#7c3aed}
+    @media (max-width:980px){.layout{grid-template-columns:1fr}.sidebar{position:relative; top:0; max-height:none}.article{padding:28px 24px}.option-list ul{grid-template-columns:1fr}.mvvm,.compare,.device-grid,.mindmap{grid-template-columns:1fr}.arrow{transform:rotate(90deg); margin:auto}.feature-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.hero{padding:26px 16px 62px}.layout{padding:0 12px}.article{padding:22px 16px; border-radius:16px}.sidebar{border-radius:16px} table{font-size:.92rem}.visual{padding:16px}.feature-grid{grid-template-columns:1fr}}
+    @media print{.hero{padding:0 0 18px; background:#fff; color:#000}.hero h1,.hero p{color:#000}.layout{display:block; margin:0; padding:0}.sidebar{display:none}.article{box-shadow:none; border:0; padding:0}.question-card,pre,table,.visual{break-inside:avoid}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-题库-前端框架认知与Vue3开发环境搭建.html | style: page-polish-v2 ===== */
+body{background:linear-gradient(180deg,#eaf1ff 0,#f7f9fc 360px,#f7f9fc 100%)}
+    .hero{padding:38px 24px 92px;background:linear-gradient(125deg,#172554 0%,#1d4ed8 45%,#0f766e 100%)}
+    .hero:before{width:520px;height:520px;right:-170px;top:-230px;background:rgba(255,255,255,.14);filter:blur(.2px)}
+    .hero:after{width:320px;height:320px;left:-110px;bottom:-170px;background:rgba(255,255,255,.09)}
+    .course-name{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.36);color:#fff;font-size:.96rem;font-weight:800;letter-spacing:.04em;backdrop-filter:blur(8px)}
+    .course-name:before{content:"COURSE";font-size:.72rem;letter-spacing:.08em;color:#bfdbfe;background:rgba(15,23,42,.24);padding:2px 7px;border-radius:999px}
+    .hero .kicker{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32);font-weight:700}
+    .hero h1{max-width:920px;margin-top:16px;text-shadow:0 8px 26px rgba(15,23,42,.18)}
+    .hero p{max-width:760px;font-size:1.08rem;color:rgba(255,255,255,.88)}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .hero-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:.92rem;backdrop-filter:blur(8px)}
+    .hero-chip b{font-weight:850;color:#fff}
+    .layout{margin-top:-58px;grid-template-columns:300px minmax(0,1fr);gap:24px}
+    .sidebar{border-radius:22px;border-color:#d7e3f6;box-shadow:0 20px 55px rgba(15,23,42,.11)}
+    .toc-heading{font-size:1.05rem;margin-bottom:13px}
+    #TOC a{padding:7px 9px;border-radius:10px;color:#475569}
+    #TOC a:hover{background:#eef6ff;color:#1d4ed8;text-decoration:none;transform:translateX(2px)}
+    .article{border-radius:26px;padding:38px 48px 54px;box-shadow:0 24px 70px rgba(15,23,42,.10);border-color:#d7e3f6}
+    .doc-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border:0;background:#f8fbff;border-left:5px solid #2563eb;box-shadow:inset 0 0 0 1px #dbeafe}
+    h2{margin-top:48px;border-bottom:0;position:relative;padding-bottom:13px}
+    h2:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:linear-gradient(90deg,#2563eb 0,#0f766e 26%,#e2e8f0 26%,#e2e8f0 100%)}
+    h3{padding-left:12px;border-left:4px solid #14b8a6}
+    .visual{border-radius:22px;border-color:#cfe0fb;background:linear-gradient(145deg,#f8fbff 0%,#ffffff 52%,#f0fdfa 100%);box-shadow:0 18px 42px rgba(15,23,42,.08)}
+    .node,.feature,.device,.step,.pill-step{box-shadow:0 8px 20px rgba(15,23,42,.045)}
+    .question-card{border-radius:20px;border-color:#d4e1f5;box-shadow:0 14px 34px rgba(15,23,42,.07)}
+    .option-list li{border-radius:14px;transition:.16s ease}.option-list li:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(37,99,235,.10)}
+    blockquote{border-radius:14px}
+    @media (max-width:980px){.layout{grid-template-columns:1fr;margin-top:-52px}.article{padding:30px 24px 40px}.hero{padding-bottom:82px}}
+    @media (max-width:640px){.hero{padding:26px 16px 70px}.hero-meta{gap:8px}.hero-chip{width:100%;justify-content:space-between}.article{padding:22px 16px 34px}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-题库-前端框架认知与Vue3开发环境搭建.html | style: toc-scroll-polish-v3 ===== */
+/* 全局滚动条：更细、更浅、更贴合课程蓝绿色视觉 */
+    html{scrollbar-width:thin;scrollbar-color:#93b4e8 #edf4ff}
+    body::-webkit-scrollbar{width:12px;height:12px}
+    body::-webkit-scrollbar-track{background:#edf4ff}
+    body::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#60a5fa,#14b8a6);border:3px solid #edf4ff;border-radius:999px}
+    body::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#2563eb,#0f766e)}
+
+    /* 目录卡片增强 */
+    .sidebar{padding:0;overflow:hidden;background:rgba(255,255,255,.98)}
+    .toc-heading{position:sticky;top:0;z-index:2;margin:0;padding:18px 18px 14px;background:linear-gradient(180deg,#ffffff 0%,rgba(255,255,255,.94) 100%);border-bottom:1px solid #e2e8f0;box-shadow:0 8px 18px rgba(15,23,42,.04)}
+    .toc-heading:after{content:"快速定位";margin-left:auto;font-size:.75rem;font-weight:700;color:#64748b;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;padding:2px 8px}
+    #TOC{padding:12px 12px 16px;max-height:calc(100vh - 92px);overflow:auto;scrollbar-width:thin;scrollbar-color:#9fb9e8 transparent}
+    #TOC::-webkit-scrollbar{width:8px;height:8px}
+    #TOC::-webkit-scrollbar-track{background:transparent;border-radius:999px}
+    #TOC::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#bfdbfe,#99f6e4);border:2px solid #fff;border-radius:999px}
+    #TOC::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#60a5fa,#2dd4bf)}
+
+    /* 目录层级：一级更醒目，二级更轻，三级缩进 */
+    #TOC ul{position:relative}
+    #TOC > ul > li{margin:5px 0 8px}
+    #TOC > ul > li > a{font-weight:850;color:#1e3a8a;background:#f8fbff;border:1px solid #e1ecff;padding:9px 10px 9px 12px;box-shadow:0 4px 12px rgba(30,64,175,.035)}
+    #TOC > ul > li > a:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#2563eb;margin-right:8px;vertical-align:1px;box-shadow:0 0 0 4px #dbeafe}
+    #TOC li ul{margin:7px 0 4px 10px;padding:2px 0 2px 13px;border-left:2px solid #dbeafe}
+    #TOC li ul a{font-size:.88rem;color:#475569;padding:6px 9px;border:1px solid transparent}
+    #TOC li ul a:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#94a3b8;margin-right:8px;vertical-align:1px}
+    #TOC li ul li ul{border-left:1px dashed #cbd5e1;margin-left:12px}
+    #TOC li ul li ul a{font-size:.82rem;color:#64748b;padding:5px 8px}
+    #TOC a{transition:background .16s ease,color .16s ease,transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+    #TOC a:hover{background:#eef6ff;color:#1d4ed8;border-color:#bfdbfe;box-shadow:0 6px 16px rgba(37,99,235,.08);transform:translateX(3px)}
+
+    /* 目录底部淡出，提示可滚动 */
+    .sidebar:after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
+    @media (max-width:980px){.sidebar{max-height:none}.toc-heading{position:relative}#TOC{max-height:360px}.sidebar:after{display:none}}
+    @media print{#TOC{max-height:none;overflow:visible}.toc-heading:after{display:none}}
+
+
+/* ===== Source: 01 前端框架认知与Vue3开发环境搭建\01-题库-前端框架认知与Vue3开发环境搭建.html | style: unified-with-design-v1 ===== */
+/* 与 01 教学设计页统一：简洁目录 + 可收起 + 正文自动占位 + 表格安全换行 */
+    .layout{max-width:1220px;grid-template-columns:288px minmax(0,1fr);gap:24px;transition:grid-template-columns .22s ease,gap .22s ease}
+    body.toc-collapsed .layout{grid-template-columns:0 minmax(0,1fr);gap:0;max-width:1120px}
+    body.toc-collapsed .sidebar{width:0!important;border:0!important;box-shadow:none!important;opacity:0;pointer-events:none;transform:translateX(-12px);overflow:hidden!important}
+    .toc-float-toggle{position:fixed;left:18px;top:50%;z-index:30;transform:translateY(-50%);display:none;align-items:center;gap:6px;padding:10px 12px;border:1px solid #c7d2fe;border-radius:999px;background:#fff;color:#1d4ed8;font-weight:850;font-size:.86rem;box-shadow:0 14px 36px rgba(15,23,42,.16);cursor:pointer}
+    body.toc-collapsed .toc-float-toggle{display:inline-flex}.toc-float-toggle:hover{background:#eef6ff}
+
+    .sidebar{width:auto;padding:0!important;overflow:hidden!important;border-radius:18px!important;background:rgba(255,255,255,.98)!important;box-shadow:0 16px 42px rgba(15,23,42,.09)!important;border:1px solid #dbe4f0!important;transition:opacity .18s ease,transform .18s ease}
+    .toc-heading{position:sticky;top:0;z-index:3;margin:0!important;padding:15px 16px 12px!important;background:#fff!important;border-bottom:1px solid #edf2f7!important;box-shadow:none!important;display:flex!important;align-items:center!important;gap:10px!important;font-size:1rem!important}
+    .toc-heading:before{content:""!important;width:4px!important;height:17px!important;border-radius:4px!important;background:#2563eb!important;box-shadow:none!important;flex:0 0 auto!important}
+    .toc-heading:after{display:none!important}.toc-heading span{font-weight:800;color:#1f2937}
+    .toc-toggle{margin-left:auto;background:#fff;border:1px solid #dbe4f0;color:#64748b;border-radius:8px;padding:3px 8px;font-size:.76rem;font-weight:700;cursor:pointer;line-height:1.3}.toc-toggle:hover{background:#f8fafc;color:#2563eb;border-color:#bfdbfe}
+    .sidebar > ul{list-style:none;margin:0;padding:10px 12px 16px;max-height:calc(100vh - 92px);overflow:auto;scrollbar-width:thin;scrollbar-color:#9fb9e8 transparent}
+    .sidebar > ul::-webkit-scrollbar{width:8px;height:8px}.sidebar > ul::-webkit-scrollbar-track{background:transparent}.sidebar > ul::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#bfdbfe,#99f6e4);border:2px solid #fff;border-radius:999px}
+    .sidebar ul{list-style:none;padding-left:0;margin:0}.sidebar li{margin:0}.sidebar > ul > li{margin:2px 0}
+    .sidebar a{display:block;text-decoration:none!important;border-radius:8px;transition:background .16s ease,color .16s ease,border-color .16s ease;white-space:normal;overflow:visible;text-overflow:clip;box-shadow:none!important;transform:none!important}
+    .sidebar > ul > li > a{padding:8px 9px 8px 13px!important;border:0!important;border-left:3px solid transparent!important;background:transparent!important;color:#334155!important;font-size:.92rem!important;font-weight:750!important;line-height:1.42!important}
+    .sidebar > ul > li > a:before{display:none!important;content:none!important}.sidebar > ul > li > a:hover{background:#f8fafc!important;color:#1d4ed8!important;border-left-color:#93c5fd!important}
+    .sidebar li ul{margin:2px 0 6px 10px!important;padding:2px 0 2px 10px!important;border-left:1px solid #e2e8f0!important}.sidebar li ul a{padding:5px 8px 5px 12px!important;border:0!important;background:transparent!important;color:#64748b!important;font-size:.84rem!important;font-weight:500!important;line-height:1.38!important;border-radius:7px!important}.sidebar li ul a:hover{background:#f8fafc!important;color:#2563eb!important}.sidebar li ul li ul{margin-left:8px!important;padding-left:8px!important;border-left:1px dashed #e2e8f0!important}
+
+    .article table{display:table!important;width:100%!important;max-width:100%!important;table-layout:fixed!important;border-collapse:separate;border-spacing:0;overflow:visible!important}.article thead{display:table-header-group!important}.article tbody{display:table-row-group!important}.article tr{display:table-row!important}.article th,.article td{display:table-cell!important;min-width:0!important;max-width:0;white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important;overflow:visible!important;vertical-align:top;line-height:1.62}.article table code{white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important}
+    .article table:not(.table-auto-ready):has(th:nth-child(3)) th:nth-child(1),.article table:not(.table-auto-ready):has(th:nth-child(3)) td:nth-child(1){width:14%}.article table:not(.table-auto-ready):has(th:nth-child(3)) th:nth-child(2),.article table:not(.table-auto-ready):has(th:nth-child(3)) td:nth-child(2){width:24%}.article table:not(.table-auto-ready):has(th:nth-child(3)) th:nth-child(3),.article table:not(.table-auto-ready):has(th:nth-child(3)) td:nth-child(3){width:62%}
+    .visual,.cart-mvvm,.vite-flow{max-width:100%;box-sizing:border-box;overflow:hidden}.node,.feature,.device,.step,.pill-step,.question-card,.option-list li{min-width:0;overflow-wrap:anywhere}.flow,.pipeline{max-width:100%}
+    @media (max-width:980px){.layout,body.toc-collapsed .layout{grid-template-columns:1fr!important;gap:18px;max-width:1180px}.sidebar{position:relative;top:0;max-height:none;opacity:1!important;pointer-events:auto!important;transform:none!important;width:auto!important}.sidebar > ul{max-height:340px}.toc-float-toggle{display:none!important}.article{padding:30px 24px 40px}.sidebar:after{display:none}}
+
+/* ===== MVVM 图示稳定布局 v2：避免连接列把节点挤在一起 ===== */
+.mvvm-loop{
+  width:100%!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+  align-items:stretch!important;
+  overflow:visible!important;
+}
+.mvvm-loop > .node{
+  min-width:0!important;
+  min-height:138px;
+  padding:16px!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  overflow-wrap:anywhere!important;
+}
+.mvvm-loop > .node.model{grid-column:1;grid-row:1}
+.mvvm-loop > .node.vm{grid-column:2;grid-row:1}
+.mvvm-loop > .node.view{grid-column:3;grid-row:1}
+.mvvm-loop > .loop-link{
+  min-width:0!important;
+  padding:11px 13px!important;
+  border-radius:14px!important;
+  line-height:1.45!important;
+  font-size:.86rem!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:3px!important;
+  box-sizing:border-box!important;
+  overflow-wrap:anywhere!important;
+}
+.mvvm-loop > .loop-link span{font-size:.76rem!important;line-height:1.4!important;margin-top:2px!important}
+.mvvm-loop > .loop-link.forward:after,
+.mvvm-loop > .loop-link.back:before{
+  position:static!important;
+  transform:none!important;
+  width:24px!important;
+  height:24px!important;
+  margin:4px auto 0!important;
+  flex:0 0 auto!important;
+  font-size:.88rem!important;
+}
+.mvvm-loop > .loop-link.back:before{margin:0 auto 4px!important}
+.mvvm-loop > .loop-link:nth-child(2){grid-column:1 / 3;grid-row:2}
+.mvvm-loop > .loop-link:nth-child(4){grid-column:2 / 4;grid-row:2}
+.mvvm-loop > .loop-link.vm-model{grid-column:1 / 3!important;grid-row:3!important}
+.mvvm-loop > .loop-link.view-vm{grid-column:2 / 4!important;grid-row:3!important}
+.mvvm-loop > .mvvm-note{
+  grid-column:1 / -1!important;
+  grid-row:4!important;
+  margin-top:0!important;
+  box-sizing:border-box!important;
+  overflow-wrap:anywhere!important;
+}
+@media (max-width:900px){
+  .mvvm-loop{grid-template-columns:1fr!important;gap:12px!important}
+  .mvvm-loop > .node,
+  .mvvm-loop > .loop-link,
+  .mvvm-loop > .mvvm-note{grid-column:1!important;grid-row:auto!important}
+  .mvvm-loop > .loop-link.forward:after{transform:rotate(90deg)!important}
+  .mvvm-loop > .loop-link.back:before{transform:rotate(90deg)!important}
+}
+/* ===== MVVM 图示美化布局 v3：上下双通道，避免重叠，保持逻辑准确 ===== */
+.mvvm-loop{
+  width:100%!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-template-areas:
+    "model vm view"
+    "dataflow dataflow dataflow"
+    "backflow backflow backflow"
+    "note note note"!important;
+  gap:14px!important;
+  align-items:stretch!important;
+  overflow:visible!important;
+  position:relative!important;
+}
+.mvvm-loop > .node{
+  min-width:0!important;
+  min-height:150px!important;
+  padding:18px 16px!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  border-radius:18px!important;
+  overflow-wrap:anywhere!important;
+  position:relative!important;
+}
+.mvvm-loop > .node.model{grid-area:model!important}
+.mvvm-loop > .node.vm{grid-area:vm!important}
+.mvvm-loop > .node.view{grid-area:view!important}
+.mvvm-loop > .node h4{font-size:1.04rem!important;margin-bottom:8px!important}
+.mvvm-loop > .node p{font-size:.9rem!important;line-height:1.6!important}
+
+.mvvm-loop > .loop-link{
+  min-width:0!important;
+  box-sizing:border-box!important;
+  border-radius:16px!important;
+  padding:12px 16px!important;
+  line-height:1.5!important;
+  font-size:.9rem!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  text-align:center!important;
+  box-shadow:0 8px 20px rgba(15,23,42,.045)!important;
+  overflow-wrap:anywhere!important;
+  position:relative!important;
+}
+.mvvm-loop > .loop-link b{white-space:nowrap!important}
+.mvvm-loop > .loop-link span{display:inline!important;margin:0!important;font-size:.8rem!important;line-height:1.45!important;color:#64748b!important}
+.mvvm-loop > .loop-link.forward{
+  grid-area:dataflow!important;
+  background:linear-gradient(90deg,#eff6ff 0%,#ffffff 50%,#f5f3ff 100%)!important;
+  border:1px solid #bfdbfe!important;
+  color:#1e3a8a!important;
+}
+.mvvm-loop > .loop-link.back{
+  background:linear-gradient(90deg,#f5f3ff 0%,#ffffff 50%,#ecfdf5 100%)!important;
+  border:1px solid #99f6e4!important;
+  color:#0f766e!important;
+}
+.mvvm-loop > .loop-link:nth-child(2){grid-area:dataflow!important;justify-self:start;width:calc(66.666% - 5px)!important}
+.mvvm-loop > .loop-link:nth-child(4){grid-area:dataflow!important;justify-self:end;width:calc(66.666% - 5px)!important;margin-top:54px!important}
+.mvvm-loop > .loop-link.vm-model{grid-area:backflow!important;justify-self:start;width:calc(66.666% - 5px)!important;margin-top:54px!important}
+.mvvm-loop > .loop-link.view-vm{grid-area:backflow!important;justify-self:end;width:calc(66.666% - 5px)!important}
+
+.mvvm-loop > .loop-link.forward:after,
+.mvvm-loop > .loop-link.back:before{
+  position:static!important;
+  transform:none!important;
+  width:24px!important;
+  height:24px!important;
+  margin:0!important;
+  flex:0 0 24px!important;
+  font-size:.9rem!important;
+  box-shadow:0 6px 14px rgba(37,99,235,.18)!important;
+}
+.mvvm-loop > .loop-link.forward:after{order:3!important;content:"→"!important}
+.mvvm-loop > .loop-link.back:before{order:-1!important;content:"←"!important;background:#0f766e!important}
+.mvvm-loop > .mvvm-note{
+  grid-area:note!important;
+  margin-top:2px!important;
+  box-sizing:border-box!important;
+  overflow-wrap:anywhere!important;
+  border-radius:16px!important;
+}
+@media (max-width:980px){
+  .mvvm-loop{
+    grid-template-columns:1fr!important;
+    grid-template-areas:"model" "data1" "vm" "data2" "view" "back1" "back2" "note"!important;
+    gap:12px!important;
+  }
+  .mvvm-loop > .node.model{grid-area:model!important}
+  .mvvm-loop > .node.vm{grid-area:vm!important}
+  .mvvm-loop > .node.view{grid-area:view!important}
+  .mvvm-loop > .loop-link,
+  .mvvm-loop > .loop-link:nth-child(2),
+  .mvvm-loop > .loop-link:nth-child(4),
+  .mvvm-loop > .loop-link.vm-model,
+  .mvvm-loop > .loop-link.view-vm{
+    width:100%!important;
+    justify-self:stretch!important;
+    margin-top:0!important;
+  }
+  .mvvm-loop > .loop-link:nth-child(2){grid-area:data1!important}
+  .mvvm-loop > .loop-link:nth-child(4){grid-area:data2!important}
+  .mvvm-loop > .loop-link.vm-model{grid-area:back2!important}
+  .mvvm-loop > .loop-link.view-vm{grid-area:back1!important}
+  .mvvm-loop > .mvvm-note{grid-area:note!important}
+  .mvvm-loop > .loop-link.forward:after{transform:rotate(90deg)!important}
+  .mvvm-loop > .loop-link.back:before{transform:rotate(90deg)!important}
+}
+/* ===== MVVM 图示无重叠布局 v4：每条连接说明独占通道 ===== */
+.mvvm-loop{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-template-areas:
+    "model vm view"
+    "data1 data1 ."
+    ". data2 data2"
+    ". back1 back1"
+    "back2 back2 ."
+    "note note note"!important;
+  gap:12px 16px!important;
+}
+.mvvm-loop > .loop-link:nth-child(2),
+.mvvm-loop > .loop-link:nth-child(4),
+.mvvm-loop > .loop-link.vm-model,
+.mvvm-loop > .loop-link.view-vm{
+  width:100%!important;
+  margin-top:0!important;
+  justify-self:stretch!important;
+  min-height:54px!important;
+}
+.mvvm-loop > .loop-link:nth-child(2){grid-area:data1!important}
+.mvvm-loop > .loop-link:nth-child(4){grid-area:data2!important}
+.mvvm-loop > .loop-link.view-vm{grid-area:back1!important}
+.mvvm-loop > .loop-link.vm-model{grid-area:back2!important}
+.mvvm-loop > .mvvm-note{grid-area:note!important}
+.mvvm-loop > .loop-link.forward{
+  background:linear-gradient(90deg,#eff6ff,#ffffff)!important;
+}
+.mvvm-loop > .loop-link.back{
+  background:linear-gradient(90deg,#ffffff,#ecfdf5)!important;
+}
+@media (max-width:980px){
+  .mvvm-loop{
+    grid-template-columns:1fr!important;
+    grid-template-areas:"model" "data1" "vm" "data2" "view" "back1" "back2" "note"!important;
+  }
+}
+/* ===== MVVM clean diagram v5：重新绘制，主体清晰，状态标签更小 ===== */
+.mvvm-clean-visual{overflow:hidden!important}
+.mvvm-clean{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-areas:
+    "model vm view"
+    "data data data"
+    "event event event"
+    "note note note";
+  gap:14px 18px;
+  align-items:stretch;
+  max-width:100%;
+}
+.mvvm-clean-card{
+  position:relative;
+  min-width:0;
+  min-height:154px;
+  padding:20px 18px;
+  border-radius:20px;
+  background:#fff;
+  border:1px solid #dbeafe;
+  box-shadow:0 12px 28px rgba(15,23,42,.065);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  overflow:hidden;
+}
+.mvvm-clean-card:after{content:"";position:absolute;right:-34px;top:-34px;width:92px;height:92px;border-radius:999px;background:rgba(37,99,235,.06)}
+.mvvm-clean-card.model{grid-area:model;background:linear-gradient(180deg,#fff,#eff6ff)}
+.mvvm-clean-card.vm{grid-area:vm;background:linear-gradient(180deg,#fff,#f0fdfa);border-color:#99f6e4;transform:translateY(-4px);box-shadow:0 16px 34px rgba(15,118,110,.12)}
+.mvvm-clean-card.view{grid-area:view;background:linear-gradient(180deg,#fff,#f5f3ff);border-color:#ddd6fe}
+.mvvm-role{display:inline-flex;width:max-content;max-width:100%;padding:4px 10px;margin-bottom:10px;border-radius:999px;background:#e0f2fe;color:#0369a1;font-size:.76rem;font-weight:900;letter-spacing:.02em}
+.mvvm-clean-card.vm .mvvm-role{background:#ccfbf1;color:#0f766e}
+.mvvm-clean-card.view .mvvm-role{background:#ede9fe;color:#6d28d9}
+.mvvm-clean-card h4{margin:0 0 8px;color:#0f172a;font-size:1.08rem;line-height:1.35}
+.mvvm-clean-card p{margin:0;color:#64748b;font-size:.92rem;line-height:1.6;overflow-wrap:anywhere}
+.mvvm-clean-flow{
+  display:grid;
+  grid-template-columns:max-content minmax(80px,1fr) max-content;
+  align-items:center;
+  gap:10px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.72);
+  border:1px solid #e2e8f0;
+}
+.mvvm-clean-flow.data-flow{grid-area:data;color:#1e3a8a;background:linear-gradient(90deg,#eff6ff,#fff,#f5f3ff)}
+.mvvm-clean-flow.event-flow{grid-area:event;color:#0f766e;background:linear-gradient(90deg,#f5f3ff,#fff,#ecfdf5)}
+.mvvm-clean-flow .flow-chip{font-size:.78rem;font-weight:850;padding:4px 9px;border-radius:999px;background:#fff;border:1px solid #dbeafe;white-space:nowrap;box-shadow:0 4px 10px rgba(15,23,42,.04)}
+.mvvm-clean-flow .flow-line{height:2px;background:linear-gradient(90deg,#2563eb,#0f766e);position:relative;border-radius:999px;min-width:0}
+.mvvm-clean-flow .flow-line:after{content:"";position:absolute;right:-1px;top:50%;width:9px;height:9px;border-top:2px solid #0f766e;border-right:2px solid #0f766e;transform:translateY(-50%) rotate(45deg)}
+.mvvm-clean-flow .flow-line.reverse{background:linear-gradient(90deg,#0f766e,#2563eb)}
+.mvvm-clean-flow .flow-line.reverse:after{left:-1px;right:auto;border-color:#2563eb;transform:translateY(-50%) rotate(-135deg)}
+.mvvm-clean-note{grid-area:note;margin-top:2px;padding:12px 14px;border-radius:16px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:.92rem;line-height:1.65;overflow-wrap:anywhere}
+@media (max-width:860px){
+  .mvvm-clean{grid-template-columns:1fr;grid-template-areas:"model" "data" "vm" "event" "view" "note";gap:12px}
+  .mvvm-clean-card.vm{transform:none}
+  .mvvm-clean-flow{grid-template-columns:1fr;justify-items:center;border-radius:16px;text-align:center}
+  .mvvm-clean-flow .flow-line{width:2px;height:34px;background:linear-gradient(180deg,#2563eb,#0f766e)}
+  .mvvm-clean-flow .flow-line:after{right:auto;left:50%;top:auto;bottom:-1px;transform:translateX(-50%) rotate(135deg)}
+  .mvvm-clean-flow .flow-line.reverse{background:linear-gradient(180deg,#0f766e,#2563eb)}
+  .mvvm-clean-flow .flow-line.reverse:after{top:-1px;bottom:auto;left:50%;transform:translateX(-50%) rotate(-45deg)}
+}
+/* ===== 02+ reusable diagrams / refined course components ===== */
+.loading-chain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+.loading-card{position:relative;padding:17px 16px;border:1px solid #dbeafe;border-radius:18px;background:#fff;box-shadow:0 10px 24px rgba(15,23,42,.055)}
+.loading-card:not(:last-child)::after{content:'→';position:absolute;right:-18px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#2563eb,#0f766e);color:#fff;font-weight:900;box-shadow:0 8px 18px rgba(37,99,235,.20);z-index:2}
+.loading-card .mini{display:inline-flex;padding:3px 9px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:.78rem;font-weight:850;margin-bottom:9px}
+.loading-card b{display:block;color:#0f172a;font-size:1.02rem;margin-bottom:5px}.loading-card p{margin:0;color:#64748b;font-size:.92rem;line-height:1.55}
+.sfc-triad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.sfc-card{padding:17px;border-radius:18px;background:#fff;border:1px solid #dbeafe;box-shadow:0 10px 24px rgba(15,23,42,.055)}.sfc-card code{display:inline-block;margin-bottom:8px;background:#e0f2fe;color:#075985;font-weight:850}.sfc-card b{display:block;color:#1e3a8a;margin-bottom:4px}.sfc-card p{margin:0;color:#64748b;font-size:.92rem;line-height:1.55}
+.compile-map{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}.compile-col{display:grid;gap:10px}.compile-item{padding:12px 14px;border:1px solid #dbeafe;border-radius:14px;background:#fff}.compile-item b{color:#1d4ed8}.compile-arrow{display:grid;gap:10px;color:#fff;font-weight:900}.compile-arrow span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#0f766e)}
+.ref-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}.ref-node{padding:15px;border-radius:16px;border:1px solid #dbeafe;background:#fff;text-align:center;box-shadow:0 8px 20px rgba(15,23,42,.045)}.ref-node b{display:block;color:#0f172a}.ref-node small{display:block;color:#64748b;line-height:1.45}.ref-node.hot{background:linear-gradient(135deg,#eff6ff,#ecfdf5);border-color:#bfdbfe}.app-structure{display:grid;grid-template-columns:1fr;gap:10px}.app-row{padding:12px 14px;border-radius:14px;background:#fff;border:1px solid #dbeafe;display:flex;gap:10px;align-items:flex-start}.app-row span{flex:0 0 auto;width:28px;height:28px;border-radius:9px;background:#2563eb;color:#fff;display:grid;place-items:center;font-weight:900}.app-row b{color:#1e3a8a}.knowledge-map{display:grid;grid-template-columns:220px 1fr;gap:16px;align-items:stretch}.knowledge-map .root{display:grid;place-items:center;text-align:center;border-radius:18px;background:linear-gradient(135deg,#2563eb,#0f766e);color:#fff;font-weight:900;padding:18px}.knowledge-map .items{display:grid;gap:9px}.knowledge-map .items div{padding:10px 12px;border-radius:12px;border:1px solid #dbeafe;background:#fff}.knowledge-map code{font-weight:850}
+.article table code{white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important}.article pre code{white-space:pre!important;overflow-wrap:normal!important;word-break:normal!important}
+@media (max-width:900px){.loading-chain,.sfc-triad,.ref-flow,.knowledge-map{grid-template-columns:1fr}.loading-card:not(:last-child)::after{content:'↓';right:50%;top:auto;bottom:-22px;transform:translateX(50%)}.compile-map{grid-template-columns:1fr}.compile-arrow{justify-items:center}.compile-arrow span{transform:rotate(90deg)}}
+
+/* ===== Generic diagram blocks for 03-16 auto material conversion ===== */
+.diagram-lines{display:grid;gap:8px;font-family:"Cascadia Code",Consolas,"Microsoft YaHei",monospace}
+.diagram-line{display:block;padding:9px 11px;border:1px solid #dbeafe;border-radius:11px;background:#fff;color:#334155;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55}
+.diagram-line:nth-child(odd){background:#f8fbff}.diagram-line .arrow-token{color:#2563eb;font-weight:900}.diagram-line .tree-token{color:#0f766e;font-weight:800}
+.diagram-hint{margin:10px 0 0;color:#64748b;font-size:.9rem}
+
+/* Final table full-width guard: tables must occupy article width while keeping wrapping */
+.article table{width:100%!important;min-width:100%!important;max-width:100%!important;table-layout:fixed!important}
+.article table col{width:var(--col-width,auto)}
+.article th,.article td{white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important}
+.article pre code{white-space:pre!important;overflow-wrap:normal!important;word-break:normal!important}

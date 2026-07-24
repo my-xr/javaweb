@@ -1,0 +1,1743 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>动态SQL条件查询与分页</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 08 次课 · 题库</div>
+      <h1>动态SQL条件查询与分页</h1>
+      <p>面向练习、测验、考试与参考解析 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 08 次课</span>
+        <span class="hero-chip"><b>主题</b>动态SQL条件查询与分页</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一单项选择题30题">一、单项选择题（30题）</a>
+<ul>
+<li><a href="#08-d-01-">08-D-01 ★</a></li>
+<li><a href="#08-d-02-">08-D-02 ★</a></li>
+<li><a href="#08-d-03-">08-D-03 ★</a></li>
+<li><a href="#08-d-04-">08-D-04 ★★</a></li>
+<li><a href="#08-d-05-">08-D-05 ★</a></li>
+<li><a href="#08-d-06-">08-D-06 ★★</a></li>
+<li><a href="#08-d-07-">08-D-07 ★★</a></li>
+<li><a href="#08-d-08-">08-D-08 ★</a></li>
+<li><a href="#08-d-09-">08-D-09 ★★</a></li>
+<li><a href="#08-d-10-">08-D-10 ★</a></li>
+<li><a href="#08-d-11-">08-D-11 ★★</a></li>
+<li><a href="#08-d-12-">08-D-12 ★</a></li>
+<li><a href="#08-d-13-">08-D-13 ★★</a></li>
+<li><a href="#08-d-14-">08-D-14 ★</a></li>
+<li><a href="#08-d-15-">08-D-15 ★★</a></li>
+<li><a href="#08-d-16-">08-D-16 ★</a></li>
+<li><a href="#08-d-17-">08-D-17 ★★</a></li>
+<li><a href="#08-d-18-">08-D-18 ★★</a></li>
+<li><a href="#08-d-19-">08-D-19 ★</a></li>
+<li><a href="#08-d-20-">08-D-20 ★★</a></li>
+<li><a href="#08-d-21-">08-D-21 ★★</a></li>
+<li><a href="#08-d-22-">08-D-22 ★</a></li>
+<li><a href="#08-d-23-">08-D-23 ★★</a></li>
+<li><a href="#08-d-24-">08-D-24 ★</a></li>
+<li><a href="#08-d-25-">08-D-25 ★★</a></li>
+<li><a href="#08-d-26-">08-D-26 ★★</a></li>
+<li><a href="#08-d-27-">08-D-27 ★</a></li>
+<li><a href="#08-d-28-">08-D-28 ★★</a></li>
+<li><a href="#08-d-29-">08-D-29 ★</a></li>
+<li><a href="#08-d-30-">08-D-30 ★★★</a></li>
+</ul></li>
+<li><a href="#二多项选择题10题">二、多项选择题（10题）</a>
+<ul>
+<li><a href="#08-m-01-">08-M-01 ★</a></li>
+<li><a href="#08-m-02-">08-M-02 ★★</a></li>
+<li><a href="#08-m-03-">08-M-03 ★★</a></li>
+<li><a href="#08-m-04-">08-M-04 ★★</a></li>
+<li><a href="#08-m-05-">08-M-05 ★</a></li>
+<li><a href="#08-m-06-">08-M-06 ★★</a></li>
+<li><a href="#08-m-07-">08-M-07 ★★</a></li>
+<li><a href="#08-m-08-">08-M-08 ★★</a></li>
+<li><a href="#08-m-09-">08-M-09 ★★</a></li>
+<li><a href="#08-m-10-">08-M-10 ★★★</a></li>
+</ul></li>
+<li><a href="#三判断题20题">三、判断题（20题）</a>
+<ul>
+<li><a href="#08-j-01-">08-J-01 ★</a></li>
+<li><a href="#08-j-02-">08-J-02 ★</a></li>
+<li><a href="#08-j-03-">08-J-03 ★★</a></li>
+<li><a href="#08-j-04-">08-J-04 ★</a></li>
+<li><a href="#08-j-05-">08-J-05 ★</a></li>
+<li><a href="#08-j-06-">08-J-06 ★★</a></li>
+<li><a href="#08-j-07-">08-J-07 ★</a></li>
+<li><a href="#08-j-08-">08-J-08 ★★</a></li>
+<li><a href="#08-j-09-">08-J-09 ★</a></li>
+<li><a href="#08-j-10-">08-J-10 ★★</a></li>
+<li><a href="#08-j-11-">08-J-11 ★</a></li>
+<li><a href="#08-j-12-">08-J-12 ★★</a></li>
+<li><a href="#08-j-13-">08-J-13 ★★</a></li>
+<li><a href="#08-j-14-">08-J-14 ★</a></li>
+<li><a href="#08-j-15-">08-J-15 ★★</a></li>
+<li><a href="#08-j-16-">08-J-16 ★</a></li>
+<li><a href="#08-j-17-">08-J-17 ★★</a></li>
+<li><a href="#08-j-18-">08-J-18 ★★</a></li>
+<li><a href="#08-j-19-">08-J-19 ★</a></li>
+<li><a href="#08-j-20-">08-J-20 ★★★</a></li>
+</ul></li>
+<li><a href="#四填空题10题">四、填空题（10题）</a>
+<ul>
+<li><a href="#08-f-01-">08-F-01 ★</a></li>
+<li><a href="#08-f-02-">08-F-02 ★</a></li>
+<li><a href="#08-f-03-">08-F-03 ★★</a></li>
+<li><a href="#08-f-04-">08-F-04 ★</a></li>
+<li><a href="#08-f-05-">08-F-05 ★</a></li>
+<li><a href="#08-f-06-">08-F-06 ★★</a></li>
+<li><a href="#08-f-07-">08-F-07 ★</a></li>
+<li><a href="#08-f-08-">08-F-08 ★★</a></li>
+<li><a href="#08-f-09-">08-F-09 ★★</a></li>
+<li><a href="#08-f-10-">08-F-10 ★★</a></li>
+</ul></li>
+<li><a href="#五简答论述题4题">五、简答/论述题（4题）</a>
+<ul>
+<li><a href="#08-s-01-">08-S-01 ★★</a></li>
+<li><a href="#08-s-02-">08-S-02 ★★</a></li>
+<li><a href="#08-s-03-">08-S-03 ★★</a></li>
+<li><a href="#08-s-04-">08-S-04 ★★★</a></li>
+</ul></li>
+<li><a href="#六程序阅读补全题2题">六、程序阅读补全题（2题）</a>
+<ul>
+<li><a href="#08-r-01-">08-R-01 ★★</a></li>
+<li><a href="#08-r-02-">08-R-02 ★★</a></li>
+</ul></li>
+<li><a href="#七编程接口设计题2题">七、编程/接口设计题（2题）</a>
+<ul>
+<li><a href="#08-p-01-">08-P-01 ★★★</a></li>
+<li><a href="#08-p-02-">08-P-02 ★★★</a></li>
+</ul></li>
+<li><a href="#附题库统计表">附：题库统计表</a>
+<ul>
+<li><a href="#题型分布统计">题型分布统计</a></li>
+<li><a href="#知识点覆盖统计">知识点覆盖统计</a></li>
+<li><a href="#难度分布统计">难度分布统计</a></li>
+<li><a href="#考核能力维度">考核能力维度</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 08 次课 <span>｜</span> <strong>文档：</strong>题库</p>
+<blockquote>
+<p>课程：《JavaWeb后端开发技术》 / 模块：M3 MyBatis-Plus 数据访问层
+项目：CTTS 校园实训任务管理系统 题量：78 题（30 单选 + 10 多选 + 20 判断
++ 10 填空 + 4 简答 + 2 程序阅读补全 + 2 编程接口设计）
+编号规则：08-题型-序号（D 单选 / M 多选 / J 判断 / F 填空 / S 简答 / R
+程序阅读 / P 编程） 难度：★ 基础 / ★★ 进阶 / ★★★ 综合</p>
+</blockquote>
+<hr />
+<h2 id="一单项选择题30题">一、单项选择题（30题）</h2>
+<h3 id="08-d-01-">08-D-01 ★</h3>
+<p>MyBatis 动态 SQL 中，用于条件判断的标签是？</p>
+<ul>
+<li>A. <code>&lt;condition&gt;</code></li>
+<li>B. <code>&lt;if&gt;</code></li>
+<li>C. <code>&lt;test&gt;</code></li>
+<li>D. <code>&lt;when&gt;</code></li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>&lt;if test="..."&gt;</code> 是 MyBatis 动态 SQL
+的条件判断标签，test 属性接收 OGNL 表达式。<code>&lt;when&gt;</code> 是
+<code>&lt;choose&gt;</code> 内的分支标签，<code>&lt;condition&gt;</code>
+和 <code>&lt;test&gt;</code> 不存在。</p>
+<hr />
+<h3 id="08-d-02-">08-D-02 ★</h3>
+<p><code>&lt;where&gt;</code> 标签的核心作用是？</p>
+<ul>
+<li>A. 生成 <code>WHERE</code> 关键字</li>
+<li>B. 自动处理首个条件前多余的 <code>AND</code> 或 <code>OR</code></li>
+<li>C. 替代 <code>&lt;if&gt;</code> 进行条件判断</li>
+<li>D. 限制查询返回行数</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>&lt;where&gt;</code> 会自动在内部有内容时添加 <code>WHERE</code>
+关键字，并把首个条件前的 <code>AND</code>/<code>OR</code>
+自动去除。如果内部所有 <code>&lt;if&gt;</code> 都不成立，则整个
+<code>WHERE</code> 子句不生成。</p>
+<hr />
+<h3 id="08-d-03-">08-D-03 ★</h3>
+<p>对于数字类型字段 <code>status</code>，下列 <code>&lt;if&gt;</code>
+写法正确的是？</p>
+<ul>
+<li>A.
+<code>&lt;if test="status != null and status != ''"&gt;</code></li>
+<li>B. <code>&lt;if test="status != ''"&gt;</code></li>
+<li>C. <code>&lt;if test="status != null"&gt;</code></li>
+<li>D. <code>&lt;if test="status"&gt;</code></li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong> 数字类型只需判断
+<code>!= null</code>。<code>status != ''</code> 对数字无意义，OGNL
+中虽然能比较但语义错；<code>&lt;if test="status"&gt;</code> 在 status=0
+时被判断为 false，会漏掉有效值 0。</p>
+<hr />
+<h3 id="08-d-04-">08-D-04 ★★</h3>
+<p><code>&lt;foreach&gt;</code> 标签的 <code>collection</code>
+属性值，当 Mapper 方法参数用 <code>@Param("ids")</code>
+注解时，应填？</p>
+<ul>
+<li>A. <code>list</code></li>
+<li>B. <code>array</code></li>
+<li>C. <code>ids</code></li>
+<li>D. <code>collection</code></li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong> 用
+<code>@Param("ids")</code> 显式命名后，<code>collection</code> 属性应填
+<code>ids</code>。如果未使用 <code>@Param</code> 且参数是 List，默认
+<code>list</code>；是数组默认 <code>array</code>。</p>
+<hr />
+<h3 id="08-d-05-">08-D-05 ★</h3>
+<p><code>&lt;set&gt;</code> 标签在 UPDATE 语句中的作用是？</p>
+<ul>
+<li>A. 设置参数值</li>
+<li>B. 自动去掉末尾多余逗号</li>
+<li>C. 限制更新行数</li>
+<li>D. 替代 <code>&lt;if&gt;</code> 判断</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>&lt;set&gt;</code> 标签会自动生成 <code>SET</code>
+关键字，并去除内部最后一个条件后多余的逗号，配合 <code>&lt;if&gt;</code>
+实现按需更新字段。</p>
+<hr />
+<h3 id="08-d-06-">08-D-06 ★★</h3>
+<p>MyBatis XML 中需要拼接
+<code>priority &lt; 5</code>，下列正确写法是？</p>
+<ul>
+<li>A. <code>&lt;if test="priority &lt; 5"&gt;</code></li>
+<li>B. <code>&lt;if test="priority &amp;lt; 5"&gt;</code></li>
+<li>C.
+<code>&lt;if test="priority &lt;![CDATA[&lt;]]&gt; 5"&gt;</code></li>
+<li>D. B 和 C 都可以</li>
+</ul>
+<p><strong>答案：D</strong> <strong>解析：</strong> XML 中
+<code>&lt;</code> 是特殊字符，必须转义为 <code>&amp;lt;</code>，或用
+<code>&lt;![CDATA[ ... ]]&gt;</code> 包裹。B、C 两种写法都正确。</p>
+<hr />
+<h3 id="08-d-07-">08-D-07 ★★</h3>
+<p><code>&lt;choose&gt;</code>、<code>&lt;when&gt;</code>、<code>&lt;otherwise&gt;</code>
+三个标签的关系最接近哪种 Java 结构？</p>
+<ul>
+<li>A. <code>for</code></li>
+<li>B. <code>switch-case</code></li>
+<li>C. <code>try-catch</code></li>
+<li>D. <code>if-else if-else</code></li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>&lt;choose&gt;</code> 类似
+<code>switch</code>，<code>&lt;when&gt;</code> 类似
+<code>case</code>，<code>&lt;otherwise&gt;</code> 类似
+<code>default</code>。多个 <code>&lt;when&gt;</code>
+只会执行第一个匹配的分支。注意：与 <code>if-else if-else</code>
+行为相似但语义上是 switch。</p>
+<hr />
+<h3 id="08-d-08-">08-D-08 ★</h3>
+<p>MyBatis-Plus 的 <code>QueryWrapper</code> 主要用于构造？</p>
+<ul>
+<li>A. SELECT 字段</li>
+<li>B. WHERE 条件</li>
+<li>C. GROUP BY</li>
+<li>D. JOIN 子句</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>QueryWrapper</code> 继承
+<code>AbstractWrapper</code>，主要用于构造 WHERE 条件。SELECT 字段用
+<code>.select(...)</code>，ORDER BY 用
+<code>.orderByXxx</code>，但核心是 WHERE 条件构造。</p>
+<hr />
+<h3 id="08-d-09-">08-D-09 ★★</h3>
+<p>下列代码中，<code>wrapper.eq(status != null, "status", status)</code>
+中第一个参数 <code>status != null</code> 的作用是？</p>
+<ul>
+<li>A. 编译检查</li>
+<li>B. 当表达式为 false 时不拼接该条件</li>
+<li>C. 当表达式为 true 时取反</li>
+<li>D. 无实际作用</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> MyBatis-Plus
+的条件方法三参重载形式 <code>eq(condition, column, val)</code>，第一参为
+boolean 表达式，为 false 时跳过该条件，实现"条件可空"。</p>
+<hr />
+<h3 id="08-d-10-">08-D-10 ★</h3>
+<p><code>wrapper.like("title", "需求")</code> 生成的 SQL 片段是？</p>
+<ul>
+<li>A. <code>title = '需求'</code></li>
+<li>B. <code>title LIKE '需求'</code></li>
+<li>C. <code>title LIKE '%需求%'</code></li>
+<li>D. <code>title LIKE '%需求'</code></li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong> <code>like</code>
+方法默认在参数两侧添加 <code>%</code>，生成
+<code>LIKE '%需求%'</code>。若需单侧模糊，用 <code>likeLeft</code> 或
+<code>likeRight</code>。</p>
+<hr />
+<h3 id="08-d-11-">08-D-11 ★★</h3>
+<p><code>wrapper.between("priority", 1, 3)</code> 生成的 SQL 是？</p>
+<ul>
+<li>A. <code>priority BETWEEN 1 AND 3</code></li>
+<li>B. <code>priority &gt; 1 AND priority &lt; 3</code></li>
+<li>C. <code>priority &gt;= 1 AND priority &lt;= 3</code></li>
+<li>D. <code>priority IN (1, 2, 3)</code></li>
+</ul>
+<p><strong>答案：A</strong> <strong>解析：</strong>
+<code>between(col, v1, v2)</code> 生成
+<code>col BETWEEN v1 AND v2</code>，等价于
+<code>col &gt;= v1 AND col &lt;= v2</code>，是闭区间。</p>
+<hr />
+<h3 id="08-d-12-">08-D-12 ★</h3>
+<p>下列哪个不是 MyBatis-Plus 的条件构造器？</p>
+<ul>
+<li>A. <code>QueryWrapper</code></li>
+<li>B. <code>LambdaQueryWrapper</code></li>
+<li>C. <code>UpdateWrapper</code></li>
+<li>D. <code>WhereWrapper</code></li>
+</ul>
+<p><strong>答案：D</strong> <strong>解析：</strong> MyBatis-Plus
+提供的构造器有
+<code>QueryWrapper</code>、<code>LambdaQueryWrapper</code>、<code>UpdateWrapper</code>、<code>LambdaUpdateWrapper</code>，没有
+<code>WhereWrapper</code>。</p>
+<hr />
+<h3 id="08-d-13-">08-D-13 ★★</h3>
+<p><code>LambdaQueryWrapper&lt;Task&gt;</code> 中方法引用
+<code>Task::getTitle</code> 的作用是？</p>
+<ul>
+<li>A. 调用 getTitle 方法</li>
+<li>B. 表示 task 表的 title 列</li>
+<li>C. 获取 title 属性值</li>
+<li>D. 执行 SQL 查询</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> 方法引用
+<code>Task::getTitle</code> 不调用方法，而是通过
+<code>SerializedLambda</code> 解析出属性名
+<code>title</code>，再转换为数据库列名 <code>title</code>，用于构造
+WHERE 条件。</p>
+<hr />
+<h3 id="08-d-14-">08-D-14 ★</h3>
+<p>启用 MyBatis-Plus 分页功能，必须配置？</p>
+<ul>
+<li>A. <code>PageInterceptor</code></li>
+<li>B. <code>MybatisPlusInterceptor</code> +
+<code>PaginationInnerInterceptor</code></li>
+<li>C. <code>@EnablePagination</code></li>
+<li>D. <code>PaginationAutoConfiguration</code></li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> 必须在配置类中注册
+<code>MybatisPlusInterceptor</code> Bean，并添加
+<code>PaginationInnerInterceptor</code> 内部拦截器，否则
+<code>selectPage</code> 不会真正分页。</p>
+<hr />
+<h3 id="08-d-15-">08-D-15 ★★</h3>
+<p><code>new Page&lt;Task&gt;(2, 5)</code> 中的两个参数分别表示？</p>
+<ul>
+<li>A. 总记录数、每页大小</li>
+<li>B. 起始行号、记录数</li>
+<li>C. 当前页码、每页大小</li>
+<li>D. 偏移量、页数</li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong>
+<code>Page&lt;T&gt;(current, size)</code>：current 是当前页码（从 1
+开始），size 是每页记录数。<code>new Page&lt;&gt;(2, 5)</code> 表示查第
+2 页，每页 5 条。</p>
+<hr />
+<h3 id="08-d-16-">08-D-16 ★</h3>
+<p><code>selectPage</code> 方法返回的类型是？</p>
+<ul>
+<li>A. <code>List&lt;T&gt;</code></li>
+<li>B. <code>Page&lt;T&gt;</code></li>
+<li>C. <code>IPage&lt;T&gt;</code></li>
+<li>D. <code>Optional&lt;T&gt;</code></li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong>
+<code>BaseMapper.selectPage(IPage&lt;T&gt;, Wrapper&lt;T&gt;)</code>
+返回 <code>IPage&lt;T&gt;</code> 接口类型，实际对象是
+<code>Page&lt;T&gt;</code>。<code>IPage</code> 是接口，便于扩展和
+Mock。</p>
+<hr />
+<h3 id="08-d-17-">08-D-17 ★★</h3>
+<p><code>IPage&lt;T&gt;</code>
+接口中<strong>不包含</strong>以下哪个属性？</p>
+<ul>
+<li>A. <code>records</code></li>
+<li>B. <code>total</code></li>
+<li>C. <code>current</code></li>
+<li>D. <code>tableName</code></li>
+</ul>
+<p><strong>答案：D</strong> <strong>解析：</strong> <code>IPage</code>
+包含
+<code>records</code>(当前页数据列表)、<code>total</code>(总记录数)、<code>size</code>(每页大小)、<code>current</code>(当前页)、<code>pages</code>(总页数)。不含
+<code>tableName</code>。</p>
+<hr />
+<h3 id="08-d-18-">08-D-18 ★★</h3>
+<p>下列关于 <code>PaginationInnerInterceptor</code>
+的描述，错误的是？</p>
+<ul>
+<li>A. 必须设置 <code>DbType</code> 才能工作</li>
+<li>B. 可通过 <code>setMaxLimit</code> 限制单页最大记录数</li>
+<li>C. 默认会自动执行 COUNT 查询</li>
+<li>D. 可通过 <code>setOverflow(true)</code> 处理页码越界</li>
+</ul>
+<p><strong>答案：A</strong> <strong>解析：</strong> <code>DbType</code>
+不设置时默认为
+<code>MYSQL</code>，并非"必须设置"。但建议显式指定以避免未来版本变化。BCD
+描述均正确。</p>
+<hr />
+<h3 id="08-d-19-">08-D-19 ★</h3>
+<p>MyBatis-Plus 分页插件改写 SQL 时，对于 MySQL 数据库追加的子句是？</p>
+<ul>
+<li>A. <code>ROWNUM &lt;= ?</code></li>
+<li>B. <code>LIMIT ?, ?</code></li>
+<li>C. <code>OFFSET ? FETCH NEXT ? ROWS ONLY</code></li>
+<li>D. <code>TOP ?</code></li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> MySQL 分页用
+<code>LIMIT offset, size</code>。Oracle 用 ROWNUM，SQL Server 用
+OFFSET-FETCH，旧版 SQL Server 用 TOP。</p>
+<hr />
+<h3 id="08-d-20-">08-D-20 ★★</h3>
+<p>下列关于 <code>orderByDesc</code> 多次链式调用的描述，正确的是？</p>
+<ul>
+<li>A. 只有第一次调用生效</li>
+<li>B. 只有最后一次调用生效</li>
+<li>C. 按调用顺序生成多字段排序</li>
+<li>D. 会报错</li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong> 多次调用
+<code>orderByDesc(A).orderByAsc(B)</code> 会生成
+<code>ORDER BY A DESC, B ASC</code>，按调用顺序追加，多字段排序生效。</p>
+<hr />
+<h3 id="08-d-21-">08-D-21 ★★</h3>
+<p>下列关于动态 SQL 中 <code>#{}</code> 与 <code>${}</code>
+的区别，正确的是？</p>
+<ul>
+<li>A. <code>#{}</code> 是字符串拼接，<code>${}</code> 是预编译占位</li>
+<li>B. <code>#{}</code> 是预编译占位，<code>${}</code> 是字符串拼接</li>
+<li>C. 两者都是预编译占位</li>
+<li>D. 两者都是字符串拼接</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> <code>#{}</code>
+生成 <code>?</code> 占位符并由 JDBC 预编译，防 SQL
+注入；<code>${}</code>
+直接做字符串替换，有注入风险，仅用于表名/列名等结构场景。</p>
+<hr />
+<h3 id="08-d-22-">08-D-22 ★</h3>
+<p>下列哪种场景下应使用 <code>${}</code> 而不是 <code>#{}</code>？</p>
+<ul>
+<li>A. 传入用户输入的查询值</li>
+<li>B. 传入动态表名或列名</li>
+<li>C. 传入 LIKE 的模糊关键字</li>
+<li>D. 传入 IN 集合元素</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> 表名、列名不能用
+<code>?</code> 占位（JDBC 限制），必须用 <code>${}</code>
+拼接。但用户输入应严格校验防注入。其他场景都用 <code>#{}</code>。</p>
+<hr />
+<h3 id="08-d-23-">08-D-23 ★★</h3>
+<p><code>wrapper.in("status", 1, 2, 3)</code> 生成的 SQL 是？</p>
+<ul>
+<li>A. <code>status IN (1, 2, 3)</code></li>
+<li>B. <code>status = 1 OR status = 2 OR status = 3</code></li>
+<li>C. <code>status BETWEEN 1 AND 3</code></li>
+<li>D. <code>status = 1 AND status = 2 AND status = 3</code></li>
+</ul>
+<p><strong>答案：A</strong> <strong>解析：</strong>
+<code>in(column, v1, v2, ...)</code> 生成
+<code>column IN (v1, v2, ...)</code>。也可传集合：<code>in("status", list)</code>。</p>
+<hr />
+<h3 id="08-d-24-">08-D-24 ★</h3>
+<p>下列关于 MyBatis-Plus 逻辑删除字段，正确的是？</p>
+<ul>
+<li>A. 必须用 <code>@TableField</code> 注解</li>
+<li>B. 必须用 <code>@TableLogic</code> 注解</li>
+<li>C. 必须在 SQL 中手动加 <code>deleted = 0</code></li>
+<li>D. 与查询无关</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> 用
+<code>@TableLogic</code> 标记逻辑删除字段后，MyBatis-Plus
+自动在所有查询追加 <code>deleted = 0</code>，删除操作变为
+<code>UPDATE ... SET deleted = 1</code>。</p>
+<hr />
+<h3 id="08-d-25-">08-D-25 ★★</h3>
+<p><code>LambdaQueryWrapper</code> 中
+<code>select(Task::getId, Task::getTitle)</code> 的作用是？</p>
+<ul>
+<li>A. 等同于 SELECT *</li>
+<li>B. 只查询指定字段，避免大字段回填</li>
+<li>C. 限制返回行数</li>
+<li>D. 排序</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>select(SFunction...)</code> 指定 SELECT 字段列表，避免查询
+description 等大字段，减少网络传输与内存占用。</p>
+<hr />
+<h3 id="08-d-26-">08-D-26 ★★</h3>
+<p>分页查询时，若当前页 <code>current = 0</code>，下列描述正确的是？</p>
+<ul>
+<li>A. 自动查全部</li>
+<li>B. 报错</li>
+<li>C. 返回第 1 页结果</li>
+<li>D. 返回空列表</li>
+</ul>
+<p><strong>答案：D</strong> <strong>解析：</strong> MyBatis-Plus 中
+current 从 1 开始。current=0 时计算的 offset
+为负，部分版本报错，部分版本返回空。建议后端校验
+<code>page = Math.max(page, 1)</code>。</p>
+<hr />
+<h3 id="08-d-27-">08-D-27 ★</h3>
+<p>下列 <code>Page</code> 对象的属性中，表示总页数的是？</p>
+<ul>
+<li>A. <code>total</code></li>
+<li>B. <code>size</code></li>
+<li>C. <code>pages</code></li>
+<li>D. <code>current</code></li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong>
+<code>pages = ceil(total / size)</code> 是总页数。<code>total</code>
+是总记录数，<code>size</code> 是每页大小，<code>current</code>
+是当前页码。</p>
+<hr />
+<h3 id="08-d-28-">08-D-28 ★★</h3>
+<p>下列关于 <code>&lt;foreach&gt;</code> 标签 <code>separator</code>
+属性的描述，正确的是？</p>
+<ul>
+<li>A. 分隔 collection 与 item</li>
+<li>B. 指定每次循环之间拼接的分隔符</li>
+<li>C. 指定 SQL 语句结束符</li>
+<li>D. 指定 collection 的类型</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>separator=","</code> 表示每次循环之间用逗号分隔，常用于 IN 查询
+<code>IN (1, 2, 3)</code>。</p>
+<hr />
+<h3 id="08-d-29-">08-D-29 ★</h3>
+<p>下列关于 <code>wrapper</code> 的链式调用，正确的是？</p>
+<ul>
+<li>A. 每次调用返回新对象</li>
+<li>B. 每次调用返回 this（当前对象）</li>
+<li>C. 链式调用必须用 <code>.</code> 但不能换行</li>
+<li>D. 链式调用有数量限制</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> 条件方法返回
+<code>this</code>，因此可以连续链式调用。可以换行书写以提升可读性，无数量限制。</p>
+<hr />
+<h3 id="08-d-30-">08-D-30 ★★★</h3>
+<p>关于 MyBatis-Plus 分页插件的 COUNT 语句生成，下列描述正确的是？</p>
+<ul>
+<li>A. 用户必须手写 COUNT SQL</li>
+<li>B. 自动去除原 SQL 中的 ORDER BY 再生成 COUNT</li>
+<li>C. COUNT 语句性能一定与原查询一致</li>
+<li>D. COUNT 结果会被缓存</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> 分页插件通过
+JsqlParser 解析原 SQL，去掉 SELECT 字段和 ORDER BY 后生成
+<code>SELECT COUNT(*) FROM (...) t</code>。COUNT 性能可能差（尤其有 JOIN
+时），可用 <code>page.setSearchCount(false)</code> 禁用。</p>
+<hr />
+<h2 id="二多项选择题10题">二、多项选择题（10题）</h2>
+<h3 id="08-m-01-">08-M-01 ★</h3>
+<p>下列属于 MyBatis 动态 SQL 标签的有？（多选）</p>
+<ul>
+<li>A. <code>&lt;if&gt;</code></li>
+<li>B. <code>&lt;where&gt;</code></li>
+<li>C. <code>&lt;foreach&gt;</code></li>
+<li>D. <code>&lt;switch&gt;</code></li>
+<li>E. <code>&lt;choose&gt;</code></li>
+</ul>
+<p><strong>答案：A、B、C、E</strong> <strong>解析：</strong> MyBatis
+提供
+<code>&lt;if&gt;</code>、<code>&lt;where&gt;</code>、<code>&lt;foreach&gt;</code>、<code>&lt;choose&gt;</code>、<code>&lt;when&gt;</code>、<code>&lt;otherwise&gt;</code>、<code>&lt;set&gt;</code>、<code>&lt;trim&gt;</code>、<code>&lt;bind&gt;</code>、<code>&lt;sql&gt;</code>
+等标签。没有 <code>&lt;switch&gt;</code>，分支用
+<code>&lt;choose&gt;</code> 实现。</p>
+<hr />
+<h3 id="08-m-02-">08-M-02 ★★</h3>
+<p>下列属于 <code>QueryWrapper</code> 支持的条件方法有？（多选）</p>
+<ul>
+<li>A. <code>eq</code></li>
+<li>B. <code>like</code></li>
+<li>C. <code>in</code></li>
+<li>D. <code>between</code></li>
+<li>E. <code>join</code></li>
+</ul>
+<p><strong>答案：A、B、C、D</strong> <strong>解析：</strong>
+<code>AbstractWrapper</code> 提供
+<code>eq/ne/gt/ge/lt/le/like/notLike/likeLeft/likeRight/in/notIn/between/notBetween/isNull/isNotNull/inSql/exists</code>
+等条件方法。<code>join</code> 不是条件方法，关联查询用 XML 或
+<code>@Select</code> 自定义。</p>
+<hr />
+<h3 id="08-m-03-">08-M-03 ★★</h3>
+<p>关于 <code>LambdaQueryWrapper</code> 相比 <code>QueryWrapper</code>
+的优势，正确的有？（多选）</p>
+<ul>
+<li>A. 编译期检查字段名</li>
+<li>B. 重构字段名时 IDE 同步提示</li>
+<li>C. 自动完成驼峰转下划线</li>
+<li>D. 性能显著优于 QueryWrapper</li>
+<li>E. 支持动态表名</li>
+</ul>
+<p><strong>答案：A、B、C</strong> <strong>解析：</strong> Lambda
+方式通过方法引用编译期检查字段，重构友好，自动驼峰转下划线。性能与
+QueryWrapper 几乎一致（Lambda 解析有缓存），优势不在性能。Lambda
+不支持动态表名。</p>
+<hr />
+<h3 id="08-m-04-">08-M-04 ★★</h3>
+<p>配置 MyBatis-Plus 分页插件 <code>PaginationInnerInterceptor</code>
+时，可设置的属性有？（多选）</p>
+<ul>
+<li>A. <code>dbType</code>（数据库类型）</li>
+<li>B. <code>maxLimit</code>（单页最大记录数）</li>
+<li>C. <code>overflow</code>（页码越界处理）</li>
+<li>D. <code>cacheTimeout</code>（缓存超时）</li>
+<li>E. <code>optimizeJoin</code></li>
+</ul>
+<p><strong>答案：A、B、C、E</strong> <strong>解析：</strong>
+<code>PaginationInnerInterceptor</code> 可设置
+<code>dbType</code>、<code>maxLimit</code>、<code>overflow</code>、<code>optimizeJoin</code>（优化
+LEFT JOIN）。没有 <code>cacheTimeout</code> 属性。</p>
+<hr />
+<h3 id="08-m-05-">08-M-05 ★</h3>
+<p>下列属于 <code>IPage&lt;T&gt;</code> 接口方法的属性有？（多选）</p>
+<ul>
+<li>A. <code>records</code></li>
+<li>B. <code>total</code></li>
+<li>C. <code>size</code></li>
+<li>D. <code>current</code></li>
+<li>E. <code>pages</code></li>
+</ul>
+<p><strong>答案：A、B、C、D、E</strong> <strong>解析：</strong>
+<code>IPage</code>
+包含全部五项：<code>records</code>(当前页数据)、<code>total</code>(总记录数)、<code>size</code>(每页大小)、<code>current</code>(当前页)、<code>pages</code>(总页数)。</p>
+<hr />
+<h3 id="08-m-06-">08-M-06 ★★</h3>
+<p>下列关于 <code>&lt;foreach&gt;</code>
+标签属性，正确的有？（多选）</p>
+<ul>
+<li>A. <code>collection</code> 指定要遍历的集合</li>
+<li>B. <code>item</code> 指定每次循环的变量名</li>
+<li>C. <code>index</code> 指定索引变量名</li>
+<li>D. <code>open</code> 指定开始符号</li>
+<li>E. <code>close</code> 指定结束符号</li>
+<li>F. <code>separator</code> 指定分隔符</li>
+</ul>
+<p><strong>答案：A、B、C、D、E、F</strong> <strong>解析：</strong>
+<code>&lt;foreach&gt;</code>
+的全部六个属性：collection、item、index、open、close、separator。常用于
+IN 查询和批量 INSERT。</p>
+<hr />
+<h3 id="08-m-07-">08-M-07 ★★</h3>
+<p>在 MyBatis XML 中拼接
+<code>priority &gt;= 1 AND priority &lt;= 5</code>，下列写法正确的有？（多选）</p>
+<ul>
+<li>A.
+<code>&lt;if test="priority &amp;gt;= 1"&gt;...&lt;/if&gt;</code></li>
+<li>B.
+<code>&lt;if test="priority &lt;![CDATA[&gt;=]]&gt; 1"&gt;...&lt;/if&gt;</code></li>
+<li>C.
+<code>&lt;if test="priority &gt;= 1"&gt;...&lt;/if&gt;</code></li>
+<li>D. 使用 <code>wrapper.between("priority", 1, 5)</code> 替代</li>
+</ul>
+<p><strong>答案：A、B、D</strong> <strong>解析：</strong> XML 中
+<code>&gt;</code>、<code>&lt;</code>
+是特殊字符，必须转义（<code>&amp;gt;</code>、<code>&amp;lt;</code>）或用
+CDATA 包裹。C 在 test 属性中虽可解析但不规范，部分 XML 解析器会报错；D
+是 MyBatis-Plus 推荐方式。</p>
+<hr />
+<h3 id="08-m-08-">08-M-08 ★★</h3>
+<p>下列哪些场景适合用动态 SQL XML 而非 QueryWrapper？（多选）</p>
+<ul>
+<li>A. 多表 JOIN 关联查询</li>
+<li>B. 复杂子查询</li>
+<li>C. 简单单表 CRUD</li>
+<li>D. 需要复用 SQL 片段（<code>&lt;sql&gt;</code> +
+<code>&lt;include&gt;</code>）</li>
+<li>E. 动态表名查询</li>
+</ul>
+<p><strong>答案：A、B、D、E</strong> <strong>解析：</strong> 多表
+JOIN、复杂子查询、SQL 片段复用、动态表名都适合 XML。简单单表 CRUD 用
+MyBatis-Plus 自带方法或 QueryWrapper 更简洁。</p>
+<hr />
+<h3 id="08-m-09-">08-M-09 ★★</h3>
+<p>关于 <code>Page&lt;T&gt;</code> 对象，下列描述正确的有？（多选）</p>
+<ul>
+<li>A. <code>current</code> 表示当前页码，从 1 开始</li>
+<li>B. <code>size</code> 表示每页记录数</li>
+<li>C. <code>setSearchCount(false)</code> 可跳过 COUNT 查询</li>
+<li>D. 必须通过构造器传入 current 和 size</li>
+<li>E. <code>pages</code> 由 MyBatis-Plus 自动计算</li>
+</ul>
+<p><strong>答案：A、B、C、E</strong> <strong>解析：</strong> A、B、C、E
+都正确。D 错误：<code>Page</code> 有无参构造，可 setter 注入；但通常用
+<code>new Page&lt;&gt;(current, size)</code>。</p>
+<hr />
+<h3 id="08-m-10-">08-M-10 ★★★</h3>
+<p>关于 MyBatis-Plus 分页插件，下列描述正确的有？（多选）</p>
+<ul>
+<li>A. 拦截 <code>Executor.query</code> 方法</li>
+<li>B. 通过 JsqlParser 改写 SQL</li>
+<li>C. 默认执行 COUNT 查询</li>
+<li>D. COUNT 查询会去除 ORDER BY</li>
+<li>E. 自定义 XML 查询分页时，方法首参必须是 <code>IPage</code>
+类型</li>
+</ul>
+<p><strong>答案：A、B、C、D、E</strong> <strong>解析：</strong>
+全部正确。分页插件基于 MyBatis Interceptor 拦截 Executor，用 JsqlParser
+改写 SQL（追加 LIMIT + 生成 COUNT），COUNT 去除 ORDER BY
+提升性能。自定义 XML 分页时，方法第一个参数必须是
+<code>IPage</code>，MyBatis-Plus 才能识别并自动分页。</p>
+<hr />
+<h2 id="三判断题20题">三、判断题（20题）</h2>
+<h3 id="08-j-01-">08-J-01 ★</h3>
+<p><code>&lt;where&gt;</code> 标签会自动在内部所有
+<code>&lt;if&gt;</code> 都不成立时省略整个 WHERE 子句。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong>
+<code>&lt;where&gt;</code> 标签内部所有条件都不成立时，MyBatis 不会生成
+WHERE 关键字，避免 <code>WHERE</code> 后空的语法错误。</p>
+<hr />
+<h3 id="08-j-02-">08-J-02 ★</h3>
+<p><code>&lt;if test="status != null"&gt;</code> 中 <code>status</code>
+是 Java 入参的属性名。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong> test 属性使用
+OGNL 表达式，<code>status</code> 引用方法参数（用 <code>@Param</code>
+注解）或对象属性。</p>
+<hr />
+<h3 id="08-j-03-">08-J-03 ★★</h3>
+<p><code>&lt;set&gt;</code> 标签会自动去除内部所有
+<code>&lt;if&gt;</code> 末尾的逗号，但不能处理多个字段间的逗号。</p>
+<p><strong>答案：错误</strong> <strong>解析：</strong>
+<code>&lt;set&gt;</code>
+自动去除末尾<strong>多余</strong>的逗号（即最后一个
+<code>&lt;if&gt;</code> 拼接的逗号）。每个 <code>&lt;if&gt;</code>
+内部的字段后都应写逗号，由 <code>&lt;set&gt;</code>
+统一处理末尾多余逗号。</p>
+<hr />
+<h3 id="08-j-04-">08-J-04 ★</h3>
+<p><code>QueryWrapper</code> 中 <code>eq("status", null)</code> 等价于
+<code>isNull("status")</code>。</p>
+<p><strong>答案：错误</strong> <strong>解析：</strong>
+<code>eq("status", null)</code> 会生成 <code>status = null</code>，SQL
+中永远为 false。判空应用 <code>isNull("status")</code>。</p>
+<hr />
+<h3 id="08-j-05-">08-J-05 ★</h3>
+<p>MyBatis-Plus 配置逻辑删除后，所有查询会自动追加
+<code>deleted = 0</code> 条件。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong>
+<code>@TableLogic</code> 标记的字段会被 MyBatis-Plus 在所有
+SELECT/UPDATE 时自动追加未删除条件，DELETE 改为 UPDATE。</p>
+<hr />
+<h3 id="08-j-06-">08-J-06 ★★</h3>
+<p><code>LambdaQueryWrapper</code> 通过反射调用 <code>getTitle()</code>
+方法获取属性值。</p>
+<p><strong>答案：错误</strong> <strong>解析：</strong>
+<code>LambdaQueryWrapper</code> 通过 <code>SerializedLambda</code>
+解析方法引用得到方法名 <code>getTitle</code>，再推断属性名
+<code>title</code>，<strong>不会真正调用</strong>方法。它只是为了得到列名，不取值。</p>
+<hr />
+<h3 id="08-j-07-">08-J-07 ★</h3>
+<p>未配置 <code>PaginationInnerInterceptor</code>
+时，<code>selectPage</code> 仍然返回
+<code>IPage</code>，但记录数等于全表。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong>
+没有分页拦截器时，<code>selectPage</code> 不拦截 SQL，原始 SQL 不加
+LIMIT，返回全部数据。total 字段为 0（因为 COUNT 也没执行）。</p>
+<hr />
+<h3 id="08-j-08-">08-J-08 ★★</h3>
+<p><code>wrapper.like("title", "需求")</code> 等价于
+<code>wrapper.likeRight("title", "需求")</code>。</p>
+<p><strong>答案：错误</strong> <strong>解析：</strong> <code>like</code>
+默认两侧加 <code>%</code>，生成
+<code>LIKE '%需求%'</code>；<code>likeRight</code> 仅右侧加，生成
+<code>LIKE '需求%'</code>，匹配以"需求"开头的字符串。</p>
+<hr />
+<h3 id="08-j-09-">08-J-09 ★</h3>
+<p><code>&lt;choose&gt;</code> 标签内可以没有
+<code>&lt;otherwise&gt;</code>。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong>
+<code>&lt;otherwise&gt;</code> 类似 default，可省略。若所有
+<code>&lt;when&gt;</code> 都不匹配且没有
+<code>&lt;otherwise&gt;</code>，则不生成任何 SQL 片段。</p>
+<hr />
+<h3 id="08-j-10-">08-J-10 ★★</h3>
+<p><code>&lt;foreach collection="list"&gt;</code> 中的 <code>list</code>
+是 MyBatis 默认参数名，对应方法参数为 <code>List</code> 类型且未加
+<code>@Param</code> 的情况。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong> MyBatis
+默认将未注解的 List 参数包装到 <code>list</code> 键中，数组包装到
+<code>array</code> 键中。加 <code>@Param("xxx")</code> 后用
+<code>xxx</code>。</p>
+<hr />
+<h3 id="08-j-11-">08-J-11 ★</h3>
+<p>MyBatis-Plus 的 <code>selectPage</code> 方法是
+<code>BaseMapper</code> 接口提供的默认方法。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong>
+<code>BaseMapper</code> 提供
+<code>selectPage(IPage&lt;T&gt;, Wrapper&lt;T&gt;)</code> 默认方法，所有
+Mapper 继承即可使用，无需自定义。</p>
+<hr />
+<h3 id="08-j-12-">08-J-12 ★★</h3>
+<p><code>Page&lt;T&gt;</code> 实现了 <code>IPage&lt;T&gt;</code>
+接口，可以直接当 <code>IPage&lt;T&gt;</code> 返回。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong>
+<code>Page&lt;T&gt;</code> 是 <code>IPage&lt;T&gt;</code>
+的实现类。<code>selectPage</code> 返回类型为
+<code>IPage&lt;T&gt;</code>，实际对象是
+<code>Page&lt;T&gt;</code>，多态向上转型。</p>
+<hr />
+<h3 id="08-j-13-">08-J-13 ★★</h3>
+<p><code>PaginationInnerInterceptor</code> 设置
+<code>setOverflow(true)</code> 后，越界页码会自动回到第 1 页。</p>
+<p><strong>答案：错误</strong> <strong>解析：</strong>
+<code>setOverflow(true)</code>
+表示页码越界时<strong>自动回到最后一页</strong>（而非第 1 页）。例如总共
+5 页，请求第 10 页返回第 5 页数据。</p>
+<hr />
+<h3 id="08-j-14-">08-J-14 ★</h3>
+<p>XML 中 <code>&lt;if&gt;</code> 标签必须出现在
+<code>&lt;where&gt;</code> 标签内部。</p>
+<p><strong>答案：错误</strong> <strong>解析：</strong>
+<code>&lt;if&gt;</code> 可独立使用，例如在
+<code>&lt;set&gt;</code>、<code>&lt;choose&gt;</code>、<code>&lt;trim&gt;</code>
+中，甚至直接在 <code>&lt;select&gt;</code>
+内。<code>&lt;where&gt;</code> 只是常用容器。</p>
+<hr />
+<h3 id="08-j-15-">08-J-15 ★★</h3>
+<p><code>wrapper.orderByDesc(Task::getCreateTime).orderByAsc(Task::getId)</code>
+生成的 SQL 是 <code>ORDER BY create_time DESC, id ASC</code>。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong>
+链式调用按顺序追加 ORDER BY 字段。两次调用生成
+<code>ORDER BY create_time DESC, id ASC</code>。</p>
+<hr />
+<h3 id="08-j-16-">08-J-16 ★</h3>
+<p><code>&lt;set&gt;</code> 标签必须配合 <code>&lt;if&gt;</code>
+使用，否则无意义。</p>
+<p><strong>答案：错误</strong> <strong>解析：</strong>
+<code>&lt;set&gt;</code> 可包含固定字段（不带
+<code>&lt;if&gt;</code>），仍会处理末尾逗号。但通常配合
+<code>&lt;if&gt;</code> 实现按需更新。</p>
+<hr />
+<h3 id="08-j-17-">08-J-17 ★★</h3>
+<p><code>LambdaQueryWrapper</code> 中
+<code>select(Task::getId, Task::getTitle)</code>
+会限制只查询这两列。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong>
+<code>select(SFunction...)</code> 指定 SELECT 字段列表，生成的 SQL 是
+<code>SELECT id, title FROM ...</code>，避免查询其他字段（如大字段
+description）。</p>
+<hr />
+<h3 id="08-j-18-">08-J-18 ★★</h3>
+<p>MyBatis-Plus 分页插件生成的 COUNT SQL 会保留原 SQL 的 ORDER BY
+子句。</p>
+<p><strong>答案：错误</strong> <strong>解析：</strong> 分页插件生成
+COUNT 时会<strong>去除</strong> ORDER BY，因为 COUNT
+不需要排序，去掉后能提升性能。</p>
+<hr />
+<h3 id="08-j-19-">08-J-19 ★</h3>
+<p><code>&lt;foreach&gt;</code> 标签的 <code>open</code> 和
+<code>close</code> 属性分别指定循环开始和结束的字符串。</p>
+<p><strong>答案：正确</strong> <strong>解析：</strong>
+<code>open="("</code>、<code>close=")"</code> 让 IN 查询生成
+<code>(1, 2, 3)</code> 这样的合法语法。</p>
+<hr />
+<h3 id="08-j-20-">08-J-20 ★★★</h3>
+<p>当 SQL 中含 LEFT JOIN 且关联表无 WHERE 过滤时，分页插件的 COUNT
+结果可能与实际记录数不同。</p>
+<p><strong>答案：错误</strong> <strong>解析：</strong> LEFT JOIN
+不影响行数（主表行数不变），COUNT(*) 结果与实际一致。但若 LEFT JOIN 后用
+GROUP BY 主表 id，再 COUNT，可能造成误差。本题描述场景不会出现差异。</p>
+<hr />
+<h2 id="四填空题10题">四、填空题（10题）</h2>
+<h3 id="08-f-01-">08-F-01 ★</h3>
+<p>MyBatis 动态 SQL 中，______ 标签用于自动处理 WHERE
+子句中首个条件前多余的 AND 或 OR。</p>
+<p><strong>答案：</strong> <code>&lt;where&gt;</code>
+<strong>解析：</strong> <code>&lt;where&gt;</code> 标签会自动加 WHERE
+关键字并去除首个条件前的 AND/OR。</p>
+<hr />
+<h3 id="08-f-02-">08-F-02 ★</h3>
+<p><code>&lt;foreach&gt;</code> 标签中，______
+属性指定要遍历的集合，______ 属性指定每次循环的元素变量名。</p>
+<p><strong>答案：</strong> <code>collection</code>、<code>item</code>
+<strong>解析：</strong> collection 指定集合，item
+指定元素变量名，separator 指定分隔符。</p>
+<hr />
+<h3 id="08-f-03-">08-F-03 ★★</h3>
+<p>MyBatis-Plus 中，______ 类用于以链式调用方式构造 WHERE 条件，______
+类则是其类型安全版本。</p>
+<p><strong>答案：</strong>
+<code>QueryWrapper</code>、<code>LambdaQueryWrapper</code>
+<strong>解析：</strong> QueryWrapper 用字符串列名，LambdaQueryWrapper
+用方法引用编译期检查。</p>
+<hr />
+<h3 id="08-f-04-">08-F-04 ★</h3>
+<p>MyBatis-Plus 分页插件的核心配置类是 ______，需要添加 ______
+内部拦截器。</p>
+<p><strong>答案：</strong>
+<code>MybatisPlusInterceptor</code>、<code>PaginationInnerInterceptor</code>
+<strong>解析：</strong> 在 <code>@Configuration</code> 类中注册
+<code>MybatisPlusInterceptor</code> Bean，并
+<code>addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL))</code>。</p>
+<hr />
+<h3 id="08-f-05-">08-F-05 ★</h3>
+<p><code>Page&lt;Task&gt; page = new Page&lt;&gt;(2, 10);</code>
+表示查询第 ______ 页，每页 ______ 条记录。</p>
+<p><strong>答案：</strong> 2、10 <strong>解析：</strong> Page
+构造器第一参是 current（当前页，从 1 开始），第二参是
+size（每页条数）。</p>
+<hr />
+<h3 id="08-f-06-">08-F-06 ★★</h3>
+<p><code>selectPage</code> 方法返回的接口类型是
+<strong><strong><strong>，其中 ______
+字段表示当前页数据列表，</strong></strong></strong>
+字段表示总记录数。</p>
+<p><strong>答案：</strong>
+<code>IPage&lt;T&gt;</code>、<code>records</code>、<code>total</code>
+<strong>解析：</strong> IPage<T> 返回
+records（当前页数据）、total（总记录数）、size、current、pages。</p>
+<hr />
+<h3 id="08-f-07-">08-F-07 ★</h3>
+<p>在 MyBatis XML 中，比较符号 <code>&lt;</code> 应转义为 ______，或用
+______ 包裹。</p>
+<p><strong>答案：</strong>
+<code>&amp;lt;</code>、<code>&lt;![CDATA[ ]]&gt;</code>
+<strong>解析：</strong> XML 中 <code>&lt;</code>、<code>&gt;</code>
+是特殊字符，需转义或用 CDATA 包裹原始字符。</p>
+<hr />
+<h3 id="08-f-08-">08-F-08 ★★</h3>
+<p><code>LambdaQueryWrapper&lt;Task&gt;</code> 中，方法引用
+<code>Task::getTitle</code> 通过 ______ 接口解析得到属性名。</p>
+<p><strong>答案：</strong> <code>SerializedLambda</code>（或
+<code>SFunction</code>） <strong>解析：</strong> MyBatis-Plus 通过
+<code>SFunction</code>（继承 <code>SerializableFunction</code>
+的函数式接口）拿到 <code>SerializedLambda</code>，再从
+<code>implMethodName</code> 推断属性名。</p>
+<hr />
+<h3 id="08-f-09-">08-F-09 ★★</h3>
+<p>MyBatis-Plus
+中，<code>wrapper.eq(status != null, "status", status)</code> 第一个参数
+______ 的作用是控制该条件是否拼接。</p>
+<p><strong>答案：</strong> <code>condition</code>（布尔表达式）
+<strong>解析：</strong> 三参重载
+<code>eq(condition, column, val)</code>，第一参为 false
+时跳过该条件，实现"条件可空"。</p>
+<hr />
+<h3 id="08-f-10-">08-F-10 ★★</h3>
+<p>MyBatis-Plus 中，标记实体类逻辑删除字段需用 ______
+注解，配置后查询自动追加 ______ 条件。</p>
+<p><strong>答案：</strong>
+<code>@TableLogic</code>、<code>deleted = 0</code>
+<strong>解析：</strong> <code>@TableLogic</code> 标记字段，配合全局配置
+<code>logic-delete-value: 1</code> 和
+<code>logic-not-delete-value: 0</code>，查询自动加
+<code>deleted = 0</code>。</p>
+<hr />
+<h2 id="五简答论述题4题">五、简答/论述题（4题）</h2>
+<h3 id="08-s-01-">08-S-01 ★★</h3>
+<p>简述 MyBatis 动态 SQL 中 <code>&lt;if&gt;</code> 与
+<code>&lt;choose&gt;/&lt;when&gt;/&lt;otherwise&gt;</code>
+的区别，并各举一个适用场景。</p>
+<p><strong>参考答案：</strong></p>
+<ol type="1">
+<li><p><strong>结构差异：</strong></p>
+<ul>
+<li><code>&lt;if&gt;</code> 是独立的条件判断，多个
+<code>&lt;if&gt;</code>
+之间相互独立，所有成立的条件都会拼接，是"与"关系。</li>
+<li><code>&lt;choose&gt;/&lt;when&gt;/&lt;otherwise&gt;</code>
+是分支结构，类似 switch-case，多个 <code>&lt;when&gt;</code>
+中<strong>只有第一个匹配的</strong>生效，最多走一个分支。</li>
+</ul></li>
+<li><p><strong>适用场景：</strong></p>
+<ul>
+<li><code>&lt;if&gt;</code>
+适合"多条件可空"查询：用户可同时按项目ID、状态、标题查询，每个条件独立判断是否拼接。
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;projectId != null&quot;</span>&gt;AND project_id = #{projectId}&lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;status != null&quot;</span>&gt;AND status = #{status}&lt;/<span class="kw">if</span>&gt;</span></code></pre></div></li>
+<li><code>&lt;choose&gt;</code> 适合"互斥分支"：根据排序字段名生成不同的
+ORDER BY，只能选一种排序方式。
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">choose</span>&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">when</span><span class="ot"> test=</span><span class="st">&quot;orderField == &#39;time&#39;&quot;</span>&gt;ORDER BY create_time DESC&lt;/<span class="kw">when</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">when</span><span class="ot"> test=</span><span class="st">&quot;orderField == &#39;priority&#39;&quot;</span>&gt;ORDER BY priority DESC&lt;/<span class="kw">when</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">otherwise</span>&gt;ORDER BY id DESC&lt;/<span class="kw">otherwise</span>&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">choose</span>&gt;</span></code></pre></div></li>
+</ul></li>
+</ol>
+<p><strong>评分标准（满分 10 分）：</strong></p>
+<ul>
+<li>准确说明 <code>&lt;if&gt;</code> 多条件独立拼接特性（3 分）</li>
+<li>准确说明 <code>&lt;choose&gt;</code> 互斥分支特性（3 分）</li>
+<li>各举一个合理场景及代码示例（4 分）</li>
+</ul>
+<hr />
+<h3 id="08-s-02-">08-S-02 ★★</h3>
+<p>对比 <code>QueryWrapper</code> 与
+<code>LambdaQueryWrapper</code>，说明各自的优缺点及选型建议。</p>
+<p><strong>参考答案：</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>QueryWrapper</th>
+<th>LambdaQueryWrapper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>列名表达</td>
+<td>字符串 <code>"title"</code></td>
+<td>方法引用 <code>Task::getTitle</code></td>
+</tr>
+<tr>
+<td>编译期检查</td>
+<td>否，运行时才发现错误</td>
+<td>是，IDE 同步检查</td>
+</tr>
+<tr>
+<td>重构友好</td>
+<td>否，字段改名后字符串不自动同步</td>
+<td>是，IDE 同步提示</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>略快（无 Lambda 解析）</td>
+<td>略慢（首次解析有反射，但有缓存）</td>
+</tr>
+<tr>
+<td>动态表名</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>复杂 SQL</td>
+<td>灵活</td>
+<td>略受限</td>
+</tr>
+</tbody>
+</table>
+<p><strong>选型建议：</strong></p>
+<ul>
+<li>90%+ 业务场景优先用
+<code>LambdaQueryWrapper</code>，类型安全与重构友好是核心收益；</li>
+<li>仅在需要动态表名、复杂子查询、特殊 SQL 结构时使用
+<code>QueryWrapper</code>；</li>
+<li>团队规范层面可在 <code>checkstyle</code> 中要求默认使用 Lambda
+形式。</li>
+</ul>
+<p><strong>评分标准（满分 10 分）：</strong></p>
+<ul>
+<li>列出至少 4 个对比维度（4 分）</li>
+<li>说明各自优缺点（3 分）</li>
+<li>给出明确选型建议并说明理由（3 分）</li>
+</ul>
+<hr />
+<h3 id="08-s-03-">08-S-03 ★★</h3>
+<p>详细说明 MyBatis-Plus 分页插件的工作原理，并解释为何不配置时
+<code>selectPage</code> 不分页。</p>
+<p><strong>参考答案：</strong></p>
+<p><strong>工作原理：</strong></p>
+<ol type="1">
+<li><strong>拦截器注册：</strong> Spring Boot 启动时加载
+<code>MybatisPlusInterceptor</code> Bean，内部包含
+<code>PaginationInnerInterceptor</code>。</li>
+<li><strong>拦截点：</strong> MyBatis 在执行 SQL 时通过
+<code>Interceptor</code> 接口拦截 <code>Executor.query</code>
+方法。</li>
+<li><strong>参数解析：</strong> 拦截器从方法参数中提取
+<code>IPage</code> 对象，获取 current、size。</li>
+<li><strong>SQL 改写：</strong> 使用 JsqlParser 解析原始 SQL，生成两条
+SQL：
+<ul>
+<li>数据查询：在原 SQL 末尾追加
+<code>LIMIT offset, size</code>（MySQL）；</li>
+<li>COUNT 查询：去除 SELECT 字段与 ORDER BY，改写为
+<code>SELECT COUNT(*) FROM (...) t</code>。</li>
+</ul></li>
+<li><strong>结果回填：</strong> 将数据列表填入
+<code>page.records</code>，将 COUNT 结果填入
+<code>page.total</code>，并计算
+<code>pages = ceil(total/size)</code>。</li>
+</ol>
+<p><strong>不配置不分页的原因：</strong></p>
+<p>MyBatis-Plus 的分页能力<strong>完全依赖拦截器</strong>。如果不注册
+<code>PaginationInnerInterceptor</code>：</p>
+<ul>
+<li>拦截器链中没有分页拦截器；</li>
+<li><code>selectPage</code> 方法本身只是 <code>BaseMapper</code>
+的默认方法，内部调用 <code>mapperSelectPage</code>，把
+<code>IPage</code> 当普通参数；</li>
+<li>SQL 不会被改写，原 SQL 直接执行，返回全部数据；</li>
+<li>COUNT 也不会执行，<code>total</code> 为 0。</li>
+</ul>
+<p>因此，配置拦截器是分页生效的<strong>必要前提</strong>。</p>
+<p><strong>评分标准（满分 10 分）：</strong></p>
+<ul>
+<li>准确描述分页插件的工作流程 5 步（5 分）</li>
+<li>解释不配置不分页的根本原因（3 分）</li>
+<li>提及 JsqlParser / 拦截器机制（2 分）</li>
+</ul>
+<hr />
+<h3 id="08-s-04-">08-S-04 ★★★</h3>
+<p>在 CTTS 项目中实现任务列表分页查询接口时，如果某用户传入
+<code>size=10000</code>，可能导致什么问题？请给出至少 3
+种防范方案并比较优劣。</p>
+<p><strong>参考答案：</strong></p>
+<p><strong>潜在问题：</strong></p>
+<ol type="1">
+<li><strong>数据库压力：</strong> 单次查询返回 10000 条数据，IO
+与内存压力大；</li>
+<li><strong>JVM 内存风险：</strong> 大对象占用堆内存，可能触发频繁 GC
+甚至 OOM；</li>
+<li><strong>网络传输慢：</strong> 几 MB 数据传输数秒，前端体验差；</li>
+<li><strong>拒绝服务风险：</strong> 恶意用户构造大 size 攻击系统。</li>
+</ol>
+<p><strong>防范方案：</strong></p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>实现</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 分页插件限制 maxLimit</td>
+<td><code>pageInterceptor.setMaxLimit(500L)</code></td>
+<td>全局生效，配置简单</td>
+<td>用户无法突破限制（业务有特殊需求时麻烦）</td>
+</tr>
+<tr>
+<td>2. DTO 校验</td>
+<td><code>@Max(100) Long size</code></td>
+<td>业务层灵活控制</td>
+<td>需每个接口加注解，易遗漏</td>
+</tr>
+<tr>
+<td>3. Service 层兜底</td>
+<td><code>size = Math.min(size, 100)</code></td>
+<td>灵活，可按业务定制</td>
+<td>需每个 Service 加代码</td>
+</tr>
+<tr>
+<td>4. 网关限流</td>
+<td>Spring Cloud Gateway 限流</td>
+<td>防恶意攻击</td>
+<td>不能限制单次返回大小</td>
+</tr>
+</tbody>
+</table>
+<p><strong>推荐组合：</strong> 方案 1（全局兜底）+ 方案
+2（业务校验）双层防护。</p>
+<p><strong>评分标准（满分 10 分）：</strong></p>
+<ul>
+<li>准确描述至少 3 个潜在问题（3 分）</li>
+<li>给出至少 3 种防范方案（3 分）</li>
+<li>对方案进行优劣比较（2 分）</li>
+<li>给出推荐组合并说明理由（2 分）</li>
+</ul>
+<hr />
+<h2 id="六程序阅读补全题2题">六、程序阅读补全题（2题）</h2>
+<h3 id="08-r-01-">08-R-01 ★★</h3>
+<p>阅读下列 MyBatis 动态 SQL XML 片段，补全
+<code>(1)</code>、<code>(2)</code>、<code>(3)</code>
+处的代码，使该查询能根据传入参数动态拼接条件。</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">select</span><span class="ot"> id=</span><span class="st">&quot;selectTasks&quot;</span><span class="ot"> resultType=</span><span class="st">&quot;com.ctts.entity.Task&quot;</span>&gt;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    SELECT id, title, project_id, status, create_time</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>      FROM task</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">where</span>&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        deleted = 0</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;(1)&quot;</span>&gt;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            AND project_id = #{projectId}</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;status != null&quot;</span>&gt;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            AND status = #{status}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;title != null and title != &#39;&#39;&quot;</span>&gt;</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            AND title LIKE (2)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;statusList != null and (3)&quot;</span>&gt;</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            AND status IN</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">foreach</span><span class="ot"> collection=</span><span class="st">&quot;statusList&quot;</span><span class="ot"> item=</span><span class="st">&quot;st&quot;</span><span class="ot"> open=</span><span class="st">&quot;(&quot;</span><span class="ot"> separator=</span><span class="st">&quot;,&quot;</span><span class="ot"> close=</span><span class="st">&quot;)&quot;</span>&gt;</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                #{st}</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">foreach</span>&gt;</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">where</span>&gt;</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    ORDER BY create_time DESC</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">select</span>&gt;</span></code></pre></div>
+<p><strong>参考答案：</strong></p>
+<ul>
+<li>(1) <code>projectId != null</code></li>
+<li>(2) <code>CONCAT('%', #{title}, '%')</code></li>
+<li>(3) <code>statusList.size() &gt; 0</code></li>
+</ul>
+<p><strong>解析：</strong></p>
+<ul>
+<li>(1) 数字类型判空用 <code>!= null</code>，无需判空字符串；</li>
+<li>(2) MySQL 模糊查询用 <code>CONCAT</code> 函数拼接
+<code>%</code>，<code>#{title}</code> 防注入；</li>
+<li>(3) 集合非空判断用 <code>.size() &gt; 0</code>，避免生成
+<code>IN ()</code> 语法错。</li>
+</ul>
+<p><strong>评分标准（满分 6 分）：</strong></p>
+<ul>
+<li>(1) 2 分：必须为 <code>projectId != null</code>（写
+<code>projectId != null and projectId != ''</code> 给 1 分）</li>
+<li>(2) 2 分：必须用 CONCAT 且 #{title} 占位</li>
+<li>(3) 2 分：必须为 <code>statusList.size() &gt; 0</code>
+或等价写法</li>
+</ul>
+<hr />
+<h3 id="08-r-02-">08-R-02 ★★</h3>
+<p>阅读下列 Service 层分页查询代码，补全
+<code>(1)</code>、<code>(2)</code>、<code>(3)</code>
+处的代码，使方法能正确返回分页结果。</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskServiceImpl <span class="kw">implements</span> TaskService <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskMapper taskMapper<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">TaskServiceImpl</span><span class="op">(</span>TaskMapper taskMapper<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">taskMapper</span> <span class="op">=</span> taskMapper<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> IPage<span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="fu">queryPage</span><span class="op">(</span>TaskQueryDto dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 1. 构建 Page 对象</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">&lt;</span>Task<span class="op">&gt;</span> page <span class="op">=</span> <span class="kw">new</span> Page<span class="op">&lt;&gt;(</span>dto<span class="op">.</span><span class="fu">getPage</span><span class="op">(),</span> dto<span class="op">.</span><span class="fu">getSize</span><span class="op">());</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 2. 构造条件</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        LambdaQueryWrapper<span class="op">&lt;</span>Task<span class="op">&gt;</span> wrapper <span class="op">=</span> <span class="kw">new</span> LambdaQueryWrapper<span class="op">&lt;&gt;();</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        wrapper<span class="op">.</span><span class="fu">eq</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getProjectId</span><span class="op">()</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">,</span> Task<span class="op">::</span>getProjectId<span class="op">,</span> dto<span class="op">.</span><span class="fu">getProjectId</span><span class="op">())</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>               <span class="op">.</span><span class="fu">eq</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getStatus</span><span class="op">()</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">,</span> Task<span class="op">::</span>getStatus<span class="op">,</span> dto<span class="op">.</span><span class="fu">getStatus</span><span class="op">())</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>               <span class="op">.</span><span class="fu">like</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getTitle</span><span class="op">()</span> <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>dto<span class="op">.</span><span class="fu">getTitle</span><span class="op">().</span><span class="fu">isEmpty</span><span class="op">(),</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                     Task<span class="op">::</span>getTitle<span class="op">,</span> dto<span class="op">.</span><span class="fu">getTitle</span><span class="op">())</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>               <span class="op">.</span><span class="fu">orderByDesc</span><span class="op">((</span><span class="dv">2</span><span class="op">));</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 3. 执行分页查询</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">(</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>参考答案：</strong></p>
+<ul>
+<li>(1) <code>Page</code></li>
+<li>(2) <code>Task::getCreateTime</code></li>
+<li>(3) <code>taskMapper.selectPage(page, wrapper)</code></li>
+</ul>
+<p><strong>解析：</strong></p>
+<ul>
+<li>(1) <code>Page</code> 是 <code>IPage</code> 的实现类，作为
+<code>selectPage</code> 第一参实际类型；</li>
+<li>(2) Lambda 排序用方法引用
+<code>Task::getCreateTime</code>，按创建时间倒序；</li>
+<li>(3) 调用 <code>BaseMapper.selectPage(IPage, Wrapper)</code> 返回
+<code>IPage&lt;T&gt;</code>。</li>
+</ul>
+<p><strong>评分标准（满分 6 分）：</strong></p>
+<ul>
+<li>(1) 2 分：必须为 <code>Page</code>（写成 <code>IPage</code> 给 1
+分，因为 <code>IPage</code> 是接口不能 new）</li>
+<li>(2) 2 分：必须为 <code>Task::getCreateTime</code> 或
+<code>Task::getId</code> 等合理方法引用</li>
+<li>(3) 2 分：必须为
+<code>taskMapper.selectPage(page, wrapper)</code>，参数顺序正确</li>
+</ul>
+<hr />
+<h2 id="七编程接口设计题2题">七、编程/接口设计题（2题）</h2>
+<h3 id="08-p-01-">08-P-01 ★★★</h3>
+<p><strong>题目：</strong> 请为 CTTS
+系统设计并实现任务列表分页查询接口，要求：</p>
+<ol type="1">
+<li>接口路径：<code>GET /api/tasks</code></li>
+<li>查询参数：<code>page</code>(默认1)、<code>size</code>(默认10)、<code>projectId</code>、<code>status</code>、<code>title</code>(模糊)、<code>minPriority</code></li>
+<li>默认按创建时间倒序排列</li>
+<li>返回统一 Result 格式，data 为 <code>IPage&lt;Task&gt;</code></li>
+<li>使用 <code>LambdaQueryWrapper</code> 构造条件</li>
+</ol>
+<p>请按 Controller、DTO、Service、ServiceImpl 给出完整代码。</p>
+<p><strong>参考答案：</strong></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// === DTO 层 ===</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskQueryDto <span class="op">{</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> page <span class="op">=</span> <span class="dv">1L</span><span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> size <span class="op">=</span> <span class="dv">10L</span><span class="op">;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> projectId<span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> status<span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> title<span class="op">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> minPriority<span class="op">;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">// === Service 接口 ===</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">metadata</span><span class="op">.</span><span class="im">IPage</span><span class="op">;</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">.</span><span class="im">TaskQueryDto</span><span class="op">;</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> TaskService <span class="op">{</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    IPage<span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="fu">queryPage</span><span class="op">(</span>TaskQueryDto dto<span class="op">);</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">// === Service 实现 ===</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">impl</span><span class="op">;</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">conditions</span><span class="op">.</span><span class="im">query</span><span class="op">.</span><span class="im">LambdaQueryWrapper</span><span class="op">;</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">metadata</span><span class="op">.</span><span class="im">IPage</span><span class="op">;</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">extension</span><span class="op">.</span><span class="im">plugins</span><span class="op">.</span><span class="im">pagination</span><span class="op">.</span><span class="im">Page</span><span class="op">;</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">.</span><span class="im">TaskQueryDto</span><span class="op">;</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">TaskMapper</span><span class="op">;</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">TaskService</span><span class="op">;</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Service</span><span class="op">;</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">StringUtils</span><span class="op">;</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskServiceImpl <span class="kw">implements</span> TaskService <span class="op">{</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskMapper taskMapper<span class="op">;</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">TaskServiceImpl</span><span class="op">(</span>TaskMapper taskMapper<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">taskMapper</span> <span class="op">=</span> taskMapper<span class="op">;</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> IPage<span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="fu">queryPage</span><span class="op">(</span>TaskQueryDto dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>        Page<span class="op">&lt;</span>Task<span class="op">&gt;</span> page <span class="op">=</span> <span class="kw">new</span> Page<span class="op">&lt;&gt;(</span>dto<span class="op">.</span><span class="fu">getPage</span><span class="op">(),</span> dto<span class="op">.</span><span class="fu">getSize</span><span class="op">());</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>        LambdaQueryWrapper<span class="op">&lt;</span>Task<span class="op">&gt;</span> wrapper <span class="op">=</span> <span class="kw">new</span> LambdaQueryWrapper<span class="op">&lt;&gt;();</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>        wrapper<span class="op">.</span><span class="fu">eq</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getProjectId</span><span class="op">()</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">,</span> Task<span class="op">::</span>getProjectId<span class="op">,</span> dto<span class="op">.</span><span class="fu">getProjectId</span><span class="op">())</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>               <span class="op">.</span><span class="fu">eq</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getStatus</span><span class="op">()</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">,</span> Task<span class="op">::</span>getStatus<span class="op">,</span> dto<span class="op">.</span><span class="fu">getStatus</span><span class="op">())</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>               <span class="op">.</span><span class="fu">like</span><span class="op">(</span>StringUtils<span class="op">.</span><span class="fu">hasText</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getTitle</span><span class="op">()),</span> Task<span class="op">::</span>getTitle<span class="op">,</span> dto<span class="op">.</span><span class="fu">getTitle</span><span class="op">())</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>               <span class="op">.</span><span class="fu">ge</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getMinPriority</span><span class="op">()</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">,</span> Task<span class="op">::</span>getPriority<span class="op">,</span> dto<span class="op">.</span><span class="fu">getMinPriority</span><span class="op">())</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>               <span class="op">.</span><span class="fu">orderByDesc</span><span class="op">(</span>Task<span class="op">::</span>getCreateTime<span class="op">);</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> taskMapper<span class="op">.</span><span class="fu">selectPage</span><span class="op">(</span>page<span class="op">,</span> wrapper<span class="op">);</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="co">// === Controller 层 ===</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">metadata</span><span class="op">.</span><span class="im">IPage</span><span class="op">;</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">.</span><span class="im">TaskQueryDto</span><span class="op">;</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">TaskService</span><span class="op">;</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/tasks&quot;</span><span class="op">)</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskController <span class="op">{</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskService taskService<span class="op">;</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">TaskController</span><span class="op">(</span>TaskService taskService<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">taskService</span> <span class="op">=</span> taskService<span class="op">;</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span>IPage<span class="op">&lt;</span>Task<span class="op">&gt;&gt;</span> <span class="fu">page</span><span class="op">(</span>TaskQueryDto dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>        IPage<span class="op">&lt;</span>Task<span class="op">&gt;</span> page <span class="op">=</span> taskService<span class="op">.</span><span class="fu">queryPage</span><span class="op">(</span>dto<span class="op">);</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span>page<span class="op">);</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>评分标准（满分 20 分）：</strong></p>
+<ol type="1">
+<li>DTO 设计合理（4 分）：包含全部 6 个字段，page/size 有默认值</li>
+<li>Service 接口定义正确（3 分）：返回
+<code>IPage&lt;Task&gt;</code></li>
+<li>ServiceImpl 实现完整（10 分）：
+<ul>
+<li>创建 Page 对象（2 分）</li>
+<li>LambdaQueryWrapper 链式构造（4 分）</li>
+<li>三参 eq 实现"条件可空"（2 分）</li>
+<li>orderByDesc 排序（2 分）</li>
+<li>调用 selectPage 返回（2 分）</li>
+</ul></li>
+<li>Controller 注解正确（3
+分）：<code>@RestController</code>、<code>@RequestMapping</code>、<code>@GetMapping</code>，参数自动绑定
+DTO</li>
+<li>代码规范（如构造器注入、StringUtils.hasText）（额外加分项，最多 +2
+分）</li>
+</ol>
+<hr />
+<h3 id="08-p-02-">08-P-02 ★★★</h3>
+<p><strong>题目：</strong> 请为 CTTS 系统编写一个 MyBatis 动态 SQL XML
+映射文件，实现按多条件查询任务（不分页）。要求：</p>
+<ol type="1">
+<li>查询字段：id, title, description, project_id, status, priority,
+create_time</li>
+<li>过滤条件（均为可空）：projectId（等值）、statusList（IN
+查询）、title（模糊）、priorityRange（between 闭区间）</li>
+<li>始终过滤 <code>deleted = 0</code></li>
+<li>按 create_time 倒序、id 升序排列</li>
+<li>同时编写对应的 Mapper 接口方法</li>
+<li>在 <code>&lt;set&gt;</code> 标签中实现按需更新
+title、status、priority 三个字段</li>
+</ol>
+<p><strong>参考答案：</strong></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span> <span class="fu">?&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> <span class="dt">mapper</span> PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;<span class="dt">&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">mapper</span><span class="ot"> namespace=</span><span class="st">&quot;com.ctts.mapper.TaskMapper&quot;</span>&gt;</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 多条件动态查询 --&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">select</span><span class="ot"> id=</span><span class="st">&quot;selectByConditions&quot;</span><span class="ot"> resultType=</span><span class="st">&quot;com.ctts.entity.Task&quot;</span>&gt;</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        SELECT id, title, description, project_id, status, priority, create_time</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>          FROM task</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">where</span>&gt;</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            deleted = 0</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;projectId != null&quot;</span>&gt;</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                AND project_id = #{projectId}</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;title != null and title != &#39;&#39;&quot;</span>&gt;</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                AND title LIKE CONCAT(&#39;%&#39;, #{title}, &#39;%&#39;)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;statusList != null and statusList.size() &gt; 0&quot;</span>&gt;</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                AND status IN</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">foreach</span><span class="ot"> collection=</span><span class="st">&quot;statusList&quot;</span><span class="ot"> item=</span><span class="st">&quot;st&quot;</span><span class="ot"> open=</span><span class="st">&quot;(&quot;</span><span class="ot"> separator=</span><span class="st">&quot;,&quot;</span><span class="ot"> close=</span><span class="st">&quot;)&quot;</span>&gt;</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                    #{st}</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                &lt;/<span class="kw">foreach</span>&gt;</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;minPriority != null and maxPriority != null&quot;</span>&gt;</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>                AND priority BETWEEN #{minPriority} AND #{maxPriority}</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">where</span>&gt;</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        ORDER BY create_time DESC, id ASC</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">select</span>&gt;</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 按需更新 --&gt;</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">update</span><span class="ot"> id=</span><span class="st">&quot;updateSelective&quot;</span><span class="ot"> parameterType=</span><span class="st">&quot;com.ctts.entity.Task&quot;</span>&gt;</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        UPDATE task</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">set</span>&gt;</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;title != null and title != &#39;&#39;&quot;</span>&gt;</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>                title = #{title},</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;status != null&quot;</span>&gt;</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>                status = #{status},</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">if</span><span class="ot"> test=</span><span class="st">&quot;priority != null&quot;</span>&gt;</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>                priority = #{priority},</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">if</span>&gt;</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">set</span>&gt;</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        WHERE id = #{id} AND deleted = 0</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">update</span>&gt;</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">mapper</span>&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">BaseMapper</span><span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">apache</span><span class="op">.</span><span class="im">ibatis</span><span class="op">.</span><span class="im">annotations</span><span class="op">.</span><span class="im">Param</span><span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> TaskMapper <span class="kw">extends</span> BaseMapper<span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="fu">selectByConditions</span><span class="op">(</span><span class="at">@Param</span><span class="op">(</span><span class="st">&quot;projectId&quot;</span><span class="op">)</span> <span class="bu">Long</span> projectId<span class="op">,</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">@Param</span><span class="op">(</span><span class="st">&quot;title&quot;</span><span class="op">)</span> <span class="bu">String</span> title<span class="op">,</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">@Param</span><span class="op">(</span><span class="st">&quot;statusList&quot;</span><span class="op">)</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> statusList<span class="op">,</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">@Param</span><span class="op">(</span><span class="st">&quot;minPriority&quot;</span><span class="op">)</span> <span class="bu">Integer</span> minPriority<span class="op">,</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">@Param</span><span class="op">(</span><span class="st">&quot;maxPriority&quot;</span><span class="op">)</span> <span class="bu">Integer</span> maxPriority<span class="op">);</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> <span class="fu">updateSelective</span><span class="op">(</span>Task task<span class="op">);</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>评分标准（满分 20 分）：</strong></p>
+<ol type="1">
+<li>XML 文件结构正确（2 分）：DOCTYPE、namespace 正确</li>
+<li>SELECT 语句字段列表正确（2 分）</li>
+<li><code>&lt;where&gt;</code> 标签使用正确（2 分）</li>
+<li><code>deleted = 0</code> 固定条件（1 分）</li>
+<li><code>&lt;if&gt;</code> 处理 projectId 可空（2 分）：数字类型只判
+<code>!= null</code></li>
+<li><code>&lt;if&gt;</code> 处理 title 模糊查询（2 分）：用 CONCAT 拼接
+<code>%</code></li>
+<li><code>&lt;foreach&gt;</code> 实现 IN 查询（3
+分）：collection/item/open/separator/close 属性齐全</li>
+<li>BETWEEN 区间查询（2 分）</li>
+<li>ORDER BY 多字段排序（1 分）：DESC + ASC</li>
+<li><code>&lt;set&gt;</code> + <code>&lt;if&gt;</code> 实现按需更新（2
+分）：每个字段后写逗号</li>
+<li>Mapper 接口方法签名正确（1 分）：<code>@Param</code>
+注解使用合理</li>
+</ol>
+<p><strong>扣分项：</strong></p>
+<ul>
+<li>XML 中 <code>&lt;</code> <code>&gt;</code> 未转义或未用 CDATA（-2
+分）</li>
+<li>字符串判空写成 <code>!= null</code> 漏判 <code>!= ''</code>（-1
+分）</li>
+<li>数字类型判 <code>!= ''</code>（-1 分）</li>
+<li><code>&lt;foreach&gt;</code> 属性写错（-2 分）</li>
+</ul>
+<hr />
+<h2 id="附题库统计表">附：题库统计表</h2>
+<h3 id="题型分布统计">题型分布统计</h3>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>题量</th>
+<th>分值（建议）</th>
+<th>总分</th>
+<th>难度分布</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单项选择题</td>
+<td>30</td>
+<td>2 分</td>
+<td>60 分</td>
+<td>★×15 + ★★×12 + ★★★×3</td>
+</tr>
+<tr>
+<td>多项选择题</td>
+<td>10</td>
+<td>3 分</td>
+<td>30 分</td>
+<td>★×1 + ★★×7 + ★★★×2</td>
+</tr>
+<tr>
+<td>判断题</td>
+<td>20</td>
+<td>1 分</td>
+<td>20 分</td>
+<td>★×9 + ★★×9 + ★★★×2</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>10</td>
+<td>2 分</td>
+<td>20 分</td>
+<td>★×3 + ★★×7</td>
+</tr>
+<tr>
+<td>简答/论述题</td>
+<td>4</td>
+<td>10 分</td>
+<td>40 分</td>
+<td>★★×3 + ★★★×1</td>
+</tr>
+<tr>
+<td>程序阅读补全</td>
+<td>2</td>
+<td>6 分</td>
+<td>12 分</td>
+<td>★★×2</td>
+</tr>
+<tr>
+<td>编程/接口设计</td>
+<td>2</td>
+<td>20 分</td>
+<td>40 分</td>
+<td>★★★×2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td>—</td>
+<td><strong>222</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="知识点覆盖统计">知识点覆盖统计</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>单选</th>
+<th>多选</th>
+<th>判断</th>
+<th>填空</th>
+<th>简答</th>
+<th>程序</th>
+<th>编程</th>
+<th>小计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K8-1
+动态SQL标签(<code>&lt;if&gt;/&lt;where&gt;/&lt;foreach&gt;/&lt;choose&gt;/&lt;set&gt;</code>)</td>
+<td>8</td>
+<td>4</td>
+<td>7</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>26</td>
+</tr>
+<tr>
+<td>K8-2 QueryWrapper</td>
+<td>6</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>13</td>
+</tr>
+<tr>
+<td>K8-3 LambdaQueryWrapper</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>12</td>
+</tr>
+<tr>
+<td>K8-4 分页插件与Page对象</td>
+<td>8</td>
+<td>2</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>18</td>
+</tr>
+<tr>
+<td>K8-5 排序</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr>
+<td>综合应用</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>5</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>30</strong></td>
+<td><strong>10</strong></td>
+<td><strong>20</strong></td>
+<td><strong>10</strong></td>
+<td><strong>4</strong></td>
+<td><strong>2</strong></td>
+<td><strong>2</strong></td>
+<td><strong>78</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="难度分布统计">难度分布统计</h3>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>题量</th>
+<th>占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>★ 基础</td>
+<td>28</td>
+<td>35.9%</td>
+</tr>
+<tr>
+<td>★★ 进阶</td>
+<td>42</td>
+<td>53.8%</td>
+</tr>
+<tr>
+<td>★★★ 综合</td>
+<td>8</td>
+<td>10.3%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="考核能力维度">考核能力维度</h3>
+<table>
+<thead>
+<tr>
+<th>能力维度</th>
+<th>对应题型</th>
+<th>题量</th>
+<th>占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知识记忆</td>
+<td>单选、判断、填空</td>
+<td>60</td>
+<td>76.9%</td>
+</tr>
+<tr>
+<td>理解应用</td>
+<td>多选、简答</td>
+<td>14</td>
+<td>17.9%</td>
+</tr>
+<tr>
+<td>综合分析</td>
+<td>程序阅读、编程</td>
+<td>4</td>
+<td>5.1%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p>本题库覆盖第8次课全部 5 个知识点，以
+<code>&lt;if&gt;/&lt;where&gt;/&lt;foreach&gt;</code> 动态 SQL
+标签、QueryWrapper / LambdaQueryWrapper 条件构造、分页插件配置与 Page
+对象为核心，适合课后练习、单元测试与期末复习使用。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,551 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DTO VO Result与包结构规范</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 11 次课 · 教学设计</div>
+      <h1>DTO VO Result与包结构规范</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 11 次课</span>
+        <span class="hero-chip"><b>主题</b>DTO VO Result与包结构规范</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#1-知识目标">1. 知识目标</a></li>
+<li><a href="#2-能力目标">2. 能力目标</a></li>
+<li><a href="#3-素质目标">3. 素质目标</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务">四、项目任务</a>
+<ul>
+<li><a href="#任务描述">任务描述</a></li>
+<li><a href="#验收标准">验收标准</a></li>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动预期生成物">互动预期生成物</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习">七、课堂练习</a>
+<ul>
+<li><a href="#练习1基础5分钟">练习1（基础，5分钟）</a></li>
+<li><a href="#练习2进阶5分钟">练习2（进阶，5分钟）</a></li>
+<li><a href="#练习3综合5分钟">练习3（综合，5分钟）</a></li>
+<li><a href="#练习验收">练习验收</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+<li><a href="#必做任务">必做任务</a></li>
+<li><a href="#选做任务加分">选做任务（加分）</a></li>
+<li><a href="#提交要求">提交要求</a></li>
+</ul></li>
+<li><a href="#九岗位能力面试考点">九、岗位能力/面试考点</a>
+<ul>
+<li><a href="#对应岗位能力">对应岗位能力</a></li>
+<li><a href="#高频面试考点">高频面试考点</a></li>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附90分钟时间分配">附：90分钟时间分配</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 11 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>课程模块：M4 后端分层架构｜课程类型：理论课｜学时：2学时（90分钟）
+贯穿项目：校园实训任务管理系统（CTTS）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>Java Web后端开发技术</td>
+</tr>
+<tr>
+<td>课程模块</td>
+<td>M4 后端分层架构</td>
+</tr>
+<tr>
+<td>第几次课</td>
+<td>第11次课</td>
+</tr>
+<tr>
+<td>课题名称</td>
+<td>DTO/VO/Result与包结构规范</td>
+</tr>
+<tr>
+<td>课程类型</td>
+<td>理论课（含随堂练习）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2学时（90分钟）</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程/计算机科学与技术 本科三年级</td>
+</tr>
+<tr>
+<td>前置知识</td>
+<td>Java 17基础、Spring
+Boot入门、MyBatis-Plus基础、REST接口设计（第8~10次课）</td>
+</tr>
+<tr>
+<td>后续课程</td>
+<td>全局异常处理（第12次课）、拦截器与JWT鉴权（第13次课）</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java 17 + Spring Boot 3.x + MyBatis-Plus + MySQL + JWT + Knife4j +
+Maven + Lombok</td>
+</tr>
+<tr>
+<td>项目包名</td>
+<td>com.ctts</td>
+</tr>
+<tr>
+<td>教学方法</td>
+<td>讲授法 + 案例驱动 + 小组讨论 + 随堂练习</td>
+</tr>
+<tr>
+<td>重点难点</td>
+<td>重点：PO/DTO/VO职责划分、Result<T>统一响应设计、包结构规范；难点：对象转换场景选择、泛型Result的链式调用</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="1-知识目标">1. 知识目标</h3>
+<ul>
+<li><strong>K11-1</strong>：能准确说出PO/Entity/DTO/VO四类对象的定义、职责与区别，理解"数据库表—Entity—DTO—VO"的数据流转链路。</li>
+<li><strong>K11-2</strong>：能说明统一响应Result<T>的设计动机，掌握code/message/data三字段规范及ok()/fail()静态方法的封装思想。</li>
+<li><strong>K11-3</strong>：能描述对象转换的两种主流方案（BeanUtils.copyProperties手动转换、MapStruct编译期自动映射），并比较其优劣。</li>
+<li><strong>K11-4</strong>：能列出Spring
+Boot企业级项目的标准包结构（controller/service/serviceImpl/mapper/entity/dto/vo/config/utils/exception），说明各包职责。</li>
+<li><strong>K11-5</strong>：能说出Lombok常用注解（@Data/@Getter/@Setter/@Builder/@AllArgsConstructor/@NoArgsConstructor）的作用与使用场景。</li>
+</ul>
+<h3 id="2-能力目标">2. 能力目标</h3>
+<ul>
+<li>能为CTTS项目独立设计ProjectDTO、ProjectVO、TaskSubmissionDTO等数据载体，并正确选择应用场景。</li>
+<li>能编写完整的Result<T>统一响应类，含泛型、静态工厂方法、链式setter，并改造既有Controller返回格式。</li>
+<li>能使用BeanUtils.copyProperties完成Entity↔︎VO、DTO→Entity的转换，识别属性名不一致导致的拷贝失效问题。</li>
+<li>能按企业规范重构CTTS项目的包结构，使controller/service/mapper/entity/dto/vo/config/utils/exception各归其位。</li>
+<li>能使用Lombok注解简化实体类代码，避免手写getter/setter/构造器带来的冗余。</li>
+</ul>
+<h3 id="3-素质目标">3. 素质目标</h3>
+<ul>
+<li><strong>工程规范意识</strong>：体会"良好的结构是可维护性的基础"，养成按分层规范组织代码的习惯。</li>
+<li><strong>协作沟通能力</strong>：在小组讨论中清晰表达"接口返回格式统一方案"，学会倾听与妥协。</li>
+<li><strong>精益求精的工匠精神</strong>：通过对象转换与统一响应的细节打磨，培养对代码质量的追求。</li>
+<li><strong>抽象建模思维</strong>：从"一堆字段"到"按职责分层的数据对象"，提升面向对象的建模能力。</li>
+</ul>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>核心内容</th>
+<th>重点/难点</th>
+<th>学时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K11-1</td>
+<td>PO/Entity/DTO/VO的区别与职责</td>
+<td>Entity对应数据库表结构；DTO接收请求参数（含校验注解）；VO返回给前端的视图数据（可脱敏/聚合）；PO为持久化对象的统称，在MyBatis-Plus中Entity即充当PO</td>
+<td>重点：四者职责边界；难点：DTO与VO何时合并、何时分离</td>
+<td>20min</td>
+</tr>
+<tr>
+<td>K11-2</td>
+<td>统一响应Result<T>设计</td>
+<td>三字段code/message/data；泛型T表示data类型；ok()/ok(data)/fail()/fail(code,msg)静态工厂方法；链式setter；常用枚举ResultCode</td>
+<td>重点：泛型+静态方法；难点：链式调用与重载设计</td>
+<td>18min</td>
+</tr>
+<tr>
+<td>K11-3</td>
+<td>对象转换</td>
+<td>BeanUtils.copyProperties(source,target)按属性名拷贝；Spring与Apache两套BeanUtils对比；MapStruct基于接口注解@Mapper编译期生成实现类，性能高、类型安全</td>
+<td>重点：BeanUtils用法；难点：类型不一致、嵌套对象拷贝陷阱</td>
+<td>15min</td>
+</tr>
+<tr>
+<td>K11-4</td>
+<td>项目包结构规范</td>
+<td>com.ctts下分controller/service/serviceImpl/mapper/entity/dto/vo/config/utils/exception；service放接口、serviceImpl放实现；config放配置类；exception放自定义异常</td>
+<td>重点：分层职责；难点：service与serviceImpl分离的必要性</td>
+<td>15min</td>
+</tr>
+<tr>
+<td>K11-5</td>
+<td>Lombok常用注解</td>
+<td>@Data=@Getter+@setter+@toString+@equalsAndHashCode+@RequiredArgsConstructor；@Builder建造者模式；@AllArgsConstructor/@NoArgsConstructor全参无参构造；IDEA需装Lombok插件+开启Annotation
+Processing</td>
+<td>重点：注解组合；难点：@Builder与无参构造的冲突</td>
+<td>12min</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务">四、项目任务</h2>
+<blockquote>
+<p><strong>任务主题：为CTTS定义DTO/VO/Result，重构包结构，统一Controller返回格式</strong></p>
+</blockquote>
+<h3 id="任务描述">任务描述</h3>
+<p>在前序课程已完成的CTTS基础上（sys_user/training_project/task/task_submission/task_review
+五张表，已实现基础Controller直接返回Entity），本节课完成三件事：</p>
+<ol type="1">
+<li><strong>定义数据载体</strong>：为
+<code>training_project</code>（实训项目）创建
+<code>ProjectDTO</code>（接收前端新增/修改请求）和
+<code>ProjectVO</code>（返回给前端的视图数据，隐藏创建人密码等敏感字段）。</li>
+<li><strong>定义统一响应</strong>：创建 <code>Result&lt;T&gt;</code>
+类，封装 <code>code/message/data</code> 三字段及
+<code>ok()/fail()</code> 静态方法。</li>
+<li><strong>重构包结构与改造返回</strong>：按
+<code>controller/service/serviceImpl/mapper/entity/dto/vo/config/utils/exception</code>
+规范重构包结构，将 <code>ProjectController</code> 中的接口返回值由
+<code>Entity</code>/<code>List&lt;Entity&gt;</code> 改为
+<code>Result&lt;ProjectVO&gt;</code>/<code>Result&lt;List&lt;ProjectVO&gt;&gt;</code>。</li>
+</ol>
+<h3 id="验收标准">验收标准</h3>
+<ul>
+<li>包结构符合规范，5张表对应的Entity/Mapper/Service/ServiceImpl/Controller各归其位。</li>
+<li><code>ProjectController</code> 的查询/新增/修改/删除接口统一返回
+<code>Result&lt;T&gt;</code>，Knife4j文档中可看到统一格式。</li>
+<li><code>ProjectDTO</code>
+含JSR-303校验注解（@NotBlank/@NotNull等），<code>ProjectVO</code>
+不含密码字段。</li>
+<li>提交Git
+commit，message符合规范：<code>refactor: 重构包结构，统一Result响应格式</code>。</li>
+</ul>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3
+id="互动主题接口返回格式统一方案">互动主题：接口返回格式统一方案</h3>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>提出问题</strong></td>
+<td>"目前我们的Controller直接返回Entity或List，前端拿到的是裸数据。请讨论：①这种做法有哪些问题？②如果让你设计一套统一的接口返回格式，你会设计哪些字段？③成功和失败如何区分？④分页数据怎么返回？"</td>
+</tr>
+<tr>
+<td><strong>组织方式</strong></td>
+<td>4~5人一组，共6组，10分钟讨论。每组用大白纸/在线文档列出方案要点，推选1人汇报（每组2分钟）。</td>
+</tr>
+<tr>
+<td><strong>学生输出</strong></td>
+<td>①每组一份"统一响应格式设计草案"（字段名+类型+示例）；②至少指出2个直接返回Entity的弊端；③至少给出1种分页方案。</td>
+</tr>
+<tr>
+<td><strong>教师点评</strong></td>
+<td>①归纳各组方案的共性：都提到code+message+data，说明业界共识；②指出常见误区：把HTTP状态码和业务code混淆、data直接放List导致扩展困难；③引出Result<T>的标准答案；④表扬有创意的方案（如链式调用、枚举管理错误码）。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动预期生成物">互动预期生成物</h3>
+<ul>
+<li>黑板/PPT汇总6组方案对比表</li>
+<li>引出 <code>Result&lt;T&gt;</code>
+的标准设计，自然过渡到K11-2讲解</li>
+</ul>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>思政要素</th>
+<th>融入方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>工程规范——良好结构是可维护性的基础</strong></td>
+<td>通过包结构重构前后对比（混乱包结构 vs
+分层包结构），让学生直观感受"代码是写给人看的"。"万里之行始于足下，万行代码始于规范"——一个没有规范的项目，3个月后就没人敢动。</td>
+</tr>
+<tr>
+<td><strong>抽象建模——从杂乱到有序的工程思维</strong></td>
+<td>PO/DTO/VO的划分本质是"职责分离"原则的体现。类比社会分工：数据库管理员管Entity、前端工程师管VO、后端工程师管DTO，各司其职。培养学生用抽象思维看待复杂系统。</td>
+</tr>
+<tr>
+<td><strong>协作精神——契约即信任</strong></td>
+<td>统一响应Result<T>是前后端协作的"契约"。一旦约定，双方都遵守，体现工程协作中的诚信与契约精神。"接口文档就是工程师之间的合同"。</td>
+</tr>
+<tr>
+<td><strong>工匠精神——细节决定成败</strong></td>
+<td>对象转换中一个属性名不一致就导致数据丢失，统一响应少一个字段就让前端崩溃。培养学生对代码细节的敬畏与精益求精。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="七课堂练习">七、课堂练习</h2>
+<blockquote>
+<p>练习时长：约15分钟，紧随K11-2讲解后进行</p>
+</blockquote>
+<h3 id="练习1基础5分钟">练习1（基础，5分钟）</h3>
+<p>在CTTS项目中创建 <code>com.ctts.common.Result&lt;T&gt;</code>
+类，要求：</p>
+<ul>
+<li>三字段：<code>int code</code>、<code>String message</code>、<code>T data</code></li>
+<li>静态方法：<code>ok()</code>、<code>ok(T data)</code>、<code>fail()</code>、<code>fail(int code, String message)</code></li>
+<li>每个字段提供链式setter（返回this）</li>
+<li>使用Lombok的 <code>@Data</code> +
+<code>@Accessors(chain=true)</code> 或手写链式</li>
+</ul>
+<h3 id="练习2进阶5分钟">练习2（进阶，5分钟）</h3>
+<p>为 <code>training_project</code> 表编写
+<code>ProjectDTO</code>，字段：projectName、description、startTime、endTime、creatorId。要求：</p>
+<ul>
+<li>使用Lombok的 <code>@Data</code></li>
+<li>projectName加
+<code>@NotBlank(message="项目名称不能为空")</code></li>
+<li>startTime/endTime加 <code>@NotNull</code> 并加
+<code>@JsonFormat(pattern="yyyy-MM-dd")</code></li>
+</ul>
+<h3 id="练习3综合5分钟">练习3（综合，5分钟）</h3>
+<p>编写
+<code>ProjectVO</code>，字段：id、projectName、description、startTime、endTime、creatorName（注意不是creatorId，是创建人姓名）、createTime。然后编写一个转换方法，使用
+<code>BeanUtils.copyProperties</code> 将 <code>TrainingProject</code>
+Entity 转为 <code>ProjectVO</code>，并手动补全
+<code>creatorName</code>。</p>
+<h3 id="练习验收">练习验收</h3>
+<ul>
+<li>3名学生上台演示，教师即时点评</li>
+<li>重点检查：泛型是否正确、链式调用是否生效、BeanUtils参数顺序（source在前target在后）</li>
+</ul>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<h3 id="必做任务">必做任务</h3>
+<ol type="1">
+<li><strong>完成项目任务（见第四节）</strong>：重构CTTS包结构，定义全部5张表的DTO/VO（至少完成TrainingProject、Task两张表），改造所有Controller返回Result<T>。提交Git并推送。</li>
+<li><strong>阅读教学资料.md</strong>：通读第11次课教学资料，完成其中的"复习思考题"（共6题，写到学习通作业区）。</li>
+<li><strong>完成题库.md</strong>：在线完成第11次课题库的选择题与判断题部分（共60题），系统自动评分。</li>
+</ol>
+<h3 id="选做任务加分">选做任务（加分）</h3>
+<ol start="4" type="1">
+<li>引入MapStruct依赖，为 <code>TrainingProject ↔︎ ProjectVO</code>
+编写MapStruct映射接口，对比与BeanUtils的性能差异（用JMH或简单循环计时）。</li>
+<li>思考：如果接口需要返回分页数据，<code>Result&lt;T&gt;</code> 中的
+<code>T</code> 应该是什么类型？设计一个 <code>PageVO&lt;T&gt;</code>
+并给出示例。</li>
+</ol>
+<h3 id="提交要求">提交要求</h3>
+<ul>
+<li>Git commit
+message：<code>refactor(11): 重构CTTS包结构与统一响应</code></li>
+<li>截图：Knife4j文档中Project接口的统一响应示例</li>
+<li>截图：项目包结构树（IDEA Project视图）</li>
+</ul>
+<hr />
+<h2 id="九岗位能力面试考点">九、岗位能力/面试考点</h2>
+<h3 id="对应岗位能力">对应岗位能力</h3>
+<table>
+<thead>
+<tr>
+<th>岗位</th>
+<th>能力项</th>
+<th>本课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java后端开发工程师</td>
+<td>分层架构设计能力</td>
+<td>K11-4 包结构规范</td>
+</tr>
+<tr>
+<td>Java后端开发工程师</td>
+<td>接口规范设计能力</td>
+<td>K11-2 Result统一响应</td>
+</tr>
+<tr>
+<td>Java后端开发工程师</td>
+<td>代码质量与可维护性</td>
+<td>K11-1/K11-3 对象转换</td>
+</tr>
+<tr>
+<td>全栈工程师</td>
+<td>前后端数据契约理解</td>
+<td>K11-1 DTO/VO划分</td>
+</tr>
+</tbody>
+</table>
+<h3 id="高频面试考点">高频面试考点</h3>
+<ol type="1">
+<li><strong>★
+PO、DTO、VO、Entity、BO分别是什么？项目中怎么用？</strong>（阿里、美团高频）</li>
+<li><strong>★
+为什么Controller不直接返回Entity，要包一层VO？</strong>（字节、腾讯常问）</li>
+<li><strong>★★
+你们的统一响应格式是怎么设计的？code用HTTP状态码还是业务码？</strong>（几乎所有公司）</li>
+<li><strong>★★
+BeanUtils.copyProperties有哪些坑？Spring的和Apache的有什么区别？</strong>（京东、拼多多）</li>
+<li><strong>★★★
+MapStruct相比BeanUtils有什么优势？为什么性能好？</strong>（中高级岗）</li>
+<li><strong>★
+Lombok的@Data包含哪些注解？@Builder和@NoArgsConstructor一起用会有什么问题？</strong>（日常问）</li>
+<li><strong>★★
+你们项目的包结构是怎样的？service为什么分接口和实现？</strong>（架构问）</li>
+<li><strong>★
+Result<T>的泛型T有什么好处？为什么不直接用Object？</strong>（基础扎实度考查）</li>
+</ol>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>位置</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学资料.md</td>
+<td>同目录</td>
+<td>学生复习资料，含完整代码与思维导图</td>
+</tr>
+<tr>
+<td>题库.md</td>
+<td>同目录</td>
+<td>78题（40选择+20判断+10填空+4论述+2程序阅读+2编程设计）</td>
+</tr>
+<tr>
+<td>前序代码</td>
+<td>CTTS项目仓库</td>
+<td>第10次课完成的TrainingProject CRUD</td>
+</tr>
+<tr>
+<td>在线工具</td>
+<td>Knife4j文档地址</td>
+<td>http://localhost:8080/doc.html</td>
+</tr>
+<tr>
+<td>参考规范</td>
+<td>阿里巴巴Java开发手册</td>
+<td>第5章 工程结构</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附90分钟时间分配">附：90分钟时间分配</h2>
+<table>
+<thead>
+<tr>
+<th>时间段</th>
+<th>时长</th>
+<th>内容</th>
+<th>环节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00:00–00:05</td>
+<td>5min</td>
+<td>课程回顾与本节导入（前序课遗留问题：Controller直接返回Entity的痛点）</td>
+<td>导入</td>
+</tr>
+<tr>
+<td>00:05–00:25</td>
+<td>20min</td>
+<td>K11-1 PO/Entity/DTO/VO区别与职责（讲授+对比表）</td>
+<td>讲授</td>
+</tr>
+<tr>
+<td>00:25–00:43</td>
+<td>18min</td>
+<td>K11-2 统一响应Result<T>设计（讲授+代码演示）</td>
+<td>讲授</td>
+</tr>
+<tr>
+<td>00:43–00:58</td>
+<td>15min</td>
+<td>课堂练习1+2+3（学生动手+上台演示）</td>
+<td>练习</td>
+</tr>
+<tr>
+<td>00:58–01:08</td>
+<td>10min</td>
+<td>小组讨论：接口返回格式统一方案</td>
+<td>互动</td>
+</tr>
+<tr>
+<td>01:08–01:23</td>
+<td>15min</td>
+<td>K11-3 对象转换（BeanUtils+MapStruct对比演示）</td>
+<td>讲授</td>
+</tr>
+<tr>
+<td>01:23–01:38</td>
+<td>15min</td>
+<td>K11-4 包结构规范 + K11-5 Lombok注解（合并讲授）</td>
+<td>讲授</td>
+</tr>
+<tr>
+<td>01:38–01:45</td>
+<td>7min</td>
+<td>课程思政小结 + 项目任务布置 + 预告下节课</td>
+<td>收束</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：K11-3/K11-4/K11-5在讲授中穿插项目任务的操作演示，做到"讲练结合"。讨论环节放在练习后，便于学生带着体验参与讨论。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

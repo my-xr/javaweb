@@ -1,0 +1,521 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>接口调试与JSON返回实践</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 05 次课 · 教学设计</div>
+      <h1>接口调试与JSON返回实践</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 05 次课</span>
+        <span class="hero-chip"><b>主题</b>接口调试与JSON返回实践</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务或案例任务">四、项目任务或案例任务</a>
+<ul>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动-1开场-5-分钟讨论--接口写完了下一步怎么办">互动 1：开场 5 分钟讨论 — &quot;接口写完了，下一步怎么办？&quot;</a></li>
+<li><a href="#互动-2apifox-接口调试竞赛核心互动限时完成-5-个接口调试">互动 2：Apifox 接口调试竞赛（核心互动，限时完成 5 个接口调试）</a></li>
+<li><a href="#互动-3错误现场诊断讲解-k5-5-时">互动 3：错误现场诊断（讲解 K5-5 时）</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习或随堂测验">七、课堂练习或随堂测验</a>
+<ul>
+<li><a href="#随堂练习5-分钟讲解结束前进行">随堂练习（5 分钟，讲解结束前进行）</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+</ul></li>
+<li><a href="#九对应岗位能力或面试考点">九、对应岗位能力或面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 05 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>所属模块：M2 Spring Boot 快速入门 ｜ 课程：《JavaWeb 后端开发技术》
+配套资料：见同文件夹内
+<code>教学资料.md</code>（学生复习资料）、<code>题库.md</code>（78
+题考试题库）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>次序</td>
+<td>第 5 次课（全课程 24 次之第 5）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>理论课（偏实践）</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M2 Spring Boot 快速入门</td>
+</tr>
+<tr>
+<td>教学主题</td>
+<td>接口调试与 JSON 返回实践</td>
+</tr>
+<tr>
+<td>先修基础</td>
+<td>第 4 次课 Controller
+开发（@RestController、@GetMapping、@PostMapping、@RequestParam、@RequestBody）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>掌握 Apifox/Postman
+接口调试工具的基本使用：创建请求、设置方法/URL/Headers/Body、发送请求、查看响应。</li>
+<li>理解 HTTP 请求头的作用，重点掌握
+<code>Content-Type: application/json</code>、<code>Accept</code>、<code>Authorization</code>
+三个常用头字段。</li>
+<li>能够分析 JSON 响应：状态码、响应头、响应体结构。</li>
+<li>掌握 Knife4j
+的集成步骤：依赖引入、配置类、<code>@Tag</code>/<code>@Operation</code>/<code>@Parameter</code>
+注解、访问 <code>doc.html</code>。</li>
+<li>掌握常见接口问题排查：404（路径不对）、500（代码异常）、415（Content-Type
+不对）、400（参数不匹配）、跨域 CORS。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够使用 Apifox 独立完成 GET/POST/PUT/DELETE
+接口的调试，正确设置请求方法、URL、请求头与请求体。</li>
+<li>能够为已有 Spring Boot 项目集成 Knife4j，并通过
+<code>doc.html</code> 在线浏览与调试接口。</li>
+<li>能够使用
+<code>@Tag</code>、<code>@Operation</code>、<code>@Parameter</code>
+注解为接口添加中文文档说明。</li>
+<li>能够根据状态码与响应信息定位常见接口问题并给出解决方案。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li>树立"软件质量责任"意识——接口可调试、可验证、有文档才是合格交付。</li>
+<li>培养严谨的工程习惯——接口测试不是"跑通就行"，而是覆盖正常与异常场景。</li>
+<li>体会国产开源工具（Knife4j、Apifox）的价值，增强对国产技术生态的认同感。</li>
+</ol>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<blockquote>
+<p>详细讲解内容见同文件夹 <code>教学资料.md</code>，此处为纲要。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K5-1</td>
+<td>Apifox/Postman 接口调试</td>
+<td>创建请求、设置方法/URL/Headers/Body、发送请求、查看响应；接口调试是后端开发必备技能</td>
+</tr>
+<tr>
+<td>K5-2</td>
+<td>请求头设置</td>
+<td><code>Content-Type: application/json</code>（请求体格式）、<code>Accept</code>（期望响应格式）、<code>Authorization</code>（认证令牌）</td>
+</tr>
+<tr>
+<td>K5-3</td>
+<td>JSON 响应分析</td>
+<td>状态码（200/400/404/500
+等）、响应头（Content-Type、Content-Length）、响应体结构（code/message/data）</td>
+</tr>
+<tr>
+<td>K5-4</td>
+<td>Knife4j 集成</td>
+<td>添加依赖
+<code>knife4j-openapi3-jakarta-spring-boot-starter</code>、配置类（<code>@Bean OpenAPI</code>）、<code>@Tag</code>/<code>@Operation</code>/<code>@Parameter</code>
+注解、访问 <code>doc.html</code></td>
+</tr>
+<tr>
+<td>K5-5</td>
+<td>常见接口问题排查</td>
+<td>404（路径不对）、500（代码异常）、415（Content-Type
+不对）、400（参数不匹配）、跨域 CORS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务或案例任务">四、项目任务或案例任务</h2>
+<h3
+id="贯穿项目任务为-ctts-已有接口集成-knife4j-文档并用-apifox-完成联调测试">贯穿项目任务：为
+CTTS 已有接口集成 Knife4j 文档并用 Apifox 完成联调测试</h3>
+<p><strong>本次课任务</strong>：</p>
+<ol type="1">
+<li>在第 4 次课已开发的
+<code>ProjectController</code>（实训项目管理接口）基础上，集成 Knife4j
+接口文档。</li>
+<li>为 <code>ProjectController</code> 中已有的 5 个接口（GET
+查询列表、GET 单个查询、POST 新增、PUT 更新、DELETE 删除）添加
+<code>@Tag</code>、<code>@Operation</code>、<code>@Parameter</code>
+注解，生成中文文档。</li>
+<li>访问 <code>http://localhost:8080/doc.html</code> 验证 Knife4j
+文档正常显示。</li>
+<li>使用 Apifox 依次调试这 5 个接口，覆盖正常与异常场景。</li>
+</ol>
+<p><strong>任务背景</strong>：</p>
+<ul>
+<li>第 4 次课已经完成了 <code>ProjectController</code>
+的开发，接口可以运行，但缺少文档、未做完整联调。</li>
+<li>真实企业项目里，接口开发完成后必须：①补全文档（Knife4j）→
+②自测联调（Apifox）→ ③交付前端。</li>
+<li>本次课就是模拟这一真实流程。</li>
+</ul>
+<blockquote>
+<p>📌 本次课不写新的业务代码，重点是给已有接口"补文档 +
+做联调"，体会企业开发中的"可调试、可验证、有文档"标准。</p>
+</blockquote>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3 id="互动-1开场-5-分钟讨论--接口写完了下一步怎么办">互动 1：开场 5
+分钟讨论 — "接口写完了，下一步怎么办？"</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"你写完了一个 Controller
+接口，运行没报错，能直接交付给前端吗？还差什么？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>自由发言，教师板书关键词</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>"要测试""要写文档""前端不知道接口长什么样""万一传错参数怎么办"</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>引出"接口可调试、可验证、有文档才是合格交付"的工程价值观，明确本节课目标</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-2apifox-接口调试竞赛核心互动限时完成-5-个接口调试">互动
+2：Apifox 接口调试竞赛（核心互动，限时完成 5 个接口调试）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>竞赛任务</td>
+<td>限时 20 分钟内，用 Apifox 完成以下 5 个接口的调试并截图提交：①GET
+<code>/api/projects</code> 查询列表；②GET
+<code>/api/projects/{id}</code> 查询单个；③POST
+<code>/api/projects</code> 新增；④PUT <code>/api/projects/{id}</code>
+更新；⑤DELETE <code>/api/projects/{id}</code> 删除</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>个人赛，全班同时开始；教师在大屏投影倒计时；前 5 名完成且全部 200
+响应的同学加分</td>
+</tr>
+<tr>
+<td>评分标准</td>
+<td>每个接口正确返回 200 且响应体结构合理得 20 分，满分
+100；超时按完成数量计分</td>
+</tr>
+<tr>
+<td>常见坑点提示</td>
+<td>POST/PUT 必须设置
+<code>Content-Type: application/json</code>；路径参数 <code>{id}</code>
+要替换为实际值；DELETE 通常无请求体</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>现场统计完成率，针对典型错误（415、404、400）现场分析，引出 K5-5
+排查内容</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-3错误现场诊断讲解-k5-5-时">互动 3：错误现场诊断（讲解 K5-5
+时）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动任务</td>
+<td>教师现场演示 4
+个错误场景（404、500、415、400），学生抢答原因与解决方案</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>教师演示 → 学生举手抢答 → 答对加分</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>404 路径不对；500 代码异常；415 Content-Type 不对；400
+参数不匹配</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>强调"看响应找原因"的排查思路：先看状态码 → 看响应信息 →
+看后端日志</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融入点</td>
+<td>软件质量责任——接口可调试、可验证、有文档才是合格交付</td>
+</tr>
+<tr>
+<td>技术关联</td>
+<td>Knife4j 文档（有文档）、Apifox
+调试（可调试）、状态码排查（可验证）三者共同构成"质量交付"的工程实践</td>
+</tr>
+<tr>
+<td>引导问题</td>
+<td>"如果你是前端工程师，拿到一个没有文档、没有测试过的接口，你敢用吗？如果接口出了问题谁负责？"</td>
+</tr>
+<tr>
+<td>预期价值目标</td>
+<td>让学生理解"代码能跑 ≠
+交付合格"，养成补文档、做测试、写注释的工程责任感</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>思政自然融入：不空喊"质量第一"，而是通过"前端拿到你的接口会怎样"的真实场景让学生体会责任。</p>
+</blockquote>
+<hr />
+<h2 id="七课堂练习或随堂测验">七、课堂练习或随堂测验</h2>
+<h3 id="随堂练习5-分钟讲解结束前进行">随堂练习（5
+分钟，讲解结束前进行）</h3>
+<p><strong>判断题（口头快速作答）</strong>：</p>
+<ol type="1">
+<li>POST 请求提交 JSON 数据时，请求头 <code>Content-Type</code> 应设置为
+<code>application/json</code>。（✓）</li>
+<li>Knife4j 是接口文档工具，可以替代 Apifox 完成所有接口测试。（✗）</li>
+<li>接口返回 404 状态码，说明后端代码出现了空指针异常。（✗）</li>
+<li>Knife4j 集成后访问 <code>doc.html</code>
+即可在线查看与调试接口。（✓）</li>
+</ol>
+<blockquote>
+<p>详细题目与解析见
+<code>题库.md</code>。此处仅作课堂快速互动，不计分。</p>
+</blockquote>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<ol type="1">
+<li><strong>完善项目</strong>：为第 4 次课的
+<code>ProjectController</code> 补全 Knife4j
+注解（<code>@Tag</code>、<code>@Operation</code>、<code>@Parameter</code>），并截图
+<code>doc.html</code> 页面提交。</li>
+<li><strong>联调报告</strong>：用 Apifox 完成 5
+个接口的调试，每个接口提交一张"请求 +
+响应"截图，并标注状态码与响应时间。</li>
+<li><strong>错误排查练习</strong>：故意制造 4 种错误（404、400、415、500
+各一），截图并写出原因与解决方案。</li>
+<li><strong>阅读</strong>：通读同文件夹
+<code>教学资料.md</code>，重点掌握 Knife4j
+集成步骤与常见状态码排查表。</li>
+<li><strong>拓展（选做）</strong>：尝试为 CTTS 的
+<code>TaskController</code>（任务接口）也集成 Knife4j
+文档，下次课抽查。</li>
+</ol>
+<hr />
+<h2 id="九对应岗位能力或面试考点">九、对应岗位能力或面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>岗位能力/面试考点</th>
+<th>本次课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>接口调试工具使用（Apifox/Postman）—— 后端开发日常必备</td>
+<td>K5-1</td>
+</tr>
+<tr>
+<td>Content-Type 作用与常见值 —— 面试高频基础题</td>
+<td>K5-2</td>
+</tr>
+<tr>
+<td>常见 HTTP 状态码排查（404/400/415/500）—— 面试高频</td>
+<td>K5-3、K5-5</td>
+</tr>
+<tr>
+<td>Knife4j / Swagger 接口文档集成 —— 企业项目必备</td>
+<td>K5-4</td>
+</tr>
+<tr>
+<td>跨域 CORS 概念与处理 —— 前后端分离必考</td>
+<td>K5-5</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面试常考："你平时用什么工具调试接口""Content-Type 有哪些值""404 和
+500
+怎么排查""你们项目接口文档怎么维护""跨域怎么解决"等，均属本次课范围。</p>
+</blockquote>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生复习资料</td>
+<td><code>教学资料.md</code>（同文件夹）</td>
+<td>5 个知识点详解 + Knife4j 完整集成示例 + Apifox 操作步骤 +
+状态码排查表 + 思维导图</td>
+</tr>
+<tr>
+<td>考试题库</td>
+<td><code>题库.md</code>（同文件夹）</td>
+<td>78 题（40 选择 + 20 判断 + 10 填空 + 4 简答 + 2 程序阅读 + 2
+编程），含答案解析与评分标准</td>
+</tr>
+<tr>
+<td>课程总览</td>
+<td><code>../00 课程设计总览.md</code></td>
+<td>课程整体框架与 24 次课进度</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~10 min</td>
+<td>开场讨论 + 上次课回顾 + 本次目标</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>10~25 min</td>
+<td>K5-1 Apifox 接口调试基础（现场演示）</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>25~35 min</td>
+<td>K5-2 请求头设置 + K5-3 JSON 响应分析</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>35~55 min</td>
+<td>K5-4 Knife4j 集成（依赖 + 配置类 + 注解 + 访问 doc.html）</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>55~75 min</td>
+<td>Apifox 接口调试竞赛（5 个接口限时调试）</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>75~85 min</td>
+<td>K5-5 常见接口问题排查（错误现场诊断互动）</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>85~90 min</td>
+<td>随堂练习 + 小结 + 课后任务布置</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

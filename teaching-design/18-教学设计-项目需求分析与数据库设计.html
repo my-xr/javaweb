@@ -1,0 +1,691 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>项目需求分析与数据库设计</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 18 次课 · 教学设计</div>
+      <h1>项目需求分析与数据库设计</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 18 次课</span>
+        <span class="hero-chip"><b>主题</b>项目需求分析与数据库设计</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程基本信息">一、课程基本信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#21-知识目标">2.1 知识目标</a></li>
+<li><a href="#22-能力目标">2.2 能力目标</a></li>
+<li><a href="#23-素质目标课程思政">2.3 素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三教学重点与难点">三、教学重点与难点</a>
+<ul>
+<li><a href="#31-教学重点">3.1 教学重点</a></li>
+<li><a href="#32-教学难点">3.2 教学难点</a></li>
+<li><a href="#33-突破策略">3.3 突破策略</a></li>
+</ul></li>
+<li><a href="#四学情分析">四、学情分析</a>
+<ul>
+</ul></li>
+<li><a href="#五教学方法">五、教学方法</a>
+<ul>
+</ul></li>
+<li><a href="#六教学准备">六、教学准备</a>
+<ul>
+</ul></li>
+<li><a href="#七教学过程时间分配">七、教学过程（时间分配）</a>
+<ul>
+<li><a href="#71-时间分配总表共90分钟">7.1 时间分配总表（共90分钟）</a></li>
+<li><a href="#72-详细教学过程">7.2 详细教学过程</a></li>
+</ul></li>
+<li><a href="#八课堂互动设计">八、课堂互动设计</a>
+<ul>
+</ul></li>
+<li><a href="#九课程思政设计">九、课程思政设计</a>
+<ul>
+<li><a href="#91-思政主线">9.1 思政主线</a></li>
+<li><a href="#92-融入点">9.2 融入点</a></li>
+<li><a href="#93-思政小结">9.3 思政小结</a></li>
+</ul></li>
+<li><a href="#十教学反思与作业">十、教学反思与作业</a>
+<ul>
+<li><a href="#101-教学反思要点">10.1 教学反思要点</a></li>
+<li><a href="#102-课后作业">10.2 课后作业</a></li>
+<li><a href="#103-评价方式">10.3 评价方式</a></li>
+</ul></li>
+<li><a href="#附录教学资源清单">附录：教学资源清单</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 18 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>课程模块：M7 综合项目开发 | 课程名称：Java Web后端开发技术 |
+课时：2学时（90分钟）</p>
+</blockquote>
+<hr />
+<h2 id="一课程基本信息">一、课程基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>Java Web后端开发技术</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M7 综合项目开发（CTTS校园实训任务管理系统）</td>
+</tr>
+<tr>
+<td>课次</td>
+<td>第18次课</td>
+</tr>
+<tr>
+<td>课题</td>
+<td>项目需求分析与数据库设计</td>
+</tr>
+<tr>
+<td>课时</td>
+<td>2学时（90分钟）</td>
+</tr>
+<tr>
+<td>课程类型</td>
+<td>理论课（含设计实践）</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程/计算机科学与技术专业本科二年级/三年级</td>
+</tr>
+<tr>
+<td>先修知识</td>
+<td>MySQL基础语法、SpringBoot入门、面向对象设计思想</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java17 + SpringBoot 3.x + MyBatis-Plus + MySQL 8.x</td>
+</tr>
+<tr>
+<td>项目包名</td>
+<td>com.ctts</td>
+</tr>
+<tr>
+<td>教学场地</td>
+<td>多媒体机房（每位学生配备电脑，预装MySQL与IDE）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="21-知识目标">2.1 知识目标</h3>
+<ul>
+<li><strong>K18-1</strong>：理解需求拆解方法，掌握功能需求与非功能需求的区分，了解用例图基本画法。</li>
+<li><strong>K18-2</strong>：理解ER图概念，掌握实体关系（一对多、多对一）的建模方法，了解数据库范式（1NF/2NF/3NF）的基本要求。</li>
+<li><strong>K18-3</strong>：掌握CTTS系统5张表（sys_user、training_project、task、task_submission、task_review）的字段设计、类型选择、约束设置与外键关系。</li>
+<li><strong>K18-4</strong>：理解索引的概念，掌握主键索引、唯一索引、普通索引的区别，明确"何时建索引"的判断依据。</li>
+<li><strong>K18-5</strong>：掌握数据库初始化脚本的编写规范，能独立完成CREATE
+DATABASE、CREATE TABLE、INSERT测试数据的编写与执行。</li>
+</ul>
+<h3 id="22-能力目标">2.2 能力目标</h3>
+<ul>
+<li>能够从真实业务场景出发，拆解并表述软件系统的功能需求与非功能需求。</li>
+<li>能够根据需求文档设计ER图，并将ER图转化为符合第三范式的数据库表结构。</li>
+<li>能够编写规范的建表SQL，合理设置主键、外键、非空、默认值、注释与索引。</li>
+<li>能够编写并执行数据库初始化脚本，插入测试数据并验证表间关系。</li>
+<li>具备对他人表结构设计进行评审、提出改进意见的协作能力。</li>
+</ul>
+<h3 id="23-素质目标课程思政">2.3 素质目标（课程思政）</h3>
+<ul>
+<li><strong>深入业务、求真务实</strong>：理解"好的设计源于对业务的深入理解"，摒弃闭门造车的浮躁作风，培养从真实问题出发的工程师品格。</li>
+<li><strong>严谨规范、精益求精</strong>：通过字段命名、类型选择、注释编写的规范训练，养成工业级开发习惯。</li>
+<li><strong>团队协作、批判思维</strong>：通过小组表结构设计评审，学会倾听、表达、质疑与妥协。</li>
+<li><strong>服务社会、技术向善</strong>：CTTS系统服务于高校实训管理这一真实场景，体会技术解决实际问题的价值。</li>
+</ul>
+<hr />
+<h2 id="三教学重点与难点">三、教学重点与难点</h2>
+<h3 id="31-教学重点">3.1 教学重点</h3>
+<ol type="1">
+<li>CTTS系统需求拆解：三大角色、五大功能模块的边界划分。</li>
+<li>5张表的字段设计、类型选择、约束设置与外键关系。</li>
+<li>建表SQL的规范编写（含注释、索引、外键）。</li>
+<li>数据库范式分析与第三范式的落地。</li>
+</ol>
+<h3 id="32-教学难点">3.2 教学难点</h3>
+<ol type="1">
+<li>实体关系的识别：一对多关系的正确建模（如一个项目包含多个任务、一个任务包含多个提交）。</li>
+<li>外键设计与业务语义的对齐：如task_submission同时关联user与task，task_review同时关联submission与reviewer。</li>
+<li>索引建立的时机判断：在查询频率与写入性能之间权衡。</li>
+<li>需求到设计的转化思维：从自然语言需求到结构化表结构的映射。</li>
+</ol>
+<h3 id="33-突破策略">3.3 突破策略</h3>
+<ul>
+<li>采用"业务场景→需求描述→ER草图→表结构SQL"四步递进法，逐步抽象。</li>
+<li>通过"反例驱动"：先展示设计糟糕的表（如将学生、教师、管理员塞进一张无角色字段的表），再引导改进。</li>
+<li>通过小组互评，让学生在评审他人设计的过程中反思自己的设计。</li>
+</ul>
+<hr />
+<h2 id="四学情分析">四、学情分析</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知识基础</td>
+<td>已学习MySQL基本CRUD语法、SpringBoot入门，对数据库有初步认识，但缺乏系统级表设计经验。</td>
+</tr>
+<tr>
+<td>能力水平</td>
+<td>能完成单表CRUD，但对多表外键关系、范式、索引等概念停留在"听过"层面，未形成工程实践能力。</td>
+</tr>
+<tr>
+<td>学习特点</td>
+<td>大二/大三学生动手意愿强，但容易跳过需求分析直接写代码，需引导"先设计后编码"的习惯。</td>
+</tr>
+<tr>
+<td>个体差异</td>
+<td>部分学生已有项目实习经验，可担任小组评审组长；基础薄弱学生需要从ER图基础补起。</td>
+</tr>
+<tr>
+<td>思政切入点</td>
+<td>学生普遍重编码轻设计，通过CTTS真实场景让其体会"设计决定成败"。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="五教学方法">五、教学方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>应用环节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>讲授法</td>
+<td>知识点详解（需求分析方法、ER图、范式、索引概念）</td>
+</tr>
+<tr>
+<td>案例驱动</td>
+<td>以CTTS系统为主线贯穿全课，每个知识点用CTTS对应模块举例</td>
+</tr>
+<tr>
+<td>任务驱动</td>
+<td>课堂任务：分析需求→设计表→编写建表SQL→执行建表→插入测试数据→验证</td>
+</tr>
+<tr>
+<td>小组讨论</td>
+<td>表结构设计评审（4-5人一组，互评改进）</td>
+</tr>
+<tr>
+<td>对比教学</td>
+<td>反例vs正例对比（如未拆分角色表vs拆分角色表、未建索引vs建索引）</td>
+</tr>
+<tr>
+<td>演示法</td>
+<td>教师现场演示建表SQL执行、测试数据插入与外键验证</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六教学准备">六、教学准备</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>准备内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>软件环境</td>
+<td>MySQL 8.x、Navicat/DBeaver、IDEA、Git（可选）</td>
+</tr>
+<tr>
+<td>教学资料</td>
+<td>教学PPT、CTTS需求说明书、ER图、建表SQL脚本、测试数据SQL脚本</td>
+</tr>
+<tr>
+<td>学生材料</td>
+<td>课前阅读材料（ER图基础、范式基础）、任务工单、评审表</td>
+</tr>
+<tr>
+<td>硬件设备</td>
+<td>多媒体投影、机房电脑（每生1台）</td>
+</tr>
+<tr>
+<td>课堂分组</td>
+<td>按4-5人分组，提前指定组长，准备白板/便签纸</td>
+</tr>
+<tr>
+<td>思政素材</td>
+<td>"需求分析失误导致项目失败"的真实案例1-2则</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="七教学过程时间分配">七、教学过程（时间分配）</h2>
+<h3 id="71-时间分配总表共90分钟">7.1 时间分配总表（共90分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>环节</th>
+<th>时间</th>
+<th>内容要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>课程导入与思政引言</td>
+<td>5分钟</td>
+<td>从真实实训管理痛点引入CTTS，点题"好的设计源于对业务的深入理解"</td>
+</tr>
+<tr>
+<td>2</td>
+<td>K18-1 需求分析</td>
+<td>15分钟</td>
+<td>需求拆解方法、功能/非功能需求、用例图基础</td>
+</tr>
+<tr>
+<td>3</td>
+<td>K18-2 数据库设计基础</td>
+<td>12分钟</td>
+<td>ER图、实体关系、外键、范式1NF/2NF/3NF</td>
+</tr>
+<tr>
+<td>4</td>
+<td>K18-3 CTTS五张表详细设计</td>
+<td>20分钟</td>
+<td>逐表讲解字段、类型、约束、注释、外键关系</td>
+</tr>
+<tr>
+<td>5</td>
+<td>K18-4 索引基础</td>
+<td>8分钟</td>
+<td>索引概念、主键/唯一/普通索引、何时建索引</td>
+</tr>
+<tr>
+<td>6</td>
+<td>K18-5 数据库初始化脚本演示</td>
+<td>10分钟</td>
+<td>CREATE DATABASE、CREATE TABLE、INSERT演示</td>
+</tr>
+<tr>
+<td>7</td>
+<td>课堂任务实践</td>
+<td>12分钟</td>
+<td>学生独立完成建表→插入→验证</td>
+</tr>
+<tr>
+<td>8</td>
+<td>小组讨论：表结构设计评审</td>
+<td>5分钟</td>
+<td>互评表结构，提出改进意见</td>
+</tr>
+<tr>
+<td>9</td>
+<td>课堂小结与作业布置</td>
+<td>3分钟</td>
+<td>总结、布置课后任务</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-详细教学过程">7.2 详细教学过程</h3>
+<h4
+id="环节1课程导入与思政引言5分钟">环节1：课程导入与思政引言（5分钟）</h4>
+<p><strong>教师活动</strong>：</p>
+<ul>
+<li>提问："同学们在参加实训时，有没有遇到过任务提交混乱、评审进度不透明的问题？"</li>
+<li>引出CTTS系统：校园实训任务管理系统，解决实训过程中的任务下发、提交、评审全流程管理。</li>
+<li>思政引言：引用"墨菲定律"——设计阶段的疏漏会在后期被放大。强调"好的设计源于对业务的深入理解"，技术人要深入一线业务。</li>
+</ul>
+<p><strong>学生活动</strong>：思考并回答实训管理痛点。</p>
+<p><strong>设计意图</strong>：从真实痛点切入，激发兴趣；埋下"设计决定成败"的思政种子。</p>
+<hr />
+<h4 id="环节2k18-1-需求分析15分钟">环节2：K18-1 需求分析（15分钟）</h4>
+<p><strong>教师活动</strong>（讲授+案例）：</p>
+<ul>
+<li>需求拆解方法：自顶向下（系统→模块→功能）、自底向上（用户故事→功能聚合）。</li>
+<li>CTTS功能需求拆解（5大模块）：
+<ul>
+<li>用户管理：注册、登录、角色权限（学生/教师/管理员）。</li>
+<li>项目管理：教师创建/编辑实训项目，学生查看项目。</li>
+<li>任务管理：教师在项目下创建任务，学生查看任务。</li>
+<li>提交管理：学生提交任务成果，可多次提交。</li>
+<li>评审管理：教师评审提交，打分+评语。</li>
+</ul></li>
+<li>非功能需求：安全（密码加密、权限控制）、性能（列表查询&lt;500ms）、可用性（7×24、易用界面）。</li>
+<li>用例图基础：参与者（Actor）与用例（Use
+Case）的关系，简笔画CTTS用例图。</li>
+</ul>
+<p><strong>学生活动</strong>：记录需求清单，尝试用一句话描述每个模块的核心用例。</p>
+<p><strong>设计意图</strong>：建立"先需求后设计"的认知，为后续表设计提供依据。</p>
+<hr />
+<h4 id="环节3k18-2-数据库设计基础12分钟">环节3：K18-2
+数据库设计基础（12分钟）</h4>
+<p><strong>教师活动</strong>（讲授+对比）：</p>
+<ul>
+<li>ER图三要素：实体（矩形）、属性（椭圆）、关系（菱形）。</li>
+<li>实体关系：一对一、一对多、多对多。CTTS中重点是一对多：
+<ul>
+<li>一个项目 → 多个任务</li>
+<li>一个任务 → 多个提交</li>
+<li>一个提交 → 多个评审（支持多人评审）</li>
+<li>一个学生 → 多个提交</li>
+<li>一个教师 → 多个项目、多个评审</li>
+</ul></li>
+<li>外键设计：在"多"的一方加外键引用"一"的一方主键。</li>
+<li>范式基础：
+<ul>
+<li>1NF：字段原子性（不拆分）。</li>
+<li>2NF：非主属性完全依赖主键（消除部分依赖）。</li>
+<li>3NF：非主属性不传递依赖主键（消除传递依赖）。</li>
+</ul></li>
+<li>反例：把项目名、任务名塞进同一张表，导致数据冗余。</li>
+</ul>
+<p><strong>学生活动</strong>：在草稿纸上画出CTTS五个实体的ER草图。</p>
+<p><strong>设计意图</strong>：从概念模型过渡到逻辑模型，为表设计铺路。</p>
+<hr />
+<h4 id="环节4k18-3-ctts五张表详细设计20分钟">环节4：K18-3
+CTTS五张表详细设计（20分钟）</h4>
+<p><strong>教师活动</strong>（逐表讲解）：</p>
+<p><strong>表1 sys_user（用户表）</strong>：</p>
+<ul>
+<li>id BIGINT 主键自增、username VARCHAR(50) 唯一非空、password
+VARCHAR(100) 非空、real_name VARCHAR(50) 非空、role TINYINT
+非空（1学生2教师3管理员）、phone VARCHAR(20)、email VARCHAR(100)、status
+TINYINT 默认1、create_time、update_time。</li>
+<li>索引：username唯一索引、role普通索引。</li>
+</ul>
+<p><strong>表2 training_project（实训项目表）</strong>：</p>
+<ul>
+<li>id、title、description、teacher_id（外键→sys_user.id）、start_date、end_date、status、create_time、update_time。</li>
+<li>外键：teacher_id引用sys_user.id。</li>
+<li>索引：teacher_id普通索引、status普通索引。</li>
+</ul>
+<p><strong>表3 task（任务表）</strong>：</p>
+<ul>
+<li>id、project_id（外键→training_project.id）、title、description、deadline、total_score
+INT、create_time、update_time。</li>
+<li>外键：project_id引用training_project.id。</li>
+</ul>
+<p><strong>表4 task_submission（提交表）</strong>：</p>
+<ul>
+<li>id、task_id（外键→task.id）、user_id（外键→sys_user.id，提交学生）、content
+TEXT、file_url
+VARCHAR(255)、submit_time、status（1待评审2已评审）。</li>
+<li>外键：task_id、user_id。</li>
+</ul>
+<p><strong>表5 task_review（评审表）</strong>：</p>
+<ul>
+<li>id、submission_id（外键→task_submission.id）、reviewer_id（外键→sys_user.id，评审教师）、score
+INT、comment VARCHAR(500)、review_time。</li>
+<li>外键：submission_id、reviewer_id。</li>
+</ul>
+<p><strong>学生活动</strong>：跟随讲解在IDEA中同步建表（可先听后做）。</p>
+<p><strong>设计意图</strong>：核心环节，落实5张表的工程级设计。</p>
+<hr />
+<h4 id="环节5k18-4-索引基础8分钟">环节5：K18-4 索引基础（8分钟）</h4>
+<p><strong>教师活动</strong>：</p>
+<ul>
+<li>索引概念：像书的目录，加快查询但拖慢写入。</li>
+<li>三类索引：
+<ul>
+<li>主键索引：随PRIMARY KEY自动创建。</li>
+<li>唯一索引：UNIQUE，保证列值唯一（如username）。</li>
+<li>普通索引：INDEX，加速等值/范围查询（如role、status）。</li>
+</ul></li>
+<li>何时建索引：查询频繁、区分度高、数据量大的列。</li>
+<li>何时不建：写入极频繁、区分度低（如性别）、数据量小。</li>
+<li>CTTS中的索引决策：username唯一、role/status普通索引；不对外键全部建索引，按查询需要取舍。</li>
+</ul>
+<p><strong>学生活动</strong>：判断CTTS各表哪些列该建索引，说明理由。</p>
+<p><strong>设计意图</strong>：建立"按需建索引"的工程判断力。</p>
+<hr />
+<h4 id="环节6k18-5-数据库初始化脚本演示10分钟">环节6：K18-5
+数据库初始化脚本演示（10分钟）</h4>
+<p><strong>教师活动</strong>（现场演示）：</p>
+<ul>
+<li>步骤1：CREATE DATABASE ctts DEFAULT CHARACTER SET utf8mb4;</li>
+<li>步骤2：依次执行5张表的CREATE TABLE（含外键、注释、索引）。</li>
+<li>步骤3：INSERT测试数据（3个角色用户、2个项目、若干任务、提交、评审）。</li>
+<li>步骤4：用JOIN查询验证外键关系（如查询某学生的所有提交及评审结果）。</li>
+<li>强调：字符集utf8mb4支持emoji；存储引擎InnoDB支持外键。</li>
+</ul>
+<p><strong>学生活动</strong>：观察执行结果，记录验证查询语句。</p>
+<p><strong>设计意图</strong>：让学生看到完整闭环，建立"设计→建表→数据→验证"的工程思维。</p>
+<hr />
+<h4 id="环节7课堂任务实践12分钟">环节7：课堂任务实践（12分钟）</h4>
+<p><strong>教师活动</strong>：布置课堂任务，巡视指导。</p>
+<p><strong>学生活动</strong>（独立完成）：</p>
+<ol type="1">
+<li>分析需求（阅读CTTS需求说明书）。</li>
+<li>设计表（参照讲解，可在草稿纸画ER图）。</li>
+<li>编写建表SQL（5张表）。</li>
+<li>执行建表（在MySQL中执行）。</li>
+<li>插入测试数据（参照INSERT脚本）。</li>
+<li>验证：写2条JOIN查询验证外键关系。</li>
+</ol>
+<p><strong>任务工单</strong>：学生提交.sql文件至课程平台。</p>
+<p><strong>设计意图</strong>：动手实践，巩固表设计与SQL编写能力。</p>
+<hr />
+<h4
+id="环节8小组讨论表结构设计评审5分钟">环节8：小组讨论——表结构设计评审（5分钟）</h4>
+<p><strong>教师活动</strong>：组织4-5人小组互评，提供评审表（字段命名、类型合理、约束完整、外键正确、索引合理）。</p>
+<p><strong>学生活动</strong>：</p>
+<ul>
+<li>组内交换建表SQL，互相评审。</li>
+<li>每组推选1个"最佳设计"和1个"待改进点"。</li>
+<li>组长汇报，教师点评。</li>
+</ul>
+<p><strong>评审要点</strong>：</p>
+<ul>
+<li>字段命名是否规范（小写+下划线）。</li>
+<li>类型是否合理（如ID用BIGINT而非INT）。</li>
+<li>是否遗漏非空/默认值/注释。</li>
+<li>外键关系是否正确。</li>
+<li>索引是否合理。</li>
+</ul>
+<p><strong>设计意图</strong>：在评审中反思，培养批判性思维与协作能力。</p>
+<hr />
+<h4
+id="环节9课堂小结与作业布置3分钟">环节9：课堂小结与作业布置（3分钟）</h4>
+<p><strong>教师活动</strong>：</p>
+<ul>
+<li>小结：需求拆解→ER图→表结构→SQL→验证，是后端工程师的核心设计能力。</li>
+<li>作业：
+<ol type="1">
+<li>完善CTTS建表脚本，补充测试数据至每表10条以上。</li>
+<li>思考：如果CTTS要支持"小组任务"（一个任务由小组完成），表结构如何调整？写出设计思路。</li>
+<li>预习：下节课将基于这5张表实现SpringBoot+MyBatis-Plus的实体类与Mapper。</li>
+</ol></li>
+</ul>
+<p><strong>学生活动</strong>：记录作业，整理笔记。</p>
+<p><strong>设计意图</strong>：承上启下，为下节课编码实现做铺垫。</p>
+<hr />
+<h2 id="八课堂互动设计">八、课堂互动设计</h2>
+<table>
+<thead>
+<tr>
+<th>互动环节</th>
+<th>形式</th>
+<th>时长</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开场提问</td>
+<td>师生问答</td>
+<td>2分钟</td>
+<td>唤起实训痛点共鸣</td>
+</tr>
+<tr>
+<td>ER图草绘</td>
+<td>个人练习</td>
+<td>3分钟</td>
+<td>巩固实体关系识别</td>
+</tr>
+<tr>
+<td>索引判断</td>
+<td>抢答</td>
+<td>3分钟</td>
+<td>训练索引决策力</td>
+</tr>
+<tr>
+<td>表结构评审</td>
+<td>小组讨论</td>
+<td>5分钟</td>
+<td>培养评审与协作能力</td>
+</tr>
+<tr>
+<td>验证查询编写</td>
+<td>个人练习</td>
+<td>2分钟</td>
+<td>巩固外键JOIN查询</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="九课程思政设计">九、课程思政设计</h2>
+<h3 id="91-思政主线">9.1 思政主线</h3>
+<p><strong>解决真实问题——好的设计源于对业务的深入理解</strong></p>
+<h3 id="92-融入点">9.2 融入点</h3>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>思政元素</th>
+<th>融入方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程导入</td>
+<td>服务社会、技术向善</td>
+<td>CTTS解决高校实训真实痛点，体会技术价值</td>
+</tr>
+<tr>
+<td>需求分析</td>
+<td>深入业务、求真务实</td>
+<td>强调需求来自真实用户，不能闭门造车</td>
+</tr>
+<tr>
+<td>表结构设计</td>
+<td>严谨规范、精益求精</td>
+<td>字段命名、类型、注释的规范体现工程师品格</td>
+</tr>
+<tr>
+<td>小组评审</td>
+<td>团队协作、批判思维</td>
+<td>互评中学会倾听、质疑、妥协</td>
+</tr>
+<tr>
+<td>反例展示</td>
+<td>戒骄戒躁、脚踏实地</td>
+<td>设计失误案例警示"欲速则不达"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="93-思政小结">9.3 思政小结</h3>
+<p>技术不是冰冷的代码，而是解决真实问题的温暖工具。CTTS的每一张表、每一个字段，都承载着让实训管理更高效的使命。作为未来的工程师，要深入业务、严谨设计、协作共进，用技术创造价值。</p>
+<hr />
+<h2 id="十教学反思与作业">十、教学反思与作业</h2>
+<h3 id="101-教学反思要点">10.1 教学反思要点</h3>
+<ul>
+<li>学生对ER图的理解是否到位？是否需要增加课后绘图练习？</li>
+<li>5张表的设计是否在课堂内完整讲透？时间是否充裕？</li>
+<li>小组评审是否流于形式？是否需要更结构化的评审表？</li>
+<li>索引部分是否讲得太浅？是否需要补充执行计划(EXPLAIN)入门？</li>
+</ul>
+<h3 id="102-课后作业">10.2 课后作业</h3>
+<ol type="1">
+<li><strong>必做</strong>：完善CTTS建表脚本与测试数据，提交.sql文件。</li>
+<li><strong>必做</strong>：思考题——支持"小组任务"的表结构调整方案（文档+ER草图）。</li>
+<li><strong>选做</strong>：用Navicat/DBeaver导出CTTS的ER图截图，标注实体关系。</li>
+<li><strong>预习</strong>：SpringBoot+MyBatis-Plus实体类与Mapper编写基础。</li>
+</ol>
+<h3 id="103-评价方式">10.3 评价方式</h3>
+<table>
+<thead>
+<tr>
+<th>评价项</th>
+<th>占比</th>
+<th>评价主体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课堂参与（互动、实践）</td>
+<td>20%</td>
+<td>教师</td>
+</tr>
+<tr>
+<td>建表SQL脚本（正确性、规范性）</td>
+<td>40%</td>
+<td>教师</td>
+</tr>
+<tr>
+<td>小组评审表现</td>
+<td>20%</td>
+<td>组内互评+教师</td>
+</tr>
+<tr>
+<td>课后作业（思考题）</td>
+<td>20%</td>
+<td>教师</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附录教学资源清单">附录：教学资源清单</h2>
+<ul>
+<li>CTTS需求说明书（见教学资料.md）</li>
+<li>CTTS建表SQL脚本（见教学资料.md）</li>
+<li>CTTS测试数据SQL脚本（见教学资料.md）</li>
+<li>ER图文字描述（见教学资料.md）</li>
+<li>题库（见题库.md）</li>
+</ul>
+<hr />
+<blockquote>
+<p>设计者：Java Web后端开发技术课程组 | 版本：v1.0 | 适用：第18次课</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

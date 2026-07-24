@@ -1,0 +1,608 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>综合项目实践一核心业务接口开发</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 21 次课 · 教学设计</div>
+      <h1>综合项目实践一核心业务接口开发</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 21 次课</span>
+        <span class="hero-chip"><b>主题</b>综合项目实践一核心业务接口开发</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三教学重点与难点">三、教学重点与难点</a>
+<ul>
+<li><a href="#教学重点">教学重点</a></li>
+<li><a href="#教学难点">教学难点</a></li>
+</ul></li>
+<li><a href="#四学情分析">四、学情分析</a>
+<ul>
+</ul></li>
+<li><a href="#五教学方法">五、教学方法</a>
+<ul>
+</ul></li>
+<li><a href="#六教学准备">六、教学准备</a>
+<ul>
+</ul></li>
+<li><a href="#七教学过程与时间分配90-分钟">七、教学过程与时间分配（90 分钟）</a>
+<ul>
+<li><a href="#阶段一任务导入与契约讲解15-分钟">阶段一：任务导入与契约讲解（15 分钟）</a></li>
+<li><a href="#阶段三学生端核心接口实践20-分钟">阶段三：学生端核心接口实践（20 分钟）</a></li>
+<li><a href="#阶段四管理员端接口实践10-分钟">阶段四：管理员端接口实践（10 分钟）</a></li>
+<li><a href="#阶段五apifox-联调与问题复盘15-分钟">阶段五：Apifox 联调与问题复盘（15 分钟）</a></li>
+<li><a href="#阶段六课后拓展5-分钟可延伸至课后">阶段六：课后拓展（5 分钟，可延伸至课后）</a></li>
+</ul></li>
+<li><a href="#八实践任务清单与验收标准">八、实践任务清单与验收标准</a>
+<ul>
+<li><a href="#实践任务清单10-个核心接口">实践任务清单（10 个核心接口）</a></li>
+<li><a href="#验收标准">验收标准</a></li>
+</ul></li>
+<li><a href="#九教学评价">九、教学评价</a>
+<ul>
+</ul></li>
+<li><a href="#十教学反思课后填写">十、教学反思（课后填写）</a>
+<ul>
+</ul></li>
+<li><a href="#附课程思政融入设计">附：课程思政融入设计</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 21 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>课程名称：Java Web 后端开发技术 项目载体：CTTS 校园实训任务管理系统
+课时：2 学时（90 分钟） 课型：实践课（M7 综合项目开发模块）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>Java Web 后端开发技术</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程 / 计算机科学与技术专业本科三年级</td>
+</tr>
+<tr>
+<td>先修内容</td>
+<td>Spring Boot 基础、MyBatis-Plus、JWT 鉴权、统一异常处理、Knife4j
+接口文档</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java 17 + Spring Boot 3.x + MyBatis-Plus + MySQL 8.x + JWT +
+Knife4j</td>
+</tr>
+<tr>
+<td>项目包名</td>
+<td>com.ctts</td>
+</tr>
+<tr>
+<td>教学场地</td>
+<td>机房（每人一机，预装 JDK17、IDEA、MySQL、Apifox）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>掌握多角色（学生 / 教师 / 管理员）业务接口的分层设计方法。</li>
+<li>理解 Controller-Service-Mapper 三层链路在复杂业务中的职责划分。</li>
+<li>掌握多表关联查询在 MyBatis-Plus 中的实现方式（XML 自定义 SQL + DTO
+映射）。</li>
+<li>熟悉接口契约（请求 / 响应 / 状态码）的设计规范。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够独立完成教师端 5 个核心接口的开发与联调。</li>
+<li>能够独立完成学生端 5 个核心接口的开发与联调。</li>
+<li>能够独立完成管理员端用户管理接口的开发。</li>
+<li>能够使用 Apifox 完成接口联调测试，定位并修复常见 Bug。</li>
+<li>能够编写符合规范的参数校验、统一响应、异常处理代码。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li><strong>团队协作精神</strong>：通过接口契约让前后端各司其职，体会"契约精神"在团队协作中的价值。</li>
+<li><strong>工程严谨态度</strong>：参数校验、异常处理体现对用户和系统的负责。</li>
+<li><strong>规范意识</strong>：统一响应结构、统一异常处理体现"行业规范"意识。</li>
+</ol>
+<hr />
+<h2 id="三教学重点与难点">三、教学重点与难点</h2>
+<h3 id="教学重点">教学重点</h3>
+<ol type="1">
+<li>教师端"查看项目下任务列表"多表关联查询的实现。</li>
+<li>教师端"评审提交"业务的事务处理与状态流转。</li>
+<li>学生端"提交任务成果"的参数校验与文件 / 文本处理。</li>
+<li>接口的参数校验（<code>@Valid</code> +
+分组校验）、统一响应（<code>Result&lt;T&gt;</code>）、全局异常处理。</li>
+</ol>
+<h3 id="教学难点">教学难点</h3>
+<ol type="1">
+<li>多角色权限隔离：同一接口不同角色返回不同数据范围。</li>
+<li>多表关联结果的 DTO 映射：MyBatis-Plus 自定义 SQL 与结果集映射。</li>
+<li>接口契约设计：如何让接口既满足当前需求又具备一定扩展性。</li>
+</ol>
+<hr />
+<h2 id="四学情分析">四、学情分析</h2>
+<ol type="1">
+<li>学生已掌握 Spring Boot、MyBatis-Plus、JWT
+基础用法，但缺乏<strong>完整业务链路</strong>的整合经验。</li>
+<li>学生在前期课程中多写"单表 CRUD"，对<strong>多表关联 +
+权限隔离</strong>的复杂场景较生疏。</li>
+<li>部分学生对 Apifox
+联调不熟练，容易出现"代码写完但调不通"的问题。</li>
+<li>学生独立排查 Bug 的能力较弱，需要通过"常见问题排查表"辅助。</li>
+</ol>
+<hr />
+<h2 id="五教学方法">五、教学方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>任务驱动法</td>
+<td>以 CTTS 三角色核心接口为任务，按模块拆解逐步实现</td>
+</tr>
+<tr>
+<td>演示-模仿法</td>
+<td>教师演示一个完整链路（创建实训项目），学生模仿完成其余接口</td>
+</tr>
+<tr>
+<td>小组协作法</td>
+<td>2 人一组，分别承担"教师端 / 学生端"，通过接口契约联调</td>
+</tr>
+<tr>
+<td>问题复盘法</td>
+<td>课堂末尾进行"接口联调问题汇总"复盘，强化排错能力</td>
+</tr>
+<tr>
+<td>思政融入法</td>
+<td>在接口契约讲解中融入"团队协作-各司其职"思政元素</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六教学准备">六、教学准备</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>软件环境</td>
+<td>JDK 17、IntelliJ IDEA 2023.x、MySQL 8.x、Apifox、Git</td>
+</tr>
+<tr>
+<td>项目骨架</td>
+<td><code>ctts</code> 项目已完成第 20
+次课的基础框架（实体、配置、JWT、全局异常）</td>
+</tr>
+<tr>
+<td>数据库脚本</td>
+<td><code>ctts.sql</code>：5 张表（user / project / task / submission /
+role）+ 测试数据</td>
+</tr>
+<tr>
+<td>教学资料</td>
+<td>本课教学资料.md（完整代码）、接口清单表、Apifox 测试集合</td>
+</tr>
+<tr>
+<td>课堂素材</td>
+<td>接口联调问题汇总表（教师预置）、复盘白板</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="七教学过程与时间分配90-分钟">七、教学过程与时间分配（90
+分钟）</h2>
+<h3 id="阶段一任务导入与契约讲解15-分钟">阶段一：任务导入与契约讲解（15
+分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>思政融入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-5 min</td>
+<td>项目回顾</td>
+<td>回顾 CTTS 系统架构、5 张表关系、三角色权限</td>
+<td>检查本地项目能否启动</td>
+<td>—</td>
+</tr>
+<tr>
+<td>5-10 min</td>
+<td>任务发布</td>
+<td>发布本课实践任务清单（10 个接口），讲解验收标准</td>
+<td>记录任务清单</td>
+<td>责任意识：明确"交付"标准</td>
+</tr>
+<tr>
+<td>10-15 min</td>
+<td>接口契约讲解</td>
+<td>讲解统一响应结构
+<code>Result&lt;T&gt;</code>、接口文档规范、前后端契约</td>
+<td>理解契约样例</td>
+<td><strong>团队协作</strong>：契约让前后端各司其职</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="阶段二教师端核心接口演示与实践25-分钟">阶段二：教师端核心接口演示与实践（25
+分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>教师活动</th>
+<th>学生活动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15-25 min</td>
+<td>演示"创建实训项目"完整链路</td>
+<td>演示 ProjectController → ProjectService → ProjectMapper 全链路 +
+参数校验 + 异常处理</td>
+<td>跟随编码，完成创建项目接口</td>
+</tr>
+<tr>
+<td>25-35 min</td>
+<td>演示"查看项目下任务列表"多表关联</td>
+<td>演示自定义 XML SQL + DTO 映射 + Knife4j 测试</td>
+<td>模仿完成"发布任务"接口</td>
+</tr>
+<tr>
+<td>35-40 min</td>
+<td>教师端其余接口实践</td>
+<td>巡回指导</td>
+<td>完成"查看学生提交情况""评审提交"接口</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>实践步骤</strong>：①建 DTO/VO → ②写 Controller → ③写 Service
+→ ④写 Mapper → ⑤Knife4j 验证。 <strong>验收标准</strong>：5
+个教师端接口在 Knife4j 中均能正确返回
+<code>Result&lt;T&gt;</code>，参数校验生效。</p>
+</blockquote>
+<h3 id="阶段三学生端核心接口实践20-分钟">阶段三：学生端核心接口实践（20
+分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>教师活动</th>
+<th>学生活动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>40-50 min</td>
+<td>学生端接口讲解</td>
+<td>讲解 StudentController 的 5
+个接口设计要点（权限隔离、提交校验）</td>
+<td>完成"查看实训项目列表""查看任务详情"</td>
+</tr>
+<tr>
+<td>50-60 min</td>
+<td>学生端提交与评审反馈</td>
+<td>巡回指导，重点讲解"提交任务成果"的校验</td>
+<td>完成"提交任务成果""查看评审反馈""查看个人成绩"</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>验收标准</strong>：5 个学生端接口在 Knife4j
+中均能正确返回，且与教师端数据一致。</p>
+</blockquote>
+<h3 id="阶段四管理员端接口实践10-分钟">阶段四：管理员端接口实践（10
+分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>教师活动</th>
+<th>学生活动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>60-70 min</td>
+<td>管理员端用户管理</td>
+<td>讲解 AdminUserController 的增删改查 + 项目状态管理</td>
+<td>完成管理员端接口</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>验收标准</strong>：管理员端能完成用户增删改查，项目状态管理生效。</p>
+</blockquote>
+<h3 id="阶段五apifox-联调与问题复盘15-分钟">阶段五：Apifox
+联调与问题复盘（15 分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>教师活动</th>
+<th>学生活动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>70-80 min</td>
+<td>Apifox 联调</td>
+<td>指导学生使用 Apifox 完成三角色联调测试用例</td>
+<td>2 人一组互测对方接口</td>
+</tr>
+<tr>
+<td>80-90 min</td>
+<td>问题复盘</td>
+<td>汇总课堂联调问题，对照"常见问题排查表"分析根因</td>
+<td>提交本组联调问题清单</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>课堂互动：项目任务复盘——接口联调问题汇总</strong>
+教师收集各组联调问题，分类（参数 / 权限 / 关联查询 / 事务 /
+文档），现场点评。</p>
+</blockquote>
+<h3 id="阶段六课后拓展5-分钟可延伸至课后">阶段六：课后拓展（5
+分钟，可延伸至课后）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课末</td>
+<td>作业布置</td>
+<td>① 完善未完成接口；② 补充 Apifox 测试用例；③ 预习第 22
+次课"权限精细化控制"</td>
+</tr>
+<tr>
+<td>课后</td>
+<td>拓展任务</td>
+<td>为评审接口增加"批量评审"功能；为提交接口增加文件上传支持</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="八实践任务清单与验收标准">八、实践任务清单与验收标准</h2>
+<h3 id="实践任务清单10-个核心接口">实践任务清单（10 个核心接口）</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>角色</th>
+<th>接口</th>
+<th>难点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>教师</td>
+<td>创建实训项目 <code>POST /api/teacher/projects</code></td>
+<td>参数校验</td>
+</tr>
+<tr>
+<td>2</td>
+<td>教师</td>
+<td>发布任务 <code>POST /api/teacher/projects/{pid}/tasks</code></td>
+<td>关联项目</td>
+</tr>
+<tr>
+<td>3</td>
+<td>教师</td>
+<td>查看项目下任务列表
+<code>GET /api/teacher/projects/{pid}/tasks</code></td>
+<td>多表关联</td>
+</tr>
+<tr>
+<td>4</td>
+<td>教师</td>
+<td>查看学生提交情况
+<code>GET /api/teacher/tasks/{tid}/submissions</code></td>
+<td>多表关联</td>
+</tr>
+<tr>
+<td>5</td>
+<td>教师</td>
+<td>评审提交 <code>PUT /api/teacher/submissions/{sid}/review</code></td>
+<td>状态流转 + 事务</td>
+</tr>
+<tr>
+<td>6</td>
+<td>学生</td>
+<td>查看实训项目列表 <code>GET /api/student/projects</code></td>
+<td>权限隔离</td>
+</tr>
+<tr>
+<td>7</td>
+<td>学生</td>
+<td>查看任务详情 <code>GET /api/student/tasks/{tid}</code></td>
+<td>关联查询</td>
+</tr>
+<tr>
+<td>8</td>
+<td>学生</td>
+<td>提交任务成果
+<code>POST /api/student/tasks/{tid}/submissions</code></td>
+<td>校验 + 唯一性</td>
+</tr>
+<tr>
+<td>9</td>
+<td>学生</td>
+<td>查看评审反馈 <code>GET /api/student/submissions/{sid}</code></td>
+<td>关联查询</td>
+</tr>
+<tr>
+<td>10</td>
+<td>学生</td>
+<td>查看个人成绩 <code>GET /api/student/grades</code></td>
+<td>聚合查询</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>管理员端接口（用户 CRUD + 项目状态管理）作为基础任务，不计入核心 10
+个。</p>
+</blockquote>
+<h3 id="验收标准">验收标准</h3>
+<ol type="1">
+<li>所有接口在 Knife4j 中可访问，文档注释完整。</li>
+<li>所有接口返回统一 <code>Result&lt;T&gt;</code>
+结构，参数校验生效，异常由全局处理器捕获。</li>
+<li>教师端接口 3、4 的多表关联查询结果正确。</li>
+<li>学生端接口 8
+的"唯一性校验"（同一任务未评审前不可重复提交）生效。</li>
+<li>Apifox 联调测试用例全部通过（含正常 + 异常用例）。</li>
+</ol>
+<hr />
+<h2 id="九教学评价">九、教学评价</h2>
+<table>
+<thead>
+<tr>
+<th>评价维度</th>
+<th>评价方式</th>
+<th>占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>接口功能完整性</td>
+<td>课堂验收（Knife4j 演示）</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>代码规范（分层、命名、注释）</td>
+<td>代码审查</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>联调测试通过率</td>
+<td>Apifox 测试报告</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>问题复盘参与度</td>
+<td>课堂互动表现</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>思政领悟（契约 / 协作）</td>
+<td>小组互评 + 教师观察</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="十教学反思课后填写">十、教学反思（课后填写）</h2>
+<ol type="1">
+<li>学生在多表关联查询环节的掌握情况：______</li>
+<li>接口契约讲解是否到位，前后端联调问题数量：______</li>
+<li>课堂时间分配是否合理，哪些环节需要调整：______</li>
+<li>思政元素（团队协作-各司其职）的融入效果：______</li>
+<li>下次课需要重点复习的内容：______</li>
+</ol>
+<hr />
+<h2 id="附课程思政融入设计">附：课程思政融入设计</h2>
+<table>
+<thead>
+<tr>
+<th>思政元素</th>
+<th>融入环节</th>
+<th>融入方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>团队协作-各司其职</td>
+<td>接口契约讲解 + 小组联调</td>
+<td>强调"契约"是前后端协作的基础，每个角色做好本职才能让系统运转</td>
+</tr>
+<tr>
+<td>工程严谨</td>
+<td>参数校验 + 异常处理</td>
+<td>强调"对每一份输入负责"是工程师的基本素养</td>
+</tr>
+<tr>
+<td>规范意识</td>
+<td>统一响应 + 接口文档</td>
+<td>强调行业规范是职业化的体现</td>
+</tr>
+<tr>
+<td>责任意识</td>
+<td>验收标准</td>
+<td>明确"交付"即责任，培养交付意识</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1072 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>项目演示答辩与文档提交</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 24 次课 · 教学资料</div>
+      <h1>项目演示答辩与文档提交</h1>
+      <p>面向学生复习、自学、代码示例与知识图示 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 24 次课</span>
+        <span class="hero-chip"><b>主题</b>项目演示答辩与文档提交</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#目录">目录</a>
+<ul>
+</ul></li>
+<li><a href="#一项目演示指南">一、项目演示指南</a>
+<ul>
+<li><a href="#11-演示流程每组8分钟">1.1 演示流程（每组8分钟）</a></li>
+<li><a href="#12-演示要点">1.2 演示要点</a></li>
+<li><a href="#13-演示脚本模板">1.3 演示脚本模板</a></li>
+<li><a href="#14-时间控制提示">1.4 时间控制提示</a></li>
+</ul></li>
+<li><a href="#二答辩常见问题清单22题">二、答辩常见问题清单（22题）</a>
+<ul>
+<li><a href="#a-架构设计6题">A. 架构设计（6题）</a></li>
+<li><a href="#b-技术选型5题">B. 技术选型（5题）</a></li>
+<li><a href="#c-安全措施5题">C. 安全措施（5题）</a></li>
+<li><a href="#d-性能与规范4题">D. 性能与规范（4题）</a></li>
+<li><a href="#e-项目反思与拓展2题">E. 项目反思与拓展（2题）</a></li>
+</ul></li>
+<li><a href="#三完整交付物清单与模板">三、完整交付物清单与模板</a>
+<ul>
+<li><a href="#31-交付物总清单">3.1 交付物总清单</a></li>
+<li><a href="#32-readmemd模板">3.2 README.md模板</a></li>
+<li><a href="#33-接口文档模板">3.3 接口文档模板</a></li>
+<li><a href="#34-部署说明文档模板">3.4 部署说明文档模板</a></li>
+<li><a href="#35-项目报告模板">3.5 项目报告模板</a></li>
+</ul></li>
+<li><a href="#四评分标准表">四、评分标准表</a>
+<ul>
+<li><a href="#41-总评分构成100分">4.1 总评分构成（100分）</a></li>
+<li><a href="#42-分维度评分细则">4.2 分维度评分细则</a></li>
+<li><a href="#43-评审表模板">4.3 评审表模板</a></li>
+<li><a href="#51-24次课八大模块知识图谱">5.1 24次课八大模块知识图谱</a></li>
+<li><a href="#52-java后端岗位能力图谱">5.2 Java后端岗位能力图谱</a></li>
+<li><a href="#53-后续学习路线建议">5.3 后续学习路线建议</a></li>
+<li><a href="#54-推荐资料">5.4 推荐资料</a></li>
+</ul></li>
+<li><a href="#附学生独立操作checklist">附：学生独立操作Checklist</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 24 次课 <span>｜</span> <strong>文档：</strong>教学资料</p>
+<blockquote>
+<p>课程：Java Web后端开发技术 | 课次：第24次（课程收官） |
+项目：CTTS校园实训任务管理系统 技术栈：Java17 + SpringBoot 3.x +
+MyBatis-Plus + MySQL + JWT + Knife4j + Maven | 包名：com.ctts</p>
+</blockquote>
+<p>本资料以<strong>项目交付为导向</strong>，学生可独立按"准备演示→准备答辩→整理文档→提交交付物"四步操作完成课程收官任务。</p>
+<hr />
+<h2 id="目录">目录</h2>
+<ol type="1">
+<li><a href="#一项目演示指南">项目演示指南</a></li>
+<li><a href="#二答辩常见问题清单22题">答辩常见问题清单（22题）</a></li>
+<li><a href="#三完整交付物清单与模板">完整交付物清单与模板</a></li>
+<li><a href="#四评分标准表">评分标准表</a></li>
+<li><a
+href="#五课程总结知识图谱与能力图谱">课程总结：知识图谱与能力图谱</a></li>
+</ol>
+<hr />
+<h2 id="一项目演示指南">一、项目演示指南</h2>
+<h3 id="11-演示流程每组8分钟">1.1 演示流程（每组8分钟）</h3>
+<div class="visual">
+  <div class="visual-title">图示 1：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line"><span class="tree-token">│</span>  0:00-0:30  组长开场：项目名 + 组员分工 + 技术栈一句话介绍   <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
+<span class="diagram-line"><span class="tree-token">│</span>  0:30-4:30  接口演示（Knife4j实机调试，三角色各2-3个接口）   <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>             ① 学生：登录 <span class="arrow-token">→</span> 查看任务 <span class="arrow-token">→</span> 报名任务                <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>             ② 教师：登录 <span class="arrow-token">→</span> 发布任务 <span class="arrow-token">→</span> 审批报名                <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>             ③ 管理员：登录 <span class="arrow-token">→</span> 用户管理 <span class="arrow-token">→</span> 统计查询              <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
+<span class="diagram-line"><span class="tree-token">│</span>  4:30-6:30  业务流程演示（一条完整链路）                     <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>             学生报名 <span class="arrow-token">→</span> 教师审批 <span class="arrow-token">→</span> 状态流转 <span class="arrow-token">→</span> 管理员统计       <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
+<span class="diagram-line"><span class="tree-token">│</span>  6:30-8:00  技术亮点展示（任选2-3项）                        <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span>             JWT鉴权 / 全局异常 / 分页 / 参数校验 / AOP日志    <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h3 id="12-演示要点">1.2 演示要点</h3>
+<table>
+<thead>
+<tr>
+<th>要点</th>
+<th>说明</th>
+<th>常见问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>环境就绪</strong></td>
+<td>提前启动MySQL、运行项目、打开Knife4j</td>
+<td>现场启动失败→扣演示分</td>
+</tr>
+<tr>
+<td><strong>数据预备</strong></td>
+<td>预置测试账号、演示用任务数据</td>
+<td>空库演示→业务流程不通</td>
+</tr>
+<tr>
+<td><strong>角色切换</strong></td>
+<td>用不同账号登录，展示JWT中role差异</td>
+<td>只演示一个角色→功能不完整</td>
+</tr>
+<tr>
+<td><strong>权限验证</strong></td>
+<td>演示越权访问被拦截（如学生调教师接口）</td>
+<td>不演示权限→核心技术缺失</td>
+</tr>
+<tr>
+<td><strong>异常场景</strong></td>
+<td>故意触发参数校验失败、未登录访问</td>
+<td>只演示成功路径→深度不足</td>
+</tr>
+<tr>
+<td><strong>节奏控制</strong></td>
+<td>每接口30-40秒，不念代码、不读日志</td>
+<td>陷入细节→超时</td>
+</tr>
+<tr>
+<td><strong>团队配合</strong></td>
+<td>一人主讲、一人操作、一人记录问题</td>
+<td>单人包办→团队分低</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-演示脚本模板">1.3 演示脚本模板</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>【开场·30秒】</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>各位老师、同学好，我们是第X组，项目CTTS校园实训任务管理系统。</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>组员：张三（组长/接口开发）、李四（数据库/部署）、王五（文档/测试）。</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>技术栈：Java17 + SpringBoot 3.2 + MyBatis-Plus + MySQL 8 + JWT + Knife4j。</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>【接口演示·4分钟】</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>首先演示学生角色：</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>调用 POST /auth/login，账号student01，获取JWT令牌。</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>携带令牌调用 GET /tasks/page，查看可报名任务列表。</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>调用 POST /tasks/{id}/enroll，完成报名。</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>切换教师角色：</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>教师登录，调用 POST /tasks 发布任务。</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>调用 PUT /enrolls/{id}/approve 审批学生报名。</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>切换管理员角色：</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>管理员登录，调用 GET /admin/users 分页查询用户。</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>调用 GET /admin/stats 查看系统统计。</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>【业务流程·2分钟】</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>完整链路：教师发布任务&quot;Java竞赛报名&quot; → 学生查看并报名 →</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>教师审批通过 → 学生状态变为&quot;已录取&quot; → 管理员统计报名人数。</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>【技术亮点·1.5分钟】</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JWT鉴权：拦截器校验令牌，按role放行。</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>全局异常：统一返回Result<span class="dt">&lt;</span><span class="kw">T</span><span class="dt">&gt;</span>，参数校验失败返回400。</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>分页：MyBatis-Plus分页插件，返回PageResult<span class="dt">&lt;</span><span class="kw">T</span><span class="dt">&gt;</span>。</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>【收尾·30秒】</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>演示完毕，请老师提问。</span></code></pre></div>
+<h3 id="14-时间控制提示">1.4 时间控制提示</h3>
+<table>
+<thead>
+<tr>
+<th>时间节点</th>
+<th>提示动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4:00</td>
+<td>接口演示应已完成学生+教师部分</td>
+</tr>
+<tr>
+<td>6:30</td>
+<td>业务流程演示必须结束</td>
+</tr>
+<tr>
+<td>7:30</td>
+<td>技术亮点收尾，准备转入答辩</td>
+</tr>
+<tr>
+<td>8:00</td>
+<td>主讲人停止演示，否则扣超时分</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二答辩常见问题清单22题">二、答辩常见问题清单（22题）</h2>
+<blockquote>
+<p>覆盖架构设计、技术选型、安全措施、性能优化、代码规范、项目反思六大方向。
+每组答辩随机抽取3-4题，教师可追加1题。</p>
+</blockquote>
+<h3 id="a-架构设计6题">A. 架构设计（6题）</h3>
+<p><strong>Q1.</strong>
+请简述CTTS项目的整体分层架构，各层职责是什么？</p>
+<blockquote>
+<p>参考答案：Controller层（接收请求、参数校验、返回Result）、Service层（业务逻辑、事务控制）、Mapper层（数据访问）、Entity/DTO/VO（数据模型）、common层（统一返回、全局异常、JWT工具、拦截器）。遵循单一职责，Controller不写业务，Service不写SQL。</p>
+</blockquote>
+<p><strong>Q2.</strong>
+为什么采用三层架构而不是MVC单层？多层带来的好处和代价？</p>
+<blockquote>
+<p>参考答案：三层分离关注点，提升可维护性与可测试性；Service可被复用，便于后期扩展为RPC服务。代价是类增多、调用链变长。对CTTS规模而言利大于弊。</p>
+</blockquote>
+<p><strong>Q3.</strong>
+CTTS的包结构com.ctts下如何组织？这样设计的原因？</p>
+<blockquote>
+<p>参考答案：按功能模块组织——controller/service/mapper/entity/dto/vo/common/config/interceptor/exception。按职责而非按角色分包，便于横向扩展新模块。</p>
+</blockquote>
+<p><strong>Q4.</strong>
+统一返回结构Result<T>的设计思路是什么？为什么不直接返回业务对象？</p>
+<blockquote>
+<p>参考答案：Result<T>含code/message/data，统一前后端契约，便于前端按code判断处理；业务对象直接返回无法表达成功/失败语义，且字段不可控。</p>
+</blockquote>
+<p><strong>Q5.</strong> DTO、VO、Entity三者区别？在CTTS中如何使用？</p>
+<blockquote>
+<p>参考答案：Entity对应数据库表（如User）；DTO接收前端请求参数（如UserLoginDTO）；VO返回给前端的视图对象（如UserVO，脱敏密码）。分离避免敏感字段泄露与字段污染。</p>
+</blockquote>
+<p><strong>Q6.</strong> 全局异常处理器如何实现？解决了什么问题？</p>
+<blockquote>
+<p>参考答案：@RestControllerAdvice +
+@ExceptionHandler，捕获BusinessException、MethodArgumentNotValidException等，统一转Result返回。解决异常处理散落、返回结构不一致问题。</p>
+</blockquote>
+<h3 id="b-技术选型5题">B. 技术选型（5题）</h3>
+<p><strong>Q7.</strong> 为什么选SpringBoot 3.x而不是2.x？主要差异？</p>
+<blockquote>
+<p>参考答案：3.x基于Spring 6，要求Java 17+，支持Jakarta EE
+9+（javax→jakarta），性能与原生镜像支持更好，符合最新生态。CTTS用Java
+17，故选3.x。</p>
+</blockquote>
+<p><strong>Q8.</strong>
+MyBatis-Plus相比MyBatis的优势？在CTTS中用了哪些特性？</p>
+<blockquote>
+<p>参考答案：内置CRUD、条件构造器、分页插件、代码生成。CTTS用了BaseMapper通用CRUD、LambdaQueryWrapper条件查询、PaginationInnerInterceptor分页。减少模板代码。</p>
+</blockquote>
+<p><strong>Q9.</strong> 为什么用JWT而不是Session？JWT的缺点是什么？</p>
+<blockquote>
+<p>参考答案：JWT无状态、易横向扩展、前后端分离友好。缺点：令牌签发后无法主动失效（需配合黑名单/短有效期）、payload不宜存敏感信息、令牌体积大于session
+id。</p>
+</blockquote>
+<p><strong>Q10.</strong>
+Knife4j在项目中扮演什么角色？生产环境是否应开放？</p>
+<blockquote>
+<p>参考答案：接口文档与调试工具，基于OpenAPI
+3。开发测试期开放便于联调；生产环境应关闭或加权限，避免接口泄露。</p>
+</blockquote>
+<p><strong>Q11.</strong>
+为什么用Maven而不是Gradle？Maven的核心机制？</p>
+<blockquote>
+<p>参考答案：Maven生态成熟、约定优于配置、依赖管理稳定，适合教学与企业主流。核心机制：POM坐标、依赖传递、生命周期（clean/compile/test/package/install/deploy）。</p>
+</blockquote>
+<h3 id="c-安全措施5题">C. 安全措施（5题）</h3>
+<p><strong>Q12.</strong> 密码在数据库中如何存储？为什么不能明文？</p>
+<blockquote>
+<p>参考答案：BCrypt加密存储（带盐）。明文存储一旦数据库泄露，所有账号暴露；MD5不加盐可被彩虹表破解；BCrypt自带盐且可调强度，更安全。</p>
+</blockquote>
+<p><strong>Q13.</strong> JWT令牌如何生成与校验？拦截器如何实现？</p>
+<blockquote>
+<p>参考答案：登录成功后用HS256签名生成JWT（payload含userId、role、exp）。拦截器HandlerInterceptor在preHandle中解析Authorization头，校验签名与过期时间，将用户信息存入ThreadLocal，放行/拒绝。</p>
+</blockquote>
+<p><strong>Q14.</strong> 如何实现"学生不能调用教师接口"的权限控制？</p>
+<blockquote>
+<p>参考答案：双层控制——①拦截器校验JWT中role是否匹配接口所需角色；②方法级可用自定义注解@RequireRole
++ AOP校验。前者统一拦截，后者灵活细粒度。</p>
+</blockquote>
+<p><strong>Q15.</strong>
+SQL注入风险如何防范？MyBatis-Plus是否天然安全？</p>
+<blockquote>
+<p>参考答案：使用预编译（#{}占位符），MyBatis-Plus的Wrapper也参数化。但若用${}拼接或原生SQL拼接仍有风险。CTTS全程使用Wrapper/#{}，无SQL注入。</p>
+</blockquote>
+<p><strong>Q16.</strong> 接口参数校验如何做？校验失败如何返回？</p>
+<blockquote>
+<p>参考答案：JSR-303注解（@NotBlank/@Email/@Size等）标注在DTO字段，Controller方法参数加@Valid。校验失败触发MethodArgumentNotValidException，全局异常处理器转Result(code=400,
+message=字段错误信息)。</p>
+</blockquote>
+<h3 id="d-性能与规范4题">D. 性能与规范（4题）</h3>
+<p><strong>Q17.</strong> 分页查询如何实现？为什么不能在内存中分页？</p>
+<blockquote>
+<p>参考答案：MyBatis-Plus分页插件PaginationInnerInterceptor，SQL层面LIMIT。内存分页需查全表，数据量大时OOM且慢；SQL分页只取所需行。</p>
+</blockquote>
+<p><strong>Q18.</strong>
+项目中哪些场景适合加Redis缓存？CTTS是否引入？</p>
+<blockquote>
+<p>参考答案：高频读、低频写场景，如任务列表、统计数据。CTTS基础版未引入，可作为扩展点。引入需考虑缓存一致性、过期策略、穿透/击穿/雪崩防护。</p>
+</blockquote>
+<p><strong>Q19.</strong>
+事务用在哪些地方？@Transactional的注意事项？</p>
+<blockquote>
+<p>参考答案：多表写入或需原子性的操作（如审批时更新报名状态+写日志）。注意：只对public方法生效、默认只回滚RuntimeException、同类内调用不生效（代理失效）、传播行为需明确。</p>
+</blockquote>
+<p><strong>Q20.</strong> 代码规范如何保证？用了哪些工具？</p>
+<blockquote>
+<p>参考答案：①阿里巴巴Java开发手册约束命名/注释；②Lombok减少样板代码；③统一返回Result<T>；④Controller/Service/Mapper命名一致；⑤可选：Checkstyle/SpotBugs静态扫描。</p>
+</blockquote>
+<h3 id="e-项目反思与拓展2题">E. 项目反思与拓展（2题）</h3>
+<p><strong>Q21.</strong> 项目中遇到的最大难点是什么？如何解决？</p>
+<blockquote>
+<p>参考答案（示例）：①JWT拦截器与Spring
+Web资源冲突——通过excludePathPatterns放行登录/文档；②MyBatis-Plus分页插件不生效——漏配PaginationInnerInterceptor配置类；③多角色权限粒度——用自定义注解+AOP解耦。学生据实回答。</p>
+</blockquote>
+<p><strong>Q22.</strong> 如果给你2周时间迭代，你会优化哪些方面？</p>
+<blockquote>
+<p>参考答案（示例）：①引入Redis缓存热点数据；②接入refreshToken机制；③增加操作日志AOP；④完善单元测试与集成测试；⑤Docker化部署；⑥前端联调接口契约。</p>
+</blockquote>
+<hr />
+<h2 id="三完整交付物清单与模板">三、完整交付物清单与模板</h2>
+<h3 id="31-交付物总清单">3.1 交付物总清单</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>交付物</th>
+<th>路径要求</th>
+<th>验收标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>源码（含Git仓库）</td>
+<td><code>ctts-backend/</code></td>
+<td>含<code>.git</code>目录与README，<code>mvn clean package</code>成功</td>
+</tr>
+<tr>
+<td>2</td>
+<td>接口文档</td>
+<td><code>docs/api.md</code> 或 Knife4j导出</td>
+<td>三角色全部接口，含请求/响应示例</td>
+</tr>
+<tr>
+<td>3</td>
+<td>数据库脚本</td>
+<td><code>db/schema.sql</code> + <code>db/data.sql</code></td>
+<td>可直接执行建库建表+初始数据</td>
+</tr>
+<tr>
+<td>4</td>
+<td>部署说明</td>
+<td><code>docs/deploy.md</code></td>
+<td>环境要求+步骤+配置+常见问题</td>
+</tr>
+<tr>
+<td>5</td>
+<td>项目报告</td>
+<td><code>docs/report.md</code> 或 PDF</td>
+<td>6章节结构完整，详见模板</td>
+</tr>
+</tbody>
+</table>
+<p>打包命名：<code>CTTS-组号.zip</code>（如
+<code>CTTS-Group03.zip</code>）</p>
+<h3 id="32-readmemd模板">3.2 README.md模板</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># CTTS 校园实训任务管理系统</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 第X组 </span><span class="pp">|</span><span class="at"> 组员：张三、李四、王五 </span><span class="pp">|</span><span class="at"> 完成日期：2026-07-22</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 一、项目介绍</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>CTTS（Campus Training Task System）面向高校实训任务管理场景，支持学生、教师、管理员三角色协作，实现任务发布、报名审批、统计查询的闭环管理。</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## 二、技术栈</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 层次 <span class="pp">|</span> 技术 <span class="pp">|</span> 版本 <span class="pp">|</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|------|------|</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> JDK <span class="pp">|</span> OpenJDK <span class="pp">|</span> 17 <span class="pp">|</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 框架 <span class="pp">|</span> Spring Boot <span class="pp">|</span> 3.2.x <span class="pp">|</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ORM <span class="pp">|</span> MyBatis-Plus <span class="pp">|</span> 3.5.x <span class="pp">|</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 数据库 <span class="pp">|</span> MySQL <span class="pp">|</span> 8.0 <span class="pp">|</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 鉴权 <span class="pp">|</span> jjwt <span class="pp">|</span> 0.12.x <span class="pp">|</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 文档 <span class="pp">|</span> Knife4j <span class="pp">|</span> 4.4.x <span class="pp">|</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 构建 <span class="pp">|</span> Maven <span class="pp">|</span> 3.9+ <span class="pp">|</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## 三、快速开始</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="sc">\`\`\`</span>bash</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1. 导入数据库</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>mysql -uroot -p &lt; db/schema.sql</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>mysql -uroot -p ctts &lt; db/data.sql</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># 2. 修改配置</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu"># 编辑 src/main/resources/application.yml 中数据库连接</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># 3. 编译运行</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>mvn clean package</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>java -jar target/ctts-backend-1.0.0.jar</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. 访问接口文档</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="fu"># http://localhost:8080/doc.html</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="sc">\`\`\`</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## 四、接口列表（核心）</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 模块 <span class="pp">|</span> 方法 <span class="pp">|</span> 路径 <span class="pp">|</span> 说明 <span class="pp">|</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|------|------|------|</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 鉴权 <span class="pp">|</span> POST <span class="pp">|</span> /auth/login <span class="pp">|</span> 登录获取JWT <span class="pp">|</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 学生 <span class="pp">|</span> GET <span class="pp">|</span> /tasks/page <span class="pp">|</span> 分页查询可报名任务 <span class="pp">|</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 学生 <span class="pp">|</span> POST <span class="pp">|</span> /tasks/{id}/enroll <span class="pp">|</span> 报名任务 <span class="pp">|</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 教师 <span class="pp">|</span> POST <span class="pp">|</span> /tasks <span class="pp">|</span> 发布任务 <span class="pp">|</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 教师 <span class="pp">|</span> PUT <span class="pp">|</span> /enrolls/{id}/approve <span class="pp">|</span> 审批报名 <span class="pp">|</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 管理员 <span class="pp">|</span> GET <span class="pp">|</span> /admin/users <span class="pp">|</span> 分页查询用户 <span class="pp">|</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 管理员 <span class="pp">|</span> GET <span class="pp">|</span> /admin/stats <span class="pp">|</span> 系统统计 <span class="pp">|</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## 五、项目结构</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="sc">\`\`\`</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>ctts-backend/</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>├── src/main/java/com/ctts/</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>│   ├── CttsApplication.java        # 启动类</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>│   ├── controller/                 # 控制层</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>│   ├── service/                    # 业务层</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>│   ├── mapper/                     # 数据访问层</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>│   ├── entity/                     # 数据库实体</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>│   ├── dto/                        # 请求参数对象</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>│   ├── vo/                         # 返回视图对象</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>│   ├── common/                     # 通用：Result/异常/JWT</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>│   ├── config/                     # 配置类</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>│   └── interceptor/                # 拦截器</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>├── src/main/resources/</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>│   ├── application.yml</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>│   └── mapper/                     # XML映射</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>├── db/                             # 数据库脚本</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>└── docs/                           # 文档</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="sc">\`\`\`</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## 六、测试账号</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 角色 <span class="pp">|</span> 账号 <span class="pp">|</span> 密码 <span class="pp">|</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|------|------|</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 学生 <span class="pp">|</span> student01 <span class="pp">|</span> 123456 <span class="pp">|</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 教师 <span class="pp">|</span> teacher01 <span class="pp">|</span> 123456 <span class="pp">|</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 管理员 <span class="pp">|</span> admin <span class="pp">|</span> 123456 <span class="pp">|</span></span></code></pre></div>
+<h3 id="33-接口文档模板">3.3 接口文档模板</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># CTTS 接口文档</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 基地址：http://localhost:8080 </span><span class="pp">|</span><span class="at"> 鉴权方式：Bearer Token (JWT)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. 鉴权模块</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1.1 用户登录</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**接口**：POST /auth/login</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**描述**：用户登录并获取JWT令牌</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**权限**：公开</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**请求参数**（JSON Body）：</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="sc">\`\`\`</span>json</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>{ &quot;username&quot;: &quot;student01&quot;, &quot;password&quot;: &quot;123456&quot; }</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="sc">\`\`\`</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**响应示例**（200）：</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="sc">\`\`\`</span>json</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  &quot;code&quot;: 200,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  &quot;message&quot;: &quot;success&quot;,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  &quot;data&quot;: {</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9...&quot;,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    &quot;role&quot;: &quot;STUDENT&quot;,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    &quot;username&quot;: &quot;student01&quot;</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="sc">\`\`\`</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**错误码**：</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>| code | 说明 |</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>|------|------|</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>| 400 | 参数校验失败 |</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>| 401 | 用户名或密码错误 |</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. 学生模块</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>（按上述格式列出全部学生接口）</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. 教师模块</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>（同上）</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. 管理员模块</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>（同上）</span></code></pre></div>
+<h3 id="34-部署说明文档模板">3.4 部署说明文档模板</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># CTTS 部署说明</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## 一、环境要求</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 组件 <span class="pp">|</span> 版本 <span class="pp">|</span> 说明 <span class="pp">|</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|------|------|</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> JDK <span class="pp">|</span> 17+ <span class="pp">|</span> 必须，推荐OpenJDK 17 <span class="pp">|</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Maven <span class="pp">|</span> 3.9+ <span class="pp">|</span> 构建工具 <span class="pp">|</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MySQL <span class="pp">|</span> 8.0+ <span class="pp">|</span> 数据库 <span class="pp">|</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Redis（可选） <span class="pp">|</span> 7.0+ <span class="pp">|</span> 缓存，基础版可不装 <span class="pp">|</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## 二、部署步骤</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**克隆代码**</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>   <span class="sc">\`\`\`</span>bash</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>   git clone &lt;仓库地址&gt; ctts-backend</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>   cd ctts-backend</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>   <span class="sc">\`\`\`</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**初始化数据库**</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>   <span class="sc">\`\`\`</span>bash</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>   mysql -uroot -p &lt; db/schema.sql</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>   mysql -uroot -p ctts &lt; db/data.sql</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>   <span class="sc">\`\`\`</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**修改配置**</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>   编辑 <span class="in">`src/main/resources/application.yml`</span>：</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>   <span class="sc">\`\`\`</span>yaml</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>   spring:</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>     datasource:</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>       url: jdbc<span class="sc">:mysql:</span>//localhost:3306/ctts?useSSL=false&amp;serverTimezone=Asia/Shanghai</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>       username: root</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>       password: 你的密码</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>   ctts:</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>     jwt:</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>       secret: your-256-bit-secret-key</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>       ttl: 3600000</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>   <span class="sc">\`\`\`</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**编译打包**</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>   <span class="sc">\`\`\`</span>bash</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>   mvn clean package -DskipTests</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>   <span class="sc">\`\`\`</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**启动服务**</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>   <span class="sc">\`\`\`</span>bash</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>   java -jar target/ctts-backend-1.0.0.jar</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>   # 或后台运行</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>   nohup java -jar target/ctts-backend-1.0.0.jar &gt; ctts.log 2&gt;&amp;1 &amp;</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>   <span class="sc">\`\`\`</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**验证**</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>   访问 http://localhost:8080/doc.html 出现Knife4j文档即成功。</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## 三、配置说明</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 配置项 <span class="pp">|</span> 默认值 <span class="pp">|</span> 说明 <span class="pp">|</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------|--------|------|</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> server.port <span class="pp">|</span> 8080 <span class="pp">|</span> 服务端口 <span class="pp">|</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> spring.datasource.url <span class="pp">|</span> jdbc<span class="sc">:mysql:</span>//... <span class="pp">|</span> 数据库连接 <span class="pp">|</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ctts.jwt.secret <span class="pp">|</span> - <span class="pp">|</span> JWT签名密钥（生产须替换） <span class="pp">|</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ctts.jwt.ttl <span class="pp">|</span> 3600000 <span class="pp">|</span> 令牌有效期（毫秒） <span class="pp">|</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> logging.level.com.ctts <span class="pp">|</span> INFO <span class="pp">|</span> 日志级别 <span class="pp">|</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 四、常见问题</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 问题 <span class="pp">|</span> 解决方案 <span class="pp">|</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|----------|</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 端口被占用 <span class="pp">|</span> 修改application.yml中server.port <span class="pp">|</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 数据库连接失败 <span class="pp">|</span> 检查url/账号密码、MySQL是否启动 <span class="pp">|</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> JWT签名异常 <span class="pp">|</span> 确认secret长度≥32字符 <span class="pp">|</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 分页不生效 <span class="pp">|</span> 确认MyBatisPlusConfig已注册分页插件 <span class="pp">|</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Knife4j 404 <span class="pp">|</span> 生产环境profile可能禁用文档，检查profile <span class="pp">|</span></span></code></pre></div>
+<h3 id="35-项目报告模板">3.5 项目报告模板</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># CTTS校园实训任务管理系统 项目报告</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 第X组 </span><span class="pp">|</span><span class="at"> 组员：张三、李四、王五 </span><span class="pp">|</span><span class="at"> 指导教师：XXX </span><span class="pp">|</span><span class="at"> 日期：2026-07-22</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 摘要</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>（200字内概括项目背景、技术方案、主要成果）</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## 一、项目背景与目标</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1.1 项目背景</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>（实训任务管理痛点、信息化需求）</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1.2 项目目标</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>（功能目标、技术目标、能力目标）</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1.3 适用范围</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>（高校实训场景、三角色协作）</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 二、技术架构</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.1 技术栈选型</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>（表格列出技术+版本+选型理由）</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.2 分层架构图</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>（文字描述或贴图：Controller-Service-Mapper-DB）</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.3 包结构设计</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>（com.ctts下分包说明）</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2.4 数据库设计</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>（5张表ER关系说明 + 字段说明表）</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## 三、功能清单</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.1 角色与功能矩阵</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 功能模块 <span class="pp">|</span> 学生 <span class="pp">|</span> 教师 <span class="pp">|</span> 管理员 <span class="pp">|</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|------|------|--------|</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 登录鉴权 <span class="pp">|</span> ✓ <span class="pp">|</span> ✓ <span class="pp">|</span> ✓ <span class="pp">|</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 任务查询 <span class="pp">|</span> ✓ <span class="pp">|</span> ✓ <span class="pp">|</span> ✓ <span class="pp">|</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 任务发布 <span class="pp">|</span> ✗ <span class="pp">|</span> ✓ <span class="pp">|</span> ✓ <span class="pp">|</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 报名审批 <span class="pp">|</span> 报名 <span class="pp">|</span> 审批 <span class="pp">|</span> 全量查看 <span class="pp">|</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 用户管理 <span class="pp">|</span> ✗ <span class="pp">|</span> ✗ <span class="pp">|</span> ✓ <span class="pp">|</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 统计查询 <span class="pp">|</span> 个人 <span class="pp">|</span> 任务维度 <span class="pp">|</span> 全局 <span class="pp">|</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.2 核心业务流程</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>（用文字或流程图描述：发布→报名→审批→统计）</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## 四、核心代码说明</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.1 JWT鉴权实现</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>（贴关键代码片段，3-5行，加注释说明）</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.2 全局异常处理</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>（贴@ExceptionHandler代码片段）</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3 分页查询实现</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>（贴MyBatis-Plus分页代码）</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.4 权限拦截器</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>（贴HandlerInterceptor代码）</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## 五、测试结果</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5.1 接口测试</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>（Knife4j调试截图或表格：接口名+请求+响应code）</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5.2 业务流程测试</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>（一条完整链路的测试记录）</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5.3 异常场景测试</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>（参数校验、越权访问、未登录的返回结果）</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## 六、总结与反思</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6.1 项目成果</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>（完成度、技术亮点）</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6.2 不足与改进</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>（未实现功能、性能瓶颈、可优化点）</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6.3 收获与体会</span></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>（技术成长、团队协作、工程思维）</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6.4 后续展望</span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>（Redis缓存、Docker部署、微服务化等）</span></code></pre></div>
+<p><strong>项目报告评分标准</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>权重</th>
+<th>优秀(90-100)</th>
+<th>良好(75-89)</th>
+<th>合格(60-74)</th>
+<th>不合格(&lt;60)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容完整</td>
+<td>30%</td>
+<td>6章节齐全、细节充实</td>
+<td>齐全、细节一般</td>
+<td>章节有缺</td>
+<td>大段缺失</td>
+</tr>
+<tr>
+<td>技术深度</td>
+<td>30%</td>
+<td>代码与原理并重</td>
+<td>偏重描述</td>
+<td>浅层罗列</td>
+<td>无技术分析</td>
+</tr>
+<tr>
+<td>规范排版</td>
+<td>20%</td>
+<td>图表规范、统一</td>
+<td>基本规范</td>
+<td>略乱</td>
+<td>混乱</td>
+</tr>
+<tr>
+<td>反思质量</td>
+<td>20%</td>
+<td>不足分析到位</td>
+<td>有反思</td>
+<td>流于表面</td>
+<td>无反思</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四评分标准表">四、评分标准表</h2>
+<h3 id="41-总评分构成100分">4.1 总评分构成（100分）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>权重</th>
+<th>分值</th>
+<th>评价主体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功能完整度</td>
+<td>25%</td>
+<td>25</td>
+<td>教师 + 互评</td>
+</tr>
+<tr>
+<td>代码规范</td>
+<td>20%</td>
+<td>20</td>
+<td>教师</td>
+</tr>
+<tr>
+<td>技术深度</td>
+<td>20%</td>
+<td>20</td>
+<td>教师</td>
+</tr>
+<tr>
+<td>文档部署</td>
+<td>20%</td>
+<td>20</td>
+<td>教师</td>
+</tr>
+<tr>
+<td>答辩表现</td>
+<td>15%</td>
+<td>15</td>
+<td>教师 + 互评</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-分维度评分细则">4.2 分维度评分细则</h3>
+<h4 id="①-功能完整度25分">① 功能完整度（25分）</h4>
+<table>
+<thead>
+<tr>
+<th>分值区间</th>
+<th>标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22-25</td>
+<td>三角色核心功能齐备，业务流程全通，权限控制正确，含异常场景处理</td>
+</tr>
+<tr>
+<td>18-21</td>
+<td>三角色功能基本齐备，业务流程通畅，权限控制正确</td>
+</tr>
+<tr>
+<td>14-17</td>
+<td>主要功能完成，个别角色功能缺失或权限有漏洞</td>
+</tr>
+<tr>
+<td>10-13</td>
+<td>功能明显不完整，业务流程中断</td>
+</tr>
+<tr>
+<td>&lt;10</td>
+<td>仅完成登录等基础功能</td>
+</tr>
+</tbody>
+</table>
+<h4 id="②-代码规范20分">② 代码规范（20分）</h4>
+<table>
+<thead>
+<tr>
+<th>分值区间</th>
+<th>标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>18-20</td>
+<td>包结构清晰，命名规范，注释合理，统一Result返回，无警告</td>
+</tr>
+<tr>
+<td>15-17</td>
+<td>结构基本规范，命名一致，注释有但不够</td>
+</tr>
+<tr>
+<td>12-14</td>
+<td>结构略乱或命名不一致</td>
+</tr>
+<tr>
+<td>8-11</td>
+<td>规范性差，多处警告</td>
+</tr>
+<tr>
+<td>&lt;8</td>
+<td>结构混乱，难以阅读</td>
+</tr>
+</tbody>
+</table>
+<h4 id="③-技术深度20分">③ 技术深度（20分）</h4>
+<table>
+<thead>
+<tr>
+<th>分值区间</th>
+<th>标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>18-20</td>
+<td>JWT/全局异常/分页/参数校验/AOP日志等深度运用，能讲清原理</td>
+</tr>
+<tr>
+<td>15-17</td>
+<td>主要技术运用得当，原理表述基本准确</td>
+</tr>
+<tr>
+<td>12-14</td>
+<td>技术可用但理解浅</td>
+</tr>
+<tr>
+<td>8-11</td>
+<td>仅会用，不懂原理</td>
+</tr>
+<tr>
+<td>&lt;8</td>
+<td>技术运用错误</td>
+</tr>
+</tbody>
+</table>
+<h4 id="④-文档部署20分">④ 文档部署（20分）</h4>
+<table>
+<thead>
+<tr>
+<th>分值区间</th>
+<th>标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>18-20</td>
+<td>5类交付物齐备且规范，部署可复现，报告质量高</td>
+</tr>
+<tr>
+<td>15-17</td>
+<td>交付物齐备，规范一般</td>
+</tr>
+<tr>
+<td>12-14</td>
+<td>缺1类或质量明显不足</td>
+</tr>
+<tr>
+<td>8-11</td>
+<td>缺2类</td>
+</tr>
+<tr>
+<td>&lt;8</td>
+<td>缺3类以上</td>
+</tr>
+</tbody>
+</table>
+<h4 id="⑤-答辩表现15分">⑤ 答辩表现（15分）</h4>
+<table>
+<thead>
+<tr>
+<th>分值区间</th>
+<th>标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13-15</td>
+<td>表达清晰，回答准确，技术理解到位，团队配合默契</td>
+</tr>
+<tr>
+<td>11-12</td>
+<td>表达清楚，主要问题回答正确</td>
+</tr>
+<tr>
+<td>9-10</td>
+<td>表达一般，部分问题答不上</td>
+</tr>
+<tr>
+<td>6-8</td>
+<td>答辩多处卡壳</td>
+</tr>
+<tr>
+<td>&lt;6</td>
+<td>无法回答多数问题</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-评审表模板">4.3 评审表模板</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>满分</th>
+<th>得分</th>
+<th>评语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功能完整度</td>
+<td>25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>代码规范</td>
+<td>20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>技术深度</td>
+<td>20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>文档部署</td>
+<td>20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>答辩表现</td>
+<td>15</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>100</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>评审人：___________ 日期：___________</p>
+<hr />
+<h2
+id="五课程总结知识图谱与能力图谱">五、课程总结：知识图谱与能力图谱</h2>
+<h3 id="51-24次课八大模块知识图谱">5.1 24次课八大模块知识图谱</h3>
+<div class="visual">
+  <div class="visual-title">图示 2：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">M1 Java Web基础与环境搭建</span>
+<span class="diagram-line">  <span class="tree-token">└</span><span class="tree-token">─</span> HTTP协议、Tomcat、Servlet、Maven、项目骨架</span>
+<span class="diagram-line">M2 SpringBoot快速开发</span>
+<span class="diagram-line">  <span class="tree-token">└</span><span class="tree-token">─</span> 起步依赖、自动配置、配置文件、RESTful接口</span>
+<span class="diagram-line">M3 数据访问层</span>
+<span class="diagram-line">  <span class="tree-token">└</span><span class="tree-token">─</span> MySQL、MyBatis-Plus、CRUD、条件构造器、分页</span>
+<span class="diagram-line">M4 业务层与事务</span>
+<span class="diagram-line">  <span class="tree-token">└</span><span class="tree-token">─</span> Service分层、@Transactional、统一返回、全局异常</span>
+<span class="diagram-line">M5 接口规范与参数校验</span>
+<span class="diagram-line">  <span class="tree-token">└</span><span class="tree-token">─</span> RESTful设计、JSR-303、DTO/VO、Knife4j文档</span>
+<span class="diagram-line">M6 安全与鉴权</span>
+<span class="diagram-line">  <span class="tree-token">└</span><span class="tree-token">─</span> JWT、拦截器、密码加密、角色权限、ThreadLocal</span>
+<span class="diagram-line">M7 测试与日志</span>
+<span class="diagram-line">  <span class="tree-token">└</span><span class="tree-token">─</span> 单元测试、集成测试、Logback、AOP日志</span>
+<span class="diagram-line">M8 项目部署与交付</span>
+<span class="diagram-line">  <span class="tree-token">└</span><span class="tree-token">─</span> 打包部署、Docker化、文档交付、演示答辩</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h3 id="52-java后端岗位能力图谱">5.2 Java后端岗位能力图谱</h3>
+<div class="visual">
+  <div class="visual-title">图示 3：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">                ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line">                <span class="tree-token">│</span>        Java后端工程师能力         <span class="tree-token">│</span></span>
+<span class="diagram-line">                <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+<span class="diagram-line">        ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line">   语言基础层        技术框架层         数据存储层          工程能力层</span>
+<span class="diagram-line">   ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐    ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐    ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐    ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line">   <span class="tree-token">│</span>Java17  <span class="tree-token">│</span>    <span class="tree-token">│</span>Spring    <span class="tree-token">│</span>    <span class="tree-token">│</span>MySQL     <span class="tree-token">│</span>    <span class="tree-token">│</span>Maven/Git <span class="tree-token">│</span></span>
+<span class="diagram-line">   <span class="tree-token">│</span>集合/IO  <span class="tree-token">│</span>    <span class="tree-token">│</span>SpringBoot<span class="tree-token">│</span>    <span class="tree-token">│</span>索引/事务  <span class="tree-token">│</span>    <span class="tree-token">│</span>Linux     <span class="tree-token">│</span></span>
+<span class="diagram-line">   <span class="tree-token">│</span>并发/JVM <span class="tree-token">│</span>    <span class="tree-token">│</span>MyBatis   <span class="tree-token">│</span>    <span class="tree-token">│</span>Redis     <span class="tree-token">│</span>    <span class="tree-token">│</span>Docker    <span class="tree-token">│</span></span>
+<span class="diagram-line">   <span class="tree-token">│</span>反射/泛型<span class="tree-token">│</span>    <span class="tree-token">│</span>SpringMVC <span class="tree-token">│</span>    <span class="tree-token">│</span>SQL优化    <span class="tree-token">│</span>    <span class="tree-token">│</span>CI/CD     <span class="tree-token">│</span></span>
+<span class="diagram-line">   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+<span class="diagram-line">        <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+<span class="diagram-line">                ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line">                <span class="tree-token">│</span>       安全与规范能力              <span class="tree-token">│</span></span>
+<span class="diagram-line">                <span class="tree-token">│</span>  JWT / 加密 / 拦截 / 参数校验    <span class="tree-token">│</span></span>
+<span class="diagram-line">                <span class="tree-token">│</span>  异常处理 / 日志 / 接口文档      <span class="tree-token">│</span></span>
+<span class="diagram-line">                <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h3 id="53-后续学习路线建议">5.3 后续学习路线建议</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>方向</th>
+<th>推荐内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>短期（1-2月）</td>
+<td>深化当前栈</td>
+<td>Spring源码、MyBatis原理、MySQL索引优化、Redis实战</td>
+</tr>
+<tr>
+<td>中期（3-6月）</td>
+<td>扩展生态</td>
+<td>Spring Security、Spring
+Cloud、消息队列(RabbitMQ/Kafka)、ElasticSearch</td>
+</tr>
+<tr>
+<td>长期（6月+）</td>
+<td>走向高级</td>
+<td>分布式、微服务架构、JVM调优、高并发设计、DDD领域驱动设计</td>
+</tr>
+<tr>
+<td>岗位准备</td>
+<td>面试突击</td>
+<td>八股文（JVM/并发/MySQL/Redis/Spring）、算法(LeetCode
+200+)、项目深度复盘</td>
+</tr>
+</tbody>
+</table>
+<h3 id="54-推荐资料">5.4 推荐资料</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>资料</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>书籍</td>
+<td>《深入理解Java虚拟机》《Java并发实战》《Spring
+Boot实战》《高性能MySQL》</td>
+</tr>
+<tr>
+<td>视频</td>
+<td>黑马/尚硅谷SpringBoot+SpringCloud全套、狂神说Java系列</td>
+</tr>
+<tr>
+<td>文档</td>
+<td>Spring官方文档、MyBatis-Plus官方文档、Knife4j文档</td>
+</tr>
+<tr>
+<td>开源项目</td>
+<td>mall、vhr、ruoyi-vue-pro、spring-boot-demo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附学生独立操作checklist">附：学生独立操作Checklist</h2>
+<p>学生可按以下四步独立完成课程收官任务：</p>
+<ul class="task-list">
+<li><label><input
+type="checkbox" /><strong>第一步·准备演示</strong>：本地启动CTTS →
+预备测试数据 → 写演示脚本 → 组内彩排</label></li>
+<li><label><input
+type="checkbox" /><strong>第二步·准备答辩</strong>：阅读22题答辩清单 →
+组内互问 → 标记3-5个不熟题目重点复习</label></li>
+<li><label><input
+type="checkbox" /><strong>第三步·整理文档</strong>：按模板填写README/接口文档/部署说明/项目报告
+→ 核对schema.sql+data.sql → 打包</label></li>
+<li><label><input
+type="checkbox" /><strong>第四步·提交交付物</strong>：核对Checklist 5项
+→ 上传 <code>CTTS-组号.zip</code> → 填写课程反馈</label></li>
+</ul>
+<blockquote>
+<p><strong>职业素养提醒</strong>：完整交付体现工程师的责任与担当。交付不是终点，而是承担的开始。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

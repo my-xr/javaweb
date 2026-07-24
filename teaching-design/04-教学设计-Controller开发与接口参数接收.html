@@ -1,0 +1,567 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Controller开发与接口参数接收</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 04 次课 · 教学设计</div>
+      <h1>Controller开发与接口参数接收</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 04 次课</span>
+        <span class="hero-chip"><b>主题</b>Controller开发与接口参数接收</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务或案例任务">四、项目任务或案例任务</a>
+<ul>
+<li><a href="#贯穿项目任务ctts-实训项目接口模拟数据版">贯穿项目任务：CTTS 实训项目接口（模拟数据版）</a></li>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动-1开场复习与导入5-分钟">互动 1：开场复习与导入（5 分钟）</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习或随堂测验">七、课堂练习或随堂测验</a>
+<ul>
+<li><a href="#随堂练习8-分钟讲解结束前进行">随堂练习（8 分钟，讲解结束前进行）</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+</ul></li>
+<li><a href="#九对应岗位能力或面试考点">九、对应岗位能力或面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 04 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>所属模块：M2 Spring Boot 核心基础 ｜ 课程：《JavaWeb 后端开发技术》
+配套资料：见同文件夹内
+<code>教学资料.md</code>（学生复习资料）、<code>题库.md</code>（78
+题考试题库）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>次序</td>
+<td>第 4 次课（全课程 24 次之第 4）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>理论课</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M2 Spring Boot 核心基础</td>
+</tr>
+<tr>
+<td>教学主题</td>
+<td>Controller 开发与接口参数接收</td>
+</tr>
+<tr>
+<td>先修基础</td>
+<td>第 3 次课（Spring Boot 项目搭建）、Java 面向对象、HTTP 协议基础</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>理解 <code>@RestController</code> 与 <code>@Controller</code>
+的区别，明确
+<code>@RestController = @Controller + @ResponseBody</code>。</li>
+<li>掌握请求映射注解
+<code>@RequestMapping</code>、<code>@GetMapping</code>、<code>@PostMapping</code>、<code>@PutMapping</code>、<code>@DeleteMapping</code>
+的用法及路径参数 <code>{param}</code> 的写法。</li>
+<li>掌握四种参数接收方式：<code>@RequestParam</code>（query
+参数）、<code>@PathVariable</code>（路径参数）、<code>@RequestBody</code>（请求体
+JSON）、<code>@RequestHeader</code>（请求头）。</li>
+<li>理解 Spring Boot 自动将返回对象序列化为 JSON 的机制，能正确返回
+List/Map/自定义对象。</li>
+<li>掌握接口参数设计原则：何时用 query
+参数、何时用路径参数、何时用请求体。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能独立编写一个完整的 Controller
+类，包含类级注解、方法级注解、方法体。</li>
+<li>能根据业务场景选择合适的参数接收方式（@RequestParam / @PathVariable
+/ @RequestBody）。</li>
+<li>能用浏览器、curl 或 Apifox 测试自己编写的接口，并解读返回的
+JSON。</li>
+<li>能为 CTTS 项目实现"查询项目列表""根据 ID
+查询项目""新增项目"三个接口（使用模拟数据）。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li>培养<strong>代码规范意识</strong>——命名、路径、参数的一致性是工程师的基本素养。</li>
+<li>建立<strong>接口设计思维</strong>——好的接口设计让前后端协作顺畅，体现"为他人着想"的工程伦理。</li>
+<li>树立<strong>RESTful
+风格意识</strong>——遵循行业规范而非随意编码，体现专业精神。</li>
+</ol>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<blockquote>
+<p>详细讲解内容见同文件夹 <code>教学资料.md</code>，此处为纲要。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K4-1</td>
+<td>@RestController 与 @Controller 区别</td>
+<td><code>@RestController = @Controller + @ResponseBody</code>；前者返回
+JSON，后者返回视图</td>
+</tr>
+<tr>
+<td>K4-2</td>
+<td>请求映射注解</td>
+<td><code>@RequestMapping</code>
+通用映射；<code>@GetMapping/@PostMapping/@PutMapping/@DeleteMapping</code>
+快捷方法；路径参数 <code>{param}</code></td>
+</tr>
+<tr>
+<td>K4-3</td>
+<td>参数接收注解</td>
+<td><code>@RequestParam</code>（query）、<code>@PathVariable</code>（path）、<code>@RequestBody</code>（body
+JSON）、<code>@RequestHeader</code>（header）</td>
+</tr>
+<tr>
+<td>K4-4</td>
+<td>JSON 返回机制</td>
+<td><code>@ResponseBody</code> 作用；Spring Boot 自动序列化对象为
+JSON；List/Map/自定义对象返回</td>
+</tr>
+<tr>
+<td>K4-5</td>
+<td>接口参数设计原则</td>
+<td>query
+参数用于查询过滤；路径参数用于定位资源；请求体用于提交复杂对象</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务或案例任务">四、项目任务或案例任务</h2>
+<h3 id="贯穿项目任务ctts-实训项目接口模拟数据版">贯穿项目任务：CTTS
+实训项目接口（模拟数据版）</h3>
+<p><strong>本次课任务</strong>：在已搭建的 Spring Boot
+项目中，使用模拟数据（静态 List）实现 CTTS 的三个核心接口。</p>
+<table>
+<thead>
+<tr>
+<th>接口</th>
+<th>方法</th>
+<th>路径</th>
+<th>参数接收方式</th>
+<th>返回</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查询实训项目列表</td>
+<td>GET</td>
+<td><code>/api/projects</code></td>
+<td>无</td>
+<td><code>List&lt;Project&gt;</code></td>
+</tr>
+<tr>
+<td>根据 ID 查询单个项目</td>
+<td>GET</td>
+<td><code>/api/projects/{id}</code></td>
+<td><code>@PathVariable</code></td>
+<td><code>Project</code></td>
+</tr>
+<tr>
+<td>新增项目</td>
+<td>POST</td>
+<td><code>/api/projects</code></td>
+<td><code>@RequestBody</code></td>
+<td><code>Project</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>实现要求</strong>：</p>
+<ol type="1">
+<li>创建 <code>com.ctts.entity.Project</code> 实体类（含
+id、title、description、status、creatorId、createTime 字段）。</li>
+<li>创建 <code>com.ctts.controller.ProjectController</code>
+控制器类，使用 <code>@RestController</code>。</li>
+<li>使用静态 List 模拟数据（暂不连数据库，第 5 次课开始接入
+MyBatis-Plus）。</li>
+<li>用浏览器/curl/Apifox 测试每个接口，观察返回的 JSON。</li>
+</ol>
+<blockquote>
+<p>📌 本节课重点掌握 Controller 层的写法和参数接收，不涉及
+Service/Mapper/数据库。数据用静态 List 模拟，便于聚焦核心知识点。</p>
+</blockquote>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3 id="互动-1开场复习与导入5-分钟">互动 1：开场复习与导入（5
+分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"上次课我们搭建了 Spring Boot
+项目，谁能说说一个后端接口的'骨架'是什么样的？需要哪些注解？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>随机抽取 2~3 名学生口头回答</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>提到
+<code>@RestController</code>、<code>@GetMapping</code>、<code>@RequestMapping</code>
+等关键词</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>肯定正确认知，引出本节课的系统学习——从"能跑起来"到"写得规范"</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="互动-2接口设计讨论--projectid-该用-path-还是-query讲解-k4-5-时">互动
+2：接口设计讨论 — projectId 该用 path 还是 query？（讲解 K4-5 时）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"查询某个具体项目时，projectId 该放在路径里
+<code>/api/projects/{id}</code> 还是放在 query 里
+<code>/api/projects?id=1</code>？两种写法都对吗？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>全班分为两方辩论，每方派代表陈述理由（2 分钟准备）</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>path 派："id 是定位资源的，应该用 path"；query 派："query
+也能传，写法简单"</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>两种都能用，但 RESTful 规范推荐 path——<code>/projects/{id}</code>
+表示"定位到 id 为 xx 的资源"，更语义化；query 一般用于过滤查询（如
+<code>?status=进行中</code>）</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="互动-3新增项目参数讨论--requestbody-还是-requestparam讲解-k4-5-时">互动
+3：新增项目参数讨论 — @RequestBody 还是 @RequestParam？（讲解 K4-5
+时）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"新增项目时，前端要传 title、description、status、creatorId
+等多个字段，该用 <code>@RequestParam</code> 一个个接，还是用
+<code>@RequestBody</code> 接收一个 JSON 对象？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>自由发言，教师板书两种写法的代码对比</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>部分学生认为 <code>@RequestParam</code>
+简单直观；部分学生认为字段多了用 <code>@RequestBody</code> 更清爽</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>字段少（1~2 个）可用
+<code>@RequestParam</code>；字段多或嵌套对象必须用
+<code>@RequestBody</code>。企业开发中 POST/PUT/DELETE 几乎都用
+<code>@RequestBody</code>，对应前端传 JSON</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融入点</td>
+<td>代码规范意识——命名、路径、参数的一致性</td>
+</tr>
+<tr>
+<td>技术关联</td>
+<td><code>@RestController</code>、<code>@GetMapping</code>、<code>@PathVariable</code>
+等注解的使用都有行业惯例；RESTful 风格是全球工程师的共识</td>
+</tr>
+<tr>
+<td>引导问题</td>
+<td>"如果你的接口一会儿用
+<code>/api/getProjectById?id=1</code>，一会儿用
+<code>/api/projects/1</code>，前端同事会有什么感受？维护一年后你自己还看得懂吗？"</td>
+</tr>
+<tr>
+<td>预期价值目标</td>
+<td>树立"接口设计是工程师的基本素养"的意识；培养为协作方着想的工程伦理；遵循规范而非随意编码的专业精神</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>思政自然融入：通过对比"规范接口"与"随意接口"的可读性差异，让学生体会代码规范的价值。</p>
+</blockquote>
+<hr />
+<h2 id="七课堂练习或随堂测验">七、课堂练习或随堂测验</h2>
+<h3 id="随堂练习8-分钟讲解结束前进行">随堂练习（8
+分钟，讲解结束前进行）</h3>
+<p><strong>快速判断（口头作答）</strong>：</p>
+<ol type="1">
+<li><code>@RestController</code> 等价于 <code>@Controller</code> +
+<code>@ResponseBody</code>。（✓）</li>
+<li><code>@GetMapping</code> 只能处理 GET 请求。（✓）</li>
+<li><code>@RequestParam</code> 用于接收路径中的参数。（✗，路径参数用
+<code>@PathVariable</code>）</li>
+<li>POST 请求的参数必须用 <code>@RequestParam</code> 接收。（✗，POST
+的请求体参数用 <code>@RequestBody</code>）</li>
+</ol>
+<p><strong>代码补全（写在纸上或 IDE 中）</strong>：
+补全以下根据项目名模糊查询的接口：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/projects&quot;</span><span class="op">)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/search&quot;</span><span class="op">)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">search</span><span class="op">(</span>________ keyword<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// keyword 应从 query string 接收，如 /api/projects/search?keyword=Java</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">search</span><span class="op">(</span>keyword<span class="op">);</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<blockquote>
+<p>答案：<code>@RequestParam String keyword</code>。详细题目与解析见
+<code>题库.md</code>。此处仅作课堂快速互动，不计分。</p>
+</blockquote>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<ol type="1">
+<li><strong>阅读</strong>：通读同文件夹
+<code>教学资料.md</code>，重点理解四种参数接收方式的使用场景。</li>
+<li><strong>动手实践</strong>：在已搭建的 CTTS
+项目中，实现本次课的三个接口（列表查询、按 ID 查询、新增），并用 curl 或
+Apifox 测试通过。</li>
+<li><strong>拓展练习</strong>：再实现两个接口——<code>PUT /api/projects/{id}</code>
+修改项目、<code>DELETE /api/projects/{id}</code> 删除项目，体会
+<code>@PutMapping</code>、<code>@DeleteMapping</code> 的用法。</li>
+<li><strong>思考题</strong>：如果一个接口既要接收路径参数
+<code>id</code>，又要接收请求体的 JSON
+对象，代码该怎么写？（提示：<code>@PathVariable</code> 与
+<code>@RequestBody</code> 可同时使用）</li>
+<li><strong>面试准备</strong>：能用自己的话回答"@RestController 和
+@Controller 的区别""@RequestParam、@PathVariable、@RequestBody
+三者的区别和使用场景"。</li>
+</ol>
+<hr />
+<h2 id="九对应岗位能力或面试考点">九、对应岗位能力或面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>岗位能力/面试考点</th>
+<th>本次课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@RestController 与 @Controller 区别（面试高频基础题）</td>
+<td>K4-1</td>
+</tr>
+<tr>
+<td>@GetMapping / @PostMapping 等映射注解的使用</td>
+<td>K4-2</td>
+</tr>
+<tr>
+<td>@RequestParam / @PathVariable / @RequestBody
+区别与场景（面试高频）</td>
+<td>K4-3、K4-5</td>
+</tr>
+<tr>
+<td>Spring Boot JSON 序列化机制</td>
+<td>K4-4</td>
+</tr>
+<tr>
+<td>RESTful 接口设计风格（面试常考）</td>
+<td>K4-5</td>
+</tr>
+<tr>
+<td>能独立编写 Controller 接口（岗位核心能力）</td>
+<td>全部知识点</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面试常考"@Controller 和 @RestController 有什么区别""@RequestParam 和
+@PathVariable 有什么区别""POST
+请求的参数怎么接收"等，均属本次课范围。</p>
+</blockquote>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生复习资料</td>
+<td><code>教学资料.md</code>（同文件夹）</td>
+<td>5 个知识点详解 + 完整可运行代码 + curl 测试示例 + 易错点与小结</td>
+</tr>
+<tr>
+<td>考试题库</td>
+<td><code>题库.md</code>（同文件夹）</td>
+<td>78 题（40 选择 + 20 判断 + 10 填空 + 4 论述简答 + 2 程序阅读补全 + 2
+编程接口设计），含答案解析与评分标准</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~10 min</td>
+<td>开场复习 + 第 3 次课回顾 + 本节导入</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>10~25 min</td>
+<td>K4-1：@RestController 与 @Controller 区别</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>25~45 min</td>
+<td>K4-2：请求映射注解（含路径参数 {param}）</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>45~65 min</td>
+<td>K4-3：四种参数接收注解（重点）</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>65~75 min</td>
+<td>K4-4：JSON 返回机制 + 示例演示</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>75~82 min</td>
+<td>K4-5：接口参数设计原则 + 互动讨论</td>
+<td>7 min</td>
+</tr>
+<tr>
+<td>82~87 min</td>
+<td>随堂练习 + 项目任务说明</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>87~90 min</td>
+<td>小结 + 课后任务布置</td>
+<td>3 min</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

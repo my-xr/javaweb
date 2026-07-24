@@ -1,0 +1,1119 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>项目需求分析与数据库设计</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 18 次课 · 教学资料</div>
+      <h1>项目需求分析与数据库设计</h1>
+      <p>面向学生复习、自学、代码示例与知识图示 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 18 次课</span>
+        <span class="hero-chip"><b>主题</b>项目需求分析与数据库设计</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一学习导读">一、学习导读</a>
+<ul>
+<li><a href="#11-本课定位">1.1 本课定位</a></li>
+<li><a href="#12-学习目标">1.2 学习目标</a></li>
+<li><a href="#13-学习建议">1.3 学习建议</a></li>
+<li><a href="#14-前置知识">1.4 前置知识</a></li>
+</ul></li>
+<li><a href="#二知识点详解">二、知识点详解</a>
+<ul>
+<li><a href="#k18-1-需求分析">K18-1 需求分析</a></li>
+<li><a href="#k18-2-数据库设计基础">K18-2 数据库设计基础</a></li>
+<li><a href="#k18-3-ctts五张表详细设计">K18-3 CTTS五张表详细设计</a></li>
+<li><a href="#k18-4-索引基础">K18-4 索引基础</a></li>
+<li><a href="#k18-5-数据库初始化脚本">K18-5 数据库初始化脚本</a></li>
+</ul></li>
+<li><a href="#三综合示例ctts完整设计">三、综合示例：CTTS完整设计</a>
+<ul>
+<li><a href="#31-ctts需求说明书">3.1 CTTS需求说明书</a></li>
+<li><a href="#32-er图文字描述">3.2 ER图文字描述</a></li>
+<li><a href="#33-范式分析说明">3.3 范式分析说明</a></li>
+<li><a href="#34-完整create-table-sql">3.4 完整CREATE TABLE SQL</a></li>
+<li><a href="#35-完整insert测试数据sql">3.5 完整INSERT测试数据SQL</a></li>
+<li><a href="#36-验证查询sql">3.6 验证查询SQL</a></li>
+</ul></li>
+<li><a href="#四拓展阅读">四、拓展阅读</a>
+<ul>
+<li><a href="#41-数据库设计进阶">4.1 数据库设计进阶</a></li>
+<li><a href="#42-索引进阶">4.2 索引进阶</a></li>
+<li><a href="#43-工具推荐">4.3 工具推荐</a></li>
+<li><a href="#44-思辨阅读">4.4 思辨阅读</a></li>
+</ul></li>
+<li><a href="#五思维导图文字版">五、思维导图（文字版）</a>
+<ul>
+</ul></li>
+<li><a href="#六复习思考题">六、复习思考题</a>
+<ul>
+<li><a href="#61-基础题">6.1 基础题</a></li>
+<li><a href="#62-实践题">6.2 实践题</a></li>
+<li><a href="#63-思辨题">6.3 思辨题</a></li>
+<li><a href="#64-思政反思题">6.4 思政反思题</a></li>
+</ul></li>
+<li><a href="#附录学生独立操作清单">附录：学生独立操作清单</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 18 次课 <span>｜</span> <strong>文档：</strong>教学资料</p>
+<blockquote>
+<p>课程模块：M7 综合项目开发 | 项目：CTTS校园实训任务管理系统 |
+技术栈：Java17 + SpringBoot 3.x + MyBatis-Plus + MySQL 8.x |
+包名：com.ctts</p>
+</blockquote>
+<hr />
+<h2 id="一学习导读">一、学习导读</h2>
+<h3 id="11-本课定位">1.1 本课定位</h3>
+<p>本课是M7综合项目开发模块的<strong>第一课</strong>，标志从"零散知识点学习"转向"完整项目实战"。CTTS（Campus
+Training Task
+System，校园实训任务管理系统）将作为后续多次课的主线项目，贯穿数据库设计、后端接口开发、前后端联调、测试部署全流程。</p>
+<p>本课聚焦<strong>项目需求分析与数据库设计</strong>——这是所有后端开发的起点。一个好的数据库设计，决定了系统未来3-5年的可维护性；一个糟糕的设计，会让后续编码、优化、扩展步步维艰。</p>
+<h3 id="12-学习目标">1.2 学习目标</h3>
+<p>读完本资料后，你应当能够：</p>
+<ol type="1">
+<li>独立分析一个中等规模信息系统的功能需求与非功能需求。</li>
+<li>识别实体及其关系，画出ER图并转化为符合第三范式的表结构。</li>
+<li>编写规范的CREATE TABLE
+SQL，合理设置主键、外键、约束、注释、索引。</li>
+<li>编写并执行数据库初始化脚本，插入测试数据并验证外键关系。</li>
+<li>对他人表结构设计进行评审，提出建设性改进意见。</li>
+</ol>
+<h3 id="13-学习建议">1.3 学习建议</h3>
+<ul>
+<li><strong>先理解业务再写代码</strong>：务必先读懂CTTS需求说明书，再进入表设计。</li>
+<li><strong>动手验证</strong>：所有SQL请在MySQL中实际执行，观察结果。</li>
+<li><strong>对比反思</strong>：尝试用不同的方式设计同一张表，比较优劣。</li>
+<li><strong>团队视角</strong>：假设你是后端团队一员，你的表设计要能被同事看懂、用好。</li>
+</ul>
+<h3 id="14-前置知识">1.4 前置知识</h3>
+<ul>
+<li>MySQL基本语法（CREATE/INSERT/SELECT/UPDATE/DELETE）。</li>
+<li>面向对象基础（类、属性、关系）。</li>
+<li>软件工程基本概念（需求、设计、实现）。</li>
+</ul>
+<hr />
+<h2 id="二知识点详解">二、知识点详解</h2>
+<h3 id="k18-1-需求分析">K18-1 需求分析</h3>
+<h4 id="211-需求拆解方法">2.1.1 需求拆解方法</h4>
+<p>需求分析是软件开发的<strong>第一步</strong>，目标是将模糊的用户期望转化为清晰的系统行为描述。常用方法有两种：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>思路</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自顶向下</td>
+<td>系统→模块→功能→用例</td>
+<td>已有明确系统边界，从整体到细节</td>
+</tr>
+<tr>
+<td>自底向上</td>
+<td>用户故事→功能点→模块</td>
+<td>需求零散，从用户场景聚合</td>
+</tr>
+</tbody>
+</table>
+<p>CTTS采用<strong>自顶向下</strong>：系统分为5大模块（用户/项目/任务/提交/评审），每个模块再细化为具体功能点。</p>
+<h4 id="212-功能需求">2.1.2 功能需求</h4>
+<p>功能需求描述系统"做什么"。CTTS功能需求如下：</p>
+<p><strong>模块1 用户管理</strong></p>
+<ul>
+<li>注册：学生/教师/管理员注册账号。</li>
+<li>登录：账号密码登录，返回角色信息。</li>
+<li>权限控制：不同角色可访问的功能不同。</li>
+</ul>
+<p><strong>模块2 项目管理</strong></p>
+<ul>
+<li>教师：创建/编辑/发布实训项目。</li>
+<li>学生：浏览已发布项目、查看详情。</li>
+<li>管理员：审核项目、下线项目。</li>
+</ul>
+<p><strong>模块3 任务管理</strong></p>
+<ul>
+<li>教师：在项目下创建任务、设置截止时间与总分。</li>
+<li>学生：查看任务详情、下载任务附件。</li>
+</ul>
+<p><strong>模块4 提交管理</strong></p>
+<ul>
+<li>学生：提交任务成果（文本+文件），支持多次提交。</li>
+<li>教师：查看提交列表。</li>
+</ul>
+<p><strong>模块5 评审管理</strong></p>
+<ul>
+<li>教师：对学生提交打分、写评语。</li>
+<li>学生：查看评审结果。</li>
+</ul>
+<h4 id="213-非功能需求">2.1.3 非功能需求</h4>
+<p>非功能需求描述系统"做得多好"，常被初学者忽视，却直接决定用户体验。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>CTTS要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安全</td>
+<td>密码加密存储（BCrypt）、SQL注入防护、越权访问拦截</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>列表查询响应&lt;500ms、支持100并发用户</td>
+</tr>
+<tr>
+<td>可用性</td>
+<td>7×24可用、界面易用、操作不超过3步</td>
+</tr>
+<tr>
+<td>可维护性</td>
+<td>代码规范、注释完整、模块解耦</td>
+</tr>
+<tr>
+<td>可扩展性</td>
+<td>支持后续新增"小组任务""自动评测"等功能</td>
+</tr>
+</tbody>
+</table>
+<h4 id="214-用例图基础">2.1.4 用例图基础</h4>
+<p>用例图（Use Case
+Diagram）是UML的一种，用于描述参与者与系统功能的交互。</p>
+<p><strong>三要素</strong>：</p>
+<ul>
+<li>参与者（Actor）：人形图标，表示与系统交互的角色。</li>
+<li>用例（Use Case）：椭圆，表示系统提供的功能。</li>
+<li>关系：连线，参与者与用例的关联。</li>
+</ul>
+<p><strong>CTTS用例图简述</strong>：</p>
+<ul>
+<li>学生参与者 → 登录、浏览项目、查看任务、提交任务、查看评审</li>
+<li>教师参与者 → 登录、创建项目、创建任务、查看提交、评审提交</li>
+<li>管理员参与者 → 登录、用户管理、项目审核、系统管理</li>
+</ul>
+<hr />
+<h3 id="k18-2-数据库设计基础">K18-2 数据库设计基础</h3>
+<h4 id="221-er图概念">2.2.1 ER图概念</h4>
+<p>ER图（Entity-Relationship
+Diagram，实体-关系图）是概念模型的核心工具，用于在设计阶段描述数据结构。</p>
+<p><strong>三要素</strong>：</p>
+<ul>
+<li><strong>实体（Entity）</strong>：客观存在的事物，如用户、项目、任务。矩形表示。</li>
+<li><strong>属性（Attribute）</strong>：实体的特征，如用户的姓名、角色。椭圆表示。</li>
+<li><strong>关系（Relationship）</strong>：实体间的联系，如"教师-创建-项目"。菱形表示。</li>
+</ul>
+<h4 id="222-实体关系">2.2.2 实体关系</h4>
+<p>实体间关系有三种基数：</p>
+<table>
+<thead>
+<tr>
+<th>关系</th>
+<th>说明</th>
+<th>CTTS示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一对一（1:1）</td>
+<td>A对应一个B，B对应一个A</td>
+<td>用户-用户详情（CTTS暂不涉及）</td>
+</tr>
+<tr>
+<td>一对多（1:N）</td>
+<td>A对应多个B，B属于一个A</td>
+<td>项目-任务、任务-提交、提交-评审</td>
+</tr>
+<tr>
+<td>多对多（M:N）</td>
+<td>A对应多个B，B对应多个A</td>
+<td>学生-任务（通过提交表转换）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>重点</strong>：一对多关系在数据库中通过<strong>外键</strong>实现——在"多"的一方加外键引用"一"的一方主键。多对多关系通常拆解为两个一对多，引入中间表。</p>
+<h4 id="223-外键设计">2.2.3 外键设计</h4>
+<p>外键（Foreign Key）是表间关系的保障，作用：</p>
+<ol type="1">
+<li>保证数据完整性：外键值必须引用已存在的主键。</li>
+<li>明确业务语义：task_submission.user_id表示"提交者是谁"。</li>
+<li>支持级联操作：可设置ON DELETE CASCADE级联删除。</li>
+</ol>
+<p><strong>CTTS外键设计原则</strong>：</p>
+<ul>
+<li>所有外键必须显式声明FOREIGN KEY约束。</li>
+<li>外键命名：fk_子表_引用表（如fk_task_project）。</li>
+<li>默认不级联删除，避免误删；按业务需要设置。</li>
+</ul>
+<h4 id="224-范式基础">2.2.4 范式基础</h4>
+<p>范式（Normal Form,
+NF）是关系数据库设计的规范，目标是<strong>减少冗余、消除异常</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>范式</th>
+<th>要求</th>
+<th>反例</th>
+<th>正例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1NF</td>
+<td>字段原子性，不可再分</td>
+<td>项目信息="Java,Python"</td>
+<td>拆为两行或单独表</td>
+</tr>
+<tr>
+<td>2NF</td>
+<td>非主属性完全依赖主键（针对复合主键）</td>
+<td>主键(学号,课程)但姓名只依赖学号</td>
+<td>拆分学生表与选课表</td>
+</tr>
+<tr>
+<td>3NF</td>
+<td>非主属性不传递依赖主键</td>
+<td>表含学号→院系号→院系名</td>
+<td>拆分学生表与院系表</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CTTS范式分析</strong>：</p>
+<ul>
+<li>所有表均满足1NF：每个字段不可再分。</li>
+<li>所有表主键为单列id，天然满足2NF。</li>
+<li>通过外键拆分实体，避免传递依赖，满足3NF。例如：不在task表中冗余存储项目名称，而是通过project_id关联。</li>
+</ul>
+<blockquote>
+<p>工程提示：实际项目中为查询性能可适度反范式（冗余字段），但需明确权衡。CTTS作为教学项目严格遵循3NF。</p>
+</blockquote>
+<hr />
+<h3 id="k18-3-ctts五张表详细设计">K18-3 CTTS五张表详细设计</h3>
+<h4 id="231-表清单与关系">2.3.1 表清单与关系</h4>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>表名</th>
+<th>说明</th>
+<th>关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>sys_user</td>
+<td>用户表</td>
+<td>被多表引用</td>
+</tr>
+<tr>
+<td>2</td>
+<td>training_project</td>
+<td>实训项目表</td>
+<td>属于一个教师（user）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>task</td>
+<td>任务表</td>
+<td>属于一个项目</td>
+</tr>
+<tr>
+<td>4</td>
+<td>task_submission</td>
+<td>提交表</td>
+<td>属于一个任务+一个学生</td>
+</tr>
+<tr>
+<td>5</td>
+<td>task_review</td>
+<td>评审表</td>
+<td>属于一个提交+一个教师</td>
+</tr>
+</tbody>
+</table>
+<p><strong>实体关系链</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 1：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">sys_user(教师) 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N training_project 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N task 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N task_submission 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N task_review</span>
+<span class="diagram-line">sys_user(学生) 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N task_submission</span>
+<span class="diagram-line">sys_user(教师) 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N task_review (作为评审人)</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="232-通用设计规范">2.3.2 通用设计规范</h4>
+<ul>
+<li>主键：id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY</li>
+<li>命名：小写+下划线，表名单数（sys_user例外，保留sys_前缀表示系统表）</li>
+<li>时间字段：create_time、update_time，DATETIME类型，默认CURRENT_TIMESTAMP</li>
+<li>字符集：utf8mb4（支持emoji），排序规则utf8mb4_general_ci</li>
+<li>存储引擎：InnoDB（支持事务与外键）</li>
+<li>每个字段必加COMMENT注释</li>
+</ul>
+<h4 id="233-字段设计原则">2.3.3 字段设计原则</h4>
+<ul>
+<li>ID类：BIGINT，预留扩展空间。</li>
+<li>字符串短文本：VARCHAR(n)，按实际最大长度设。</li>
+<li>字符串长文本：TEXT。</li>
+<li>状态/角色类：TINYINT，注释说明取值含义。</li>
+<li>时间：DATETIME。</li>
+<li>分数：INT，按业务约束范围。</li>
+</ul>
+<hr />
+<h3 id="k18-4-索引基础">K18-4 索引基础</h3>
+<h4 id="241-索引概念">2.4.1 索引概念</h4>
+<p>索引是数据库中用于<strong>加速查询</strong>的数据结构（默认B+树）。类比书籍目录：通过目录快速定位章节，无需逐页翻阅。</p>
+<p><strong>代价</strong>：</p>
+<ul>
+<li>占用额外存储空间。</li>
+<li>写入（INSERT/UPDATE/DELETE）时需同步维护索引，拖慢写入。</li>
+</ul>
+<h4 id="242-索引类型">2.4.2 索引类型</h4>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>关键字</th>
+<th>特点</th>
+<th>CTTS示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主键索引</td>
+<td>PRIMARY KEY</td>
+<td>自动创建，唯一且非空</td>
+<td>所有表的id</td>
+</tr>
+<tr>
+<td>唯一索引</td>
+<td>UNIQUE</td>
+<td>列值唯一，允许一个NULL</td>
+<td>sys_user.username</td>
+</tr>
+<tr>
+<td>普通索引</td>
+<td>INDEX/KEY</td>
+<td>加速查询，无唯一约束</td>
+<td>sys_user.role、training_project.status</td>
+</tr>
+</tbody>
+</table>
+<h4 id="243-何时建索引">2.4.3 何时建索引</h4>
+<p><strong>该建</strong>：</p>
+<ul>
+<li>经常作为WHERE条件的列（如role、status）。</li>
+<li>经常用于JOIN的列（外键列）。</li>
+<li>区分度高（取值多样）的列。</li>
+<li>经常用于ORDER BY/GROUP BY的列。</li>
+</ul>
+<p><strong>不该建</strong>：</p>
+<ul>
+<li>数据量小的表（全表扫描更快）。</li>
+<li>区分度低的列（如性别，只有男/女）。</li>
+<li>写入极频繁、查询少的列。</li>
+<li>频繁更新的列（索引维护成本高）。</li>
+</ul>
+<h4 id="244-ctts索引方案">2.4.4 CTTS索引方案</h4>
+<table>
+<thead>
+<tr>
+<th>表</th>
+<th>索引</th>
+<th>类型</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sys_user</td>
+<td>username</td>
+<td>唯一</td>
+<td>登录按username查询，且需唯一</td>
+</tr>
+<tr>
+<td>sys_user</td>
+<td>role</td>
+<td>普通</td>
+<td>按角色筛选用户</td>
+</tr>
+<tr>
+<td>training_project</td>
+<td>teacher_id</td>
+<td>普通</td>
+<td>按教师查项目</td>
+</tr>
+<tr>
+<td>training_project</td>
+<td>status</td>
+<td>普通</td>
+<td>按状态筛选项目</td>
+</tr>
+<tr>
+<td>task</td>
+<td>project_id</td>
+<td>普通</td>
+<td>按项目查任务</td>
+</tr>
+<tr>
+<td>task_submission</td>
+<td>task_id</td>
+<td>普通</td>
+<td>按任务查提交</td>
+</tr>
+<tr>
+<td>task_submission</td>
+<td>user_id</td>
+<td>普通</td>
+<td>按学生查提交</td>
+</tr>
+<tr>
+<td>task_review</td>
+<td>submission_id</td>
+<td>普通</td>
+<td>按提交查评审</td>
+</tr>
+<tr>
+<td>task_review</td>
+<td>reviewer_id</td>
+<td>普通</td>
+<td>按教师查评审</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="k18-5-数据库初始化脚本">K18-5 数据库初始化脚本</h3>
+<h4 id="251-脚本编写规范">2.5.1 脚本编写规范</h4>
+<ul>
+<li>文件头部注释：数据库名、版本、创建时间、作者。</li>
+<li>顺序：先建库→后建表（注意外键依赖顺序：被引用表先建）。</li>
+<li>每条语句以分号结尾，关键字大写。</li>
+<li>INSERT语句列出全部字段名，避免隐式依赖。</li>
+</ul>
+<h4 id="252-执行流程">2.5.2 执行流程</h4>
+<ol type="1">
+<li>CREATE DATABASE：创建数据库并指定字符集。</li>
+<li>CREATE TABLE：按依赖顺序创建5张表。</li>
+<li>INSERT：插入测试数据（注意外键约束，先插入被引用表的数据）。</li>
+<li>验证：用SELECT JOIN查询确认数据正确关联。</li>
+</ol>
+<h4 id="253-建表依赖顺序">2.5.3 建表依赖顺序</h4>
+<pre><code>sys_user（无外键依赖）
+  ↓
+training_project（依赖sys_user）
+  ↓
+task（依赖training_project）
+  ↓
+task_submission（依赖task、sys_user）
+  ↓
+task_review（依赖task_submission、sys_user）</code></pre>
+<hr />
+<h2 id="三综合示例ctts完整设计">三、综合示例：CTTS完整设计</h2>
+<h3 id="31-ctts需求说明书">3.1 CTTS需求说明书</h3>
+<h4 id="311-项目背景">3.1.1 项目背景</h4>
+<p>高校实训是软件工程等专业的核心实践环节。传统实训管理依赖Excel表格+QQ群通知，存在任务下发混乱、提交进度不透明、评审结果难追溯等问题。CTTS系统旨在通过Web化、流程化的方式，实现实训项目的全生命周期管理。</p>
+<h4 id="312-角色定义">3.1.2 角色定义</h4>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>标识</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生</td>
+<td>role=1</td>
+<td>浏览项目/任务、提交任务成果、查看评审</td>
+</tr>
+<tr>
+<td>教师</td>
+<td>role=2</td>
+<td>创建项目/任务、查看提交、评审打分</td>
+</tr>
+<tr>
+<td>管理员</td>
+<td>role=3</td>
+<td>用户管理、项目审核、系统维护</td>
+</tr>
+</tbody>
+</table>
+<h4 id="313-功能需求清单">3.1.3 功能需求清单</h4>
+<p><strong>FR-01 用户管理</strong></p>
+<ul>
+<li>FR-01-1 用户注册（指定角色）</li>
+<li>FR-01-2 用户登录（账号密码）</li>
+<li>FR-01-3 用户信息查询/修改</li>
+<li>FR-01-4 用户列表（管理员）</li>
+</ul>
+<p><strong>FR-02 项目管理</strong></p>
+<ul>
+<li>FR-02-1 教师创建实训项目</li>
+<li>FR-02-2 教师编辑项目信息</li>
+<li>FR-02-3 发布/下线项目</li>
+<li>FR-02-4 学生浏览项目列表</li>
+<li>FR-02-5 查看项目详情</li>
+</ul>
+<p><strong>FR-03 任务管理</strong></p>
+<ul>
+<li>FR-03-1 教师在项目下创建任务</li>
+<li>FR-03-2 编辑任务</li>
+<li>FR-03-3 设置截止时间与总分</li>
+<li>FR-03-4 学生查看任务列表与详情</li>
+</ul>
+<p><strong>FR-04 提交管理</strong></p>
+<ul>
+<li>FR-04-1 学生提交任务（文本+文件URL）</li>
+<li>FR-04-2 支持多次提交</li>
+<li>FR-04-3 查看提交历史</li>
+<li>FR-04-4 教师查看某任务全部提交</li>
+</ul>
+<p><strong>FR-05 评审管理</strong></p>
+<ul>
+<li>FR-05-1 教师对提交打分+评语</li>
+<li>FR-05-2 支持多次评审（修订评分）</li>
+<li>FR-05-3 学生查看评审结果</li>
+<li>FR-05-4 按项目统计评审成绩</li>
+</ul>
+<h4 id="314-非功能需求清单">3.1.4 非功能需求清单</h4>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>维度</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NFR-01</td>
+<td>安全</td>
+<td>密码BCrypt加密、接口鉴权、SQL注入防护</td>
+</tr>
+<tr>
+<td>NFR-02</td>
+<td>性能</td>
+<td>列表查询&lt;500ms、详情查询&lt;200ms</td>
+</tr>
+<tr>
+<td>NFR-03</td>
+<td>可用性</td>
+<td>7×24可用、操作不超过3步</td>
+</tr>
+<tr>
+<td>NFR-04</td>
+<td>可维护性</td>
+<td>代码符合阿里规约、注释完整</td>
+</tr>
+<tr>
+<td>NFR-05</td>
+<td>可扩展性</td>
+<td>表结构支持后续"小组任务""自动评测"扩展</td>
+</tr>
+</tbody>
+</table>
+<h4 id="315-用例描述示例">3.1.5 用例描述示例</h4>
+<p><strong>用例：学生提交任务</strong></p>
+<ul>
+<li>参与者：学生</li>
+<li>前置条件：学生已登录，任务处于开放状态</li>
+<li>主流程：
+<ol type="1">
+<li>学生进入任务详情页</li>
+<li>点击"提交任务"</li>
+<li>填写提交内容、上传文件（获得file_url）</li>
+<li>系统保存提交记录，状态=待评审</li>
+<li>返回提交成功提示</li>
+</ol></li>
+<li>后置条件：提交记录可被教师查看与评审</li>
+</ul>
+<p><strong>用例：教师评审提交</strong></p>
+<ul>
+<li>参与者：教师</li>
+<li>前置条件：教师已登录，存在待评审提交</li>
+<li>主流程：
+<ol type="1">
+<li>教师进入提交列表</li>
+<li>选择某条提交</li>
+<li>填写评分（0~任务总分）、评语</li>
+<li>系统保存评审记录，提交状态=已评审</li>
+<li>返回评审成功提示</li>
+</ol></li>
+<li>后置条件：学生可查看评审结果</li>
+</ul>
+<hr />
+<h3 id="32-er图文字描述">3.2 ER图文字描述</h3>
+<p>CTTS系统包含5个实体，关系如下：</p>
+<ol type="1">
+<li><p><strong>sys_user（用户）与
+training_project（项目）</strong>：一对多。一个教师（role=2）可创建多个项目，一个项目由一个教师负责。training_project.teacher_id为外键。</p></li>
+<li><p><strong>training_project（项目）与
+task（任务）</strong>：一对多。一个项目包含多个任务，一个任务属于一个项目。task.project_id为外键。</p></li>
+<li><p><strong>sys_user（学生）与
+task_submission（提交）</strong>：一对多。一个学生有多次提交，一条提交属于一个学生。task_submission.user_id为外键。</p></li>
+<li><p><strong>task（任务）与
+task_submission（提交）</strong>：一对多。一个任务收到多条提交，一条提交针对一个任务。task_submission.task_id为外键。</p></li>
+<li><p><strong>task_submission（提交）与
+task_review（评审）</strong>：一对多。一条提交可被多次评审（支持修订），一条评审针对一条提交。task_review.submission_id为外键。</p></li>
+<li><p><strong>sys_user（教师）与
+task_review（评审）</strong>：一对多。一个教师可进行多次评审，一条评审由一个教师完成。task_review.reviewer_id为外键。</p></li>
+</ol>
+<p><strong>实体关系图（文字版）</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 2：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">sys_user(教师) <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> training_project <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> task <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> task_submission <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> task_review</span>
+<span class="diagram-line">sys_user(学生) <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> task_submission</span>
+<span class="diagram-line">sys_user(教师) <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> task_review</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<hr />
+<h3 id="33-范式分析说明">3.3 范式分析说明</h3>
+<p>CTTS五张表均满足第三范式（3NF），分析如下：</p>
+<h4 id="331-sys_user表">3.3.1 sys_user表</h4>
+<ul>
+<li>1NF：每个字段（username、password、real_name等）不可再分。✓</li>
+<li>2NF：主键为单列id，所有非主属性完全依赖id。✓</li>
+<li>3NF：非主属性间无传递依赖（如role不依赖username）。✓</li>
+</ul>
+<h4 id="332-training_project表">3.3.2 training_project表</h4>
+<ul>
+<li>1NF：title、description等字段原子。✓</li>
+<li>2NF：单列主键id。✓</li>
+<li>3NF：不在表中冗余教师姓名（通过teacher_id关联sys_user获取），消除传递依赖。✓</li>
+</ul>
+<h4 id="333-task表">3.3.3 task表</h4>
+<ul>
+<li>1NF：✓</li>
+<li>2NF：✓</li>
+<li>3NF：不冗余项目名称（通过project_id关联），✓</li>
+</ul>
+<h4 id="334-task_submission表">3.3.4 task_submission表</h4>
+<ul>
+<li>1NF：✓</li>
+<li>2NF：✓</li>
+<li>3NF：不冗余任务标题、学生姓名，均通过外键关联获取，✓</li>
+</ul>
+<h4 id="335-task_review表">3.3.5 task_review表</h4>
+<ul>
+<li>1NF：✓</li>
+<li>2NF：✓</li>
+<li>3NF：不冗余提交内容、教师姓名，✓</li>
+</ul>
+<p><strong>反例警示</strong>：若在task_submission中冗余存储"任务标题"，当task表更新标题时，submission中的冗余字段会与task表不一致，产生更新异常。这正是3NF要避免的。</p>
+<hr />
+<h3 id="34-完整create-table-sql">3.4 完整CREATE TABLE SQL</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- ============================================================</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- CTTS 校园实训任务管理系统 数据库初始化脚本</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- 数据库：ctts</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- 字符集：utf8mb4</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- 存储引擎：InnoDB</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">-- 版本：v1.0</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- ============================================================</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">-- 步骤1：创建数据库</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">DATABASE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> ctts;</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">DATABASE</span> ctts <span class="kw">DEFAULT</span> <span class="dt">CHARACTER</span> <span class="kw">SET</span> utf8mb4 COLLATE utf8mb4_general_ci;</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">USE</span> ctts;</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">-- 步骤2：创建表（按外键依赖顺序）</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">-- 表1：sys_user 用户表</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> sys_user;</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> sys_user (</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span>          BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT <span class="kw">COMMENT</span> <span class="st">&#39;用户ID&#39;</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    username    <span class="dt">VARCHAR</span>(<span class="dv">50</span>)  <span class="kw">NOT</span> <span class="kw">NULL</span>                <span class="kw">COMMENT</span> <span class="st">&#39;登录用户名&#39;</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">password</span>    <span class="dt">VARCHAR</span>(<span class="dv">100</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>                <span class="kw">COMMENT</span> <span class="st">&#39;密码（BCrypt加密）&#39;</span>,</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    real_name   <span class="dt">VARCHAR</span>(<span class="dv">50</span>)  <span class="kw">NOT</span> <span class="kw">NULL</span>                <span class="kw">COMMENT</span> <span class="st">&#39;真实姓名&#39;</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">role</span>        TINYINT      <span class="kw">NOT</span> <span class="kw">NULL</span>                <span class="kw">COMMENT</span> <span class="st">&#39;角色：1学生 2教师 3管理员&#39;</span>,</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    phone       <span class="dt">VARCHAR</span>(<span class="dv">20</span>)           <span class="kw">DEFAULT</span> <span class="kw">NULL</span>   <span class="kw">COMMENT</span> <span class="st">&#39;手机号&#39;</span>,</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    email       <span class="dt">VARCHAR</span>(<span class="dv">100</span>)          <span class="kw">DEFAULT</span> <span class="kw">NULL</span>   <span class="kw">COMMENT</span> <span class="st">&#39;邮箱&#39;</span>,</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    status      TINYINT      <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="dv">1</span>      <span class="kw">COMMENT</span> <span class="st">&#39;状态：1正常 0禁用&#39;</span>,</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    create_time DATETIME     <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;创建时间&#39;</span>,</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    update_time DATETIME     <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">ON</span> <span class="kw">UPDATE</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;更新时间&#39;</span>,</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (<span class="kw">id</span>),</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNIQUE</span> <span class="kw">KEY</span> uk_user_username (username),</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">KEY</span> idx_user_role (<span class="kw">role</span>),</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">KEY</span> idx_user_status (status)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>) ENGINE<span class="op">=</span>InnoDB <span class="kw">DEFAULT</span> CHARSET<span class="op">=</span>utf8mb4 <span class="kw">COMMENT</span><span class="op">=</span><span class="st">&#39;用户表&#39;</span>;</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="co">-- 表2：training_project 实训项目表</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> training_project;</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> training_project (</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span>          BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT <span class="kw">COMMENT</span> <span class="st">&#39;项目ID&#39;</span>,</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    title       <span class="dt">VARCHAR</span>(<span class="dv">100</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>                <span class="kw">COMMENT</span> <span class="st">&#39;项目标题&#39;</span>,</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    description <span class="dt">VARCHAR</span>(<span class="dv">500</span>)          <span class="kw">DEFAULT</span> <span class="kw">NULL</span>   <span class="kw">COMMENT</span> <span class="st">&#39;项目描述&#39;</span>,</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    teacher_id  BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span>              <span class="kw">COMMENT</span> <span class="st">&#39;负责教师ID（引用sys_user.id）&#39;</span>,</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    start_date  <span class="dt">DATE</span>          <span class="kw">NOT</span> <span class="kw">NULL</span>               <span class="kw">COMMENT</span> <span class="st">&#39;开始日期&#39;</span>,</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    end_date    <span class="dt">DATE</span>          <span class="kw">NOT</span> <span class="kw">NULL</span>               <span class="kw">COMMENT</span> <span class="st">&#39;结束日期&#39;</span>,</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    status      TINYINT       <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="dv">1</span>     <span class="kw">COMMENT</span> <span class="st">&#39;状态：1待发布 2进行中 3已结束 4已下线&#39;</span>,</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    create_time DATETIME      <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;创建时间&#39;</span>,</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    update_time DATETIME      <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">ON</span> <span class="kw">UPDATE</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;更新时间&#39;</span>,</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (<span class="kw">id</span>),</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="kw">KEY</span> idx_project_teacher (teacher_id),</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">KEY</span> idx_project_status (status),</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    <span class="kw">CONSTRAINT</span> fk_project_teacher <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (teacher_id) <span class="kw">REFERENCES</span> sys_user (<span class="kw">id</span>)</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>) ENGINE<span class="op">=</span>InnoDB <span class="kw">DEFAULT</span> CHARSET<span class="op">=</span>utf8mb4 <span class="kw">COMMENT</span><span class="op">=</span><span class="st">&#39;实训项目表&#39;</span>;</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="co">-- 表3：task 任务表</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> task;</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> task (</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span>          BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT <span class="kw">COMMENT</span> <span class="st">&#39;任务ID&#39;</span>,</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>    project_id  BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span>              <span class="kw">COMMENT</span> <span class="st">&#39;所属项目ID（引用training_project.id）&#39;</span>,</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>    title       <span class="dt">VARCHAR</span>(<span class="dv">100</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>                <span class="kw">COMMENT</span> <span class="st">&#39;任务标题&#39;</span>,</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>    description <span class="dt">VARCHAR</span>(<span class="dv">1000</span>)         <span class="kw">DEFAULT</span> <span class="kw">NULL</span>   <span class="kw">COMMENT</span> <span class="st">&#39;任务描述&#39;</span>,</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>    deadline    DATETIME      <span class="kw">NOT</span> <span class="kw">NULL</span>               <span class="kw">COMMENT</span> <span class="st">&#39;截止时间&#39;</span>,</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    total_score <span class="dt">INT</span>           <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="dv">100</span>   <span class="kw">COMMENT</span> <span class="st">&#39;任务总分&#39;</span>,</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    create_time DATETIME      <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;创建时间&#39;</span>,</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    update_time DATETIME      <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">ON</span> <span class="kw">UPDATE</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;更新时间&#39;</span>,</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (<span class="kw">id</span>),</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    <span class="kw">KEY</span> idx_task_project (project_id),</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    <span class="kw">CONSTRAINT</span> fk_task_project <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (project_id) <span class="kw">REFERENCES</span> training_project (<span class="kw">id</span>)</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>) ENGINE<span class="op">=</span>InnoDB <span class="kw">DEFAULT</span> CHARSET<span class="op">=</span>utf8mb4 <span class="kw">COMMENT</span><span class="op">=</span><span class="st">&#39;任务表&#39;</span>;</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="co">-- 表4：task_submission 提交表</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> task_submission;</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> task_submission (</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span>          BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT <span class="kw">COMMENT</span> <span class="st">&#39;提交ID&#39;</span>,</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>    task_id     BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span>              <span class="kw">COMMENT</span> <span class="st">&#39;任务ID（引用task.id）&#39;</span>,</span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>    user_id     BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span>              <span class="kw">COMMENT</span> <span class="st">&#39;提交学生ID（引用sys_user.id）&#39;</span>,</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>    content     TEXT                  <span class="kw">DEFAULT</span> <span class="kw">NULL</span>   <span class="kw">COMMENT</span> <span class="st">&#39;提交文本内容&#39;</span>,</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>    file_url    <span class="dt">VARCHAR</span>(<span class="dv">255</span>)          <span class="kw">DEFAULT</span> <span class="kw">NULL</span>   <span class="kw">COMMENT</span> <span class="st">&#39;附件URL&#39;</span>,</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>    submit_time DATETIME      <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;提交时间&#39;</span>,</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>    status      TINYINT       <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="dv">1</span>     <span class="kw">COMMENT</span> <span class="st">&#39;状态：1待评审 2已评审&#39;</span>,</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (<span class="kw">id</span>),</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>    <span class="kw">KEY</span> idx_submission_task (task_id),</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>    <span class="kw">KEY</span> idx_submission_user (user_id),</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>    <span class="kw">CONSTRAINT</span> fk_submission_task <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (task_id) <span class="kw">REFERENCES</span> task (<span class="kw">id</span>),</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>    <span class="kw">CONSTRAINT</span> fk_submission_user <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (user_id) <span class="kw">REFERENCES</span> sys_user (<span class="kw">id</span>)</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>) ENGINE<span class="op">=</span>InnoDB <span class="kw">DEFAULT</span> CHARSET<span class="op">=</span>utf8mb4 <span class="kw">COMMENT</span><span class="op">=</span><span class="st">&#39;任务提交表&#39;</span>;</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a><span class="co">-- 表5：task_review 评审表</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> task_review;</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> task_review (</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span>            BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT <span class="kw">COMMENT</span> <span class="st">&#39;评审ID&#39;</span>,</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>    submission_id BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span>            <span class="kw">COMMENT</span> <span class="st">&#39;提交ID（引用task_submission.id）&#39;</span>,</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>    reviewer_id   BIGINT UNSIGNED <span class="kw">NOT</span> <span class="kw">NULL</span>            <span class="kw">COMMENT</span> <span class="st">&#39;评审教师ID（引用sys_user.id）&#39;</span>,</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>    score         <span class="dt">INT</span>           <span class="kw">NOT</span> <span class="kw">NULL</span>             <span class="kw">COMMENT</span> <span class="st">&#39;评分&#39;</span>,</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>    <span class="kw">comment</span>       <span class="dt">VARCHAR</span>(<span class="dv">500</span>)          <span class="kw">DEFAULT</span> <span class="kw">NULL</span>  <span class="kw">COMMENT</span> <span class="st">&#39;评审评语&#39;</span>,</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>    review_time   DATETIME      <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;评审时间&#39;</span>,</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (<span class="kw">id</span>),</span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>    <span class="kw">KEY</span> idx_review_submission (submission_id),</span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>    <span class="kw">KEY</span> idx_review_reviewer (reviewer_id),</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>    <span class="kw">CONSTRAINT</span> fk_review_submission <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (submission_id) <span class="kw">REFERENCES</span> task_submission (<span class="kw">id</span>),</span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>    <span class="kw">CONSTRAINT</span> fk_review_reviewer   <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (reviewer_id)   <span class="kw">REFERENCES</span> sys_user (<span class="kw">id</span>)</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>) ENGINE<span class="op">=</span>InnoDB <span class="kw">DEFAULT</span> CHARSET<span class="op">=</span>utf8mb4 <span class="kw">COMMENT</span><span class="op">=</span><span class="st">&#39;任务评审表&#39;</span>;</span></code></pre></div>
+<hr />
+<h3 id="35-完整insert测试数据sql">3.5 完整INSERT测试数据SQL</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- ============================================================</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- CTTS 测试数据</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- 执行顺序：先执行建表脚本，再执行本脚本</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- ============================================================</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">USE</span> ctts;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">-- 1. 用户数据（3个角色各2人，共6人）</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">-- 密码均为 123456 的 BCrypt 加密串（演示用）</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> sys_user (username, <span class="kw">password</span>, real_name, <span class="kw">role</span>, phone, email, status) <span class="kw">VALUES</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>(<span class="st">&#39;stu001&#39;</span>,   <span class="st">&#39;$2a$10$N9qo8uLOickgx2ZMRZoMy.MrqD3UaIvJbkVh1xOYvVnQ9qX0X1aP2&#39;</span>, <span class="st">&#39;张三&#39;</span>,   <span class="dv">1</span>, <span class="st">&#39;13800138001&#39;</span>, <span class="st">&#39;zhangsan@ctts.edu&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>(<span class="st">&#39;stu002&#39;</span>,   <span class="st">&#39;$2a$10$N9qo8uLOickgx2ZMRZoMy.MrqD3UaIvJbkVh1xOYvVnQ9qX0X1aP2&#39;</span>, <span class="st">&#39;李四&#39;</span>,   <span class="dv">1</span>, <span class="st">&#39;13800138002&#39;</span>, <span class="st">&#39;lisi@ctts.edu&#39;</span>,     <span class="dv">1</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>(<span class="st">&#39;tea001&#39;</span>,   <span class="st">&#39;$2a$10$N9qo8uLOickgx2ZMRZoMy.MrqD3UaIvJbkVh1xOYvVnQ9qX0X1aP2&#39;</span>, <span class="st">&#39;王老师&#39;</span>, <span class="dv">2</span>, <span class="st">&#39;13800138003&#39;</span>, <span class="st">&#39;wang@ctts.edu&#39;</span>,     <span class="dv">1</span>),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>(<span class="st">&#39;tea002&#39;</span>,   <span class="st">&#39;$2a$10$N9qo8uLOickgx2ZMRZoMy.MrqD3UaIvJbkVh1xOYvVnQ9qX0X1aP2&#39;</span>, <span class="st">&#39;赵老师&#39;</span>, <span class="dv">2</span>, <span class="st">&#39;13800138004&#39;</span>, <span class="st">&#39;zhao@ctts.edu&#39;</span>,     <span class="dv">1</span>),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>(<span class="st">&#39;admin001&#39;</span>, <span class="st">&#39;$2a$10$N9qo8uLOickgx2ZMRZoMy.MrqD3UaIvJbkVh1xOYvVnQ9qX0X1aP2&#39;</span>, <span class="st">&#39;管理员甲&#39;</span>, <span class="dv">3</span>, <span class="st">&#39;13800138005&#39;</span>, <span class="st">&#39;admin@ctts.edu&#39;</span>,   <span class="dv">1</span>),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>(<span class="st">&#39;stu003&#39;</span>,   <span class="st">&#39;$2a$10$N9qo8uLOickgx2ZMRZoMy.MrqD3UaIvJbkVh1xOYvVnQ9qX0X1aP2&#39;</span>, <span class="st">&#39;王五&#39;</span>,   <span class="dv">1</span>, <span class="st">&#39;13800138006&#39;</span>, <span class="st">&#39;wangwu@ctts.edu&#39;</span>,   <span class="dv">1</span>);</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">-- 2. 实训项目数据（2个项目）</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> training_project (title, description, teacher_id, start_date, end_date, status) <span class="kw">VALUES</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>(<span class="st">&#39;2025春季Java Web实训&#39;</span>, <span class="st">&#39;基于SpringBoot的CTTS系统开发实训&#39;</span>, <span class="dv">3</span>, <span class="st">&#39;2025-03-01&#39;</span>, <span class="st">&#39;2025-06-30&#39;</span>, <span class="dv">2</span>),</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>(<span class="st">&#39;2025春季数据库实训&#39;</span>,   <span class="st">&#39;MySQL数据库设计与优化实训&#39;</span>,         <span class="dv">4</span>, <span class="st">&#39;2025-03-01&#39;</span>, <span class="st">&#39;2025-06-30&#39;</span>, <span class="dv">2</span>);</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">-- 3. 任务数据（4个任务，分属2个项目）</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> task (project_id, title, description, deadline, total_score) <span class="kw">VALUES</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>, <span class="st">&#39;需求分析与数据库设计&#39;</span>, <span class="st">&#39;完成CTTS需求说明书与5张表设计&#39;</span>,         <span class="st">&#39;2025-03-15 23:59:59&#39;</span>, <span class="dv">100</span>),</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>, <span class="st">&#39;后端接口开发&#39;</span>,         <span class="st">&#39;实现用户/项目/任务/提交/评审的REST接口&#39;</span>, <span class="st">&#39;2025-04-15 23:59:59&#39;</span>, <span class="dv">100</span>),</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>, <span class="st">&#39;前端页面开发&#39;</span>,         <span class="st">&#39;实现CTTS前端页面并与后端联调&#39;</span>,           <span class="st">&#39;2025-05-15 23:59:59&#39;</span>, <span class="dv">100</span>),</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>, <span class="st">&#39;ER图与范式分析&#39;</span>,       <span class="st">&#39;分析给定场景并设计满足3NF的表结构&#39;</span>,      <span class="st">&#39;2025-03-20 23:59:59&#39;</span>, <span class="dv">100</span>);</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="co">-- 4. 提交数据（5条提交）</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> task_submission (task_id, user_id, content, file_url, status) <span class="kw">VALUES</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="st">&#39;已完成CTTS需求分析与5张表设计，详见附件&#39;</span>, <span class="st">&#39;/upload/submission_1_1.zip&#39;</span>, <span class="dv">2</span>),</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">&#39;需求说明书与建表SQL已完成&#39;</span>,              <span class="st">&#39;/upload/submission_2_1.zip&#39;</span>, <span class="dv">2</span>),</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>, <span class="dv">6</span>, <span class="st">&#39;我的设计思路：先画ER图再写SQL&#39;</span>,           <span class="st">&#39;/upload/submission_6_1.zip&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="st">&#39;后端接口开发完成，含Swagger文档&#39;</span>,         <span class="st">&#39;/upload/submission_1_2.zip&#39;</span>, <span class="dv">1</span>),</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="st">&#39;ER图与范式分析报告&#39;</span>,                      <span class="st">&#39;/upload/submission_2_4.pdf&#39;</span>, <span class="dv">2</span>);</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co">-- 5. 评审数据（3条评审）</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="co">-- ------------------------------------------------------------</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> task_review (submission_id, reviewer_id, score, <span class="kw">comment</span>) <span class="kw">VALUES</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">95</span>, <span class="st">&#39;需求分析全面，表结构规范，外键设计合理，建议补充索引说明。&#39;</span>),</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">88</span>, <span class="st">&#39;设计基本正确，但task_submission缺少status字段说明，请补充。&#39;</span>),</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">92</span>, <span class="st">&#39;范式分析清晰，ER图绘制规范，符合3NF要求。&#39;</span>);</span></code></pre></div>
+<hr />
+<h3 id="36-验证查询sql">3.6 验证查询SQL</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">USE</span> ctts;</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- 验证1：查询学生&quot;张三&quot;的所有提交及对应任务和项目</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    su.real_name        <span class="kw">AS</span> student_name,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    ts.submit_time,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    t.title             <span class="kw">AS</span> task_title,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    tp.title            <span class="kw">AS</span> project_title</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> task_submission ts</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> sys_user su  <span class="kw">ON</span> ts.user_id  <span class="op">=</span> su.<span class="kw">id</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> task t        <span class="kw">ON</span> ts.task_id  <span class="op">=</span> t.<span class="kw">id</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> training_project tp <span class="kw">ON</span> t.project_id <span class="op">=</span> tp.<span class="kw">id</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> su.real_name <span class="op">=</span> <span class="st">&#39;张三&#39;</span>;</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">-- 验证2：查询某次提交的评审结果</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    ts.<span class="kw">id</span>               <span class="kw">AS</span> submission_id,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    su.real_name        <span class="kw">AS</span> student_name,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    t.title             <span class="kw">AS</span> task_title,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    tr.score,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    tr.<span class="kw">comment</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    tu.real_name        <span class="kw">AS</span> reviewer_name,</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    tr.review_time</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> task_submission ts</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> task_review tr  <span class="kw">ON</span> tr.submission_id <span class="op">=</span> ts.<span class="kw">id</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> sys_user tu      <span class="kw">ON</span> tr.reviewer_id   <span class="op">=</span> tu.<span class="kw">id</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> task t           <span class="kw">ON</span> ts.task_id       <span class="op">=</span> t.<span class="kw">id</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> sys_user su      <span class="kw">ON</span> ts.user_id       <span class="op">=</span> su.<span class="kw">id</span>;</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co">-- 验证3：统计每个项目的任务数</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    tp.title            <span class="kw">AS</span> project_title,</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(t.<span class="kw">id</span>)         <span class="kw">AS</span> task_count</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> training_project tp</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> task t <span class="kw">ON</span> tp.<span class="kw">id</span> <span class="op">=</span> t.project_id</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> tp.<span class="kw">id</span>, tp.title;</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="co">-- 验证4：统计学生各任务最终成绩</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    su.real_name        <span class="kw">AS</span> student_name,</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    t.title             <span class="kw">AS</span> task_title,</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(tr.score)       <span class="kw">AS</span> final_score</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> task_submission ts</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> task_review tr <span class="kw">ON</span> tr.submission_id <span class="op">=</span> ts.<span class="kw">id</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> task t          <span class="kw">ON</span> ts.task_id       <span class="op">=</span> t.<span class="kw">id</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> sys_user su     <span class="kw">ON</span> ts.user_id       <span class="op">=</span> su.<span class="kw">id</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> su.real_name, t.title;</span></code></pre></div>
+<hr />
+<h2 id="四拓展阅读">四、拓展阅读</h2>
+<h3 id="41-数据库设计进阶">4.1 数据库设计进阶</h3>
+<ul>
+<li><strong>反范式设计</strong>：在高并发读场景下，为减少JOIN，可适度冗余字段。例如在task_submission中冗余student_name，以空间换时间。需权衡一致性维护成本。</li>
+<li><strong>分库分表</strong>：当单表数据超过千万级，考虑按时间或用户ID分表。CTTS作为教学项目暂不需要。</li>
+<li><strong>软删除</strong>：实际项目中常用is_deleted字段逻辑删除，而非物理DELETE，以保留数据追溯能力。</li>
+</ul>
+<h3 id="42-索引进阶">4.2 索引进阶</h3>
+<ul>
+<li><strong>联合索引</strong>：对多列组合查询可建联合索引，遵循"最左前缀"原则。如idx(task_id,
+user_id)可加速"查某学生某任务提交"。</li>
+<li><strong>执行计划</strong>：用EXPLAIN查看SQL是否走索引，是后端工程师必备技能。</li>
+<li><strong>索引失效场景</strong>：函数操作列、隐式类型转换、LIKE
+'%xxx'、OR条件等可能导致索引失效。</li>
+</ul>
+<h3 id="43-工具推荐">4.3 工具推荐</h3>
+<ul>
+<li><strong>Navicat /
+DBeaver</strong>：可视化数据库管理工具，支持ER图导出。</li>
+<li><strong>PowerDesigner / draw.io</strong>：专业ER图绘制工具。</li>
+<li><strong>阿里Java开发手册（嵩山版）</strong>：数据库设计规约章节，必读。</li>
+</ul>
+<h3 id="44-思辨阅读">4.4 思辨阅读</h3>
+<ul>
+<li>《高性能MySQL》第3版——索引与查询优化经典。</li>
+<li>《数据密集型应用系统设计》——分布式数据系统设计思想。</li>
+<li>阿里技术公众号文章《那些年我们踩过的数据库设计坑》。</li>
+</ul>
+<hr />
+<h2 id="五思维导图文字版">五、思维导图（文字版）</h2>
+<div class="visual">
+  <div class="visual-title">图示 3：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">第18次课 项目需求分析与数据库设计</span>
+<span class="diagram-line"><span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> K18-1 需求分析</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 需求拆解方法（自顶向下 / 自底向上）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 功能需求（5大模块）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 用户管理</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 项目管理</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 任务管理</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 提交管理</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 评审管理</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 非功能需求（安全/性能/可用性/可维护/可扩展）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 用例图基础（参与者 / 用例 / 关系）</span>
+<span class="diagram-line"><span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> K18-2 数据库设计基础</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ER图三要素（实体 / 属性 / 关系）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 实体关系（1:1 / 1:N / M:N）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 外键设计（在&quot;多&quot;方加外键）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 范式（1NF原子 / 2NF完全依赖 / 3NF消除传递依赖）</span>
+<span class="diagram-line"><span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> K18-3 CTTS五张表设计</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> sys_user（用户表，被多表引用）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> training_project（项目表，FK<span class="arrow-token">→</span>sys_user）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> task（任务表，FK<span class="arrow-token">→</span>training_project）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> task_submission（提交表，FK<span class="arrow-token">→</span>task + sys_user）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> task_review（评审表，FK<span class="arrow-token">→</span>task_submission + sys_user）</span>
+<span class="diagram-line"><span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> K18-4 索引基础</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 概念（B+树，空间换时间）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 类型（主键 / 唯一 / 普通）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 何时建（查询频繁 / 区分度高 / JOIN列）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 何时不建（数据量小 / 区分度低 / 写入频繁）</span>
+<span class="diagram-line"><span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> K18-5 数据库初始化脚本</span>
+<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CREATE DATABASE（utf8mb4）</span>
+<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CREATE TABLE（按依赖顺序，含外键/注释/索引）</span>
+<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> INSERT（测试数据，先被引用表后引用表）</span>
+<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 验证（JOIN查询确认外键关系）</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<hr />
+<h2 id="六复习思考题">六、复习思考题</h2>
+<h3 id="61-基础题">6.1 基础题</h3>
+<ol type="1">
+<li>简述需求分析中"功能需求"与"非功能需求"的区别，各举CTTS中的一个例子。</li>
+<li>ER图的三要素是什么？一对多关系在数据库中如何实现？</li>
+<li>简述1NF、2NF、3NF的要求，CTTS的表是否满足3NF？说明理由。</li>
+<li>主键索引、唯一索引、普通索引的区别是什么？CTTS中username应该建什么索引？</li>
+<li>外键的作用是什么？为什么建表时要按依赖顺序？</li>
+</ol>
+<h3 id="62-实践题">6.2 实践题</h3>
+<ol start="6" type="1">
+<li>在MySQL中执行本资料的建表脚本与测试数据脚本，运行4条验证查询，截图提交。</li>
+<li>尝试在task_submission表中插入一条task_id不存在的记录，观察外键约束报错，并解释。</li>
+<li>用EXPLAIN观察"SELECT * FROM sys_user WHERE
+role=1"是否走索引，说明原因。</li>
+</ol>
+<h3 id="63-思辨题">6.3 思辨题</h3>
+<ol start="9" type="1">
+<li>如果CTTS后续要支持"小组任务"（一个任务由3-5人小组完成，小组共同提交一次），现有表结构需要如何调整？画出调整后的ER草图。</li>
+<li>有人认为"外键会拖慢写入性能，高并发系统不应使用外键"，你如何看待这一观点？请结合CTTS场景分析。</li>
+</ol>
+<h3 id="64-思政反思题">6.4 思政反思题</h3>
+<ol start="11" type="1">
+<li>"好的设计源于对业务的深入理解"，请结合CTTS的需求分析过程，谈谈你对这句话的理解。作为未来的工程师，如何避免"闭门造车"？</li>
+</ol>
+<hr />
+<h2 id="附录学生独立操作清单">附录：学生独立操作清单</h2>
+<p>完成本课学习后，请按以下步骤独立操作，确认每一步是否完成：</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>操作</th>
+<th>完成标志</th>
+<th>自评</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>阅读CTTS需求说明书，理解5大模块</td>
+<td>能口述每模块核心用例</td>
+<td>□</td>
+</tr>
+<tr>
+<td>2</td>
+<td>在草稿纸画出5个实体的ER草图</td>
+<td>能标注实体关系基数</td>
+<td>□</td>
+</tr>
+<tr>
+<td>3</td>
+<td>编写5张表的CREATE TABLE SQL</td>
+<td>含字段/类型/约束/注释/外键/索引</td>
+<td>□</td>
+</tr>
+<tr>
+<td>4</td>
+<td>在MySQL中执行建表脚本</td>
+<td>5张表创建成功，无报错</td>
+<td>□</td>
+</tr>
+<tr>
+<td>5</td>
+<td>执行INSERT测试数据脚本</td>
+<td>测试数据插入成功</td>
+<td>□</td>
+</tr>
+<tr>
+<td>6</td>
+<td>执行4条验证查询</td>
+<td>查询结果正确，外键关系成立</td>
+<td>□</td>
+</tr>
+<tr>
+<td>7</td>
+<td>参与小组评审，提出1条改进意见</td>
+<td>评审表填写完整</td>
+<td>□</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p>编写者：Java Web后端开发技术课程组 | 版本：v1.0 | 适用：第18次课</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

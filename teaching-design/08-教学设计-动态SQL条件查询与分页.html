@@ -1,0 +1,584 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>动态SQL条件查询与分页</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 08 次课 · 教学设计</div>
+      <h1>动态SQL条件查询与分页</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 08 次课</span>
+        <span class="hero-chip"><b>主题</b>动态SQL条件查询与分页</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务或案例任务">四、项目任务或案例任务</a>
+<ul>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动-1课前-5-分钟回顾开场导入">互动 1：课前 5 分钟回顾（开场导入）</a></li>
+<li><a href="#互动-2两人一组讲解动态-sql-执行流程讲解-k8-1-后">互动 2：两人一组讲解动态 SQL 执行流程（讲解 K8-1 后）</a></li>
+<li><a href="#互动-4分页插件原理讨论讲解-k8-4-后">互动 4：分页插件原理讨论（讲解 K8-4 后）</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习或随堂测验">七、课堂练习或随堂测验</a>
+<ul>
+<li><a href="#随堂练习5-分钟讲解结束前进行">随堂练习（5 分钟，讲解结束前进行）</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+</ul></li>
+<li><a href="#九对应岗位能力或面试考点">九、对应岗位能力或面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 08 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>所属模块：M3 数据访问与持久层 ｜ 课程：《JavaWeb 后端开发技术》
+配套资料：见同文件夹内
+<code>教学资料.md</code>（学生复习资料）、<code>题库.md</code>（78
+题考试题库）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>次序</td>
+<td>第 8 次课（全课程 24 次之第 8）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>理论课</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M3 数据访问与持久层</td>
+</tr>
+<tr>
+<td>教学主题</td>
+<td>动态 SQL、条件查询与分页</td>
+</tr>
+<tr>
+<td>先修基础</td>
+<td>第 7 次课 Mapper 接口与 SQL 映射；MyBatis 基础 CRUD；Spring Boot
+三层架构</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>掌握 MyBatis 动态 SQL 标签
+<code>&lt;if&gt;</code>、<code>&lt;where&gt;</code>、<code>&lt;foreach&gt;</code>、<code>&lt;choose&gt;</code>/<code>&lt;when&gt;</code>/<code>&lt;otherwise&gt;</code>、<code>&lt;set&gt;</code>
+的作用与使用场景。</li>
+<li>理解 <code>&lt;where&gt;</code> 标签自动处理首个 AND/OR
+的原理，<code>&lt;set&gt;</code> 标签自动去除末尾逗号的原理。</li>
+<li>掌握 MyBatis-Plus 条件构造器 <code>QueryWrapper</code>
+的链式调用方法：eq、like、in、between、ge、le、orderByDesc 等。</li>
+<li>理解 <code>LambdaQueryWrapper</code>
+的类型安全特性，能用方法引用（<code>Task::getTitle</code>）替代字符串字段名。</li>
+<li>掌握 MyBatis-Plus 分页插件 <code>MybatisPlusInterceptor</code> +
+<code>PaginationInnerInterceptor</code> 的配置；理解 <code>Page</code>
+对象（current/size）、<code>selectPage</code> 方法、<code>IPage</code>
+返回结果（records/total/pages）。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能根据业务需求编写含
+<code>&lt;if&gt;</code>/<code>&lt;where&gt;</code>/<code>&lt;foreach&gt;</code>
+的 XML 动态 SQL，正确处理多条件查询。</li>
+<li>能使用 <code>QueryWrapper</code> 与 <code>LambdaQueryWrapper</code>
+实现等值、模糊、范围、IN、排序等条件查询。</li>
+<li>能独立配置 MyBatis-Plus 分页插件并实现分页查询接口，正确返回
+records/total/pages 结构。</li>
+<li>能根据给定 XML 动态 SQL 与不同参数，分析最终生成的 SQL 语句。</li>
+<li>能为 CTTS 系统实现任务列表多条件查询 + 分页接口。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li>树立"以用户为中心"的设计理念——分页与条件查询让系统更好用，提升用户体验。</li>
+<li>培养工程严谨性——动态 SQL 中 AND/OR 处理、分页参数边界、SQL
+注入防范等细节决定系统稳定性。</li>
+<li>培养技术选型与对比能力——理解 MyBatis 原生动态 SQL 与 MyBatis-Plus
+条件构造器的差异与适用场景。</li>
+</ol>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<blockquote>
+<p>详细讲解内容见同文件夹 <code>教学资料.md</code>，此处为纲要。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K8-1</td>
+<td>MyBatis 动态 SQL 标签</td>
+<td><code>&lt;if&gt;</code> 条件判断；<code>&lt;where&gt;</code>
+自动处理首部 AND/OR；<code>&lt;foreach&gt;</code> 遍历集合（IN
+查询）；<code>&lt;choose&gt;</code>/<code>&lt;when&gt;</code>/<code>&lt;otherwise&gt;</code>
+多条件分支；<code>&lt;set&gt;</code> 更新时自动去逗号</td>
+</tr>
+<tr>
+<td>K8-2</td>
+<td>QueryWrapper 条件构造器</td>
+<td>链式调用
+eq/like/in/between/ge/le/orderByDesc；字符串字段名；适用于简单条件拼接</td>
+</tr>
+<tr>
+<td>K8-3</td>
+<td>LambdaQueryWrapper</td>
+<td>类型安全；方法引用 <code>Task::getTitle</code>
+替代字符串；编译期检查字段名；重构友好</td>
+</tr>
+<tr>
+<td>K8-4</td>
+<td>分页查询</td>
+<td>配置 <code>MybatisPlusInterceptor</code> +
+<code>PaginationInnerInterceptor</code>；<code>Page</code> 对象
+current/size；<code>selectPage</code> 方法；<code>IPage</code> 返回
+records/total/pages</td>
+</tr>
+<tr>
+<td>K8-5</td>
+<td>排序</td>
+<td><code>orderByAsc</code>/<code>orderByDesc</code>；<code>QueryWrapper.orderBy</code>；多字段排序</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务或案例任务">四、项目任务或案例任务</h2>
+<h3
+id="贯穿项目任务ctts-任务列表多条件查询--分页接口">贯穿项目任务：CTTS
+任务列表多条件查询 + 分页接口</h3>
+<p><strong>本次课任务</strong>：</p>
+<ol type="1">
+<li>教师演示 CTTS
+中"任务列表查询"的真实场景：用户在页面上选择项目、状态、输入标题关键字、点击分页——后端如何根据这些<strong>可选条件</strong>生成正确的
+SQL？</li>
+<li>学生跟随教师实现两个版本的代码：
+<ul>
+<li><strong>版本 A（XML 动态 SQL）</strong>：用
+<code>&lt;if&gt;</code>/<code>&lt;where&gt;</code>/<code>&lt;foreach&gt;</code>
+编写 TaskMapper.xml 多条件查询。</li>
+<li><strong>版本 B（MyBatis-Plus）</strong>：用
+<code>LambdaQueryWrapper</code> + <code>Page</code> 实现相同功能。</li>
+</ul></li>
+<li>配置 MyBatis-Plus 分页插件，测试分页查询返回结构。</li>
+</ol>
+<p><strong>任务背景</strong>（详见 <code>教学资料.md</code>
+综合示例）：</p>
+<ul>
+<li>业务需求：任务列表页支持按项目
+ID、任务状态、标题模糊查询，并支持分页（每页 10 条）。</li>
+<li>涉及表：<code>task</code>（任务表）。</li>
+<li>接口设计：<code>GET /api/tasks?page=1&amp;size=10&amp;projectId=1&amp;status=进行中&amp;title=Java</code>。</li>
+</ul>
+<blockquote>
+<p>📌 本节课是 M3 模块的关键课，将第 7 次课的"单条
+CRUD"扩展到"多条件动态查询 + 分页"，是企业项目中最常见的需求。</p>
+</blockquote>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3 id="互动-1课前-5-分钟回顾开场导入">互动 1：课前 5
+分钟回顾（开场导入）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"上次课我们写了 task 表的单条 CRUD，但如果用户只想看'项目 1
+下状态为进行中、标题含 Java 的任务'，并且要分页显示——你写的 SQL
+还能用吗？问题出在哪？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>自由发言，教师板书关键词</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>提到"条件是可选的""参数个数不固定""拼 SQL 麻烦""要 limit
+分页"等关键词</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>引出"动态 SQL"概念——条件个数不固定时，需要根据参数动态拼接 SQL；引出
+K8-1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-2两人一组讲解动态-sql-执行流程讲解-k8-1-后">互动
+2：两人一组讲解动态 SQL 执行流程（讲解 K8-1 后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动任务</td>
+<td>教师给出一含
+<code>&lt;if&gt;</code>/<code>&lt;where&gt;</code>/<code>&lt;foreach&gt;</code>
+的 XML 动态 SQL 片段，两人一组分析：给定参数 A、参数 B、参数 C
+三种情况，最终生成的 SQL 分别是什么？</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>两人一组，5 分钟讨论 → 抽 2 组口头讲解（每组 2 分钟）</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>能正确判断 <code>&lt;if&gt;</code>
+条件是否成立、<code>&lt;where&gt;</code> 是否去除首个
+AND、<code>&lt;foreach&gt;</code> 生成的 IN 列表</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>重点纠正"忘记 <code>&lt;where&gt;</code> 自动去
+AND""<code>&lt;foreach&gt;</code> 的 collection/open/close/separator
+写错"等典型错误</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="互动-3querywrapper-vs-lambdaquerywrapper-对比讲解-k8-2k8-3-后">互动
+3：QueryWrapper vs LambdaQueryWrapper 对比（讲解 K8-2、K8-3 后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"同一段条件查询，用 QueryWrapper 写 <code>eq("title", ...)</code>
+和用 LambdaQueryWrapper 写
+<code>eq(Task::getTitle, ...)</code>，区别在哪？哪种更安全？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>全班举手投票，少数派陈述理由</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>能提到"字符串容易写错""方法引用能在编译期检查""重构字段名时 Lambda
+更友好"</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>强调 LambdaQueryWrapper 的类型安全优势，企业项目优先选用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-4分页插件原理讨论讲解-k8-4-后">互动
+4：分页插件原理讨论（讲解 K8-4 后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"为什么配置了 <code>PaginationInnerInterceptor</code> 后，调用
+<code>selectPage</code> 就能自动分页？它底层做了什么？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>自由发言，教师补充</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>提到"拦截 SQL""自动加 limit""自动查 count"等</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>引出 MyBatis-Plus 拦截器机制：拦截原始 SQL → 改写为 limit → 额外执行
+count 查询；为后续课程（事务、性能优化）做伏笔</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融入点</td>
+<td>用户体验——分页与条件查询让系统更好用，体现"以用户为中心"的设计理念</td>
+</tr>
+<tr>
+<td>技术关联</td>
+<td>没有分页时一次性返回上万条数据，前端卡顿、数据库压力巨大；没有条件查询时用户无法精准定位数据。这两个功能是后端"为用户着想"的典型体现</td>
+</tr>
+<tr>
+<td>引导问题</td>
+<td>"你用过淘宝、京东的商品列表吗？为什么它们默认一页只显示 40~60
+件商品，还提供大量筛选条件？如果一次性把全部几百万件商品返回给你，会发生什么？"</td>
+</tr>
+<tr>
+<td>预期价值目标</td>
+<td>让学生理解：技术不是冰冷的代码，每一个分页参数、每一个查询条件都是为了让用户用得舒服；后端工程师的价值在于"用技术解决用户真实痛点"</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>思政自然融入，不空喊口号。通过真实场景让学生体会"用户体验"背后的工程思考。</p>
+</blockquote>
+<hr />
+<h2 id="七课堂练习或随堂测验">七、课堂练习或随堂测验</h2>
+<h3 id="随堂练习5-分钟讲解结束前进行">随堂练习（5
+分钟，讲解结束前进行）</h3>
+<p><strong>判断题（口头快速作答）</strong>：</p>
+<ol type="1">
+<li><code>&lt;where&gt;</code> 标签会自动去除首个 AND/OR
+关键字。（✓）</li>
+<li><code>LambdaQueryWrapper</code>
+用字符串字段名构造条件。（✗，用方法引用）</li>
+<li>MyBatis-Plus 分页插件无需配置即可直接使用
+<code>selectPage</code>。（✗，需配置
+<code>MybatisPlusInterceptor</code>）</li>
+<li><code>Page</code> 对象的 <code>current</code>
+表示当前页码，<code>size</code> 表示每页条数。（✓）</li>
+</ol>
+<blockquote>
+<p>详细题目与解析见
+<code>题库.md</code>。此处仅作课堂快速互动，不计分。</p>
+</blockquote>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<ol type="1">
+<li><strong>阅读</strong>：通读同文件夹
+<code>教学资料.md</code>，重点掌握
+<code>&lt;if&gt;</code>/<code>&lt;where&gt;</code>/<code>&lt;foreach&gt;</code>
+标签、<code>QueryWrapper</code>/<code>LambdaQueryWrapper</code>
+方法、分页插件配置与 <code>Page</code> 对象。</li>
+<li><strong>动手实践</strong>：
+<ul>
+<li>在 CTTS 项目中配置 <code>MybatisPlusInterceptor</code>
+分页插件。</li>
+<li>实现 <code>GET /api/tasks/page</code> 分页接口，支持
+<code>projectId</code>、<code>status</code>、<code>title</code>（模糊）三个可选条件。</li>
+<li>用 Apifox 测试不同参数组合（仅 projectId、仅
+title、三者皆有、空参数），验证返回结构。</li>
+</ul></li>
+<li><strong>思考</strong>：对比 XML 动态 SQL 与 LambdaQueryWrapper
+两种实现方式，各列出 3 个优点与 3 个缺点，下次课抽查。</li>
+<li><strong>常见报错排查</strong>：自行制造以下错误并观察报错信息，记录原因与解决办法：
+<ul>
+<li>不配置分页插件直接调 <code>selectPage</code>（无分页效果）。</li>
+<li><code>LambdaQueryWrapper</code> 方法引用写错字段名。</li>
+<li>XML 中 <code>&lt;foreach&gt;</code> 的 <code>collection</code>
+属性写错。</li>
+</ul></li>
+<li><strong>拓展阅读</strong>：了解 MyBatis-Plus
+<code>PaginationInnerInterceptor</code> 的
+<code>overflow</code>、<code>maxLimit</code> 等高级配置项（选做）。</li>
+</ol>
+<hr />
+<h2 id="九对应岗位能力或面试考点">九、对应岗位能力或面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>岗位能力/面试考点</th>
+<th>本次课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MyBatis 动态 SQL 标签（面试高频）</td>
+<td>K8-1</td>
+</tr>
+<tr>
+<td>QueryWrapper 条件构造（企业项目高频）</td>
+<td>K8-2</td>
+</tr>
+<tr>
+<td>LambdaQueryWrapper 优势与类型安全（面试常问）</td>
+<td>K8-3</td>
+</tr>
+<tr>
+<td>分页插件原理与配置（面试常问）</td>
+<td>K8-4</td>
+</tr>
+<tr>
+<td>排序 API 使用</td>
+<td>K8-5</td>
+</tr>
+<tr>
+<td>多条件动态查询的 SQL 拼接问题（实际开发高频）</td>
+<td>K8-1、K8-2</td>
+</tr>
+<tr>
+<td>拦截器机制理解（为后续事务/AOP 学习铺垫）</td>
+<td>K8-4</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面试常考"请说一下 MyBatis 动态 SQL
+有哪些标签""<code>&lt;where&gt;</code> 和 <code>&lt;if&gt;</code>
+的区别""MyBatis-Plus 分页插件原理""LambdaQueryWrapper 相比 QueryWrapper
+的优势"等，均属本次课范围。</p>
+</blockquote>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生复习资料</td>
+<td><code>教学资料.md</code>（同文件夹）</td>
+<td>5 个知识点详解 + task 表建表 SQL + 完整可运行代码 + 思维导图 +
+复习思考题</td>
+</tr>
+<tr>
+<td>考试题库</td>
+<td><code>题库.md</code>（同文件夹）</td>
+<td>78 题（40 选择 + 20 判断 + 10 填空 + 4 论述简答 + 2 程序阅读补全 + 2
+编程接口设计），含答案解析与评分标准</td>
+</tr>
+<tr>
+<td>课程总览</td>
+<td><code>../00 课程设计总览.md</code></td>
+<td>课程整体框架与 24 次课进度</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~10 min</td>
+<td>课前回顾 + 互动 1（动态 SQL 问题导入）</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>10~30 min</td>
+<td>知识点 K8-1：MyBatis 动态 SQL
+标签（<code>&lt;if&gt;</code>/<code>&lt;where&gt;</code>/<code>&lt;foreach&gt;</code>/<code>&lt;choose&gt;</code>/<code>&lt;set&gt;</code>）</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>30~40 min</td>
+<td>互动 2：两人一组讲解动态 SQL 执行流程</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>40~55 min</td>
+<td>知识点 K8-2、K8-3：QueryWrapper + LambdaQueryWrapper + 互动 3</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>55~75 min</td>
+<td>知识点 K8-4、K8-5：分页插件配置 + Page 对象 + 排序 + 互动 4</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>75~85 min</td>
+<td>综合示例：CTTS 任务列表多条件查询 + 分页接口（Controller + Service +
+Mapper 全链路）</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>85~90 min</td>
+<td>随堂练习 + 小结 + 课后任务布置</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>
