@@ -1,0 +1,2275 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maven打包与SpringBoot部署</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 23 次课 · 题库</div>
+      <h1>Maven打包与SpringBoot部署</h1>
+      <p>面向练习、测验、考试与参考解析 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 23 次课</span>
+        <span class="hero-chip"><b>主题</b>Maven打包与SpringBoot部署</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#目录">目录</a>
+<ul>
+</ul></li>
+<li><a href="#一单选题30题">一、单选题（30题）</a>
+<ul>
+<li><a href="#23-单选-01">23-单选-01</a></li>
+<li><a href="#23-单选-02">23-单选-02</a></li>
+<li><a href="#23-单选-03">23-单选-03</a></li>
+<li><a href="#23-单选-04">23-单选-04</a></li>
+<li><a href="#23-单选-05">23-单选-05</a></li>
+<li><a href="#23-单选-06">23-单选-06</a></li>
+<li><a href="#23-单选-07">23-单选-07</a></li>
+<li><a href="#23-单选-08">23-单选-08</a></li>
+<li><a href="#23-单选-09">23-单选-09</a></li>
+<li><a href="#23-单选-10">23-单选-10</a></li>
+<li><a href="#23-单选-11">23-单选-11</a></li>
+<li><a href="#23-单选-12">23-单选-12</a></li>
+<li><a href="#23-单选-13">23-单选-13</a></li>
+<li><a href="#23-单选-14">23-单选-14</a></li>
+<li><a href="#23-单选-15">23-单选-15</a></li>
+<li><a href="#23-单选-16">23-单选-16</a></li>
+<li><a href="#23-单选-17">23-单选-17</a></li>
+<li><a href="#23-单选-18">23-单选-18</a></li>
+<li><a href="#23-单选-19">23-单选-19</a></li>
+<li><a href="#23-单选-20">23-单选-20</a></li>
+<li><a href="#23-单选-21">23-单选-21</a></li>
+<li><a href="#23-单选-22">23-单选-22</a></li>
+<li><a href="#23-单选-23">23-单选-23</a></li>
+<li><a href="#23-单选-24">23-单选-24</a></li>
+<li><a href="#23-单选-25">23-单选-25</a></li>
+<li><a href="#23-单选-26">23-单选-26</a></li>
+<li><a href="#23-单选-27">23-单选-27</a></li>
+<li><a href="#23-单选-28">23-单选-28</a></li>
+<li><a href="#23-单选-29">23-单选-29</a></li>
+<li><a href="#23-单选-30">23-单选-30</a></li>
+</ul></li>
+<li><a href="#二多选题10题">二、多选题（10题）</a>
+<ul>
+<li><a href="#23-多选-01">23-多选-01</a></li>
+<li><a href="#23-多选-02">23-多选-02</a></li>
+<li><a href="#23-多选-03">23-多选-03</a></li>
+<li><a href="#23-多选-04">23-多选-04</a></li>
+<li><a href="#23-多选-05">23-多选-05</a></li>
+<li><a href="#23-多选-06">23-多选-06</a></li>
+<li><a href="#23-多选-07">23-多选-07</a></li>
+<li><a href="#23-多选-08">23-多选-08</a></li>
+<li><a href="#23-多选-09">23-多选-09</a></li>
+<li><a href="#23-多选-10">23-多选-10</a></li>
+</ul></li>
+<li><a href="#三判断题20题">三、判断题（20题）</a>
+<ul>
+<li><a href="#23-判断-01">23-判断-01</a></li>
+<li><a href="#23-判断-02">23-判断-02</a></li>
+<li><a href="#23-判断-03">23-判断-03</a></li>
+<li><a href="#23-判断-04">23-判断-04</a></li>
+<li><a href="#23-判断-05">23-判断-05</a></li>
+<li><a href="#23-判断-06">23-判断-06</a></li>
+<li><a href="#23-判断-07">23-判断-07</a></li>
+<li><a href="#23-判断-08">23-判断-08</a></li>
+<li><a href="#23-判断-09">23-判断-09</a></li>
+<li><a href="#23-判断-10">23-判断-10</a></li>
+<li><a href="#23-判断-11">23-判断-11</a></li>
+<li><a href="#23-判断-12">23-判断-12</a></li>
+<li><a href="#23-判断-13">23-判断-13</a></li>
+<li><a href="#23-判断-14">23-判断-14</a></li>
+<li><a href="#23-判断-15">23-判断-15</a></li>
+<li><a href="#23-判断-16">23-判断-16</a></li>
+<li><a href="#23-判断-17">23-判断-17</a></li>
+<li><a href="#23-判断-18">23-判断-18</a></li>
+<li><a href="#23-判断-19">23-判断-19</a></li>
+<li><a href="#23-判断-20">23-判断-20</a></li>
+</ul></li>
+<li><a href="#四填空题10题">四、填空题（10题）</a>
+<ul>
+<li><a href="#23-填空-01">23-填空-01</a></li>
+<li><a href="#23-填空-02">23-填空-02</a></li>
+<li><a href="#23-填空-03">23-填空-03</a></li>
+<li><a href="#23-填空-04">23-填空-04</a></li>
+<li><a href="#23-填空-05">23-填空-05</a></li>
+<li><a href="#23-填空-06">23-填空-06</a></li>
+<li><a href="#23-填空-07">23-填空-07</a></li>
+<li><a href="#23-填空-08">23-填空-08</a></li>
+<li><a href="#23-填空-09">23-填空-09</a></li>
+<li><a href="#23-填空-10">23-填空-10</a></li>
+</ul></li>
+<li><a href="#五论述简答题4题">五、论述简答题（4题）</a>
+<ul>
+<li><a href="#23-论述-01">23-论述-01</a></li>
+<li><a href="#23-论述-02">23-论述-02</a></li>
+<li><a href="#23-论述-03">23-论述-03</a></li>
+<li><a href="#23-论述-04">23-论述-04</a></li>
+</ul></li>
+<li><a href="#六程序阅读补全题2题">六、程序阅读补全题（2题）</a>
+<ul>
+<li><a href="#23-程序阅读-01">23-程序阅读-01</a></li>
+<li><a href="#23-程序阅读-02">23-程序阅读-02</a></li>
+</ul></li>
+<li><a href="#七编程接口设计题2题">七、编程接口设计题（2题）</a>
+<ul>
+<li><a href="#23-编程-01">23-编程-01</a></li>
+<li><a href="#23-编程-02">23-编程-02</a></li>
+</ul></li>
+<li><a href="#八统计表">八、统计表</a>
+<ul>
+<li><a href="#题目数量统计">题目数量统计</a></li>
+<li><a href="#难度分布统计">难度分布统计</a></li>
+<li><a href="#知识点覆盖统计">知识点覆盖统计</a></li>
+<li><a href="#题型-难度交叉统计">题型-难度交叉统计</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 23 次课 <span>｜</span> <strong>文档：</strong>题库</p>
+<blockquote>
+<p><strong>课程</strong>：Java Web后端开发技术
+<strong>项目背景</strong>：CTTS校园实训任务管理系统
+<strong>技术栈</strong>：Java 17 + Spring Boot 3.x + MyBatis-Plus +
+MySQL + JWT + Knife4j + Maven <strong>题目总数</strong>：78题（30单选 +
+10多选 + 20判断 + 10填空 + 4论述简答 + 2程序阅读补全 + 2编程接口设计）
+<strong>编号规则</strong>：23-题型-序号（如23-单选-01）
+<strong>难度等级</strong>：★（基础） / ★★（进阶） / ★★★（挑战）</p>
+</blockquote>
+<hr />
+<h2 id="目录">目录</h2>
+<ul>
+<li><a href="#一单选题30题">一、单选题（30题）</a></li>
+<li><a href="#二多选题10题">二、多选题（10题）</a></li>
+<li><a href="#三判断题20题">三、判断题（20题）</a></li>
+<li><a href="#四填空题10题">四、填空题（10题）</a></li>
+<li><a href="#五论述简答题4题">五、论述简答题（4题）</a></li>
+<li><a href="#六程序阅读补全题2题">六、程序阅读补全题（2题）</a></li>
+<li><a href="#七编程接口设计题2题">七、编程接口设计题（2题）</a></li>
+<li><a href="#八统计表">八、统计表</a></li>
+</ul>
+<hr />
+<h2 id="一单选题30题">一、单选题（30题）</h2>
+<h3 id="23-单选-01">23-单选-01</h3>
+<p><strong>Maven执行<code>mvn clean package</code>命令时，以下哪个阶段不会执行？</strong></p>
+<p>A. clean B. compile C. install D. test</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：<code>mvn clean package</code>执行到<code>package</code>阶段为止，包含clean、compile、test、package，但不包含<code>install</code>（将jar安装到本地仓库）和<code>deploy</code>（发布到远程仓库）。<code>install</code>需要单独执行<code>mvn install</code>。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-02">23-单选-02</h3>
+<p><strong>Spring
+Boot项目打包生成的可执行jar，其<code>MANIFEST.MF</code>文件中<code>Main-Class</code>属性指向的是？</strong></p>
+<p>A. <code>com.ctts.CttsApplication</code> B.
+<code>org.springframework.boot.loader.JarLauncher</code> C.
+<code>org.springframework.boot.SpringApplication</code> D.
+<code>org.apache.catalina.startup.Bootstrap</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：可执行jar的<code>Main-Class</code>是<code>org.springframework.boot.loader.JarLauncher</code>（Spring
+Boot启动器），而非业务主类。<code>JarLauncher</code>负责加载<code>BOOT-INF/classes</code>和<code>BOOT-INF/lib</code>，然后通过反射调用<code>Start-Class</code>（即<code>com.ctts.CttsApplication</code>）的main方法。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-03">23-单选-03</h3>
+<p><strong>关于<code>-DskipTests</code>和<code>-Dmaven.test.skip=true</code>，以下说法正确的是？</strong></p>
+<p>A. 两者完全等价 B.
+<code>-DskipTests</code>跳过测试编译和执行，<code>-Dmaven.test.skip=true</code>仅跳过测试执行
+C.
+<code>-DskipTests</code>仅跳过测试执行，<code>-Dmaven.test.skip=true</code>跳过测试编译和执行
+D. 两者都不跳过测试编译</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：</p>
+<ul>
+<li><code>-DskipTests</code>：跳过测试<strong>执行</strong>，但仍<strong>编译</strong>测试代码</li>
+<li><code>-Dmaven.test.skip=true</code>：跳过测试<strong>编译和执行</strong></li>
+</ul>
+<p>生产打包通常用<code>-DskipTests</code>，保留编译可发现测试代码的语法错误。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-04">23-单选-04</h3>
+<p><strong>Spring
+Boot可执行jar的<code>BOOT-INF/lib</code>目录存放的是？</strong></p>
+<p>A. 项目自身编译后的class文件 B. 项目依赖的第三方库 C. Spring
+Boot启动器代码 D. 测试class文件</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>BOOT-INF/lib</code>存放所有第三方依赖jar（如spring-boot、mybatis-plus、mysql-connector等），这是"fat
+jar"的由来。项目自身class在<code>BOOT-INF/classes</code>，启动器代码在<code>org/springframework/boot/loader/</code>。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-05">23-单选-05</h3>
+<p><strong>执行<code>mvn clean package</code>后，<code>target</code>目录下的<code>ctts.jar.original</code>文件是？</strong></p>
+<p>A. 打包失败生成的备份文件 B. repackage之前的原始jar，仅含项目class C.
+可执行jar的备份 D. 测试报告文件</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>spring-boot-maven-plugin</code>的<code>repackage</code>目标会将原始jar重命名为<code>ctts.jar.original</code>，然后生成新的可执行jar为<code>ctts.jar</code>。<code>.original</code>文件仅含项目自身class，不含依赖和启动器。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-06">23-单选-06</h3>
+<p><strong>以下命令中，能在Linux后台运行Spring
+Boot应用且终端关闭后不退出的是？</strong></p>
+<p>A. <code>java -jar ctts.jar &amp;</code> B.
+<code>java -jar ctts.jar &gt; ctts.log</code> C.
+<code>nohup java -jar ctts.jar &gt; ctts.log 2&gt;&amp;1 &amp;</code> D.
+<code>java -jar ctts.jar --daemon</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：</p>
+<ul>
+<li><code>nohup</code>：忽略SIGHUP信号，终端关闭后进程不退出</li>
+<li><code>&gt; ctts.log</code>：标准输出重定向</li>
+<li><code>2&gt;&amp;1</code>：标准错误也重定向到标准输出</li>
+<li><code>&amp;</code>：后台运行</li>
+</ul>
+<p>A选项缺少<code>nohup</code>，终端关闭进程会退出；B选项缺少<code>&amp;</code>，是前台运行。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-07">23-单选-07</h3>
+<p><strong>在Spring
+Boot中，以下哪种方式启动时指定端口优先级最高？</strong></p>
+<p>A. <code>application.yml</code>中配置<code>server.port</code> B.
+<code>application-dev.yml</code>中配置<code>server.port</code> C.
+命令行参数<code>--server.port=9090</code> D.
+环境变量<code>SERVER_PORT=9090</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：Spring Boot配置优先级：命令行参数 &gt;
+环境变量 &gt; 外部配置文件 &gt; jar内配置文件 &gt;
+默认值。命令行参数优先级最高。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-08">23-单选-08</h3>
+<p><strong>Spring Boot默认内嵌的Web服务器是？</strong></p>
+<p>A. Jetty B. Undertow C. Tomcat D. Netty</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：<code>spring-boot-starter-web</code>默认引入<code>spring-boot-starter-tomcat</code>，内嵌Tomcat。如需切换为Jetty或Undertow，需排除tomcat依赖后引入对应starter。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-09">23-单选-09</h3>
+<p><strong>关于Spring
+Boot多环境配置，以下命名规则正确的是？</strong></p>
+<p>A.
+<code>application-dev.yml</code>、<code>application-prod.yml</code> B.
+<code>dev-application.yml</code>、<code>prod-application.yml</code> C.
+<code>application_dev.yml</code>、<code>application_prod.yml</code> D.
+<code>application-dev.properties.yml</code>、<code>application-prod.properties.yml</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A</p>
+<p><strong>解析</strong>：Spring
+Boot多环境配置命名规则为<code>application-{profile}.yml</code>，如<code>application-dev.yml</code>、<code>application-prod.yml</code>。profile通过<code>spring.profiles.active</code>激活。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-10">23-单选-10</h3>
+<p><strong>以下哪种方式不能激活<code>prod</code>环境的配置文件？</strong></p>
+<p>A.
+<code>application.yml</code>中配置<code>spring.profiles.active: prod</code>
+B. 命令行参数<code>--spring.profiles.active=prod</code> C.
+环境变量<code>SPRING_PROFILES_ACTIVE=prod</code> D.
+在<code>application-prod.yml</code>中配置<code>spring.profiles.active: prod</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：D</p>
+<p><strong>解析</strong>：<code>spring.profiles.active</code>应在主配置<code>application.yml</code>或通过命令行/环境变量设置，不能在<code>application-{profile}.yml</code>中设置自身（会形成循环依赖）。A、B、C均可激活。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-11">23-单选-11</h3>
+<p><strong><code>spring-boot-maven-plugin</code>插件的核心目标是？</strong></p>
+<p>A. <code>compile</code> B. <code>repackage</code> C.
+<code>deploy</code> D. <code>install</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>spring-boot-maven-plugin</code>的核心目标是<code>repackage</code>，将普通jar重新打包为可执行jar（fat
+jar），添加<code>BOOT-INF</code>结构和<code>JarLauncher</code>启动器。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-12">23-单选-12</h3>
+<p><strong>Linux下查看Spring Boot应用进程的命令是？</strong></p>
+<p>A. <code>ps -ef | grep ctts.jar | grep -v grep</code> B.
+<code>top | grep ctts.jar</code> C. <code>find ctts.jar</code> D.
+<code>ls -l ctts.jar</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A</p>
+<p><strong>解析</strong>：<code>ps -ef</code>列出所有进程，<code>grep ctts.jar</code>过滤包含ctts.jar的行，<code>grep -v grep</code>排除grep自身进程。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-13">23-单选-13</h3>
+<p><strong>优雅停止Spring
+Boot应用（处理完当前请求后退出）的kill信号是？</strong></p>
+<p>A. <code>kill -9 PID</code> B. <code>kill -15 PID</code> C.
+<code>kill -3 PID</code> D. <code>kill -2 PID</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>kill -15</code>（SIGTERM）是优雅终止信号，应用收到信号后会处理完当前请求后退出。<code>kill -9</code>（SIGKILL）是强制终止，立即中断所有处理。需配合<code>server.shutdown: graceful</code>配置。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-14">23-单选-14</h3>
+<p><strong>关于Spring Boot外部配置文件，以下说法正确的是？</strong></p>
+<p>A. 外部配置文件优先级低于jar内配置 B.
+外部配置文件必须放在<code>config/</code>目录 C.
+jar同目录的<code>application.yml</code>会覆盖jar内同名配置 D.
+外部配置文件不生效</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：外部配置文件优先级<strong>高于</strong>jar内配置。jar同目录的<code>application.yml</code>和<code>config/</code>子目录的<code>application.yml</code>都会覆盖jar内配置，其中<code>config/</code>子目录优先级更高。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-15">23-单选-15</h3>
+<p><strong><code>schema.sql</code>文件的作用是？</strong></p>
+<p>A. 存储初始数据 B. 创建数据库表结构 C. 配置数据源 D. 记录操作日志</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>schema.sql</code>是DDL（数据定义语言）脚本，用于创建数据库表结构（CREATE
+TABLE）。<code>data.sql</code>是DML（数据操作语言）脚本，用于插入初始数据（INSERT
+INTO）。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-16">23-单选-16</h3>
+<p><strong>Spring Boot自动执行SQL脚本的配置项是？</strong></p>
+<p>A. <code>spring.sql.init.mode</code> B.
+<code>spring.datasource.init.mode</code> C.
+<code>spring.db.sql.mode</code> D.
+<code>spring.schema.execute</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A</p>
+<p><strong>解析</strong>：Spring Boot
+2.5+使用<code>spring.sql.init.mode</code>配置SQL脚本执行模式，可选值：<code>always</code>（总是执行）、<code>never</code>（不执行）、<code>embedded</code>（仅嵌入式数据库执行）。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-17">23-单选-17</h3>
+<p><strong>生产环境推荐<code>spring.sql.init.mode</code>设置为？</strong></p>
+<p>A. <code>always</code> B. <code>never</code> C. <code>embedded</code>
+D. <code>auto</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：生产环境设置为<code>never</code>，避免每次启动都执行SQL脚本，防止误覆盖数据。生产环境应手动执行SQL脚本并做好审计。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-18">23-单选-18</h3>
+<p><strong>Nginx反向代理配置中，将请求转发到后端8080端口的指令是？</strong></p>
+<p>A. <code>proxy_pass http://127.0.0.1:8080;</code> B.
+<code>redirect http://127.0.0.1:8080;</code> C.
+<code>forward http://127.0.0.1:8080;</code> D.
+<code>route http://127.0.0.1:8080;</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A</p>
+<p><strong>解析</strong>：Nginx使用<code>proxy_pass</code>指令实现反向代理，将请求转发到指定的后端地址。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-19">23-单选-19</h3>
+<p><strong>CentOS 7开放8080端口的命令是？</strong></p>
+<p>A. <code>iptables -A INPUT -p tcp --dport 8080 -j ACCEPT</code> B.
+<code>firewall-cmd --permanent --add-port=8080/tcp</code> C.
+<code>ufw allow 8080</code> D. <code>setenforce 0</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：CentOS
+7使用firewalld作为默认防火墙，开放端口命令为<code>firewall-cmd --permanent --add-port=8080/tcp</code>，然后<code>firewall-cmd --reload</code>生效。A是iptables（旧版），C是ufw（Ubuntu），D是关闭SELinux。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-20">23-单选-20</h3>
+<p><strong>以下哪个配置能让Spring
+Boot获取到Nginx转发的真实客户端IP？</strong></p>
+<p>A. <code>server.forward-headers-strategy: native</code> B.
+<code>server.use-forward-headers: true</code> C.
+<code>spring.forward.headers: true</code> D.
+<code>server.tomcat.remote-ip: true</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A</p>
+<p><strong>解析</strong>：Spring Boot
+3.x使用<code>server.forward-headers-strategy: native</code>配置，信任<code>X-Forwarded-*</code>请求头，从而获取Nginx转发的真实IP。需配合Nginx的<code>proxy_set_header X-Real-IP $remote_addr;</code>配置。</p>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-21">23-单选-21</h3>
+<p><strong><code>pom.xml</code>中<code>&lt;finalName&gt;ctts&lt;/finalName&gt;</code>的作用是？</strong></p>
+<p>A. 指定项目最终版本号 B. 指定打包后的jar文件名（不带版本号） C.
+指定Maven仓库路径 D. 指定主类名</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>&lt;finalName&gt;</code>指定打包产物的文件名，默认为<code>${artifactId}-${version}</code>（如ctts-1.0.0）。设置为<code>ctts</code>后，生成的jar为<code>ctts.jar</code>，便于部署脚本引用固定名称。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-22">23-单选-22</h3>
+<p><strong>关于<code>nohup</code>命令，以下说法错误的是？</strong></p>
+<p>A. <code>nohup</code>会忽略SIGHUP信号 B.
+<code>nohup</code>使命令在终端关闭后继续运行 C.
+<code>nohup</code>必须与<code>&amp;</code>配合使用才能后台运行 D.
+<code>nohup</code>会自动将输出重定向到<code>nohup.out</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：<code>nohup</code>只是忽略挂断信号，本身并不后台运行。但通常与<code>&amp;</code>配合使用实现后台运行。<code>nohup</code>单独使用时命令仍在前台运行（终端关闭不退出，但占用终端）。如未指定重定向，默认输出到<code>nohup.out</code>。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-23">23-单选-23</h3>
+<p><strong>以下命令中，能查看Spring
+Boot应用是否监听8080端口的是？</strong></p>
+<p>A. <code>ps -ef | grep 8080</code> B.
+<code>netstat -tlnp | grep 8080</code> C. <code>curl 8080</code> D.
+<code>ping 8080</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>netstat -tlnp</code>列出所有监听端口，<code>grep 8080</code>过滤8080端口。<code>-t</code>TCP、<code>-l</code>监听、<code>-n</code>不解析名称、<code>-p</code>显示进程。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-24">23-单选-24</h3>
+<p><strong>Spring
+Boot应用的<code>application.yml</code>中配置<code>spring.profiles.active: dev</code>，启动时通过命令行<code>--spring.profiles.active=prod</code>，最终生效的profile是？</strong></p>
+<p>A. dev B. prod C. 两个都生效 D. 都不生效，使用默认</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：命令行参数优先级高于配置文件，因此<code>prod</code>覆盖<code>dev</code>，最终生效<code>prod</code>。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-25">23-单选-25</h3>
+<p><strong>关于<code>&lt;scope&gt;provided&lt;/scope&gt;</code>依赖，在Spring
+Boot打包时的行为是？</strong></p>
+<p>A. 正常打入jar B. 不打入jar，运行时由容器提供 C. 打入jar但不参与编译
+D. 只在测试时使用</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>provided</code>范围的依赖不打入最终jar，预期由运行环境提供。Spring
+Boot项目内嵌Tomcat，一般<strong>不使用</strong>provided，否则运行时缺失依赖。传统WAR部署到外部Tomcat时才用provided。</p>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-26">23-单选-26</h3>
+<p><strong>Linux下手动执行<code>schema.sql</code>建表脚本的命令是？</strong></p>
+<p>A. <code>mysql -u root -p &lt; schema.sql</code> B.
+<code>java -jar schema.sql</code> C. <code>sh schema.sql</code> D.
+<code>python schema.sql</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A</p>
+<p><strong>解析</strong>：使用<code>mysql</code>命令的输入重定向执行SQL脚本：<code>mysql -u root -p &lt; schema.sql</code>。如需指定数据库：<code>mysql -u root -p ctts &lt; schema.sql</code>。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-27">23-单选-27</h3>
+<p><strong>Nginx配置<code>location /api/</code>且<code>proxy_pass http://127.0.0.1:8080/api/;</code>，访问<code>http://server/api/auth/login</code>实际转发到？</strong></p>
+<p>A. <code>http://127.0.0.1:8080/auth/login</code> B.
+<code>http://127.0.0.1:8080/api/auth/login</code> C.
+<code>http://127.0.0.1:8080/api/api/auth/login</code> D.
+<code>http://127.0.0.1:8080/auth/api/login</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>location /api/</code>匹配<code>/api/</code>开头的路径，<code>proxy_pass http://127.0.0.1:8080/api/;</code>带有<code>/api/</code>路径，会将匹配的<code>/api/</code>部分替换为<code>/api/</code>，因此<code>/api/auth/login</code>转发到<code>http://127.0.0.1:8080/api/auth/login</code>。</p>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-28">23-单选-28</h3>
+<p><strong>Spring Boot打包后jar体积较大的主要原因是？</strong></p>
+<p>A. 包含源代码 B. 包含所有依赖库（fat jar） C. 包含测试代码 D.
+包含JDK运行时</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：Spring Boot可执行jar是"fat
+jar"，将所有第三方依赖都打入<code>BOOT-INF/lib</code>目录，因此体积较大（通常几十MB）。不包含源代码、测试代码和JDK运行时。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-29">23-单选-29</h3>
+<p><strong>以下哪种方式查看Spring Boot应用启动日志最合适？</strong></p>
+<p>A. <code>cat ctts.log</code> B. <code>tail -f ctts.log</code> C.
+<code>head ctts.log</code> D. <code>grep ctts.log</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>tail -f</code>持续跟踪文件末尾新增内容，适合查看实时日志。<code>cat</code>一次性输出全部，<code>head</code>查看开头，<code>grep</code>过滤关键字。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-单选-30">23-单选-30</h3>
+<p><strong>关于云服务器部署CTTS项目，以下说法错误的是？</strong></p>
+<p>A. 需要在云平台控制台配置安全组规则 B.
+需要在服务器配置防火墙（firewalld/ufw） C.
+安全组和防火墙只需配置其中一个 D. MySQL的3306端口一般不对外暴露</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：云服务器部署时，安全组（云平台层面）和防火墙（操作系统层面）是<strong>两层独立的网络控制</strong>，都需要配置。只配一个会导致外部无法访问。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h2 id="二多选题10题">二、多选题（10题）</h2>
+<h3 id="23-多选-01">23-多选-01</h3>
+<p><strong>以下哪些是<code>spring-boot-maven-plugin</code>插件的作用？（多选）</strong></p>
+<p>A. 将项目依赖打入jar（fat jar） B. 添加<code>JarLauncher</code>启动器
+C. 生成可执行jar D. 编译Java源代码 E.
+设置<code>MANIFEST.MF</code>的<code>Main-Class</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A、B、C、E</p>
+<p><strong>解析</strong>：<code>spring-boot-maven-plugin</code>的<code>repackage</code>目标作用包括：</p>
+<ul>
+<li>A：将依赖打入<code>BOOT-INF/lib</code>（fat jar）</li>
+<li>B：添加<code>org.springframework.boot.loader</code>启动器代码</li>
+<li>C：生成可执行jar</li>
+<li>E：设置<code>Main-Class: JarLauncher</code>和<code>Start-Class: 业务主类</code></li>
+</ul>
+<p>D错误：编译Java源代码是<code>maven-compiler-plugin</code>的职责。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-多选-02">23-多选-02</h3>
+<p><strong>Spring
+Boot配置加载的优先级从高到低，以下顺序正确的有？（多选）</strong></p>
+<p>A. 命令行参数 &gt; 环境变量 &gt; 外部配置文件 &gt; jar内配置 B.
+命令行参数 &gt; jar内配置 &gt; 外部配置文件 &gt; 默认值 C.
+<code>--server.port</code> &gt; <code>SPRING_APPLICATION_JSON</code>
+&gt; 系统属性 &gt; <code>application.yml</code> D.
+外部<code>config/application.yml</code> &gt;
+外部<code>application.yml</code> &gt;
+jar内<code>application.yml</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A、C、D</p>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>A：正确，命令行 &gt; 环境变量 &gt; 外部 &gt; jar内</li>
+<li>B：错误，外部配置优先级高于jar内配置</li>
+<li>C：正确，命令行 &gt; SPRING_APPLICATION_JSON &gt; 系统属性 &gt;
+application.yml</li>
+<li>D：正确，<code>config/</code>子目录优先级高于jar同目录，高于jar内</li>
+</ul>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h3 id="23-多选-03">23-多选-03</h3>
+<p><strong>Linux服务器部署Spring
+Boot应用，需要安装的软件有？（多选）</strong></p>
+<p>A. JDK B. MySQL C. Nginx D. Tomcat（独立部署） E.
+Maven（服务器上）</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A、B、C</p>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>A：JDK 17，运行Java应用必需</li>
+<li>B：MySQL 8，数据库</li>
+<li>C：Nginx，反向代理（推荐但非必须）</li>
+</ul>
+<p>D错误：Spring Boot内嵌Tomcat，无需独立部署。
+E错误：服务器上运行jar不需要Maven，Maven是打包工具，在开发机使用。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-多选-04">23-多选-04</h3>
+<p><strong>以下哪些是生产环境配置<code>application-prod.yml</code>相对于开发环境的差异？（多选）</strong></p>
+<p>A. 关闭MyBatis-Plus的SQL打印 B. 日志级别设为INFO（开发为DEBUG） C.
+关闭Knife4j接口文档 D. 数据库密码使用环境变量 E.
+开启<code>spring.sql.init.mode=always</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A、B、C、D</p>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>A：生产环境关闭SQL打印，减少日志量</li>
+<li>B：生产环境INFO级别，开发DEBUG</li>
+<li>C：生产环境关闭接口文档，避免接口泄露</li>
+<li>D：敏感信息用环境变量，避免硬编码</li>
+<li>E错误：生产环境应设为<code>never</code>，手动执行SQL</li>
+</ul>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-多选-05">23-多选-05</h3>
+<p><strong><code>nohup java -jar ctts.jar &gt; ctts.log 2&gt;&amp;1 &amp;</code>命令包含以下哪些操作？（多选）</strong></p>
+<p>A. 忽略SIGHUP信号 B. 标准输出重定向到文件 C. 标准错误重定向到标准输出
+D. 后台运行 E. 自动重启应用</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A、B、C、D</p>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>A：<code>nohup</code>忽略挂断信号</li>
+<li>B：<code>&gt; ctts.log</code>标准输出重定向</li>
+<li>C：<code>2&gt;&amp;1</code>标准错误重定向到标准输出（同一文件）</li>
+<li>D：<code>&amp;</code>后台运行</li>
+<li>E错误：<code>nohup</code>不提供自动重启功能</li>
+</ul>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-多选-06">23-多选-06</h3>
+<p><strong>Spring
+Boot多环境配置中，激活<code>prod</code>profile的方式有？（多选）</strong></p>
+<p>A.
+<code>application.yml</code>中<code>spring.profiles.active: prod</code>
+B. 命令行<code>--spring.profiles.active=prod</code> C.
+环境变量<code>SPRING_PROFILES_ACTIVE=prod</code> D.
+JVM参数<code>-Dspring.profiles.active=prod</code> E.
+在<code>application-prod.yml</code>中<code>spring.profiles.active: prod</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A、B、C、D</p>
+<p><strong>解析</strong>：A、B、C、D均可激活profile。E错误：不能在<code>application-{profile}.yml</code>中设置自身的<code>spring.profiles.active</code>，会导致循环。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-多选-07">23-多选-07</h3>
+<p><strong>数据库初始化脚本<code>schema.sql</code>中应包含以下哪些语句？（多选）</strong></p>
+<p>A. <code>CREATE DATABASE</code> B. <code>CREATE TABLE</code> C.
+<code>INSERT INTO</code> D. <code>CREATE INDEX</code> E.
+<code>ALTER TABLE</code></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A、B、D</p>
+<p><strong>解析</strong>：<code>schema.sql</code>是DDL脚本，包含：</p>
+<ul>
+<li>A：<code>CREATE DATABASE</code>建库</li>
+<li>B：<code>CREATE TABLE</code>建表</li>
+<li>D：<code>CREATE INDEX</code>建索引</li>
+</ul>
+<p>C错误：<code>INSERT INTO</code>是DML，放在<code>data.sql</code>。
+E：<code>ALTER TABLE</code>是修改表结构，一般不在初始化脚本中（除非升级脚本）。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-多选-08">23-多选-08</h3>
+<p><strong>部署后浏览器访问返回502 Bad
+Gateway，可能的原因有？（多选）</strong></p>
+<p>A. 后端Spring Boot应用未启动 B.
+Nginx配置的<code>proxy_pass</code>端口错误 C. 防火墙未开放80端口 D.
+后端应用监听的端口与Nginx配置不一致 E. Nginx未启动</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A、B、D</p>
+<p><strong>解析</strong>：502表示Nginx无法连接后端：</p>
+<ul>
+<li>A：后端未启动，Nginx无法转发</li>
+<li>B：<code>proxy_pass</code>端口写错，连接失败</li>
+<li>D：后端实际端口与配置不一致</li>
+</ul>
+<p>C错误：防火墙未开放80端口会返回"无法访问"或超时，不是502。
+E错误：Nginx未启动会返回"连接拒绝"，不是502。</p>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h3 id="23-多选-09">23-多选-09</h3>
+<p><strong>关于Nginx反向代理的优势，以下说法正确的有？（多选）</strong></p>
+<p>A. 对外只暴露80/443端口，隐藏后端真实端口 B.
+可以实现负载均衡（多后端实例） C. 可以处理SSL证书（HTTPS终结） D.
+可以高效处理静态资源 E. 可以替代Spring Boot内嵌Tomcat</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A、B、C、D</p>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>A：端口隐藏，安全</li>
+<li>B：负载均衡，<code>upstream</code>配置多后端</li>
+<li>C：SSL终结，Nginx处理HTTPS</li>
+<li>D：静态资源处理效率高</li>
+<li>E错误：Nginx是反向代理，不能替代Spring Boot的应用服务器功能</li>
+</ul>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-多选-10">23-多选-10</h3>
+<p><strong>以下哪些是Spring Boot打包时常见错误？（多选）</strong></p>
+<p>A.
+<code>pom.xml</code>缺少<code>spring-boot-maven-plugin</code>，生成的jar无法运行
+B. 测试失败导致打包中断 C. 主类未正确配置 D. 资源文件未打包进jar E.
+JDK版本与项目配置不匹配</p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：A、B、C、D、E</p>
+<p><strong>解析</strong>：全部都是常见打包错误：</p>
+<ul>
+<li>A：缺少插件，jar不含启动器</li>
+<li>B：测试失败中断打包，用<code>-DskipTests</code></li>
+<li>C：<code>&lt;mainClass&gt;</code>配置错误或未配置</li>
+<li>D：<code>&lt;resources&gt;</code>配置缺失</li>
+<li>E：JDK版本与<code>&lt;java.version&gt;</code>不匹配</li>
+</ul>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h2 id="三判断题20题">三、判断题（20题）</h2>
+<h3 id="23-判断-01">23-判断-01</h3>
+<p><strong><code>mvn clean package</code>命令会执行测试用例。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：正确 ✓</p>
+<p><strong>解析</strong>：<code>package</code>阶段包含<code>test</code>阶段，会执行测试用例。如需跳过，使用<code>-DskipTests</code>。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-02">23-判断-02</h3>
+<p><strong>Spring Boot可执行jar和普通jar的结构完全相同。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：可执行jar包含<code>BOOT-INF</code>结构（classes和lib）、<code>org/springframework/boot/loader</code>启动器代码，以及<code>MANIFEST.MF</code>中的<code>Main-Class: JarLauncher</code>。普通jar不包含这些。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-03">23-判断-03</h3>
+<p><strong><code>-DskipTests</code>会跳过测试代码的编译。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：<code>-DskipTests</code>仅跳过测试<strong>执行</strong>，仍会<strong>编译</strong>测试代码。跳过编译需用<code>-Dmaven.test.skip=true</code>。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-04">23-判断-04</h3>
+<p><strong>Spring
+Boot内嵌Tomcat，因此部署时无需单独安装Tomcat服务器。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：正确 ✓</p>
+<p><strong>解析</strong>：Spring
+Boot内嵌Tomcat，可执行jar包含Tomcat库，<code>java -jar</code>启动时自动启动Tomcat。这是Spring
+Boot相比传统WAR部署的核心优势。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-05">23-判断-05</h3>
+<p><strong><code>nohup java -jar ctts.jar &amp;</code>命令中，<code>&amp;</code>的作用是忽略挂断信号。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：<code>&amp;</code>的作用是后台运行。<code>nohup</code>才是忽略挂断信号（SIGHUP），使终端关闭后进程不退出。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-06">23-判断-06</h3>
+<p><strong>命令行参数<code>--server.port=9090</code>的优先级高于<code>application.yml</code>中的<code>server.port</code>配置。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：正确 ✓</p>
+<p><strong>解析</strong>：Spring
+Boot配置优先级中，命令行参数最高，高于jar内配置文件。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-07">23-判断-07</h3>
+<p><strong><code>application-dev.yml</code>中可以配置<code>spring.profiles.active: prod</code>来切换到生产环境。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：<code>spring.profiles.active</code>应在主配置<code>application.yml</code>或通过命令行/环境变量设置，不能在<code>application-{profile}.yml</code>中设置自身，会导致循环依赖。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-08">23-判断-08</h3>
+<p><strong>jar同目录的<code>application.yml</code>会覆盖jar内的同名配置。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：正确 ✓</p>
+<p><strong>解析</strong>：外部配置文件优先级高于jar内配置。jar同目录的<code>application.yml</code>和<code>config/application.yml</code>都会覆盖jar内配置。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-09">23-判断-09</h3>
+<p><strong>生产环境应该配置<code>spring.sql.init.mode=always</code>，让应用启动时自动初始化数据库。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：生产环境应配置<code>mode=never</code>，手动执行SQL脚本。自动执行有数据覆盖风险，且绕过审计。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-10">23-判断-10</h3>
+<p><strong><code>schema.sql</code>用于插入初始数据，<code>data.sql</code>用于创建表结构。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：相反。<code>schema.sql</code>是DDL，用于建表（CREATE
+TABLE）；<code>data.sql</code>是DML，用于插入初始数据（INSERT
+INTO）。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-11">23-判断-11</h3>
+<p><strong>Nginx反向代理的作用是将客户端请求转发到后端应用服务器。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：正确 ✓</p>
+<p><strong>解析</strong>：反向代理（Reverse
+Proxy）接收客户端请求，转发到后端服务器，再将响应返回客户端。客户端感知的是代理服务器，不知道真实后端。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-12">23-判断-12</h3>
+<p><strong><code>kill -9 PID</code>是优雅停止Spring
+Boot应用的方式。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：<code>kill -9</code>（SIGKILL）是强制终止，立即中断所有处理，可能导致数据丢失。优雅停止用<code>kill -15</code>（SIGTERM），配合<code>server.shutdown: graceful</code>。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-13">23-判断-13</h3>
+<p><strong><code>spring-boot-maven-plugin</code>的<code>repackage</code>目标会将所有依赖打入jar。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：正确 ✓</p>
+<p><strong>解析</strong>：<code>repackage</code>将项目依赖打入<code>BOOT-INF/lib</code>，生成fat
+jar。<code>&lt;scope&gt;provided&lt;/scope&gt;</code>的依赖除外。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-14">23-判断-14</h3>
+<p><strong>Spring
+Boot项目打包后，<code>target/classes</code>目录下的<code>application.yml</code>会被打入jar的<code>BOOT-INF/classes</code>目录。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：正确 ✓</p>
+<p><strong>解析</strong>：<code>target/classes</code>中的所有文件（class、yml、xml等）会打包到jar的<code>BOOT-INF/classes</code>目录。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-15">23-判断-15</h3>
+<p><strong>在Windows系统下，可以使用<code>nohup</code>命令后台运行Spring
+Boot应用。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：<code>nohup</code>是Linux/Unix命令，Windows不支持。Windows下可用<code>start /b java -jar ctts.jar</code>或使用PowerShell的<code>Start-Process</code>。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-16">23-判断-16</h3>
+<p><strong>云服务器部署时，只要配置了操作系统的防火墙，就可以从外部访问应用。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：云服务器有<strong>两层</strong>网络控制：安全组（云平台层面）和防火墙（操作系统层面）。两层都需要配置，缺一不可。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-17">23-判断-17</h3>
+<p><strong><code>pom.xml</code>中<code>&lt;finalName&gt;ctts&lt;/finalName&gt;</code>配置后，打包生成的jar文件名为<code>ctts.jar</code>。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：正确 ✓</p>
+<p><strong>解析</strong>：<code>&lt;finalName&gt;</code>指定打包产物名称，默认为<code>${artifactId}-${version}</code>。设置为<code>ctts</code>后，生成<code>ctts.jar</code>，便于部署脚本引用固定名称。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-18">23-判断-18</h3>
+<p><strong>生产环境的数据库密码应该直接硬编码在<code>application-prod.yml</code>中。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：生产环境敏感信息（数据库密码、JWT密钥等）不应硬编码，应使用环境变量<code>${DB_PASSWORD:default}</code>或外部配置文件（文件权限控制）。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-19">23-判断-19</h3>
+<p><strong>Nginx配置<code>proxy_pass http://127.0.0.1:8080/api/;</code>末尾的<code>/</code>可以省略，不影响转发结果。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：错误 ✗</p>
+<p><strong>解析</strong>：<code>proxy_pass</code>末尾带不带<code>/</code>影响路径转发：</p>
+<ul>
+<li>带<code>/</code>：<code>location /api/</code>匹配部分被替换为<code>/api/</code></li>
+<li>不带<code>/</code>：保留原始路径</li>
+</ul>
+<p>如<code>location /api/</code> +
+<code>proxy_pass http://x:8080;</code>，访问<code>/api/auth</code>会转发到<code>http://x:8080/api/auth</code>，而不是<code>http://x:8080/auth</code>。</p>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h3 id="23-判断-20">23-判断-20</h3>
+<p><strong>Spring
+Boot应用启动后，可以通过<code>curl http://localhost:8080/actuator/health</code>检查健康状态（如已集成actuator）。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：正确 ✓</p>
+<p><strong>解析</strong>：Spring Boot
+Actuator提供<code>/actuator/health</code>端点检查应用健康状态，返回<code>{"status":"UP"}</code>表示健康。需引入<code>spring-boot-starter-actuator</code>依赖。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h2 id="四填空题10题">四、填空题（10题）</h2>
+<h3 id="23-填空-01">23-填空-01</h3>
+<p><strong>Maven打包Spring
+Boot项目的命令是<code>mvn clean ______</code>，如需跳过测试执行，添加参数<code>______</code>。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：<code>package</code>；<code>-DskipTests</code></p>
+<p><strong>解析</strong>：<code>mvn clean package -DskipTests</code>是生产打包常用命令，清理后打包并跳过测试执行。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-填空-02">23-填空-02</h3>
+<p><strong>Spring
+Boot可执行jar的启动器类是<code>org.springframework.boot.loader.______</code>，它负责加载<code>______</code>目录下的class和依赖。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：<code>JarLauncher</code>；<code>BOOT-INF</code></p>
+<p><strong>解析</strong>：<code>JarLauncher</code>是<code>MANIFEST.MF</code>中<code>Main-Class</code>指向的类，负责加载<code>BOOT-INF/classes</code>（项目class）和<code>BOOT-INF/lib</code>（依赖jar）。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-填空-03">23-填空-03</h3>
+<p><strong>Linux后台运行Spring
+Boot应用的命令格式是<code>______ java -jar ctts.jar &gt; ctts.log ______ &amp;</code>，其中第一个关键字忽略挂断信号，第二个将标准错误重定向到标准输出。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：<code>nohup</code>；<code>2&gt;&amp;1</code></p>
+<p><strong>解析</strong>：<code>nohup</code>忽略SIGHUP信号，终端关闭后进程不退出；<code>2&gt;&amp;1</code>中<code>2</code>是标准错误，<code>&gt;&amp;1</code>重定向到标准输出（同一文件）。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-填空-04">23-填空-04</h3>
+<p><strong>Spring
+Boot多环境配置文件命名规则是<code>application-______.yml</code>，通过<code>spring.______.active</code>属性激活。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：<code>{profile}</code>；<code>profiles</code></p>
+<p><strong>解析</strong>：命名规则为<code>application-{profile}.yml</code>（如<code>application-dev.yml</code>），通过<code>spring.profiles.active</code>激活对应profile。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-填空-05">23-填空-05</h3>
+<p><strong>数据库初始化脚本中，<code>______.sql</code>用于创建表结构（DDL），<code>______.sql</code>用于插入初始数据（DML）。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：<code>schema</code>；<code>data</code></p>
+<p><strong>解析</strong>：<code>schema.sql</code>是DDL脚本（CREATE
+TABLE等），<code>data.sql</code>是DML脚本（INSERT INTO等）。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-填空-06">23-填空-06</h3>
+<p><strong>Nginx反向代理的核心配置指令是<code>______</code>，用于将请求转发到后端服务器。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：<code>proxy_pass</code></p>
+<p><strong>解析</strong>：<code>proxy_pass http://127.0.0.1:8080;</code>将匹配location的请求转发到指定后端地址。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h3 id="23-填空-07">23-填空-07</h3>
+<p><strong>CentOS
+7开放80端口的命令是<code>firewall-cmd --______ --add-port=80/tcp</code>，配置后需执行<code>firewall-cmd --______</code>使配置生效。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：<code>permanent</code>；<code>reload</code></p>
+<p><strong>解析</strong>：<code>--permanent</code>表示永久生效（重启后保留），<code>--reload</code>重新加载防火墙配置使规则生效。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-填空-08">23-填空-08</h3>
+<p><strong>Spring Boot配置优先级从高到低：命令行参数 &gt; ______ &gt;
+外部配置文件 &gt; ______ &gt; 默认值。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：<code>环境变量</code>；<code>jar内配置文件</code></p>
+<p><strong>解析</strong>：完整优先级：命令行参数 &gt; 环境变量 &gt;
+外部配置文件（jar同目录）&gt; jar内配置文件 &gt; 默认值。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-填空-09">23-填空-09</h3>
+<p><strong>在<code>pom.xml</code>中配置<code>&lt;______&gt;ctts&lt;/______&gt;</code>可使打包生成的jar文件名为<code>ctts.jar</code>（不含版本号）。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：<code>finalName</code></p>
+<p><strong>解析</strong>：<code>&lt;finalName&gt;</code>指定打包产物名称，默认为<code>${artifactId}-${version}</code>。设置为<code>ctts</code>后生成<code>ctts.jar</code>，便于部署脚本引用固定名称。</p>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-填空-10">23-填空-10</h3>
+<p><strong>Linux下查看Java进程的命令是<code>______ -ef | grep ctts.jar</code>，查看端口监听的命令是<code>______ -tlnp | grep 8080</code>。</strong></p>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：<code>ps</code>；<code>netstat</code></p>
+<p><strong>解析</strong>：<code>ps -ef</code>列出所有进程，<code>netstat -tlnp</code>列出所有监听端口（<code>-t</code>TCP、<code>-l</code>监听、<code>-n</code>不解析名称、<code>-p</code>显示进程）。</p>
+<p><strong>难度</strong>：★</p>
+</details>
+
+<hr />
+<h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
+<h3 id="23-论述-01">23-论述-01</h3>
+<p><strong>简述Spring
+Boot可执行jar的内部结构，并说明其启动流程。</strong></p>
+<details>
+<summary>答案与评分标准</summary>
+
+<p><strong>参考答案</strong>：</p>
+<p><strong>一、可执行jar内部结构</strong>（5分）：</p>
+<pre><code>ctts.jar
+├── META-INF/
+│   └── MANIFEST.MF            # 包含Main-Class和Start-Class
+├── org/springframework/boot/loader/  # 启动器代码
+└── BOOT-INF/
+    ├── classes/                # 项目自身class和资源文件
+    └── lib/                    # 所有第三方依赖jar</code></pre>
+<p><code>MANIFEST.MF</code>关键属性：</p>
+<ul>
+<li><code>Main-Class: org.springframework.boot.loader.JarLauncher</code>（启动器）</li>
+<li><code>Start-Class: com.ctts.CttsApplication</code>（业务主类）</li>
+</ul>
+<p><strong>二、启动流程</strong>（5分）：</p>
+<ol type="1">
+<li><strong>JVM启动</strong>：<code>java -jar ctts.jar</code>读取<code>MANIFEST.MF</code>，执行<code>Main-Class</code>指向的<code>JarLauncher.main()</code></li>
+<li><strong>加载类</strong>：<code>JarLauncher</code>创建<code>LaunchedClassLoader</code>，加载<code>BOOT-INF/classes</code>（项目class）和<code>BOOT-INF/lib/*.jar</code>（依赖）</li>
+<li><strong>调用业务主类</strong>：通过反射调用<code>Start-Class</code>（<code>com.ctts.CttsApplication</code>）的<code>main</code>方法</li>
+<li><strong>Spring上下文启动</strong>：<code>SpringApplication.run()</code>创建Spring容器，加载配置文件</li>
+<li><strong>内嵌Tomcat启动</strong>：创建Tomcat实例，注册<code>DispatcherServlet</code>，监听8080端口</li>
+<li><strong>应用就绪</strong>：发布<code>ApplicationReadyEvent</code>，应用开始接收请求</li>
+</ol>
+<p><strong>评分标准</strong>（满分10分）：</p>
+<ul>
+<li>内部结构说明（5分）：
+<ul>
+<li>列出META-INF/MANIFEST.MF（1分）</li>
+<li>说明Main-Class和Start-Class（2分）</li>
+<li>列出BOOT-INF/classes和BOOT-INF/lib（2分）</li>
+</ul></li>
+<li>启动流程说明（5分）：
+<ul>
+<li>JarLauncher启动（1分）</li>
+<li>类加载机制（1分）</li>
+<li>调用业务主类（1分）</li>
+<li>Spring上下文启动（1分）</li>
+<li>内嵌Tomcat启动（1分）</li>
+</ul></li>
+</ul>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h3 id="23-论述-02">23-论述-02</h3>
+<p><strong>详细说明Spring
+Boot配置加载的优先级顺序，并举例说明如何利用外部配置文件实现"不改代码、不重新打包"修改生产环境配置。</strong></p>
+<details>
+<summary>答案与评分标准</summary>
+
+<p><strong>参考答案</strong>：</p>
+<p><strong>一、配置优先级（高→低）</strong>（6分）：</p>
+<ol type="1">
+<li><strong>命令行参数</strong>：<code>--server.port=9090</code></li>
+<li><strong>SPRING_APPLICATION_JSON</strong>：环境变量中的JSON配置</li>
+<li><strong>ServletConfig/ServletContext</strong>初始化参数</li>
+<li><strong>JNDI属性</strong></li>
+<li><strong>Java系统属性</strong>：<code>-Dserver.port=9090</code></li>
+<li><strong>操作系统环境变量</strong>：<code>SERVER_PORT=9090</code></li>
+<li><strong>jar外部</strong><code>config/application-{profile}.yml</code></li>
+<li><strong>jar内部</strong><code>application-{profile}.yml</code></li>
+<li><strong>jar外部</strong><code>application.yml</code>（jar同目录）</li>
+<li><strong>jar内部</strong><code>application.yml</code></li>
+<li><strong>@PropertySource</strong>注解指定的文件</li>
+<li><strong>默认值</strong></li>
+</ol>
+<p><strong>常用记忆</strong>：命令行 &gt; 环境变量 &gt; 外部配置文件
+&gt; jar内配置文件 &gt; 默认值</p>
+<p><strong>二、利用外部配置文件修改生产配置</strong>（4分）：</p>
+<p><strong>场景</strong>：生产环境数据库密码需要修改，但不重新打包jar。</p>
+<p><strong>步骤</strong>：</p>
+<ol type="1">
+<li><p>在jar同目录创建<code>application-prod.yml</code>（或<code>config/application-prod.yml</code>优先级更高）：</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spring</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">datasource</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">password</span><span class="kw">:</span><span class="at"> NewPassword@2024</span></span></code></pre></div></li>
+<li><p>目录结构：</p>
+<pre><code>/opt/ctts/
+├── ctts.jar
+├── application-prod.yml    # 外部配置，覆盖jar内同名配置
+└── config/
+    └── application.yml     # 优先级更高的外部配置</code></pre></li>
+<li><p>重启应用使配置生效：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">kill</span> <span class="at">-15</span> <span class="va">$(</span><span class="fu">cat</span> /opt/ctts/ctts.pid<span class="va">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> java <span class="at">-jar</span> ctts.jar <span class="at">--spring.profiles.active</span><span class="op">=</span>prod <span class="op">&gt;</span> ctts.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span></code></pre></div></li>
+</ol>
+<p><strong>优势</strong>：无需重新打包，运维人员可直接修改文件，降低发布风险。</p>
+<p><strong>评分标准</strong>（满分10分）：</p>
+<ul>
+<li>优先级顺序（6分）：
+<ul>
+<li>命令行最高（1分）</li>
+<li>环境变量（1分）</li>
+<li>外部配置文件（2分）</li>
+<li>jar内配置文件（1分）</li>
+<li>默认值最低（1分）</li>
+</ul></li>
+<li>外部配置文件应用（4分）：
+<ul>
+<li>说明外部配置文件位置（1分）</li>
+<li>说明覆盖机制（1分）</li>
+<li>给出完整示例（2分）</li>
+</ul></li>
+</ul>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h3 id="23-论述-03">23-论述-03</h3>
+<p><strong>描述CTTS项目在Linux服务器上的完整部署流程，从打包到验证访问。</strong></p>
+<details>
+<summary>答案与评分标准</summary>
+
+<p><strong>参考答案</strong>：</p>
+<p><strong>完整部署流程</strong>（10个步骤）：</p>
+<p><strong>Step 1：本地打包</strong></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> d:/ctts</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mvn</span> clean package <span class="at">-DskipTests</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成 target/ctts.jar</span></span></code></pre></div>
+<p><strong>Step 2：上传jar到服务器</strong></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> target/ctts.jar root@server-ip:/opt/ctts/</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> src/main/resources/schema.sql root@server-ip:/opt/ctts/sql/</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> src/main/resources/data.sql root@server-ip:/opt/ctts/sql/</span></code></pre></div>
+<p><strong>Step 3：安装JDK 17</strong></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yum</span> install <span class="at">-y</span> java-17-openjdk java-17-openjdk-devel</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-version</span></span></code></pre></div>
+<p><strong>Step 4：安装MySQL 8</strong></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yum</span> install <span class="at">-y</span> mysql-community-server</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> start mysqld</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> enable mysqld</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 修改root密码，创建数据库和用户</span></span></code></pre></div>
+<p><strong>Step 5：初始化数据库</strong></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mysql</span> <span class="at">-u</span> root <span class="at">-p</span> ctts <span class="op">&lt;</span> /opt/ctts/sql/schema.sql</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mysql</span> <span class="at">-u</span> root <span class="at">-p</span> ctts <span class="op">&lt;</span> /opt/ctts/sql/data.sql</span></code></pre></div>
+<p><strong>Step 6：创建外部配置文件</strong></p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&gt;</span> /opt/ctts/application-prod.yml <span class="op">&lt;&lt; &#39;EOF&#39;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="st">spring:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">  datasource:</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st">    url: jdbc:mysql://127.0.0.1:3306/ctts</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">    username: ctts_user</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">    password: Ctts@2024User</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st"># ... 其他生产配置</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span></code></pre></div>
+<p><strong>Step 7：启动应用</strong></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /opt/ctts</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> java <span class="at">-jar</span> ctts.jar <span class="at">--spring.profiles.active</span><span class="op">=</span>prod <span class="op">&gt;</span> ctts.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span></code></pre></div>
+<p><strong>Step 8：配置防火墙</strong></p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">firewall-cmd</span> <span class="at">--permanent</span> <span class="at">--add-port</span><span class="op">=</span>80/tcp</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">firewall-cmd</span> <span class="at">--permanent</span> <span class="at">--add-port</span><span class="op">=</span>8080/tcp</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">firewall-cmd</span> <span class="at">--reload</span></span></code></pre></div>
+<p><strong>Step 9：安装配置Nginx</strong></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yum</span> install <span class="at">-y</span> nginx</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 配置 /etc/nginx/conf.d/ctts.conf</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># proxy_pass http://127.0.0.1:8080/api/;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> start nginx</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> enable nginx</span></code></pre></div>
+<p><strong>Step 10：验证访问</strong></p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 进程验证</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> <span class="at">-ef</span> <span class="kw">|</span> <span class="fu">grep</span> ctts.jar</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">netstat</span> <span class="at">-tlnp</span> <span class="kw">|</span> <span class="fu">grep</span> 8080</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 接口验证</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> http://localhost/api/auth/test</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 浏览器验证</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># http://server-ip/api/doc.html</span></span></code></pre></div>
+<p><strong>评分标准</strong>（满分10分）：</p>
+<ul>
+<li>打包与上传（1分）</li>
+<li>环境安装：JDK + MySQL（2分）</li>
+<li>数据库初始化（1分）</li>
+<li>外部配置文件（1分）</li>
+<li>应用启动命令（1分）</li>
+<li>防火墙配置（1分）</li>
+<li>Nginx配置（2分）</li>
+<li>验证步骤（1分）</li>
+</ul>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h3 id="23-论述-04">23-论述-04</h3>
+<p><strong>结合本次课内容，谈谈你对"能运行不等于能交付"的理解，并说明在打包、配置、部署各环节如何体现软件交付责任。</strong></p>
+<details>
+<summary>答案与评分标准</summary>
+
+<p><strong>参考答案</strong>：</p>
+<p><strong>一、"能运行不等于能交付"的理解</strong>（3分）：</p>
+<p>"能运行"是指代码在开发者的IDE中可以正常启动和执行功能；"能交付"是指软件可以作为产品交付给用户使用，具备以下特征：</p>
+<ul>
+<li><strong>可部署</strong>：在全新环境能顺利部署，不依赖开发者的特定配置</li>
+<li><strong>可运维</strong>：日志可追溯、异常可监控、配置可调整</li>
+<li><strong>可恢复</strong>：数据库脚本可重放、数据可备份恢复</li>
+<li><strong>可信任</strong>：敏感信息不泄露、接口不暴露、安全有保障</li>
+</ul>
+<p>一个能运行的系统，如果配置混乱、无法部署、数据不可恢复，就不能称为"可交付"。</p>
+<p><strong>二、各环节的软件交付责任体现</strong>（7分）：</p>
+<p><strong>1. 打包环节</strong>（2分）：</p>
+<ul>
+<li><strong>版本管理</strong>：<code>pom.xml</code>的<code>&lt;finalName&gt;</code>固定jar名称，避免版本混乱</li>
+<li><strong>依赖完整性</strong>：确保<code>spring-boot-maven-plugin</code>正确配置，生成可执行jar</li>
+<li><strong>测试策略</strong>：生产打包用<code>-DskipTests</code>但保留编译，确保代码无语法错误</li>
+<li><strong>责任体现</strong>：交付的jar必须能在全新环境运行，不依赖开发工具</li>
+</ul>
+<p><strong>2. 配置环节</strong>（3分）：</p>
+<ul>
+<li><strong>环境隔离</strong>：<code>application-dev.yml</code>与<code>application-prod.yml</code>严格分离，避免开发配置混入生产</li>
+<li><strong>敏感信息保护</strong>：数据库密码、JWT密钥等使用环境变量<code>${DB_PASSWORD:default}</code>，不硬编码</li>
+<li><strong>外部配置机制</strong>：利用外部配置文件覆盖机制，使运维可修改配置而无需重新打包</li>
+<li><strong>责任体现</strong>：2022年某大厂事故就是测试配置打包进生产，导致数据写错库——这是典型的"能运行但不能交付"</li>
+</ul>
+<p><strong>3. 部署环节</strong>（2分）：</p>
+<ul>
+<li><strong>数据库安全</strong>：生产环境<code>spring.sql.init.mode=never</code>，手动执行SQL并审计，避免自动执行覆盖数据</li>
+<li><strong>网络安全</strong>：防火墙只开放必要端口（80/443），MySQL的3306不对外暴露</li>
+<li><strong>日志可追溯</strong>：配置日志文件输出，便于问题排查</li>
+<li><strong>优雅关闭</strong>：<code>server.shutdown=graceful</code> +
+<code>kill -15</code>，避免请求中断导致数据丢失</li>
+<li><strong>责任体现</strong>：部署方案应可复现、可回滚，每一次变更都有记录</li>
+</ul>
+<p><strong>三、总结</strong>（2分）：</p>
+<p>软件交付责任要求工程师从"代码思维"升级到"系统思维"：</p>
+<ul>
+<li>不仅关注功能实现，更关注部署可靠性</li>
+<li>不仅关注本地运行，更关注生产环境</li>
+<li>不仅关注代码质量，更关注运维可持续性</li>
+</ul>
+<p>这是从"码农"走向"工程师"的必经之路，也是本次课最重要的思政收获。</p>
+<p><strong>评分标准</strong>（满分12分）：</p>
+<ul>
+<li>概念理解（3分）：能运行与能交付的区别（2分），交付的特征（1分）</li>
+<li>打包环节（2分）：版本管理、依赖完整性、测试策略</li>
+<li>配置环节（3分）：环境隔离、敏感信息保护、外部配置机制</li>
+<li>部署环节（2分）：数据库安全、网络安全、日志、优雅关闭</li>
+<li>总结升华（2分）：系统思维、工程师责任意识</li>
+</ul>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h2 id="六程序阅读补全题2题">六、程序阅读补全题（2题）</h2>
+<h3 id="23-程序阅读-01">23-程序阅读-01</h3>
+<p><strong>阅读以下<code>pom.xml</code>配置，补全缺失的部分。</strong></p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span><span class="fu">?&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">project</span><span class="ot"> xmlns=</span><span class="st">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ot">         xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>&gt;</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">modelVersion</span>&gt;4.0.0&lt;/<span class="kw">modelVersion</span>&gt;</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">parent</span>&gt;</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-parent&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">version</span>&gt;3.2.5&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">parent</span>&gt;</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">groupId</span>&gt;com.ctts&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">artifactId</span>&gt;ctts&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">version</span>&gt;1.0.0&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">packaging</span>&gt;jar&lt;/<span class="kw">packaging</span>&gt;</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">properties</span>&gt;</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">java.version</span>&gt;17&lt;/<span class="kw">java.version</span>&gt;</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">properties</span>&gt;</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">build</span>&gt;</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- (1) 补全：设置打包产物名称为ctts --&gt;</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">______</span><span class="er">(1)</span><span class="ot">______</span><span class="er">&gt;ctts&lt;/______(1)______&gt;</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>        <span class="er">&lt;plugins&gt;</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>            <span class="er">&lt;!--</span> <span class="er">(2)</span> <span class="er">补全：Spring</span> <span class="er">Boot打包插件配置</span> <span class="er">--&gt;</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>            <span class="er">&lt;plugin&gt;</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>                <span class="er">&lt;groupId&gt;______(2)______&lt;/groupId&gt;</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>                <span class="er">&lt;artifactId&gt;______(2)______&lt;/artifactId&gt;</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>                <span class="er">&lt;configuration&gt;</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>                    <span class="er">&lt;!--</span> <span class="er">(3)</span> <span class="er">补全：指定主类</span> <span class="er">--&gt;</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>                    <span class="er">&lt;______(3)______&gt;com.ctts.CttsApplication&lt;/______(3)______&gt;</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>                    <span class="er">&lt;excludes&gt;</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>                        <span class="er">&lt;exclude&gt;</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>                            <span class="er">&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>                            <span class="er">&lt;artifactId&gt;lombok&lt;/artifactId&gt;</span></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>                        <span class="er">&lt;/exclude&gt;</span></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>                    <span class="er">&lt;/excludes&gt;</span></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>                <span class="er">&lt;/configuration&gt;</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>                <span class="er">&lt;executions&gt;</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>                    <span class="er">&lt;execution&gt;</span></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>                        <span class="er">&lt;goals&gt;</span></span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>                            <span class="er">&lt;!--</span> <span class="er">(4)</span> <span class="er">补全：repackage目标</span> <span class="er">--&gt;</span></span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>                            <span class="er">&lt;goal&gt;______(4)______&lt;/goal&gt;</span></span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>                        <span class="er">&lt;/goals&gt;</span></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>                    <span class="er">&lt;/execution&gt;</span></span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>                <span class="er">&lt;/executions&gt;</span></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>            <span class="er">&lt;/plugin&gt;</span></span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>        <span class="er">&lt;/plugins&gt;</span></span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;/build&gt;</span></span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/project&gt;</span></span></code></pre></div>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：</p>
+<ul>
+<li><p><strong>(1)</strong>：<code>finalName</code></p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">finalName</span>&gt;ctts&lt;/<span class="kw">finalName</span>&gt;</span></code></pre></div>
+<p>作用：指定打包产物名称为<code>ctts.jar</code>（不带版本号）</p></li>
+<li><p><strong>(2)</strong>：<code>org.springframework.boot</code> /
+<code>spring-boot-maven-plugin</code></p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">artifactId</span>&gt;spring-boot-maven-plugin&lt;/<span class="kw">artifactId</span>&gt;</span></code></pre></div>
+<p>作用：Spring Boot官方打包插件</p></li>
+<li><p><strong>(3)</strong>：<code>mainClass</code></p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">mainClass</span>&gt;com.ctts.CttsApplication&lt;/<span class="kw">mainClass</span>&gt;</span></code></pre></div>
+<p>作用：指定业务主类全限定名，写入<code>MANIFEST.MF</code>的<code>Start-Class</code></p></li>
+<li><p><strong>(4)</strong>：<code>repackage</code></p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">goal</span>&gt;repackage&lt;/<span class="kw">goal</span>&gt;</span></code></pre></div>
+<p>作用：将普通jar重新打包为可执行jar（fat jar）</p></li>
+</ul>
+<p><strong>完整配置</strong>：</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">build</span>&gt;</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">finalName</span>&gt;ctts&lt;/<span class="kw">finalName</span>&gt;</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">plugins</span>&gt;</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">plugin</span>&gt;</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;spring-boot-maven-plugin&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">mainClass</span>&gt;com.ctts.CttsApplication&lt;/<span class="kw">mainClass</span>&gt;</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">excludes</span>&gt;</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">exclude</span>&gt;</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>                        &lt;<span class="kw">groupId</span>&gt;org.projectlombok&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>                        &lt;<span class="kw">artifactId</span>&gt;lombok&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>                    &lt;/<span class="kw">exclude</span>&gt;</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>                &lt;/<span class="kw">excludes</span>&gt;</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">configuration</span>&gt;</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">executions</span>&gt;</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">execution</span>&gt;</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">goals</span>&gt;</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>                        &lt;<span class="kw">goal</span>&gt;repackage&lt;/<span class="kw">goal</span>&gt;</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>                    &lt;/<span class="kw">goals</span>&gt;</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>                &lt;/<span class="kw">execution</span>&gt;</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">executions</span>&gt;</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">plugin</span>&gt;</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">plugins</span>&gt;</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">build</span>&gt;</span></code></pre></div>
+<p><strong>评分标准</strong>（满分8分，每空2分）：</p>
+<ul>
+<li>(1) finalName（2分）</li>
+<li>(2) groupId和artifactId正确（2分）</li>
+<li>(3) mainClass（2分）</li>
+<li>(4) repackage（2分）</li>
+</ul>
+<p><strong>难度</strong>：★★</p>
+</details>
+
+<hr />
+<h3 id="23-程序阅读-02">23-程序阅读-02</h3>
+<p><strong>阅读以下Nginx反向代理配置，补全缺失部分，并回答问题。</strong></p>
+<pre class="nginx"><code># /etc/nginx/conf.d/ctts.conf
+
+server {
+    listen       ______(1)______;          # 监听80端口
+    server_name  192.168.1.100;
+
+    access_log   /var/log/nginx/ctts.access.log;
+    error_log    /var/log/nginx/ctts.error.log;
+
+    # API接口代理
+    location /api/ {
+        ______(2)______ http://127.0.0.1:8080/api/;   # 反向代理到后端8080
+
+        # 转发客户端真实IP
+        proxy_set_header Host              $host;
+        ______(3)______                    $remote_addr;     # 设置真实IP
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+
+        # 文件上传大小限制
+        ______(4)______                   100m;
+    }
+
+    # 健康检查
+    location = /health {
+        proxy_pass http://127.0.0.1:8080/api/actuator/health;
+    }
+}</code></pre>
+<p><strong>问题</strong>：</p>
+<ol type="1">
+<li>补全(1)-(4)的配置</li>
+<li>访问<code>http://192.168.1.100/api/auth/login</code>，Nginx会将请求转发到哪个地址？</li>
+<li>为什么要设置<code>X-Real-IP</code>和<code>X-Forwarded-For</code>请求头？</li>
+</ol>
+<details>
+<summary>答案与解析</summary>
+
+<p><strong>答案</strong>：</p>
+<p><strong>1. 补全配置</strong>：</p>
+<ul>
+<li><p><strong>(1)</strong>：<code>80</code></p>
+<pre class="nginx"><code>listen 80;</code></pre></li>
+<li><p><strong>(2)</strong>：<code>proxy_pass</code></p>
+<pre class="nginx"><code>proxy_pass http://127.0.0.1:8080/api/;</code></pre></li>
+<li><p><strong>(3)</strong>：<code>X-Real-IP</code></p>
+<pre class="nginx"><code>proxy_set_header X-Real-IP $remote_addr;</code></pre></li>
+<li><p><strong>(4)</strong>：<code>client_max_body_size</code></p>
+<pre class="nginx"><code>client_max_body_size 100m;</code></pre></li>
+</ul>
+<p><strong>2. 转发地址</strong>：</p>
+<p>访问<code>http://192.168.1.100/api/auth/login</code>，Nginx匹配<code>location /api/</code>，将请求转发到<code>http://127.0.0.1:8080/api/auth/login</code>。</p>
+<p>因为<code>proxy_pass http://127.0.0.1:8080/api/;</code>末尾带<code>/</code>，<code>location</code>匹配的<code>/api/</code>部分会被替换为<code>/api/</code>，因此<code>/api/auth/login</code>
+→ <code>http://127.0.0.1:8080/api/auth/login</code>。</p>
+<p><strong>3. 设置请求头的原因</strong>：</p>
+<ul>
+<li><strong><code>X-Real-IP</code></strong>：Nginx反向代理后，后端应用通过<code>request.getRemoteAddr()</code>获取的是Nginx的IP（127.0.0.1），而非客户端真实IP。设置<code>X-Real-IP</code>头传递客户端真实IP，后端可通过<code>request.getHeader("X-Real-IP")</code>获取。</li>
+<li><strong><code>X-Forwarded-For</code></strong>：记录请求经过的代理链路，格式为<code>客户端IP, 代理1IP, 代理2IP, ...</code>，便于追踪请求来源。当存在多级代理时，该头记录完整链路。</li>
+</ul>
+<p>后端Spring
+Boot需配置<code>server.forward-headers-strategy: native</code>才能信任这些头。</p>
+<p><strong>评分标准</strong>（满分12分）：</p>
+<ul>
+<li>配置补全（8分，每空2分）</li>
+<li>转发地址说明（2分）</li>
+<li>请求头作用说明（2分）</li>
+</ul>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
+<h3 id="23-编程-01">23-编程-01</h3>
+<p><strong>编写一个Linux
+Shell脚本<code>deploy.sh</code>，实现CTTS应用的启动、停止、重启和状态查看功能。</strong></p>
+<p><strong>要求</strong>：</p>
+<ol type="1">
+<li>脚本支持<code>start</code>、<code>stop</code>、<code>restart</code>、<code>status</code>四个参数</li>
+<li>应用路径为<code>/opt/ctts/ctts.jar</code></li>
+<li>使用<code>nohup</code>后台运行，日志输出到<code>/opt/ctts/ctts.log</code></li>
+<li>激活<code>prod</code>环境配置</li>
+<li>使用PID文件管理进程（<code>/opt/ctts/ctts.pid</code>）</li>
+<li>启动前检查是否已运行，停止时优先用<code>kill -15</code>，5秒后未退出则<code>kill -9</code></li>
+<li>打印清晰的提示信息</li>
+</ol>
+<details>
+<summary>答案与评分标准</summary>
+
+<p><strong>参考答案</strong>：</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># CTTS应用部署脚本</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 用法：./deploy.sh {start|stop|restart|status}</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================== 变量配置 ====================</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="va">APP_NAME</span><span class="op">=</span><span class="st">&quot;ctts&quot;</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="va">APP_DIR</span><span class="op">=</span><span class="st">&quot;/opt/ctts&quot;</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="va">JAR_FILE</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$APP_DIR</span><span class="st">/</span><span class="va">$APP_NAME</span><span class="st">.jar&quot;</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="va">LOG_FILE</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$APP_DIR</span><span class="st">/</span><span class="va">$APP_NAME</span><span class="st">.log&quot;</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="va">PID_FILE</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$APP_DIR</span><span class="st">/</span><span class="va">$APP_NAME</span><span class="st">.pid&quot;</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="va">JAVA_OPTS</span><span class="op">=</span><span class="st">&quot;-Xms512m -Xmx1024m -XX:+UseG1GC&quot;</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="va">SPRING_OPTS</span><span class="op">=</span><span class="st">&quot;--spring.profiles.active=prod&quot;</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================== 函数定义 ====================</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 检查应用是否运行，返回PID（0表示未运行）</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="fu">get_pid()</span> <span class="kw">{</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">&quot;</span><span class="va">$PID_FILE</span><span class="st">&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">PID</span><span class="op">=</span><span class="va">$(</span><span class="fu">cat</span> <span class="st">&quot;</span><span class="va">$PID_FILE</span><span class="st">&quot;</span><span class="va">)</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="fu">ps</span> <span class="at">-p</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span> <span class="op">&gt;</span> /dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>            <span class="bu">echo</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;0&quot;</span></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 启动应用</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a><span class="fu">start()</span> <span class="kw">{</span></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>    <span class="va">PID</span><span class="op">=</span><span class="va">$(</span><span class="ex">get_pid</span><span class="va">)</span></span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span> <span class="ot">!=</span> <span class="st">&quot;0&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 应用已在运行，PID=</span><span class="va">$PID</span><span class="st">&quot;</span></span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 检查jar文件是否存在</span></span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="ot">!</span> <span class="ot">-f</span> <span class="st">&quot;</span><span class="va">$JAR_FILE</span><span class="st">&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 错误：jar文件不存在 - </span><span class="va">$JAR_FILE</span><span class="st">&quot;</span></span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb26-44"><a href="#cb26-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-45"><a href="#cb26-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 创建日志目录</span></span>
+<span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">&quot;</span><span class="va">$APP_DIR</span><span class="st">/logs&quot;</span></span>
+<span id="cb26-47"><a href="#cb26-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 正在启动...&quot;</span></span>
+<span id="cb26-49"><a href="#cb26-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nohup</span> java <span class="va">$JAVA_OPTS</span> <span class="at">-jar</span> <span class="st">&quot;</span><span class="va">$JAR_FILE</span><span class="st">&quot;</span> <span class="va">$SPRING_OPTS</span> <span class="op">&gt;</span> <span class="st">&quot;</span><span class="va">$LOG_FILE</span><span class="st">&quot;</span> <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span>
+<span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="va">$!</span> <span class="op">&gt;</span> <span class="st">&quot;</span><span class="va">$PID_FILE</span><span class="st">&quot;</span></span>
+<span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-52"><a href="#cb26-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 等待启动</span></span>
+<span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sleep</span> 3</span>
+<span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a>    <span class="va">PID</span><span class="op">=</span><span class="va">$(</span><span class="ex">get_pid</span><span class="va">)</span></span>
+<span id="cb26-56"><a href="#cb26-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span> <span class="ot">!=</span> <span class="st">&quot;0&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb26-57"><a href="#cb26-57" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 启动成功，PID=</span><span class="va">$PID</span><span class="st">&quot;</span></span>
+<span id="cb26-58"><a href="#cb26-58" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 日志文件：</span><span class="va">$LOG_FILE</span><span class="st">&quot;</span></span>
+<span id="cb26-59"><a href="#cb26-59" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 查看日志：tail -f </span><span class="va">$LOG_FILE</span><span class="st">&quot;</span></span>
+<span id="cb26-60"><a href="#cb26-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb26-61"><a href="#cb26-61" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 启动失败，请查看日志：</span><span class="va">$LOG_FILE</span><span class="st">&quot;</span></span>
+<span id="cb26-62"><a href="#cb26-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb26-63"><a href="#cb26-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb26-64"><a href="#cb26-64" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb26-65"><a href="#cb26-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-66"><a href="#cb26-66" aria-hidden="true" tabindex="-1"></a><span class="co"># 停止应用</span></span>
+<span id="cb26-67"><a href="#cb26-67" aria-hidden="true" tabindex="-1"></a><span class="fu">stop()</span> <span class="kw">{</span></span>
+<span id="cb26-68"><a href="#cb26-68" aria-hidden="true" tabindex="-1"></a>    <span class="va">PID</span><span class="op">=</span><span class="va">$(</span><span class="ex">get_pid</span><span class="va">)</span></span>
+<span id="cb26-69"><a href="#cb26-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span> <span class="ot">==</span> <span class="st">&quot;0&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb26-70"><a href="#cb26-70" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 应用未运行&quot;</span></span>
+<span id="cb26-71"><a href="#cb26-71" aria-hidden="true" tabindex="-1"></a>        <span class="fu">rm</span> <span class="at">-f</span> <span class="st">&quot;</span><span class="va">$PID_FILE</span><span class="st">&quot;</span></span>
+<span id="cb26-72"><a href="#cb26-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb26-73"><a href="#cb26-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb26-74"><a href="#cb26-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-75"><a href="#cb26-75" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 正在停止，PID=</span><span class="va">$PID</span><span class="st">&quot;</span></span>
+<span id="cb26-76"><a href="#cb26-76" aria-hidden="true" tabindex="-1"></a>    <span class="bu">kill</span> <span class="at">-15</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span></span>
+<span id="cb26-77"><a href="#cb26-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-78"><a href="#cb26-78" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 等待5秒</span></span>
+<span id="cb26-79"><a href="#cb26-79" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="va">$(</span><span class="fu">seq</span> 1 5<span class="va">)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb26-80"><a href="#cb26-80" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="ot">! </span><span class="fu">ps</span> <span class="at">-p</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span> <span class="op">&gt;</span> /dev/null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb26-81"><a href="#cb26-81" aria-hidden="true" tabindex="-1"></a>            <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 已停止&quot;</span></span>
+<span id="cb26-82"><a href="#cb26-82" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rm</span> <span class="at">-f</span> <span class="st">&quot;</span><span class="va">$PID_FILE</span><span class="st">&quot;</span></span>
+<span id="cb26-83"><a href="#cb26-83" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb26-84"><a href="#cb26-84" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span>
+<span id="cb26-85"><a href="#cb26-85" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sleep</span> 1</span>
+<span id="cb26-86"><a href="#cb26-86" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 等待退出... (</span><span class="va">$i</span><span class="st">/5)&quot;</span></span>
+<span id="cb26-87"><a href="#cb26-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
+<span id="cb26-88"><a href="#cb26-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-89"><a href="#cb26-89" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 5秒后仍未退出，强制终止</span></span>
+<span id="cb26-90"><a href="#cb26-90" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 优雅停止超时，强制终止&quot;</span></span>
+<span id="cb26-91"><a href="#cb26-91" aria-hidden="true" tabindex="-1"></a>    <span class="bu">kill</span> <span class="at">-9</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span></span>
+<span id="cb26-92"><a href="#cb26-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rm</span> <span class="at">-f</span> <span class="st">&quot;</span><span class="va">$PID_FILE</span><span class="st">&quot;</span></span>
+<span id="cb26-93"><a href="#cb26-93" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 已强制停止&quot;</span></span>
+<span id="cb26-94"><a href="#cb26-94" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb26-95"><a href="#cb26-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-96"><a href="#cb26-96" aria-hidden="true" tabindex="-1"></a><span class="co"># 重启应用</span></span>
+<span id="cb26-97"><a href="#cb26-97" aria-hidden="true" tabindex="-1"></a><span class="fu">restart()</span> <span class="kw">{</span></span>
+<span id="cb26-98"><a href="#cb26-98" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 正在重启...&quot;</span></span>
+<span id="cb26-99"><a href="#cb26-99" aria-hidden="true" tabindex="-1"></a>    <span class="ex">stop</span></span>
+<span id="cb26-100"><a href="#cb26-100" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sleep</span> 2</span>
+<span id="cb26-101"><a href="#cb26-101" aria-hidden="true" tabindex="-1"></a>    <span class="ex">start</span></span>
+<span id="cb26-102"><a href="#cb26-102" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb26-103"><a href="#cb26-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-104"><a href="#cb26-104" aria-hidden="true" tabindex="-1"></a><span class="co"># 查看状态</span></span>
+<span id="cb26-105"><a href="#cb26-105" aria-hidden="true" tabindex="-1"></a><span class="fu">status()</span> <span class="kw">{</span></span>
+<span id="cb26-106"><a href="#cb26-106" aria-hidden="true" tabindex="-1"></a>    <span class="va">PID</span><span class="op">=</span><span class="va">$(</span><span class="ex">get_pid</span><span class="va">)</span></span>
+<span id="cb26-107"><a href="#cb26-107" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span> <span class="ot">!=</span> <span class="st">&quot;0&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb26-108"><a href="#cb26-108" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 运行中，PID=</span><span class="va">$PID</span><span class="st">&quot;</span></span>
+<span id="cb26-109"><a href="#cb26-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-110"><a href="#cb26-110" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 检查端口</span></span>
+<span id="cb26-111"><a href="#cb26-111" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> netstat <span class="op">&amp;&gt;</span> /dev/null<span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb26-112"><a href="#cb26-112" aria-hidden="true" tabindex="-1"></a>            <span class="va">PORT</span><span class="op">=</span><span class="va">$(</span><span class="fu">netstat</span> <span class="at">-tlnp</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{print $4}&#39;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="at">-F:</span> <span class="st">&#39;{print $NF}&#39;</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-1</span><span class="va">)</span></span>
+<span id="cb26-113"><a href="#cb26-113" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">[</span> <span class="ot">-n</span> <span class="st">&quot;</span><span class="va">$PORT</span><span class="st">&quot;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb26-114"><a href="#cb26-114" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 监听端口：</span><span class="va">$PORT</span><span class="st">&quot;</span></span>
+<span id="cb26-115"><a href="#cb26-115" aria-hidden="true" tabindex="-1"></a>            <span class="cf">fi</span></span>
+<span id="cb26-116"><a href="#cb26-116" aria-hidden="true" tabindex="-1"></a>        <span class="cf">fi</span></span>
+<span id="cb26-117"><a href="#cb26-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-118"><a href="#cb26-118" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 显示内存占用</span></span>
+<span id="cb26-119"><a href="#cb26-119" aria-hidden="true" tabindex="-1"></a>        <span class="va">MEM</span><span class="op">=</span><span class="va">$(</span><span class="fu">ps</span> <span class="at">-o</span> rss= <span class="at">-p</span> <span class="st">&quot;</span><span class="va">$PID</span><span class="st">&quot;</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{printf &quot;%.1f MB&quot;, $1/1024}&#39;</span><span class="va">)</span></span>
+<span id="cb26-120"><a href="#cb26-120" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 内存占用：</span><span class="va">$MEM</span><span class="st">&quot;</span></span>
+<span id="cb26-121"><a href="#cb26-121" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb26-122"><a href="#cb26-122" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$APP_NAME</span><span class="st">] 未运行&quot;</span></span>
+<span id="cb26-123"><a href="#cb26-123" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb26-124"><a href="#cb26-124" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb26-125"><a href="#cb26-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-126"><a href="#cb26-126" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================== 主逻辑 ====================</span></span>
+<span id="cb26-127"><a href="#cb26-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-128"><a href="#cb26-128" aria-hidden="true" tabindex="-1"></a><span class="cf">case</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span> <span class="kw">in</span></span>
+<span id="cb26-129"><a href="#cb26-129" aria-hidden="true" tabindex="-1"></a>    <span class="ss">start</span><span class="kw">)</span></span>
+<span id="cb26-130"><a href="#cb26-130" aria-hidden="true" tabindex="-1"></a>        <span class="ex">start</span></span>
+<span id="cb26-131"><a href="#cb26-131" aria-hidden="true" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb26-132"><a href="#cb26-132" aria-hidden="true" tabindex="-1"></a>    <span class="ss">stop</span><span class="kw">)</span></span>
+<span id="cb26-133"><a href="#cb26-133" aria-hidden="true" tabindex="-1"></a>        <span class="ex">stop</span></span>
+<span id="cb26-134"><a href="#cb26-134" aria-hidden="true" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb26-135"><a href="#cb26-135" aria-hidden="true" tabindex="-1"></a>    <span class="ss">restart</span><span class="kw">)</span></span>
+<span id="cb26-136"><a href="#cb26-136" aria-hidden="true" tabindex="-1"></a>        <span class="ex">restart</span></span>
+<span id="cb26-137"><a href="#cb26-137" aria-hidden="true" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb26-138"><a href="#cb26-138" aria-hidden="true" tabindex="-1"></a>    <span class="ss">status</span><span class="kw">)</span></span>
+<span id="cb26-139"><a href="#cb26-139" aria-hidden="true" tabindex="-1"></a>        <span class="ex">status</span></span>
+<span id="cb26-140"><a href="#cb26-140" aria-hidden="true" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb26-141"><a href="#cb26-141" aria-hidden="true" tabindex="-1"></a>    <span class="pp">*</span><span class="kw">)</span></span>
+<span id="cb26-142"><a href="#cb26-142" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;用法：</span><span class="va">$0</span><span class="st"> {start|stop|restart|status}&quot;</span></span>
+<span id="cb26-143"><a href="#cb26-143" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;  start   启动应用&quot;</span></span>
+<span id="cb26-144"><a href="#cb26-144" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;  stop    停止应用&quot;</span></span>
+<span id="cb26-145"><a href="#cb26-145" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;  restart 重启应用&quot;</span></span>
+<span id="cb26-146"><a href="#cb26-146" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">&quot;  status  查看状态&quot;</span></span>
+<span id="cb26-147"><a href="#cb26-147" aria-hidden="true" tabindex="-1"></a>        <span class="bu">exit</span> 1</span>
+<span id="cb26-148"><a href="#cb26-148" aria-hidden="true" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb26-149"><a href="#cb26-149" aria-hidden="true" tabindex="-1"></a><span class="cf">esac</span></span>
+<span id="cb26-150"><a href="#cb26-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-151"><a href="#cb26-151" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span> 0</span></code></pre></div>
+<p><strong>使用方式</strong>：</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x deploy.sh</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./deploy.sh</span> start</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./deploy.sh</span> status</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./deploy.sh</span> restart</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="ex">./deploy.sh</span> stop</span></code></pre></div>
+<p><strong>评分标准</strong>（满分15分）：</p>
+<ul>
+<li>脚本结构与变量配置（3分）</li>
+<li>start函数（4分）：
+<ul>
+<li>检查是否已运行（1分）</li>
+<li>nohup后台启动（1分）</li>
+<li>PID文件管理（1分）</li>
+<li>启动验证（1分）</li>
+</ul></li>
+<li>stop函数（4分）：
+<ul>
+<li>kill -15优雅停止（1分）</li>
+<li>等待5秒（1分）</li>
+<li>kill -9强制终止（1分）</li>
+<li>PID文件清理（1分）</li>
+</ul></li>
+<li>restart函数（2分）</li>
+<li>status函数（2分）</li>
+<li>case分支与使用说明（2分）</li>
+</ul>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h3 id="23-编程-02">23-编程-02</h3>
+<p><strong>编写完整的<code>application-prod.yml</code>生产环境配置文件，并编写对应的Linux启动命令（包含JVM调优参数）。</strong></p>
+<p><strong>要求</strong>：</p>
+<ol type="1">
+<li>数据源配置：MySQL
+8，使用环境变量<code>DB_HOST</code>、<code>DB_USERNAME</code>、<code>DB_PASSWORD</code>，带默认值</li>
+<li>连接池：HikariCP，最大连接数20，最小空闲5</li>
+<li>MyBatis-Plus：关闭SQL打印</li>
+<li>日志：INFO级别，输出到文件<code>/opt/ctts/logs/ctts.log</code>，按100MB滚动，保留30天</li>
+<li>JWT：密钥通过环境变量<code>JWT_SECRET</code>，有效期24小时</li>
+<li>Knife4j：生产环境关闭</li>
+<li>优雅关闭：启用graceful shutdown，超时30秒</li>
+<li>启动命令：JVM堆内存512m-1024m，使用G1GC，OOM时生成dump文件</li>
+</ol>
+<details>
+<summary>答案与评分标准</summary>
+
+<p><strong>参考答案</strong>：</p>
+<p><strong>一、application-prod.yml</strong>：</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># CTTS生产环境配置</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">spring</span><span class="kw">:</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">  # 数据源配置</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">datasource</span><span class="kw">:</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">driver-class-name</span><span class="kw">:</span><span class="at"> com.mysql.cj.jdbc.Driver</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">url</span><span class="kw">:</span><span class="at"> jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_NAME:ctts}?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">username</span><span class="kw">:</span><span class="at"> ${DB_USERNAME:ctts_user}</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">password</span><span class="kw">:</span><span class="at"> ${DB_PASSWORD:Ctts@2024User}</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="co">    # HikariCP连接池</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">hikari</span><span class="kw">:</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">minimum-idle</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span><span class="co">                # 最小空闲连接数</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">maximum-pool-size</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span><span class="co">          # 最大连接数</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">idle-timeout</span><span class="kw">:</span><span class="at"> </span><span class="dv">30000</span><span class="co">            # 空闲超时（ms）</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-lifetime</span><span class="kw">:</span><span class="at"> </span><span class="dv">1800000</span><span class="co">          # 连接最大生命周期（ms）</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">connection-timeout</span><span class="kw">:</span><span class="at"> </span><span class="dv">30000</span><span class="co">      # 连接超时（ms）</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pool-name</span><span class="kw">:</span><span class="at"> CttsHikariPool</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a><span class="co">  # 不自动执行SQL脚本</span></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sql</span><span class="kw">:</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">init</span><span class="kw">:</span></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">mode</span><span class="kw">:</span><span class="at"> never</span></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a><span class="co">  # 优雅关闭</span></span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">lifecycle</span><span class="kw">:</span></span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">timeout-per-shutdown-phase</span><span class="kw">:</span><span class="at"> 30s</span></span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 服务器配置</span></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8080</span></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">shutdown</span><span class="kw">:</span><span class="at"> graceful</span><span class="co">                 # 启用优雅关闭</span></span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">tomcat</span><span class="kw">:</span></span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">uri-encoding</span><span class="kw">:</span><span class="at"> UTF-8</span></span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">max-threads</span><span class="kw">:</span><span class="at"> </span><span class="dv">200</span></span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">accept-count</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a><span class="co"># MyBatis-Plus配置</span></span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a><span class="fu">mybatis-plus</span><span class="kw">:</span></span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">mapper-locations</span><span class="kw">:</span><span class="at"> classpath:mapper/*.xml</span></span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type-aliases-package</span><span class="kw">:</span><span class="at"> com.ctts.entity</span></span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">configuration</span><span class="kw">:</span></span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">log-impl</span><span class="kw">:</span><span class="at"> org.apache.ibatis.logging.nologging.NoLoggingImpl</span><span class="co">   # 关闭SQL打印</span></span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">map-underscore-to-camel-case</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 日志配置</span></span>
+<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
+<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span></span>
+<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">root</span><span class="kw">:</span><span class="at"> info</span></span>
+<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> info</span></span>
+<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">org.springframework</span><span class="kw">:</span><span class="at"> warn</span></span>
+<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">file</span><span class="kw">:</span></span>
+<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> /opt/ctts/logs/ctts.log</span><span class="co">    # 日志文件路径</span></span>
+<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">logback</span><span class="kw">:</span></span>
+<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">rollingpolicy</span><span class="kw">:</span></span>
+<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-file-size</span><span class="kw">:</span><span class="at"> 100MB</span><span class="co">           # 单个日志文件最大100MB</span></span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-history</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span><span class="co">                # 保留30天</span></span>
+<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">total-size-cap</span><span class="kw">:</span><span class="at"> 3GB</span><span class="co">            # 总大小上限3GB</span></span>
+<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">file-name-pattern</span><span class="kw">:</span><span class="at"> /opt/ctts/logs/ctts-%d{yyyy-MM-dd}.%i.log</span></span>
+<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a><span class="co"># JWT配置</span></span>
+<span id="cb28-63"><a href="#cb28-63" aria-hidden="true" tabindex="-1"></a><span class="fu">ctts</span><span class="kw">:</span></span>
+<span id="cb28-64"><a href="#cb28-64" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">jwt</span><span class="kw">:</span></span>
+<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">header</span><span class="kw">:</span><span class="at"> Authorization</span></span>
+<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">token-prefix</span><span class="kw">:</span><span class="at"> Bearer</span></span>
+<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">secret</span><span class="kw">:</span><span class="at"> ${JWT_SECRET:ctts-prod-secret-key-change-this-to-random-32-chars}</span></span>
+<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">expire</span><span class="kw">:</span><span class="at"> </span><span class="dv">86400</span><span class="co">                    # 24小时（秒）</span></span>
+<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Knife4j配置（生产环境关闭）</span></span>
+<span id="cb28-71"><a href="#cb28-71" aria-hidden="true" tabindex="-1"></a><span class="fu">knife4j</span><span class="kw">:</span></span>
+<span id="cb28-72"><a href="#cb28-72" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">enable</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">basic</span><span class="kw">:</span></span>
+<span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">enable</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb28-75"><a href="#cb28-75" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">username</span><span class="kw">:</span><span class="at"> ${KNIFE4J_USER:admin}</span></span>
+<span id="cb28-76"><a href="#cb28-76" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">password</span><span class="kw">:</span><span class="at"> ${KNIFE4J_PASSWORD:Knife4j@2024}</span></span>
+<span id="cb28-77"><a href="#cb28-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-78"><a href="#cb28-78" aria-hidden="true" tabindex="-1"></a><span class="fu">springdoc</span><span class="kw">:</span></span>
+<span id="cb28-79"><a href="#cb28-79" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">api-docs</span><span class="kw">:</span></span>
+<span id="cb28-80"><a href="#cb28-80" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">enabled</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">swagger-ui</span><span class="kw">:</span></span>
+<span id="cb28-82"><a href="#cb28-82" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">enabled</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div>
+<p><strong>二、Linux启动命令</strong>：</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># CTTS生产环境启动命令</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="va">APP_DIR</span><span class="op">=</span><span class="st">&quot;/opt/ctts&quot;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="va">JAR_FILE</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$APP_DIR</span><span class="st">/ctts.jar&quot;</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="va">LOG_FILE</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$APP_DIR</span><span class="st">/ctts.log&quot;</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="va">PID_FILE</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$APP_DIR</span><span class="st">/ctts.pid&quot;</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建日志目录</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">&quot;</span><span class="va">$APP_DIR</span><span class="st">/logs&quot;</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 启动应用（含JVM调优参数）</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> java <span class="dt">\</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">-Xms512m</span> <span class="dt">\</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">-Xmx1024m</span> <span class="dt">\</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">-XX:+UseG1GC</span> <span class="dt">\</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">-XX:MaxGCPauseMillis</span><span class="op">=</span>200 <span class="dt">\</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">-XX:+HeapDumpOnOutOfMemoryError</span> <span class="dt">\</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">-XX:HeapDumpPath</span><span class="op">=</span><span class="va">$APP_DIR</span>/logs/dump.hprof <span class="dt">\</span></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">-Dfile.encoding</span><span class="op">=</span>UTF-8 <span class="dt">\</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">-Duser.timezone</span><span class="op">=</span>Asia/Shanghai <span class="dt">\</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">-jar</span> <span class="st">&quot;</span><span class="va">$JAR_FILE</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">--spring.profiles.active</span><span class="op">=</span>prod <span class="dt">\</span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">&gt;</span> <span class="st">&quot;</span><span class="va">$LOG_FILE</span><span class="st">&quot;</span> <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 保存PID</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$!</span> <span class="op">&gt;</span> <span class="st">&quot;</span><span class="va">$PID_FILE</span><span class="st">&quot;</span></span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 输出提示</span></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;CTTS启动中...&quot;</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;PID: </span><span class="va">$!</span><span class="st">&quot;</span></span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;日志: tail -f </span><span class="va">$LOG_FILE</span><span class="st">&quot;</span></span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;停止: kill -15 </span><span class="va">$(</span><span class="fu">cat</span> <span class="va">$PID_FILE)</span><span class="st">&quot;</span></span></code></pre></div>
+<p><strong>参数说明</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>JVM参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-Xms512m</code></td>
+<td>初始堆内存512MB</td>
+</tr>
+<tr>
+<td><code>-Xmx1024m</code></td>
+<td>最大堆内存1GB</td>
+</tr>
+<tr>
+<td><code>-XX:+UseG1GC</code></td>
+<td>使用G1垃圾回收器</td>
+</tr>
+<tr>
+<td><code>-XX:MaxGCPauseMillis=200</code></td>
+<td>GC最大停顿200ms</td>
+</tr>
+<tr>
+<td><code>-XX:+HeapDumpOnOutOfMemoryError</code></td>
+<td>OOM时生成堆dump</td>
+</tr>
+<tr>
+<td><code>-XX:HeapDumpPath</code></td>
+<td>dump文件路径</td>
+</tr>
+<tr>
+<td><code>-Dfile.encoding=UTF-8</code></td>
+<td>文件编码UTF-8</td>
+</tr>
+<tr>
+<td><code>-Duser.timezone=Asia/Shanghai</code></td>
+<td>时区上海</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分标准</strong>（满分15分）：</p>
+<p><strong>配置文件（10分）</strong>：</p>
+<ul>
+<li>数据源配置（2分）：环境变量 + 默认值</li>
+<li>连接池配置（2分）：HikariCP参数</li>
+<li>MyBatis-Plus关闭SQL打印（1分）</li>
+<li>日志配置（2分）：文件 + 滚动策略</li>
+<li>JWT配置（1分）：环境变量</li>
+<li>Knife4j关闭（1分）</li>
+<li>优雅关闭配置（1分）</li>
+</ul>
+<p><strong>启动命令（5分）</strong>：</p>
+<ul>
+<li>nohup后台运行（1分）</li>
+<li>JVM堆内存参数（1分）</li>
+<li>G1GC配置（1分）</li>
+<li>OOM dump配置（1分）</li>
+<li>profile激活 + 日志重定向（1分）</li>
+</ul>
+<p><strong>难度</strong>：★★★</p>
+</details>
+
+<hr />
+<h2 id="八统计表">八、统计表</h2>
+<h3 id="题目数量统计">题目数量统计</h3>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>数量</th>
+<th>分值（参考）</th>
+<th>总分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单选题</td>
+<td>30</td>
+<td>2分/题</td>
+<td>60分</td>
+</tr>
+<tr>
+<td>多选题</td>
+<td>10</td>
+<td>3分/题</td>
+<td>30分</td>
+</tr>
+<tr>
+<td>判断题</td>
+<td>20</td>
+<td>1分/题</td>
+<td>20分</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>10</td>
+<td>2分/题</td>
+<td>20分</td>
+</tr>
+<tr>
+<td>论述简答题</td>
+<td>4</td>
+<td>10-12分/题</td>
+<td>44分</td>
+</tr>
+<tr>
+<td>程序阅读补全题</td>
+<td>2</td>
+<td>8-12分/题</td>
+<td>20分</td>
+</tr>
+<tr>
+<td>编程接口设计题</td>
+<td>2</td>
+<td>15分/题</td>
+<td>30分</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td>-</td>
+<td><strong>224分</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="难度分布统计">难度分布统计</h3>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>数量</th>
+<th>占比</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>★（基础）</td>
+<td>28</td>
+<td>35.9%</td>
+<td>基础概念与命令记忆</td>
+</tr>
+<tr>
+<td>★★（进阶）</td>
+<td>34</td>
+<td>43.6%</td>
+<td>原理理解与配置应用</td>
+</tr>
+<tr>
+<td>★★★（挑战）</td>
+<td>16</td>
+<td>20.5%</td>
+<td>综合分析与实战设计</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td><strong>100%</strong></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="知识点覆盖统计">知识点覆盖统计</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>题目数量</th>
+<th>涉及题号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K23-1 Maven打包</td>
+<td>18</td>
+<td>单选01,02,03,04,05,11,21,25,28；多选01,10；判断01,02,03,13,14,17；填空01,02,09；论述01</td>
+</tr>
+<tr>
+<td>K23-2 Spring Boot jar运行</td>
+<td>15</td>
+<td>单选06,07,08,12,13,22,23,29；多选05；判断04,05,06,12,15；填空03,10；论述01</td>
+</tr>
+<tr>
+<td>K23-3 配置文件管理</td>
+<td>17</td>
+<td>单选07,09,10,14,18,24；多选02,04,06；判断06,07,08,18；填空04,08；论述02；编程02</td>
+</tr>
+<tr>
+<td>K23-4 数据库初始化脚本</td>
+<td>10</td>
+<td>单选15,16,17,26；多选07；判断09,10；填空05；论述03</td>
+</tr>
+<tr>
+<td>K23-5 简单服务器部署</td>
+<td>18</td>
+<td>单选18,19,20,27,30；多选03,08,09；判断11,16,19,20；填空06,07；论述03；程序阅读02；编程01</td>
+</tr>
+<tr>
+<td>综合应用</td>
+<td>10</td>
+<td>论述04；程序阅读01；编程01,02；部分跨知识点题目</td>
+</tr>
+</tbody>
+</table>
+<h3 id="题型-难度交叉统计">题型-难度交叉统计</h3>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>★</th>
+<th>★★</th>
+<th>★★★</th>
+<th>小计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单选题</td>
+<td>12</td>
+<td>13</td>
+<td>5</td>
+<td>30</td>
+</tr>
+<tr>
+<td>多选题</td>
+<td>0</td>
+<td>7</td>
+<td>3</td>
+<td>10</td>
+</tr>
+<tr>
+<td>判断题</td>
+<td>8</td>
+<td>10</td>
+<td>2</td>
+<td>20</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>6</td>
+<td>4</td>
+<td>0</td>
+<td>10</td>
+</tr>
+<tr>
+<td>论述简答题</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>程序阅读补全题</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>编程接口设计题</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>26</strong></td>
+<td><strong>35</strong></td>
+<td><strong>17</strong></td>
+<td><strong>78</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>使用说明</strong>：</p>
+<ol type="1">
+<li>本题库覆盖第23次课全部知识点，建议按难度由低到高顺序练习</li>
+<li>客观题（选择、判断、填空）适合课堂快问快答和课后自测</li>
+<li>主观题（论述、程序阅读、编程）适合作业和实训考核</li>
+<li>编程题需在Linux环境实际操作验证</li>
+<li>建议结合教学资料中的代码示例对照学习</li>
+</ol>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

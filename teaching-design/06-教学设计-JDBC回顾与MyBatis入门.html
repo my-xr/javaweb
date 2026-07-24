@@ -1,0 +1,554 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JDBC回顾与MyBatis入门</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 06 次课 · 教学设计</div>
+      <h1>JDBC回顾与MyBatis入门</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 06 次课</span>
+        <span class="hero-chip"><b>主题</b>JDBC回顾与MyBatis入门</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务或案例任务">四、项目任务或案例任务</a>
+<ul>
+<li><a href="#贯穿项目阶段任务ctts-持久层环境搭建">贯穿项目阶段任务：CTTS 持久层环境搭建</a></li>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动-1jdbc-代码找错讲解-k6-1k6-2-后">互动 1：JDBC 代码找错（讲解 K6-1、K6-2 后）</a></li>
+<li><a href="#互动-2技术选型对比讨论讲解-k6-3k6-4-后">互动 2：技术选型对比讨论（讲解 K6-3、K6-4 后）</a></li>
+<li><a href="#互动-3连接报错现场排查讲解-k6-5-时">互动 3：连接报错现场排查（讲解 K6-5 时）</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习或随堂测验">七、课堂练习或随堂测验</a>
+<ul>
+<li><a href="#随堂练习5-分钟讲解结束前进行">随堂练习（5 分钟，讲解结束前进行）</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+</ul></li>
+<li><a href="#九对应岗位能力或面试考点">九、对应岗位能力或面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 06 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>所属模块：M3 数据库访问与持久层开发 ｜ 课程：《JavaWeb 后端开发技术》
+配套资料：见同文件夹内
+<code>教学资料.md</code>（学生复习资料）、<code>题库.md</code>（78
+题考试题库）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>次序</td>
+<td>第 6 次课（全课程 24 次之第 6）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>理论课</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M3 数据库访问与持久层开发</td>
+</tr>
+<tr>
+<td>教学主题</td>
+<td>JDBC 回顾与 MyBatis 入门</td>
+</tr>
+<tr>
+<td>先修基础</td>
+<td>第 3~5 次课（Spring Boot 接口开发）、Java 程序设计、数据库原理与 SQL
+基础</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>掌握 JDBC 操作数据库的核心六步：加载驱动、获取连接、创建
+Statement、执行 SQL、处理 ResultSet、关闭资源。</li>
+<li>理解 JDBC 原生开发的四大痛点：代码繁琐、资源易泄漏、SQL
+硬编码、结果集手动映射。</li>
+<li>理解 MyBatis 作为半自动 ORM 框架的定位：SQL 与 Java
+代码分离，灵活度高。</li>
+<li>了解 MyBatis-Plus 作为 MyBatis 增强工具的核心优势：内置
+CRUD、条件构造器、分页插件、代码生成。</li>
+<li>掌握 Spring Boot 3 项目集成 MyBatis-Plus
+的完整步骤：依赖添加、数据源配置、建库建表、连接验证。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够独立编写一段完整的 JDBC 查询代码（含 try-with-resources
+资源关闭）。</li>
+<li>能够识别 JDBC 代码中的资源泄漏、SQL 注入、硬编码等常见问题。</li>
+<li>能够在 Spring Boot 3 项目中正确添加 MyBatis-Plus 与 MySQL
+驱动依赖，配置数据源。</li>
+<li>能够创建 CTTS 项目数据库 <code>ctts</code> 与 <code>sys_user</code>
+表，并启动项目验证数据库连接成功。</li>
+<li>能够排查常见的数据库连接报错（时区错误、驱动类找不到、密码错误等）。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li>树立"数据准确性与审慎修改"的工程底线意识——一个 SQL
+写错可能导致数据丢失，数据库操作必须严谨。</li>
+<li>培养对国产开源生态的认同感——MyBatis-Plus
+是国产增强工具，被企业广泛采用。</li>
+<li>建立"先理解痛点、再学习方案"的工程思维——理解 JDBC 痛点才能体会
+MyBatis-Plus 的价值。</li>
+</ol>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<blockquote>
+<p>详细讲解内容见同文件夹 <code>教学资料.md</code>，此处为纲要。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K6-1</td>
+<td>JDBC 核心步骤</td>
+<td>加载驱动 <code>Class.forName</code> → 获取
+<code>Connection</code>（<code>DriverManager.getConnection</code>）→
+创建 <code>Statement</code>/<code>PreparedStatement</code> → 执行
+SQL（<code>executeQuery</code>/<code>executeUpdate</code>）→ 处理
+<code>ResultSet</code> → 关闭资源（try-with-resources）</td>
+</tr>
+<tr>
+<td>K6-2</td>
+<td>JDBC 痛点</td>
+<td>代码繁琐（6 步流程）；手动管理资源易泄漏；SQL 硬编码在 Java
+文件中；结果集手动映射到对象</td>
+</tr>
+<tr>
+<td>K6-3</td>
+<td>MyBatis 简介与定位</td>
+<td>半自动 ORM 框架，SQL 与 Java 代码分离（写在 XML
+或注解中），灵活度高，开发者自己写 SQL，框架负责参数绑定与结果映射</td>
+</tr>
+<tr>
+<td>K6-4</td>
+<td>MyBatis-Plus 简介与优势</td>
+<td>MyBatis 增强工具（不改变 MyBatis 本身），内置
+CRUD（BaseMapper）、条件构造器（QueryWrapper）、分页插件、代码生成器，开箱即用</td>
+</tr>
+<tr>
+<td>K6-5</td>
+<td>环境集成</td>
+<td>添加 <code>mybatis-plus-spring-boot3-starter</code>
+依赖、<code>mysql-connector-j</code> 依赖；<code>application.yml</code>
+数据源配置（url/username/password/driver-class-name）；创建数据库
+<code>ctts</code> 与 <code>sys_user</code> 表</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务或案例任务">四、项目任务或案例任务</h2>
+<h3 id="贯穿项目阶段任务ctts-持久层环境搭建">贯穿项目阶段任务：CTTS
+持久层环境搭建</h3>
+<p><strong>本次课任务</strong>：</p>
+<ol type="1">
+<li>教师演示原生 JDBC 代码查询 <code>sys_user</code>
+表，让学生直观感受"6 步流程"的繁琐。</li>
+<li>教师演示在 CTTS 项目中集成 MyBatis-Plus，配置 MySQL 数据源。</li>
+<li>学生在本地完成以下操作：
+<ul>
+<li>确认 MySQL 8 已安装并启动；</li>
+<li>创建数据库 <code>ctts</code>；</li>
+<li>执行 <code>sys_user</code> 建表 SQL；</li>
+<li>在 CTTS 项目中添加 MyBatis-Plus 与 MySQL 驱动依赖；</li>
+<li>配置 <code>application.yml</code> 数据源；</li>
+<li>启动项目，观察启动日志确认数据库连接成功。</li>
+</ul></li>
+</ol>
+<p><strong>项目背景对接</strong>：</p>
+<ul>
+<li>本次课进入 M3 模块（数据库访问与持久层开发），CTTS
+项目从"模拟数据接口"过渡到"真实数据库访问"。</li>
+<li><code>sys_user</code> 表是 CTTS 五张核心表之首，后续登录认证（M6
+模块）将基于此表。</li>
+<li>本次课只验证连接成功，不写 Mapper 接口（Mapper 编写在第 7
+次课）。</li>
+</ul>
+<blockquote>
+<p>📌 本节课重点是环境集成与连接验证，Mapper/Service
+编写下一次课进行。</p>
+</blockquote>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3 id="互动-1jdbc-代码找错讲解-k6-1k6-2-后">互动 1：JDBC 代码找错（讲解
+K6-1、K6-2 后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>展示一段有资源泄漏、SQL 注入、硬编码问题的 JDBC
+代码，让学生找出所有问题</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>全班共同找错，教师板书每个问题点，学生举手发言</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>找出"ResultSet/Statement/Connection 未关闭""SQL
+拼接易注入""密码硬编码在代码里""加载驱动写错类名"等问题</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>肯定合理发现，引导总结为四大痛点（繁琐、泄漏、硬编码、手动映射）；引出
+K6-3 MyBatis 的解决方案</td>
+</tr>
+</tbody>
+</table>
+<p><strong>展示代码示例</strong>（教师投屏，不直接发给学生）：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> BadJdbcDemo <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Class</span><span class="op">.</span><span class="fu">forName</span><span class="op">(</span><span class="st">&quot;com.mysql.cj.jdbc.Driver&quot;</span><span class="op">);</span>  <span class="co">// 问题1：驱动类名可能写错</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Connection</span> conn <span class="op">=</span> <span class="bu">DriverManager</span><span class="op">.</span><span class="fu">getConnection</span><span class="op">(</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;jdbc:mysql://localhost:3306/ctts&quot;</span><span class="op">,</span> <span class="st">&quot;root&quot;</span><span class="op">,</span> <span class="st">&quot;123456&quot;</span><span class="op">);</span>  <span class="co">// 问题2：密码硬编码</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Statement</span> stmt <span class="op">=</span> conn<span class="op">.</span><span class="fu">createStatement</span><span class="op">();</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> name <span class="op">=</span> <span class="st">&quot;admin&quot;</span><span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> sql <span class="op">=</span> <span class="st">&quot;SELECT * FROM sys_user WHERE username = &#39;&quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;&#39;&quot;</span><span class="op">;</span>  <span class="co">// 问题3：SQL 拼接，易注入</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">ResultSet</span> rs <span class="op">=</span> stmt<span class="op">.</span><span class="fu">executeQuery</span><span class="op">(</span>sql<span class="op">);</span>  <span class="co">// 问题4：未用 PreparedStatement</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="op">(</span>rs<span class="op">.</span><span class="fu">next</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>rs<span class="op">.</span><span class="fu">getString</span><span class="op">(</span><span class="st">&quot;username&quot;</span><span class="op">));</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 问题5：rs、stmt、conn 都没有关闭，资源泄漏！</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 问题6：异常直接 throws，没有 try-catch 处理</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="互动-2技术选型对比讨论讲解-k6-3k6-4-后">互动
+2：技术选型对比讨论（讲解 K6-3、K6-4 后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"如果你是项目技术负责人，在
+JDBC、MyBatis、MyBatis-Plus、JPA(Hibernate) 四者之间，你会为 CTTS
+项目选哪个？为什么？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>小组讨论 3 分钟 → 每组派代表发言 1 分钟</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>多数组会选 MyBatis-Plus，理由是"内置 CRUD 省代码""SQL
+灵活""国产生态""企业主流"</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>肯定选型合理性，强调"没有最好只有最合适"——JPA 适合简单 CRUD，MyBatis
+适合复杂 SQL，MyBatis-Plus 兼顾两者。本课程选 MyBatis-Plus</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-3连接报错现场排查讲解-k6-5-时">互动
+3：连接报错现场排查（讲解 K6-5 时）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>教师故意把数据源 url
+时区写错或密码写错，启动项目展示报错日志，让学生读日志找原因</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>教师投屏报错信息，学生读日志并指出问题</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>能从日志中识别"Access denied（密码错）""Unknown
+timezone（时区错）""ClassNotFoundException（驱动未加）"等关键信息</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>强调"读日志是后端工程师核心能力"，总结常见连接报错与排查思路</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融入点</td>
+<td>数据准确性与审慎修改——数据库操作的底线</td>
+</tr>
+<tr>
+<td>技术关联</td>
+<td>JDBC 中一个 <code>executeUpdate</code> 写错 SQL（如漏写 WHERE 条件的
+UPDATE/DELETE）可能导致整表数据被改/被删，造成不可逆损失</td>
+</tr>
+<tr>
+<td>引导问题</td>
+<td>"如果你在生产环境执行了
+<code>UPDATE sys_user SET status = 0</code>（漏写
+WHERE），会发生什么？如何避免？"</td>
+</tr>
+<tr>
+<td>预期价值目标</td>
+<td>树立"对数据心存敬畏"的工程底线意识：写 SQL 前 SELECT
+确认、UPDATE/DELETE 必带 WHERE、生产环境操作必须备份、重要操作需 double
+check</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>思政自然融入：通过真实案例（漏写 WHERE
+导致数据丢失）让学生体会数据库操作的严肃性，培养审慎的工程习惯。</p>
+</blockquote>
+<hr />
+<h2 id="七课堂练习或随堂测验">七、课堂练习或随堂测验</h2>
+<h3 id="随堂练习5-分钟讲解结束前进行">随堂练习（5
+分钟，讲解结束前进行）</h3>
+<p><strong>判断题（口头快速作答）</strong>：</p>
+<ol type="1">
+<li>JDBC 中 <code>Class.forName("com.mysql.cj.jdbc.Driver")</code>
+的作用是加载 MySQL 驱动类。（✓）</li>
+<li>JDBC 操作完成后，只需关闭 <code>Connection</code>
+即可，<code>Statement</code> 和 <code>ResultSet</code>
+会自动关闭。（✗）</li>
+<li>MyBatis-Plus 是 MyBatis 的替代品，使用 MyBatis-Plus 就不能用 MyBatis
+原生功能。（✗）</li>
+<li>Spring Boot 3 项目集成 MyBatis-Plus 应使用
+<code>mybatis-plus-spring-boot3-starter</code> 依赖。（✓）</li>
+</ol>
+<blockquote>
+<p>详细题目与解析见
+<code>题库.md</code>。此处仅作课堂快速互动，不计分。</p>
+</blockquote>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<ol type="1">
+<li><strong>阅读</strong>：通读同文件夹
+<code>教学资料.md</code>，重点理解 JDBC 六步流程、四大痛点、MyBatis-Plus
+优势、环境集成步骤。</li>
+<li><strong>动手实践</strong>：在本地 CTTS 项目中完成 MyBatis-Plus
+集成，创建 <code>ctts</code> 数据库与 <code>sys_user</code>
+表，启动项目验证连接成功，截图提交。</li>
+<li><strong>代码练习</strong>：独立编写一段完整的 JDBC 查询代码（查询
+<code>sys_user</code> 表所有用户），使用 <code>PreparedStatement</code>
+与 try-with-resources，下次课抽查。</li>
+<li><strong>报错排查练习</strong>：故意制造 3
+种连接错误（改错密码、改错时区、删驱动依赖），观察并记录报错信息，写出排查思路。</li>
+<li><strong>思考</strong>：用 200 字描述"为什么 MyBatis-Plus 比 JDBC
+更适合企业项目开发"，下次课抽查。</li>
+<li><strong>拓展阅读（选做）</strong>：了解 JPA(Hibernate) 与 MyBatis
+的设计理念差异，思考"全自动 ORM"与"半自动 ORM"的取舍。</li>
+</ol>
+<hr />
+<h2 id="九对应岗位能力或面试考点">九、对应岗位能力或面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>岗位能力/面试考点</th>
+<th>本次课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JDBC 核心步骤（面试高频基础题）</td>
+<td>K6-1</td>
+</tr>
+<tr>
+<td>JDBC 痛点与改进方案（面试常考"为什么用 MyBatis 而非 JDBC"）</td>
+<td>K6-2、K6-3</td>
+</tr>
+<tr>
+<td>MyBatis 与 JDBC 的关系（面试常考"MyBatis 底层是不是 JDBC"）</td>
+<td>K6-3</td>
+</tr>
+<tr>
+<td>MyBatis-Plus 优势与内置功能（面试常考"为什么选 MyBatis-Plus"）</td>
+<td>K6-4</td>
+</tr>
+<tr>
+<td>Spring Boot 数据库连接配置（面试实操常考"配一下数据源"）</td>
+<td>K6-5</td>
+</tr>
+<tr>
+<td>数据库连接报错排查能力（工程实操核心能力）</td>
+<td>K6-5</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面试常考"请说一下 JDBC 的步骤""JDBC 有什么缺点""MyBatis 和 JDBC
+的关系""MyBatis-Plus 有什么优势""Spring Boot 怎么配 MySQL
+数据源"等，均属本次课范围。</p>
+</blockquote>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生复习资料</td>
+<td><code>教学资料.md</code>（同文件夹）</td>
+<td>5 个知识点详解 + 完整 JDBC 示例 + MyBatis-Plus 集成步骤 + 建表 SQL +
+连接测试 + 易错点与小结</td>
+</tr>
+<tr>
+<td>考试题库</td>
+<td><code>题库.md</code>（同文件夹）</td>
+<td>78 题（40 选择 + 20 判断 + 10 填空 + 4 简答 + 2 程序阅读 + 2
+编程），含答案解析与评分标准</td>
+</tr>
+<tr>
+<td>课程总览</td>
+<td><code>../00 课程设计总览.md</code></td>
+<td>课程整体框架与 24 次课进度</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~10 min</td>
+<td>课前回顾（第 3~5 次课 Spring Boot 接口）+ 本次课导入</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>10~30 min</td>
+<td>知识点 K6-1：JDBC 核心六步 + 完整代码演示</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>30~45 min</td>
+<td>知识点 K6-2：JDBC 痛点 + 代码找错互动</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>45~60 min</td>
+<td>知识点 K6-3、K6-4：MyBatis 与 MyBatis-Plus 定位与优势 +
+技术选型讨论</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>60~80 min</td>
+<td>知识点 K6-5：环境集成演示 + 学生动手实践 + 报错排查互动</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>80~85 min</td>
+<td>随堂练习</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>85~90 min</td>
+<td>小结 + 课后任务布置</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

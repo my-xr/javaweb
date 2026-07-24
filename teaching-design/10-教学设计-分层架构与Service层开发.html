@@ -1,0 +1,598 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>分层架构与Service层开发</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 10 次课 · 教学设计</div>
+      <h1>分层架构与Service层开发</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 10 次课</span>
+        <span class="hero-chip"><b>主题</b>分层架构与Service层开发</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务或案例任务">四、项目任务或案例任务</a>
+<ul>
+<li><a href="#贯穿项目推进ctts-业务逻辑下沉到-service-层">贯穿项目推进：CTTS 业务逻辑下沉到 Service 层</a></li>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动-1开场-5-分钟讨论导入-k10-1">互动 1：开场 5 分钟讨论（导入 K10-1）</a></li>
+<li><a href="#互动-2代码阅读与纠错讲解-k10-1k10-2-后本次课核心互动">互动 2：代码阅读与纠错（讲解 K10-1、K10-2 后，本次课核心互动）</a></li>
+<li><a href="#互动-3事务场景判断讲解-k10-4-后">互动 3：事务场景判断（讲解 K10-4 后）</a></li>
+<li><a href="#互动-4依赖注入方式辨析讲解-k10-5-后">互动 4：依赖注入方式辨析（讲解 K10-5 后）</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习或随堂测验">七、课堂练习或随堂测验</a>
+<ul>
+<li><a href="#随堂练习5-分钟讲解结束前进行">随堂练习（5 分钟，讲解结束前进行）</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+</ul></li>
+<li><a href="#九对应岗位能力或面试考点">九、对应岗位能力或面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 10 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>所属模块：M4 后端分层架构 ｜ 课程：《JavaWeb 后端开发技术》
+配套资料：见同文件夹内
+<code>教学资料.md</code>（学生复习资料）、<code>题库.md</code>（78
+题考试题库）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>次序</td>
+<td>第 10 次课（全课程 24 次之中段）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>理论课（含代码演示与改造实践）</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M4 后端分层架构</td>
+</tr>
+<tr>
+<td>教学主题</td>
+<td>分层架构与 Service 层开发</td>
+</tr>
+<tr>
+<td>先修基础</td>
+<td>第 6~9 次课的持久层开发（MyBatis-Plus
+Mapper、CRUD、条件查询）；Spring Boot
+基础注解（@RestController、@RequestMapping、@GetMapping 等）</td>
+</tr>
+<tr>
+<td>后续课程</td>
+<td>第 11 次课 参数校验与统一响应；第 12 次课
+全局异常处理与接口文档</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>理解为什么后端要分层（关注点分离、可维护性、可测试性、团队协作、避免
+Controller 臃肿）。</li>
+<li>掌握经典三层架构（Controller / Service /
+Mapper）的职责划分与调用关系。</li>
+<li>掌握 Service 层的开发规范：<code>@Service</code> 注解、Service
+接口与实现类分离（<code>impl</code> 子包）、Service 调用 Mapper。</li>
+<li>掌握 Spring 声明式事务管理：<code>@Transactional</code>
+注解、propagation 传播行为（REQUIRED / REQUIRES_NEW）、rollbackFor
+回滚规则、声明式事务的代理原理。</li>
+<li>掌握 Spring 依赖注入的三种方式（<code>@Autowired</code>
+字段注入、构造器注入、<code>@Resource</code>）及其优劣对比，理解 Spring
+IoC 容器概念。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够把一个"业务逻辑全部写在
+Controller"的反例代码改造为标准的三层架构。</li>
+<li>能够独立为 ProjectController、TaskController 创建对应的 Service
+接口与实现类，并完成调用。</li>
+<li>能够识别业务方法是否需要事务，并在 Service 方法上正确使用
+<code>@Transactional</code>。</li>
+<li>能够识别并选择合适的依赖注入方式，在工程中优先使用构造器注入。</li>
+<li>能够阅读 Spring 启动报错（Bean
+找不到、循环依赖等）并定位到分层或注入问题。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li>建立"分层是团队协作的契约"的工程规范意识——每一层各司其职，是对队友负责、对项目负责。</li>
+<li>培养工程责任感：业务逻辑放在 Service
+层、事务边界清晰，是对数据一致性负责的职业素养。</li>
+<li>体会"约定优于配置"的工程哲学：分层结构是行业约定，遵循约定让代码可被团队共同维护。</li>
+</ol>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<blockquote>
+<p>详细讲解内容见同文件夹 <code>教学资料.md</code>，此处为纲要。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K10-1</td>
+<td>为什么分层</td>
+<td>关注点分离；可维护性；可测试性；团队协作；避免 Controller
+臃肿；单一职责原则</td>
+</tr>
+<tr>
+<td>K10-2</td>
+<td>三层架构</td>
+<td>Controller（接收请求/返回响应，薄层）、Service（业务逻辑/事务，厚层）、Mapper（数据访问）的职责划分与调用方向</td>
+</tr>
+<tr>
+<td>K10-3</td>
+<td>Service 层开发</td>
+<td><code>@Service</code> 注解；Service
+接口与实现类分离；<code>service/impl</code> 子包；Service 调用
+Mapper；方法命名规范</td>
+</tr>
+<tr>
+<td>K10-4</td>
+<td>事务管理</td>
+<td><code>@Transactional</code> 注解；propagation 传播行为（REQUIRED /
+REQUIRES_NEW）；rollbackFor 回滚规则；声明式事务的 AOP
+代理原理；事务失效的常见场景</td>
+</tr>
+<tr>
+<td>K10-5</td>
+<td>依赖注入</td>
+<td><code>@Autowired</code> 字段注入 vs 构造器注入（推荐）vs
+<code>@Resource</code>；Spring IoC
+容器概念；<code>@RequiredArgsConstructor</code>
+简化构造器注入；循环依赖</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务或案例任务">四、项目任务或案例任务</h2>
+<h3 id="贯穿项目推进ctts-业务逻辑下沉到-service-层">贯穿项目推进：CTTS
+业务逻辑下沉到 Service 层</h3>
+<p><strong>本次课任务背景</strong>：在前 4 次课（第 6~9 次）中，CTTS
+的持久层（Mapper）已开发完成，ProjectController 和 TaskController
+目前<strong>直接调用 Mapper</strong>，所有业务逻辑堆在 Controller
+中。本次课把这些业务逻辑"下沉"到 Service 层，完成三层架构改造。</p>
+<p><strong>本次课具体任务</strong>：</p>
+<ol type="1">
+<li><p><strong>任务一：ProjectService 改造</strong></p>
+<ul>
+<li>创建 <code>ProjectService</code> 接口（定义
+<code>findAll</code>、<code>findById</code>、<code>save</code>、<code>update</code>、<code>deleteById</code>
+等业务方法）。</li>
+<li>创建 <code>ProjectServiceImpl</code> 实现类（<code>@Service</code>
+注解、构造器注入 <code>ProjectMapper</code>、调用 BaseMapper
+方法）。</li>
+<li>改造 <code>ProjectController</code>：从直接调
+<code>projectMapper</code> 改为调 <code>projectService</code>。</li>
+</ul></li>
+<li><p><strong>任务二：TaskService 改造（含事务）</strong></p>
+<ul>
+<li>创建 <code>TaskService</code> 接口（含 <code>submitTask</code>
+等业务方法）。</li>
+<li>创建 <code>TaskServiceImpl</code> 实现类，在 <code>submitTask</code>
+方法上加
+<code>@Transactional</code>，演示"提交任务时同时创建提交记录并更新任务状态"的事务场景。</li>
+<li>改造 <code>TaskController</code>：从直接调 <code>taskMapper</code>
+改为调 <code>taskService</code>。</li>
+</ul></li>
+<li><p><strong>任务三：反例改造练习</strong></p>
+<ul>
+<li>教师展示一段"Controller 直接调 Mapper、含业务逻辑"的反例代码（详见
+<code>教学资料.md</code> K10-1 节）。</li>
+<li>学生分组（4~5 人一组）指出反例的 5 个问题，并口头描述改造方案。</li>
+<li>课后由学生独立完成改造（即任务一、任务二）。</li>
+</ul></li>
+</ol>
+<blockquote>
+<p>📌 本节课为理论课，代码以教师演示 + 学生阅读 +
+课后动手为主，不要求课内完成全部编码。完整代码见
+<code>教学资料.md</code>。</p>
+</blockquote>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3 id="互动-1开场-5-分钟讨论导入-k10-1">互动 1：开场 5 分钟讨论（导入
+K10-1）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"如果让一个人同时负责接电话、写代码、扫地、做饭，会出什么问题？把这个类比放到后端代码里，你能想到什么？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>自由发言，教师板书关键词</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>提到"混乱""出错没人管""换人接手难""一个人撑不住"等关键词</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>类比后端：Controller 干所有事 →
+臃肿、难维护、难测试、难协作。引出"分层 = 分工"的核心思想。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-2代码阅读与纠错讲解-k10-1k10-2-后本次课核心互动">互动
+2：代码阅读与纠错（讲解 K10-1、K10-2 后，本次课核心互动）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动任务</td>
+<td>教师展示"反例代码"（ProjectController 直接调
+ProjectMapper，含业务校验、状态更新、异常处理等约 40
+行代码），学生分组指出问题并描述改造方案</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>4~5 人一组讨论 5 分钟 → 每组派代表发言 1 分钟 → 教师汇总板书</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>指出问题：① Controller 职责过重，既接请求又写业务；②
+业务逻辑无法复用；③ 无法单元测试；④ 事务边界不清晰；⑤
+不利于团队协作。改造方案：抽出 Service 层，Controller 只调 Service</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>肯定学生发现的问题，引出 K10-2
+三层架构的标准划分；强调"分层是团队协作的契约"。反例完整代码见
+<code>教学资料.md</code> 第二节。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-3事务场景判断讲解-k10-4-后">互动 3：事务场景判断（讲解
+K10-4 后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>给出 4 个业务方法：① 查询项目列表；② 根据 ID 查询任务；③
+学生提交任务（同时插 submission + 更新 task 状态）；④ 教师评审（同时插
+review + 更新 submission 状态）。问哪些需要加
+<code>@Transactional</code>？为什么？</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>全班举手投票，少数派陈述理由</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>③、④ 需要，因为涉及多表写操作；①、② 是纯查询，不需要</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>强调事务的判断标准——"多步写操作需要原子性"。引出 propagation
+传播行为与 rollbackFor 回滚规则。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-4依赖注入方式辨析讲解-k10-5-后">互动
+4：依赖注入方式辨析（讲解 K10-5 后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>给出三段代码片段（<code>@Autowired</code>
+字段注入、构造器注入、<code>@Resource</code>），问"企业项目中最推荐哪种？为什么？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>自由发言</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>构造器注入推荐；理由可能有"不可变""不依赖 Spring 容器也能
+new""循环依赖暴露早"等</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>总结构造器注入的三大优势；引出
+<code>@RequiredArgsConstructor</code>（Lombok）简化写法；提醒 IDE
+警告。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融入点</td>
+<td>分层是团队协作的契约——每一层各司其职，是对队友负责、对项目负责</td>
+</tr>
+<tr>
+<td>技术关联</td>
+<td>三层架构不仅是技术规范，更是工程伦理：你写的 Service
+层是给队友调用的"承诺"，不能把业务逻辑偷偷塞回 Controller</td>
+</tr>
+<tr>
+<td>引导问题</td>
+<td>"如果你接手一个项目，发现前一个开发把所有逻辑堆在 Controller 里，500
+行一个方法，你会怎么想？那你现在写的代码，下一个接手的人会怎么评价？"</td>
+</tr>
+<tr>
+<td>预期价值目标</td>
+<td>树立"为他人写代码"的职业素养；理解工程规范背后的协作逻辑；体会"约定优于配置"的工程哲学</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>思政自然融入，不空喊口号。通过"接手别人代码"的代入感，让学生理解分层不只是技术选择，更是工程责任。</p>
+</blockquote>
+<hr />
+<h2 id="七课堂练习或随堂测验">七、课堂练习或随堂测验</h2>
+<h3 id="随堂练习5-分钟讲解结束前进行">随堂练习（5
+分钟，讲解结束前进行）</h3>
+<p><strong>判断题（口头快速作答）</strong>：</p>
+<ol type="1">
+<li>Controller 层应该尽量薄，业务逻辑应放在 Service 层。（✓）</li>
+<li><code>@Service</code>
+注解只能写在实现类上，不能写在接口上。（✓，注解写在实现类，接口不加注解）</li>
+<li><code>@Transactional</code> 加在 Service 方法上，如果方法内抛出
+RuntimeException，事务会回滚。（✓）</li>
+<li><code>@Autowired</code> 字段注入是 Spring
+官方最推荐的注入方式。（✗，推荐构造器注入）</li>
+<li>Service 接口与实现类分离的好处之一是便于切换实现。（✓）</li>
+</ol>
+<blockquote>
+<p>详细题目与解析见
+<code>题库.md</code>。此处仅作课堂快速互动，不计分。</p>
+</blockquote>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<ol type="1">
+<li><strong>阅读</strong>：通读同文件夹
+<code>教学资料.md</code>，重点理解三层架构职责划分、<code>@Transactional</code>
+传播行为与回滚规则、构造器注入的优势。</li>
+<li><strong>动手实践（必做）</strong>：按 <code>教学资料.md</code> K10-3
+节给出的步骤，独立完成 CTTS 的 Service 层改造：
+<ul>
+<li>创建 <code>ProjectService</code> 接口 +
+<code>ProjectServiceImpl</code> 实现类；</li>
+<li>创建 <code>TaskService</code> 接口 + <code>TaskServiceImpl</code>
+实现类（含 <code>@Transactional</code> 的 <code>submitTask</code>
+方法）；</li>
+<li>改造 <code>ProjectController</code> 和
+<code>TaskController</code>，使其调用 Service 而非 Mapper；</li>
+<li>启动项目，用 Apifox 验证原有接口功能不变。</li>
+</ul></li>
+<li><strong>思考</strong>：用自己的话描述"为什么 Spring
+官方推荐构造器注入而不是字段注入"，下次课抽查。</li>
+<li><strong>拓展（选做）</strong>：阅读 Spring 官方文档关于
+<code>@Transactional</code> 传播行为的 7 种取值，除本课讲的 REQUIRED 和
+REQUIRES_NEW 外，再了解
+SUPPORTS、NOT_SUPPORTED、NEVER、MANDATORY、NESTED 的含义。</li>
+<li><strong>常见报错自查</strong>：动手过程中如遇"
+NoSuchBeanDefinitionException"" UnsatisfiedDependencyException"
+等报错，对照 <code>教学资料.md</code> K10-3
+节末尾的"常见报错排查表"自查。</li>
+</ol>
+<hr />
+<h2 id="九对应岗位能力或面试考点">九、对应岗位能力或面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>岗位能力/面试考点</th>
+<th>本次课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>三层架构为什么分层（面试高频基础题）</td>
+<td>K10-1、K10-2</td>
+</tr>
+<tr>
+<td><code>@Service</code> 注解的使用与 Service 接口分离的意义</td>
+<td>K10-3</td>
+</tr>
+<tr>
+<td><code>@Transactional</code>
+事务管理：传播行为、回滚规则、失效场景（面试高频）</td>
+<td>K10-4</td>
+</tr>
+<tr>
+<td>构造器注入 vs 字段注入（面试常考对比题）</td>
+<td>K10-5</td>
+</tr>
+<tr>
+<td>Spring IoC 容器与依赖注入原理</td>
+<td>K10-5</td>
+</tr>
+<tr>
+<td>声明式事务的 AOP 代理原理（中高级面试题）</td>
+<td>K10-4</td>
+</tr>
+<tr>
+<td>阅读并改造"坏味道"代码（工程能力）</td>
+<td>互动 2、项目任务</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面试常考"说一下你们项目的分层架构""@Transactional
+失效场景""构造器注入和 @Autowired 字段注入的区别""Spring IoC
+是什么"等，均属本次课范围。</p>
+</blockquote>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生复习资料</td>
+<td><code>教学资料.md</code>（同文件夹）</td>
+<td>5 个知识点详解 + 反例代码 + 正例完整三层架构代码 +
+<code>@Transactional</code> 示例 + 构造器注入示例 + 包结构说明 + 易错点
++ 操作步骤 + 常见报错排查</td>
+</tr>
+<tr>
+<td>考试题库</td>
+<td><code>题库.md</code>（同文件夹）</td>
+<td>78 题（40 选择 + 20 判断 + 10 填空 + 4 论述简答 + 2 程序阅读补全 + 2
+编程接口设计），含答案解析与评分标准</td>
+</tr>
+<tr>
+<td>课程总览</td>
+<td><code>../00 课程设计总览.md</code></td>
+<td>课程整体框架与 24 次课进度</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~10 min</td>
+<td>开场讨论（互动 1）+ 上次课回顾</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>10~25 min</td>
+<td>知识点 K10-1、K10-2：为什么分层 + 三层架构</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>25~45 min</td>
+<td>互动 2：反例代码阅读与纠错 + K10-3 Service 层开发演示</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>45~65 min</td>
+<td>知识点 K10-4：事务管理 + 互动 3 事务场景判断</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>65~80 min</td>
+<td>知识点 K10-5：依赖注入 + 互动 4 注入方式辨析</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>80~85 min</td>
+<td>随堂练习</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>85~90 min</td>
+<td>小结 + 课后任务布置</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

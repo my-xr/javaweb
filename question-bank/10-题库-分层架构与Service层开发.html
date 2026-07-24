@@ -1,0 +1,1973 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>分层架构与Service层开发</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 10 次课 · 题库</div>
+      <h1>分层架构与Service层开发</h1>
+      <p>面向练习、测验、考试与参考解析 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 10 次课</span>
+        <span class="hero-chip"><b>主题</b>分层架构与Service层开发</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一单项选择题30-题">一、单项选择题（30 题）</a>
+<ul>
+<li><a href="#10-d-01-">10-D-01 ★</a></li>
+<li><a href="#10-d-02-">10-D-02 ★★</a></li>
+<li><a href="#10-d-03-">10-D-03 ★</a></li>
+<li><a href="#10-d-04-">10-D-04 ★★</a></li>
+<li><a href="#10-d-05-">10-D-05 ★★</a></li>
+<li><a href="#10-d-06-">10-D-06 ★</a></li>
+<li><a href="#10-d-07-">10-D-07 ★★</a></li>
+<li><a href="#10-d-08-">10-D-08 ★★</a></li>
+<li><a href="#10-d-09-">10-D-09 ★★</a></li>
+<li><a href="#10-d-10-">10-D-10 ★★</a></li>
+<li><a href="#10-d-11-">10-D-11 ★</a></li>
+<li><a href="#10-d-12-">10-D-12 ★</a></li>
+<li><a href="#10-d-13-">10-D-13 ★★</a></li>
+<li><a href="#10-d-14-">10-D-14 ★</a></li>
+<li><a href="#10-d-15-">10-D-15 ★★</a></li>
+<li><a href="#10-d-16-">10-D-16 ★</a></li>
+<li><a href="#10-d-17-">10-D-17 ★★</a></li>
+<li><a href="#10-d-18-">10-D-18 ★★</a></li>
+<li><a href="#10-d-19-">10-D-19 ★★</a></li>
+<li><a href="#10-d-20-">10-D-20 ★</a></li>
+<li><a href="#10-d-21-">10-D-21 ★★</a></li>
+<li><a href="#10-d-22-">10-D-22 ★★</a></li>
+<li><a href="#10-d-23-">10-D-23 ★★★</a></li>
+<li><a href="#10-d-24-">10-D-24 ★★★</a></li>
+<li><a href="#10-d-25-">10-D-25 ★★★</a></li>
+<li><a href="#10-d-26-">10-D-26 ★★</a></li>
+<li><a href="#10-d-27-">10-D-27 ★★</a></li>
+<li><a href="#10-d-28-">10-D-28 ★★</a></li>
+<li><a href="#10-d-29-">10-D-29 ★★★</a></li>
+<li><a href="#10-d-30-">10-D-30 ★★★</a></li>
+</ul></li>
+<li><a href="#二多项选择题10-题">二、多项选择题（10 题）</a>
+<ul>
+<li><a href="#10-m-01-">10-M-01 ★★</a></li>
+<li><a href="#10-m-02-">10-M-02 ★★</a></li>
+<li><a href="#10-m-03-">10-M-03 ★★</a></li>
+<li><a href="#10-m-04-">10-M-04 ★★</a></li>
+<li><a href="#10-m-05-">10-M-05 ★★</a></li>
+<li><a href="#10-m-06-">10-M-06 ★★★</a></li>
+<li><a href="#10-m-07-">10-M-07 ★★</a></li>
+<li><a href="#10-m-08-">10-M-08 ★★</a></li>
+<li><a href="#10-m-09-">10-M-09 ★★</a></li>
+<li><a href="#10-m-10-">10-M-10 ★★</a></li>
+</ul></li>
+<li><a href="#三判断题20-题">三、判断题（20 题）</a>
+<ul>
+<li><a href="#10-j-01-">10-J-01 ★</a></li>
+<li><a href="#10-j-02-">10-J-02 ★</a></li>
+<li><a href="#10-j-03-">10-J-03 ★★</a></li>
+<li><a href="#10-j-04-">10-J-04 ★★</a></li>
+<li><a href="#10-j-05-">10-J-05 ★★</a></li>
+<li><a href="#10-j-06-">10-J-06 ★</a></li>
+<li><a href="#10-j-07-">10-J-07 ★★</a></li>
+<li><a href="#10-j-08-">10-J-08 ★★</a></li>
+<li><a href="#10-j-09-">10-J-09 ★★</a></li>
+<li><a href="#10-j-10-">10-J-10 ★★</a></li>
+<li><a href="#10-j-11-">10-J-11 ★★</a></li>
+<li><a href="#10-j-12-">10-J-12 ★★</a></li>
+<li><a href="#10-j-13-">10-J-13 ★★</a></li>
+<li><a href="#10-j-14-">10-J-14 ★★</a></li>
+<li><a href="#10-j-15-">10-J-15 ★★★</a></li>
+<li><a href="#10-j-16-">10-J-16 ★★★</a></li>
+<li><a href="#10-j-17-">10-J-17 ★★</a></li>
+<li><a href="#10-j-18-">10-J-18 ★★</a></li>
+<li><a href="#10-j-19-">10-J-19 ★★</a></li>
+<li><a href="#10-j-20-">10-J-20 ★★</a></li>
+</ul></li>
+<li><a href="#四填空题10-题">四、填空题（10 题）</a>
+<ul>
+<li><a href="#10-f-01-">10-F-01 ★</a></li>
+<li><a href="#10-f-02-">10-F-02 ★</a></li>
+<li><a href="#10-f-03-">10-F-03 ★</a></li>
+<li><a href="#10-f-04-">10-F-04 ★★</a></li>
+<li><a href="#10-f-05-">10-F-05 ★★</a></li>
+<li><a href="#10-f-06-">10-F-06 ★★</a></li>
+<li><a href="#10-f-07-">10-F-07 ★★</a></li>
+<li><a href="#10-f-08-">10-F-08 ★★</a></li>
+<li><a href="#10-f-09-">10-F-09 ★★★</a></li>
+<li><a href="#10-f-10-">10-F-10 ★★</a></li>
+</ul></li>
+<li><a href="#五论述简答题4-题">五、论述简答题（4 题）</a>
+<ul>
+<li><a href="#10-s-01-">10-S-01 ★★</a></li>
+<li><a href="#10-s-02-">10-S-02 ★★★</a></li>
+<li><a href="#10-s-03-">10-S-03 ★★</a></li>
+<li><a href="#10-s-04-">10-S-04 ★★★</a></li>
+</ul></li>
+<li><a href="#六程序阅读补全题2-题">六、程序阅读补全题（2 题）</a>
+<ul>
+<li><a href="#10-r-01-">10-R-01 ★★</a></li>
+<li><a href="#10-r-02-">10-R-02 ★★★</a></li>
+</ul></li>
+<li><a href="#七编程接口设计题2-题">七、编程/接口设计题（2 题）</a>
+<ul>
+<li><a href="#10-p-01-">10-P-01 ★★</a></li>
+<li><a href="#10-p-02-">10-P-02 ★★★</a></li>
+</ul></li>
+<li><a href="#八题库统计表">八、题库统计表</a>
+<ul>
+<li><a href="#81-题型分布">8.1 题型分布</a></li>
+<li><a href="#82-知识点分布">8.2 知识点分布</a></li>
+<li><a href="#83-难度分布">8.3 难度分布</a></li>
+<li><a href="#84-重点考点">8.4 重点考点</a></li>
+<li><a href="#85-建议组卷方案">8.5 建议组卷方案</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 10 次课 <span>｜</span> <strong>文档：</strong>题库</p>
+<blockquote>
+<p>课程：《JavaWeb 后端开发技术》 / 模块：M4 后端分层架构（理论课）
+项目：CTTS 校园实训任务管理系统 题量：78 题（30 单选 + 10 多选 + 20 判断
++ 10 填空 + 4 论述简答 + 2 程序阅读补全 + 2 编程接口设计）
+编号规则：10-题型-序号（D 单选 / M 多选 / J 判断 / F 填空 / S 简答 / R
+程序阅读 / P 编程） 难度：★ 基础 / ★★ 进阶 / ★★★ 综合</p>
+</blockquote>
+<hr />
+<h2 id="一单项选择题30-题">一、单项选择题（30 题）</h2>
+<h3 id="10-d-01-">10-D-01 ★</h3>
+<p>后端分层架构的核心思想是？</p>
+<ul>
+<li>A. 代码越多越好</li>
+<li>B. 关注点分离</li>
+<li>C. 一个类干所有事</li>
+<li>D. 只用 Controller 层</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+分层的本质是关注点分离（SoC），把不同性质的工作交给不同的层。Dijkstra 在
+1968 年提出分层是组织复杂系统的基本手段。A、C 与分层理念相反；D
+是不分层的反例。</p>
+<hr />
+<h3 id="10-d-02-">10-D-02 ★★</h3>
+<p>下列哪一项 <strong>不是</strong> 分层架构带来的好处？</p>
+<ul>
+<li>A. 可维护性提升</li>
+<li>B. 可测试性提升</li>
+<li>C. 运行时性能大幅提升</li>
+<li>D. 团队协作更顺畅</li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong>
+分层带来的是可维护性、可测试性、团队协作的改善。方法调用的开销是纳秒级，可忽略，不会"大幅提升性能"。把"性能提升"作为分层理由是常见误区。</p>
+<hr />
+<h3 id="10-d-03-">10-D-03 ★</h3>
+<p>"Controller 直接调 Mapper，业务逻辑堆在 Controller"
+的主要问题是？</p>
+<ul>
+<li>A. 编译不过</li>
+<li>B. Controller 职责过重，业务逻辑无法复用、无法单元测试</li>
+<li>C. Mapper 不能被 Controller 调用</li>
+<li>D. Spring 不允许这样写</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> Controller 直接调
+Mapper
+在技术上可行（能编译能运行），但会导致职责过重、业务无法复用、无法脱离
+Web 容器做单元测试、事务边界不清。这是工程规范问题，不是技术限制。</p>
+<hr />
+<h3 id="10-d-04-">10-D-04 ★★</h3>
+<p>关于分层架构中"调用方向"的描述，正确的是？</p>
+<ul>
+<li>A. Mapper 可以调用 Service</li>
+<li>B. Service 可以调用 Controller</li>
+<li>C. Controller 调用 Service，Service 调用 Mapper，单向依赖</li>
+<li>D. 各层之间可以相互调用</li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong>
+三层架构严格单向依赖：Controller → Service →
+Mapper。下层不感知上层，更不能反向调用。这保证了依赖关系的清晰和层次的独立。</p>
+<hr />
+<h3 id="10-d-05-">10-D-05 ★★</h3>
+<p>下列代码片段应该放在哪一层？<code>if (project.getStatus() == 2 &amp;&amp; status != 2) { throw new IllegalStateException("已完成项目不能改状态"); }</code></p>
+<ul>
+<li>A. Controller</li>
+<li>B. Service</li>
+<li>C. Mapper</li>
+<li>D. Entity</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+这是业务规则校验（状态机检查），属于 Service 层职责。Controller 只做
+HTTP 参数校验（如 <code>@NotBlank</code>），Mapper 只做数据访问，Entity
+只是数据载体。</p>
+<hr />
+<h3 id="10-d-06-">10-D-06 ★</h3>
+<p>CTTS 项目中，Service 接口应放在哪个包下？</p>
+<ul>
+<li>A. <code>com.ctts.controller</code></li>
+<li>B. <code>com.ctts.service</code></li>
+<li>C. <code>com.ctts.service.impl</code></li>
+<li>D. <code>com.ctts.mapper</code></li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> Service 接口放
+<code>service</code> 包，实现类放 <code>service/impl</code>
+子包。这是行业通用约定，便于区分接口与实现。</p>
+<hr />
+<h3 id="10-d-07-">10-D-07 ★★</h3>
+<p>关于三层架构中各层的"厚薄"，下列说法正确的是？</p>
+<ul>
+<li>A. Controller 是厚层，Service 是薄层</li>
+<li>B. Mapper 是厚层，Service 是薄层</li>
+<li>C. Controller 是薄层，Service 是厚层</li>
+<li>D. 三层一样厚</li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong> Controller
+是薄层（只接请求、调 Service、返回响应），Service
+是厚层（业务逻辑、事务、组合多个 Mapper 调用）。Mapper
+是单一职责的数据访问层。</p>
+<hr />
+<h3 id="10-d-08-">10-D-08 ★★</h3>
+<p>关于 Service 层的异常处理，下列做法 <strong>最合理</strong>
+的是？</p>
+<ul>
+<li>A. Service 捕获所有异常并返回字符串提示给 Controller</li>
+<li>B. Service 抛出业务异常，由全局异常处理器统一处理</li>
+<li>C. Service 不处理任何异常，直接 throw</li>
+<li>D. Service 把异常包装成 RuntimeException 再抛</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> Service
+层应抛出有业务含义的异常（如
+<code>IllegalArgumentException</code>、自定义业务异常），由
+<code>@RestControllerAdvice</code> 全局异常处理器统一处理。A 让 Service
+返回字符串与 HTTP 耦合；C 太粗放；D 丢失异常语义。</p>
+<hr />
+<h3 id="10-d-09-">10-D-09 ★★</h3>
+<p>下列哪种代码应该放在 Mapper 层？</p>
+<ul>
+<li>A. 业务规则校验</li>
+<li>B. 事务管理</li>
+<li>C. SQL 查询与数据持久化</li>
+<li>D. HTTP 请求参数绑定</li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong> Mapper
+层是数据访问层，只负责执行 SQL（CRUD）。业务校验在 Service；事务在
+Service；HTTP 参数在 Controller。Mapper XML 中的 <code>&lt;if&gt;</code>
+是 SQL 拼接判断，不是业务校验。</p>
+<hr />
+<h3 id="10-d-10-">10-D-10 ★★</h3>
+<p>判断代码归属的"三问法"顺序，正确的是？</p>
+<ul>
+<li>A. 是否读写 DB → 是否 HTTP 相关 → 是否业务规则</li>
+<li>B. 是否 HTTP 相关 → 是否业务规则/事务 → 是否读写 DB</li>
+<li>C. 是否业务规则 → 是否 HTTP 相关 → 是否读写 DB</li>
+<li>D. 是否读写 DB → 是否业务规则 → 是否 HTTP 相关</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> 三问法：① HTTP 相关
+→ Controller；② 业务规则/事务/多表组合 → Service；③ 读写 DB →
+Mapper。先排除上层，再归到下层。</p>
+<hr />
+<h3 id="10-d-11-">10-D-11 ★</h3>
+<p>三层架构中，跨层调用（如 Controller 直接调
+Mapper）为什么不被推荐？</p>
+<ul>
+<li>A. 编译会报错</li>
+<li>B. 违反分层原则，破坏职责分离，Service 层形同虚设</li>
+<li>C. Mapper 会被 Spring 销毁</li>
+<li>D. 性能会下降</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> 技术上 Controller
+可以直接调 Mapper，但这样 Service
+层就被绕过，分层失去意义，业务逻辑又堆回
+Controller。分层是工程规范，不是技术限制。</p>
+<hr />
+<h3 id="10-d-12-">10-D-12 ★</h3>
+<p><code>@Service</code> 注解应该写在？</p>
+<ul>
+<li>A. Service 接口上</li>
+<li>B. Service 实现类上</li>
+<li>C. Controller 上</li>
+<li>D. Mapper 上</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>@Service</code> 写在实现类上，让 Spring 扫描并注册为
+Bean。接口保持纯净，不依赖 Spring。这也是"面向接口编程"的体现。</p>
+<hr />
+<h3 id="10-d-13-">10-D-13 ★★</h3>
+<p>关于 Service 接口与实现类分离的好处，下列说法 <strong>错误</strong>
+的是？</p>
+<ul>
+<li>A. 便于切换实现（如 mock 测试）</li>
+<li>B. 面向接口编程，降低耦合</li>
+<li>C. 提高运行时性能</li>
+<li>D. 统一业务能力的契约文档</li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong>
+接口与实现分离带来的是解耦、可切换、契约清晰等设计层面好处，与运行时性能无关。A、B、D
+都是正确描述。</p>
+<hr />
+<h3 id="10-d-14-">10-D-14 ★</h3>
+<p>CTTS 项目中，<code>ProjectServiceImpl</code> 应该放在哪个包下？</p>
+<ul>
+<li>A. <code>com.ctts.service</code></li>
+<li>B. <code>com.ctts.service.impl</code></li>
+<li>C. <code>com.ctts.controller</code></li>
+<li>D. <code>com.ctts.mapper</code></li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> 实现类放
+<code>service/impl</code> 子包，接口放 <code>service</code>
+包。<code>ProjectServiceImpl implements ProjectService</code>，类上加
+<code>@Service</code> 注解。</p>
+<hr />
+<h3 id="10-d-15-">10-D-15 ★★</h3>
+<p>Controller 注入 Service 时，应该依赖？</p>
+<ul>
+<li>A. Service 实现类（如 <code>ProjectServiceImpl</code>）</li>
+<li>B. Service 接口（如 <code>ProjectService</code>）</li>
+<li>C. Mapper</li>
+<li>D. Entity</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> Controller 应依赖
+Service 接口而非实现类，这是面向接口编程的体现。Spring
+会自动注入实现类的实例。依赖接口便于切换实现、解耦。</p>
+<hr />
+<h3 id="10-d-16-">10-D-16 ★</h3>
+<p><code>@RequiredArgsConstructor</code> 是哪个库提供的注解？</p>
+<ul>
+<li>A. Spring</li>
+<li>B. MyBatis-Plus</li>
+<li>C. Lombok</li>
+<li>D. JUnit</li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong>
+<code>@RequiredArgsConstructor</code> 是 Lombok 提供，会为类中所有
+<code>final</code> 字段生成构造器。配合 Spring
+的构造器注入，写法简洁。</p>
+<hr />
+<h3 id="10-d-17-">10-D-17 ★★</h3>
+<p>使用 <code>@RequiredArgsConstructor</code>
+时，被注入的字段必须声明为？</p>
+<ul>
+<li>A. <code>static</code></li>
+<li>B. <code>private</code></li>
+<li>C. <code>final</code></li>
+<li>D. <code>volatile</code></li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong>
+<code>@RequiredArgsConstructor</code> 只为 <code>final</code> 字段（或
+<code>@NonNull</code> 字段）生成构造器。未加 <code>final</code>
+的字段不会进构造器，也就不会被注入。</p>
+<hr />
+<h3 id="10-d-18-">10-D-18 ★★</h3>
+<p>下列 Service 方法命名，<strong>最规范</strong> 的是？</p>
+<ul>
+<li>A. <code>insertProject()</code></li>
+<li>B. <code>doProject()</code></li>
+<li>C. <code>createProject()</code></li>
+<li>D. <code>projectDb()</code></li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong> Service
+方法应用业务动词命名：<code>createXxx / updateXxx / deleteXxx / findXxx / submitXxx</code>。<code>insertProject</code>
+是 Mapper 风格（数据访问语义），<code>doProject</code>
+语义模糊，<code>projectDb</code> 不规范。</p>
+<hr />
+<h3 id="10-d-19-">10-D-19 ★★</h3>
+<p>事务的 ACID 特性中，"全部成功或全部失败"指的是？</p>
+<ul>
+<li>A. 原子性（Atomicity）</li>
+<li>B. 一致性（Consistency）</li>
+<li>C. 隔离性（Isolation）</li>
+<li>D. 持久性（Durability）</li>
+</ul>
+<p><strong>答案：A</strong> <strong>解析：</strong>
+原子性指事务内操作不可分割，要么全部成功提交，要么全部失败回滚。一致性指事务前后数据保持一致；隔离性指并发事务互不干扰；持久性指提交后永久保存。</p>
+<hr />
+<h3 id="10-d-20-">10-D-20 ★</h3>
+<p>判断一个 Service 方法是否需要加
+<code>@Transactional</code>，核心标准是？</p>
+<ul>
+<li>A. 方法是否超过 10 行</li>
+<li>B. 方法内是否包含多步写操作（insert/update/delete）</li>
+<li>C. 方法是否返回 List</li>
+<li>D. 方法是否被 Controller 调用</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+事务的本质是保证多步写操作的原子性。单步查询不需要事务；单步写操作可加可不加；多步写操作必须加事务。方法长度、返回类型、调用方都与事务判断无关。</p>
+<hr />
+<h3 id="10-d-21-">10-D-21 ★★</h3>
+<p>Spring 默认情况下，<code>@Transactional</code> 会对哪些异常回滚？</p>
+<ul>
+<li>A. 所有异常</li>
+<li>B. 只有 RuntimeException 和 Error</li>
+<li>C. 只有受检异常（checked Exception）</li>
+<li>D. 只有 IOException</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> Spring 默认只对
+RuntimeException 和 Error 回滚，对受检异常（如
+IOException、SQLException）不回滚。因此推荐显式指定
+<code>@Transactional(rollbackFor = Exception.class)</code>
+覆盖所有异常。</p>
+<hr />
+<h3 id="10-d-22-">10-D-22 ★★</h3>
+<p><code>@Transactional</code> 注解推荐写法是？</p>
+<ul>
+<li>A. <code>@Transactional</code></li>
+<li>B. <code>@Transactional(rollbackFor = Exception.class)</code></li>
+<li>C. <code>@Transactional(noRollbackFor = Exception.class)</code></li>
+<li>D. <code>@Transactional(readOnly = true)</code></li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> 推荐加
+<code>rollbackFor = Exception.class</code>，让受检异常也回滚，避免数据不一致。A
+是默认行为，只回滚 RuntimeException；C 是反向配置；D
+是只读事务，用于查询优化。</p>
+<hr />
+<h3 id="10-d-23-">10-D-23 ★★★</h3>
+<p><code>@Transactional</code> 的传播行为
+<code>REQUIRED</code>（默认）的含义是？</p>
+<ul>
+<li>A. 总是新建独立事务</li>
+<li>B. 当前有事务就加入，没有就新建</li>
+<li>C. 以非事务方式运行</li>
+<li>D. 必须在事务中运行，否则抛异常</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>REQUIRED</code>
+是默认传播行为：当前有事务就加入（与外层共享同一事务），没有就新建一个。90%
+的场景用 REQUIRED。A 是 REQUIRES_NEW；C 是 NOT_SUPPORTED/SUPPORTS；D 是
+MANDATORY。</p>
+<hr />
+<h3 id="10-d-24-">10-D-24 ★★★</h3>
+<p><code>@Transactional</code> 的传播行为 <code>REQUIRES_NEW</code>
+的典型使用场景是？</p>
+<ul>
+<li>A. 查询方法</li>
+<li>B. 日志记录：无论主业务成功与否，日志都要落库</li>
+<li>C. 单步查询</li>
+<li>D. 只读事务</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>REQUIRES_NEW</code>
+总是新建独立事务，外层事务挂起。典型场景是日志记录——主业务回滚不影响日志落库，便于排查问题。查询方法用
+SUPPORTS 或不加事务；只读用 <code>readOnly=true</code>。</p>
+<hr />
+<h3 id="10-d-25-">10-D-25 ★★★</h3>
+<p>下列哪种情况 <strong>不会</strong> 导致 <code>@Transactional</code>
+失效？</p>
+<ul>
+<li>A. 方法是 <code>private</code></li>
+<li>B. 类内部自调用（<code>this.method()</code>）</li>
+<li>C. 方法是 <code>public</code> 且通过 Spring 代理调用</li>
+<li>D. 异常被 <code>try-catch</code> 吞掉</li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong> C
+是正常情况，事务生效。A（private 方法）Spring AOP
+代理不拦截；B（自调用）不经过代理对象；D（异常被吞）Spring
+检测不到异常不回滚。这三种都是事务失效的常见场景。</p>
+<hr />
+<h3 id="10-d-26-">10-D-26 ★★</h3>
+<p>Spring 官方推荐的依赖注入方式是？</p>
+<ul>
+<li>A. <code>@Autowired</code> 字段注入</li>
+<li>B. 构造器注入</li>
+<li>C. <code>@Resource</code> 字段注入</li>
+<li>D. Setter 注入</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> Spring
+官方文档明确推荐构造器注入。优点：字段可声明为
+<code>final</code>（不可变）、脱离 Spring 容器也能
+<code>new</code>（可单元测试）、循环依赖在启动时就暴露。<code>@Autowired</code>
+字段注入虽简洁但不推荐。</p>
+<hr />
+<h3 id="10-d-27-">10-D-27 ★★</h3>
+<p>关于构造器注入的优势，下列说法 <strong>错误</strong> 的是？</p>
+<ul>
+<li>A. 字段可声明为 <code>final</code>，保证不可变</li>
+<li>B. 脱离 Spring 容器也能 <code>new</code> 出对象</li>
+<li>C. 循环依赖在运行时才暴露</li>
+<li>D. 符合 Spring 官方推荐</li>
+</ul>
+<p><strong>答案：C</strong> <strong>解析：</strong>
+构造器注入的循环依赖在**启动阶段（或编译阶段）**就暴露，启动失败报
+<code>BeanCurrentlyInCreationException</code>，比字段注入的运行时 NPE
+更早发现。C 说反了。</p>
+<hr />
+<h3 id="10-d-28-">10-D-28 ★★</h3>
+<p><code>@Resource</code> 注解默认按什么方式注入？</p>
+<ul>
+<li>A. 按类型</li>
+<li>B. 按名称</li>
+<li>C. 按 ID</li>
+<li>D. 随机</li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong>
+<code>@Resource</code> 是 JSR-250
+规范，默认按<strong>名称</strong>注入，找不到再按类型。<code>@Autowired</code>
+默认按<strong>类型</strong>注入。可通过
+<code>@Resource(name="beanName")</code> 显式指定名称。</p>
+<hr />
+<h3 id="10-d-29-">10-D-29 ★★★</h3>
+<p>Spring Boot 3.x 中，<code>@Resource</code> 注解的包路径是？</p>
+<ul>
+<li>A. <code>javax.annotation.Resource</code></li>
+<li>B. <code>jakarta.annotation.Resource</code></li>
+<li>C. <code>org.springframework.annotation.Resource</code></li>
+<li>D. <code>java.lang.Resource</code></li>
+</ul>
+<p><strong>答案：B</strong> <strong>解析：</strong> Spring Boot 3.x 基于
+Jakarta EE 9+，所有 <code>javax.*</code> 包改为
+<code>jakarta.*</code>。<code>@Resource</code> 从
+<code>javax.annotation.Resource</code> 变为
+<code>jakarta.annotation.Resource</code>。迁移时需注意 import。</p>
+<hr />
+<h3 id="10-d-30-">10-D-30 ★★★</h3>
+<p>当一个 Service 接口有多个实现类时，如何指定注入哪一个？</p>
+<ul>
+<li>A. 在某个实现类上加 <code>@Primary</code>，或用
+<code>@Qualifier("beanName")</code> 指定</li>
+<li>B. 删除多余的实现类</li>
+<li>C. 用 <code>@Autowired</code> 即可</li>
+<li>D. 改用 <code>@Resource</code> 即可，不需要名称</li>
+</ul>
+<p><strong>答案：A</strong> <strong>解析：</strong> 多个实现类时 Spring
+会报
+<code>NoUniqueBeanDefinitionException</code>。解决方案：①在某个实现类上加
+<code>@Primary</code> 标记为默认；②用
+<code>@Qualifier("beanName")</code> 精确指定。B 太粗暴；C、D
+不指定名称无法区分。</p>
+<hr />
+<h2 id="二多项选择题10-题">二、多项选择题（10 题）</h2>
+<h3 id="10-m-01-">10-M-01 ★★</h3>
+<p>分层架构带来的好处有？（多选）</p>
+<ul>
+<li>A. 关注点分离</li>
+<li>B. 可维护性提升</li>
+<li>C. 可测试性提升</li>
+<li>D. 团队协作更顺畅</li>
+<li>E. 运行时性能大幅提升</li>
+</ul>
+<p><strong>答案：ABCD</strong> <strong>解析：</strong>
+分层带来关注点分离、可维护性、可测试性、团队协作的好处。运行时性能不会大幅提升（方法调用开销可忽略），E
+错误。性能不是分层的理由。</p>
+<hr />
+<h3 id="10-m-02-">10-M-02 ★★</h3>
+<p>三层架构中，属于 Service 层职责的有？（多选）</p>
+<ul>
+<li>A. 业务规则校验</li>
+<li>B. 事务管理</li>
+<li>C. 组合调用多个 Mapper</li>
+<li>D. HTTP 请求参数绑定</li>
+<li>E. 执行 SQL 查询</li>
+</ul>
+<p><strong>答案：ABC</strong> <strong>解析：</strong> Service
+层负责业务规则校验、事务管理、组合调用多个 Mapper。D 是 Controller
+职责；E 是 Mapper 职责。Service 是"厚层"，承载主要业务逻辑。</p>
+<hr />
+<h3 id="10-m-03-">10-M-03 ★★</h3>
+<p>关于 <code>@Service</code> 注解，下列说法正确的有？（多选）</p>
+<ul>
+<li>A. 应该写在实现类上</li>
+<li>B. 应该写在接口上</li>
+<li>C. Spring 启动时扫描并注册为 Bean</li>
+<li>D. 注解的 value 属性可指定 Bean 名称</li>
+<li>E. 一个接口只能有一个 <code>@Service</code> 实现类</li>
+</ul>
+<p><strong>答案：ACD</strong> <strong>解析：</strong>
+<code>@Service</code> 写在实现类上（A），Spring 扫描注册为
+Bean（C），value 属性可指定 Bean 名称（D）。B 错误，接口不加注解；E
+错误，一个接口可以有多个实现类（用 <code>@Primary</code> 或
+<code>@Qualifier</code> 区分）。</p>
+<hr />
+<h3 id="10-m-04-">10-M-04 ★★</h3>
+<p>CTTS 项目改造为三层架构后，<code>TaskServiceImpl</code>
+中正确的做法有？（多选）</p>
+<ul>
+<li>A. 类上加 <code>@Service</code> 注解</li>
+<li>B. 类上加 <code>@RequiredArgsConstructor</code> 注解</li>
+<li>C. 依赖 <code>TaskMapper</code> 和 <code>TaskSubmissionMapper</code>
+声明为 <code>final</code> 字段</li>
+<li>D. <code>submitTask</code> 方法上加
+<code>@Transactional(rollbackFor = Exception.class)</code></li>
+<li>E. 类上 implements <code>TaskService</code> 接口</li>
+</ul>
+<p><strong>答案：ABCDE</strong> <strong>解析：</strong> A 注册 Bean；B
+生成构造器；C 构造器注入 Mapper（final）；D 多步写操作加事务；E
+实现接口。五项都是 <code>TaskServiceImpl</code> 的标准写法。</p>
+<hr />
+<h3 id="10-m-05-">10-M-05 ★★</h3>
+<p><code>@Transactional</code> 注解的常用属性有？（多选）</p>
+<ul>
+<li>A. <code>rollbackFor</code></li>
+<li>B. <code>propagation</code></li>
+<li>C. <code>isolation</code></li>
+<li>D. <code>readOnly</code></li>
+<li>E. <code>timeout</code></li>
+</ul>
+<p><strong>答案：ABCDE</strong> <strong>解析：</strong>
+<code>@Transactional</code>
+五大常用属性：<code>rollbackFor</code>（回滚异常类型）、<code>propagation</code>（传播行为）、<code>isolation</code>（隔离级别）、<code>readOnly</code>（是否只读）、<code>timeout</code>（超时秒数）。此外还有
+<code>noRollbackFor</code>、<code>transactionManager</code> 等。</p>
+<hr />
+<h3 id="10-m-06-">10-M-06 ★★★</h3>
+<p>下列哪些情况会导致 <code>@Transactional</code> 失效？（多选）</p>
+<ul>
+<li>A. 方法是 <code>private</code></li>
+<li>B. 类内部自调用（<code>this.method()</code>）</li>
+<li>C. 异常被 <code>try-catch</code> 吞掉，未重新抛出</li>
+<li>D. 方法是 <code>public</code> 且通过注入的代理对象调用</li>
+<li>E. 数据库引擎是 MyISAM</li>
+</ul>
+<p><strong>答案：ABCE</strong> <strong>解析：</strong> A（private
+方法代理不拦截）、B（自调用不走代理）、C（异常被吞 Spring
+检测不到）、E（MyISAM 不支持事务）都会导致失效。D
+是正常情况，事务生效。</p>
+<hr />
+<h3 id="10-m-07-">10-M-07 ★★</h3>
+<p>Spring 依赖注入的方式有？（多选）</p>
+<ul>
+<li>A. <code>@Autowired</code> 字段注入</li>
+<li>B. 构造器注入</li>
+<li>C. <code>@Resource</code> 字段注入</li>
+<li>D. Setter 注入</li>
+<li>E. <code>@Bean</code> 方法注入</li>
+</ul>
+<p><strong>答案：ABCDE</strong> <strong>解析：</strong> 五种都是 Spring
+支持的注入方式。字段注入（<code>@Autowired</code> /
+<code>@Resource</code>）简洁但不推荐；构造器注入推荐；Setter
+注入适用于可选依赖；<code>@Bean</code> 方法注入用于配置类。</p>
+<hr />
+<h3 id="10-m-08-">10-M-08 ★★</h3>
+<p>构造器注入相比字段注入的优势有？（多选）</p>
+<ul>
+<li>A. 字段可声明为 <code>final</code>，保证不可变</li>
+<li>B. 脱离 Spring 容器也能 <code>new</code> 出对象（可单元测试）</li>
+<li>C. 循环依赖在启动阶段就暴露</li>
+<li>D. 写法更简洁</li>
+<li>E. 符合 Spring 官方推荐</li>
+</ul>
+<p><strong>答案：ABCE</strong> <strong>解析：</strong> A、B、C、E
+都是构造器注入的优势。D 是字段注入的优势（构造器注入需写构造器或用
+<code>@RequiredArgsConstructor</code>）。综合来看构造器注入更推荐。</p>
+<hr />
+<h3 id="10-m-09-">10-M-09 ★★</h3>
+<p>关于 IoC 容器，下列说法正确的有？（多选）</p>
+<ul>
+<li>A. IoC 即控制反转，对象创建权交给容器</li>
+<li>B. 被注解标记的类（<code>@Service</code>、<code>@Controller</code>
+等）会被容器实例化</li>
+<li>C. 容器负责扫描、实例化、注入、管理 Bean 生命周期</li>
+<li>D. IoC 容器就是 ApplicationContext</li>
+<li>E. 没有 IoC 容器，Spring 程序也能正常跑</li>
+</ul>
+<p><strong>答案：ABCD</strong> <strong>解析：</strong>
+A（控制反转）、B（注解类被实例化）、C（容器职责）、D（ApplicationContext
+是 IoC 容器的具体实现）都正确。E 错误，Spring 程序依赖 IoC
+容器，没有容器无法注入依赖。</p>
+<hr />
+<h3 id="10-m-10-">10-M-10 ★★</h3>
+<p>CTTS 中 <code>TaskServiceImpl.submitTask</code>
+方法涉及的操作有？（多选）</p>
+<ul>
+<li>A. 校验任务存在（selectById）</li>
+<li>B. 校验提交内容非空</li>
+<li>C. 补全提交记录字段</li>
+<li>D. 写入提交记录（insert）</li>
+<li>E. 更新任务状态（updateById）</li>
+</ul>
+<p><strong>答案：ABCDE</strong> <strong>解析：</strong> submitTask
+是事务方法，包含：校验任务存在（A）、校验提交内容（B）、补全字段（C）、insert
+提交记录（D）、update 任务状态（E）。其中 D 和 E
+是多步写操作，必须加事务保证原子性。</p>
+<hr />
+<h2 id="三判断题20-题">三、判断题（20 题）</h2>
+<h3 id="10-j-01-">10-J-01 ★</h3>
+<p>Controller 层应该尽量薄，业务逻辑应放在 Service 层。</p>
+<p><strong>答案：✓</strong> <strong>解析：</strong> Controller
+是薄层，只负责接收请求、调用 Service、返回响应。业务逻辑放在 Service
+层是分层架构的基本原则。</p>
+<hr />
+<h3 id="10-j-02-">10-J-02 ★</h3>
+<p>Mapper 层可以写少量业务逻辑，只要 SQL 不太复杂就行。</p>
+<p><strong>答案：✗</strong> <strong>解析：</strong> Mapper
+层只负责数据访问，不能写任何业务逻辑。Mapper XML 中的
+<code>&lt;if&gt;</code> 是 SQL 拼接判断，不是业务校验。业务逻辑必须放
+Service 层。</p>
+<hr />
+<h3 id="10-j-03-">10-J-03 ★★</h3>
+<p>分层架构的调用方向是单向的，Service 不能调用 Controller。</p>
+<p><strong>答案：✓</strong> <strong>解析：</strong>
+三层架构严格单向依赖：Controller → Service →
+Mapper。下层不感知上层，Service 不能反向调用 Controller，更不能返回 HTTP
+相关对象。</p>
+<hr />
+<h3 id="10-j-04-">10-J-04 ★★</h3>
+<p>Service 层返回 <code>ResponseEntity</code> 是合理的做法。</p>
+<p><strong>答案：✗</strong> <strong>解析：</strong>
+<code>ResponseEntity</code> 是 HTTP 响应对象，属于 Web 层。Service
+不应感知 Web 层，应返回业务对象或业务结果。HTTP 相关封装由 Controller
+完成。</p>
+<hr />
+<h3 id="10-j-05-">10-J-05 ★★</h3>
+<p>如果一个 Service 方法只是简单调用一个 Mapper 方法（如
+<code>findAll</code>），那这个 Service 层就没必要存在。</p>
+<p><strong>答案：✗</strong> <strong>解析：</strong>
+即使当前只是透传，也保留 Service
+层。原因：①保持分层一致性；②未来扩展业务逻辑时有地方放；③便于单元测试；④统一团队规范。分层是长期投资。</p>
+<hr />
+<h3 id="10-j-06-">10-J-06 ★</h3>
+<p><code>@Service</code> 注解可以写在接口上，也可以写在实现类上。</p>
+<p><strong>答案：✗</strong> <strong>解析：</strong>
+<code>@Service</code> 只能写在实现类上。接口保持纯净，不依赖
+Spring。Spring 扫描的是带 <code>@Service</code> 的实现类，将其注册为
+Bean，类型为接口类型。</p>
+<hr />
+<h3 id="10-j-07-">10-J-07 ★★</h3>
+<p>Service 接口与实现类分离的好处之一是便于切换实现，例如测试时注入 mock
+实现。</p>
+<p><strong>答案：✓</strong> <strong>解析：</strong>
+接口与实现分离的核心价值之一就是可切换性。单元测试时可注入 mock
+实现（实现同一接口），无需修改调用方代码。</p>
+<hr />
+<h3 id="10-j-08-">10-J-08 ★★</h3>
+<p>Controller 注入 Service 时，应该依赖实现类（如
+<code>ProjectServiceImpl</code>），这样能直接调用其方法。</p>
+<p><strong>答案：✗</strong> <strong>解析：</strong>
+应该依赖接口（<code>ProjectService</code>）而非实现类。这是面向接口编程的体现，便于切换实现、降低耦合。Spring
+会自动注入实现类的实例。</p>
+<hr />
+<h3 id="10-j-09-">10-J-09 ★★</h3>
+<p><code>@RequiredArgsConstructor</code>
+会为类中所有字段生成构造器。</p>
+<p><strong>答案：✗</strong> <strong>解析：</strong>
+<code>@RequiredArgsConstructor</code> 只为 <code>final</code> 字段（或
+<code>@NonNull</code> 字段）生成构造器。未加 <code>final</code>
+的字段不会进构造器，不会被构造器注入。</p>
+<hr />
+<h3 id="10-j-10-">10-J-10 ★★</h3>
+<p>在 Service 实现类中，可以用 <code>new</code> 创建另一个 Service
+实例来调用其方法。</p>
+<p><strong>答案：✗</strong> <strong>解析：</strong> <code>new</code>
+出来的对象不被 Spring 管理，其内部的 <code>@Autowired</code>
+注入不生效，会导致 NPE。应通过构造器注入其他 Service。</p>
+<hr />
+<h3 id="10-j-11-">10-J-11 ★★</h3>
+<p>事务的 ACID
+特性中，"原子性"指的是事务内操作要么全部成功，要么全部失败。</p>
+<p><strong>答案：✓</strong> <strong>解析：</strong>
+原子性（Atomicity）的准确含义：事务是不可分割的操作序列，全部成功提交或全部失败回滚。这是事务最基础的特性。</p>
+<hr />
+<h3 id="10-j-12-">10-J-12 ★★</h3>
+<p>单步查询方法也需要加 <code>@Transactional</code>，否则会报错。</p>
+<p><strong>答案：✗</strong> <strong>解析：</strong>
+单步查询不需要事务，不加 <code>@Transactional</code>
+也不会报错。事务的本质是保证多步写操作的原子性。查询方法可加
+<code>@Transactional(readOnly = true)</code> 做只读优化，但非必需。</p>
+<hr />
+<h3 id="10-j-13-">10-J-13 ★★</h3>
+<p><code>@Transactional</code> 加在 Service 方法上，如果方法内抛出
+RuntimeException，事务会回滚。</p>
+<p><strong>答案：✓</strong> <strong>解析：</strong> Spring 默认对
+RuntimeException 和 Error 回滚。但受检异常（如
+IOException）默认不回滚，需配置
+<code>rollbackFor = Exception.class</code>。</p>
+<hr />
+<h3 id="10-j-14-">10-J-14 ★★</h3>
+<p><code>@Transactional</code> 加在 <code>private</code>
+方法上也能生效。</p>
+<p><strong>答案：✗</strong> <strong>解析：</strong> Spring AOP
+代理只拦截 <code>public</code> 方法，<code>private</code> 方法上的
+<code>@Transactional</code> 不生效。事务方法必须是
+<code>public</code>。</p>
+<hr />
+<h3 id="10-j-15-">10-J-15 ★★★</h3>
+<p>类内部自调用（<code>this.method()</code>）会导致
+<code>@Transactional</code> 失效，因为不经过 Spring 代理对象。</p>
+<p><strong>答案：✓</strong> <strong>解析：</strong>
+<code>this.method()</code> 是直接方法调用，不经过 Spring
+代理对象，<code>@Transactional</code>
+注解不会被拦截处理。这是事务失效的最常见场景之一。解决方案：注入自己（<code>@Lazy</code>）或拆到另一个
+Service。</p>
+<hr />
+<h3 id="10-j-16-">10-J-16 ★★★</h3>
+<p><code>REQUIRES_NEW</code>
+传播行为会让当前方法新开一个独立事务，外层事务挂起，直到新事务结束。</p>
+<p><strong>答案：✓</strong> <strong>解析：</strong>
+<code>REQUIRES_NEW</code>
+总是新建独立事务，外层事务挂起。新事务提交或回滚后，外层事务恢复。典型场景：日志记录，主业务回滚不影响日志落库。</p>
+<hr />
+<h3 id="10-j-17-">10-J-17 ★★</h3>
+<p><code>@Autowired</code> 字段注入是 Spring 官方最推荐的注入方式。</p>
+<p><strong>答案：✗</strong> <strong>解析：</strong> Spring
+官方推荐<strong>构造器注入</strong>，不推荐 <code>@Autowired</code>
+字段注入。字段注入的缺点：字段无法 <code>final</code>、脱离容器无法
+<code>new</code>、循环依赖不易发现。IDE 也会给出警告。</p>
+<hr />
+<h3 id="10-j-18-">10-J-18 ★★</h3>
+<p>构造器注入可以让循环依赖在启动阶段就暴露，而不是运行时才发现。</p>
+<p><strong>答案：✓</strong> <strong>解析：</strong> 构造器注入下，A 依赖
+B、B 依赖 A 会在启动时实例化失败，报
+<code>BeanCurrentlyInCreationException</code>。而字段注入借助三级缓存可能运行时才出
+NPE，更难排查。</p>
+<hr />
+<h3 id="10-j-19-">10-J-19 ★★</h3>
+<p>Spring IoC 容器负责扫描、实例化、注入、管理 Bean 的生命周期。</p>
+<p><strong>答案：✓</strong> <strong>解析：</strong> IoC
+容器的核心职责：①扫描带注解的类；②实例化为 Bean；③按依赖关系注入；④管理
+Bean 的生命周期（初始化、销毁）。ApplicationContext 是 IoC
+容器的具体实现。</p>
+<hr />
+<h3 id="10-j-20-">10-J-20 ★★</h3>
+<p>Spring Boot 3.x 中，<code>@Resource</code> 的包路径从
+<code>javax.annotation.Resource</code> 变为
+<code>jakarta.annotation.Resource</code>。</p>
+<p><strong>答案：✓</strong> <strong>解析：</strong> Spring Boot 3.x 基于
+Jakarta EE 9+，所有 <code>javax.*</code> 包改为
+<code>jakarta.*</code>。<code>@Resource</code> 也跟着变化。从 Spring
+Boot 2.x 迁移到 3.x 时需注意 import 修改。</p>
+<hr />
+<h2 id="四填空题10-题">四、填空题（10 题）</h2>
+<h3 id="10-f-01-">10-F-01 ★</h3>
+<p>三层架构中，负责接收 HTTP 请求、调用 Service、返回响应的层是 ________
+层。</p>
+<p><strong>答案：Controller（或表现层）</strong> <strong>解析：</strong>
+Controller 是表现层（薄层），职责是 HTTP 请求接收、参数绑定、调用
+Service、封装响应。</p>
+<hr />
+<h3 id="10-f-02-">10-F-02 ★</h3>
+<p>三层架构中，负责业务逻辑、事务管理、组合调用多个 Mapper 的层是
+________ 层。</p>
+<p><strong>答案：Service（或业务层）</strong> <strong>解析：</strong>
+Service
+是业务层（厚层），承载主要业务逻辑、事务管理、业务规则校验、组合多个
+Mapper 调用。</p>
+<hr />
+<h3 id="10-f-03-">10-F-03 ★</h3>
+<p>Service 实现类上必须加的 Spring 注解是 ________。</p>
+<p><strong>答案：<code>@Service</code></strong> <strong>解析：</strong>
+<code>@Service</code> 注解标记该类为 Service 实现类，Spring
+启动时扫描并注册为 Bean。注解写在实现类上，不写在接口上。</p>
+<hr />
+<h3 id="10-f-04-">10-F-04 ★★</h3>
+<p>CTTS 项目中，<code>ProjectServiceImpl</code> 应放在
+<code>com.ctts.service.________</code> 包下。</p>
+<p><strong>答案：<code>impl</code></strong> <strong>解析：</strong>
+Service 接口放 <code>service</code> 包，实现类放
+<code>service/impl</code> 子包。这是行业通用约定。</p>
+<hr />
+<h3 id="10-f-05-">10-F-05 ★★</h3>
+<p>声明式事务的注解是 ________，推荐显式配置 rollbackFor 为
+________。</p>
+<p><strong>答案：<code>@Transactional</code>；<code>Exception.class</code></strong>
+<strong>解析：</strong>
+<code>@Transactional(rollbackFor = Exception.class)</code>
+是推荐写法。Spring 默认只回滚 RuntimeException，配置 rollbackFor
+让受检异常也回滚，避免数据不一致。</p>
+<hr />
+<h3 id="10-f-06-">10-F-06 ★★</h3>
+<p><code>@Transactional</code> 的传播行为中，默认值是
+________，表示"有事务就加入，没事务就新建"；总是新建独立事务的传播行为是
+________。</p>
+<p><strong>答案：<code>REQUIRED</code>；<code>REQUIRES_NEW</code></strong>
+<strong>解析：</strong> REQUIRED 是默认传播行为，90%
+场景使用；REQUIRES_NEW
+总是新建独立事务，外层挂起，典型场景是日志记录。</p>
+<hr />
+<h3 id="10-f-07-">10-F-07 ★★</h3>
+<p>Lombok 提供的、用于为 <code>final</code> 字段生成构造器的注解是
+________，它常配合 Spring 的 ________ 注入方式使用。</p>
+<p><strong>答案：<code>@RequiredArgsConstructor</code>；构造器注入</strong>
+<strong>解析：</strong> <code>@RequiredArgsConstructor</code> 为类中所有
+<code>final</code> 字段生成构造器，配合 Spring 的构造器注入（无需显式写
+<code>@Autowired</code>），是企业项目最推荐的写法。</p>
+<hr />
+<h3 id="10-f-08-">10-F-08 ★★</h3>
+<p>Spring 推荐的依赖注入方式是 ________ 注入，不推荐 ________ 注入。</p>
+<p><strong>答案：构造器；<code>@Autowired</code> 字段（或字段）</strong>
+<strong>解析：</strong> Spring 官方推荐构造器注入（字段可
+<code>final</code>、可单元测试、循环依赖早暴露）。<code>@Autowired</code>
+字段注入虽简洁但缺点多，不推荐。</p>
+<hr />
+<h3 id="10-f-09-">10-F-09 ★★★</h3>
+<p>事务的 ACID 特性中，"A" 代表 ________，"C" 代表 ________，"I" 代表
+________，"D" 代表 ________。</p>
+<p><strong>答案：原子性（Atomicity）；一致性（Consistency）；隔离性（Isolation）；持久性（Durability）</strong>
+<strong>解析：</strong> ACID
+是事务的四大特性。原子性：全部成功或全部失败；一致性：事务前后数据保持一致；隔离性：并发事务互不干扰；持久性：提交后永久保存。</p>
+<hr />
+<h3 id="10-f-10-">10-F-10 ★★</h3>
+<p>当 Service 接口有多个实现类时，可以在某个实现类上加 ________
+注解标记为默认，或用 ________ 注解精确指定注入哪个实现。</p>
+<p><strong>答案：<code>@Primary</code>；<code>@Qualifier</code></strong>
+<strong>解析：</strong> <code>@Primary</code> 标记默认实现，Spring
+在多个候选中优先选择它；<code>@Qualifier("beanName")</code> 精确指定
+Bean 名称。两种方式解决
+<code>NoUniqueBeanDefinitionException</code>。</p>
+<hr />
+<h2 id="五论述简答题4-题">五、论述简答题（4 题）</h2>
+<h3 id="10-s-01-">10-S-01 ★★</h3>
+<p>请详细说明三层架构（Controller / Service / Mapper）的职责划分，并以
+CTTS 的"学生提交任务"为例，说明每一层分别做什么。</p>
+<p><strong>参考答案</strong>：</p>
+<p><strong>三层职责划分</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>职责</th>
+<th>关键注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Controller（表现层，薄层）</td>
+<td>接收 HTTP 请求、参数绑定、调用 Service、封装响应</td>
+<td><code>@RestController</code>、<code>@RequestMapping</code></td>
+</tr>
+<tr>
+<td>Service（业务层，厚层）</td>
+<td>业务规则校验、事务管理、组合调用多个 Mapper</td>
+<td><code>@Service</code>、<code>@Transactional</code></td>
+</tr>
+<tr>
+<td>Mapper（数据访问层）</td>
+<td>执行 SQL，完成 CRUD</td>
+<td><code>@Mapper</code>、<code>BaseMapper&lt;T&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>调用方向</strong>：单向依赖，Controller → Service → Mapper →
+DB，下层不感知上层。</p>
+<p><strong>以"学生提交任务"为例</strong>：</p>
+<ul>
+<li><p><strong>Controller
+层</strong>（<code>TaskController</code>）：</p>
+<ul>
+<li>接收 <code>POST /api/tasks/{taskId}/submit</code> 请求；</li>
+<li>用 <code>@PathVariable</code> 接收 taskId，<code>@RequestBody</code>
+接收 TaskSubmission；</li>
+<li>调用 <code>taskService.submitTask(taskId, submission)</code>；</li>
+<li>返回成功提示字符串。</li>
+</ul></li>
+<li><p><strong>Service
+层</strong>（<code>TaskServiceImpl.submitTask</code>）：</p>
+<ul>
+<li>校验任务存在（<code>taskMapper.selectById</code>）；</li>
+<li>校验提交内容非空；</li>
+<li>补全提交记录字段（taskId、status、submitTime）；</li>
+<li>调用 <code>taskSubmissionMapper.insert</code> 写入提交记录；</li>
+<li>调用 <code>taskMapper.updateById</code> 更新任务状态；</li>
+<li>整个方法加
+<code>@Transactional(rollbackFor = Exception.class)</code>，保证两步写操作原子性。</li>
+</ul></li>
+<li><p><strong>Mapper
+层</strong>（<code>TaskMapper</code>、<code>TaskSubmissionMapper</code>）：</p>
+<ul>
+<li><code>TaskMapper.selectById</code>：执行
+<code>SELECT * FROM task WHERE id = ?</code>；</li>
+<li><code>TaskSubmissionMapper.insert</code>：执行
+<code>INSERT INTO task_submission ...</code>；</li>
+<li><code>TaskMapper.updateById</code>：执行
+<code>UPDATE task SET status = ? WHERE id = ?</code>；</li>
+<li>Mapper 只执行 SQL，不含任何业务判断。</li>
+</ul></li>
+</ul>
+<p><strong>评分标准（满分 10 分）</strong>：</p>
+<ul>
+<li>三层职责划分准确（3 分，每层 1 分）</li>
+<li>调用方向说明（1 分）</li>
+<li>Controller 层举例正确（2 分）</li>
+<li>Service 层举例正确（含事务）（2 分）</li>
+<li>Mapper 层举例正确（2 分）</li>
+</ul>
+<hr />
+<h3 id="10-s-02-">10-S-02 ★★★</h3>
+<p>请详细说明 <code>@Transactional</code>
+事务注解的核心属性、传播行为（重点对比 REQUIRED 与
+REQUIRES_NEW）、回滚规则，并列举至少 5 种事务失效的场景。</p>
+<p><strong>参考答案</strong>：</p>
+<p><strong>核心属性</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>常用值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rollbackFor</code></td>
+<td>遇到哪些异常时回滚</td>
+<td><code>Exception.class</code>（推荐）</td>
+</tr>
+<tr>
+<td><code>noRollbackFor</code></td>
+<td>遇到哪些异常时不回滚</td>
+<td>特定业务异常</td>
+</tr>
+<tr>
+<td><code>propagation</code></td>
+<td>事务传播行为</td>
+<td><code>REQUIRED</code>（默认）/ <code>REQUIRES_NEW</code></td>
+</tr>
+<tr>
+<td><code>isolation</code></td>
+<td>事务隔离级别</td>
+<td><code>DEFAULT</code>（默认）</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td>事务超时时间（秒）</td>
+<td><code>-1</code>（不超时）</td>
+</tr>
+<tr>
+<td><code>readOnly</code></td>
+<td>是否只读事务</td>
+<td><code>false</code>（默认）；查询可设 <code>true</code></td>
+</tr>
+<tr>
+<td><code>transactionManager</code></td>
+<td>指定事务管理器</td>
+<td>多数据源时使用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>传播行为对比</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>传播行为</th>
+<th>含义</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>REQUIRED</code>（默认）</td>
+<td>当前有事务就加入，没有就新建</td>
+<td>90% 场景，最常用</td>
+</tr>
+<tr>
+<td><code>REQUIRES_NEW</code></td>
+<td>总是新建独立事务，外层事务挂起</td>
+<td>日志记录：无论主业务成功与否，日志都要落库</td>
+</tr>
+</tbody>
+</table>
+<p><strong>对比示例</strong>：方法 A（有事务）调用方法 B：</p>
+<ul>
+<li><code>REQUIRED</code>：B 加入 A 的事务，一荣俱荣，一损俱损；</li>
+<li><code>REQUIRES_NEW</code>：B 新开独立事务，A 挂起；B 提交后 A
+恢复；B 回滚不影响 A，A 回滚不影响已提交的 B。</li>
+</ul>
+<p><strong>回滚规则</strong>：</p>
+<ul>
+<li>Spring 默认只对 <strong>RuntimeException</strong> 和
+<strong>Error</strong> 回滚；</li>
+<li>对 <strong>受检异常</strong>（如
+IOException、SQLException）默认<strong>不回滚</strong>；</li>
+<li>推荐显式配置
+<code>@Transactional(rollbackFor = Exception.class)</code>，让所有异常都回滚，避免数据不一致。</li>
+</ul>
+<p><strong>事务失效的 7 大场景</strong>：</p>
+<ol type="1">
+<li><strong>方法非 <code>public</code></strong>：Spring AOP 代理只拦截
+public 方法，private/protected 上的注解无效；</li>
+<li><strong>类内部自调用</strong>：<code>this.method()</code>
+不经过代理对象，注解失效；</li>
+<li><strong>异常被 <code>try-catch</code> 吞掉</strong>：Spring
+检测不到异常，认为正常，不回滚；</li>
+<li><strong>抛出受检异常但未配
+<code>rollbackFor</code></strong>：默认不回滚受检异常；</li>
+<li><strong>数据库引擎不支持事务</strong>：MySQL 的 MyISAM
+引擎不支持事务，需用 InnoDB；</li>
+<li><strong><code>@Transactional</code> 加在 final/static
+方法</strong>：代理无法重写，注解无效；</li>
+<li><strong>多线程调用</strong>：事务绑定在线程上，新线程没有事务。</li>
+</ol>
+<p><strong>评分标准（满分 12 分）</strong>：</p>
+<ul>
+<li>核心属性列举 4 个以上（2 分）</li>
+<li>REQUIRED 与 REQUIRES_NEW 对比准确（3 分）</li>
+<li>回滚规则说明（含受检异常问题）（2 分）</li>
+<li>事务失效场景列举 5 个以上（5 分，每个 1 分）</li>
+</ul>
+<hr />
+<h3 id="10-s-03-">10-S-03 ★★</h3>
+<p>请对比 Spring 的三种依赖注入方式（<code>@Autowired</code>
+字段注入、构造器注入、<code>@Resource</code>），说明各自的优缺点，并解释为什么
+Spring 官方推荐构造器注入。</p>
+<p><strong>参考答案</strong>：</p>
+<p><strong>三种注入方式对比</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>写法</th>
+<th>优点</th>
+<th>缺点</th>
+<th>推荐度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@Autowired</code> 字段注入</td>
+<td><code>@Autowired private XxxMapper mapper;</code></td>
+<td>写法简洁</td>
+<td>字段无法 <code>final</code>；脱离容器无法
+<code>new</code>；循环依赖不易发现；IDE 警告</td>
+<td>❌ 不推荐</td>
+</tr>
+<tr>
+<td>构造器注入</td>
+<td><code>@RequiredArgsConstructor + final</code></td>
+<td>字段可 <code>final</code> 不可变；可脱离容器
+<code>new</code>；循环依赖早暴露；Spring 官方推荐</td>
+<td>依赖多时构造器参数多（说明类职责过重）</td>
+<td>✅ 推荐</td>
+</tr>
+<tr>
+<td><code>@Resource</code></td>
+<td><code>@Resource private XxxMapper mapper;</code></td>
+<td>可按名称注入；JDK 自带（Spring Boot 3 用 jakarta）</td>
+<td>字段无法 <code>final</code>；脱离容器无法 <code>new</code></td>
+<td>⭕ 可选</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Spring 官方推荐构造器注入的原因</strong>：</p>
+<ol type="1">
+<li><strong>不可变性</strong>：字段可声明为
+<code>final</code>，对象创建后依赖不可修改，线程安全；</li>
+<li><strong>可测试性</strong>：脱离 Spring 容器也能
+<code>new XxxServiceImpl(mockMapper)</code>，便于单元测试；</li>
+<li><strong>循环依赖早暴露</strong>：A 依赖 B、B 依赖 A
+在启动阶段就报错（<code>BeanCurrentlyInCreationException</code>），而非运行时
+NPE；</li>
+<li><strong>明确依赖</strong>：构造器参数列表明确展示类的所有依赖，依赖过多时一眼看出类职责过重（代码坏味道）；</li>
+<li><strong>避免字段注入的隐藏问题</strong>：字段注入借助三级缓存可能"掩盖"循环依赖，运行时才暴雷。</li>
+</ol>
+<p><strong>示例</strong>：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 推荐：构造器注入</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectServiceImpl <span class="kw">implements</span> ProjectService <span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> ProjectMapper projectMapper<span class="op">;</span>  <span class="co">// final 不可变</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// 不推荐：字段注入</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectServiceImpl <span class="kw">implements</span> ProjectService <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> ProjectMapper projectMapper<span class="op">;</span>  <span class="co">// 非 final，可被修改</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>评分标准（满分 10 分）</strong>：</p>
+<ul>
+<li>三种方式写法与特点（3 分，每种 1 分）</li>
+<li>各自优缺点分析（3 分）</li>
+<li>构造器注入推荐理由至少 3 条（4 分，每条 1 分，满分 4 分）</li>
+</ul>
+<hr />
+<h3 id="10-s-04-">10-S-04 ★★★</h3>
+<p>阅读以下"反例"代码，指出至少 5
+个问题，并说明如何改造为标准三层架构。</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/projects&quot;</span><span class="op">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> ProjectMapper projectMapper<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">addProject</span><span class="op">(</span><span class="at">@RequestBody</span> Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>project<span class="op">.</span><span class="fu">getTitle</span><span class="op">()</span> <span class="op">==</span> <span class="kw">null</span> <span class="op">||</span> project<span class="op">.</span><span class="fu">getTitle</span><span class="op">().</span><span class="fu">trim</span><span class="op">().</span><span class="fu">isEmpty</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">&quot;项目标题不能为空&quot;</span><span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>project<span class="op">.</span><span class="fu">getTitle</span><span class="op">().</span><span class="fu">length</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">&quot;项目标题不能超过100字&quot;</span><span class="op">;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        Project exist <span class="op">=</span> projectMapper<span class="op">.</span><span class="fu">selectByTitle</span><span class="op">(</span>project<span class="op">.</span><span class="fu">getTitle</span><span class="op">());</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>exist <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">&quot;项目标题已存在&quot;</span><span class="op">;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        project<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        project<span class="op">.</span><span class="fu">setCreateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        project<span class="op">.</span><span class="fu">setUpdateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> rows <span class="op">=</span> projectMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>project<span class="op">);</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>rows <span class="op">!=</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">&quot;新增失败&quot;</span><span class="op">;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;新增成功，ID=&quot;</span> <span class="op">+</span> project<span class="op">.</span><span class="fu">getId</span><span class="op">();</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>参考答案</strong>：</p>
+<p><strong>反例代码的 6 个问题</strong>：</p>
+<ol type="1">
+<li><strong>Controller 直接调 Mapper</strong>：违反三层架构，没有
+Service 层，业务逻辑堆在 Controller；</li>
+<li><strong>Controller 职责过重</strong>：既接请求、又做业务校验、又调
+Mapper、又处理异常，方法冗长；</li>
+<li><strong>业务逻辑无法复用</strong>："查重 + 补字段 +
+插入"这套逻辑只在 Controller 出现，别处想用得复制；</li>
+<li><strong>无法单元测试</strong>：要测业务逻辑必须发 HTTP
+请求，测试又慢又脆；</li>
+<li><strong>事务边界不清</strong>：如果还要同时插日志，没有
+<code>@Transactional</code>，一旦第二步失败数据不一致；</li>
+<li><strong>异常处理散落</strong>：每个方法都返回字符串提示，没有统一异常处理，接口返回格式混乱；</li>
+<li><strong>使用字段注入</strong>：<code>@Autowired</code> 字段注入不被
+Spring 官方推荐（附加问题）。</li>
+</ol>
+<p><strong>改造方案</strong>：</p>
+<p><strong>步骤 1：创建 Service 接口</strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> ProjectService <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Long</span> <span class="fu">createProject</span><span class="op">(</span>Project project<span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>步骤 2：创建 Service 实现类</strong></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">impl</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectServiceImpl <span class="kw">implements</span> ProjectService <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> ProjectMapper projectMapper<span class="op">;</span>  <span class="co">// 构造器注入</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Long</span> <span class="fu">createProject</span><span class="op">(</span>Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 业务校验</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>StringUtils<span class="op">.</span><span class="fu">hasText</span><span class="op">(</span>project<span class="op">.</span><span class="fu">getTitle</span><span class="op">()))</span> <span class="op">{</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">&quot;项目标题不能为空&quot;</span><span class="op">);</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>project<span class="op">.</span><span class="fu">getTitle</span><span class="op">().</span><span class="fu">length</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">&quot;项目标题不能超过100字&quot;</span><span class="op">);</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 查重</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        Project exist <span class="op">=</span> projectMapper<span class="op">.</span><span class="fu">selectByTitle</span><span class="op">(</span>project<span class="op">.</span><span class="fu">getTitle</span><span class="op">());</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>exist <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalStateException</span><span class="op">(</span><span class="st">&quot;项目标题已存在&quot;</span><span class="op">);</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 补全字段</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        project<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        project<span class="op">.</span><span class="fu">setCreateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        project<span class="op">.</span><span class="fu">setUpdateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 写入</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        projectMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>project<span class="op">);</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> project<span class="op">.</span><span class="fu">getId</span><span class="op">();</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>步骤 3：改造 Controller</strong></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/projects&quot;</span><span class="op">)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> ProjectService projectService<span class="op">;</span>  <span class="co">// 依赖接口，不依赖 Mapper</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">addProject</span><span class="op">(</span><span class="at">@RequestBody</span> Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Long</span> id <span class="op">=</span> projectService<span class="op">.</span><span class="fu">createProject</span><span class="op">(</span>project<span class="op">);</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;新增成功，ID=&quot;</span> <span class="op">+</span> id<span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>改造效果</strong>：</p>
+<ul>
+<li>Controller 从 20 行瘦身到 5 行；</li>
+<li>业务逻辑下沉到 Service，可复用、可测试；</li>
+<li>业务异常由 Service 抛出，配合全局异常处理器统一处理；</li>
+<li>构造器注入替代字段注入，符合 Spring 官方推荐。</li>
+</ul>
+<p><strong>评分标准（满分 12 分）</strong>：</p>
+<ul>
+<li>指出 5 个以上问题（5 分，每个 1 分）</li>
+<li>改造方案完整（Service 接口 + 实现 + Controller 改造）（5 分）</li>
+<li>改造效果说明（2 分）</li>
+</ul>
+<hr />
+<h2 id="六程序阅读补全题2-题">六、程序阅读补全题（2 题）</h2>
+<h3 id="10-r-01-">10-R-01 ★★</h3>
+<p>阅读以下 CTTS 的 <code>ProjectServiceImpl</code> 代码，补全 (1)~(6)
+处缺失的代码。</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">________(1)________</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Project</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">ProjectMapper</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">ProjectService</span><span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">________(2)________</span><span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">________(3)________</span><span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">StringUtils</span><span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="at">@________</span><span class="op">(</span><span class="dv">3</span><span class="op">)</span>________</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="at">@________</span><span class="op">(</span><span class="dv">2</span><span class="op">)</span>________</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectServiceImpl <span class="kw">implements</span> ProjectService <span class="op">{</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="fu">________</span><span class="op">(</span><span class="dv">4</span><span class="op">)</span>________ ProjectMapper projectMapper<span class="op">;</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">findAll</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectMapper<span class="op">.</span><span class="fu">________</span><span class="op">(</span><span class="dv">5</span><span class="op">)</span><span class="fu">________</span><span class="op">(</span><span class="kw">null</span><span class="op">);</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Long</span> <span class="fu">createProject</span><span class="op">(</span>Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>StringUtils<span class="op">.</span><span class="fu">hasText</span><span class="op">(</span>project<span class="op">.</span><span class="fu">getTitle</span><span class="op">()))</span> <span class="op">{</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">________</span><span class="op">(</span><span class="dv">6</span><span class="op">)</span><span class="fu">________</span><span class="op">(</span><span class="st">&quot;项目标题不能为空&quot;</span><span class="op">);</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        project<span class="op">.</span><span class="fu">setCreateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        projectMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>project<span class="op">);</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> project<span class="op">.</span><span class="fu">getId</span><span class="op">();</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>问题</strong>：补全 (1)~(6) 处代码。</p>
+<p><strong>答案</strong>：</p>
+<ul>
+<li>(1) <code>impl</code></li>
+<li>(2) <code>RequiredArgsConstructor</code></li>
+<li>(3) <code>Service</code></li>
+<li>(4) <code>final</code></li>
+<li>(5) <code>selectList</code></li>
+<li>(6) <code>IllegalArgumentException</code></li>
+</ul>
+<p><strong>评分标准（满分 12 分）</strong>：每空 2 分。</p>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>(1) Service 实现类放 <code>service/impl</code> 子包；</li>
+<li>(2) <code>@RequiredArgsConstructor</code> 是 Lombok 注解，为
+<code>final</code> 字段生成构造器；</li>
+<li>(3) <code>@Service</code> 注解注册为 Spring Bean；</li>
+<li>(4) 构造器注入要求字段为 <code>final</code>；</li>
+<li>(5) <code>selectList(null)</code> 查询全部，是 MyBatis-Plus
+BaseMapper 的方法；</li>
+<li>(6) 参数非法用 <code>IllegalArgumentException</code>，业务状态冲突用
+<code>IllegalStateException</code>。</li>
+</ul>
+<hr />
+<h3 id="10-r-02-">10-R-02 ★★★</h3>
+<p>阅读以下 CTTS 的 <code>TaskServiceImpl.submitTask</code>
+事务方法，补全 (1)~(6) 处缺失的代码。</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskServiceImpl <span class="kw">implements</span> TaskService <span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskMapper taskMapper<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskSubmissionMapper taskSubmissionMapper<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@________</span><span class="op">(</span><span class="dv">1</span><span class="op">)</span><span class="fu">________</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="fu">________</span><span class="op">(</span><span class="dv">2</span><span class="op">)</span>________<span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Long</span> <span class="fu">submitTask</span><span class="op">(</span><span class="bu">Long</span> taskId<span class="op">,</span> TaskSubmission submission<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 1. 校验任务存在</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        Task task <span class="op">=</span> taskMapper<span class="op">.</span><span class="fu">________</span><span class="op">(</span><span class="dv">3</span><span class="op">)</span><span class="fu">________</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>task <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">&quot;任务不存在&quot;</span><span class="op">);</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 2. 补全提交记录字段</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setTaskId</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setSubmitTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 3. 写入提交记录</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        taskSubmissionMapper<span class="op">.</span><span class="fu">________</span><span class="op">(</span><span class="dv">4</span><span class="op">)</span><span class="fu">________</span><span class="op">(</span>submission<span class="op">);</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 4. 更新任务状态（若原状态为未开始）</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>task<span class="op">.</span><span class="fu">getStatus</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>            task<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>            task<span class="op">.</span><span class="fu">setUpdateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>            taskMapper<span class="op">.</span><span class="fu">________</span><span class="op">(</span><span class="dv">5</span><span class="op">)</span><span class="fu">________</span><span class="op">(</span>task<span class="op">);</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 若以上任一步骤抛异常，整个事务 ________(6)________</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> submission<span class="op">.</span><span class="fu">getId</span><span class="op">();</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>问题</strong>：补全 (1)~(6) 处代码。</p>
+<p><strong>答案</strong>：</p>
+<ul>
+<li>(1) <code>Transactional</code></li>
+<li>(2) <code>Exception</code></li>
+<li>(3) <code>selectById</code></li>
+<li>(4) <code>insert</code></li>
+<li>(5) <code>updateById</code></li>
+<li>(6) <code>回滚</code>（或 <code>rollback</code>）</li>
+</ul>
+<p><strong>评分标准（满分 12 分）</strong>：每空 2 分。</p>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>(1)(2) <code>@Transactional(rollbackFor = Exception.class)</code>
+是推荐写法，让受检异常也回滚；</li>
+<li>(3) <code>selectById</code> 是 BaseMapper 的根据 ID 查询方法；</li>
+<li>(4) <code>insert</code> 写入提交记录；</li>
+<li>(5) <code>updateById</code> 根据 ID 更新任务；</li>
+<li>(6)
+事务的原子性：任一步骤抛异常，整个事务回滚，已执行的写操作都不会落库。</li>
+</ul>
+<hr />
+<h2 id="七编程接口设计题2-题">七、编程/接口设计题（2 题）</h2>
+<h3 id="10-p-01-">10-P-01 ★★</h3>
+<p><strong>任务</strong>：为 CTTS 编写 <code>TaskService</code>
+接口及其实现类 <code>TaskServiceImpl</code>，要求：</p>
+<ol type="1">
+<li><p><code>TaskService</code> 接口包含以下方法：</p>
+<ul>
+<li><code>List&lt;Task&gt; findAll()</code>：查询所有任务</li>
+<li><code>Task findById(Long id)</code>：根据 ID 查询任务</li>
+<li><code>Long submitTask(Long taskId, TaskSubmission submission)</code>：学生提交任务（事务方法）</li>
+<li><code>boolean updateStatus(Long id, Integer status)</code>：更新任务状态</li>
+</ul></li>
+<li><p><code>TaskServiceImpl</code> 实现类要求：</p>
+<ul>
+<li>加 <code>@Service</code> 注解</li>
+<li>使用构造器注入（<code>@RequiredArgsConstructor + final</code>）注入
+<code>TaskMapper</code> 和 <code>TaskSubmissionMapper</code></li>
+<li><code>submitTask</code> 方法加
+<code>@Transactional(rollbackFor = Exception.class)</code></li>
+<li><code>submitTask</code> 方法逻辑：校验任务存在 → 补全字段 → insert
+提交记录 → 若任务原状态为 0 则更新为 1</li>
+</ul></li>
+</ol>
+<p><strong>评分标准（满分 15 分）</strong>：</p>
+<ul>
+<li>接口定义正确（4 分，每个方法 1 分）</li>
+<li>实现类注解正确（<code>@Service</code> +
+<code>@RequiredArgsConstructor</code>）（2 分）</li>
+<li>构造器注入正确（<code>final</code> 字段 + 两个 Mapper）（2 分）</li>
+<li><code>submitTask</code> 加
+<code>@Transactional(rollbackFor = Exception.class)</code>（2 分）</li>
+<li><code>submitTask</code> 方法逻辑正确（校验 + 补全 + insert +
+update）（5 分）</li>
+</ul>
+<p><strong>参考答案</strong>：</p>
+<p><strong>接口</strong>：</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">TaskSubmission</span><span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> TaskService <span class="op">{</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="fu">findAll</span><span class="op">();</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    Task <span class="fu">findById</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">);</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Long</span> <span class="fu">submitTask</span><span class="op">(</span><span class="bu">Long</span> taskId<span class="op">,</span> TaskSubmission submission<span class="op">);</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">boolean</span> <span class="fu">updateStatus</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">,</span> <span class="bu">Integer</span> status<span class="op">);</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>实现类</strong>：</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">impl</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">TaskSubmission</span><span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">TaskMapper</span><span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">TaskSubmissionMapper</span><span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">TaskService</span><span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">RequiredArgsConstructor</span><span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Service</span><span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">transaction</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Transactional</span><span class="op">;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">StringUtils</span><span class="op">;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskServiceImpl <span class="kw">implements</span> TaskService <span class="op">{</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskMapper taskMapper<span class="op">;</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskSubmissionMapper taskSubmissionMapper<span class="op">;</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="fu">findAll</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> taskMapper<span class="op">.</span><span class="fu">selectList</span><span class="op">(</span><span class="kw">null</span><span class="op">);</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Task <span class="fu">findById</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> taskMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Long</span> <span class="fu">submitTask</span><span class="op">(</span><span class="bu">Long</span> taskId<span class="op">,</span> TaskSubmission submission<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 1. 校验任务存在</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>        Task task <span class="op">=</span> taskMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>task <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">&quot;任务不存在: &quot;</span> <span class="op">+</span> taskId<span class="op">);</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 2. 校验提交内容</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>StringUtils<span class="op">.</span><span class="fu">hasText</span><span class="op">(</span>submission<span class="op">.</span><span class="fu">getContent</span><span class="op">()))</span> <span class="op">{</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">&quot;提交内容不能为空&quot;</span><span class="op">);</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 3. 补全提交记录字段</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setTaskId</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setSubmitTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setCreateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setUpdateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 4. 写入提交记录</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>        taskSubmissionMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>submission<span class="op">);</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 5. 若任务原状态为未开始(0)，更新为进行中(1)</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>task<span class="op">.</span><span class="fu">getStatus</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>            task<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>            task<span class="op">.</span><span class="fu">setUpdateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>            taskMapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>task<span class="op">);</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> submission<span class="op">.</span><span class="fu">getId</span><span class="op">();</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">updateStatus</span><span class="op">(</span><span class="bu">Long</span> id<span class="op">,</span> <span class="bu">Integer</span> status<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>        Task task <span class="op">=</span> taskMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>task <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">&quot;任务不存在&quot;</span><span class="op">);</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>        task<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span>status<span class="op">);</span></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>        task<span class="op">.</span><span class="fu">setUpdateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> taskMapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>task<span class="op">)</span> <span class="op">==</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<h3 id="10-p-02-">10-P-02 ★★★</h3>
+<p><strong>任务</strong>：阅读以下"反例" Controller
+代码，按要求完成三层架构改造。</p>
+<p><strong>反例代码</strong>：</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/tasks&quot;</span><span class="op">)</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskController <span class="op">{</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> TaskMapper taskMapper<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> TaskSubmissionMapper taskSubmissionMapper<span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/{taskId}/submit&quot;</span><span class="op">)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">submit</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> taskId<span class="op">,</span> <span class="at">@RequestBody</span> TaskSubmission submission<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        Task task <span class="op">=</span> taskMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>task <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">&quot;任务不存在&quot;</span><span class="op">;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>submission<span class="op">.</span><span class="fu">getContent</span><span class="op">()</span> <span class="op">==</span> <span class="kw">null</span> <span class="op">||</span> submission<span class="op">.</span><span class="fu">getContent</span><span class="op">().</span><span class="fu">isEmpty</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">&quot;提交内容不能为空&quot;</span><span class="op">;</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setTaskId</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setSubmitTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        taskSubmissionMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>submission<span class="op">);</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>task<span class="op">.</span><span class="fu">getStatus</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>            task<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>            taskMapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>task<span class="op">);</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;提交成功，ID=&quot;</span> <span class="op">+</span> submission<span class="op">.</span><span class="fu">getId</span><span class="op">();</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>改造要求</strong>：</p>
+<ol type="1">
+<li>创建 <code>TaskService</code> 接口，声明 <code>submitTask</code>
+方法；</li>
+<li>创建 <code>TaskServiceImpl</code>
+实现类，把上述业务逻辑下沉，方法上加
+<code>@Transactional(rollbackFor = Exception.class)</code>；</li>
+<li>改造 <code>TaskController</code>，调用 Service 而非
+Mapper，使用构造器注入；</li>
+<li>业务校验改为抛异常（<code>IllegalArgumentException</code>），不返回字符串。</li>
+</ol>
+<p><strong>评分标准（满分 15 分）</strong>：</p>
+<ul>
+<li><code>TaskService</code> 接口定义正确（3 分）</li>
+<li><code>TaskServiceImpl</code>
+注解与构造器注入正确（<code>@Service</code> +
+<code>@RequiredArgsConstructor</code> + <code>final</code>）（3
+分）</li>
+<li><code>@Transactional(rollbackFor = Exception.class)</code>
+正确添加（2 分）</li>
+<li>业务逻辑完整下沉（校验 + 补全 + insert + update）（4 分）</li>
+<li><code>TaskController</code> 改造正确（构造器注入 Service、不调
+Mapper）（3 分）</li>
+</ul>
+<p><strong>参考答案</strong>：</p>
+<p><strong>TaskService 接口</strong>：</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">TaskSubmission</span><span class="op">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> TaskService <span class="op">{</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Long</span> <span class="fu">submitTask</span><span class="op">(</span><span class="bu">Long</span> taskId<span class="op">,</span> TaskSubmission submission<span class="op">);</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>TaskServiceImpl 实现类</strong>：</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">impl</span><span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">TaskSubmission</span><span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">TaskMapper</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">TaskSubmissionMapper</span><span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">TaskService</span><span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">RequiredArgsConstructor</span><span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Service</span><span class="op">;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">transaction</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Transactional</span><span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">StringUtils</span><span class="op">;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskServiceImpl <span class="kw">implements</span> TaskService <span class="op">{</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskMapper taskMapper<span class="op">;</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskSubmissionMapper taskSubmissionMapper<span class="op">;</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Transactional</span><span class="op">(</span>rollbackFor <span class="op">=</span> <span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Long</span> <span class="fu">submitTask</span><span class="op">(</span><span class="bu">Long</span> taskId<span class="op">,</span> TaskSubmission submission<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 1. 校验任务存在</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        Task task <span class="op">=</span> taskMapper<span class="op">.</span><span class="fu">selectById</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>task <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">&quot;任务不存在&quot;</span><span class="op">);</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 2. 校验提交内容</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>StringUtils<span class="op">.</span><span class="fu">hasText</span><span class="op">(</span>submission<span class="op">.</span><span class="fu">getContent</span><span class="op">()))</span> <span class="op">{</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">IllegalArgumentException</span><span class="op">(</span><span class="st">&quot;提交内容不能为空&quot;</span><span class="op">);</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 3. 补全字段</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setTaskId</span><span class="op">(</span>taskId<span class="op">);</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setSubmitTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setCreateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>        submission<span class="op">.</span><span class="fu">setUpdateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 4. 写入提交记录</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>        taskSubmissionMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>submission<span class="op">);</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 5. 更新任务状态</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>task<span class="op">.</span><span class="fu">getStatus</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>            task<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>            task<span class="op">.</span><span class="fu">setUpdateTime</span><span class="op">(</span>LocalDateTime<span class="op">.</span><span class="fu">now</span><span class="op">());</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>            taskMapper<span class="op">.</span><span class="fu">updateById</span><span class="op">(</span>task<span class="op">);</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> submission<span class="op">.</span><span class="fu">getId</span><span class="op">();</span></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>改造后的 TaskController</strong>：</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">TaskSubmission</span><span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">TaskService</span><span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">RequiredArgsConstructor</span><span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/tasks&quot;</span><span class="op">)</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskController <span class="op">{</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskService taskService<span class="op">;</span>   <span class="co">// 构造器注入 Service，不注入 Mapper</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/{taskId}/submit&quot;</span><span class="op">)</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">submit</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> taskId<span class="op">,</span> <span class="at">@RequestBody</span> TaskSubmission submission<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Long</span> id <span class="op">=</span> taskService<span class="op">.</span><span class="fu">submitTask</span><span class="op">(</span>taskId<span class="op">,</span> submission<span class="op">);</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;提交成功，ID=&quot;</span> <span class="op">+</span> id<span class="op">;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>改造效果</strong>：</p>
+<ul>
+<li>Controller 从 20 行瘦身到 6 行；</li>
+<li>业务逻辑下沉到 Service，可复用、可测试；</li>
+<li>多步写操作由 <code>@Transactional</code> 保证原子性；</li>
+<li>业务异常由 Service 抛出，配合全局异常处理器统一处理。</li>
+</ul>
+<hr />
+<h2 id="八题库统计表">八、题库统计表</h2>
+<h3 id="81-题型分布">8.1 题型分布</h3>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>题量</th>
+<th>分值参考</th>
+<th>总分参考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单项选择题</td>
+<td>30</td>
+<td>2 分/题</td>
+<td>60 分</td>
+</tr>
+<tr>
+<td>多项选择题</td>
+<td>10</td>
+<td>3 分/题</td>
+<td>30 分</td>
+</tr>
+<tr>
+<td>判断题</td>
+<td>20</td>
+<td>1 分/题</td>
+<td>20 分</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>10</td>
+<td>2 分/题</td>
+<td>20 分</td>
+</tr>
+<tr>
+<td>论述简答题</td>
+<td>4</td>
+<td>10~12 分/题</td>
+<td>44 分</td>
+</tr>
+<tr>
+<td>程序阅读补全题</td>
+<td>2</td>
+<td>12 分/题</td>
+<td>24 分</td>
+</tr>
+<tr>
+<td>编程/接口设计题</td>
+<td>2</td>
+<td>15 分/题</td>
+<td>30 分</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td>——</td>
+<td><strong>228 分</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-知识点分布">8.2 知识点分布</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>单选</th>
+<th>多选</th>
+<th>判断</th>
+<th>填空</th>
+<th>简答</th>
+<th>程序阅读</th>
+<th>编程</th>
+<th>合计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K10-1 为什么分层</td>
+<td>5</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>9</td>
+</tr>
+<tr>
+<td>K10-2 三层架构</td>
+<td>6</td>
+<td>1</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>14</td>
+</tr>
+<tr>
+<td>K10-3 Service 层开发</td>
+<td>7</td>
+<td>2</td>
+<td>4</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>16</td>
+</tr>
+<tr>
+<td>K10-4 事务管理</td>
+<td>7</td>
+<td>3</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>20</td>
+</tr>
+<tr>
+<td>K10-5 依赖注入</td>
+<td>5</td>
+<td>2</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>14</td>
+</tr>
+<tr>
+<td>综合（多知识点）</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>30</strong></td>
+<td><strong>10</strong></td>
+<td><strong>20</strong></td>
+<td><strong>10</strong></td>
+<td><strong>4</strong></td>
+<td><strong>2</strong></td>
+<td><strong>2</strong></td>
+<td><strong>78</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="83-难度分布">8.3 难度分布</h3>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>题量</th>
+<th>占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>★ 基础</td>
+<td>28</td>
+<td>35.9%</td>
+</tr>
+<tr>
+<td>★★ 进阶</td>
+<td>36</td>
+<td>46.2%</td>
+</tr>
+<tr>
+<td>★★★ 综合</td>
+<td>14</td>
+<td>17.9%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="84-重点考点">8.4 重点考点</h3>
+<table>
+<thead>
+<tr>
+<th>考点</th>
+<th>对应题号（示例）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>三层架构职责划分</td>
+<td>10-D-05、10-D-09、10-D-10、10-M-02、10-J-03、10-S-01</td>
+</tr>
+<tr>
+<td><code>@Service</code> 注解使用</td>
+<td>10-D-12、10-D-14、10-M-03、10-J-06、10-F-03</td>
+</tr>
+<tr>
+<td>接口与实现分离</td>
+<td>10-D-13、10-D-15、10-J-07、10-J-08、10-F-04</td>
+</tr>
+<tr>
+<td><code>@Transactional</code> 传播行为与回滚</td>
+<td>10-D-21、10-D-22、10-D-23、10-D-24、10-M-05、10-J-13、10-J-16、10-S-02</td>
+</tr>
+<tr>
+<td>事务失效场景</td>
+<td>10-D-25、10-M-06、10-J-14、10-J-15、10-S-02</td>
+</tr>
+<tr>
+<td>依赖注入方式</td>
+<td>10-D-26、10-D-27、10-D-28、10-M-07、10-M-08、10-J-17、10-J-18、10-S-03</td>
+</tr>
+<tr>
+<td>反例识别与改造</td>
+<td>10-S-04、10-P-02</td>
+</tr>
+<tr>
+<td>CTTS 综合应用</td>
+<td>10-M-04、10-M-10、10-R-01、10-R-02、10-P-01、10-P-02</td>
+</tr>
+</tbody>
+</table>
+<h3 id="85-建议组卷方案">8.5 建议组卷方案</h3>
+<p><strong>期中考试组卷（100 分）</strong>：</p>
+<ul>
+<li>单选 20 题 × 2 分 = 40 分</li>
+<li>多选 5 题 × 3 分 = 15 分</li>
+<li>判断 10 题 × 1 分 = 10 分</li>
+<li>填空 5 题 × 2 分 = 10 分</li>
+<li>简答 1 题 × 10 分 = 10 分</li>
+<li>程序阅读 1 题 × 12 分 = 12 分</li>
+<li>编程 1 题 × 3 分 = 3 分（取部分）</li>
+</ul>
+<p><strong>随堂测验组卷（30 分）</strong>：</p>
+<ul>
+<li>单选 10 题 × 2 分 = 20 分</li>
+<li>判断 10 题 × 1 分 = 10 分</li>
+</ul>
+<p><strong>课后作业组卷（50 分）</strong>：</p>
+<ul>
+<li>填空 5 题 × 2 分 = 10 分</li>
+<li>简答 2 题 × 10 分 = 20 分</li>
+<li>程序阅读 1 题 × 12 分 = 12 分</li>
+<li>编程 1 题 × 8 分（取部分） = 8 分</li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>题库说明</strong></p>
+<ul>
+<li>所有题目均围绕第 10 次课的 5 个知识点（K10-1 ~ K10-5）设计；</li>
+<li>客观题（单选、多选、判断、填空）共 70 题，占比
+89.7%，适合快速测评；</li>
+<li>主观题（简答、程序阅读、编程）共 8 题，占比
+10.3%，适合考查综合能力；</li>
+<li>程序阅读题与编程题均以 CTTS 项目为背景，贴近实际工程；</li>
+<li>主观题均附评分标准，便于教师阅卷。</li>
+</ul>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

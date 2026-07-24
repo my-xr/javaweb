@@ -1,0 +1,976 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web后端开发认知与课程项目导入</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 01 次课 · 题库</div>
+      <h1>Web后端开发认知与课程项目导入</h1>
+      <p>面向练习、测验、考试与参考解析 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 01 次课</span>
+        <span class="hero-chip"><b>主题</b>Web后端开发认知与课程项目导入</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一选择题共-40-题每题-2-分">一、选择题（共 40 题，每题 2 分）</a>
+<ul>
+<li><a href="#11-单项选择题30-题">1.1 单项选择题（30 题）</a></li>
+<li><a href="#12-多项选择题10-题">1.2 多项选择题（10 题）</a></li>
+</ul></li>
+<li><a href="#二判断题共-20-题每题-1-分">二、判断题（共 20 题，每题 1 分）</a>
+<ul>
+</ul></li>
+<li><a href="#三填空题共-10-题每题-2-分">三、填空题（共 10 题，每题 2 分）</a>
+<ul>
+</ul></li>
+<li><a href="#四论述题--简答题共-4-题">四、论述题 / 简答题（共 4 题）</a>
+<ul>
+</ul></li>
+<li><a href="#五程序阅读--补全题共-2-题">五、程序阅读 / 补全题（共 2 题）</a>
+<ul>
+</ul></li>
+<li><a href="#六编程--接口设计题共-2-题">六、编程 / 接口设计题（共 2 题）</a>
+<ul>
+</ul></li>
+<li><a href="#题库统计与组卷说明">题库统计与组卷说明</a>
+<ul>
+<li><a href="#题量统计">题量统计</a></li>
+<li><a href="#难度分布">难度分布</a></li>
+<li><a href="#知识点覆盖">知识点覆盖</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 01 次课 <span>｜</span> <strong>文档：</strong>题库</p>
+<blockquote>
+<p>配套：<code>教学设计.md</code>、<code>教学资料.md</code>（同文件夹）
+题量：40 选择 + 20 判断 + 10 填空 + 4 论述/简答 + 2 程序阅读/补全 + 2
+编程/接口设计 = <strong>78 题</strong>
+全部题目含参考答案与解析；主观题（论述/简答、程序阅读/补全、编程/接口设计）另附评分标准。
+难度标注：★ 基础 / ★★ 提高 / ★★★ 综合
+题目编号规则：<code>01-题型-序号</code></p>
+</blockquote>
+<hr />
+<h2 id="一选择题共-40-题每题-2-分">一、选择题（共 40 题，每题 2
+分）</h2>
+<h3 id="11-单项选择题30-题">1.1 单项选择题（30 题）</h3>
+<section class="question-card"><p><strong>01-选择-001</strong>（★ 知识点：K1-1 后端开发职责） Web
+后端开发的核心职责可以概括为以下哪一项？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>设计网页界面与用户交互效果</span></li><li><span class="option-label">B</span><span>接收请求、处理业务、访问数据、返回结果</span></li><li><span class="option-label">C</span><span>部署服务器与配置网络设备</span></li><li><span class="option-label">D</span><span>编写 SQL 语句并优化数据库性能</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong>
+<strong>解析</strong>：后端开发的核心职责是"接收请求 → 处理业务 →
+访问数据 → 返回结果"。A 是前端职责；C 偏运维；D
+只是后端访问数据的工具之一，不是全部职责。B
+涵盖了后端工作的完整链路。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-002</strong>（★ 知识点：K1-1 后端开发职责）
+后端程序运行的位置是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>用户的浏览器中</span></li><li><span class="option-label">B</span><span>用户的个人电脑本地</span></li><li><span class="option-label">C</span><span>服务器端</span></li><li><span class="option-label">D</span><span>路由器中</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong>
+<strong>解析</strong>：后端程序运行在服务器端，用户通过浏览器（前端）发请求访问服务器。A、B
+是前端运行位置；D 路由器是网络设备，不运行应用后端。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-003</strong>（★ 知识点：K1-2 B/S 与 C/S） 下列关于
+B/S 架构的描述，正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>客户端需要安装专门的程序才能使用</span></li><li><span class="option-label">B</span><span>客户端是浏览器，无需安装专门的应用程序</span></li><li><span class="option-label">C</span><span>升级时客户端必须重新下载安装</span></li><li><span class="option-label">D</span><span>只能在特定操作系统上运行</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong>
+<strong>解析</strong>：B/S（Browser/Server）架构的客户端是浏览器，无需安装专门程序，天然跨平台。A、C
+是 C/S 架构的特点；D 错误，B/S 通过浏览器可跨平台使用。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-004</strong>（★ 知识点：K1-2 B/S 与 C/S）
+下列软件中，属于 C/S 架构的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>淘宝网页版</span></li><li><span class="option-label">B</span><span>教务系统网页版</span></li><li><span class="option-label">C</span><span>微信
+PC 版</span></li><li><span class="option-label">D</span><span>在线文档（网页版）</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong> <strong>解析</strong>：微信 PC
+版需要安装专用客户端程序，属于 C/S 架构。A、B、D 都通过浏览器访问，属于
+B/S 架构。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-005</strong>（★ 知识点：K1-3 前后端分离）
+前后端分离开发模式中，后端返回给前端的数据格式通常是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>HTML 页面</span></li><li><span class="option-label">B</span><span>JSP 页面</span></li><li><span class="option-label">C</span><span>JSON 数据</span></li><li><span class="option-label">D</span><span>CSS 样式表</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong>
+<strong>解析</strong>：前后端分离后，后端只返回 JSON
+数据，前端拿到数据后自行渲染界面。A、B 是未分离模式（JSP）的返回形式；D
+是前端样式，与后端返回无关。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-006</strong>（★★ 知识点：K1-3 前后端分离）
+下列关于前后端分离的说法，正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>前后端分离就是前端和后端部署在两台不同的物理服务器上</span></li><li><span class="option-label">B</span><span>前后端分离后，后端仍然负责生成完整的 HTML 页面</span></li><li><span class="option-label">C</span><span>前后端分离指前端与后端代码和职责分离，通过 API（JSON）通信</span></li><li><span class="option-label">D</span><span>前后端分离后前端不再需要与后端通信</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong>
+<strong>解析</strong>：前后端分离是指代码与职责的分离，不是物理服务器分离（A
+错）。分离后后端只返回 JSON 数据，不生成 HTML（B 错）。前端仍需通过 API
+与后端通信获取数据（D 错）。C 准确描述了前后端分离的本质。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-007</strong>（★★ 知识点：K1-2/K1-3） 关于 B/S
+架构与前后端分离的关系，下列说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>B/S 架构一定就是前后端分离</span></li><li><span class="option-label">B</span><span>JSP 开发的 Web 系统属于前后端分离</span></li><li><span class="option-label">C</span><span>B/S 架构的客户端是浏览器，但 B/S
+不等于前后端分离</span></li><li><span class="option-label">D</span><span>前后端分离只能在 C/S 架构中使用</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong> <strong>解析</strong>：B/S
+是指客户端用浏览器访问服务器，是一种架构模式；前后端分离是一种开发模式。JSP
+也是 B/S，但 HTML 与 Java 混写，未前后端分离。因此 B/S
+不等于前后端分离，C 正确。A、B、D 均错误。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-008</strong>（★ 知识点：K1-1 后端开发职责）
+下列工作中，不属于 Web 后端开发职责的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>设计并实现业务逻辑</span></li><li><span class="option-label">B</span><span>编写接口供前端调用</span></li><li><span class="option-label">C</span><span>访问数据库读写数据</span></li><li><span class="option-label">D</span><span>用 CSS 美化页面按钮样式</span></li></ul></div><blockquote>
+<p><strong>答案：D</strong> <strong>解析</strong>：CSS
+美化页面是前端职责。A、B、C 都是后端开发的核心职责。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-009</strong>（★ 知识点：K1-4 岗位与流程）
+在企业项目研发流程中，"前后端联调"环节通常发生在？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>需求分析阶段之前</span></li><li><span class="option-label">B</span><span>编码开发之后、测试之前</span></li><li><span class="option-label">C</span><span>部署上线之后</span></li><li><span class="option-label">D</span><span>运维维护阶段</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：企业流程通常是：需求
+→ 设计 → 编码 → 联调 → 测试 → 部署 →
+维护。联调在编码之后、测试之前进行。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-010</strong>（★ 知识点：K1-4 岗位与流程）
+下列哪一项不是 Java 后端开发常用的技术工具？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>Spring Boot</span></li><li><span class="option-label">B</span><span>MyBatis-Plus</span></li><li><span class="option-label">C</span><span>Vue.js</span></li><li><span class="option-label">D</span><span>Maven</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong> <strong>解析</strong>：Vue.js
+是前端框架，不是后端技术。Spring
+Boot（后端框架）、MyBatis-Plus（持久层）、Maven（构建工具）都是后端常用技术。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-011</strong>（★ 知识点：K1-5 Servlet/JSP 背景） 关于
+Servlet 与 Spring Boot 的关系，下列说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>Spring Boot
+完全抛弃了 Servlet，使用了全新的底层技术</span></li><li><span class="option-label">B</span><span>Servlet 是 JavaWeb
+的底层规范，Spring Boot 底层仍基于 Servlet</span></li><li><span class="option-label">C</span><span>Servlet 和 Spring Boot
+是完全无关的两套技术</span></li><li><span class="option-label">D</span><span>Spring Boot 是 Servlet 的前身</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Servlet 是 JavaWeb
+的底层规范，Spring MVC 封装了 Servlet，Spring Boot 又封装了 Spring
+MVC。因此 Spring Boot 底层仍基于 Servlet，B 正确。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-012</strong>（★★ 知识点：K1-5 Servlet/JSP 背景） 现代
+JavaWeb 项目大多选择 Spring Boot 而非直接使用 Servlet，主要原因不包括？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>Servlet 开发配置繁琐，效率低</span></li><li><span class="option-label">B</span><span>Spring Boot 简化了配置，开发效率高</span></li><li><span class="option-label">C</span><span>Spring Boot 天然支持前后端分离返回 JSON</span></li><li><span class="option-label">D</span><span>Servlet 不支持 HTTP 协议</span></li></ul></div><blockquote>
+<p><strong>答案：D</strong> <strong>解析</strong>：Servlet
+本身就是为处理 HTTP 请求而设计的，完全支持 HTTP 协议，D 错误。A、B、C
+都是选择 Spring Boot 的合理原因。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-013</strong>（★ 知识点：K1-1 后端开发职责） 在一个
+Web 系统中，负责持久化存储数据的组件是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>前端</span></li><li><span class="option-label">B</span><span>后端</span></li><li><span class="option-label">C</span><span>数据库</span></li><li><span class="option-label">D</span><span>浏览器</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong>
+<strong>解析</strong>：数据库负责持久化存储数据（如
+MySQL）。后端负责访问数据库，前端负责展示，浏览器是前端运行环境。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-014</strong>（★★ 知识点：K1-3 前后端分离） 传统 JSP
+模式被前后端分离模式取代，JSP 的主要问题是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>JSP 不能处理 HTTP 请求</span></li><li><span class="option-label">B</span><span>JSP 中 HTML 与 Java 代码混合，前后端耦合，难以维护</span></li><li><span class="option-label">C</span><span>JSP
+不支持连接数据库</span></li><li><span class="option-label">D</span><span>JSP 只能在 Linux 上运行</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：JSP 的核心问题是 HTML
+与 Java 混写在同一文件中，前后端耦合，难以分工维护。A、C、D 均错误，JSP
+能处理请求、能连数据库、可跨平台。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-015</strong>（★ 知识点：K1-6 CTTS 项目）
+校园实训任务管理系统（CTTS）中，不包含以下哪种角色？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>学生</span></li><li><span class="option-label">B</span><span>教师</span></li><li><span class="option-label">C</span><span>管理员</span></li><li><span class="option-label">D</span><span>访客（无登录权限）</span></li></ul></div><blockquote>
+<p><strong>答案：D</strong> <strong>解析</strong>：CTTS
+系统包含三种角色：学生、教师、管理员。访客（无登录权限）不是系统定义的角色。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-016</strong>（★ 知识点：K1-6 CTTS 项目） CTTS
+系统中，负责"创建实训项目、发布任务、评审学生提交"的角色是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>学生</span></li><li><span class="option-label">B</span><span>教师</span></li><li><span class="option-label">C</span><span>管理员</span></li><li><span class="option-label">D</span><span>所有角色均可</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong>
+<strong>解析</strong>：教师的职责是创建/维护实训项目、发布任务、评审学生提交。学生负责提交成果，管理员负责用户与基础数据维护。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-017</strong>（★★ 知识点：K1-4 岗位与流程）
+后端开发工程师在"需求分析"阶段的主要工作是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>编写 Controller 和
+Service 代码</span></li><li><span class="option-label">B</span><span>部署项目到服务器</span></li><li><span class="option-label">C</span><span>理解业务需求，明确系统要做什么</span></li><li><span class="option-label">D</span><span>与前端进行接口联调</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong>
+<strong>解析</strong>：需求分析阶段的核心是理解业务、明确系统目标。A
+是编码阶段；B 是部署阶段；D 是联调阶段。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-018</strong>（★ 知识点：K1-2 B/S 与 C/S） B/S
+架构相比 C/S 架构的主要优势是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>能充分利用客户端硬件性能</span></li><li><span class="option-label">B</span><span>客户端免安装，升级维护只需更新服务器</span></li><li><span class="option-label">C</span><span>适合开发大型 3D 游戏</span></li><li><span class="option-label">D</span><span>离线能力强</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：B/S
+的客户端是浏览器，免安装、升级只更新服务器即可，易维护。A、C、D 是 C/S
+的优势（原生客户端性能强、适合游戏、离线能力强）。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-019</strong>（★★ 知识点：K1-3 前后端分离）
+前后端分离带来的好处不包括？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>前后端可并行开发，提升效率</span></li><li><span class="option-label">B</span><span>同一套后端
+API 可服务网页版、APP、小程序</span></li><li><span class="option-label">C</span><span>前端和后端代码完全不需要约定即可独立开发</span></li><li><span class="option-label">D</span><span>前后端职责清晰，便于维护</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong>
+<strong>解析</strong>：前后端分离仍需约定接口（请求路径、参数、返回格式）才能协作，并非"完全不需要约定"。C
+错误。A、B、D 都是前后端分离的真实好处。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-020</strong>（★ 知识点：K1-5 Servlet/JSP 背景）
+下列技术按出现时间从早到晚排序，正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>Spring Boot → Servlet →
+JSP</span></li><li><span class="option-label">B</span><span>JSP → Spring Boot → Servlet</span></li><li><span class="option-label">C</span><span>Servlet → JSP → Spring Boot</span></li><li><span class="option-label">D</span><span>Spring Boot → JSP → Servlet</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong>
+<strong>解析</strong>：Servlet（1997）最早出现，随后 JSP 在 Servlet
+基础上发展，Spring Boot 是较新的现代框架。正确顺序：Servlet → JSP →
+Spring Boot。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-021</strong>（★ 知识点：K1-1 后端开发职责）
+当用户在浏览器点击"查看任务列表"按钮后，下列描述正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>浏览器直接读取本地数据库并显示</span></li><li><span class="option-label">B</span><span>前端发起 HTTP
+请求，后端处理并返回数据，前端再渲染显示</span></li><li><span class="option-label">C</span><span>后端主动推送数据到浏览器</span></li><li><span class="option-label">D</span><span>数据库直接将数据发送到浏览器显示</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Web 请求由前端发起
+HTTP
+请求，后端接收并处理（访问数据库），返回数据给前端，前端渲染显示。A、C、D
+都跳过了正常的请求-响应链路。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-022</strong>（★★ 知识点：K1-3 前后端分离）
+在前后端分离模式下，前端工程师和后端工程师协作的"契约"是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>数据库表结构</span></li><li><span class="option-label">B</span><span>接口文档（API 路径、参数、返回格式）</span></li><li><span class="option-label">C</span><span>服务器配置文件</span></li><li><span class="option-label">D</span><span>前端 CSS 样式表</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong>
+<strong>解析</strong>：前后端分离后，双方通过接口文档约定 API
+路径、请求参数、返回格式，以此为基础并行开发。数据库表结构是后端内部设计，前端不直接依赖。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-023</strong>（★ 知识点：K1-4 岗位与流程）
+下列哪项工具主要用于 Java 项目的依赖管理与构建？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>Git</span></li><li><span class="option-label">B</span><span>Maven</span></li><li><span class="option-label">C</span><span>Apifox</span></li><li><span class="option-label">D</span><span>MySQL</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Maven 是 Java
+项目的构建与依赖管理工具。Git 是版本控制；Apifox 是接口调试；MySQL
+是数据库。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-024</strong>（★ 知识点：K1-4 岗位与流程）
+下列工具中，用于接口调试与测试的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>Knife4j</span></li><li><span class="option-label">B</span><span>Apifox / Postman</span></li><li><span class="option-label">C</span><span>Git</span></li><li><span class="option-label">D</span><span>IntelliJ IDEA</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Apifox、Postman
+是接口调试工具。Knife4j
+是接口文档工具（虽然也能调试，但定位是文档）；Git 是版本控制；IDEA
+是开发 IDE。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-025</strong>（★★ 知识点：K1-2 B/S 与 C/S）
+下列关于手机 APP 与 B/S 架构关系的说法，正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>手机 APP 属于 B/S
+架构</span></li><li><span class="option-label">B</span><span>手机 APP 与服务器通信的方式（HTTP+JSON）与 B/S 后端技能相通</span></li><li><span class="option-label">C</span><span>手机 APP 不能调用后端 API</span></li><li><span class="option-label">D</span><span>手机 APP 和 B/S
+后端使用完全不同的通信协议</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：手机 APP 是 C/S
+的客户端（需安装），但它与服务器之间通常也用 HTTP+JSON
+通信，后端开发技能在 B/S 和 C/S 中是通用的。B 正确。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-026</strong>（★ 知识点：K1-6 CTTS 项目） CTTS
+系统包含五张核心数据表，下列不属于这五张表的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>sys_user</span></li><li><span class="option-label">B</span><span>training_project</span></li><li><span class="option-label">C</span><span>sys_log</span></li><li><span class="option-label">D</span><span>task_review</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong> <strong>解析</strong>：CTTS 五张核心表为
+sys_user、training_project、task、task_submission、task_review。sys_log
+不属于核心表。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-027</strong>（★★ 知识点：K1-6 CTTS 项目） 在 CTTS
+的业务流程中，"学生提交任务成果"之后，下一步通常是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>管理员创建用户</span></li><li><span class="option-label">B</span><span>教师创建实训项目</span></li><li><span class="option-label">C</span><span>教师评审学生提交并打分</span></li><li><span class="option-label">D</span><span>学生创建任务</span></li></ul></div><blockquote>
+<p><strong>答案：C</strong> <strong>解析</strong>：CTTS
+流程：管理员创建用户 → 教师创建项目 → 发布任务 → 学生提交 → 教师评审 →
+学生查看反馈。学生提交后下一步是教师评审。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-028</strong>（★ 知识点：K1-1 后端开发职责）
+"后端开发就是写 SQL"，这一说法？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>正确，后端开发的核心就是 SQL</span></li><li><span class="option-label">B</span><span>错误，SQL 只是后端访问数据库的工具之一，后端核心是业务逻辑</span></li><li><span class="option-label">C</span><span>正确，后端不涉及业务逻辑</span></li><li><span class="option-label">D</span><span>部分正确，后端只写 SQL 不写 Java</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong>
+<strong>解析</strong>：后端开发的核心是业务逻辑处理，SQL
+只是访问数据库的工具之一。如"提交任务后状态更新+生成评审记录"是业务逻辑，不只是
+SQL。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-029</strong>（★★ 知识点：K1-5 Servlet/JSP 背景）
+对比早期 Servlet 写法与现代 Spring Boot 写法，Spring Boot 的主要优势是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>必须手动配置 web.xml</span></li><li><span class="option-label">B</span><span>用注解简化配置，开发效率高</span></li><li><span class="option-label">C</span><span>不再基于 HTTP
+协议</span></li><li><span class="option-label">D</span><span>不再支持返回 JSON</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong> <strong>解析</strong>：Spring Boot
+用注解（如 @RestController、@GetMapping）简化配置，无需繁琐的
+web.xml，开发效率高。A 是 Servlet 的繁琐点；C、D 错误。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-030</strong>（★★ 知识点：K1-3/K1-4 综合）
+某公司要开发一个"员工考勤系统"，要求网页版和手机 APP
+版都能用同一套后端接口。采用前后端分离模式的主要原因是？</p><div class="option-list"><ul><li><span class="option-label">A</span><span>前后端分离后只能支持网页版</span></li><li><span class="option-label">B</span><span>同一套后端 API 可同时服务网页版和 APP
+版，复用性强</span></li><li><span class="option-label">C</span><span>前后端分离后不需要数据库</span></li><li><span class="option-label">D</span><span>前后端分离后不需要写接口文档</span></li></ul></div><blockquote>
+<p><strong>答案：B</strong>
+<strong>解析</strong>：前后端分离后，后端提供统一的 JSON API，网页版和
+APP 版都可调用同一套接口，复用性强。A、C、D 均错误。</p>
+</blockquote></section>
+<hr />
+<h3 id="12-多项选择题10-题">1.2 多项选择题（10 题）</h3>
+<blockquote>
+<p>多选题：每题有两个或两个以上正确选项，多选、少选、错选均不得分。</p>
+</blockquote>
+<section class="question-card"><p><strong>01-选择-031</strong>（★★ 知识点：K1-1 后端开发职责） 下列属于
+Web 后端开发核心职责的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>接收客户端请求</span></li><li><span class="option-label">B</span><span>处理业务逻辑</span></li><li><span class="option-label">C</span><span>访问数据库读写数据</span></li><li><span class="option-label">D</span><span>设计页面交互动画</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong>
+<strong>解析</strong>：后端核心职责是"接收请求→处理业务→访问数据→返回结果"，A、B、C
+都属于。D（页面交互动画）是前端职责。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-032</strong>（★★ 知识点：K1-2 B/S 与 C/S）
+下列软件中，属于 B/S 架构的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>淘宝网页版</span></li><li><span class="option-label">B</span><span>教务系统网页版</span></li><li><span class="option-label">C</span><span>微信 PC 版</span></li><li><span class="option-label">D</span><span>腾讯文档（网页版）</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、D</strong> <strong>解析</strong>：A、B、D
+都通过浏览器访问，属于 B/S。微信 PC 版需安装专用客户端，属于 C/S。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-033</strong>（★★ 知识点：K1-3 前后端分离）
+前后端分离开发模式的好处包括？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>前后端可并行开发，提升效率</span></li><li><span class="option-label">B</span><span>同一套后端 API 可服务多端（网页/APP/小程序）</span></li><li><span class="option-label">C</span><span>前后端职责清晰，便于维护</span></li><li><span class="option-label">D</span><span>前后端完全不需要约定接口即可独立开发</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：A、B、C
+都是前后端分离的好处。D 错误，前后端仍需约定接口文档才能协作。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-034</strong>（★★ 知识点：K1-4 岗位与流程） Java
+后端开发常用的技术工具有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>Spring Boot</span></li><li><span class="option-label">B</span><span>MyBatis-Plus</span></li><li><span class="option-label">C</span><span>Maven</span></li><li><span class="option-label">D</span><span>Vue.js</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：Spring
+Boot（框架）、MyBatis-Plus（持久层）、Maven（构建）都是后端常用技术。Vue.js
+是前端框架。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-035</strong>（★★ 知识点：K1-5 Servlet/JSP 背景） 早期
+Servlet/JSP 开发模式存在的主要问题有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>配置繁琐（web.xml）</span></li><li><span class="option-label">B</span><span>HTML 与 Java 代码混合，前后端耦合</span></li><li><span class="option-label">C</span><span>开发效率低</span></li><li><span class="option-label">D</span><span>完全不支持 HTTP
+协议</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：A、B、C 都是
+Servlet/JSP 的痛点。D 错误，Servlet 本身就是为 HTTP 设计的。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-036</strong>（★★ 知识点：K1-6 CTTS 项目） CTTS
+系统包含的三种角色是？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>学生</span></li><li><span class="option-label">B</span><span>教师</span></li><li><span class="option-label">C</span><span>管理员</span></li><li><span class="option-label">D</span><span>访客</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：CTTS
+三种角色为学生、教师、管理员。访客不是系统定义角色。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-037</strong>（★★ 知识点：K1-4 岗位与流程）
+企业项目研发流程中，属于后端工程师工作范围的环节有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>设计数据库表与接口</span></li><li><span class="option-label">B</span><span>编写后端代码实现业务</span></li><li><span class="option-label">C</span><span>与前端联调接口</span></li><li><span class="option-label">D</span><span>设计前端页面配色</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong>
+<strong>解析</strong>：A（设计DB/接口）、B（编码）、C（联调）都是后端工作。D（页面配色）是前端/UI
+工作。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-038</strong>（★★ 知识点：K1-3 前后端分离）
+下列说法中，正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>前后端分离后后端返回 JSON 数据</span></li><li><span class="option-label">B</span><span>JSP
+模式属于前后端未分离</span></li><li><span class="option-label">C</span><span>前后端分离后前端负责渲染界面</span></li><li><span class="option-label">D</span><span>前后端分离就是部署在两台服务器上</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：A、B、C
+都正确。D 错误，前后端分离是职责与代码分离，不是物理服务器分离。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-039</strong>（★★ 知识点：K1-2 B/S 与 C/S） 下列关于
+B/S 与 C/S 架构的对比，正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>B/S 客户端是浏览器，免安装</span></li><li><span class="option-label">B</span><span>C/S 客户端需安装专用程序</span></li><li><span class="option-label">C</span><span>B/S 升级只需更新服务器，客户端自动生效</span></li><li><span class="option-label">D</span><span>C/S 不能调用后端 API</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C</strong> <strong>解析</strong>：A、B、C
+都正确。D 错误，C/S 客户端也可调用后端 API（HTTP+JSON）。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-选择-040</strong>（★★ 知识点：K1-6 CTTS 项目） CTTS
+系统的五张核心数据表包括？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><span>sys_user</span></li><li><span class="option-label">B</span><span>training_project</span></li><li><span class="option-label">C</span><span>task</span></li><li><span class="option-label">D</span><span>task_submission</span></li></ul></div><blockquote>
+<p><strong>答案：A、B、C、D</strong> <strong>解析</strong>：四项都是
+CTTS 核心表（第五张为
+task_review）。本题四个选项均属于核心表，故全选。</p>
+</blockquote></section>
+<hr />
+<h2 id="二判断题共-20-题每题-1-分">二、判断题（共 20 题，每题 1
+分）</h2>
+<section class="question-card"><p><strong>01-判断-001</strong>（★ 知识点：K1-1） Web
+后端程序运行在用户的浏览器中。（ ）</p><blockquote>
+<p><strong>答案：错误</strong>
+<strong>解析</strong>：后端程序运行在服务器端，浏览器运行的是前端。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-002</strong>（★ 知识点：K1-1）
+后端开发的核心职责是"接收请求、处理业务、访问数据、返回结果"。（ ）</p><blockquote>
+<p><strong>答案：正确</strong>
+<strong>解析</strong>：这准确概括了后端开发的四个核心动作。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-003</strong>（★ 知识点：K1-2） B/S
+架构的客户端需要安装专门的程序才能使用。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：B/S
+客户端是浏览器，无需安装专门程序。需要安装的是 C/S 架构。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-004</strong>（★ 知识点：K1-2） 微信 PC 版属于 C/S
+架构。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：微信 PC
+版需安装专用客户端，属于 C/S。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-005</strong>（★ 知识点：K1-3）
+前后端分离后，后端返回给前端的是 HTML 页面。（ ）</p><blockquote>
+<p><strong>答案：错误</strong>
+<strong>解析</strong>：前后端分离后后端返回 JSON 数据，HTML
+由前端渲染。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-006</strong>（★ 知识点：K1-3） JSP
+开发模式属于前后端分离。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：JSP 中 HTML 与
+Java 混写，前后端耦合，属于未分离模式。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-007</strong>（★★ 知识点：K1-2/K1-3） B/S
+架构等同于前后端分离。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：B/S
+是架构模式（客户端用浏览器），前后端分离是开发模式。JSP 是 B/S
+但未分离。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-008</strong>（★ 知识点：K1-3）
+前后端分离后，前端和后端可以由不同团队并行开发。（ ）</p><blockquote>
+<p><strong>答案：正确</strong>
+<strong>解析</strong>：约定好接口后，前后端可并行开发，这是分离模式的优势之一。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-009</strong>（★ 知识点：K1-4） Maven 是 Java
+项目的依赖管理与构建工具。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：Maven 用于管理
+Java 项目依赖与构建打包。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-010</strong>（★ 知识点：K1-4） Git
+主要用于接口调试。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：Git
+是版本控制工具，用于代码版本管理与协作。接口调试用 Apifox/Postman。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-011</strong>（★ 知识点：K1-5） Servlet 是 JavaWeb
+的底层规范，Spring Boot 底层仍基于它。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：Spring MVC 封装
+Servlet，Spring Boot 封装 Spring MVC，底层仍基于 Servlet。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-012</strong>（★ 知识点：K1-5） 本课程以 Servlet/JSP
+编码为主线进行教学。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：本课程以 Spring
+Boot 为主线，Servlet/JSP 仅作背景讲解。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-013</strong>（★★ 知识点：K1-5） Servlet 完全不支持
+HTTP 协议，所以被淘汰。（ ）</p><blockquote>
+<p><strong>答案：错误</strong> <strong>解析</strong>：Servlet
+本就是为处理 HTTP 请求设计的，支持
+HTTP。被替代是因为配置繁琐、前后端耦合，不是因为不支持 HTTP。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-014</strong>（★ 知识点：K1-1）
+数据库负责持久化存储数据，如 MySQL。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：数据库（如
+MySQL）负责持久化存储数据，后端负责访问数据库。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-015</strong>（★ 知识点：K1-3）
+前后端分离后，前端和后端仍需通过接口文档约定 API 才能协作。（ ）</p><blockquote>
+<p><strong>答案：正确</strong>
+<strong>解析</strong>：接口文档是前后端协作的"契约"，分离后仍需约定。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-016</strong>（★★ 知识点：K1-3）
+前后端分离是指前端和后端必须部署在两台不同的物理服务器上。（ ）</p><blockquote>
+<p><strong>答案：错误</strong>
+<strong>解析</strong>：前后端分离是代码与职责分离，不是物理服务器分离。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-017</strong>（★ 知识点：K1-6） CTTS
+系统包含学生、教师、管理员三种角色。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：CTTS
+三角色为学生、教师、管理员。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-018</strong>（★★ 知识点：K1-6） 在 CTTS
+业务流程中，教师发布任务后，由学生提交成果，再由教师评审。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：CTTS
+流程：教师发布任务 → 学生提交 → 教师评审，正确。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-019</strong>（★ 知识点：K1-4）
+企业项目中，后端工程师在编码阶段才需要理解需求，需求分析与后端无关。（
+）</p><blockquote>
+<p><strong>答案：错误</strong>
+<strong>解析</strong>：需求分析阶段后端工程师就需参与，理解业务、明确系统目标，与后续设计编码密切相关。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-判断-020</strong>（★★ 知识点：K1-2） 手机 APP
+与服务器通信时通常也使用 HTTP+JSON，因此后端开发技能在 B/S 和 C/S
+中是相通的。（ ）</p><blockquote>
+<p><strong>答案：正确</strong> <strong>解析</strong>：手机 APP 虽是 C/S
+客户端，但与服务器通信多用 HTTP+JSON，后端技能相通。</p>
+</blockquote></section>
+<hr />
+<h2 id="三填空题共-10-题每题-2-分">三、填空题（共 10 题，每题 2
+分）</h2>
+<section class="question-card"><p><strong>01-填空-001</strong>（★ 知识点：K1-1） Web
+后端开发的核心职责可以概括为：接收请求 → ________ → 访问数据 →
+________。</p><blockquote>
+<p><strong>答案</strong>：处理业务；返回结果
+<strong>解析</strong>：后端核心职责为"接收请求 → 处理业务 → 访问数据 →
+返回结果"。两空依次为"处理业务""返回结果"。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-填空-002</strong>（★ 知识点：K1-1） Web
+系统通常由三部分组成：前端、________ 和数据库。</p><blockquote>
+<p><strong>答案</strong>：后端 <strong>解析</strong>：Web
+系统三部分为前端、后端、数据库。后端运行在服务器端，处理业务并访问数据库。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-填空-003</strong>（★ 知识点：K1-2） ________
+架构的客户端是浏览器，无需安装专门程序；________
+架构的客户端需要安装专用程序。</p><blockquote>
+<p><strong>答案</strong>：B/S；C/S
+<strong>解析</strong>：B/S（Browser/Server）客户端是浏览器；C/S（Client/Server）客户端需安装专用程序。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-填空-004</strong>（★ 知识点：K1-3）
+前后端分离模式下，后端返回给前端的数据格式通常是 ________。</p><blockquote>
+<p><strong>答案</strong>：JSON
+<strong>解析</strong>：前后端分离后后端返回 JSON
+数据，前端拿到后自行渲染界面。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-填空-005</strong>（★★ 知识点：K1-3）
+前后端分离模式下，前后端协作的"契约"是 ________。</p><blockquote>
+<p><strong>答案</strong>：接口文档（或 API 文档）
+<strong>解析</strong>：接口文档约定了 API
+路径、请求参数、返回格式，是前后端协作的基础。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-填空-006</strong>（★ 知识点：K1-4） Java
+项目的依赖管理与构建工具是 ________；版本控制工具是 ________。</p><blockquote>
+<p><strong>答案</strong>：Maven；Git <strong>解析</strong>：Maven
+管理依赖与构建；Git 管理代码版本与协作。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-填空-007</strong>（★ 知识点：K1-5） Servlet 是 JavaWeb 的
+________ 规范，Spring Boot 底层仍基于它。</p><blockquote>
+<p><strong>答案</strong>：底层 <strong>解析</strong>：Servlet 是 JavaWeb
+底层规范，Spring MVC 封装 Servlet，Spring Boot 封装 Spring MVC。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-填空-008</strong>（★ 知识点：K1-5） JavaWeb
+技术按出现时间从早到晚排序为：Servlet → ________ → Spring Boot。</p><blockquote>
+<p><strong>答案</strong>：JSP
+<strong>解析</strong>：Servlet（1997）最早，随后 JSP
+在其基础上发展，Spring Boot 是现代框架。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-填空-009</strong>（★ 知识点：K1-6）
+校园实训任务管理系统的英文简称是 ________，包含 ________ 种角色。</p><blockquote>
+<p><strong>答案</strong>：CTTS；三（或 3）
+<strong>解析</strong>：CTTS（Campus Training Task
+System），包含学生、教师、管理员三种角色。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-填空-010</strong>（★★ 知识点：K1-6） CTTS
+的业务流程为：管理员创建用户 → 教师创建项目 → 教师发布任务 → ________ →
+教师评审 → ________。</p><blockquote>
+<p><strong>答案</strong>：学生提交成果（学生提交）；学生查看反馈
+<strong>解析</strong>：流程为：管理员创建用户 → 教师创建项目 → 发布任务
+→ 学生提交成果 → 教师评审 → 学生查看反馈。</p>
+</blockquote></section>
+<hr />
+<h2 id="四论述题--简答题共-4-题">四、论述题 / 简答题（共 4 题）</h2>
+<section class="question-card"><p><strong>01-简答-001</strong>（★★ 知识点：K1-3，分值：8 分）
+请简述"前后端分离"开发模式与传统 JSP
+模式的区别，并说明前后端分离的至少三个好处。</p><blockquote>
+<p><strong>参考答案要点</strong>：</p>
+<ol type="1">
+<li><strong>区别</strong>：
+<ul>
+<li>传统 JSP 模式：HTML 与 Java 代码混合写在 JSP
+文件中，在服务器端拼装出完整 HTML 页面返回给浏览器，前后端耦合。（2
+分）</li>
+<li>前后端分离模式：前端和后端各自独立开发部署，后端只返回 JSON
+数据，前端拿到数据后自行渲染界面，二者通过 API 通信。（2 分）</li>
+</ul></li>
+<li><strong>好处</strong>（每点 1 分，答出 3 点得 3 分，满分 3 分）：
+<ul>
+<li>前后端可并行开发，提升效率；</li>
+<li>同一套后端 API 可服务网页版、APP、小程序等多端，复用性强；</li>
+<li>前后端职责清晰，便于维护；</li>
+<li>前端可做局部刷新，体验更好。</li>
+</ul></li>
+<li><strong>表述清晰度</strong>（1 分）。</li>
+</ol>
+<p><strong>评分标准</strong>：区别 4 分 + 好处 3 分 + 表述 1 分 = 8
+分。好处答出任意 3 点即给满分。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-简答-002</strong>（★★ 知识点：K1-2/K1-3，分值：6 分）
+请说明 B/S 架构与 C/S 架构的区别，并解释为什么"B/S
+不等于前后端分离"。</p><blockquote>
+<p><strong>参考答案要点</strong>：</p>
+<ol type="1">
+<li><strong>B/S 与 C/S 区别</strong>（3 分）：
+<ul>
+<li>B/S：客户端是浏览器，免安装，跨平台，升级只更新服务器；</li>
+<li>C/S：客户端需安装专用程序，性能强，但升级需重新安装。</li>
+</ul></li>
+<li><strong>B/S 不等于前后端分离的原因</strong>（3 分）：
+<ul>
+<li>B/S 是指客户端用浏览器访问服务器的架构模式；</li>
+<li>前后端分离是一种开发模式（前端管界面、后端管数据、JSON 通信）；</li>
+<li>JSP 也是 B/S 架构，但 HTML 与 Java 混写，前后端未分离；</li>
+<li>因此 B/S（架构模式）≠ 前后端分离（开发模式）。</li>
+</ul></li>
+</ol>
+<p><strong>评分标准</strong>：区别 3 分 + 解释原因 3 分 = 6
+分。原因部分需点出"JSP 是 B/S 但未分离"这一关键点。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-简答-003</strong>（★★ 知识点：K1-5，分值：6 分） 现代
+JavaWeb 项目大多选择 Spring Boot 而非直接使用
+Servlet/JSP，请说明至少三个原因。</p><blockquote>
+<p><strong>参考答案要点</strong>（每点 2 分，答出 3 点得 6 分）：</p>
+<ol type="1">
+<li><strong>配置繁琐</strong>：Servlet/JSP 需要大量 web.xml
+配置，易出错；Spring Boot 用注解和自动配置简化，开发效率高。</li>
+<li><strong>前后端耦合</strong>：JSP 中 HTML 与 Java
+混写，难以分离开发；Spring Boot 天然支持返回 JSON，契合前后端分离。</li>
+<li><strong>开发效率低</strong>：Servlet 实现一个简单功能要写 Servlet +
+配置 + 页面，步骤多；Spring Boot 注解即可完成。</li>
+<li><strong>难以维护</strong>：传统模式业务逻辑、页面、数据访问混在一起；Spring
+Boot 鼓励分层架构，便于维护。</li>
+<li><strong>生态完善</strong>：Spring Boot 起步依赖、内嵌容器、丰富的
+starter，开箱即用。</li>
+</ol>
+<p><strong>评分标准</strong>：每点 2 分，答出任意 3 点给满分 6
+分。需说明具体原因，不能只说"Spring Boot 更好"。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-简答-004</strong>（★★ 知识点：K1-6，分值：10 分）
+请描述校园实训任务管理系统（CTTS）的业务背景、三种角色及其核心功能，并画出（或用文字描述）核心业务流程。</p><blockquote>
+<p><strong>参考答案要点</strong>：</p>
+<ol type="1">
+<li><strong>业务背景</strong>（2
+分）：高校实训管理中存在任务下发混乱、提交易丢失、评审难追溯、成绩手工汇总易错等痛点，CTTS
+用 Web 系统解决这些问题。</li>
+<li><strong>三种角色及核心功能</strong>（每角色 1.5 分，共 4.5 分）：
+<ul>
+<li>学生：查看项目与任务、提交成果、查看评审反馈与成绩；</li>
+<li>教师：创建/维护实训项目、发布任务、评审学生提交、查询进度；</li>
+<li>管理员：用户管理（增删改查、分配角色）、项目管理、系统统计。</li>
+</ul></li>
+<li><strong>核心业务流程</strong>（3 分）：管理员创建用户 →
+教师创建实训项目 → 教师发布任务 → 学生查看任务并提交成果 → 教师评审打分
+→ 学生查看反馈 → 各角色查询统计。</li>
+<li><strong>表述与逻辑清晰度</strong>（0.5 分）。</li>
+</ol>
+<p><strong>评分标准</strong>：背景 2 分 + 角色 4.5 分 + 流程 3 分 + 表述
+0.5 分 = 10
+分。流程需体现"提交→评审"的关键流转，缺失关键环节酌情扣分。</p>
+</blockquote></section>
+<hr />
+<h2 id="五程序阅读--补全题共-2-题">五、程序阅读 / 补全题（共 2 题）</h2>
+<section class="question-card"><p><strong>01-程序-001</strong>（★★ 知识点：K1-1/K1-3，分值：10 分）
+阅读以下 Spring Boot 后端接口代码及对应的请求与响应，回答问题。</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/projects&quot;</span><span class="op">)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/list&quot;</span><span class="op">)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">listProjects</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> projects <span class="op">=</span> projectService<span class="op">.</span><span class="fu">findAll</span><span class="op">();</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projects<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>对应请求与响应：</p>
+<pre><code>请求：GET /api/projects/list
+响应：
+[
+  {&quot;id&quot;: 1, &quot;title&quot;: &quot;JavaWeb 实训&quot;, &quot;status&quot;: &quot;进行中&quot;},
+  {&quot;id&quot;: 2, &quot;title&quot;: &quot;数据库实训&quot;, &quot;status&quot;: &quot;已结束&quot;}
+]</code></pre>
+<p><strong>问题</strong>： （1）该接口的请求路径是什么？请求方式是 GET
+还是 POST？（2 分） （2）该接口返回的数据格式是什么？返回了几条数据？（2
+分） （3）代码中 <code>projectService.findAll()</code>
+对应后端核心职责中的哪一步？（3 分）
+（4）这个接口体现了前后端分离的特点吗？请说明理由。（3 分）</p><blockquote>
+<p><strong>参考答案</strong>： （1）请求路径是
+<code>/api/projects/list</code>（1 分），请求方式是 GET（1 分）。
+（2）数据格式是 JSON（1 分），返回了 2 条数据（1 分）。
+（3）<code>projectService.findAll()</code>
+对应"访问数据"（查询数据库获取项目列表）（3 分）。答"处理业务"也可酌情给
+2 分，因 Service 层也含业务逻辑。 （4）体现了前后端分离（1
+分）。理由：后端只返回 JSON 数据，不生成 HTML 页面，前端拿到 JSON
+后自行渲染（2 分）。</p>
+<p><strong>评分标准</strong>：共 10
+分，按小题分值给分。第（4）小题需点出"返回 JSON 不返回
+HTML"这一关键点。</p>
+</blockquote></section>
+<hr />
+<section class="question-card"><p><strong>01-程序-002</strong>（★★ 知识点：K1-1/K1-3，分值：12 分）
+补全以下 Spring Boot 接口代码和 JSON
+响应中的空缺部分（用①~④标出），使接口能正确实现"根据项目 ID
+查询任务列表"的功能。</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/tasks&quot;</span><span class="op">)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskController <span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ① 补全请求映射注解，使该方法响应 GET 请求，路径为 /list</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    ________②________</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="fu">listTasks</span><span class="op">(</span><span class="at">@RequestParam</span> <span class="bu">Long</span> projectId<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ② 调用 service 查询某项目下的任务列表</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span>Task<span class="op">&gt;</span> tasks <span class="op">=</span> taskService<span class="op">.</span><span class="fu">________</span>③________<span class="op">(</span>projectId<span class="op">);</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> tasks<span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>期望的 JSON 响应：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span> <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;任务1：搭建项目&quot;</span><span class="fu">,</span> <span class="dt">&quot;deadline&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-08-01&quot;</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span> <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;任务2：实现登录&quot;</span><span class="fu">,</span> <span class="dt">&quot;deadline&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-08-10&quot;</span><span class="fu">}</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<p><strong>问题</strong>：补全 ② 和 ③ 处的代码，并回答： （1）②
+处应填什么注解？（3 分） （2）③ 处应填什么方法调用？（3 分）
+（3）该接口的请求路径完整是什么？（2 分） （4）返回的 JSON
+中每条任务包含哪些字段？（4 分）</p><blockquote>
+<p><strong>参考答案</strong>： （1）② 处应填
+<code>@GetMapping("/list")</code>（3 分）。答 <code>@GetMapping</code>
+不带路径且说明继承类级路径也可酌情给 2 分，但完整答案需带
+<code>/list</code>。 （2）③ 处应填 <code>findByProjectId</code>（或
+<code>listByProjectId</code>、<code>getByProjectId</code>
+等语义合理的方法名）（3 分）。方法名需体现"按 projectId 查询"的语义。
+（3）完整请求路径为 <code>/api/tasks/list</code>（2 分）。类级
+<code>/api/tasks</code> + 方法级 <code>/list</code>。
+（4）每条任务包含字段：<code>id</code>、<code>title</code>、<code>deadline</code>（每答出
+1 个得 1.33 分，答出 3 个得 4 分，满 4 分止）。</p>
+<p><strong>评分标准</strong>：共 12 分，按小题分值给分。③
+处方法名允许合理变体，关键体现"按 projectId 查询"语义。</p>
+</blockquote></section>
+<hr />
+<h2 id="六编程--接口设计题共-2-题">六、编程 / 接口设计题（共 2 题）</h2>
+<p><strong>01-编程-001</strong>（★★ 知识点：K1-3/K1-6，分值：15 分）
+<strong>题目</strong>：为 CTTS
+系统设计"学生查看任务列表"接口的请求与响应格式（本题为接口设计题，不要求写完整代码，只要求设计接口契约）。</p>
+<p><strong>要求</strong>： （1）设计该接口的 HTTP
+请求方式与路径（路径需体现 RESTful 风格，资源用名词复数）。（4 分）
+（2）设计请求参数（如有）。（3 分） （3）设计返回的 JSON
+响应结构（需包含统一响应字段 code、message、data，data
+中为任务列表）。（5 分） （4）说明该接口体现了前后端分离的哪个特点。（3
+分）</p>
+<p><strong>输入输出说明</strong>：</p>
+<ul>
+<li>业务场景：学生登录后查看某个实训项目下的所有任务。</li>
+<li>任务包含字段：id、title（任务标题）、deadline（截止时间）、status（任务状态）。</li>
+</ul>
+<blockquote>
+<p><strong>参考答案</strong>： （1）请求方式：GET（2
+分）；路径：<code>/api/tasks</code>（2 分）。参数 projectId 通过 query
+传递。答 GET + <code>/api/tasks</code> 给满分；路径用名词复数 tasks 体现
+RESTful。 （2）请求参数：<code>projectId</code>（Long 类型，通过
+<code>@RequestParam</code> 或 query string 传递，如
+<code>?projectId=1</code>）（3 分）。 （3）JSON 响应结构（5 分）：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;code&quot;</span><span class="fu">:</span> <span class="dv">200</span><span class="fu">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;message&quot;</span><span class="fu">:</span> <span class="st">&quot;success&quot;</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;data&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span> <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;任务1：搭建项目&quot;</span><span class="fu">,</span> <span class="dt">&quot;deadline&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-08-01&quot;</span><span class="fu">,</span> <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;进行中&quot;</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span> <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;任务2：实现登录&quot;</span><span class="fu">,</span> <span class="dt">&quot;deadline&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-08-10&quot;</span><span class="fu">,</span> <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;未开始&quot;</span><span class="fu">}</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>评分：含 code/message/data 三个统一字段（2 分），data 为数组（1
+分），数组元素含 id/title/deadline/status（2 分）。
+（4）体现前后端分离特点：后端只返回 JSON 数据，不返回 HTML
+页面，前端拿到 JSON 后自行渲染界面（3 分）。</p>
+<p><strong>评分标准</strong>：共 15 分，按小题分值给分。第（1）题必须用
+GET 且路径用名词复数才算体现 RESTful；第（3）题必须含统一响应结构
+code/message/data。</p>
+</blockquote>
+<hr />
+<p><strong>01-编程-002</strong>（★★★ 知识点：K1-1/K1-4/K1-6，分值：20
+分） <strong>题目</strong>：结合 CTTS
+系统的"学生提交任务成果"业务，分析并描述该操作中后端需要完成的工作，并设计对应的接口契约。</p>
+<p><strong>业务场景</strong>：学生登录后，针对某个任务提交自己的实训成果（文本内容），后端需要记录提交信息并更新任务状态。</p>
+<p><strong>要求</strong>：
+（1）分析后端在该操作中需要完成的工作（从接收请求、处理业务、访问数据、返回结果四方面分析）。（8
+分） （2）设计该接口的 HTTP 请求方式与路径（RESTful 风格）。（3 分）
+（3）设计请求参数（JSON body 格式，包含必要字段）。（4 分）
+（4）设计返回的 JSON 响应结构（统一响应格式）。（3 分）
+（5）说明该接口在设计上应考虑的数据安全或业务校验点（至少 2 点）。（2
+分）</p>
+<p><strong>输入输出说明</strong>：</p>
+<ul>
+<li>提交需要记录：任务 ID、学生 ID、提交内容、提交时间。</li>
+<li>提交后任务状态应更新为"已提交"。</li>
+</ul>
+<blockquote>
+<p><strong>参考答案</strong>： （1）后端需完成的工作（每方面 2 分，共 8
+分）：</p>
+<ul>
+<li><strong>接收请求</strong>：接收学生提交的 POST 请求，获取任务
+ID、学生 ID、提交内容等参数；</li>
+<li><strong>处理业务</strong>：校验学生是否有权提交该任务、任务是否在截止时间内、是否重复提交；生成提交记录、更新任务状态为"已提交"；</li>
+<li><strong>访问数据</strong>：向 task_submission 表插入提交记录，更新
+task 表中对应任务状态；</li>
+<li><strong>返回结果</strong>：返回提交成功/失败的 JSON 响应。
+（2）请求方式：POST（1 分）；路径：<code>/api/submissions</code>（2
+分）。POST 用于新增资源，submissions 为名词复数。 （3）请求参数（JSON
+body，4 分）：</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;taskId&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;studentId&quot;</span><span class="fu">:</span> <span class="dv">1001</span><span class="fu">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;content&quot;</span><span class="fu">:</span> <span class="st">&quot;这是我的实训成果...&quot;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>评分：包含 taskId、studentId、content 三个关键字段（每缺一个扣 1.5
+分），格式为 JSON（0.5 分）。 （4）返回响应（3 分）：</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;code&quot;</span><span class="fu">:</span> <span class="dv">200</span><span class="fu">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;message&quot;</span><span class="fu">:</span> <span class="st">&quot;提交成功&quot;</span><span class="fu">,</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;data&quot;</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">&quot;submissionId&quot;</span><span class="fu">:</span> <span class="dv">501</span><span class="fu">,</span> <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;已提交&quot;</span><span class="fu">}</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>评分：含统一字段 code/message/data（2 分），data 含提交结果（1 分）。
+（5）数据安全/业务校验点（每点 1 分，答出 2 点得 2 分）：</p>
+<ul>
+<li>校验学生身份（是否登录、是否为该任务所属学生）；</li>
+<li>校验截止时间（是否已过截止时间）；</li>
+<li>防重复提交（同一学生对同一任务是否已提交）；</li>
+<li>校验任务是否存在；</li>
+<li>提交内容长度/合法性校验。</li>
+</ul>
+<p><strong>评分标准</strong>：共 20
+分，按小题分值给分。第（1）题需从四个方面分析，每方面 2
+分；第（5）题答出任意 2
+点给满分。本题考察综合分析能力，为本次课综合题。</p>
+</blockquote>
+<hr />
+<h2 id="题库统计与组卷说明">题库统计与组卷说明</h2>
+<h3 id="题量统计">题量统计</h3>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>数量</th>
+<th>分值</th>
+<th>小计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>选择题（单选 30 + 多选 10）</td>
+<td>40</td>
+<td>每题 2 分</td>
+<td>80 分</td>
+</tr>
+<tr>
+<td>判断题</td>
+<td>20</td>
+<td>每题 1 分</td>
+<td>20 分</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>10</td>
+<td>每题 2 分</td>
+<td>20 分</td>
+</tr>
+<tr>
+<td>论述/简答题</td>
+<td>4</td>
+<td>6~10 分</td>
+<td>30 分</td>
+</tr>
+<tr>
+<td>程序阅读/补全题</td>
+<td>2</td>
+<td>10~12 分</td>
+<td>22 分</td>
+</tr>
+<tr>
+<td>编程/接口设计题</td>
+<td>2</td>
+<td>15~20 分</td>
+<td>35 分</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td>—</td>
+<td><strong>207 分</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 实际组卷时可按需抽取部分题目并按 100
+分制折算，或直接用于题库录入后由考试系统随机组卷。</p>
+</blockquote>
+<h3 id="难度分布">难度分布</h3>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>题量（约）</th>
+<th>占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>★ 基础</td>
+<td>39</td>
+<td>50%</td>
+</tr>
+<tr>
+<td>★★ 提高</td>
+<td>35</td>
+<td>45%</td>
+</tr>
+<tr>
+<td>★★★ 综合</td>
+<td>4</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="知识点覆盖">知识点覆盖</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>覆盖题数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K1-1 后端开发职责</td>
+<td>16</td>
+</tr>
+<tr>
+<td>K1-2 B/S 与 C/S 架构</td>
+<td>14</td>
+</tr>
+<tr>
+<td>K1-3 前后端分离</td>
+<td>18</td>
+</tr>
+<tr>
+<td>K1-4 岗位与流程</td>
+<td>12</td>
+</tr>
+<tr>
+<td>K1-5 Servlet/JSP 背景</td>
+<td>10</td>
+</tr>
+<tr>
+<td>K1-6 CTTS 项目</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>本题库已确保每题答案唯一明确、无歧义选项、不靠文字游戏，全部含解析，主观题含评分标准，可直接录入考试系统题库。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

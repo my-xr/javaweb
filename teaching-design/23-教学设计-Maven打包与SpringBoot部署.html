@@ -1,0 +1,640 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maven打包与SpringBoot部署</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 23 次课 · 教学设计</div>
+      <h1>Maven打包与SpringBoot部署</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 23 次课</span>
+        <span class="hero-chip"><b>主题</b>Maven打包与SpringBoot部署</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程基本信息">一、课程基本信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#1-知识目标">1. 知识目标</a></li>
+<li><a href="#2-能力目标">2. 能力目标</a></li>
+<li><a href="#3-素质目标课程思政">3. 素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三教学重点与难点">三、教学重点与难点</a>
+<ul>
+<li><a href="#教学重点">教学重点</a></li>
+<li><a href="#教学难点">教学难点</a></li>
+</ul></li>
+<li><a href="#四学情分析">四、学情分析</a>
+<ul>
+</ul></li>
+<li><a href="#五教学方法">五、教学方法</a>
+<ul>
+</ul></li>
+<li><a href="#六教学准备">六、教学准备</a>
+<ul>
+<li><a href="#教师准备">教师准备</a></li>
+<li><a href="#学生准备">学生准备</a></li>
+</ul></li>
+<li><a href="#八教学过程详细设计">八、教学过程详细设计</a>
+<ul>
+<li><a href="#环节1课前导入5分钟">环节1：课前导入（5分钟）</a></li>
+<li><a href="#环节2k23-1-maven打包15分钟">环节2：K23-1 Maven打包（15分钟）</a></li>
+<li><a href="#环节3k23-2-spring-boot-jar运行15分钟">环节3：K23-2 Spring Boot jar运行（15分钟）</a></li>
+<li><a href="#环节4k23-3-配置文件管理15分钟">环节4：K23-3 配置文件管理（15分钟）</a></li>
+<li><a href="#环节5k23-4-数据库初始化脚本10分钟">环节5：K23-4 数据库初始化脚本（10分钟）</a></li>
+<li><a href="#环节6k23-5-简单服务器部署20分钟">环节6：K23-5 简单服务器部署（20分钟）</a></li>
+<li><a href="#环节8课程思政与总结3分钟">环节8：课程思政与总结（3分钟）</a></li>
+</ul></li>
+<li><a href="#九课程思政设计">九、课程思政设计</a>
+<ul>
+</ul></li>
+<li><a href="#十教学反思">十、教学反思</a>
+<ul>
+<li><a href="#预设反思点">预设反思点</a></li>
+<li><a href="#课后改进方向">课后改进方向</a></li>
+</ul></li>
+<li><a href="#十一板书设计">十一、板书设计</a>
+<ul>
+</ul></li>
+<li><a href="#十二课后作业">十二、课后作业</a>
+<ul>
+<li><a href="#必做">必做</a></li>
+<li><a href="#选做">选做</a></li>
+<li><a href="#思考题">思考题</a></li>
+</ul></li>
+<li><a href="#十三参考资料">十三、参考资料</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 23 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<h2 id="一课程基本信息">一、课程基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>Java Web后端开发技术</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程/计算机科学与技术专业 本科三年级</td>
+</tr>
+<tr>
+<td>课时安排</td>
+<td>2学时（90分钟）</td>
+</tr>
+<tr>
+<td>课程模块</td>
+<td>M8 项目部署与交付</td>
+</tr>
+<tr>
+<td>课程类型</td>
+<td>理论课（含演示）</td>
+</tr>
+<tr>
+<td>先修内容</td>
+<td>第22次课 Spring Boot整合MyBatis-Plus与Knife4j</td>
+</tr>
+<tr>
+<td>后续内容</td>
+<td>第24次课 课程总结与项目答辩</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="1-知识目标">1. 知识目标</h3>
+<ul>
+<li>理解Maven打包机制，掌握<code>mvn clean package</code>命令、<code>target</code>目录结构、<code>spring-boot-maven-plugin</code>插件作用</li>
+<li>理解Spring
+Boot可执行jar的运行原理，掌握<code>java -jar</code>命令、内嵌Tomcat机制、命令行参数传递</li>
+<li>掌握多环境配置方案（<code>application-dev.yml</code>/<code>application-prod.yml</code>、<code>spring.profiles.active</code>、外部配置文件）</li>
+<li>掌握数据库初始化脚本编写（<code>schema.sql</code>、<code>data.sql</code>）及自动执行机制</li>
+<li>了解Linux服务器部署完整流程，掌握JDK/MySQL安装、端口开放、Nginx反向代理基础</li>
+</ul>
+<h3 id="2-能力目标">2. 能力目标</h3>
+<ul>
+<li>能独立完成CTTS项目的Maven打包，生成可执行jar</li>
+<li>能通过命令行方式启动Spring Boot应用，并传递配置参数</li>
+<li>能针对开发/生产环境编写差异化的配置文件</li>
+<li>能编写数据库初始化脚本并完成数据库准备</li>
+<li>能在Linux服务器上完成CTTS项目的部署与验证</li>
+</ul>
+<h3 id="3-素质目标课程思政">3. 素质目标（课程思政）</h3>
+<ul>
+<li>树立"能运行不等于能交付"的软件交付责任意识</li>
+<li>培养严谨的生产环境运维态度，重视配置管理与版本一致性</li>
+<li>强化DevOps协作意识，理解开发与运维协同的价值</li>
+</ul>
+<h2 id="三教学重点与难点">三、教学重点与难点</h2>
+<h3 id="教学重点">教学重点</h3>
+<ol type="1">
+<li>Maven打包命令与<code>spring-boot-maven-plugin</code>插件配置</li>
+<li>多环境配置文件的组织与<code>spring.profiles.active</code>激活机制</li>
+<li>数据库初始化脚本的编写与自动执行</li>
+<li>Spring Boot jar的命令行启动与参数传递</li>
+</ol>
+<h3 id="教学难点">教学难点</h3>
+<ol type="1">
+<li><strong>可执行jar的内部结构</strong>：理解<code>BOOT-INF</code>、<code>org.springframework.boot.loader</code>启动器机制</li>
+<li><strong>配置优先级</strong>：命令行参数 &gt; 外部配置文件 &gt;
+内部配置文件 &gt; 默认值的覆盖关系</li>
+<li><strong>多环境配置的切换</strong>：开发环境与生产环境的差异化策略</li>
+<li><strong>生产环境部署的完整性</strong>：从代码到上线全链路的环节衔接</li>
+</ol>
+<h2 id="四学情分析">四、学情分析</h2>
+<ul>
+<li><strong>知识储备</strong>：学生已掌握Spring
+Boot开发、MyBatis-Plus持久层、Knife4j接口文档、JWT鉴权，CTTS项目核心功能已完成</li>
+<li><strong>能力基础</strong>：具备本地IDE运行项目的能力，但缺少从"代码"到"交付物"的全流程经验</li>
+<li><strong>常见困惑</strong>：
+<ul>
+<li>"为什么IDE能跑，打包后却启动失败？"</li>
+<li>"生产环境的配置和开发环境如何隔离？"</li>
+<li>"数据库表如何在新服务器上一键创建？"</li>
+<li>"Linux服务器到底要装什么、配什么？"</li>
+</ul></li>
+<li><strong>学习动机</strong>：临近项目交付，学生对"如何把项目跑起来给别人用"有较强需求，学习意愿较高</li>
+</ul>
+<h2 id="五教学方法">五、教学方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>讲授法</td>
+<td>知识点原理讲解（打包机制、配置优先级、部署流程）</td>
+</tr>
+<tr>
+<td>演示法</td>
+<td>Maven打包、jar运行、多环境切换、Linux部署的现场演示</td>
+</tr>
+<tr>
+<td>对比法</td>
+<td>开发环境vs生产环境配置对比、IDE运行vs命令行运行对比</td>
+</tr>
+<tr>
+<td>问答法</td>
+<td>面试题快问快答，巩固部署与运维考点</td>
+</tr>
+<tr>
+<td>任务驱动</td>
+<td>以"CTTS项目部署上线"为任务主线贯穿全课</td>
+</tr>
+<tr>
+<td>案例法</td>
+<td>结合生产环境真实事故案例（配置泄露、端口冲突）讲解</td>
+</tr>
+</tbody>
+</table>
+<h2 id="六教学准备">六、教学准备</h2>
+<h3 id="教师准备">教师准备</h3>
+<ul>
+<li>CTTS项目完整源码（已通过第22次课的所有功能验收）</li>
+<li>Linux服务器环境（CentOS 7 / Ubuntu 20.04，已预装基础工具）</li>
+<li>演示用虚拟机或云服务器（推荐阿里云/腾讯云学生机）</li>
+<li>Nginx安装包、JDK 17安装包、MySQL 8安装包</li>
+<li>数据库初始化脚本<code>schema.sql</code>、<code>data.sql</code></li>
+<li>多环境配置文件示例</li>
+<li>课堂演示录屏备份（防止现场网络/环境异常）</li>
+</ul>
+<h3 id="学生准备">学生准备</h3>
+<ul>
+<li>复习第22次课内容，确保本地CTTS项目可正常运行</li>
+<li>预习Maven生命周期基础概念（clean、compile、package、install）</li>
+<li>准备笔记本，记录命令行操作步骤</li>
+<li>可选：自备云服务器账号，跟练部署操作</li>
+</ul>
+<h2
+id="七教学内容与时间分配90分钟">七、教学内容与时间分配（90分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00-05</td>
+<td>课前导入</td>
+<td>从"代码能跑"到"项目交付"的鸿沟，引出部署的重要性</td>
+<td>5分钟</td>
+</tr>
+<tr>
+<td>05-20</td>
+<td>K23-1 Maven打包</td>
+<td><code>mvn clean package</code>、target目录、jar生成、<code>spring-boot-maven-plugin</code>、<code>-DskipTests</code></td>
+<td>15分钟</td>
+</tr>
+<tr>
+<td>20-35</td>
+<td>K23-2 Spring Boot jar运行</td>
+<td><code>java -jar</code>、内嵌Tomcat、命令行参数、<code>nohup</code>/<code>&amp;</code>后台运行</td>
+<td>15分钟</td>
+</tr>
+<tr>
+<td>35-50</td>
+<td>K23-3 配置文件管理</td>
+<td>多环境配置、<code>spring.profiles.active</code>、外部配置文件、命令行指定配置</td>
+<td>15分钟</td>
+</tr>
+<tr>
+<td>50-60</td>
+<td>K23-4 数据库初始化脚本</td>
+<td><code>schema.sql</code>建表、<code>data.sql</code>初始数据、自动执行SQL、手动执行SQL</td>
+<td>10分钟</td>
+</tr>
+<tr>
+<td>60-80</td>
+<td>K23-5 简单服务器部署</td>
+<td>Linux部署流程、上传jar、安装JDK/MySQL、配置数据源、启动服务、防火墙、Nginx反向代理</td>
+<td>20分钟</td>
+</tr>
+<tr>
+<td>80-87</td>
+<td>课堂互动</td>
+<td>面试题快问快答——部署与运维常见考点</td>
+<td>7分钟</td>
+</tr>
+<tr>
+<td>87-90</td>
+<td>课程思政与总结</td>
+<td>"能运行不等于能交付"——软件交付责任意识 + 课堂总结</td>
+<td>3分钟</td>
+</tr>
+</tbody>
+</table>
+<h2 id="八教学过程详细设计">八、教学过程详细设计</h2>
+<h3 id="环节1课前导入5分钟">环节1：课前导入（5分钟）</h3>
+<p><strong>导入语</strong>：</p>
+<blockquote>
+<p>"同学们，我们花了22次课把CTTS系统的功能开发完成了。现在的问题是——如果我把你们的代码拷贝到一台全新的服务器上，它能直接跑起来吗？如果交给客户使用，他们看到的会是什么？"</p>
+</blockquote>
+<p><strong>演示对比</strong>：</p>
+<ul>
+<li>在IDE中点击运行 → 项目启动 → 访问Swagger UI → 一切正常</li>
+<li>拷贝源码到另一台机器 → 缺JDK、缺MySQL、缺依赖、配置不对 →
+启动失败</li>
+</ul>
+<p><strong>引出主题</strong>：从"代码能跑"到"项目能交付"，需要掌握打包、配置、部署的全流程。本次课我们就把CTTS项目从开发环境搬到生产环境。</p>
+<h3 id="环节2k23-1-maven打包15分钟">环节2：K23-1
+Maven打包（15分钟）</h3>
+<p><strong>讲解要点</strong>：</p>
+<ol type="1">
+<li>Maven生命周期回顾：<code>clean</code> → <code>compile</code> →
+<code>test</code> → <code>package</code> → <code>install</code></li>
+<li><code>mvn clean package</code>命令的作用与执行流程</li>
+<li><code>target</code>目录结构解析：
+<ul>
+<li><code>classes/</code>：编译后的class文件</li>
+<li><code>test-classes/</code>：测试class文件</li>
+<li><code>ctts-1.0.0.jar</code>：最终打包产物</li>
+<li><code>ctts-1.0.0.jar.original</code>：repackage前的原始jar</li>
+</ul></li>
+<li><code>spring-boot-maven-plugin</code>插件作用：
+<ul>
+<li>将依赖打入jar（fat jar）</li>
+<li>提供<code>repackage</code>目标</li>
+<li>添加<code>Main-Class</code>启动器</li>
+</ul></li>
+<li>打包排除测试：<code>-DskipTests</code>（跳过测试执行）vs
+<code>-Dmaven.test.skip=true</code>（跳过测试编译+执行）</li>
+</ol>
+<p><strong>现场演示</strong>：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> d:/ctts</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mvn</span> clean package <span class="at">-DskipTests</span></span></code></pre></div>
+<p>观察<code>target</code>目录生成过程，展示jar包内容（用解压工具查看<code>BOOT-INF</code>、<code>META-INF</code>）。</p>
+<p><strong>易错点提示</strong>：</p>
+<ul>
+<li>测试失败会导致打包失败，生产打包常用<code>-DskipTests</code></li>
+<li>pom.xml缺少<code>spring-boot-maven-plugin</code>时，生成的jar无法直接运行</li>
+<li><code>jar.original</code>是原始jar，<code>jar</code>是可执行jar，勿混淆</li>
+</ul>
+<h3 id="环节3k23-2-spring-boot-jar运行15分钟">环节3：K23-2 Spring Boot
+jar运行（15分钟）</h3>
+<p><strong>讲解要点</strong>：</p>
+<ol type="1">
+<li><code>java -jar</code>命令的标准用法</li>
+<li>内嵌Tomcat机制：无需单独部署Tomcat，jar内已包含</li>
+<li>命令行参数传递：
+<ul>
+<li><code>--server.port=9090</code>：覆盖端口</li>
+<li><code>--spring.profiles.active=prod</code>：激活生产配置</li>
+</ul></li>
+<li>后台运行：
+<ul>
+<li>Linux：<code>nohup java -jar ctts.jar &gt; ctts.log 2&gt;&amp;1 &amp;</code></li>
+<li><code>nohup</code>：忽略挂断信号，终端关闭后继续运行</li>
+<li><code>&amp;</code>：后台运行</li>
+<li><code>&gt; ctts.log 2&gt;&amp;1</code>：标准输出和错误输出重定向到日志文件</li>
+</ul></li>
+<li>停止服务：<code>ps -ef | grep ctts.jar</code> →
+<code>kill -9 PID</code></li>
+</ol>
+<p><strong>现场演示</strong>：</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 前台运行</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-jar</span> target/ctts-1.0.0.jar</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 指定端口</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-jar</span> target/ctts-1.0.0.jar <span class="at">--server.port</span><span class="op">=</span>9090</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 后台运行</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> java <span class="at">-jar</span> target/ctts-1.0.0.jar <span class="op">&gt;</span> ctts.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 查看日志</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-f</span> ctts.log</span></code></pre></div>
+<p><strong>对比说明</strong>：IDE运行 vs
+命令行运行——开发用IDE，生产用命令行。</p>
+<h3 id="环节4k23-3-配置文件管理15分钟">环节4：K23-3
+配置文件管理（15分钟）</h3>
+<p><strong>讲解要点</strong>：</p>
+<ol type="1">
+<li>为什么需要多环境配置？
+<ul>
+<li>开发环境：本地MySQL、打印SQL、调试日志</li>
+<li>生产环境：服务器MySQL、关闭SQL打印、INFO日志</li>
+</ul></li>
+<li>配置文件命名规则：
+<ul>
+<li><code>application.yml</code>：主配置，公共部分</li>
+<li><code>application-dev.yml</code>：开发环境</li>
+<li><code>application-prod.yml</code>：生产环境</li>
+</ul></li>
+<li>激活方式：
+<ul>
+<li>配置文件中：<code>spring.profiles.active=dev</code></li>
+<li>命令行：<code>--spring.profiles.active=prod</code></li>
+<li>环境变量：<code>export SPRING_PROFILES_ACTIVE=prod</code></li>
+</ul></li>
+<li><strong>配置优先级</strong>（高→低）：
+<ul>
+<li>命令行参数</li>
+<li>环境变量</li>
+<li>外部配置文件（jar同目录<code>application.yml</code>）</li>
+<li>jar内部配置文件</li>
+<li>默认值</li>
+</ul></li>
+<li>外部配置文件：将<code>application.yml</code>放在jar同目录，会覆盖jar内配置，便于运维修改</li>
+</ol>
+<p><strong>现场演示</strong>：</p>
+<ul>
+<li>展示<code>application.yml</code>、<code>application-dev.yml</code>、<code>application-prod.yml</code>的差异</li>
+<li>演示<code>--spring.profiles.active=prod</code>切换配置</li>
+<li>演示外部<code>application.yml</code>覆盖效果</li>
+</ul>
+<h3 id="环节5k23-4-数据库初始化脚本10分钟">环节5：K23-4
+数据库初始化脚本（10分钟）</h3>
+<p><strong>讲解要点</strong>：</p>
+<ol type="1">
+<li>为什么需要初始化脚本？
+<ul>
+<li>新服务器上MySQL是空的，需要建库建表</li>
+<li>初始数据（管理员账号、字典数据）需要预置</li>
+</ul></li>
+<li><code>schema.sql</code>：建库建表脚本
+<ul>
+<li><code>CREATE DATABASE</code></li>
+<li><code>CREATE TABLE</code></li>
+</ul></li>
+<li><code>data.sql</code>：初始数据脚本
+<ul>
+<li><code>INSERT INTO</code></li>
+</ul></li>
+<li>Spring Boot自动执行SQL脚本：
+<ul>
+<li>配置<code>spring.sql.init.mode=always</code></li>
+<li><code>schema-locations</code>、<code>data-locations</code></li>
+<li>注意：生产环境一般<strong>不自动执行</strong>，避免覆盖数据</li>
+</ul></li>
+<li>手动执行SQL：
+<ul>
+<li><code>mysql -u root -p &lt; schema.sql</code></li>
+<li>通过Navicat/DBeaver执行</li>
+</ul></li>
+</ol>
+<p><strong>现场演示</strong>：</p>
+<ul>
+<li>展示CTTS的<code>schema.sql</code>（用户表、任务表、角色表）</li>
+<li>展示<code>data.sql</code>（默认管理员账号）</li>
+<li>演示手动执行SQL脚本</li>
+</ul>
+<h3 id="环节6k23-5-简单服务器部署20分钟">环节6：K23-5
+简单服务器部署（20分钟）</h3>
+<p><strong>讲解要点</strong>：</p>
+<ol type="1">
+<li><strong>部署流程全景图</strong>：
+<pre><code>本地打包 → 上传jar → 服务器装环境(JDK/MySQL) → 初始化数据库 → 配置数据源 → 启动服务 → 防火墙放行 → Nginx代理 → 验证访问</code></pre></li>
+<li><strong>上传jar</strong>：使用<code>scp</code>或Xftp
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> ctts-1.0.0.jar root@server-ip:/opt/ctts/</span></code></pre></div></li>
+<li><strong>安装JDK 17</strong>：
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yum</span> install <span class="at">-y</span> java-17-openjdk java-17-openjdk-devel</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-version</span></span></code></pre></div></li>
+<li><strong>安装MySQL 8</strong>：
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yum</span> install <span class="at">-y</span> mysql-server</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> start mysqld</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> enable mysqld</span></code></pre></div></li>
+<li><strong>初始化数据库</strong>：
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mysql</span> <span class="at">-u</span> root <span class="at">-p</span> <span class="op">&lt;</span> schema.sql</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mysql</span> <span class="at">-u</span> root <span class="at">-p</span> ctts <span class="op">&lt;</span> data.sql</span></code></pre></div></li>
+<li><strong>配置数据源</strong>：通过外部<code>application-prod.yml</code>或环境变量</li>
+<li><strong>启动服务</strong>：
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> java <span class="at">-jar</span> /opt/ctts/ctts-1.0.0.jar <span class="at">--spring.profiles.active</span><span class="op">=</span>prod <span class="op">&gt;</span> /opt/ctts/ctts.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span></code></pre></div></li>
+<li><strong>防火墙端口开放</strong>：
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">firewall-cmd</span> <span class="at">--permanent</span> <span class="at">--add-port</span><span class="op">=</span>8080/tcp</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">firewall-cmd</span> <span class="at">--reload</span></span></code></pre></div></li>
+<li><strong>Nginx反向代理</strong>：
+<ul>
+<li>安装：<code>yum install -y nginx</code></li>
+<li>配置：将80端口转发到8080</li>
+<li>启动：<code>systemctl start nginx</code></li>
+</ul></li>
+<li><strong>验证访问</strong>：浏览器访问<code>http://server-ip/api/doc.html</code></li>
+</ol>
+<p><strong>现场演示</strong>：通过SSH连接云服务器，逐步完成部署（或播放预录视频）。</p>
+<h3
+id="环节7课堂互动面试题快问快答7分钟">环节7：课堂互动——面试题快问快答（7分钟）</h3>
+<p><strong>组织方式</strong>：教师提问，学生抢答，答对加分（平时分）。</p>
+<p><strong>快问快答题库</strong>：</p>
+<ol type="1">
+<li><code>mvn package</code>和<code>mvn install</code>的区别？</li>
+<li><code>-DskipTests</code>和<code>-Dmaven.test.skip=true</code>的区别？</li>
+<li>Spring Boot的可执行jar和普通jar有什么不同？</li>
+<li>如何在启动时指定端口？</li>
+<li><code>nohup</code>命令的作用是什么？</li>
+<li><code>spring.profiles.active</code>有几种设置方式？</li>
+<li>外部配置文件放在哪里能覆盖jar内配置？</li>
+<li>生产环境为什么一般不自动执行<code>schema.sql</code>？</li>
+<li>防火墙开放端口的命令是什么？</li>
+<li>Nginx反向代理的核心配置项是什么？</li>
+</ol>
+<h3 id="环节8课程思政与总结3分钟">环节8：课程思政与总结（3分钟）</h3>
+<p><strong>思政融入</strong>：</p>
+<blockquote>
+<p>"同学们，今天我们完成了从代码到部署的全流程。但请记住——<strong>能运行不等于能交付</strong>。一个真正可以交付的项目，需要：</p>
+<ul>
+<li>配置正确无误，敏感信息不泄露</li>
+<li>数据库脚本可重放，数据可恢复</li>
+<li>日志可追溯，异常可监控</li>
+<li>部署可复现，回滚有预案</li>
+</ul>
+<p>在2022年某互联网大厂的事故中，工程师将测试配置打包进了生产环境，导致用户数据写入错误数据库，损失惨重。这就是'能运行'但'不能交付'的典型反面案例。</p>
+<p>软件工程师的责任，不只是让代码跑起来，更是让交付物可靠、可控、可维护。希望同学们在未来的工作中，始终怀着对交付的敬畏之心。"</p>
+</blockquote>
+<p><strong>课堂总结</strong>：</p>
+<ul>
+<li>Maven打包：<code>mvn clean package -DskipTests</code> →
+生成可执行jar</li>
+<li>jar运行：<code>java -jar</code> + 命令行参数 → 灵活启动</li>
+<li>多环境配置：<code>application-{profile}.yml</code> +
+<code>spring.profiles.active</code> → 环境隔离</li>
+<li>数据库初始化：<code>schema.sql</code> + <code>data.sql</code> →
+数据准备</li>
+<li>服务器部署：JDK + MySQL + Nginx → 完整上线</li>
+</ul>
+<p><strong>课后任务</strong>：</p>
+<ol type="1">
+<li>完成CTTS项目的Maven打包，提交jar包</li>
+<li>编写<code>application-prod.yml</code>，配置生产环境参数</li>
+<li>（选做）在自己的云服务器上完成部署，提交访问截图</li>
+</ol>
+<h2 id="九课程思政设计">九、课程思政设计</h2>
+<table>
+<thead>
+<tr>
+<th>思政元素</th>
+<th>融入点</th>
+<th>实现方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>软件交付责任意识</td>
+<td>K23-3 配置文件管理</td>
+<td>通过配置泄露事故案例，强调配置管理的严肃性</td>
+</tr>
+<tr>
+<td>严谨的工程态度</td>
+<td>K23-4 数据库初始化</td>
+<td>强调"脚本可重放、数据可恢复"的工程要求</td>
+</tr>
+<tr>
+<td>DevOps协作精神</td>
+<td>K23-5 服务器部署</td>
+<td>讲解开发与运维的协同，培养全链路视野</td>
+</tr>
+<tr>
+<td>生产安全意识</td>
+<td>K23-5 防火墙与端口</td>
+<td>强调最小权限原则，只开放必要端口</td>
+</tr>
+<tr>
+<td>版本一致性意识</td>
+<td>K23-1 Maven打包</td>
+<td>强调打包版本号管理，避免"在我机器上能跑"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>思政总结语</strong>：</p>
+<blockquote>
+<p>"软件交付责任——能运行不等于能交付。一个合格的工程师，不仅要写出能跑的代码，更要交付可部署、可运维、可信任的系统。这是我们从'码农'走向'工程师'的必经之路。"</p>
+</blockquote>
+<h2 id="十教学反思">十、教学反思</h2>
+<h3 id="预设反思点">预设反思点</h3>
+<ol type="1">
+<li><strong>时间控制</strong>：服务器部署环节内容较多（20分钟），若现场演示遇网络问题需切换录屏备份</li>
+<li><strong>学生参与</strong>：面试题快问快答环节需控制节奏，避免个别学生主导，确保多数参与</li>
+<li><strong>实操跟练</strong>：理论课无法让所有学生现场操作，需通过课后任务巩固</li>
+<li><strong>难点突破</strong>：可执行jar的内部结构较抽象，需借助解压工具可视化展示</li>
+</ol>
+<h3 id="课后改进方向">课后改进方向</h3>
+<ol type="1">
+<li>录制完整的部署演示视频，供学生课后反复观看</li>
+<li>第24次课项目答辩前，安排一次实操答疑课，解决学生部署问题</li>
+<li>收集学生部署过程中的共性问题，形成FAQ文档</li>
+<li>探索Docker容器化部署的拓展内容（学有余力学生）</li>
+</ol>
+<h2 id="十一板书设计">十一、板书设计</h2>
+<pre><code>第23次课 Maven打包与Spring Boot部署
+=====================================
+一、打包   mvn clean package -DskipTests → target/ctts.jar
+二、运行   java -jar ctts.jar --spring.profiles.active=prod
+三、配置   application.yml + application-{dev/prod}.yml
+           优先级：命令行 &gt; 外部文件 &gt; 内部文件 &gt; 默认值
+四、数据库  schema.sql（建表）+ data.sql（初始数据）
+五、部署   上传jar → 装JDK/MySQL → 初始化DB → 启动 → 防火墙 → Nginx
+=====================================
+核心思想：能运行 ≠ 能交付</code></pre>
+<h2 id="十二课后作业">十二、课后作业</h2>
+<h3 id="必做">必做</h3>
+<ol type="1">
+<li>完成CTTS项目Maven打包，生成可执行jar，截图<code>target</code>目录</li>
+<li>通过命令行方式启动CTTS项目，访问Swagger UI，截图验证</li>
+<li>编写<code>application-prod.yml</code>，配置生产环境数据库（使用虚拟IP或localhost）</li>
+</ol>
+<h3 id="选做">选做</h3>
+<ol start="4" type="1">
+<li>在云服务器（学生机）上完成CTTS部署，提交访问截图</li>
+<li>配置Nginx反向代理，通过80端口访问CTTS</li>
+</ol>
+<h3 id="思考题">思考题</h3>
+<ol start="6" type="1">
+<li>如果生产环境需要不停机升级，你会如何设计部署方案？（提示：蓝绿部署、滚动发布）</li>
+<li>如何保证数据库初始化脚本在已存在数据的服务器上不会覆盖数据？</li>
+</ol>
+<h2 id="十三参考资料">十三、参考资料</h2>
+<ol type="1">
+<li>Spring Boot官方文档 - Packaging Your Application</li>
+<li>Maven官方文档 - Lifecycle Reference</li>
+<li>Spring Boot官方文档 - Externalized Configuration</li>
+<li>Nginx官方文档 - Beginner's Guide</li>
+<li>课程教材《Spring Boot实战》（第4-5章）</li>
+<li>前序课程资料：第22次课教学资料</li>
+</ol>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

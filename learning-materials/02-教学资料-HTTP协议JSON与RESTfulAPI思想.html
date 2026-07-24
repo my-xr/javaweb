@@ -1,0 +1,1133 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTTP协议JSON与RESTfulAPI思想</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 02 次课 · 教学资料</div>
+      <h1>HTTP协议JSON与RESTfulAPI思想</h1>
+      <p>面向学生复习、自学、代码示例与知识图示 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 02 次课</span>
+        <span class="hero-chip"><b>主题</b>HTTP协议JSON与RESTfulAPI思想</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一学习导读">一、学习导读</a>
+<ul>
+<li><a href="#11-本节定位">1.1 本节定位</a></li>
+<li><a href="#12-先修基础">1.2 先修基础</a></li>
+<li><a href="#13-学习目标">1.3 学习目标</a></li>
+</ul></li>
+<li><a href="#二知识点详解">二、知识点详解</a>
+<ul>
+<li><a href="#知识点-k2-1http-协议与报文结构">知识点 K2-1：HTTP 协议与报文结构</a></li>
+<li><a href="#知识点-k2-2url-与请求方法">知识点 K2-2：URL 与请求方法</a></li>
+<li><a href="#知识点-k2-3http-状态码">知识点 K2-3：HTTP 状态码</a></li>
+<li><a href="#知识点-k2-4header--cookie--session">知识点 K2-4：Header / Cookie / Session</a></li>
+<li><a href="#知识点-k2-5json-数据格式">知识点 K2-5：JSON 数据格式</a></li>
+<li><a href="#知识点-k2-6restful-api-设计思想">知识点 K2-6：RESTful API 设计思想</a></li>
+</ul></li>
+<li><a href="#三综合示例用-apifox-分析一个完整接口">三、综合示例：用 Apifox 分析一个完整接口</a>
+<ul>
+</ul></li>
+<li><a href="#四拓展阅读选学">四、拓展阅读（选学）</a>
+<ul>
+</ul></li>
+<li><a href="#五本节小结与知识结构图">五、本节小结与知识结构图</a>
+<ul>
+<li><a href="#知识结构图思维导图">知识结构图（思维导图）</a></li>
+<li><a href="#一句话总结">一句话总结</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 02 次课 <span>｜</span> <strong>文档：</strong>教学资料</p>
+<blockquote>
+<p>学生复习资料 ｜
+配套：<code>教学设计.md</code>（教师教案）、<code>题库.md</code>（78
+题考试题库）
+本资料面向学生课后复习自学，包含定义、原理、问题、完整示例代码、图示、易错点与小结。</p>
+</blockquote>
+<hr />
+<h2 id="一学习导读">一、学习导读</h2>
+<h3 id="11-本节定位">1.1 本节定位</h3>
+<p>这是《JavaWeb 后端开发技术》的<strong>第二节课</strong>，承接第 1
+节"后端开发认知"，深入讲解前后端通信的"语言"——<strong>HTTP
+协议</strong>，以及数据格式 <strong>JSON</strong> 和接口设计思想
+<strong>RESTful API</strong>。</p>
+<p>学完本节，你应当能回答：</p>
+<ul>
+<li>一个 HTTP 请求和响应由哪些部分组成？</li>
+<li>GET/POST/PUT/DELETE 各表达什么操作语义？</li>
+<li>200/400/401/403/404/500 这些状态码分别表示什么？</li>
+<li>Cookie 和 Session 有什么区别？</li>
+<li>JSON 怎么写？支持哪些数据类型？</li>
+<li>什么是 RESTful API？怎么设计规范的接口路径？</li>
+</ul>
+<h3 id="12-先修基础">1.2 先修基础</h3>
+<table>
+<thead>
+<tr>
+<th>先修知识</th>
+<th>用到程度</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 次课内容</td>
+<td>必要</td>
+<td>理解 B/S 架构、前后端分离、后端职责</td>
+</tr>
+<tr>
+<td>数据库基础</td>
+<td>基础</td>
+<td>理解"资源"概念有助于学习 RESTful</td>
+</tr>
+<tr>
+<td>计算机网络常识</td>
+<td>有则更好</td>
+<td>了解客户端服务器通信基本概念</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-学习目标">1.3 学习目标</h3>
+<ul>
+<li>✅ 掌握 HTTP 请求与响应报文结构</li>
+<li>✅ 掌握 HTTP 请求方法与状态码</li>
+<li>✅ 理解 Header、Cookie、Session</li>
+<li>✅ 掌握 JSON 数据格式</li>
+<li>✅ 理解并能应用 RESTful API 设计思想</li>
+</ul>
+<hr />
+<h2 id="二知识点详解">二、知识点详解</h2>
+<h3 id="知识点-k2-1http-协议与报文结构">知识点 K2-1：HTTP
+协议与报文结构</h3>
+<h4 id="定义">定义</h4>
+<p><strong>HTTP（HyperText Transfer Protocol，超文本传输协议）</strong>
+是 Web
+客户端与服务器之间通信的协议。它采用<strong>请求-响应模型</strong>：客户端发起请求，服务器返回响应。</p>
+<h4 id="原理">原理</h4>
+<p>HTTP
+是<strong>无状态协议</strong>（服务器不记录上一次请求的状态），基于
+TCP，默认端口 80。通信过程：</p>
+<div class="visual">
+  <div class="visual-title">图示 1：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">客户端                          服务器</span>
+<span class="diagram-line">  <span class="tree-token">│</span>  <span class="tree-token">─</span><span class="tree-token">─</span> HTTP 请求 <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span>           <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>                             <span class="tree-token">│</span>  处理请求</span>
+<span class="diagram-line">  <span class="tree-token">│</span>  ◀<span class="tree-token">─</span><span class="tree-token">─</span> HTTP 响应 <span class="tree-token">─</span><span class="tree-token">─</span>           <span class="tree-token">│</span></span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p><strong>HTTP 请求报文结构</strong>（三部分）：</p>
+<pre><code>请求行        POST /api/tasks HTTP/1.1
+请求头        Host: localhost:8080
+              Content-Type: application/json
+              Content-Length: 52
+空行
+请求体        {&quot;title&quot;:&quot;任务1&quot;,&quot;projectId&quot;:1}</code></pre>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>请求行</td>
+<td>方法 + 路径 + 版本</td>
+<td><code>POST /api/tasks HTTP/1.1</code></td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>键值对，描述请求元信息</td>
+<td><code>Content-Type: application/json</code></td>
+</tr>
+<tr>
+<td>请求体</td>
+<td>携带数据（GET 一般无，POST 有）</td>
+<td><code>{"title":"任务1"}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>HTTP 响应报文结构</strong>（三部分）：</p>
+<pre><code>状态行        HTTP/1.1 200 OK
+响应头        Content-Type: application/json
+              Content-Length: 38
+空行
+响应体        {&quot;code&quot;:200,&quot;message&quot;:&quot;success&quot;}</code></pre>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>状态行</td>
+<td>版本 + 状态码 + 原因短语</td>
+<td><code>HTTP/1.1 200 OK</code></td>
+</tr>
+<tr>
+<td>响应头</td>
+<td>键值对，描述响应元信息</td>
+<td><code>Content-Type: application/json</code></td>
+</tr>
+<tr>
+<td>响应体</td>
+<td>返回的数据（常为 JSON）</td>
+<td><code>{"code":200}</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="问题--场景">问题 / 场景</h4>
+<p><strong>问：GET 请求有请求体吗？</strong></p>
+<ul>
+<li>一般没有。GET 用于查询，参数放在 URL 的 query string 中。POST/PUT
+才用请求体携带数据。</li>
+</ul>
+<p><strong>问：请求头和请求体之间为什么要有一个空行？</strong></p>
+<ul>
+<li>空行是 HTTP
+规范规定的分隔符，告诉服务器"请求头结束，后面是请求体"。</li>
+</ul>
+<h4 id="完整示例代码">完整示例代码</h4>
+<p>一个完整的 HTTP 请求与响应（GET 查询任务列表）：</p>
+<pre><code>===== HTTP 请求 =====
+GET /api/tasks?projectId=1 HTTP/1.1
+Host: localhost:8080
+Accept: application/json
+User-Agent: Apifox/1.0
+
+（GET 请求通常无请求体）
+
+
+===== HTTP 响应 =====
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 156
+
+[
+  {&quot;id&quot;:1,&quot;title&quot;:&quot;任务1&quot;,&quot;deadline&quot;:&quot;2026-08-01&quot;},
+  {&quot;id&quot;:2,&quot;title&quot;:&quot;任务2&quot;,&quot;deadline&quot;:&quot;2026-08-10&quot;}
+]</code></pre>
+<p>一个完整的 HTTP 请求与响应（POST 新增任务）：</p>
+<pre><code>===== HTTP 请求 =====
+POST /api/tasks HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 52
+
+{&quot;title&quot;:&quot;任务1&quot;,&quot;projectId&quot;:1,&quot;deadline&quot;:&quot;2026-08-01&quot;}
+
+
+===== HTTP 响应 =====
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{&quot;code&quot;:201,&quot;message&quot;:&quot;创建成功&quot;,&quot;data&quot;:{&quot;id&quot;:101}}</code></pre>
+<h4 id="图示">图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 2：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">HTTP 请求报文：                      HTTP 响应报文：</span>
+<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐                ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line"><span class="tree-token">│</span> 请求行            <span class="tree-token">│</span>                <span class="tree-token">│</span> 状态行            <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> GET /api/x HTTP/1.1<span class="tree-token">│</span>              <span class="tree-token">│</span> HTTP/1.1 200 OK   <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤                <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
+<span class="diagram-line"><span class="tree-token">│</span> 请求头            <span class="tree-token">│</span>                <span class="tree-token">│</span> 响应头            <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> Host:...          <span class="tree-token">│</span>                <span class="tree-token">│</span> Content-Type:... <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> Content-Type:...  <span class="tree-token">│</span>                <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤                <span class="tree-token">│</span> （空行）          <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> （空行）          <span class="tree-token">│</span>                <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤                <span class="tree-token">│</span> 响应体            <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> 请求体            <span class="tree-token">│</span>                <span class="tree-token">│</span> {&quot;code&quot;:200,...}  <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> {&quot;title&quot;:&quot;...&quot;}   <span class="tree-token">│</span>                <span class="tree-token">│</span>                  <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘                <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="易错点">易错点</h4>
+<ol type="1">
+<li>❌ 误认为 GET 请求有请求体。✅ GET 参数在 URL，一般无请求体。</li>
+<li>❌ 误认为请求头和请求体之间没有空行。✅ 必须有空行分隔。</li>
+<li>❌ 混淆请求行与请求头。✅
+请求行只有一行（方法+路径+版本），请求头是多行键值对。</li>
+</ol>
+<h4 id="小结">小结</h4>
+<p>HTTP
+报文分请求与响应，各三部分：请求=请求行+请求头+请求体，响应=状态行+响应头+响应体。空行分隔头部与体。</p>
+<hr />
+<h3 id="知识点-k2-2url-与请求方法">知识点 K2-2：URL 与请求方法</h3>
+<h4 id="定义-1">定义</h4>
+<p><strong>URL（Uniform Resource Locator，统一资源定位符）</strong>
+用于定位网络上的资源。</p>
+<p><strong>HTTP 请求方法</strong>表示对资源执行的操作类型。</p>
+<h4 id="原理-1">原理</h4>
+<p><strong>URL 组成</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 3：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">http://localhost:8080/api/tasks?projectId=1&amp;status=进行中</span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span>┘  <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘ <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span>┘<span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘ <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+<span class="diagram-line"> 协议      主机       端口    路径            查询参数(query)</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>组成</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议</td>
+<td>通信协议</td>
+<td>http / https</td>
+</tr>
+<tr>
+<td>主机</td>
+<td>服务器地址</td>
+<td>localhost / <a
+href="http://www.example.com">www.example.com</a></td>
+</tr>
+<tr>
+<td>端口</td>
+<td>服务端口</td>
+<td>80（默认）/ 8080 / 443（https）</td>
+</tr>
+<tr>
+<td>路径</td>
+<td>资源位置</td>
+<td>/api/tasks</td>
+</tr>
+<tr>
+<td>查询参数</td>
+<td>附带条件</td>
+<td>?projectId=1&amp;status=进行中</td>
+</tr>
+</tbody>
+</table>
+<p><strong>HTTP 请求方法</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>语义</th>
+<th>幂等性</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>查询资源</td>
+<td>幂等</td>
+<td><code>GET /api/tasks/1</code> 查询 id=1 的任务</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>新增资源</td>
+<td>非幂等</td>
+<td><code>POST /api/tasks</code> 新增任务</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>更新资源（全量）</td>
+<td>幂等</td>
+<td><code>PUT /api/tasks/1</code> 更新 id=1 的任务</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>删除资源</td>
+<td>幂等</td>
+<td><code>DELETE /api/tasks/1</code> 删除 id=1 的任务</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>幂等性</strong>：同一请求执行一次与执行多次效果相同。GET/PUT/DELETE
+幂等，POST 非幂等（多次提交会创建多条数据）。</p>
+</blockquote>
+<h4 id="问题--场景-1">问题 / 场景</h4>
+<p><strong>问：GET 和 POST 有什么区别？（面试经典题）</strong></p>
+<ol type="1">
+<li>语义：GET 查询，POST 新增。</li>
+<li>参数位置：GET 参数在 URL，POST 参数在请求体。</li>
+<li>幂等性：GET 幂等，POST 非幂等。</li>
+<li>安全性：GET 参数暴露在 URL，POST 相对隐蔽（但都不加密传输，https
+才安全）。</li>
+<li>长度限制：GET URL 长度有限制（浏览器限制），POST
+请求体理论上无限制。</li>
+</ol>
+<p><strong>问：查询用 GET 还是 POST？</strong></p>
+<ul>
+<li>查询用 GET。GET 语义就是"获取资源"，且参数在 URL
+便于分享和缓存。</li>
+</ul>
+<h4 id="完整示例代码-1">完整示例代码</h4>
+<p>RESTful 风格的 CRUD 接口（以 task 资源为例）：</p>
+<pre><code>查询所有任务：    GET    /api/tasks
+查询单个任务：    GET    /api/tasks/5        （5 是任务 ID）
+新增任务：       POST   /api/tasks           （请求体带数据）
+更新任务：       PUT    /api/tasks/5         （请求体带数据）
+删除任务：       DELETE /api/tasks/5</code></pre>
+<p>对比非 RESTful 写法（不推荐）：</p>
+<pre><code>查询所有任务：    GET /api/getAllTasks
+查询单个任务：    GET /api/getTaskById?id=5
+新增任务：       POST /api/addTask
+更新任务：       POST /api/updateTask?id=5
+删除任务：       GET /api/deleteTask?id=5    （用 GET 删除，不规范）</code></pre>
+<h4 id="图示-1">图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 4：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">URL 结构：</span>
+<span class="diagram-line">协议://主机:端口/路径?查询参数</span>
+<span class="diagram-line">http://localhost:8080/api/tasks?projectId=1</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="易错点-1">易错点</h4>
+<ol type="1">
+<li>❌ 用 GET 执行删除操作。✅ 删除应使用 DELETE 方法，GET
+应只用于查询（无副作用）。</li>
+<li>❌ 把参数既放 URL 又放请求体。✅ GET 参数放 URL，POST/PUT
+数据放请求体。</li>
+<li>❌ 误认为 POST 比 GET 安全（加密意义）。✅
+两者都是明文传输，安全要靠 HTTPS。</li>
+</ol>
+<h4 id="小结-1">小结</h4>
+<p>URL 定位资源，HTTP 方法表达操作。GET 查询、POST 新增、PUT
+更新、DELETE 删除，遵循语义是 RESTful 的基础。</p>
+<hr />
+<h3 id="知识点-k2-3http-状态码">知识点 K2-3：HTTP 状态码</h3>
+<h4 id="定义-2">定义</h4>
+<p><strong>HTTP 状态码</strong>是服务器返回的 3
+位数字，表示请求的处理结果。</p>
+<h4 id="原理-2">原理</h4>
+<p>状态码按首位数字分为 5 类：</p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>含义</th>
+<th>常见状态码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx</td>
+<td>信息性（请求已接收，继续处理）</td>
+<td>较少使用</td>
+</tr>
+<tr>
+<td>2xx</td>
+<td>成功</td>
+<td>200 OK、201 Created</td>
+</tr>
+<tr>
+<td>3xx</td>
+<td>重定向</td>
+<td>302 Found、304 Not Modified</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>客户端错误</td>
+<td>400、401、403、404</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>服务器错误</td>
+<td>500、502、503</td>
+</tr>
+</tbody>
+</table>
+<p><strong>必须掌握的常用状态码</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>含义</th>
+<th>典型场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200 OK</td>
+<td>请求成功</td>
+<td>查询/更新成功返回</td>
+</tr>
+<tr>
+<td>201 Created</td>
+<td>资源创建成功</td>
+<td>POST 新增成功</td>
+</tr>
+<tr>
+<td>400 Bad Request</td>
+<td>请求参数错误</td>
+<td>参数缺失、格式不对</td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td>未认证（未登录）</td>
+<td>没带 Token 或 Token 失效</td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td>无权限（已认证但禁止访问）</td>
+<td>普通用户访问管理员接口</td>
+</tr>
+<tr>
+<td>404 Not Found</td>
+<td>资源不存在</td>
+<td>查询的 ID 找不到</td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td>服务器内部错误</td>
+<td>代码异常、数据库错误</td>
+</tr>
+</tbody>
+</table>
+<h4 id="问题--场景-2">问题 / 场景</h4>
+<p><strong>问：401 和 403 有什么区别？（面试高频）</strong></p>
+<ul>
+<li><strong>401
+Unauthorized</strong>：未认证——服务器不知道你是谁（没登录、没带
+Token）。</li>
+<li><strong>403
+Forbidden</strong>：已认证但无权限——服务器知道你是谁，但你没权限做这件事。</li>
+<li>例：学生想删除任务 → 若没登录返回 401；若已登录但学生不能删任务返回
+403。</li>
+</ul>
+<p><strong>问：实际项目中状态码怎么用？</strong></p>
+<ul>
+<li>真实项目中，很多团队在 HTTP 层统一返回 200，在响应体的业务 code
+字段中区分业务状态（如
+<code>{"code":4001,"message":"参数错误"}</code>）。两种做法都存在，本课程后续会讲解统一响应结果设计。</li>
+</ul>
+<h4 id="完整示例代码-2">完整示例代码</h4>
+<p>不同场景的状态码示例：</p>
+<pre><code>场景1：查询成功
+HTTP/1.1 200 OK
+{&quot;code&quot;:200,&quot;data&quot;:[...]}
+
+场景2：新增成功
+HTTP/1.1 201 Created
+{&quot;code&quot;:201,&quot;message&quot;:&quot;创建成功&quot;,&quot;data&quot;:{&quot;id&quot;:101}}
+
+场景3：未登录访问需认证接口
+HTTP/1.1 401 Unauthorized
+{&quot;code&quot;:401,&quot;message&quot;:&quot;未登录或Token失效&quot;}
+
+场景4：学生访问管理员接口
+HTTP/1.1 403 Forbidden
+{&quot;code&quot;:403,&quot;message&quot;:&quot;无权限&quot;}
+
+场景5：查询不存在的资源
+HTTP/1.1 404 Not Found
+{&quot;code&quot;:404,&quot;message&quot;:&quot;任务不存在&quot;}
+
+场景6：服务器代码异常
+HTTP/1.1 500 Internal Server Error
+{&quot;code&quot;:500,&quot;message&quot;:&quot;服务器内部错误&quot;}</code></pre>
+<h4 id="图示-2">图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 5：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">状态码分类：</span>
+<span class="diagram-line">1xx 信息  2xx 成功  3xx 重定向  4xx 客户端错误  5xx 服务器错误</span>
+<span class="diagram-line">                       <span class="tree-token">│</span>              <span class="tree-token">│</span>                <span class="tree-token">│</span></span>
+<span class="diagram-line">                       ▼              ▼                ▼</span>
+<span class="diagram-line">                  200/201       400/401/403/404      500/502/503</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="易错点-2">易错点</h4>
+<ol type="1">
+<li>❌ 混淆 401 与 403。✅
+401=未认证（你是谁），403=无权限（你能干嘛）。</li>
+<li>❌ 误认为 4xx 是服务器错误。✅ 4xx 是客户端错误（请求有问题），5xx
+才是服务器错误。</li>
+<li>❌ 误认为 404 只表示页面不存在。✅ 404
+表示请求的资源不存在，包括接口、数据记录。</li>
+</ol>
+<h4 id="小结-2">小结</h4>
+<p>状态码 5 类：2xx 成功、4xx 客户端错误、5xx 服务器错误。重点掌握
+200/201/400/401/403/404/500，尤其区分 401 与 403。</p>
+<hr />
+<h3 id="知识点-k2-4header--cookie--session">知识点 K2-4：Header / Cookie
+/ Session</h3>
+<h4 id="定义-3">定义</h4>
+<ul>
+<li><strong>Header（报文头）</strong>：HTTP
+请求和响应中的键值对，携带元信息（如 Content-Type、User-Agent）。</li>
+<li><strong>Cookie</strong>：服务器发给客户端的小段数据，由客户端保存，后续请求自动带上。</li>
+<li><strong>Session（会话）</strong>：服务器端保存的会话状态，通过
+Session ID 标识用户。</li>
+</ul>
+<h4 id="原理-3">原理</h4>
+<p><strong>常见 Header</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>方向</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>请求/响应</td>
+<td>数据类型，如 application/json</td>
+</tr>
+<tr>
+<td>Accept</td>
+<td>请求</td>
+<td>客户端能接受的类型</td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td>请求</td>
+<td>客户端信息（浏览器类型）</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>请求</td>
+<td>认证信息（如 Bearer Token）</td>
+</tr>
+<tr>
+<td>Set-Cookie</td>
+<td>响应</td>
+<td>服务器设置 Cookie</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cookie 与 Session 的关系</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 6：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">首次访问：</span>
+<span class="diagram-line">客户端 <span class="tree-token">─</span><span class="tree-token">─</span>请求<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 服务器</span>
+<span class="diagram-line">                  <span class="tree-token">│</span>  创建 Session，生成 SessionID</span>
+<span class="diagram-line">                  <span class="tree-token">│</span>  通过 Set-Cookie 返回</span>
+<span class="diagram-line">客户端 ◀<span class="tree-token">─</span><span class="tree-token">─</span>响应<span class="tree-token">─</span><span class="tree-token">─</span>  <span class="tree-token">│</span>  （Set-Cookie: JSESSIONID=abc123）</span>
+<span class="diagram-line">       保存 Cookie</span>
+<span class="diagram-line">后续访问：</span>
+<span class="diagram-line">客户端 <span class="tree-token">─</span><span class="tree-token">─</span>请求（带 Cookie: JSESSIONID=abc123）<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 服务器</span>
+<span class="diagram-line">                                                    <span class="tree-token">│</span>  根据 SessionID 找到 Session</span>
+<span class="diagram-line">                                                    <span class="tree-token">│</span>  识别用户身份</span>
+<span class="diagram-line">客户端 ◀<span class="tree-token">─</span><span class="tree-token">─</span>响应<span class="tree-token">─</span><span class="tree-token">─</span>  <span class="tree-token">│</span></span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p><strong>Cookie 与 Session 区别</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>Cookie</th>
+<th>Session</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储位置</td>
+<td>客户端（浏览器）</td>
+<td>服务器端</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>较低（可被查看篡改）</td>
+<td>较高（数据在服务器）</td>
+</tr>
+<tr>
+<td>大小限制</td>
+<td>单个约 4KB</td>
+<td>无特别限制（受服务器内存）</td>
+</tr>
+<tr>
+<td>生命周期</td>
+<td>可设过期时间</td>
+<td>默认会话结束失效，可配置</td>
+</tr>
+</tbody>
+</table>
+<h4 id="问题--场景-3">问题 / 场景</h4>
+<p><strong>问：前后端分离项目为什么倾向用 Token 而非
+Session？</strong></p>
+<ul>
+<li>Session 存在服务器，多服务器部署时需共享 Session（复杂）；Token（如
+JWT）是无状态的，客户端携带即可，服务器不用存，便于扩展。这部分第 6
+模块详讲。</li>
+</ul>
+<p><strong>问：Cookie 和 Session 哪个更安全？</strong></p>
+<ul>
+<li>Session 更安全，敏感数据存服务器，客户端只存 SessionID。Cookie
+存客户端，可被查看篡改。</li>
+</ul>
+<h4 id="完整示例代码-3">完整示例代码</h4>
+<p>请求头与响应头示例：</p>
+<pre><code>===== 请求头示例 =====
+GET /api/tasks HTTP/1.1
+Host: localhost:8080
+Accept: application/json
+User-Agent: Mozilla/5.0
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9...   （Token 认证）
+Cookie: JSESSIONID=abc123                         （带 Cookie）
+
+
+===== 响应头示例 =====
+HTTP/1.1 200 OK
+Content-Type: application/json
+Set-Cookie: JSESSIONID=abc123; Path=/; HttpOnly   （设置 Cookie）</code></pre>
+<h4 id="图示-3">图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 7：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">Cookie/Session 工作流程：</span>
+<span class="diagram-line">客户端                              服务器</span>
+<span class="diagram-line">  <span class="tree-token">│</span>  <span class="tree-token">─</span><span class="tree-token">─</span> 请求（无Cookie）<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span>          <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>                                  <span class="tree-token">│</span> 创建Session(ID=abc)</span>
+<span class="diagram-line">  <span class="tree-token">│</span>  ◀<span class="tree-token">─</span><span class="tree-token">─</span> 响应(Set-Cookie:abc)<span class="tree-token">─</span><span class="tree-token">─</span>      <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>  保存Cookie                      <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>  <span class="tree-token">─</span><span class="tree-token">─</span> 请求(Cookie:abc)<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span>          <span class="tree-token">│</span></span>
+<span class="diagram-line">  <span class="tree-token">│</span>                                  <span class="tree-token">│</span> 根据ID找Session<span class="arrow-token">→</span>识别用户</span>
+<span class="diagram-line">  <span class="tree-token">│</span>  ◀<span class="tree-token">─</span><span class="tree-token">─</span> 响应(个性化内容)<span class="tree-token">─</span><span class="tree-token">─</span>          <span class="tree-token">│</span></span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="易错点-3">易错点</h4>
+<ol type="1">
+<li>❌ 误认为 Cookie 存在服务器。✅ Cookie 存客户端，Session
+存服务器。</li>
+<li>❌ 误认为 Session 不需要 Cookie。✅ 传统模式下 Session 依赖 Cookie
+传递 SessionID（除非用 URL 重写）。</li>
+<li>❌ 误认为前后端分离必须用 Session。✅ 前后端分离更倾向用
+Token（无状态），第 6 模块详讲。</li>
+</ol>
+<h4 id="小结-3">小结</h4>
+<p>Header 携带元信息；Cookie 存客户端、Session
+存服务器；前后端分离倾向用 Token 替代 Session（第 6 模块）。</p>
+<hr />
+<h3 id="知识点-k2-5json-数据格式">知识点 K2-5：JSON 数据格式</h3>
+<h4 id="定义-4">定义</h4>
+<p><strong>JSON（JavaScript Object Notation）</strong>
+是一种轻量级的数据交换格式，前后端分离后后端最常用的返回数据格式。</p>
+<h4 id="原理-4">原理</h4>
+<p><strong>JSON 支持的数据类型</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对象（Object）</td>
+<td>键值对集合，用 <code>{}</code></td>
+<td><code>{"name":"张三","age":20}</code></td>
+</tr>
+<tr>
+<td>数组（Array）</td>
+<td>有序列表，用 <code>[]</code></td>
+<td><code>[1,2,3]</code> 或 <code>[{"id":1},{"id":2}]</code></td>
+</tr>
+<tr>
+<td>字符串（String）</td>
+<td>用双引号</td>
+<td><code>"hello"</code></td>
+</tr>
+<tr>
+<td>数字（Number）</td>
+<td>整数或浮点</td>
+<td><code>20</code> 或 <code>3.14</code></td>
+</tr>
+<tr>
+<td>布尔（Boolean）</td>
+<td>真/假</td>
+<td><code>true</code> / <code>false</code></td>
+</tr>
+<tr>
+<td>null</td>
+<td>空值</td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>JSON 语法规则</strong>：</p>
+<ol type="1">
+<li>数据是键值对，键必须用<strong>双引号</strong>。</li>
+<li>键值对用冒号 <code>:</code> 分隔。</li>
+<li>多个键值对用逗号 <code>,</code> 分隔。</li>
+<li>对象用 <code>{}</code>，数组用 <code>[]</code>。</li>
+<li>字符串必须用<strong>双引号</strong>（不能用单引号）。</li>
+</ol>
+<h4 id="问题--场景-4">问题 / 场景</h4>
+<p><strong>问：JSON 的键能用单引号吗？</strong></p>
+<ul>
+<li>不能。JSON
+规范要求键和字符串都用双引号。<code>{'name':'张三'}</code> 不是合法
+JSON（虽然 JS 中允许）。</li>
+</ul>
+<p><strong>问：JSON 能嵌套吗？</strong></p>
+<ul>
+<li>能。对象里可以有数组，数组里可以有对象，多层嵌套。</li>
+</ul>
+<h4 id="完整示例代码-4">完整示例代码</h4>
+<p>合法的 JSON 示例（描述一个学生提交任务的数据）：</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;student&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1001</span><span class="fu">,</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;张三&quot;</span><span class="fu">,</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;className&quot;</span><span class="fu">:</span> <span class="st">&quot;软件工程1班&quot;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;task&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;搭建Spring Boot项目&quot;</span><span class="fu">,</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;deadline&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-08-01&quot;</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;submission&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;content&quot;</span><span class="fu">:</span> <span class="st">&quot;已完成项目搭建，代码已提交GitHub&quot;</span><span class="fu">,</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;submitTime&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-07-25T14:30:00&quot;</span><span class="fu">,</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;已提交&quot;</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;score&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;isReviewed&quot;</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>JSON 数组示例（任务列表）：</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span> <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;任务1&quot;</span><span class="fu">,</span> <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;进行中&quot;</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span> <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;任务2&quot;</span><span class="fu">,</span> <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;已结束&quot;</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span> <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;任务3&quot;</span><span class="fu">,</span> <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;未开始&quot;</span><span class="fu">}</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<p><strong>常见错误 JSON</strong>（不合法）：</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">错误1：键用了单引号</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="er">&#39;name&#39;</span><span class="fu">:</span> <span class="er">&#39;张三&#39;</span><span class="fu">}</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">错误2：字符串用了单引号</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="er">&#39;张三&#39;</span><span class="fu">}</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">错误3：最后一个键值对多了逗号</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;张三&quot;</span><span class="fu">,</span> <span class="dt">&quot;age&quot;</span><span class="fu">:</span> <span class="dv">20</span><span class="fu">,}</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">错误4：键没有引号</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="er">name</span><span class="fu">:</span> <span class="st">&quot;张三&quot;</span><span class="fu">}</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">错误5：注释（JSON</span> <span class="er">不允许注释）</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;张三&quot;</span><span class="fu">}</span> <span class="er">//</span> <span class="er">这是学生姓名</span></span></code></pre></div>
+<h4 id="图示-4">图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 8：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">JSON 数据类型：</span>
+<span class="diagram-line">对象 {} <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span> 字符串 &quot;...&quot;</span>
+<span class="diagram-line">          <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 数字 123</span>
+<span class="diagram-line">          <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 布尔 true/false</span>
+<span class="diagram-line">          <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> null</span>
+<span class="diagram-line">          <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 数组 [...]</span>
+<span class="diagram-line">          <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 对象 {...}（可嵌套）</span>
+<span class="diagram-line">示例：</span>
+<span class="diagram-line">{                          ← 对象</span>
+<span class="diagram-line">  &quot;name&quot;: &quot;张三&quot;,          ← 字符串</span>
+<span class="diagram-line">  &quot;age&quot;: 20,               ← 数字</span>
+<span class="diagram-line">  &quot;active&quot;: true,          ← 布尔</span>
+<span class="diagram-line">  &quot;score&quot;: null,           ← null</span>
+<span class="diagram-line">  &quot;courses&quot;: [&quot;Java&quot;,&quot;DB&quot;],← 数组</span>
+<span class="diagram-line">  &quot;teacher&quot;: {             ← 嵌套对象</span>
+<span class="diagram-line">    &quot;name&quot;: &quot;李老师&quot;</span>
+<span class="diagram-line">  }</span>
+<span class="diagram-line">}</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="易错点-4">易错点</h4>
+<ol type="1">
+<li>❌ 键或字符串用单引号。✅ JSON 必须用双引号。</li>
+<li>❌ 最后一个键值对后加逗号。✅ JSON 不允许尾逗号。</li>
+<li>❌ 在 JSON 中写注释。✅ JSON 不支持注释。</li>
+<li>❌ 键不加引号。✅ 键必须用双引号包裹。</li>
+</ol>
+<h4 id="小结-4">小结</h4>
+<p>JSON
+是轻量级数据交换格式，支持对象/数组/字符串/数字/布尔/null。键和字符串必须用双引号，不支持注释和尾逗号。</p>
+<hr />
+<h3 id="知识点-k2-6restful-api-设计思想">知识点 K2-6：RESTful API
+设计思想</h3>
+<h4 id="定义-5">定义</h4>
+<p><strong>REST（Representational State
+Transfer，表现层状态转化）</strong> 是一种 Web 接口设计风格。遵循 REST
+风格的 API 称为 <strong>RESTful
+API</strong>。它不是协议，而是一种设计约定。</p>
+<h4 id="原理-5">原理</h4>
+<p><strong>RESTful 核心原则</strong>：</p>
+<ol type="1">
+<li><p><strong>资源用名词，路径用复数</strong>：URL
+表示资源，用名词复数。</p>
+<ul>
+<li>✅ <code>/api/tasks</code>（任务资源）</li>
+<li>❌ <code>/api/getTasks</code>（动词，不推荐）</li>
+</ul></li>
+<li><p><strong>用 HTTP 方法表达操作</strong>：不在 URL
+里写动词，用方法区分。</p>
+<ul>
+<li>✅ <code>DELETE /api/tasks/5</code></li>
+<li>❌ <code>GET /api/deleteTask?id=5</code></li>
+</ul></li>
+<li><p><strong>资源 ID 用路径参数</strong>：</p>
+<ul>
+<li>✅ <code>/api/tasks/5</code>（5 是 ID）</li>
+<li>❌ <code>/api/tasks?id=5</code>（查询特定资源应路径参数）</li>
+</ul></li>
+<li><p><strong>无状态</strong>：每个请求自带认证信息，服务器不保存客户端状态。</p></li>
+<li><p><strong>统一响应格式</strong>：返回 JSON，结构统一。</p></li>
+</ol>
+<p><strong>RESTful CRUD 设计标准</strong>（以 task 资源为例）：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>方法</th>
+<th>路径</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查询列表</td>
+<td>GET</td>
+<td>/api/tasks</td>
+<td>获取所有任务</td>
+</tr>
+<tr>
+<td>查询单个</td>
+<td>GET</td>
+<td>/api/tasks/5</td>
+<td>获取 id=5 的任务</td>
+</tr>
+<tr>
+<td>新增</td>
+<td>POST</td>
+<td>/api/tasks</td>
+<td>请求体带新任务数据</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>PUT</td>
+<td>/api/tasks/5</td>
+<td>请求体带更新数据</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>DELETE</td>
+<td>/api/tasks/5</td>
+<td>删除 id=5 的任务</td>
+</tr>
+</tbody>
+</table>
+<h4 id="问题--场景-5">问题 / 场景</h4>
+<p><strong>问：RESTful 必须严格遵守吗？</strong></p>
+<ul>
+<li>RESTful 是设计风格不是强制标准。实际项目中可灵活调整，但遵循 RESTful
+能让接口更规范、可读、可维护。团队应有统一约定。</li>
+</ul>
+<p><strong>问：子资源怎么设计？</strong></p>
+<ul>
+<li>如"查询项目 1
+下的所有任务"：<code>GET /api/projects/1/tasks</code>（项目 1
+的任务列表）。</li>
+</ul>
+<h4 id="完整示例代码-5">完整示例代码</h4>
+<p>CTTS 系统 RESTful 接口设计示例：</p>
+<pre><code>=== 任务资源（task）===
+GET    /api/tasks              查询任务列表（可带筛选参数）
+GET    /api/tasks/5            查询 id=5 的任务
+POST   /api/tasks              新增任务
+PUT    /api/tasks/5            更新 id=5 的任务
+DELETE /api/tasks/5            删除 id=5 的任务
+
+=== 子资源：某项目下的任务 ===
+GET    /api/projects/1/tasks   查询项目 1 下的所有任务
+
+=== 提交资源（submission）===
+GET    /api/submissions        查询提交列表
+POST   /api/submissions        学生提交任务
+GET    /api/submissions/50     查询 id=50 的提交</code></pre>
+<p>对比非 RESTful 设计（不推荐）：</p>
+<pre><code>GET  /api/getTaskList              ← 动词，应改为名词
+GET  /api/getTaskById?id=5         ← 应用路径参数 /tasks/5
+POST /api/addTask                  ← 动词
+POST /api/updateTask               ← 应用 PUT
+GET  /api/deleteTask?id=5          ← 应用 DELETE，且不该用 GET 删</code></pre>
+<h4 id="图示-5">图示</h4>
+<pre><code>RESTful 设计三要素：
+1. 资源用名词复数：/api/tasks
+2. 操作用HTTP方法：GET查/POST增/PUT改/DELETE删
+3. ID用路径参数：  /api/tasks/5
+
+资源操作映射：
+GET    /api/tasks     → 查全部
+GET    /api/tasks/5   → 查一个
+POST   /api/tasks     → 增一个
+PUT    /api/tasks/5   → 改一个
+DELETE /api/tasks/5   → 删一个</code></pre>
+<h4 id="易错点-5">易错点</h4>
+<ol type="1">
+<li>❌ URL 中写动词（如 <code>/api/deleteTask</code>）。✅
+资源用名词，操作用方法。</li>
+<li>❌ 用 GET 执行删除/修改。✅ 删除用 DELETE，修改用 PUT。</li>
+<li>❌ 查询单个资源用 query 参数（<code>/api/tasks?id=5</code>）。✅
+应用路径参数（<code>/api/tasks/5</code>）。</li>
+</ol>
+<h4 id="小结-5">小结</h4>
+<p>RESTful 是接口设计风格：资源用名词复数、操作用 HTTP 方法、ID
+用路径参数、无状态、统一 JSON 响应。遵循 RESTful
+让接口规范、可读、可维护。</p>
+<hr />
+<h2 id="三综合示例用-apifox-分析一个完整接口">三、综合示例：用 Apifox
+分析一个完整接口</h2>
+<p>以 CTTS"查询任务列表"接口为例，完整分析请求与响应：</p>
+<pre><code>===== 1. 在 Apifox 中发起请求 =====
+方法：GET
+URL：http://localhost:8080/api/tasks?projectId=1
+Headers：
+  Accept: application/json
+
+
+===== 2. 实际发送的 HTTP 请求报文 =====
+GET /api/tasks?projectId=1 HTTP/1.1
+Host: localhost:8080
+Accept: application/json
+User-Agent: Apifox/1.0
+
+
+===== 3. 服务器返回的 HTTP 响应报文 =====
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 156
+
+[
+  {&quot;id&quot;:1,&quot;title&quot;:&quot;搭建项目&quot;,&quot;deadline&quot;:&quot;2026-08-01&quot;,&quot;status&quot;:&quot;进行中&quot;},
+  {&quot;id&quot;:2,&quot;title&quot;:&quot;实现登录&quot;,&quot;deadline&quot;:&quot;2026-08-10&quot;,&quot;status&quot;:&quot;未开始&quot;}
+]
+
+
+===== 4. 分析 =====
+- 请求方法：GET（查询操作，符合RESTful）
+- 请求路径：/api/tasks（资源用名词复数，符合RESTful）
+- 查询参数：projectId=1（筛选条件，合理使用query）
+- 状态码：200（请求成功）
+- Content-Type：application/json（返回JSON数据）
+- 响应体：JSON数组，包含2个任务对象
+- 每个任务对象含 id/title/deadline/status 四个字段</code></pre>
+<blockquote>
+<p>这个示例串联了本节所有知识点：HTTP 报文、URL、GET
+方法、状态码、JSON、RESTful 设计。</p>
+</blockquote>
+<hr />
+<h2 id="四拓展阅读选学">四、拓展阅读（选学）</h2>
+<ol type="1">
+<li><strong>HTTPS</strong>：HTTP + TLS/SSL 加密，端口
+443，保障传输安全。</li>
+<li><strong>PUT 与 PATCH 的区别</strong>：PUT 全量更新，PATCH
+部分更新。</li>
+<li><strong>跨域问题（CORS）</strong>：前后端分离部署时浏览器的同源策略限制，后端需配置
+CORS。</li>
+<li><strong>HTTP/2 与 HTTP/3</strong>：HTTP
+协议的演进，多路复用、更高效。</li>
+<li><strong>JWT</strong>：JSON Web Token，前后端分离认证主流方案，第 6
+模块详讲。</li>
+</ol>
+<hr />
+<h2 id="五本节小结与知识结构图">五、本节小结与知识结构图</h2>
+<h3 id="知识结构图思维导图">知识结构图（思维导图）</h3>
+<div class="visual">
+  <div class="visual-title">图示 9：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">HTTP协议、JSON与RESTful</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> HTTP协议</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 请求-响应模型</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 请求报文：请求行+请求头+请求体</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 响应报文：状态行+响应头+响应体</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> URL与请求方法</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> URL：协议://主机:端口/路径?参数</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 方法：GET查/POST增/PUT改/DELETE删</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 状态码</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 2xx成功(200/201)</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 4xx客户端错误(400/401/403/404)</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 5xx服务器错误(500)</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Header/Cookie/Session</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Header：元信息(Content-Type等)</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Cookie：存客户端</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> Session：存服务器</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> JSON</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 类型：对象/数组/字符串/数字/布尔/null</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 规则：双引号、无注释、无尾逗号</span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> RESTful API</span>
+<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 资源用名词复数</span>
+<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 操作用HTTP方法</span>
+<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ID用路径参数</span>
+<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 无状态、统一JSON响应</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h3 id="一句话总结">一句话总结</h3>
+<blockquote>
+<p>HTTP 是前后端通信的语言，JSON 是数据交换的格式，RESTful
+是接口设计的风格。掌握这三者，就掌握了后端接口开发的"通信基础"。</p>
+</blockquote>
+<hr />
+<h2
+id="六复习思考题开放式非题库题">六、复习思考题（开放式，非题库题）</h2>
+<ol type="1">
+<li>请说明 GET 和 POST 在语义、参数位置、幂等性上的区别。</li>
+<li>401 和 403 有什么区别？各举一个 CTTS 中的场景。</li>
+<li>写一段描述"一个教师评审了一个学生提交"的 JSON
+数据，要求包含教师、学生、提交、评审信息，至少 3 层嵌套。</li>
+<li>为 CTTS 的"实训项目"资源设计一套完整的 RESTful CRUD 接口路径。</li>
+<li>为什么前后端分离后更倾向用 Token 而非
+Session？（结合无状态思考，为第 6 模块铺垫）</li>
+<li>指出以下接口设计的问题并改为 RESTful
+风格：<code>GET /api/deleteProject?id=3</code></li>
+</ol>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

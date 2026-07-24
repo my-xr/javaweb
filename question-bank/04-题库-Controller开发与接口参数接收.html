@@ -1,0 +1,1676 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Controller开发与接口参数接收</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 04 次课 · 题库</div>
+      <h1>Controller开发与接口参数接收</h1>
+      <p>面向练习、测验、考试与参考解析 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 04 次课</span>
+        <span class="hero-chip"><b>主题</b>Controller开发与接口参数接收</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一单项选择题30题">一、单项选择题（30题）</a>
+<ul>
+<li><a href="#04-单选-01-">04-单选-01 ★</a></li>
+<li><a href="#04-单选-02-">04-单选-02 ★</a></li>
+<li><a href="#04-单选-03-">04-单选-03 ★</a></li>
+<li><a href="#04-单选-04-">04-单选-04 ★</a></li>
+<li><a href="#04-单选-05-">04-单选-05 ★</a></li>
+<li><a href="#04-单选-06-">04-单选-06 ★</a></li>
+<li><a href="#04-单选-07-">04-单选-07 ★★</a></li>
+<li><a href="#04-单选-08-">04-单选-08 ★★</a></li>
+<li><a href="#04-单选-09-">04-单选-09 ★★</a></li>
+<li><a href="#04-单选-10-">04-单选-10 ★★</a></li>
+<li><a href="#04-单选-11-">04-单选-11 ★★</a></li>
+<li><a href="#04-单选-12-">04-单选-12 ★★</a></li>
+<li><a href="#04-单选-13-">04-单选-13 ★★</a></li>
+<li><a href="#04-单选-14-">04-单选-14 ★★</a></li>
+<li><a href="#04-单选-15-">04-单选-15 ★★</a></li>
+<li><a href="#04-单选-16-">04-单选-16 ★★</a></li>
+<li><a href="#04-单选-17-">04-单选-17 ★★</a></li>
+<li><a href="#04-单选-18-">04-单选-18 ★★</a></li>
+<li><a href="#04-单选-19-">04-单选-19 ★★</a></li>
+<li><a href="#04-单选-20-">04-单选-20 ★★</a></li>
+<li><a href="#04-单选-21-">04-单选-21 ★★★</a></li>
+<li><a href="#04-单选-22-">04-单选-22 ★★★</a></li>
+<li><a href="#04-单选-23-">04-单选-23 ★★★</a></li>
+<li><a href="#04-单选-24-">04-单选-24 ★★★</a></li>
+<li><a href="#04-单选-25-">04-单选-25 ★★★</a></li>
+<li><a href="#04-单选-26-">04-单选-26 ★★★</a></li>
+<li><a href="#04-单选-27-">04-单选-27 ★★★</a></li>
+<li><a href="#04-单选-28-">04-单选-28 ★★★</a></li>
+<li><a href="#04-单选-29-">04-单选-29 ★★★</a></li>
+<li><a href="#04-单选-30-">04-单选-30 ★★★</a></li>
+</ul></li>
+<li><a href="#二多项选择题10题">二、多项选择题（10题）</a>
+<ul>
+<li><a href="#04-多选-01-">04-多选-01 ★</a></li>
+<li><a href="#04-多选-02-">04-多选-02 ★</a></li>
+<li><a href="#04-多选-03-">04-多选-03 ★★</a></li>
+<li><a href="#04-多选-04-">04-多选-04 ★★</a></li>
+<li><a href="#04-多选-05-">04-多选-05 ★★</a></li>
+<li><a href="#04-多选-06-">04-多选-06 ★★</a></li>
+<li><a href="#04-多选-07-">04-多选-07 ★★</a></li>
+<li><a href="#04-多选-08-">04-多选-08 ★★★</a></li>
+<li><a href="#04-多选-09-">04-多选-09 ★★★</a></li>
+<li><a href="#04-多选-10-">04-多选-10 ★★★</a></li>
+</ul></li>
+<li><a href="#三判断题20题">三、判断题（20题）</a>
+<ul>
+<li><a href="#04-判断-01-">04-判断-01 ★</a></li>
+<li><a href="#04-判断-02-">04-判断-02 ★</a></li>
+<li><a href="#04-判断-03-">04-判断-03 ★</a></li>
+<li><a href="#04-判断-04-">04-判断-04 ★</a></li>
+<li><a href="#04-判断-05-">04-判断-05 ★</a></li>
+<li><a href="#04-判断-06-">04-判断-06 ★</a></li>
+<li><a href="#04-判断-07-">04-判断-07 ★</a></li>
+<li><a href="#04-判断-08-">04-判断-08 ★</a></li>
+<li><a href="#04-判断-09-">04-判断-09 ★★</a></li>
+<li><a href="#04-判断-10-">04-判断-10 ★★</a></li>
+<li><a href="#04-判断-11-">04-判断-11 ★★</a></li>
+<li><a href="#04-判断-12-">04-判断-12 ★★</a></li>
+<li><a href="#04-判断-13-">04-判断-13 ★★</a></li>
+<li><a href="#04-判断-14-">04-判断-14 ★★</a></li>
+<li><a href="#04-判断-15-">04-判断-15 ★★</a></li>
+<li><a href="#04-判断-16-">04-判断-16 ★★★</a></li>
+<li><a href="#04-判断-17-">04-判断-17 ★★★</a></li>
+<li><a href="#04-判断-18-">04-判断-18 ★★★</a></li>
+<li><a href="#04-判断-19-">04-判断-19 ★★★</a></li>
+<li><a href="#04-判断-20-">04-判断-20 ★★★</a></li>
+</ul></li>
+<li><a href="#四填空题10题">四、填空题（10题）</a>
+<ul>
+<li><a href="#04-填空-01-">04-填空-01 ★</a></li>
+<li><a href="#04-填空-02-">04-填空-02 ★</a></li>
+<li><a href="#04-填空-03-">04-填空-03 ★</a></li>
+<li><a href="#04-填空-04-">04-填空-04 ★</a></li>
+<li><a href="#04-填空-05-">04-填空-05 ★★</a></li>
+<li><a href="#04-填空-06-">04-填空-06 ★★</a></li>
+<li><a href="#04-填空-07-">04-填空-07 ★★</a></li>
+<li><a href="#04-填空-08-">04-填空-08 ★★</a></li>
+<li><a href="#04-填空-09-">04-填空-09 ★★★</a></li>
+<li><a href="#04-填空-10-">04-填空-10 ★★★</a></li>
+</ul></li>
+<li><a href="#五论述简答题4题">五、论述简答题（4题）</a>
+<ul>
+<li><a href="#04-论述-01-">04-论述-01 ★★</a></li>
+<li><a href="#04-论述-02-">04-论述-02 ★★</a></li>
+<li><a href="#04-论述-03-">04-论述-03 ★★★</a></li>
+<li><a href="#04-论述-04-">04-论述-04 ★★★</a></li>
+</ul></li>
+<li><a href="#六程序阅读与补全题2题">六、程序阅读与补全题（2题）</a>
+<ul>
+<li><a href="#04-程序阅读-01-">04-程序阅读-01 ★★</a></li>
+<li><a href="#04-程序阅读-02-">04-程序阅读-02 ★★★</a></li>
+</ul></li>
+<li><a href="#七编程接口设计题2题">七、编程接口设计题（2题）</a>
+<ul>
+<li><a href="#04-编程设计-01-">04-编程设计-01 ★★</a></li>
+<li><a href="#04-编程设计-02-">04-编程设计-02 ★★★</a></li>
+</ul></li>
+<li><a href="#附题库统计表">附：题库统计表</a>
+<ul>
+<li><a href="#知识点覆盖统计">知识点覆盖统计</a></li>
+<li><a href="#难度分布总览">难度分布总览</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 04 次课 <span>｜</span> <strong>文档：</strong>题库</p>
+<blockquote>
+<p>课程：JavaWeb后端开发技术 课次：第4次课 ·
+Controller开发与接口参数接收 题量：78题（30单选 + 10多选 + 20判断 +
+10填空 + 4论述 + 2程序阅读 + 2编程设计）
+编号规则：<code>04-题型-序号</code>
+难度标记：★（基础识记）｜★★（理解应用）｜★★★（综合分析）</p>
+</blockquote>
+<hr />
+<h2 id="一单项选择题30题">一、单项选择题（30题）</h2>
+<h3 id="04-单选-01-">04-单选-01 ★</h3>
+<p>关于 <code>@RestController</code>
+注解，下列说法<strong>正确</strong>的是：</p>
+<p>A. <code>@RestController</code> 是 Spring MVC 4.0 引入的注解，等价于
+<code>@Controller</code> + <code>@RequestMapping</code></p>
+<p>B. <code>@RestController</code>
+标注的类中所有方法返回值都会被序列化为 JSON 写入响应体</p>
+<p>C. <code>@RestController</code> 只能返回 JSON 字符串，不能返回 Java
+对象</p>
+<p>D. <code>@RestController</code> 标注的类中方法可以返回 JSP 视图名</p>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>@RestController</code> =
+<code>@Controller</code> + <code>@ResponseBody</code>，组合的是
+<code>@ResponseBody</code> 而非 <code>@RequestMapping</code>，A
+错；它可返回 String、List、Map、自定义对象，由 Jackson 自动序列化，C
+错；因为有 <code>@ResponseBody</code>，返回值不会作为视图名，D 错。B
+正确。</p>
+<hr />
+<h3 id="04-单选-02-">04-单选-02 ★</h3>
+<p>下列注解中，<strong>不</strong>属于 Spring MVC 请求映射注解的是：</p>
+<p>A. <code>@GetMapping</code> B. <code>@PostMapping</code> C.
+<code>@RequestMapping</code> D. <code>@JsonFormat</code></p>
+<p><strong>答案</strong>：D</p>
+<p><strong>解析</strong>：<code>@JsonFormat</code> 是 Jackson
+的序列化注解，用于格式化日期等字段，不属于请求映射注解。其余三个都是
+Spring MVC 的请求映射注解。</p>
+<hr />
+<h3 id="04-单选-03-">04-单选-03 ★</h3>
+<p><code>@GetMapping("/projects/{id}")</code> 中，<code>{id}</code>
+表示的是：</p>
+<p>A. 查询参数 B. 路径变量 C. 请求头 D. 请求体</p>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：URL 路径中以 <code>{xxx}</code>
+形式定义的占位符是路径变量，需配合 <code>@PathVariable</code> 取值。</p>
+<hr />
+<h3 id="04-单选-04-">04-单选-04 ★</h3>
+<p>下列用于接收 URL 查询参数（query string）的注解是：</p>
+<p>A. <code>@PathVariable</code> B. <code>@RequestBody</code> C.
+<code>@RequestParam</code> D. <code>@RequestHeader</code></p>
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：<code>@RequestParam</code> 用于接收 URL 中
+<code>?key=value</code> 形式的查询参数；<code>@PathVariable</code>
+接收路径段；<code>@RequestBody</code>
+接收请求体；<code>@RequestHeader</code> 接收请求头。</p>
+<hr />
+<h3 id="04-单选-05-">04-单选-05 ★</h3>
+<p>用于接收 POST 请求体中 JSON 数据的注解是：</p>
+<p>A. <code>@RequestParam</code> B. <code>@PathVariable</code> C.
+<code>@RequestBody</code> D. <code>@RequestHeader</code></p>
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：<code>@RequestBody</code> 通过
+<code>HttpMessageConverter</code> 将请求体反序列化为 Java
+对象，典型场景是接收 JSON。</p>
+<hr />
+<h3 id="04-单选-06-">04-单选-06 ★</h3>
+<p>关于 <code>@RequestParam</code> 的 <code>required</code>
+属性，默认值是：</p>
+<p>A. <code>false</code> B. <code>true</code> C. <code>null</code> D.
+不存在默认值</p>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>@RequestParam</code> 默认
+<code>required = true</code>，若前端未传该参数会返回 400
+错误。可选参数需显式写 <code>required = false</code>。</p>
+<hr />
+<h3 id="04-单选-07-">04-单选-07 ★★</h3>
+<p>下列代码片段中，访问 <code>GET /projects/1</code>
+能正确返回的是：</p>
+<p>A.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/projects/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@RequestParam</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<p>B.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/projects/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<p>C.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/projects/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@RequestBody</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<p>D.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/projects/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@RequestHeader</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：路径变量 <code>{id}</code> 必须用
+<code>@PathVariable</code> 接收。GET 请求一般无请求体，C 错；A 用
+<code>@RequestParam</code> 接收的是 query 参数；D 用
+<code>@RequestHeader</code> 接收请求头。</p>
+<hr />
+<h3 id="04-单选-08-">04-单选-08 ★★</h3>
+<p>关于 <code>@RequestMapping</code>
+注解，下列说法<strong>错误</strong>的是：</p>
+<p>A. 可标注在类上，定义该控制器所有接口的统一前缀</p>
+<p>B. 可标注在方法上，定义具体的访问路径</p>
+<p>C. 可通过 <code>method</code> 属性限定 HTTP 方法</p>
+<p>D. 标注在类上时，方法上的 <code>@GetMapping</code>
+路径会覆盖类上的路径</p>
+<p><strong>答案</strong>：D</p>
+<p><strong>解析</strong>：方法路径与类路径是<strong>拼接</strong>关系（类路径
++ 方法路径），不是覆盖。</p>
+<hr />
+<h3 id="04-单选-09-">04-单选-09 ★★</h3>
+<p>下列代码中，前端访问 <code>POST /projects</code>，能正确接收 JSON
+的是：</p>
+<p>A.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">add</span><span class="op">(</span><span class="at">@RequestParam</span> Project project<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<p>B.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">add</span><span class="op">(</span><span class="at">@PathVariable</span> Project project<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<p>C.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">add</span><span class="op">(</span><span class="at">@RequestBody</span> Project project<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<p>D.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">add</span><span class="op">(</span><span class="at">@RequestHeader</span> Project project<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：POST 请求体中的 JSON 必须用
+<code>@RequestBody</code> 接收。</p>
+<hr />
+<h3 id="04-单选-10-">04-单选-10 ★★</h3>
+<p>下列哪个 HTTP 方法对应的 Spring MVC 注解<strong>不</strong>存在？</p>
+<p>A. <code>@GetMapping</code> B. <code>@PostMapping</code> C.
+<code>@PatchMapping</code> D. <code>@OptionsMapping</code></p>
+<p><strong>答案</strong>：D</p>
+<p><strong>解析</strong>：Spring MVC 提供了
+<code>@GetMapping</code>、<code>@PostMapping</code>、<code>@PutMapping</code>、<code>@DeleteMapping</code>、<code>@PatchMapping</code>，没有
+<code>@OptionsMapping</code>。OPTIONS 方法用
+<code>@RequestMapping(method = RequestMethod.OPTIONS)</code>。</p>
+<hr />
+<h3 id="04-单选-11-">04-单选-11 ★★</h3>
+<p>某接口路径为 <code>/projects/{id}/tasks</code>，访问
+<code>GET /projects/5/tasks</code>，下列方法签名正确的是：</p>
+<p>A. <code>getTasks(@RequestParam("id") Long projectId)</code> B.
+<code>getTasks(@PathVariable("id") Long projectId)</code> C.
+<code>getTasks(@RequestBody("id") Long projectId)</code> D.
+<code>getTasks(@RequestHeader("id") Long projectId)</code></p>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：路径中的 <code>{id}</code> 是路径变量，用
+<code>@PathVariable</code> 接收。即使方法参数名是
+<code>projectId</code>，也通过 <code>@PathVariable("id")</code>
+显式指定路径变量名。</p>
+<hr />
+<h3 id="04-单选-12-">04-单选-12 ★★</h3>
+<p><code>@RestController</code> 与 <code>@Controller</code>
+的核心区别在于：</p>
+<p>A. <code>@RestController</code> 只能处理 AJAX 请求</p>
+<p>B. <code>@RestController</code> 隐式包含了
+<code>@ResponseBody</code>，方法返回值直接写入响应体</p>
+<p>C. <code>@Controller</code> 不能用于前后端分离项目</p>
+<p>D. <code>@RestController</code> 性能比 <code>@Controller</code>
+高</p>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>@RestController</code> 是
+<code>@Controller</code> + <code>@ResponseBody</code>
+的组合注解，核心差异在于
+<code>@ResponseBody</code>。其余选项均不正确。</p>
+<hr />
+<h3 id="04-单选-13-">04-单选-13 ★★</h3>
+<p>下列关于 <code>@PathVariable</code>
+的描述，<strong>正确</strong>的是：</p>
+<p>A. 用于接收 URL 查询字符串中的参数</p>
+<p>B. 用于接收请求体中的 JSON 数据</p>
+<p>C. 用于接收 URL 路径中以 <code>{xxx}</code> 形式定义的变量</p>
+<p>D. 默认 <code>required = false</code></p>
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：<code>@PathVariable</code> 接收路径变量，A
+描述的是 <code>@RequestParam</code>，B 描述的是
+<code>@RequestBody</code>。<code>@PathVariable</code> 默认
+<code>required = true</code>。</p>
+<hr />
+<h3 id="04-单选-14-">04-单选-14 ★★</h3>
+<p>某查询接口需要接收
+<code>keyword</code>、<code>page</code>、<code>size</code>
+三个可选参数，下列设计最合理的是：</p>
+<p>A. 全部使用 <code>@PathVariable</code></p>
+<p>B. 全部使用 <code>@RequestBody</code></p>
+<p>C. 全部使用 <code>@RequestParam</code>，并设置
+<code>required = false</code> 或 <code>defaultValue</code></p>
+<p>D. 全部使用 <code>@RequestHeader</code></p>
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：查询、分页、过滤类可选参数应放在 query string
+中，用 <code>@RequestParam</code> 接收。</p>
+<hr />
+<h3 id="04-单选-15-">04-单选-15 ★★</h3>
+<p>下列代码运行后，前端未传 <code>keyword</code> 参数时会发生什么？</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/search&quot;</span><span class="op">)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">search</span><span class="op">(</span><span class="at">@RequestParam</span> <span class="bu">String</span> keyword<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> keyword<span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>A. 返回 <code>null</code> B. 返回空字符串 C. 返回 400 错误 D. 返回
+500 错误</p>
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：<code>@RequestParam</code> 默认
+<code>required = true</code>，前端未传该参数时返回 400 Bad
+Request。若想允许为空，需显式写 <code>required = false</code> 或
+<code>defaultValue</code>。</p>
+<hr />
+<h3 id="04-单选-16-">04-单选-16 ★★</h3>
+<p>关于
+<code>@RequestBody</code>，下列说法<strong>正确</strong>的是：</p>
+<p>A. 一个方法可以有多个 <code>@RequestBody</code> 参数</p>
+<p>B. 通常用于 GET 请求</p>
+<p>C. 不要求请求头设置 <code>Content-Type</code></p>
+<p>D. 可以与 <code>@RequestParam</code> 在同一个方法中共存</p>
+<p><strong>答案</strong>：D</p>
+<p><strong>解析</strong>：<code>@RequestBody</code>
+接收请求体，<code>@RequestParam</code> 接收 query
+string，二者可共存于同一方法（如 <code>POST /projects?notify=true</code>
+Body 还有 JSON）。A 错（最多一个），B 错（一般用于 POST/PUT/PATCH），C
+错（默认要求 <code>Content-Type: application/json</code>）。</p>
+<hr />
+<h3 id="04-单选-17-">04-单选-17 ★★</h3>
+<p><code>@JsonIgnore</code> 注解的作用是：</p>
+<p>A. 序列化时把字段值置为 null B. 序列化与反序列化时都忽略该字段 C.
+仅序列化时忽略该字段 D. 仅反序列化时忽略该字段</p>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>@JsonIgnore</code>
+默认在序列化与反序列化两个方向都忽略该字段。若只想单向忽略，需用
+<code>@JsonProperty(access = Access.READ_ONLY)</code> 或
+<code>WRITE_ONLY</code>。</p>
+<hr />
+<h3 id="04-单选-18-">04-单选-18 ★★</h3>
+<p>实体类中有 <code>LocalDateTime createTime</code> 字段，希望 JSON
+返回格式为 <code>yyyy-MM-dd HH:mm:ss</code>，应使用的注解是：</p>
+<p>A. <code>@JsonProperty</code> B. <code>@JsonIgnore</code> C.
+<code>@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")</code> D.
+<code>@DateTimeFormat</code></p>
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：<code>@JsonFormat</code> 是 Jackson
+序列化注解，用于格式化日期输出。<code>@DateTimeFormat</code> 是 Spring
+的反序列化注解，用于把字符串转成 Date。</p>
+<hr />
+<h3 id="04-单选-19-">04-单选-19 ★★</h3>
+<p>下列哪个不是 Spring MVC 中 <code>HandlerMethodArgumentResolver</code>
+的实现？</p>
+<p>A. <code>RequestParamMethodArgumentResolver</code> B.
+<code>PathVariableMethodArgumentResolver</code> C.
+<code>RequestResponseBodyMethodProcessor</code> D.
+<code>JdbcTemplateArgumentResolver</code></p>
+<p><strong>答案</strong>：D</p>
+<p><strong>解析</strong>：A、B、C 都是 Spring MVC
+内置的参数解析器，分别对应三种参数接收注解。D 不存在。</p>
+<hr />
+<h3 id="04-单选-20-">04-单选-20 ★★</h3>
+<p>Spring Boot 默认集成的 JSON 序列化库是：</p>
+<p>A. Gson B. Fastjson C. Jackson D. JSON-B</p>
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：Spring Boot 默认引入
+<code>spring-boot-starter-json</code>，使用 Jackson 作为
+<code>HttpMessageConverter</code> 的默认实现。</p>
+<hr />
+<h3 id="04-单选-21-">04-单选-21 ★★★</h3>
+<p>某接口定义如下，访问 <code>GET /projects/1/tasks/2</code>
+能正确路由到的是：</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskController <span class="op">{</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{projectId}/tasks/{taskId}&quot;</span><span class="op">)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getTask</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> projectId<span class="op">,</span> <span class="at">@PathVariable</span> <span class="bu">Long</span> taskId<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectId <span class="op">+</span> <span class="st">&quot;-&quot;</span> <span class="op">+</span> taskId<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>A. 该方法返回 <code>"1-2"</code> B. 该方法返回 <code>"2-1"</code> C.
+启动时报 <code>Ambiguous mapping</code> 异常 D. 返回 404</p>
+<p><strong>答案</strong>：A</p>
+<p><strong>解析</strong>：路径 <code>/projects/1/tasks/2</code>
+中，<code>projectId=1</code>、<code>taskId=2</code>，方法参数名与路径变量名一致，Spring
+自动绑定，返回 <code>"1-2"</code>。</p>
+<hr />
+<h3 id="04-单选-22-">04-单选-22 ★★★</h3>
+<p>下列代码中，前端发送 <code>GET /projects?ids=1,2,3</code>，方法参数
+<code>ids</code> 接收到的是：</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">list</span><span class="op">(</span><span class="at">@RequestParam</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Long</span><span class="op">&gt;</span> ids<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ids<span class="op">.</span><span class="fu">toString</span><span class="op">();</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>A. <code>[1]</code> B. <code>[1, 2, 3]</code> C. 报 400 错误 D.
+<code>"[1,2,3]"</code> 字符串</p>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：Spring 默认使用逗号分隔将
+<code>ids=1,2,3</code> 转换为 <code>List&lt;Long&gt;</code>，结果为
+<code>[1, 2, 3]</code>。</p>
+<hr />
+<h3 id="04-单选-23-">04-单选-23 ★★★</h3>
+<p>下列代码中，访问 <code>GET /projects/1</code> 的返回值是：</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/projects/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        Project p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">();</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        p<span class="op">.</span><span class="fu">setId</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        p<span class="op">.</span><span class="fu">setName</span><span class="op">(</span><span class="st">&quot;电商实训&quot;</span><span class="op">);</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> p<span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>A. 字符串 <code>"Project(id=1, name=电商实训)"</code> B. 视图名
+<code>Project</code>，跳转 JSP C. JSON 对象
+<code>{"id":1,"name":"电商实训"}</code> D. 返回 404</p>
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：<code>@RestController</code>
+类中方法返回值会被 Jackson 序列化为 JSON，对象字段被自动转成 JSON
+键值对。</p>
+<hr />
+<h3 id="04-单选-24-">04-单选-24 ★★★</h3>
+<p>关于 <code>@RequestBody</code>
+反序列化，下列描述<strong>错误</strong>的是：</p>
+<p>A. JSON 字段名必须与 Java 对象字段名完全一致</p>
+<p>B. 可通过 <code>@JsonProperty</code> 修改 JSON 字段名映射</p>
+<p>C. 可通过 <code>@JsonAlias</code> 接受多个备选字段名</p>
+<p>D. JSON 字段比 Java
+对象字段多时，多出的字段会被忽略（默认配置下）</p>
+<p><strong>答案</strong>：A</p>
+<p><strong>解析</strong>：默认要求 JSON 字段名与 Java
+字段名一致，但可以通过 <code>@JsonProperty</code> 修改映射，或
+<code>@JsonAlias</code> 接受多个备选名，A 描述过于绝对。</p>
+<hr />
+<h3 id="04-单选-25-">04-单选-25 ★★★</h3>
+<p>某 POST 接口接收 JSON
+<code>{"projectName":"电商实训"}</code>，实体类字段为
+<code>name</code>，下列哪种方式能让 JSON 正确映射到 <code>name</code>
+字段？</p>
+<p>A. 在 <code>name</code> 字段上加 <code>@JsonIgnore</code> B. 在
+<code>name</code> 字段上加 <code>@JsonProperty("projectName")</code> C.
+在 <code>name</code> 字段上加 <code>@RequestParam("projectName")</code>
+D. 在类上加 <code>@RequestMapping("projectName")</code></p>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：<code>@JsonProperty("projectName")</code> 指定
+JSON 字段名与 Java 字段 <code>name</code> 的映射关系。</p>
+<hr />
+<h3 id="04-单选-26-">04-单选-26 ★★★</h3>
+<p>下列代码中，<code>@RequestMapping</code> 的 <code>method</code>
+属性可以省略吗？</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@RequestMapping</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;/list&quot;</span><span class="op">,</span> method <span class="op">=</span> RequestMethod<span class="op">.</span><span class="fu">GET</span><span class="op">)</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>A. 可以省略，省略后默认支持所有 HTTP 方法</p>
+<p>B. 可以省略，省略后默认只支持 GET</p>
+<p>C. 不可以省略，否则启动报错</p>
+<p>D. 可以省略，但必须用 <code>@GetMapping</code> 替换</p>
+<p><strong>答案</strong>：A</p>
+<p><strong>解析</strong>：<code>@RequestMapping</code> 的
+<code>method</code> 属性可省略，省略后该方法对 GET/POST/PUT/DELETE
+等所有 HTTP 方法都响应。生产中不推荐，建议明确指定。</p>
+<hr />
+<h3 id="04-单选-27-">04-单选-27 ★★★</h3>
+<p>下列关于 <code>@RequestHeader</code>
+的描述，<strong>错误</strong>的是：</p>
+<p>A. 可用于获取 HTTP 请求头中的指定字段</p>
+<p>B. 通过 <code>value</code> 属性指定请求头名称</p>
+<p>C. 默认 <code>required = true</code></p>
+<p>D. 一个方法只能有一个 <code>@RequestHeader</code> 参数</p>
+<p><strong>答案</strong>：D</p>
+<p><strong>解析</strong>：一个方法可以有多个 <code>@RequestHeader</code>
+参数，分别接收不同的请求头字段，如同时接收 <code>Authorization</code> 和
+<code>User-Agent</code>。</p>
+<hr />
+<h3 id="04-单选-28-">04-单选-28 ★★★</h3>
+<p>下列代码启动后会出现的现象是：</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">all</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>A. 启动正常，两个方法都能访问 B. 启动时报
+<code>Ambiguous mapping</code> 异常 C. 启动正常，只有第一个方法能访问 D.
+启动正常，只有第二个方法能访问</p>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：同一控制器中两个方法映射了完全相同的路径（<code>/projects</code>
++ GET），Spring 启动时会检测到冲突并抛出 <code>Ambiguous mapping</code>
+异常。</p>
+<hr />
+<h3 id="04-单选-29-">04-单选-29 ★★★</h3>
+<p>RESTful 风格中，"根据 ID 删除一个项目"的接口设计最规范的是：</p>
+<p>A. <code>POST /projects/delete?id=1</code> B.
+<code>GET /projects/delete/1</code> C. <code>DELETE /projects/1</code>
+D. <code>POST /projects/1/delete</code></p>
+<p><strong>答案</strong>：C</p>
+<p><strong>解析</strong>：RESTful 用 HTTP 方法表达动作，DELETE
+表删除；资源 ID 作为路径变量。<code>DELETE /projects/1</code>
+是最规范的设计。</p>
+<hr />
+<h3 id="04-单选-30-">04-单选-30 ★★★</h3>
+<p>某接口同时接收路径参数和请求体，下列签名正确的是：</p>
+<p>A.
+<code>update(@PathVariable Long id, @RequestParam Project project)</code>
+B.
+<code>update(@PathVariable Long id, @RequestBody Project project)</code>
+C.
+<code>update(@RequestBody Long id, @RequestBody Project project)</code>
+D.
+<code>update(@RequestParam Long id, @RequestBody Project project)</code></p>
+<p><strong>答案</strong>：B</p>
+<p><strong>解析</strong>：路径变量用
+<code>@PathVariable</code>，请求体用
+<code>@RequestBody</code>。一个方法最多一个 <code>@RequestBody</code>，C
+错。</p>
+<hr />
+<h2 id="二多项选择题10题">二、多项选择题（10题）</h2>
+<h3 id="04-多选-01-">04-多选-01 ★</h3>
+<p>下列属于 Spring MVC 请求映射注解的有（多选）：</p>
+<p>A. <code>@GetMapping</code> B. <code>@PostMapping</code> C.
+<code>@PutMapping</code> D. <code>@DeleteMapping</code> E.
+<code>@JsonFormat</code></p>
+<p><strong>答案</strong>：ABCD</p>
+<p><strong>解析</strong>：A、B、C、D
+都是请求映射注解。<code>@JsonFormat</code> 是 Jackson
+序列化注解，不属于请求映射。</p>
+<hr />
+<h3 id="04-多选-02-">04-多选-02 ★</h3>
+<p>下列关于 <code>@RestController</code>
+的描述，<strong>正确</strong>的有（多选）：</p>
+<p>A. 它是 <code>@Controller</code> + <code>@ResponseBody</code>
+的组合</p>
+<p>B. 标注的类中方法返回值会被自动序列化为 JSON</p>
+<p>C. 适合用于前后端分离项目</p>
+<p>D. 标注的类中方法可以返回 JSP 视图名</p>
+<p>E. 是 Spring 4.0 引入的注解</p>
+<p><strong>答案</strong>：ABCE</p>
+<p><strong>解析</strong>：D 错误，<code>@RestController</code>
+中的方法因 <code>@ResponseBody</code> 不会返回视图名。其余均正确。</p>
+<hr />
+<h3 id="04-多选-03-">04-多选-03 ★★</h3>
+<p>下列注解中，用于接收 HTTP 请求参数的有（多选）：</p>
+<p>A. <code>@RequestParam</code> B. <code>@PathVariable</code> C.
+<code>@RequestBody</code> D. <code>@RequestHeader</code> E.
+<code>@RequestMapping</code></p>
+<p><strong>答案</strong>：ABCD</p>
+<p><strong>解析</strong>：A、B、C、D 分别用于接收
+query、path、body、header 中的参数。<code>@RequestMapping</code>
+用于映射请求，不是接收参数。</p>
+<hr />
+<h3 id="04-多选-04-">04-多选-04 ★★</h3>
+<p>下列关于 <code>@RequestParam</code>
+的描述，<strong>正确</strong>的有（多选）：</p>
+<p>A. 默认 <code>required = true</code></p>
+<p>B. 可通过 <code>defaultValue</code> 设置默认值</p>
+<p>C. 可用于接收 URL 查询字符串中的参数</p>
+<p>D. 可用于接收路径段中的变量</p>
+<p>E. 可用于接收 List 类型参数</p>
+<p><strong>答案</strong>：ABCE</p>
+<p><strong>解析</strong>：D 错误，路径段用
+<code>@PathVariable</code>。<code>@RequestParam</code> 支持
+<code>List</code>，如 <code>?ids=1,2,3</code>。</p>
+<hr />
+<h3 id="04-多选-05-">04-多选-05 ★★</h3>
+<p>下列关于 <code>@PathVariable</code>
+的描述，<strong>正确</strong>的有（多选）：</p>
+<p>A. 用于接收 URL 路径中以 <code>{xxx}</code> 形式定义的变量</p>
+<p>B. 可通过 <code>value</code> 属性指定路径变量名</p>
+<p>C. 默认 <code>required = true</code></p>
+<p>D. 一个方法只能有一个 <code>@PathVariable</code> 参数</p>
+<p>E. 路径变量名与方法参数名一致时可省略 <code>value</code></p>
+<p><strong>答案</strong>：ABCE</p>
+<p><strong>解析</strong>：D 错误，一个方法可以有多个
+<code>@PathVariable</code> 参数，如
+<code>/{projectId}/tasks/{taskId}</code>。</p>
+<hr />
+<h3 id="04-多选-06-">04-多选-06 ★★</h3>
+<p>下列关于 <code>@RequestBody</code>
+的描述，<strong>正确</strong>的有（多选）：</p>
+<p>A. 一个方法最多只能有一个 <code>@RequestBody</code> 参数</p>
+<p>B. 通常用于 POST、PUT、PATCH 请求</p>
+<p>C. 默认要求 <code>Content-Type: application/json</code></p>
+<p>D. 可用于接收复杂嵌套对象</p>
+<p>E. 可同时与 <code>@RequestParam</code> 在同一方法中使用</p>
+<p><strong>答案</strong>：ABCDE</p>
+<p><strong>解析</strong>：全部正确。<code>@RequestBody</code>
+接收请求体，与 query 参数的 <code>@RequestParam</code> 可共存。</p>
+<hr />
+<h3 id="04-多选-07-">04-多选-07 ★★</h3>
+<p>下列哪种情况会导致 <code>@RequestParam</code> 接收参数时报 400
+错误（多选）：</p>
+<p>A. 前端未传该参数，且未设置 <code>required = false</code> 或
+<code>defaultValue</code></p>
+<p>B. 前端传的参数类型无法转换为目标类型（如 <code>?id=abc</code>
+但方法参数是 <code>Long</code>）</p>
+<p>C. 前端传的参数值是空字符串</p>
+<p>D. 前端传了多个同名参数</p>
+<p>E. 前端未设置 <code>Content-Type: application/json</code></p>
+<p><strong>答案</strong>：AB</p>
+<p><strong>解析</strong>：A 触发
+<code>MissingServletRequestParameterException</code>，B 触发
+<code>TypeMismatchException</code>，均返回 400。C 空字符串是有效值，D
+多值时取第一个或绑定 List，E 不影响 <code>@RequestParam</code>（只影响
+<code>@RequestBody</code>）。</p>
+<hr />
+<h3 id="04-多选-08-">04-多选-08 ★★★</h3>
+<p>下列关于 <code>@JsonFormat</code>
+注解的描述，<strong>正确</strong>的有（多选）：</p>
+<p>A. 用于格式化日期类型的序列化输出</p>
+<p>B. 可指定 <code>pattern</code> 属性定义格式</p>
+<p>C. 可指定 <code>timezone</code> 属性设置时区</p>
+<p>D. 既可用于字段，也可用于方法</p>
+<p>E. 是 Spring MVC 内置注解</p>
+<p><strong>答案</strong>：ABCD</p>
+<p><strong>解析</strong>：A、B、C、D 均正确。E
+错误，<code>@JsonFormat</code> 是 Jackson 库的注解，不是 Spring MVC
+的。</p>
+<hr />
+<h3 id="04-多选-09-">04-多选-09 ★★★</h3>
+<p>下列属于 RESTful API 设计规范的有（多选）：</p>
+<p>A. 资源用名词复数，如 <code>/projects</code></p>
+<p>B. 用 HTTP 方法表达操作动作</p>
+<p>C. 资源 ID 作为路径变量，如 <code>/projects/{id}</code></p>
+<p>D. 查询、分页参数放在 query string 中</p>
+<p>E. 所有接口都用 POST 方法以保证安全</p>
+<p><strong>答案</strong>：ABCD</p>
+<p><strong>解析</strong>：A、B、C、D 都是 RESTful 规范。E
+错误，应使用合适的 HTTP 方法，全 POST 违反 RESTful 精神。</p>
+<hr />
+<h3 id="04-多选-10-">04-多选-10 ★★★</h3>
+<p>下列代码中，能让接口正确返回 JSON 的有（多选）：</p>
+<p>A.</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> C <span class="op">{</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/a&quot;</span><span class="op">)</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">get</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>B.</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Controller</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> C <span class="op">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/b&quot;</span><span class="op">)</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ResponseBody</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">get</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>C.</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Controller</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> C <span class="op">{</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/c&quot;</span><span class="op">)</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">get</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>D.</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> C <span class="op">{</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/d&quot;</span><span class="op">)</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ResponseBody</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">get</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>答案</strong>：ABD</p>
+<p><strong>解析</strong>：A <code>@RestController</code> 已含
+<code>@ResponseBody</code>；B 方法级 <code>@ResponseBody</code>
+显式声明；D 虽然冗余但能正常工作。C 没有
+<code>@ResponseBody</code>，返回值会被当作视图名，不会序列化为
+JSON。</p>
+<hr />
+<h2 id="三判断题20题">三、判断题（20题）</h2>
+<h3 id="04-判断-01-">04-判断-01 ★</h3>
+<p><code>@RestController</code> 是 <code>@Controller</code> 与
+<code>@ResponseBody</code> 的组合注解。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：源码层面 <code>@RestController</code> 标注了
+<code>@Controller</code> 和 <code>@ResponseBody</code>。</p>
+<hr />
+<h3 id="04-判断-02-">04-判断-02 ★</h3>
+<p><code>@Controller</code> 标注的类中所有方法都返回视图名。</p>
+<p><strong>答案</strong>：错误</p>
+<p><strong>解析</strong>：<code>@Controller</code>
+标注的类中，方法上加了 <code>@ResponseBody</code> 的方法会返回
+JSON，未加的才返回视图名。</p>
+<hr />
+<h3 id="04-判断-03-">04-判断-03 ★</h3>
+<p><code>@GetMapping</code> 等价于
+<code>@RequestMapping(method = RequestMethod.GET)</code>。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：<code>@GetMapping</code> 是
+<code>@RequestMapping</code> 的 GET 方法简化形式。</p>
+<hr />
+<h3 id="04-判断-04-">04-判断-04 ★</h3>
+<p><code>@RequestParam</code> 默认 <code>required = false</code>。</p>
+<p><strong>答案</strong>：错误</p>
+<p><strong>解析</strong>：<code>@RequestParam</code> 默认
+<code>required = true</code>。</p>
+<hr />
+<h3 id="04-判断-05-">04-判断-05 ★</h3>
+<p><code>@RequestBody</code> 可用于 GET 请求。</p>
+<p><strong>答案</strong>：错误</p>
+<p><strong>解析</strong>：GET
+请求通常没有请求体，<code>@RequestBody</code> 一般用于
+POST/PUT/PATCH。</p>
+<hr />
+<h3 id="04-判断-06-">04-判断-06 ★</h3>
+<p><code>@PathVariable</code> 用于接收 URL 路径中以 <code>{xxx}</code>
+定义的变量。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：路径变量必须用 <code>@PathVariable</code>
+接收。</p>
+<hr />
+<h3 id="04-判断-07-">04-判断-07 ★</h3>
+<p>一个方法可以有多个 <code>@RequestBody</code> 参数。</p>
+<p><strong>答案</strong>：错误</p>
+<p><strong>解析</strong>：一个 HTTP
+请求只有一个请求体，因此一个方法最多一个 <code>@RequestBody</code>。</p>
+<hr />
+<h3 id="04-判断-08-">04-判断-08 ★</h3>
+<p>Spring Boot 默认使用 Jackson 作为 JSON 序列化库。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：<code>spring-boot-starter-web</code> 默认引入
+Jackson。</p>
+<hr />
+<h3 id="04-判断-09-">04-判断-09 ★★</h3>
+<p><code>@RestController</code> 标注的类中方法不能返回
+<code>String</code>。</p>
+<p><strong>答案</strong>：错误</p>
+<p><strong>解析</strong>：可以返回 <code>String</code>，会被序列化为
+JSON 字符串。</p>
+<hr />
+<h3 id="04-判断-10-">04-判断-10 ★★</h3>
+<p><code>@RequestMapping</code>
+标注在类上时，其路径会与方法上的路径拼接。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：最终访问路径 = 类上路径 + 方法上路径。</p>
+<hr />
+<h3 id="04-判断-11-">04-判断-11 ★★</h3>
+<p><code>@PathVariable("id") Long projectId</code>
+这种写法是合法的。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：通过 <code>value</code>
+显式指定路径变量名，方法参数名可不同。</p>
+<hr />
+<h3 id="04-判断-12-">04-判断-12 ★★</h3>
+<p><code>@RequestParam</code> 不能接收 <code>List</code> 类型参数。</p>
+<p><strong>答案</strong>：错误</p>
+<p><strong>解析</strong>：<code>@RequestParam List&lt;Long&gt; ids</code>
+可接收 <code>?ids=1,2,3</code>。</p>
+<hr />
+<h3 id="04-判断-13-">04-判断-13 ★★</h3>
+<p><code>@JsonIgnore</code>
+注解会让字段在序列化和反序列化时都被忽略。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：<code>@JsonIgnore</code> 默认双向忽略。</p>
+<hr />
+<h3 id="04-判断-14-">04-判断-14 ★★</h3>
+<p><code>@JsonFormat</code> 是 Spring MVC 的内置注解。</p>
+<p><strong>答案</strong>：错误</p>
+<p><strong>解析</strong>：<code>@JsonFormat</code> 是 Jackson
+库的注解。</p>
+<hr />
+<h3 id="04-判断-15-">04-判断-15 ★★</h3>
+<p><code>@RequestHeader</code> 默认 <code>required = true</code>。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：与 <code>@RequestParam</code>
+一样，默认必填。</p>
+<hr />
+<h3 id="04-判断-16-">04-判断-16 ★★★</h3>
+<p>同一个控制器中，两个方法映射了完全相同的路径和 HTTP
+方法，启动时会报错。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：会抛
+<code>IllegalStateException: Ambiguous mapping</code>。</p>
+<hr />
+<h3 id="04-判断-17-">04-判断-17 ★★★</h3>
+<p><code>@RequestBody</code> 与 <code>@RequestParam</code>
+可以在同一个方法中共存。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：前者从请求体取，后者从 query string
+取，互不冲突。</p>
+<hr />
+<h3 id="04-判断-18-">04-判断-18 ★★★</h3>
+<p><code>@PathVariable</code> 的路径变量名与方法参数名一致时，可省略
+<code>value</code> 属性。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：Spring
+自动按参数名匹配路径变量名，前提是编译时保留参数名（<code>-parameters</code>）。</p>
+<hr />
+<h3 id="04-判断-19-">04-判断-19 ★★★</h3>
+<p>POST 请求新增资源时，应优先使用 <code>@RequestParam</code> 而非
+<code>@RequestBody</code>。</p>
+<p><strong>答案</strong>：错误</p>
+<p><strong>解析</strong>：POST 新增资源应优先用
+<code>@RequestBody</code> 接收 JSON，便于结构化数据处理。</p>
+<hr />
+<h3 id="04-判断-20-">04-判断-20 ★★★</h3>
+<p>RESTful 风格中，资源 ID 应作为路径变量而非查询参数。</p>
+<p><strong>答案</strong>：正确</p>
+<p><strong>解析</strong>：<code>/projects/1</code> 优于
+<code>/projects?id=1</code>，符合 RESTful 资源定位思想。</p>
+<hr />
+<h2 id="四填空题10题">四、填空题（10题）</h2>
+<h3 id="04-填空-01-">04-填空-01 ★</h3>
+<p><code>@RestController</code> 是 ______ 与 <code>@ResponseBody</code>
+两个注解的组合。</p>
+<p><strong>答案</strong>：<code>@Controller</code></p>
+<p><strong>解析</strong>：<code>@RestController</code> =
+<code>@Controller</code> + <code>@ResponseBody</code>。</p>
+<hr />
+<h3 id="04-填空-02-">04-填空-02 ★</h3>
+<p><code>@GetMapping</code> 等价于
+<code>@RequestMapping(method = ______)</code>。</p>
+<p><strong>答案</strong>：<code>RequestMethod.GET</code></p>
+<p><strong>解析</strong>：<code>@GetMapping</code> 是
+<code>@RequestMapping</code> 限定 GET 方法的简化注解。</p>
+<hr />
+<h3 id="04-填空-03-">04-填空-03 ★</h3>
+<p>接收 URL 查询字符串 <code>?keyword=电商</code> 中的
+<code>keyword</code> 参数，应使用注解 ______。</p>
+<p><strong>答案</strong>：<code>@RequestParam</code></p>
+<p><strong>解析</strong>：query 参数用 <code>@RequestParam</code>
+接收。</p>
+<hr />
+<h3 id="04-填空-04-">04-填空-04 ★</h3>
+<p>接收 URL 路径 <code>/projects/1</code> 中的
+<code>1</code>，应使用注解 ______。</p>
+<p><strong>答案</strong>：<code>@PathVariable</code></p>
+<p><strong>解析</strong>：路径变量用 <code>@PathVariable</code>
+接收。</p>
+<hr />
+<h3 id="04-填空-05-">04-填空-05 ★★</h3>
+<p>POST 请求中接收 JSON 请求体，应使用注解 ______。</p>
+<p><strong>答案</strong>：<code>@RequestBody</code></p>
+<p><strong>解析</strong>：请求体 JSON 通过 <code>@RequestBody</code> +
+<code>HttpMessageConverter</code> 反序列化。</p>
+<hr />
+<h3 id="04-填空-06-">04-填空-06 ★★</h3>
+<p>接收 HTTP 请求头中的 <code>Authorization</code> 字段，应使用注解
+______。</p>
+<p><strong>答案</strong>：<code>@RequestHeader</code></p>
+<p><strong>解析</strong>：请求头用 <code>@RequestHeader</code>
+接收。</p>
+<hr />
+<h3 id="04-填空-07-">04-填空-07 ★★</h3>
+<p><code>@RequestMapping</code> 标注在 ______ 上时定义统一前缀，标注在
+______ 上时定义具体路径。</p>
+<p><strong>答案</strong>：类；方法</p>
+<p><strong>解析</strong>：类级别定 base
+path，方法级别定具体路径，二者拼接成完整路径。</p>
+<hr />
+<h3 id="04-填空-08-">04-填空-08 ★★</h3>
+<p>想让 <code>LocalDateTime</code> 字段以
+<code>yyyy-MM-dd HH:mm:ss</code> 格式输出 JSON，应在字段上加注解
+<code>@______(pattern = "yyyy-MM-dd HH:mm:ss")</code>。</p>
+<p><strong>答案</strong>：<code>JsonFormat</code></p>
+<p><strong>解析</strong>：<code>@JsonFormat</code> 是 Jackson
+的日期格式化注解。</p>
+<hr />
+<h3 id="04-填空-09-">04-填空-09 ★★★</h3>
+<p>Spring Boot 默认使用 ______ 库完成 Java 对象到 JSON
+的自动序列化。</p>
+<p><strong>答案</strong>：Jackson</p>
+<p><strong>解析</strong>：<code>spring-boot-starter-web</code> 默认引入
+Jackson 作为 <code>HttpMessageConverter</code>。</p>
+<hr />
+<h3 id="04-填空-10-">04-填空-10 ★★★</h3>
+<p>RESTful 风格中，资源标识应放在
+______（path/query/body）中，筛选过滤参数应放在 ______
+中，数据载体应放在 ______ 中。</p>
+<p><strong>答案</strong>：path；query；body</p>
+<p><strong>解析</strong>：资源标识 →
+path（<code>/projects/{id}</code>）；筛选 →
+query（<code>?keyword=电商</code>）；数据载体 → body（POST JSON）。</p>
+<hr />
+<h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
+<h3 id="04-论述-01-">04-论述-01 ★★</h3>
+<p>请简述 <code>@RestController</code> 与 <code>@Controller</code>
+的区别，并说明在前后端分离项目中应选择哪个及原因。</p>
+<p><strong>参考答案</strong>：</p>
+<ol type="1">
+<li><strong>区别</strong>：
+<ul>
+<li><code>@Controller</code> 是 Spring MVC
+传统的控制器注解，标记一个类为控制器。其方法默认返回视图名，由
+<code>ViewResolver</code> 解析跳转到页面（如 JSP、Thymeleaf）。</li>
+<li><code>@RestController</code> 是 Spring 4.0 引入的组合注解，等同于
+<code>@Controller</code> +
+<code>@ResponseBody</code>。其方法返回值会通过
+<code>HttpMessageConverter</code>（默认 Jackson）直接序列化为 JSON
+写入响应体。</li>
+</ul></li>
+<li><strong>前后端分离项目应选择
+<code>@RestController</code></strong>，原因：
+<ul>
+<li>前后端分离架构下，后端只负责提供数据接口（JSON），不负责页面渲染。</li>
+<li><code>@RestController</code> 自动包含
+<code>@ResponseBody</code>，省去在每个方法上重复添加注解。</li>
+<li>与前端框架（Vue、React）的 axios/fetch 调用天然契合，前端直接拿到
+JSON 数据。</li>
+</ul></li>
+<li><strong>示例</strong>：
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">getById</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></li>
+</ol>
+<p><strong>评分标准</strong>（满分 10 分）：</p>
+<ul>
+<li>准确说出二者区别（4 分）</li>
+<li>正确选择 <code>@RestController</code> 并说明原因（4 分）</li>
+<li>给出代码示例（2 分）</li>
+</ul>
+<hr />
+<h3 id="04-论述-02-">04-论述-02 ★★</h3>
+<p>请分别说明
+<code>@RequestParam</code>、<code>@PathVariable</code>、<code>@RequestBody</code>
+三种参数接收注解的使用场景，并各举一个典型 URL 示例。</p>
+<p><strong>参考答案</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>使用场景</th>
+<th>URL 示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@RequestParam</code></td>
+<td>接收 URL 查询字符串中的参数，适用于分页、过滤、排序等可选参数</td>
+<td><code>GET /projects?keyword=电商&amp;page=1&amp;size=10</code></td>
+</tr>
+<tr>
+<td><code>@PathVariable</code></td>
+<td>接收 URL 路径中以 <code>{xxx}</code>
+定义的变量，适用于资源唯一标识</td>
+<td><code>GET /projects/1</code></td>
+</tr>
+<tr>
+<td><code>@RequestBody</code></td>
+<td>接收 HTTP 请求体中的 JSON 数据，适用于 POST/PUT
+创建或更新资源时的复杂数据载体</td>
+<td><code>POST /projects</code> + Body
+<code>{"name":"电商实训"}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>选择原则</strong>：</p>
+<ul>
+<li>资源标识 → <code>@PathVariable</code>（path）</li>
+<li>筛选过滤 → <code>@RequestParam</code>（query）</li>
+<li>数据载体 → <code>@RequestBody</code>（body）</li>
+</ul>
+<p><strong>代码示例</strong>：</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">(</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>required <span class="op">=</span> <span class="kw">false</span><span class="op">)</span> <span class="bu">String</span> keyword<span class="op">,</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>defaultValue <span class="op">=</span> <span class="st">&quot;1&quot;</span><span class="op">)</span> <span class="dt">int</span> page<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">add</span><span class="op">(</span><span class="at">@RequestBody</span> Project project<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>评分标准</strong>（满分 10 分）：</p>
+<ul>
+<li>三个注解的使用场景说明各 2 分（共 6 分）</li>
+<li>各举一个典型 URL 示例（2 分）</li>
+<li>给出代码示例（2 分）</li>
+</ul>
+<hr />
+<h3 id="04-论述-03-">04-论述-03 ★★★</h3>
+<p>某 CTTS
+接口需要实现"分页查询某项目下的任务列表"，参数包括：<code>projectId</code>（项目
+ID）、<code>status</code>（任务状态，可选）、<code>page</code>（页码，默认
+1）、<code>size</code>（每页条数，默认 10）。请设计该接口的 URL、HTTP
+方法、Controller 方法签名，并说明每个参数的接收方式及理由。</p>
+<p><strong>参考答案</strong>：</p>
+<ol type="1">
+<li><p><strong>URL
+设计</strong>：<code>GET /projects/{projectId}/tasks?status=1&amp;page=1&amp;size=10</code></p></li>
+<li><p><strong>HTTP 方法</strong>：GET（查询操作，符合 RESTful
+规范）</p></li>
+<li><p><strong>Controller 方法签名</strong>：</p></li>
+</ol>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskController <span class="op">{</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{projectId}/tasks&quot;</span><span class="op">)</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="fu">list</span><span class="op">(</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">@PathVariable</span> <span class="bu">Long</span> projectId<span class="op">,</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;status&quot;</span><span class="op">,</span> required <span class="op">=</span> <span class="kw">false</span><span class="op">)</span> <span class="bu">Integer</span> status<span class="op">,</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;page&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;1&quot;</span><span class="op">)</span> <span class="dt">int</span> page<span class="op">,</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;size&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;10&quot;</span><span class="op">)</span> <span class="dt">int</span> size<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> taskService<span class="op">.</span><span class="fu">listByProject</span><span class="op">(</span>projectId<span class="op">,</span> status<span class="op">,</span> page<span class="op">,</span> size<span class="op">);</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ol start="4" type="1">
+<li><strong>参数接收方式及理由</strong>：
+<ul>
+<li><code>projectId</code>：用
+<code>@PathVariable</code>，因为它是资源的唯一标识，体现在路径中，符合
+RESTful 嵌套资源风格（项目下的任务）。</li>
+<li><code>status</code>：用
+<code>@RequestParam(required = false)</code>，因为它是可选过滤条件，放在
+query string 中，未传时返回所有状态的任务。</li>
+<li><code>page</code>、<code>size</code>：用
+<code>@RequestParam(defaultValue = "...")</code>，因为它们是分页参数，有默认值，放在
+query string 中便于前端拼接。</li>
+</ul></li>
+</ol>
+<p><strong>评分标准</strong>（满分 10 分）：</p>
+<ul>
+<li>URL 设计合理（2 分）</li>
+<li>HTTP 方法选择 GET 并说明理由（1 分）</li>
+<li>方法签名完整正确（4 分）</li>
+<li>每个参数的接收方式及理由说明（3 分）</li>
+</ul>
+<hr />
+<h3 id="04-论述-04-">04-论述-04 ★★★</h3>
+<p>请说明在 Spring Boot 项目中，Controller 方法返回一个
+<code>Project</code> 对象后，是如何最终变成 JSON
+响应给前端的？涉及哪些核心组件？请画出（或描述）完整流程。</p>
+<p><strong>参考答案</strong>：</p>
+<p><strong>完整流程</strong>：</p>
+<ol type="1">
+<li><p><strong>DispatcherServlet 接收请求</strong>：前端发送 HTTP
+请求，<code>DispatcherServlet</code> 根据 URL 找到对应的 Controller
+方法。</p></li>
+<li><p><strong>方法执行</strong>：Controller 方法执行业务逻辑，返回一个
+<code>Project</code> 对象。</p></li>
+<li><p><strong>返回值处理器选择</strong>：Spring MVC 遍历
+<code>HandlerMethodReturnValueHandler</code> 列表。由于类上有
+<code>@RestController</code>（含 <code>@ResponseBody</code>），选择
+<code>RequestResponseBodyMethodProcessor</code> 处理返回值。</p></li>
+<li><p><strong>HttpMessageConverter
+选择</strong>：<code>RequestResponseBodyMethodProcessor</code> 遍历
+<code>HttpMessageConverter</code>
+列表，根据返回类型（<code>Project</code>）和 <code>Accept</code>
+头（<code>application/json</code>），选择
+<code>MappingJackson2HttpMessageConverter</code>。</p></li>
+<li><p><strong>Jackson
+序列化</strong>：<code>MappingJackson2HttpMessageConverter</code>
+调用内部的 <code>ObjectMapper.writeValueAsString(project)</code>，将
+<code>Project</code> 对象序列化为 JSON 字符串。期间会读取字段的 getter
+方法，应用 <code>@JsonFormat</code>、<code>@JsonIgnore</code>
+等注解。</p></li>
+<li><p><strong>写入响应</strong>：序列化后的 JSON 字符串被写入
+<code>HttpServletResponse</code> 的输出流，同时设置
+<code>Content-Type: application/json</code>。</p></li>
+<li><p><strong>前端接收</strong>：前端拿到 JSON 响应。</p></li>
+</ol>
+<p><strong>核心组件</strong>：</p>
+<ul>
+<li><code>DispatcherServlet</code>：前端控制器</li>
+<li><code>HandlerMethodReturnValueHandler</code>：返回值处理器接口</li>
+<li><code>RequestResponseBodyMethodProcessor</code>：处理
+<code>@ResponseBody</code> 返回值</li>
+<li><code>HttpMessageConverter</code>：消息转换器接口</li>
+<li><code>MappingJackson2HttpMessageConverter</code>：基于 Jackson 的
+JSON 转换器</li>
+<li><code>ObjectMapper</code>：Jackson 核心 API，完成对象 ↔︎ JSON
+转换</li>
+</ul>
+<p><strong>流程示意</strong>：</p>
+<pre><code>HTTP 请求 → DispatcherServlet → Controller 方法 → 返回 Project 对象
+    → RequestResponseBodyMethodProcessor
+    → MappingJackson2HttpMessageConverter
+    → ObjectMapper.writeValueAsString()
+    → 写入 response 输出流
+    → Content-Type: application/json
+    → 前端接收 JSON</code></pre>
+<p><strong>评分标准</strong>（满分 10 分）：</p>
+<ul>
+<li>描述流程的核心步骤（5 分）</li>
+<li>列出核心组件及其作用（3 分）</li>
+<li>画出/描述流程示意图（2 分）</li>
+</ul>
+<hr />
+<h2 id="六程序阅读与补全题2题">六、程序阅读与补全题（2题）</h2>
+<h3 id="04-程序阅读-01-">04-程序阅读-01 ★★</h3>
+<p>阅读下列代码，补全①②③处缺失的注解。</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Project</span><span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">ProjectService</span><span class="op">;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">beans</span><span class="op">.</span><span class="im">factory</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Autowired</span><span class="op">;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="fu">______①______</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> ProjectService projectService<span class="op">;</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    ______②______</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">list</span><span class="op">();</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span>______③______ <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">getById</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>要求</strong>：</p>
+<ul>
+<li>① 处使该类成为前后端分离项目的控制器（返回 JSON）</li>
+<li>② 处使 <code>list()</code> 方法响应 GET 请求，路径与类级别一致（即
+<code>GET /projects</code>）</li>
+<li>③ 处接收路径中的 <code>id</code> 变量</li>
+</ul>
+<p><strong>答案</strong>：</p>
+<ul>
+<li>① <code>@RestController</code></li>
+<li>② <code>@GetMapping</code></li>
+<li>③ <code>@PathVariable</code></li>
+</ul>
+<p><strong>完整代码</strong>：</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> ProjectService projectService<span class="op">;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">list</span><span class="op">();</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> projectService<span class="op">.</span><span class="fu">getById</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>① 前后端分离项目返回 JSON，用 <code>@RestController</code>（注意 ①
+已有 <code>value</code> 属性，<code>@RestController</code> 也有
+<code>value</code> 属性作为 Bean 名称别名，所以合法；但更常见的是再加
+<code>@RequestMapping</code>。本题答案为
+<code>@RestController</code>，且需保留 <code>value</code> 属性）。</li>
+<li>② GET 请求且路径为类级别，用 <code>@GetMapping</code>
+无参形式。</li>
+<li>③ 路径变量 <code>{id}</code> 用 <code>@PathVariable</code>
+接收。</li>
+</ul>
+<p><strong>评分标准</strong>（满分 10 分）：</p>
+<ul>
+<li>① 正确（3 分）</li>
+<li>② 正确（3 分）</li>
+<li>③ 正确（4 分）</li>
+</ul>
+<hr />
+<h3 id="04-程序阅读-02-">04-程序阅读-02 ★★★</h3>
+<p>阅读下列代码，找出其中的 <strong>3 处错误</strong>并改正。</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Project</span><span class="op">;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="at">@Controller</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">...</span><span class="op">;</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">add</span><span class="op">(</span><span class="at">@RequestParam</span> Project project<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>        projectService<span class="op">.</span><span class="fu">add</span><span class="op">(</span>project<span class="op">);</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;success&quot;</span><span class="op">;</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@RequestParam</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">...</span><span class="op">;</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>要求</strong>：找出 3
+处错误并改正，使代码能正常工作于前后端分离场景。</p>
+<p><strong>答案</strong>：</p>
+<p><strong>错误 1</strong>：类上 <code>@Controller</code> 应改为
+<code>@RestController</code>。</p>
+<ul>
+<li>原因：前后端分离场景下，方法返回值需要序列化为 JSON，必须用
+<code>@RestController</code> 或在每个方法上加
+<code>@ResponseBody</code>。</li>
+</ul>
+<p><strong>错误 2</strong>：<code>add</code> 方法的
+<code>@RequestParam Project project</code> 应改为
+<code>@RequestBody Project project</code>。</p>
+<ul>
+<li>原因：POST 请求接收 JSON 请求体必须用
+<code>@RequestBody</code>，<code>@RequestParam</code> 用于接收 query
+参数，无法接收复杂对象。</li>
+</ul>
+<p><strong>错误 3</strong>：<code>getById</code> 方法的
+<code>@RequestParam Long id</code> 应改为
+<code>@PathVariable Long id</code>。</p>
+<ul>
+<li>原因：路径中的 <code>{id}</code> 是路径变量，必须用
+<code>@PathVariable</code> 接收，<code>@RequestParam</code> 接收的是
+query string 中的参数。</li>
+</ul>
+<p><strong>改正后代码</strong>：</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span>                          <span class="co">// 修改 1</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/projects&quot;</span><span class="op">)</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">list</span><span class="op">()</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">add</span><span class="op">(</span><span class="at">@RequestBody</span> Project project<span class="op">)</span> <span class="op">{</span>   <span class="co">// 修改 2</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>        projectService<span class="op">.</span><span class="fu">add</span><span class="op">(</span>project<span class="op">);</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;success&quot;</span><span class="op">;</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Project <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span>     <span class="co">// 修改 3</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">...</span><span class="op">;</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>评分标准</strong>（满分 10 分）：</p>
+<ul>
+<li>每处错误定位与改正各 3 分（共 9 分）</li>
+<li>给出改正后的完整代码（1 分）</li>
+</ul>
+<hr />
+<h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
+<h3 id="04-编程设计-01-">04-编程设计-01 ★★</h3>
+<p>请为 CTTS 项目设计一个
+<strong>TaskController</strong>（任务控制器），包含以下三个接口：</p>
+<ol type="1">
+<li><strong>查询某项目下的任务列表</strong>：<code>GET /projects/{projectId}/tasks?status=0&amp;page=1&amp;size=10</code></li>
+<li><strong>根据任务 ID
+查询任务详情</strong>：<code>GET /tasks/{id}</code></li>
+<li><strong>新增任务</strong>：<code>POST /tasks</code>，请求体 JSON
+包含 <code>title</code>、<code>projectId</code>、<code>assigneeId</code>
+等字段</li>
+</ol>
+<p><strong>要求</strong>：</p>
+<ul>
+<li>使用 <code>@RestController</code>，类级别加合适的
+<code>@RequestMapping</code></li>
+<li>正确选择参数接收注解</li>
+<li>给出完整的类代码（含 package、import、注解、方法签名、方法体可写
+<code>return null;</code>）</li>
+<li>实体类 <code>Task</code> 假设已存在，包含
+<code>id</code>、<code>title</code>、<code>projectId</code>、<code>assigneeId</code>、<code>status</code>、<code>createTime</code>
+字段</li>
+</ul>
+<p><strong>参考答案</strong>：</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">TaskService</span><span class="op">;</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">beans</span><span class="op">.</span><span class="im">factory</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Autowired</span><span class="op">;</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskController <span class="op">{</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> TaskService taskService<span class="op">;</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">接口1：查询某项目下的任务列表</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> GET <span class="co">/</span>projects<span class="co">/{</span>projectId<span class="co">}/</span>tasks<span class="co">?</span>status<span class="co">=0</span><span class="er">&amp;</span>page<span class="co">=1</span><span class="er">&amp;</span>size<span class="co">=10</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">说明：</span>projectId <span class="co">是路径变量（资源标识），</span>status<span class="co">/</span>page<span class="co">/</span>size <span class="co">是查询参数（筛选过滤）</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/projects/{projectId}/tasks&quot;</span><span class="op">)</span></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="fu">listByProject</span><span class="op">(</span></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">@PathVariable</span> <span class="bu">Long</span> projectId<span class="op">,</span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;status&quot;</span><span class="op">,</span> required <span class="op">=</span> <span class="kw">false</span><span class="op">)</span> <span class="bu">Integer</span> status<span class="op">,</span></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;page&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;1&quot;</span><span class="op">)</span> <span class="dt">int</span> page<span class="op">,</span></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;size&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;10&quot;</span><span class="op">)</span> <span class="dt">int</span> size<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> taskService<span class="op">.</span><span class="fu">listByProject</span><span class="op">(</span>projectId<span class="op">,</span> status<span class="op">,</span> page<span class="op">,</span> size<span class="op">);</span></span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">接口2：根据任务</span> ID <span class="co">查询任务详情</span></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> GET <span class="co">/</span>tasks<span class="co">/{</span>id<span class="co">}</span></span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span></span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">说明：</span>id <span class="co">是路径变量（资源唯一标识）</span></span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/tasks/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Task <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> taskService<span class="op">.</span><span class="fu">getById</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">接口3：新增任务</span></span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> POST <span class="co">/</span>tasks</span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Body<span class="co">:</span> <span class="co">{&quot;</span>title<span class="co">&quot;:&quot;设计登录页&quot;,&quot;</span>projectId<span class="co">&quot;:1,&quot;</span>assigneeId<span class="co">&quot;:10}</span></span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span></span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">说明：复杂对象数据载体用</span> <span class="co">@</span>RequestBody <span class="co">接收</span></span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/tasks&quot;</span><span class="op">)</span></span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Task <span class="fu">add</span><span class="op">(</span><span class="at">@RequestBody</span> Task task<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> taskService<span class="op">.</span><span class="fu">add</span><span class="op">(</span>task<span class="op">);</span></span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>设计说明</strong>：</p>
+<ul>
+<li>接口1的路径设计遵循 RESTful
+嵌套资源风格，体现"项目下的任务"的从属关系。</li>
+<li>接口2和接口3的路径直接用
+<code>/tasks</code>，因为这两个操作不依赖于具体项目上下文。</li>
+<li>类上没有加 <code>@RequestMapping</code>
+定统一前缀，因为不同接口的前缀不同（<code>/projects/...</code> 和
+<code>/tasks/...</code>）。</li>
+</ul>
+<p><strong>评分标准</strong>（满分 15 分）：</p>
+<ul>
+<li>类注解 <code>@RestController</code>（2 分）</li>
+<li>三个接口方法签名完整正确（每个 3 分，共 9 分）</li>
+<li>参数接收注解选择合理（3 分）</li>
+<li>代码符合规范（package/import/注释）（1 分）</li>
+</ul>
+<hr />
+<h3 id="04-编程设计-02-">04-编程设计-02 ★★★</h3>
+<p>请为 CTTS 项目设计一个
+<strong>UserController</strong>（用户控制器），需要实现以下 4
+个接口：</p>
+<ol type="1">
+<li><strong>用户登录</strong>：<code>POST /users/login</code>，请求体
+JSON 包含 <code>username</code>、<code>password</code>，返回
+<code>{"token": "xxx"}</code></li>
+<li><strong>获取当前登录用户信息</strong>：<code>GET /users/me</code>，从请求头
+<code>Authorization</code> 中获取 Token</li>
+<li><strong>分页查询用户列表</strong>：<code>GET /users?keyword=张&amp;page=1&amp;size=10</code></li>
+<li><strong>更新用户信息</strong>：<code>PUT /users/{id}</code>，请求体
+JSON 包含更新后的用户数据</li>
+</ol>
+<p><strong>要求</strong>：</p>
+<ul>
+<li>使用 <code>@RestController</code>，类级别加
+<code>@RequestMapping("/users")</code></li>
+<li>正确选择参数接收注解</li>
+<li>返回值类型自定（可用 <code>Map&lt;String, Object&gt;</code> 或自定义
+<code>User</code> 实体）</li>
+<li>给出完整的类代码</li>
+<li>对每个接口的参数设计理由作简要注释说明</li>
+</ul>
+<p><strong>参考答案</strong>：</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">User</span><span class="op">;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">UserService</span><span class="op">;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">beans</span><span class="op">.</span><span class="im">factory</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Autowired</span><span class="op">;</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">HashMap</span><span class="op">;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">List</span><span class="op">;</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Map</span><span class="op">;</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/users&quot;</span><span class="op">)</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> UserController <span class="op">{</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> UserService userService<span class="op">;</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">接口1：用户登录</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> POST <span class="co">/</span>users<span class="co">/</span>login</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Body<span class="co">:</span> <span class="co">{&quot;</span>username<span class="co">&quot;:&quot;</span>admin<span class="co">&quot;,&quot;</span>password<span class="co">&quot;:&quot;123456&quot;}</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">设计理由：登录提交的是结构化数据（用户名+密码），适合用</span> <span class="co">@</span>RequestBody <span class="co">接收</span> JSON<span class="co">。</span></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">返回</span> Map<span class="dt">&lt;</span><span class="kw">String</span><span class="er">,</span><span class="ot">Object</span><span class="dt">&gt;</span> <span class="co">表达</span> token<span class="co">，灵活方便。</span></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/login&quot;</span><span class="op">)</span></span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> <span class="fu">login</span><span class="op">(</span><span class="at">@RequestBody</span> <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">String</span><span class="op">&gt;</span> body<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> username <span class="op">=</span> body<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;username&quot;</span><span class="op">);</span></span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> password <span class="op">=</span> body<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;password&quot;</span><span class="op">);</span></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> token <span class="op">=</span> userService<span class="op">.</span><span class="fu">login</span><span class="op">(</span>username<span class="op">,</span> password<span class="op">);</span></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;token&quot;</span><span class="op">,</span> token<span class="op">);</span></span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">接口2：获取当前登录用户信息</span></span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> GET <span class="co">/</span>users<span class="co">/</span>me</span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Header<span class="co">:</span> Authorization<span class="co">:</span> Bearer xxx<span class="co">-</span>token</span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span></span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">设计理由：</span>Token <span class="co">放在请求头中是行业标准，用</span> <span class="co">@</span>RequestHeader <span class="co">接收。</span></span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> required <span class="co">=</span> false <span class="co">便于未登录时返回提示而不是</span> <span class="co">400。</span></span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/me&quot;</span><span class="op">)</span></span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> <span class="fu">me</span><span class="op">(</span></span>
+<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestHeader</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;Authorization&quot;</span><span class="op">,</span> required <span class="op">=</span> <span class="kw">false</span><span class="op">)</span> <span class="bu">String</span> token<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>token <span class="op">==</span> <span class="kw">null</span> <span class="op">||</span> token<span class="op">.</span><span class="fu">isEmpty</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a>            result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;code&quot;</span><span class="op">,</span> <span class="dv">401</span><span class="op">);</span></span>
+<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a>            result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;msg&quot;</span><span class="op">,</span> <span class="st">&quot;未登录&quot;</span><span class="op">);</span></span>
+<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a>        User user <span class="op">=</span> userService<span class="op">.</span><span class="fu">getByToken</span><span class="op">(</span>token<span class="op">);</span></span>
+<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;code&quot;</span><span class="op">,</span> <span class="dv">200</span><span class="op">);</span></span>
+<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;data&quot;</span><span class="op">,</span> user<span class="op">);</span></span>
+<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">接口3：分页查询用户列表</span></span>
+<span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> GET <span class="co">/</span>users<span class="co">?</span>keyword<span class="co">=张</span><span class="er">&amp;</span>page<span class="co">=1</span><span class="er">&amp;</span>size<span class="co">=10</span></span>
+<span id="cb28-63"><a href="#cb28-63" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span></span>
+<span id="cb28-64"><a href="#cb28-64" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">设计理由：分页与搜索条件是可选的筛选过滤参数，适合用</span> <span class="co">@</span>RequestParam<span class="co">。</span></span>
+<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> keyword <span class="co">可选（</span>required <span class="co">=</span> false<span class="co">），</span>page<span class="co">/</span>size <span class="co">有默认值。</span></span>
+<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span></span>
+<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>User<span class="op">&gt;</span> <span class="fu">list</span><span class="op">(</span></span>
+<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;keyword&quot;</span><span class="op">,</span> required <span class="op">=</span> <span class="kw">false</span><span class="op">)</span> <span class="bu">String</span> keyword<span class="op">,</span></span>
+<span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;page&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;1&quot;</span><span class="op">)</span> <span class="dt">int</span> page<span class="op">,</span></span>
+<span id="cb28-71"><a href="#cb28-71" aria-hidden="true" tabindex="-1"></a>            <span class="at">@RequestParam</span><span class="op">(</span>value <span class="op">=</span> <span class="st">&quot;size&quot;</span><span class="op">,</span> defaultValue <span class="op">=</span> <span class="st">&quot;10&quot;</span><span class="op">)</span> <span class="dt">int</span> size<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb28-72"><a href="#cb28-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> userService<span class="op">.</span><span class="fu">list</span><span class="op">(</span>keyword<span class="op">,</span> page<span class="op">,</span> size<span class="op">);</span></span>
+<span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-75"><a href="#cb28-75" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb28-76"><a href="#cb28-76" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">接口4：更新用户信息</span></span>
+<span id="cb28-77"><a href="#cb28-77" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> PUT <span class="co">/</span>users<span class="co">/{</span>id<span class="co">}</span></span>
+<span id="cb28-78"><a href="#cb28-78" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> Body<span class="co">:</span> <span class="co">{&quot;</span>nickname<span class="co">&quot;:&quot;张三&quot;,&quot;</span>email<span class="co">&quot;:&quot;</span>zhangsan<span class="co">@</span>ctts<span class="co">.</span>com<span class="co">&quot;}</span></span>
+<span id="cb28-79"><a href="#cb28-79" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span></span>
+<span id="cb28-80"><a href="#cb28-80" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">设计理由：</span>id <span class="co">是资源唯一标识放路径（@</span>PathVariable<span class="co">），更新数据放请求体（@</span>RequestBody<span class="co">）。</span></span>
+<span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> PUT <span class="co">方法符合</span> RESTful <span class="co">全量更新语义。</span></span>
+<span id="cb28-82"><a href="#cb28-82" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb28-83"><a href="#cb28-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PutMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
+<span id="cb28-84"><a href="#cb28-84" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> User <span class="fu">update</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">,</span> <span class="at">@RequestBody</span> User user<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a>        user<span class="op">.</span><span class="fu">setId</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb28-86"><a href="#cb28-86" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> userService<span class="op">.</span><span class="fu">update</span><span class="op">(</span>user<span class="op">);</span></span>
+<span id="cb28-87"><a href="#cb28-87" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb28-88"><a href="#cb28-88" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>设计要点</strong>：</p>
+<ol type="1">
+<li><strong>登录接口</strong>：用
+<code>@RequestBody Map&lt;String, String&gt;</code> 而非自定义
+DTO，因为登录字段少且无需建实体。生产中建议用专门的
+<code>LoginDTO</code>。</li>
+<li><strong>获取当前用户</strong>：Token 放请求头是行业惯例（避开 URL
+被日志记录的风险），用 <code>@RequestHeader(required = false)</code>
+容错。</li>
+<li><strong>分页查询</strong>：<code>keyword</code>
+可选，<code>page/size</code> 有默认值，典型 query 参数场景。</li>
+<li><strong>更新接口</strong>：路径参数 + 请求体的组合是 RESTful
+全量更新的标准模式。</li>
+</ol>
+<p><strong>评分标准</strong>（满分 15 分）：</p>
+<ul>
+<li>类注解 <code>@RestController</code> +
+<code>@RequestMapping("/users")</code>（2 分）</li>
+<li>4 个接口方法签名完整正确（每个 2 分，共 8 分）</li>
+<li>参数接收注解选择合理（3 分）</li>
+<li>注释说明设计理由（2 分）</li>
+</ul>
+<hr />
+<h2 id="附题库统计表">附：题库统计表</h2>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>题量</th>
+<th>分值范围</th>
+<th>难度分布</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单项选择</td>
+<td>30</td>
+<td>★ ~ ★★★</td>
+<td>★：6 题；★★：13 题；★★★：11 题</td>
+</tr>
+<tr>
+<td>多项选择</td>
+<td>10</td>
+<td>★ ~ ★★★</td>
+<td>★：1 题；★★：6 题；★★★：3 题</td>
+</tr>
+<tr>
+<td>判断题</td>
+<td>20</td>
+<td>★ ~ ★★★</td>
+<td>★：8 题；★★：7 题；★★★：5 题</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>10</td>
+<td>★ ~ ★★★</td>
+<td>★：4 题；★★：4 题；★★★：2 题</td>
+</tr>
+<tr>
+<td>论述简答</td>
+<td>4</td>
+<td>★★ ~ ★★★</td>
+<td>★★：2 题；★★★：2 题</td>
+</tr>
+<tr>
+<td>程序阅读补全</td>
+<td>2</td>
+<td>★★ ~ ★★★</td>
+<td>★★：1 题；★★★：1 题</td>
+</tr>
+<tr>
+<td>编程接口设计</td>
+<td>2</td>
+<td>★★ ~ ★★★</td>
+<td>★★：1 题；★★★：1 题</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="知识点覆盖统计">知识点覆盖统计</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>题量</th>
+<th>题号示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K4-1 <code>@RestController</code> vs <code>@Controller</code></td>
+<td>14</td>
+<td>单选 01/12、多选 02/10、判断 01/02/09、填空 01、论述 01、程序阅读
+01/02 等</td>
+</tr>
+<tr>
+<td>K4-2 请求映射注解</td>
+<td>12</td>
+<td>单选 02/03/08/10/26、多选 01/09、判断 03/10/16、填空 02、编程设计
+01/02 等</td>
+</tr>
+<tr>
+<td>K4-3 参数接收四件套</td>
+<td>28</td>
+<td>单选 04/05/06/07/09/11/13/14/15/17/22/25/27/30、多选
+03/04/05/06/07、判断 04/05/06/07/11/12/15/17/18/19、填空
+03/04/05/06、论述 02/03、程序阅读 01/02 等</td>
+</tr>
+<tr>
+<td>K4-4 JSON 返回</td>
+<td>12</td>
+<td>单选 17/18/19/20/23/24、多选 08/10、判断 08/13/14、填空 08/09、论述
+04 等</td>
+</tr>
+<tr>
+<td>K4-5 接口参数设计</td>
+<td>12</td>
+<td>单选 14/21/29、多选 09、判断 20、填空 10、论述 03、编程设计 01/02
+等</td>
+</tr>
+</tbody>
+</table>
+<h3 id="难度分布总览">难度分布总览</h3>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>题量</th>
+<th>占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>★（基础识记）</td>
+<td>19</td>
+<td>24.4%</td>
+</tr>
+<tr>
+<td>★★（理解应用）</td>
+<td>31</td>
+<td>39.7%</td>
+</tr>
+<tr>
+<td>★★★（综合分析）</td>
+<td>28</td>
+<td>35.9%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

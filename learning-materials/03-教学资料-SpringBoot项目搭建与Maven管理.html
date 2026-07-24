@@ -1,0 +1,2179 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpringBoot项目搭建与Maven管理</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 03 次课 · 教学资料</div>
+      <h1>SpringBoot项目搭建与Maven管理</h1>
+      <p>面向学生复习、自学、代码示例与知识图示 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 03 次课</span>
+        <span class="hero-chip"><b>主题</b>SpringBoot项目搭建与Maven管理</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一学习导读">一、学习导读</a>
+<ul>
+<li><a href="#11-本节定位">1.1 本节定位</a></li>
+<li><a href="#12-先修基础">1.2 先修基础</a></li>
+<li><a href="#13-学习目标">1.3 学习目标</a></li>
+<li><a href="#14-贯穿项目对接">1.4 贯穿项目对接</a></li>
+</ul></li>
+<li><a href="#二知识点详解">二、知识点详解</a>
+<ul>
+<li><a href="#知识点-k3-1spring-boot-特性">知识点 K3-1：Spring Boot 特性</a></li>
+<li><a href="#知识点-k3-2spring-boot-项目结构">知识点 K3-2：Spring Boot 项目结构</a></li>
+<li><a href="#知识点-k3-3maven-依赖管理">知识点 K3-3：Maven 依赖管理</a></li>
+<li><a href="#知识点-k3-4配置文件-applicationyml">知识点 K3-4：配置文件 application.yml</a></li>
+<li><a href="#知识点-k3-5启动类与-springbootapplication">知识点 K3-5：启动类与 @SpringBootApplication</a></li>
+<li><a href="#知识点-k3-6项目创建流程">知识点 K3-6：项目创建流程</a></li>
+</ul></li>
+<li><a href="#三综合示例ctts-项目从零搭建">三、综合示例：CTTS 项目从零搭建</a>
+<ul>
+<li><a href="#31-项目背景">3.1 项目背景</a></li>
+<li><a href="#32-创建项目">3.2 创建项目</a></li>
+<li><a href="#33-完整-pomxml">3.3 完整 pom.xml</a></li>
+<li><a href="#34-完整目录结构">3.4 完整目录结构</a></li>
+<li><a href="#35-启动类-cttsapplicationjava">3.5 启动类 CttsApplication.java</a></li>
+<li><a href="#36-配置文件-applicationyml">3.6 配置文件 application.yml</a></li>
+<li><a href="#37-测试类-cttsapplicationtestsjava">3.7 测试类 CttsApplicationTests.java</a></li>
+<li><a href="#38-启动验证">3.8 启动验证</a></li>
+<li><a href="#39-验证清单">3.9 验证清单</a></li>
+</ul></li>
+<li><a href="#四拓展阅读">四、拓展阅读</a>
+<ul>
+<li><a href="#41-spring-boot-版本选择">4.1 Spring Boot 版本选择</a></li>
+<li><a href="#42-maven-vs-gradle">4.2 Maven vs Gradle</a></li>
+<li><a href="#43-推荐资料">4.3 推荐资料</a></li>
+<li><a href="#44-进阶概念了解即可">4.4 进阶概念（了解即可）</a></li>
+</ul></li>
+<li><a href="#五本节小结与知识结构图">五、本节小结与知识结构图</a>
+<ul>
+<li><a href="#51-核心要点回顾">5.1 核心要点回顾</a></li>
+<li><a href="#52-知识结构图文字树">5.2 知识结构图（文字树）</a></li>
+<li><a href="#53-与上节下节的衔接">5.3 与上节、下节的衔接</a></li>
+</ul></li>
+<li><a href="#六复习思考题">六、复习思考题</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 03 次课 <span>｜</span> <strong>文档：</strong>教学资料</p>
+<blockquote>
+<p>学生复习资料 ｜
+配套：<code>教学设计.md</code>（教师教案）、<code>题库.md</code>（78
+题考试题库）
+本资料面向学生课后复习自学，包含定义、原理、问题、完整示例代码、图示、易错点与小结。</p>
+</blockquote>
+<hr />
+<h2 id="一学习导读">一、学习导读</h2>
+<h3 id="11-本节定位">1.1 本节定位</h3>
+<p>这是《JavaWeb 后端开发技术》的<strong>第三次课</strong>，进入 M2
+模块的第一课。前两节我们建立了"后端开发认知"和"HTTP/JSON/RESTful
+通信语言"的基础，从本次课开始，我们真正动手搭建后端项目。</p>
+<p>学完本节，你应当能回答：</p>
+<ul>
+<li>什么是 Spring Boot？它和 Spring 是什么关系？解决了什么痛点？</li>
+<li>什么是自动配置、起步依赖、内嵌 Tomcat、约定优于配置？</li>
+<li>一个标准的 Spring Boot 项目目录结构是怎样的？每个目录放什么？</li>
+<li>Maven 是什么？pom.xml 里 <code>groupId / artifactId / version</code>
+三坐标分别表示什么？</li>
+<li><code>spring-boot-starter-web</code>
+起步依赖把哪些东西"打包"带进来了？</li>
+<li><code>application.yml</code> 怎么写？怎么改端口、改
+context-path？</li>
+<li>启动类上的 <code>@SpringBootApplication</code>
+注解做了什么？<code>SpringApplication.run</code> 又做了什么？</li>
+<li>如何用 IDEA / Spring Initializr 从零创建一个 Spring Boot 项目？</li>
+</ul>
+<h3 id="12-先修基础">1.2 先修基础</h3>
+<table>
+<thead>
+<tr>
+<th>先修知识</th>
+<th>用到程度</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 次课内容</td>
+<td>必要</td>
+<td>理解 B/S 架构、前后端分离、后端职责</td>
+</tr>
+<tr>
+<td>第 2 次课内容</td>
+<td>必要</td>
+<td>理解 HTTP 请求-响应、JSON 数据格式</td>
+</tr>
+<tr>
+<td>Java 基础（类、注解、main 方法）</td>
+<td>必要</td>
+<td>能读懂启动类的注解与 main 方法</td>
+</tr>
+<tr>
+<td>Maven 基本概念（可选）</td>
+<td>有则更好</td>
+<td>了解"构建工具"概念即可，本节会从零讲</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-学习目标">1.3 学习目标</h3>
+<ul>
+<li>✅ 理解 Spring Boot 的核心特性（K3-1）</li>
+<li>✅ 掌握 Spring Boot 标准项目结构（K3-2）</li>
+<li>✅ 掌握 Maven 依赖管理，能读懂并编写 pom.xml（K3-3）</li>
+<li>✅ 掌握 application.yml 配置文件写法（K3-4）</li>
+<li>✅ 理解启动类注解与启动流程（K3-5）</li>
+<li>✅ 能独立使用 IDEA 创建 Spring Boot 项目并启动验证（K3-6）</li>
+</ul>
+<h3 id="14-贯穿项目对接">1.4 贯穿项目对接</h3>
+<p>本次课为贯穿项目 <strong>校园实训任务管理系统（CTTS）</strong>
+搭建工程骨架。本节结束后，你将拥有一个可启动的、空的 CTTS
+后端工程，后续课程将在其上逐步添加 Controller、Service、Mapper
+等代码。</p>
+<div class="visual">
+  <div class="visual-title">图示 1：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">CTTS 后端工程（com.ctts）</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 启动类 CttsApplication.java      ← 本节完成</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 配置文件 application.yml          ← 本节完成</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 依赖管理 pom.xml                  ← 本节完成</span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 待添加：Controller / Service / Mapper / Entity ...  ← 后续课程</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<hr />
+<h2 id="二知识点详解">二、知识点详解</h2>
+<h3 id="知识点-k3-1spring-boot-特性">知识点 K3-1：Spring Boot 特性</h3>
+<h4 id="定义">定义</h4>
+<p><strong>Spring Boot</strong> 是基于 Spring
+框架的二次封装框架，它通过<strong>自动配置、起步依赖、内嵌 Servlet
+容器</strong>等特性，让开发者能够"开箱即用"地构建独立的、生产级的 Spring
+应用，<strong>几乎不需要写 XML 配置</strong>。</p>
+<blockquote>
+<p>一句话理解：Spring 是"发动机"，Spring Boot
+是"整车"——发动机已经装好、油路接好、钥匙给你，你拧钥匙就能开走。</p>
+</blockquote>
+<h4 id="原理">原理</h4>
+<p>Spring Boot 的四大核心特性：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>含义</th>
+<th>解决的痛点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>自动配置（Auto-Configuration）</strong></td>
+<td>根据classpath中存在的依赖，自动创建并注入常用的Bean</td>
+<td>以前要在XML里手写大量<code>&lt;bean&gt;</code>配置</td>
+</tr>
+<tr>
+<td><strong>起步依赖（Starter）</strong></td>
+<td>把某一场景所需的多个依赖打包成一个starter</td>
+<td>以前要自己挑版本、自己加十几个jar</td>
+</tr>
+<tr>
+<td><strong>内嵌Web容器（Embedded Container）</strong></td>
+<td>内嵌Tomcat/Jetty/Undertow，无需部署WAR包到外部容器</td>
+<td>以前要装Tomcat、打包WAR、拷贝到webapps</td>
+</tr>
+<tr>
+<td><strong>约定优于配置（Convention over Configuration）</strong></td>
+<td>提供合理的默认值（默认端口8080、默认配置文件名等）</td>
+<td>以前一切都要手动配置</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Spring Boot 与 Spring 的关系</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 2：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line"><span class="tree-token">│</span>       你的应用代码（CTTS）         <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
+<span class="diagram-line"><span class="tree-token">│</span>          Spring Boot              <span class="tree-token">│</span>  ← 自动配置、Starter、内嵌容器</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
+<span class="diagram-line"><span class="tree-token">│</span>       Spring Framework            <span class="tree-token">│</span>  ← IoC/AOP/MVC等核心能力</span>
+<span class="diagram-line"><span class="tree-token">│</span>   (spring-context/mvc/beans...)   <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<ul>
+<li>Spring Boot <strong>不是</strong>取代
+Spring，而是<strong>简化</strong> Spring 应用的搭建。</li>
+<li>Spring Boot 底层就是 Spring，你在 Spring 里学的
+<code>@Component</code>、<code>@Service</code>、<code>@Autowired</code>、<code>@RequestMapping</code>
+全部照样能用。</li>
+</ul>
+<p><strong>自动配置的工作流程</strong>（简化版）：</p>
+<pre><code>启动类 @SpringBootApplication
+        │
+        ▼
+@EnableAutoConfiguration  ← 开启自动配置
+        │
+        ▼
+扫描 classpath 下的 META-INF/spring/...imports 文件
+        │
+        ▼
+加载若干 AutoConfiguration 类（如 DataSourceAutoConfiguration）
+        │
+        ▼
+通过 @ConditionalOnClass / @ConditionalOnMissingBean 判断
+        │
+        ▼
+&quot;如果你引入了MySQL驱动，又没自己配DataSource，我就帮你配一个&quot;</code></pre>
+<h4 id="问题--场景">问题 / 场景</h4>
+<p><strong>问：没有 Spring Boot 之前，搭一个 Spring Web
+项目有多麻烦？</strong></p>
+<ul>
+<li>要手写 <code>web.xml</code> 注册 DispatcherServlet；</li>
+<li>要写 <code>applicationContext.xml</code>
+配置组件扫描、数据源、事务管理器；</li>
+<li>要自己挑 Spring MVC、Jackson、Hibernate Validator
+的版本并保证兼容；</li>
+<li>要安装外部 Tomcat，把项目打成 WAR 部署进去。 Spring Boot
+把这些步骤都省掉了。</li>
+</ul>
+<p><strong>问：自动配置会不会"乱配"导致冲突？</strong></p>
+<ul>
+<li>不会。自动配置类大量使用 <code>@Conditional</code>
+系列注解，<strong>只有满足条件才生效</strong>；并且"用户自定义的 Bean
+优先"，如果你自己配了一个 <code>DataSource</code>，Spring Boot
+的自动配置会自动退让。</li>
+</ul>
+<h4 id="完整示例代码">完整示例代码</h4>
+<p>最小可运行的 Spring Boot 应用（本节后续 K3-5 会展开）：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">SpringApplication</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">autoconfigure</span><span class="op">.</span><span class="im">SpringBootApplication</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CttsApplication <span class="op">{</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        SpringApplication<span class="op">.</span><span class="fu">run</span><span class="op">(</span>CttsApplication<span class="op">.</span><span class="fu">class</span><span class="op">,</span> args<span class="op">);</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>启动后控制台会输出：</p>
+<pre><code>  .   ____          _            __ _ _
+ /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+Tomcat started on port 8080 (http) with context path &#39;&#39;
+Started CttsApplication in 2.134 seconds (process running for 2.987)</code></pre>
+<p>看到 <code>Started CttsApplication</code> 即表示启动成功。</p>
+<h4 id="图示">图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 3：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">传统 Spring Web 项目搭建流程（约 30+ 分钟）</span>
+<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
+<span class="diagram-line">新建Maven工程 <span class="arrow-token">→</span> 加十几个依赖 <span class="arrow-token">→</span> 写web.xml</span>
+<span class="diagram-line"><span class="arrow-token">→</span> 写applicationContext.xml <span class="arrow-token">→</span> 装Tomcat <span class="arrow-token">→</span> 打WAR</span>
+<span class="diagram-line"><span class="arrow-token">→</span> 部署到webapps <span class="arrow-token">→</span> 启动Tomcat <span class="arrow-token">→</span> 访问</span>
+<span class="diagram-line">Spring Boot 项目搭建流程（约 3 分钟）</span>
+<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
+<span class="diagram-line">Spring Initializr生成 <span class="arrow-token">→</span> 勾选Web依赖 <span class="arrow-token">→</span> 写启动类</span>
+<span class="diagram-line"><span class="arrow-token">→</span> 运行main方法 <span class="arrow-token">→</span> 直接访问</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="易错点">易错点</h4>
+<ol type="1">
+<li><strong>把 Spring Boot 当成"新框架"</strong>：它本质是 Spring
+的封装，Spring 的注解和原理仍然适用。</li>
+<li><strong>以为自动配置是"万能的"</strong>：自动配置只覆盖"约定场景"，定制化需求仍需自己写配置类。</li>
+<li><strong>认为内嵌 Tomcat 性能不如外部 Tomcat</strong>：内嵌 Tomcat
+与外部 Tomcat 是同一份代码，性能无差异，部署方式不同而已。</li>
+</ol>
+<h4 id="小结">小结</h4>
+<p>Spring Boot 通过<strong>自动配置 + 起步依赖 + 内嵌容器 +
+约定优于配置</strong>四大特性，把 Spring
+应用从"配置地狱"中解放出来。它不是新框架，而是 Spring
+的"快捷启动器"。理解这四大特性，是后续一切 Spring Boot 开发的基础。</p>
+<hr />
+<h3 id="知识点-k3-2spring-boot-项目结构">知识点 K3-2：Spring Boot
+项目结构</h3>
+<h4 id="定义-1">定义</h4>
+<p><strong>Spring Boot 项目结构</strong> 是指一个基于 Maven 的 Spring
+Boot 工程在文件系统中的标准目录组织方式。它遵循 Maven
+的"约定目录结构"，并在其上增加 Spring Boot 的约定（如配置文件放
+<code>src/main/resources</code>）。</p>
+<h4 id="原理-1">原理</h4>
+<p>Maven 约定的标准目录结构：</p>
+<div class="visual">
+  <div class="visual-title">图示 4：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">ctts/</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> pom.xml                         ← 项目对象模型文件（依赖、构建配置）</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> main/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> java/                   ← Java 源代码根目录</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/ctts/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java   ← 启动类</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller/            ← 控制层（后续课程）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> service/               ← 业务层（后续课程）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper/                ← 数据访问层（后续课程）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity/                ← 实体类（后续课程）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> common/                ← 通用工具（后续课程）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> resources/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml      ← 主配置文件</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> application-dev.yml  ← 环境配置（可选）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper/              ← MyBatis SQL 映射文件（后续课程）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> static/              ← 静态资源（前后端分离项目中一般不用）</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> test/</span>
+<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> java/</span>
+<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/ctts/</span>
+<span class="diagram-line"><span class="tree-token">│</span>               <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplicationTests.java  ← 测试类</span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> target/                          ← 编译输出目录（自动生成）</span>
+<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> classes/...</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p>各目录职责：</p>
+<table>
+<thead>
+<tr>
+<th>目录/文件</th>
+<th>职责</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pom.xml</code></td>
+<td>Maven 项目对象模型，声明依赖与构建方式</td>
+<td>必须</td>
+</tr>
+<tr>
+<td><code>src/main/java</code></td>
+<td>存放 Java 源代码</td>
+<td>必须</td>
+</tr>
+<tr>
+<td><code>src/main/resources</code></td>
+<td>存放配置文件、静态资源、模板等</td>
+<td>必须</td>
+</tr>
+<tr>
+<td><code>application.yml</code></td>
+<td>Spring Boot 主配置文件</td>
+<td>强烈建议</td>
+</tr>
+<tr>
+<td><code>src/test/java</code></td>
+<td>存放单元测试代码</td>
+<td>建议</td>
+</tr>
+<tr>
+<td><code>target/</code></td>
+<td>编译输出目录，由 Maven 自动生成，<strong>不要手动改</strong></td>
+<td>自动</td>
+</tr>
+<tr>
+<td><code>src/main/resources/mapper/</code></td>
+<td>MyBatis 的 XML 映射文件</td>
+<td>后续课程用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>包结构约定</strong>（以 <code>com.ctts</code> 为根包）：</p>
+<div class="visual">
+  <div class="visual-title">图示 5：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">com.ctts</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication         ← 启动类（必须在根包或父包上）</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller              ← 接收HTTP请求</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> service                 ← 业务逻辑</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> impl</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper                  ← 数据库访问</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity                  ← 数据库实体</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> dto                     ← 数据传输对象</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> vo                      ← 返回视图对象</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> common                  ← 通用类（Result、异常等）</span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> config                  ← 配置类</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<blockquote>
+<p>⚠️
+<strong>启动类位置很关键</strong>：<code>@SpringBootApplication</code>
+默认扫描"启动类所在包及其子包"。所以启动类必须放在<strong>根包</strong>（<code>com.ctts</code>）下，否则
+controller/service 等组件扫描不到。</p>
+</blockquote>
+<h4 id="问题--场景-1">问题 / 场景</h4>
+<p><strong>问：为什么配置文件要叫
+<code>application.yml</code>？叫别的名字不行吗？</strong></p>
+<ul>
+<li>Spring Boot 约定配置文件名为 <code>application</code>（扩展名可以是
+<code>.properties</code> / <code>.yml</code> /
+<code>.yaml</code>）。叫别的名字默认不会被加载，需要在启动时额外指定。</li>
+</ul>
+<p><strong>问：<code>target/</code>
+目录为什么有时候没看到？</strong></p>
+<ul>
+<li><code>target/</code> 是 Maven 编译时生成的，<strong>只有在执行过
+<code>mvn compile</code>
+或运行过项目后才会出现</strong>。可以随时删除，重新编译会再生成。一般加入
+<code>.gitignore</code>。</li>
+</ul>
+<p><strong>问：启动类能不能放在 <code>com.ctts.controller</code>
+包下？</strong></p>
+<ul>
+<li>不建议。如果启动类放在
+<code>com.ctts.controller</code>，组件扫描默认只扫描
+<code>com.ctts.controller.*</code>，<code>service</code>、<code>mapper</code>
+等同级包不会被扫描，会导致依赖注入失败。</li>
+</ul>
+<h4 id="完整示例代码-1">完整示例代码</h4>
+<p>一个结构完整的 CTTS 工程（本节末尾状态）：</p>
+<div class="visual">
+  <div class="visual-title">图示 6：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">ctts/</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> pom.xml</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> main/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> java/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/ctts/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> resources/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> test/</span>
+<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> java/</span>
+<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/ctts/</span>
+<span class="diagram-line"><span class="tree-token">│</span>               <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplicationTests.java</span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> .gitignore</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p><code>CttsApplicationTests.java</code>（Spring Initializr
+自动生成）：</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">junit</span><span class="op">.</span><span class="im">jupiter</span><span class="op">.</span><span class="im">api</span><span class="op">.</span><span class="im">Test</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">test</span><span class="op">.</span><span class="im">context</span><span class="op">.</span><span class="im">SpringBootTest</span><span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootTest</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CttsApplicationTests <span class="op">{</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">contextLoads</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 验证Spring容器能否正常加载</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 id="图示-1">图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 7：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">IDEA 项目结构视图</span>
+<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
+<span class="diagram-line">ctts</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> main</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> java</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com.ctts</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication    ← 运行 main 启动项目</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> resources</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml        ← 修改端口/配置</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> test</span>
+<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> java</span>
+<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com.ctts</span>
+<span class="diagram-line"><span class="tree-token">│</span>               <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplicationTests</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> pom.xml                            ← 加依赖的地方</span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> External Libraries                  ← Maven下载的jar</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="易错点-1">易错点</h4>
+<ol type="1">
+<li><strong>把启动类放错包</strong>：放在
+<code>com.ctts.controller</code> 等子包下，导致其他包扫描不到。</li>
+<li><strong>在 <code>target/</code>
+里改代码</strong>：<code>target/</code>
+是编译输出，改了下次编译会被覆盖，源码在
+<code>src/main/java</code>。</li>
+<li><strong>把配置文件放错位置</strong>：<code>application.yml</code>
+必须在 <code>src/main/resources/</code>
+根下，放子目录里默认读不到。</li>
+<li><strong>包名不一致</strong>：创建项目时填的 <code>Package</code> 是
+<code>com.ctts</code>，但后续手动建类时写成
+<code>com.ctts.controller</code>（正确），写成
+<code>ctts.controller</code>（错误，缺
+<code>com</code>）就会扫描不到。</li>
+</ol>
+<h4 id="小结-1">小结</h4>
+<p>Spring Boot 项目遵循 Maven 约定目录结构：<code>src/main/java</code>
+放源码、<code>src/main/resources</code>
+放配置、<code>src/test/java</code> 放测试、<code>pom.xml</code>
+管依赖。启动类必须放在<strong>根包</strong>下以保证组件扫描覆盖整个项目。</p>
+<hr />
+<h3 id="知识点-k3-3maven-依赖管理">知识点 K3-3：Maven 依赖管理</h3>
+<h4 id="定义-2">定义</h4>
+<p><strong>Maven</strong> 是 Java
+生态最主流的<strong>项目构建与依赖管理工具</strong>。它通过一个名为
+<code>pom.xml</code>（Project Object Model）的 XML
+文件描述项目的基本信息、依赖的第三方库以及构建方式，由 Maven
+自动从<strong>远程仓库</strong>下载这些依赖到<strong>本地仓库</strong>。</p>
+<blockquote>
+<p>一句话理解：Maven 就像"程序员的外卖 App"——你在 <code>pom.xml</code>
+里点菜（声明依赖），Maven
+自动去中央仓库取餐、缓存到你家冰箱（本地仓库），再端到你的项目里。</p>
+</blockquote>
+<h4 id="原理-2">原理</h4>
+<p><strong>Maven 三坐标（GAV）</strong>：每个依赖在 Maven
+世界里通过三个坐标唯一定位。</p>
+<table>
+<thead>
+<tr>
+<th>坐标</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>groupId</code></td>
+<td>组织/公司/项目的反向域名</td>
+<td><code>com.ctts</code>、<code>org.springframework.boot</code></td>
+</tr>
+<tr>
+<td><code>artifactId</code></td>
+<td>模块/项目名</td>
+<td><code>ctts</code>、<code>spring-boot-starter-web</code></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>版本号</td>
+<td><code>3.2.5</code>、<code>1.0.0</code></td>
+</tr>
+</tbody>
+</table>
+<p>三个坐标组合起来唯一确定一个 jar 包，例如：</p>
+<pre><code>org.springframework.boot : spring-boot-starter-web : 3.2.5</code></pre>
+<p><strong>Maven 仓库体系</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 8：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">你声明的依赖 (pom.xml)</span>
+<span class="diagram-line">        <span class="tree-token">│</span></span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">1. 先查【本地仓库】 ~/.m2/repository/</span>
+<span class="diagram-line">        <span class="tree-token">│</span>  找到 <span class="arrow-token">→</span> 直接用</span>
+<span class="diagram-line">        <span class="tree-token">│</span>  没找到</span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">2. 查【私服/镜像】（如阿里云镜像）</span>
+<span class="diagram-line">        <span class="tree-token">│</span>  找到 <span class="arrow-token">→</span> 下载到本地仓库 <span class="arrow-token">→</span> 使用</span>
+<span class="diagram-line">        <span class="tree-token">│</span>  没找到</span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">3. 查【中央仓库】 repo1.maven.org</span>
+<span class="diagram-line">        <span class="tree-token">│</span>  找到 <span class="arrow-token">→</span> 下载到本地仓库 <span class="arrow-token">→</span> 使用</span>
+<span class="diagram-line">        <span class="tree-token">│</span>  没找到</span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">        报错：Could not resolve dependencies</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p><strong>pom.xml 的核心结构</strong>：</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">project</span> <span class="er">...</span>&gt;</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 1. 项目坐标 --&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">groupId</span>&gt;com.ctts&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">artifactId</span>&gt;ctts&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">version</span>&gt;1.0.0&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">packaging</span>&gt;jar&lt;/<span class="kw">packaging</span>&gt;   <span class="co">&lt;!-- Spring Boot 默认打 jar --&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 2. 父项目（Spring Boot 起步必备） --&gt;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">parent</span>&gt;</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-parent&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">version</span>&gt;3.2.5&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">relativePath</span>/&gt;</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">parent</span>&gt;</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 3. 属性（版本号集中管理） --&gt;</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">properties</span>&gt;</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">java.version</span>&gt;17&lt;/<span class="kw">java.version</span>&gt;</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">mybatis-plus.version</span>&gt;3.5.5&lt;/<span class="kw">mybatis-plus.version</span>&gt;</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">properties</span>&gt;</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 4. 依赖 --&gt;</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">dependencies</span>&gt;</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-web&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 更多依赖... --&gt;</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">dependencies</span>&gt;</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 5. 构建 --&gt;</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">build</span>&gt;</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">plugins</span>&gt;</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">plugin</span>&gt;</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">artifactId</span>&gt;spring-boot-maven-plugin&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">plugin</span>&gt;</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">plugins</span>&gt;</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">build</span>&gt;</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">project</span>&gt;</span></code></pre></div>
+<p><strong>Spring Boot 起步依赖（Starter）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>Starter</th>
+<th>用途</th>
+<th>包含的典型依赖</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>spring-boot-starter-web</code></td>
+<td>Web 开发</td>
+<td>spring-webmvc、spring-web、tomcat、jackson</td>
+</tr>
+<tr>
+<td><code>spring-boot-starter-test</code></td>
+<td>测试</td>
+<td>junit-jupiter、mockito、spring-test</td>
+</tr>
+<tr>
+<td><code>spring-boot-starter-validation</code></td>
+<td>参数校验</td>
+<td>hibernate-validator</td>
+</tr>
+<tr>
+<td><code>mybatis-plus-boot-starter</code></td>
+<td>MyBatis-Plus</td>
+<td>mybatis-plus、mybatis-spring</td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么不用写版本号？</strong> —— 因为
+<code>spring-boot-starter-parent</code> 已经在
+<code>&lt;dependencyManagement&gt;</code>
+中声明了所有官方推荐的版本，子项目继承后直接用即可。这就是"<strong>版本由父
+POM 统一管理</strong>"的好处。</p>
+<h4 id="问题--场景-2">问题 / 场景</h4>
+<p><strong>问：<code>spring-boot-starter-web</code> 和
+<code>spring-web</code> 有什么区别？</strong></p>
+<ul>
+<li><code>spring-web</code> 是 Spring Framework
+的一个底层模块，只有基础类；</li>
+<li><code>spring-boot-starter-web</code> 是 Spring Boot 的"打包"，把 web
+开发需要的所有依赖（spring-web、spring-webmvc、tomcat、jackson）一次性都引入了，<strong>这才是我们要用的</strong>。</li>
+</ul>
+<p><strong>问：为什么下载依赖特别慢？</strong></p>
+<ul>
+<li>Maven 默认从国外的中央仓库下载，国内访问慢。解决方法：在
+<code>~/.m2/settings.xml</code> 中配置阿里云镜像。</li>
+</ul>
+<p><strong>问：依赖冲突怎么办？</strong></p>
+<ul>
+<li>Maven 自动处理依赖冲突，原则是"<strong>最短路径优先</strong>"。如果
+A 依赖 B 的 v1，C 依赖 B 的 v2，Maven 会选择路径更短的那个。IDEA 有
+Maven 依赖图可视化工具帮助排查。</li>
+</ul>
+<h4 id="完整示例代码-2">完整示例代码</h4>
+<p>CTTS 项目完整 <code>pom.xml</code>：</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span><span class="fu">?&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">project</span><span class="ot"> xmlns=</span><span class="st">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ot">         xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ot">         xsi:schemaLocation=</span><span class="st">&quot;http://maven.apache.org/POM/4.0.0</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="st">         https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">modelVersion</span>&gt;4.0.0&lt;/<span class="kw">modelVersion</span>&gt;</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 父项目：Spring Boot 起步 --&gt;</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">parent</span>&gt;</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-parent&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">version</span>&gt;3.2.5&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">relativePath</span>/&gt;</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">parent</span>&gt;</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 项目坐标 --&gt;</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">groupId</span>&gt;com.ctts&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">artifactId</span>&gt;ctts&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">version</span>&gt;1.0.0&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">name</span>&gt;ctts&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">description</span>&gt;校园实训任务管理系统&lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 属性 --&gt;</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">properties</span>&gt;</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">java.version</span>&gt;17&lt;/<span class="kw">java.version</span>&gt;</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">mybatis-plus.version</span>&gt;3.5.5&lt;/<span class="kw">mybatis-plus.version</span>&gt;</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">mysql.version</span>&gt;8.0.33&lt;/<span class="kw">mysql.version</span>&gt;</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">knife4j.version</span>&gt;4.4.0&lt;/<span class="kw">knife4j.version</span>&gt;</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">lombok.version</span>&gt;1.18.30&lt;/<span class="kw">lombok.version</span>&gt;</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">properties</span>&gt;</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 依赖 --&gt;</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">dependencies</span>&gt;</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 1. Web 起步依赖：包含 Spring MVC、内嵌 Tomcat、Jackson --&gt;</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-web&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 2. 参数校验 --&gt;</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-validation&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 3. MyBatis-Plus --&gt;</span></span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;com.baomidou&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;mybatis-plus-spring-boot3-starter&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;${mybatis-plus.version}&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 4. MySQL 驱动 --&gt;</span></span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;com.mysql&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;mysql-connector-j&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;${mysql.version}&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">scope</span>&gt;runtime&lt;/<span class="kw">scope</span>&gt;</span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 5. Knife4j 接口文档 --&gt;</span></span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;com.github.xiaoymin&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;knife4j-openapi3-jakarta-spring-boot-starter&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;${knife4j.version}&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb15-66"><a href="#cb15-66" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-67"><a href="#cb15-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 6. Lombok --&gt;</span></span>
+<span id="cb15-69"><a href="#cb15-69" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-70"><a href="#cb15-70" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.projectlombok&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-71"><a href="#cb15-71" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;lombok&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-72"><a href="#cb15-72" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;${lombok.version}&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb15-73"><a href="#cb15-73" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">optional</span>&gt;true&lt;/<span class="kw">optional</span>&gt;</span>
+<span id="cb15-74"><a href="#cb15-74" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-75"><a href="#cb15-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-76"><a href="#cb15-76" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 7. 测试起步依赖 --&gt;</span></span>
+<span id="cb15-77"><a href="#cb15-77" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-78"><a href="#cb15-78" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-79"><a href="#cb15-79" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-test&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-80"><a href="#cb15-80" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">scope</span>&gt;test&lt;/<span class="kw">scope</span>&gt;</span>
+<span id="cb15-81"><a href="#cb15-81" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb15-82"><a href="#cb15-82" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">dependencies</span>&gt;</span>
+<span id="cb15-83"><a href="#cb15-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-84"><a href="#cb15-84" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 构建 --&gt;</span></span>
+<span id="cb15-85"><a href="#cb15-85" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">build</span>&gt;</span>
+<span id="cb15-86"><a href="#cb15-86" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">plugins</span>&gt;</span>
+<span id="cb15-87"><a href="#cb15-87" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">plugin</span>&gt;</span>
+<span id="cb15-88"><a href="#cb15-88" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-89"><a href="#cb15-89" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">artifactId</span>&gt;spring-boot-maven-plugin&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-90"><a href="#cb15-90" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb15-91"><a href="#cb15-91" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">excludes</span>&gt;</span>
+<span id="cb15-92"><a href="#cb15-92" aria-hidden="true" tabindex="-1"></a>                        &lt;<span class="kw">exclude</span>&gt;</span>
+<span id="cb15-93"><a href="#cb15-93" aria-hidden="true" tabindex="-1"></a>                            &lt;<span class="kw">groupId</span>&gt;org.projectlombok&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb15-94"><a href="#cb15-94" aria-hidden="true" tabindex="-1"></a>                            &lt;<span class="kw">artifactId</span>&gt;lombok&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb15-95"><a href="#cb15-95" aria-hidden="true" tabindex="-1"></a>                        &lt;/<span class="kw">exclude</span>&gt;</span>
+<span id="cb15-96"><a href="#cb15-96" aria-hidden="true" tabindex="-1"></a>                    &lt;/<span class="kw">excludes</span>&gt;</span>
+<span id="cb15-97"><a href="#cb15-97" aria-hidden="true" tabindex="-1"></a>                &lt;/<span class="kw">configuration</span>&gt;</span>
+<span id="cb15-98"><a href="#cb15-98" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">plugin</span>&gt;</span>
+<span id="cb15-99"><a href="#cb15-99" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">plugins</span>&gt;</span>
+<span id="cb15-100"><a href="#cb15-100" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">build</span>&gt;</span>
+<span id="cb15-101"><a href="#cb15-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-102"><a href="#cb15-102" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">project</span>&gt;</span></code></pre></div>
+<p><strong>依赖范围（scope）说明</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>scope</th>
+<th>含义</th>
+<th>何时可用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>compile</code>（默认）</td>
+<td>编译、测试、运行都可用</td>
+<td>全程</td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>仅测试可用</td>
+<td>测试编译和运行</td>
+</tr>
+<tr>
+<td><code>runtime</code></td>
+<td>运行时可用，编译不可见</td>
+<td>运行和测试</td>
+</tr>
+<tr>
+<td><code>provided</code></td>
+<td>编译测试可用，运行时由容器提供</td>
+<td>编译、测试</td>
+</tr>
+<tr>
+<td><code>optional</code></td>
+<td>不传递依赖</td>
+<td>当前模块可用，依赖本模块的项目不会继承</td>
+</tr>
+</tbody>
+</table>
+<h4 id="图示-2">图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 9：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">依赖传递示意</span>
+<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
+<span class="diagram-line">ctts</span>
+<span class="diagram-line"> <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> spring-boot-starter-web</span>
+<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> spring-webmvc</span>
+<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> spring-web</span>
+<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> tomcat-embed-core</span>
+<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> jackson-databind</span>
+<span class="diagram-line"> <span class="tree-token">│</span>         <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> jackson-core</span>
+<span class="diagram-line"> <span class="tree-token">│</span>         <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> jackson-annotations</span>
+<span class="diagram-line"> <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mybatis-plus-spring-boot3-starter</span>
+<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mybatis-plus-core</span>
+<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> mybatis-spring</span>
+<span class="diagram-line"> <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> mysql-connector-j</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="易错点-2">易错点</h4>
+<ol type="1">
+<li><strong>不继承
+<code>spring-boot-starter-parent</code></strong>：导致每个 Spring Boot
+依赖都要写 <code>&lt;version&gt;</code>，且失去自动配置支持。</li>
+<li><strong>Java 版本不匹配</strong>：Spring Boot 3.x 要求 Java 17+，在
+<code>pom.xml</code> 中要把 <code>&lt;java.version&gt;</code> 设为 17
+或更高。</li>
+<li><strong>依赖版本冲突</strong>：例如同时引入 Spring Boot 2.x 和 3.x
+的依赖，会导致 <code>NoSuchMethodError</code> 等诡异错误。</li>
+<li><strong>忘记刷新 Maven</strong>：在 IDEA 中改了 <code>pom.xml</code>
+后，要点击右上角的"Maven 刷新"按钮才会真正下载依赖。</li>
+<li><strong>把 <code>mysql-connector-j</code> 写成
+<code>mysql-connector-java</code></strong>：MySQL 8.x 后官方改了
+artifactId，老名字已废弃。</li>
+</ol>
+<h4 id="小结-2">小结</h4>
+<p>Maven 通过 GAV
+三坐标唯一定位依赖，通过本地/私服/中央三级仓库下载。Spring Boot 通过
+<code>spring-boot-starter-parent</code>
+统一管理版本，通过"起步依赖"打包场景依赖。CTTS 项目需要
+web、validation、mybatis-plus、mysql、knife4j、lombok、test
+七个核心依赖。</p>
+<hr />
+<h3 id="知识点-k3-4配置文件-applicationyml">知识点 K3-4：配置文件
+application.yml</h3>
+<h4 id="定义-3">定义</h4>
+<p><strong><code>application.yml</code></strong> 是 Spring Boot
+的<strong>主配置文件</strong>，位于 <code>src/main/resources/</code>
+下，用于配置服务器端口、数据源、日志、自定义属性等。它是
+<code>.properties</code> 文件的替代方案，使用 <strong>YAML</strong>
+格式，支持层级结构，更清晰。</p>
+<h4 id="原理-3">原理</h4>
+<p><strong>YAML 语法规则</strong>：</p>
+<ol type="1">
+<li>使用<strong>缩进</strong>表示层级关系（<strong>只能用空格，不能用
+Tab</strong>）；</li>
+<li>同级元素左侧缩进必须一致；</li>
+<li>键值对用 <code>:</code> 分隔，冒号后必须有一个空格；</li>
+<li><code>#</code> 表示注释。</li>
+</ol>
+<p><strong>对比 <code>.properties</code> 与
+<code>.yml</code></strong>：</p>
+<pre class="properties"><code># .properties 写法（扁平）
+server.port=8080
+server.servlet.context-path=/api
+spring.datasource.url=jdbc:mysql://localhost:3306/ctts
+spring.datasource.username=root
+spring.datasource.password=123456</code></pre>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .yml 写法（层级清晰）</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8080</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">servlet</span><span class="kw">:</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">context-path</span><span class="kw">:</span><span class="at"> /api</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">spring</span><span class="kw">:</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">datasource</span><span class="kw">:</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">url</span><span class="kw">:</span><span class="at"> jdbc:mysql://localhost:3306/ctts</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">username</span><span class="kw">:</span><span class="at"> root</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">password</span><span class="kw">:</span><span class="at"> </span><span class="dv">123456</span></span></code></pre></div>
+<p><strong>Spring Boot 常用配置项</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>含义</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>server.port</code></td>
+<td>服务器端口</td>
+<td>8080</td>
+</tr>
+<tr>
+<td><code>server.servlet.context-path</code></td>
+<td>上下文路径（URL 前缀）</td>
+<td><code>/</code></td>
+</tr>
+<tr>
+<td><code>spring.application.name</code></td>
+<td>应用名</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>spring.datasource.url</code></td>
+<td>数据库连接 URL</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>spring.datasource.username</code></td>
+<td>数据库用户名</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>spring.datasource.password</code></td>
+<td>数据库密码</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>spring.datasource.driver-class-name</code></td>
+<td>驱动类名</td>
+<td>自动推断</td>
+</tr>
+<tr>
+<td><code>mybatis-plus.mapper-locations</code></td>
+<td>Mapper XML 路径</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>logging.level.com.ctts</code></td>
+<td>日志级别</td>
+<td>INFO</td>
+</tr>
+</tbody>
+</table>
+<p><strong>配置文件加载顺序</strong>（高优先级覆盖低优先级）：</p>
+<pre><code>1. 命令行参数 --server.port=9090                (最高)
+2. JNDI 属性
+3. Java 系统属性
+4. OS 环境变量
+5. application-{profile}.yml（如 application-dev.yml）
+6. application.yml                              (默认)
+7. 默认值                                       (最低)</code></pre>
+<p><strong>多环境配置</strong>：</p>
+<pre><code>application.yml          ← 主配置，通用内容 + 激活哪个环境
+application-dev.yml      ← 开发环境
+application-prod.yml     ← 生产环境</code></pre>
+<p>主配置中切换：</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spring</span><span class="kw">:</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">profiles</span><span class="kw">:</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">active</span><span class="kw">:</span><span class="at"> dev</span><span class="co">   # 激活 dev 环境</span></span></code></pre></div>
+<h4 id="问题--场景-3">问题 / 场景</h4>
+<p><strong>问：8080 端口被占用了怎么办？</strong></p>
+<ul>
+<li>改 <code>server.port: 8081</code>（或其他空闲端口），或者用命令行
+<code>java -jar ctts.jar --server.port=8081</code> 临时指定。</li>
+</ul>
+<p><strong>问：<code>context-path</code> 是干什么的？</strong></p>
+<ul>
+<li>它是所有接口的 URL 前缀。设置
+<code>server.servlet.context-path=/api</code> 后，原本
+<code>localhost:8080/tasks</code> 会变成
+<code>localhost:8080/api/tasks</code>。前后端联调时统一前缀，便于反向代理。</li>
+</ul>
+<p><strong>问：<code>.yml</code> 和 <code>.properties</code>
+哪个更好？</strong></p>
+<ul>
+<li>都能用，但 <code>.yml</code>
+层级结构清晰，适合复杂配置；<code>.properties</code> 简单扁平。Spring
+Boot 项目推荐 <code>.yml</code>。</li>
+</ul>
+<p><strong>问：YAML 里 <code>:</code> 后面没空格会怎样？</strong></p>
+<ul>
+<li>报错！<code>server:8080</code>（错）会被识别成字符串
+<code>"server:8080"</code>，而不是键值对。必须写成
+<code>server: 8080</code>。</li>
+</ul>
+<h4 id="完整示例代码-3">完整示例代码</h4>
+<p>CTTS 项目 <code>application.yml</code>（开发阶段完整版）：</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================== 服务器配置 ====================</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8080</span><span class="co">                              # 端口号</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">servlet</span><span class="kw">:</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">context-path</span><span class="kw">:</span><span class="at"> /api</span><span class="co">                    # 接口统一前缀</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================== Spring 配置 ====================</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">spring</span><span class="kw">:</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">application</span><span class="kw">:</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ctts</span><span class="co">                            # 应用名</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">profiles</span><span class="kw">:</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">active</span><span class="kw">:</span><span class="at"> dev</span><span class="co">                           # 当前激活环境</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co">  # ---------- 数据源 ----------</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">datasource</span><span class="kw">:</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">driver-class-name</span><span class="kw">:</span><span class="at"> com.mysql.cj.jdbc.Driver</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">url</span><span class="kw">:</span><span class="at"> jdbc:mysql://localhost:3306/ctts?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">username</span><span class="kw">:</span><span class="at"> root</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">password</span><span class="kw">:</span><span class="at"> </span><span class="dv">123456</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================== MyBatis-Plus 配置 ====================</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="fu">mybatis-plus</span><span class="kw">:</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">mapper-locations</span><span class="kw">:</span><span class="at"> classpath:mapper/*.xml</span><span class="co">   # Mapper XML 位置</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">configuration</span><span class="kw">:</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">map-underscore-to-camel-case</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">        # 下划线转驼峰</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">log-impl</span><span class="kw">:</span><span class="at"> org.apache.ibatis.logging.stdout.StdOutImpl</span><span class="co">   # 控制台打印SQL</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">global-config</span><span class="kw">:</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">db-config</span><span class="kw">:</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">id-type</span><span class="kw">:</span><span class="at"> auto</span><span class="co">                            # 主键自增</span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">logic-delete-field</span><span class="kw">:</span><span class="at"> deleted</span><span class="co">              # 逻辑删除字段</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">logic-delete-value</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">logic-not-delete-value</span><span class="kw">:</span><span class="at"> </span><span class="dv">0</span></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================== 日志配置 ====================</span></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">root</span><span class="kw">:</span><span class="at"> INFO</span></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span><span class="co">                           # 项目包下日志级别</span></span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pattern</span><span class="kw">:</span></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">console</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n&quot;</span></span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a><span class="co"># ==================== Knife4j 配置 ====================</span></span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a><span class="fu">knife4j</span><span class="kw">:</span></span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">enable</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">setting</span><span class="kw">:</span></span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">language</span><span class="kw">:</span><span class="at"> zh_cn</span></span></code></pre></div>
+<p><strong>多环境配置示例</strong>：</p>
+<p><code>application-dev.yml</code>（开发环境）：</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spring</span><span class="kw">:</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">datasource</span><span class="kw">:</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">url</span><span class="kw">:</span><span class="at"> jdbc:mysql://localhost:3306/ctts?serverTimezone=Asia/Shanghai</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">username</span><span class="kw">:</span><span class="at"> root</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">password</span><span class="kw">:</span><span class="at"> </span><span class="dv">123456</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span></code></pre></div>
+<p><code>application-prod.yml</code>（生产环境）：</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">80</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">spring</span><span class="kw">:</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">datasource</span><span class="kw">:</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">url</span><span class="kw">:</span><span class="at"> jdbc:mysql://mysql-server:3306/ctts_prod?serverTimezone=Asia/Shanghai</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">username</span><span class="kw">:</span><span class="at"> ctts_user</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">password</span><span class="kw">:</span><span class="at"> ${CTTS_DB_PASSWORD}</span><span class="co">   # 从环境变量读取</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> INFO</span></span></code></pre></div>
+<h4 id="图示-3">图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 10：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">YAML 层级结构（缩进 = 包含关系）</span>
+<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
+<span class="diagram-line">server</span>
+<span class="diagram-line"> <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> port            : 8080</span>
+<span class="diagram-line"> <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> servlet</span>
+<span class="diagram-line">      <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> context-path : /api</span>
+<span class="diagram-line">spring</span>
+<span class="diagram-line"> <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> application</span>
+<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> name       : ctts</span>
+<span class="diagram-line"> <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> datasource</span>
+<span class="diagram-line">      <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> url        : jdbc:mysql://...</span>
+<span class="diagram-line">      <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> username   : root</span>
+<span class="diagram-line">      <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> password   : 123456</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="易错点-3">易错点</h4>
+<ol type="1">
+<li><strong>用 Tab 缩进</strong>：YAML 不允许 Tab，必须用空格。IDEA
+默认会把 Tab 转空格，但要从其他编辑器粘贴时要注意。</li>
+<li><strong>冒号后没空格</strong>：<code>server:8080</code>
+错，<code>server: 8080</code> 对。</li>
+<li><strong>密码含特殊字符不引号</strong>：如密码是
+<code>p@ss#word</code>，建议加引号
+<code>password: "p@ss#word"</code>，避免被解析成引用。</li>
+<li><strong>URL 中的 <code>&amp;</code> 不转义</strong>：JDBC URL 里的
+<code>&amp;</code> 在 YAML 里其实可以直接写，但建议用引号包裹整个
+URL，避免歧义。</li>
+<li><strong>改了配置不重启</strong>：默认配置文件改了必须重启项目才生效（devtools
+可以热重载，但本节先不用）。</li>
+<li><strong>把 <code>context-path</code> 写成
+<code>contextPath</code></strong>：Spring Boot
+配置项采用"烤串命名"（kebab-case），全小写连字符分隔。</li>
+</ol>
+<h4 id="小结-3">小结</h4>
+<p><code>application.yml</code> 是 Spring Boot 主配置文件，用 YAML
+层级结构组织配置。常用配置：<code>server.port</code>
+改端口、<code>server.servlet.context-path</code>
+加前缀、<code>spring.datasource.*</code>
+配数据源、<code>mybatis-plus.*</code> 配
+MyBatis。注意缩进用空格、冒号后空格、配置项用烤串命名。</p>
+<hr />
+<h3 id="知识点-k3-5启动类与-springbootapplication">知识点 K3-5：启动类与
+@SpringBootApplication</h3>
+<h4 id="定义-4">定义</h4>
+<p><strong>启动类</strong>是 Spring Boot 应用的入口，包含
+<code>main</code> 方法和 <code>@SpringBootApplication</code>
+注解。它通过 <code>SpringApplication.run()</code> 启动 Spring
+容器、初始化自动配置、启动内嵌 Tomcat。</p>
+<h4 id="原理-4">原理</h4>
+<p><strong><code>@SpringBootApplication</code>
+注解的"三合一"</strong>：</p>
+<p><code>@SpringBootApplication</code> 是一个组合注解，等价于：</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootConfiguration</span>       <span class="co">// = @Configuration，标记配置类</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="at">@EnableAutoConfiguration</span>       <span class="co">// 开启自动配置</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="at">@ComponentScan</span>                 <span class="co">// 组件扫描（默认扫启动类所在包及子包）</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CttsApplication <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@SpringBootConfiguration</code></td>
+<td>标记这是一个配置类，里面可以写 <code>@Bean</code> 方法</td>
+</tr>
+<tr>
+<td><code>@EnableAutoConfiguration</code></td>
+<td>开启自动配置机制，根据 classpath 自动装配 Bean</td>
+</tr>
+<tr>
+<td><code>@ComponentScan</code></td>
+<td>自动扫描
+<code>@Component</code>、<code>@Service</code>、<code>@Controller</code>、<code>@Repository</code>
+等注解</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>SpringApplication.run()</code> 做了什么</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 11：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">SpringApplication.run(CttsApplication.class, args)</span>
+<span class="diagram-line">        <span class="tree-token">│</span></span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">1. 创建 SpringApplication 实例</span>
+<span class="diagram-line">        <span class="tree-token">│</span></span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">2. 推断应用类型（SERVLET / REACTIVE / NONE）</span>
+<span class="diagram-line">        <span class="tree-token">│</span></span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">3. 加载 spring.factories / AutoConfiguration.imports</span>
+<span class="diagram-line">        <span class="tree-token">│</span></span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">4. 创建 ApplicationContext（Spring 容器）</span>
+<span class="diagram-line">        <span class="tree-token">│</span></span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">5. refresh() 容器：注册 Bean 定义、执行自动配置</span>
+<span class="diagram-line">        <span class="tree-token">│</span></span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">6. 启动内嵌 Tomcat（Web 应用）</span>
+<span class="diagram-line">        <span class="tree-token">│</span></span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">7. 发布 ApplicationStartedEvent / ApplicationReadyEvent</span>
+<span class="diagram-line">        <span class="tree-token">│</span></span>
+<span class="diagram-line">        ▼</span>
+<span class="diagram-line">8. 控制台打印 banner，返回 ApplicationContext</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p><strong>组件扫描范围</strong>：</p>
+<pre><code>启动类位置：com.ctts.CttsApplication
+
+默认扫描范围：
+✅ com.ctts                  （启动类所在包）
+✅ com.ctts.controller       （子包）
+✅ com.ctts.service          （子包）
+✅ com.ctts.mapper           （子包）
+✅ com.ctts.entity           （子包）
+✅ com.ctts.common           （子包）
+
+❌ com.example               （不会被扫描）
+❌ org.springframework       （Spring自己的，由它自己处理）</code></pre>
+<h4 id="问题--场景-4">问题 / 场景</h4>
+<p><strong>问：启动类能不能改名，比如叫 <code>App.java</code> 而不是
+<code>CttsApplication.java</code>？</strong></p>
+<ul>
+<li>可以。类名随意，但<strong>约定</strong>叫
+<code>XxxApplication</code>，便于识别。</li>
+</ul>
+<p><strong>问：<code>@SpringBootApplication</code>
+后面能不能加参数？</strong></p>
+<ul>
+<li>可以。例如
+<code>@SpringBootApplication(scanBasePackages = {"com.ctts", "com.common"})</code>
+可以扩大扫描范围；<code>exclude = {DataSourceAutoConfiguration.class}</code>
+可以排除某个自动配置。</li>
+</ul>
+<p><strong>问：为什么有时候启动报错 "No qualifying bean of type
+'xxx'"？</strong></p>
+<ul>
+<li>常见原因：① 该类没加 <code>@Service</code>/<code>@Component</code>
+等注解；② 该类不在扫描包范围内；③ 启动类位置放错了。</li>
+</ul>
+<p><strong>问：能不能不用
+<code>@SpringBootApplication</code>，而是拆开写三个注解？</strong></p>
+<ul>
+<li>可以，效果完全等价。但 <code>@SpringBootApplication</code>
+更简洁，是约定写法。</li>
+</ul>
+<h4 id="完整示例代码-4">完整示例代码</h4>
+<p>CTTS 启动类 <code>CttsApplication.java</code>：</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">SpringApplication</span><span class="op">;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">autoconfigure</span><span class="op">.</span><span class="im">SpringBootApplication</span><span class="op">;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> CTTS <span class="co">校园实训任务管理系统</span> <span class="co">-</span> <span class="co">启动类</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="co">@</span>SpringBootApplication <span class="co">是组合注解：</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span>   <span class="co">-</span> <span class="co">@</span>SpringBootConfiguration</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span>   <span class="co">-</span> <span class="co">@</span>EnableAutoConfiguration</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span>   <span class="co">-</span> <span class="co">@</span>ComponentScan <span class="co">(扫描</span> com<span class="co">.</span>ctts <span class="co">及其子包)</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CttsApplication <span class="op">{</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>        SpringApplication<span class="op">.</span><span class="fu">run</span><span class="op">(</span>CttsApplication<span class="op">.</span><span class="fu">class</span><span class="op">,</span> args<span class="op">);</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>变体：排除自动配置</strong>（启动时不想用数据源自动配置，比如还没配数据库）：</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">SpringApplication</span><span class="op">;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">autoconfigure</span><span class="op">.</span><span class="im">SpringBootApplication</span><span class="op">;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">autoconfigure</span><span class="op">.</span><span class="im">jdbc</span><span class="op">.</span><span class="im">DataSourceAutoConfiguration</span><span class="op">;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span><span class="op">(</span>exclude <span class="op">=</span> <span class="op">{</span>DataSourceAutoConfiguration<span class="op">.</span><span class="fu">class</span><span class="op">})</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CttsApplication <span class="op">{</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>        SpringApplication<span class="op">.</span><span class="fu">run</span><span class="op">(</span>CttsApplication<span class="op">.</span><span class="fu">class</span><span class="op">,</span> args<span class="op">);</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>变体：扩大扫描范围</strong>：</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span><span class="op">(</span>scanBasePackages <span class="op">=</span> <span class="op">{</span><span class="st">&quot;com.ctts&quot;</span><span class="op">,</span> <span class="st">&quot;com.common.utils&quot;</span><span class="op">})</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CttsApplication <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
+<p><strong>控制台启动成功标志</strong>：</p>
+<pre><code>  .   ____          _            __ _ _
+ /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-07-22 10:00:00.000  INFO  --- Tomcat initialized with port(s): 8080 (http)
+2026-07-22 10:00:00.500  INFO  --- Started CttsApplication in 2.134 seconds</code></pre>
+<h4 id="图示-4">图示</h4>
+<pre><code>@SpringBootApplication 三合一
+────────────────────────────────────────
+@SpringBootConfiguration  ──┐
+@EnableAutoConfiguration  ──┼──&gt; @SpringBootApplication
+@ComponentScan            ──┘
+
+启动流程
+────────────────────────────────────────
+main() 
+  → SpringApplication.run()
+      → 创建 Spring 容器
+      → 执行自动配置
+      → 启动内嵌 Tomcat (8080)
+      → 扫描 com.ctts.* 注册 Bean
+      → 打印 banner
+      → 返回 ApplicationContext（容器就绪）</code></pre>
+<h4 id="易错点-4">易错点</h4>
+<ol type="1">
+<li><strong>启动类不在根包</strong>：放在
+<code>com.ctts.controller.CttsApplication</code>，导致
+<code>service</code>、<code>mapper</code> 扫描不到。</li>
+<li><strong>忘记 <code>@SpringBootApplication</code></strong>：只有
+<code>main</code> 方法没有注解，启动后 Spring 容器是空的。</li>
+<li><strong><code>main</code> 方法签名错误</strong>：必须是
+<code>public static void main(String[] args)</code>，少了
+<code>static</code> 或参数类型写错都启动不了。</li>
+<li><strong>包名拼写错误</strong>：<code>com.ctts</code> 写成
+<code>com.cts</code> 或 <code>com.CTTS</code>（Java
+包名区分大小写，约定全小写）。</li>
+<li><strong>引入了不需要的自动配置</strong>：比如没配数据库但引入了
+MyBatis-Plus，启动会报错，可以用 <code>exclude</code> 排除。</li>
+</ol>
+<h4 id="小结-4">小结</h4>
+<p>启动类是 Spring Boot 应用的入口，通过
+<code>@SpringBootApplication</code>（组合了
+<code>@SpringBootConfiguration</code> +
+<code>@EnableAutoConfiguration</code> +
+<code>@ComponentScan</code>）开启自动配置与组件扫描，通过
+<code>SpringApplication.run()</code> 启动容器和内嵌
+Tomcat。启动类必须放在根包下，否则扫描不到其他组件。</p>
+<hr />
+<h3 id="知识点-k3-6项目创建流程">知识点 K3-6：项目创建流程</h3>
+<h4 id="定义-5">定义</h4>
+<p><strong>项目创建流程</strong> 是指使用 IDEA 或 Spring Initializr
+从零创建一个 Spring Boot 项目的标准步骤。Spring Initializr 是 Spring
+官方提供的项目生成网页（start.spring.io），IDEA 集成了它。</p>
+<h4 id="原理-5">原理</h4>
+<p><strong>两种主流创建方式</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>适用场景</th>
+<th>优点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IDEA 内置 Spring Initializr</strong></td>
+<td>日常开发</td>
+<td>集成度高，创建即可用</td>
+</tr>
+<tr>
+<td><strong>Spring Initializr 网页</strong></td>
+<td>start.spring.io</td>
+<td>不依赖 IDEA，下载 zip 解压导入</td>
+</tr>
+</tbody>
+</table>
+<p><strong>IDEA 创建步骤（推荐）</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 12：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">1. File <span class="arrow-token">→</span> New <span class="arrow-token">→</span> Project</span>
+<span class="diagram-line">2. 左侧选 Spring Initializr</span>
+<span class="diagram-line">3. 填写项目信息</span>
+<span class="diagram-line">4. 选择依赖</span>
+<span class="diagram-line">5. 选好 JDK 和 Java 版本</span>
+<span class="diagram-line">6. Finish，等待 Maven 下载依赖</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="问题--场景-5">问题 / 场景</h4>
+<p><strong>问：Server URL 是 <code>start.spring.io</code> 还是
+<code>start.aliyun.com</code>？</strong></p>
+<ul>
+<li><code>start.spring.io</code>
+是官方，依赖最全；<code>start.aliyun.com</code>
+是阿里云镜像，国内访问快但依赖可能滞后。任选其一，建议用官方，慢的话换阿里云。</li>
+</ul>
+<p><strong>问：Type 选 Maven 还是 Gradle？</strong></p>
+<ul>
+<li>本课程统一用 <strong>Maven</strong>（pom.xml）。Gradle
+是另一种构建工具，企业也有用，但课程不涉及。</li>
+</ul>
+<p><strong>问：Java 版本选 17 还是 21？</strong></p>
+<ul>
+<li>Spring Boot 3.x 最低 Java 17。本课程统一 Java 17（LTS
+长期支持版）。</li>
+</ul>
+<p><strong>问：Packaging 选 Jar 还是 War？</strong></p>
+<ul>
+<li>默认 <strong>Jar</strong>。内嵌 Tomcat 的 Spring Boot 应用直接
+<code>java -jar</code> 运行；War 是部署到外部 Tomcat
+用的，本课程不用。</li>
+</ul>
+<h4 id="完整示例代码-5">完整示例代码</h4>
+<p><strong>完整 IDEA 创建步骤（图文版）</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 13：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">步骤 1：打开新建项目向导</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">菜单栏：File <span class="arrow-token">→</span> New <span class="arrow-token">→</span> Project</span>
+<span class="diagram-line">（或欢迎界面：New Project）</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">步骤 2：选择项目类型</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">左侧面板选择：Spring Initializr</span>
+<span class="diagram-line">右侧 Server URL：https://start.spring.io（默认）</span>
+<span class="diagram-line">                或 https://start.aliyun.com（国内快）</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">步骤 3：填写项目元数据</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">Name:           ctts</span>
+<span class="diagram-line">Group:          com.ctts</span>
+<span class="diagram-line">Artifact:       ctts</span>
+<span class="diagram-line">Package name:   com.ctts</span>
+<span class="diagram-line">Packaging:      Jar</span>
+<span class="diagram-line">Java:           17</span>
+<span class="diagram-line">Type:           Maven</span>
+<span class="diagram-line">说明：</span>
+<span class="diagram-line">- Name：项目名，会作为文件夹名</span>
+<span class="diagram-line">- Group：组织域名反写，作为 groupId</span>
+<span class="diagram-line">- Artifact：模块名，作为 artifactId</span>
+<span class="diagram-line">- Package name：根包名，启动类放这里</span>
+<span class="diagram-line">- Java：JDK 版本，Spring Boot 3.x 至少 17</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">步骤 4：选择 Spring Boot 版本与依赖</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">Spring Boot 版本：选 3.2.x（不带 SNAPSHOT/M1 的稳定版）</span>
+<span class="diagram-line">依赖勾选（依次搜索并 Add）：</span>
+<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
+<span class="diagram-line"><span class="tree-token">│</span> Web <span class="arrow-token">→</span> Spring Web                          <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> SQL  <span class="arrow-token">→</span> MySQL Driver                       <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> SQL  <span class="arrow-token">→</span> Spring Data JDBC （可选，先不选）   <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> Developer Tools <span class="arrow-token">→</span> Lombok                  <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> I/O  <span class="arrow-token">→</span> Validation                          <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">│</span> 测试 <span class="arrow-token">→</span> Spring Boot Starter Test（默认有）  <span class="tree-token">│</span></span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+<span class="diagram-line">注意：MyBatis-Plus 和 Knife4j 在 Initializr 里没有，</span>
+<span class="diagram-line">      创建后在 pom.xml 手动添加（见 K3-3）。</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">步骤 5：项目名与路径</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">Project name:    ctts</span>
+<span class="diagram-line">Project location: D:\lessson\workspace\ctts</span>
+<span class="diagram-line">（路径不要有中文和空格）</span>
+<span class="diagram-line">点 Finish 完成。</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">步骤 6：等待 Maven 下载依赖</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">右下角进度条显示下载状态，首次较慢（需下载所有依赖）。</span>
+<span class="diagram-line">下载完成后，左侧项目结构出现 src、pom.xml、External Libraries。</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">步骤 7：补充 pom.xml 依赖</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">按 K3-3 的完整 pom.xml 补充 mybatis-plus、mysql-connector-j、knife4j 等。</span>
+<span class="diagram-line">改完点击右上角 Maven 刷新按钮。</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">步骤 8：编写 application.yml</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">删除自动生成的 application.properties</span>
+<span class="diagram-line">新建 application.yml，按 K3-4 写入配置。</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p><strong>启动验证</strong>：</p>
+<div class="visual">
+  <div class="visual-title">图示 14：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">方式 1：IDEA 中运行</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">打开 CttsApplication.java</span>
+<span class="diagram-line">点击 main 方法旁边的绿色三角形 <span class="arrow-token">▶</span> Run</span>
+<span class="diagram-line">（或右键 <span class="arrow-token">→</span> Run &#39;CttsApplication&#39;）</span>
+<span class="diagram-line">控制台出现 &quot;Started CttsApplication&quot; 即成功</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">方式 2：命令行运行</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">mvn spring-boot:run</span>
+<span class="diagram-line">（或 mvn package 后 java -jar target/ctts-1.0.0.jar）</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">方式 3：访问验证</span>
+<span class="diagram-line">═══════════════════════════════════════════════</span>
+<span class="diagram-line">浏览器打开 http://localhost:8080/api</span>
+<span class="diagram-line">（如果没配 context-path 就是 http://localhost:8080）</span>
+<span class="diagram-line">预期响应：</span>
+<span class="diagram-line">- 404 错误页（Whitelabel Error Page）</span>
+<span class="diagram-line">  ← 因为还没写 Controller，但能返回错误页说明服务已启动</span>
+<span class="diagram-line">✅ 看到 404 = 服务正常运行，只是没有接口</span>
+<span class="diagram-line">❌ 连接失败 = 服务没启动成功</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<p><strong>常见报错排查表</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>报错信息</th>
+<th>原因</th>
+<th>解决方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Port 8080 was already in use</code></td>
+<td>端口被占用</td>
+<td>改 <code>server.port</code> 或杀掉占用进程</td>
+</tr>
+<tr>
+<td><code>Failed to configure a DataSource</code></td>
+<td>引入了数据源依赖但没配</td>
+<td>在 yml 配数据源，或
+<code>exclude = DataSourceAutoConfiguration.class</code></td>
+</tr>
+<tr>
+<td><code>Cannot resolve dependency</code></td>
+<td>Maven 仓库访问失败</td>
+<td>配阿里云镜像，刷新 Maven</td>
+</tr>
+<tr>
+<td><code>No qualifying bean of type 'XxxMapper'</code></td>
+<td>包不在扫描范围</td>
+<td>检查启动类位置与 <code>@MapperScan</code></td>
+</tr>
+<tr>
+<td><code>Java version 17 required</code></td>
+<td>JDK 版本太低</td>
+<td>安装 JDK 17+，IDEA 配置 Project SDK</td>
+</tr>
+<tr>
+<td><code>ClassNotFoundException: com.mysql.cj.jdbc.Driver</code></td>
+<td>没引入 MySQL 驱动</td>
+<td>检查 pom.xml 是否有 mysql-connector-j</td>
+</tr>
+<tr>
+<td>中文乱码</td>
+<td>编码不一致</td>
+<td>IDE 编码设 UTF-8，URL 加 <code>characterEncoding=utf-8</code></td>
+</tr>
+<tr>
+<td><code>sdk' not defined</code> / <code>No SDK</code></td>
+<td>IDEA 没配 JDK</td>
+<td>File → Project Structure → SDK 添加 JDK 17</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maven 阿里云镜像配置</strong>（在
+<code>~/.m2/settings.xml</code>，没有就新建）：</p>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span><span class="fu">?&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">settings</span><span class="ot"> xmlns=</span><span class="st">&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="ot">          xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="ot">          xsi:schemaLocation=</span><span class="st">&quot;http://maven.apache.org/SETTINGS/1.0.0</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="st">          https://maven.apache.org/xsd/settings-1.0.0.xsd&quot;</span>&gt;</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">mirrors</span>&gt;</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">mirror</span>&gt;</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">id</span>&gt;aliyunmaven&lt;/<span class="kw">id</span>&gt;</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">mirrorOf</span>&gt;*&lt;/<span class="kw">mirrorOf</span>&gt;</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">name</span>&gt;阿里云公共仓库&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">url</span>&gt;https://maven.aliyun.com/repository/public&lt;/<span class="kw">url</span>&gt;</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">mirror</span>&gt;</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">mirrors</span>&gt;</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">settings</span>&gt;</span></code></pre></div>
+<h4 id="图示-5">图示</h4>
+<div class="visual">
+  <div class="visual-title">图示 15：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">Spring Initializr 创建流程</span>
+<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
+<span class="diagram-line">   File <span class="arrow-token">→</span> New <span class="arrow-token">→</span> Project</span>
+<span class="diagram-line">            <span class="tree-token">│</span></span>
+<span class="diagram-line">            ▼</span>
+<span class="diagram-line">   选 Spring Initializr</span>
+<span class="diagram-line">            <span class="tree-token">│</span></span>
+<span class="diagram-line">            ▼</span>
+<span class="diagram-line">   填元数据 (Name/Group/Artifact/Package)</span>
+<span class="diagram-line">            <span class="tree-token">│</span></span>
+<span class="diagram-line">            ▼</span>
+<span class="diagram-line">   选 Spring Boot 版本 + 勾依赖</span>
+<span class="diagram-line">            <span class="tree-token">│</span></span>
+<span class="diagram-line">            ▼</span>
+<span class="diagram-line">   Finish <span class="arrow-token">→</span> 等待 Maven 下载</span>
+<span class="diagram-line">            <span class="tree-token">│</span></span>
+<span class="diagram-line">            ▼</span>
+<span class="diagram-line">   补充 pom.xml <span class="arrow-token">→</span> 写 application.yml</span>
+<span class="diagram-line">            <span class="tree-token">│</span></span>
+<span class="diagram-line">            ▼</span>
+<span class="diagram-line">   运行 CttsApplication <span class="arrow-token">→</span> 访问 localhost:8080</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h4 id="易错点-5">易错点</h4>
+<ol type="1">
+<li><strong>路径含中文或空格</strong>：<code>D:\我的项目\ctts</code> 或
+<code>D:\Program Files\ctts</code> 可能导致 Maven
+编译异常，建议放纯英文路径。</li>
+<li><strong>Spring Boot 版本选
+SNAPSHOT</strong>：快照版不稳定，新手选正式版（不带 SNAPSHOT/M1/RC
+后缀）。</li>
+<li><strong>勾依赖时勾了一堆用不上的</strong>：增加项目体积和下载时间，按需勾选。</li>
+<li><strong>忘记配 JDK</strong>：IDEA 没配 JDK 17 时，创建项目会报错或用
+JDK 8 编译失败。File → Project Structure → Project SDK 配置。</li>
+<li><strong>改 pom.xml 不刷新
+Maven</strong>：依赖不会自动生效，需要手动点 Maven 刷新按钮。</li>
+<li><strong>用 Eclipse 风格的目录</strong>：Spring Boot 项目就是标准
+Maven 目录，不要建 <code>WebContent</code>、<code>WEB-INF</code>
+这种老式目录。</li>
+</ol>
+<h4 id="小结-5">小结</h4>
+<p>使用 IDEA 的 Spring Initializr 创建项目分 8 步：新建 → 选类型 →
+填元数据 → 选依赖 → Finish → 补 pom → 写 yml →
+启动验证。注意路径无中文、JDK 17+、版本选稳定版、改完 pom 要刷新
+Maven。</p>
+<hr />
+<h2 id="三综合示例ctts-项目从零搭建">三、综合示例：CTTS
+项目从零搭建</h2>
+<h3 id="31-项目背景">3.1 项目背景</h3>
+<p>我们要为"校园实训任务管理系统（CTTS）"搭建后端工程骨架。技术栈：Java
+17 + Spring Boot 3.2.5 + MyBatis-Plus + MySQL 8 + Knife4j + Maven。</p>
+<h3 id="32-创建项目">3.2 创建项目</h3>
+<p>按 K3-6 步骤用 IDEA 创建，元数据：</p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>ctts</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>com.ctts</td>
+</tr>
+<tr>
+<td>Artifact</td>
+<td>ctts</td>
+</tr>
+<tr>
+<td>Package</td>
+<td>com.ctts</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Maven</td>
+</tr>
+<tr>
+<td>Packaging</td>
+<td>Jar</td>
+</tr>
+<tr>
+<td>Spring Boot</td>
+<td>3.2.5</td>
+</tr>
+</tbody>
+</table>
+<p>初始依赖勾选：Spring Web、MySQL Driver、Lombok、Validation。</p>
+<h3 id="33-完整-pomxml">3.3 完整 pom.xml</h3>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span><span class="fu">?&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">project</span><span class="ot"> xmlns=</span><span class="st">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="ot">         xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="ot">         xsi:schemaLocation=</span><span class="st">&quot;http://maven.apache.org/POM/4.0.0</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="st">         https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">modelVersion</span>&gt;4.0.0&lt;/<span class="kw">modelVersion</span>&gt;</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">parent</span>&gt;</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-parent&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">version</span>&gt;3.2.5&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">relativePath</span>/&gt;</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">parent</span>&gt;</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">groupId</span>&gt;com.ctts&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">artifactId</span>&gt;ctts&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">version</span>&gt;1.0.0&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">name</span>&gt;ctts&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">description</span>&gt;校园实训任务管理系统 Campus Training Task System&lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">properties</span>&gt;</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">java.version</span>&gt;17&lt;/<span class="kw">java.version</span>&gt;</span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">mybatis-plus.version</span>&gt;3.5.5&lt;/<span class="kw">mybatis-plus.version</span>&gt;</span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">mysql.version</span>&gt;8.0.33&lt;/<span class="kw">mysql.version</span>&gt;</span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">knife4j.version</span>&gt;4.4.0&lt;/<span class="kw">knife4j.version</span>&gt;</span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">lombok.version</span>&gt;1.18.30&lt;/<span class="kw">lombok.version</span>&gt;</span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">properties</span>&gt;</span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">dependencies</span>&gt;</span>
+<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-31"><a href="#cb39-31" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-32"><a href="#cb39-32" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-web&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-33"><a href="#cb39-33" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-34"><a href="#cb39-34" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-35"><a href="#cb39-35" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-36"><a href="#cb39-36" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-validation&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-37"><a href="#cb39-37" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-38"><a href="#cb39-38" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-39"><a href="#cb39-39" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;com.baomidou&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-40"><a href="#cb39-40" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;mybatis-plus-spring-boot3-starter&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-41"><a href="#cb39-41" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;${mybatis-plus.version}&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb39-42"><a href="#cb39-42" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-43"><a href="#cb39-43" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-44"><a href="#cb39-44" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;com.mysql&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-45"><a href="#cb39-45" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;mysql-connector-j&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-46"><a href="#cb39-46" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;${mysql.version}&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb39-47"><a href="#cb39-47" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">scope</span>&gt;runtime&lt;/<span class="kw">scope</span>&gt;</span>
+<span id="cb39-48"><a href="#cb39-48" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-49"><a href="#cb39-49" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-50"><a href="#cb39-50" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;com.github.xiaoymin&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-51"><a href="#cb39-51" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;knife4j-openapi3-jakarta-spring-boot-starter&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-52"><a href="#cb39-52" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;${knife4j.version}&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb39-53"><a href="#cb39-53" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-54"><a href="#cb39-54" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-55"><a href="#cb39-55" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.projectlombok&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-56"><a href="#cb39-56" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;lombok&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-57"><a href="#cb39-57" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">version</span>&gt;${lombok.version}&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb39-58"><a href="#cb39-58" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">optional</span>&gt;true&lt;/<span class="kw">optional</span>&gt;</span>
+<span id="cb39-59"><a href="#cb39-59" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-60"><a href="#cb39-60" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-61"><a href="#cb39-61" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-62"><a href="#cb39-62" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-test&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-63"><a href="#cb39-63" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">scope</span>&gt;test&lt;/<span class="kw">scope</span>&gt;</span>
+<span id="cb39-64"><a href="#cb39-64" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb39-65"><a href="#cb39-65" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">dependencies</span>&gt;</span>
+<span id="cb39-66"><a href="#cb39-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-67"><a href="#cb39-67" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">build</span>&gt;</span>
+<span id="cb39-68"><a href="#cb39-68" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">plugins</span>&gt;</span>
+<span id="cb39-69"><a href="#cb39-69" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">plugin</span>&gt;</span>
+<span id="cb39-70"><a href="#cb39-70" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-71"><a href="#cb39-71" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">artifactId</span>&gt;spring-boot-maven-plugin&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-72"><a href="#cb39-72" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb39-73"><a href="#cb39-73" aria-hidden="true" tabindex="-1"></a>                    &lt;<span class="kw">excludes</span>&gt;</span>
+<span id="cb39-74"><a href="#cb39-74" aria-hidden="true" tabindex="-1"></a>                        &lt;<span class="kw">exclude</span>&gt;</span>
+<span id="cb39-75"><a href="#cb39-75" aria-hidden="true" tabindex="-1"></a>                            &lt;<span class="kw">groupId</span>&gt;org.projectlombok&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb39-76"><a href="#cb39-76" aria-hidden="true" tabindex="-1"></a>                            &lt;<span class="kw">artifactId</span>&gt;lombok&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb39-77"><a href="#cb39-77" aria-hidden="true" tabindex="-1"></a>                        &lt;/<span class="kw">exclude</span>&gt;</span>
+<span id="cb39-78"><a href="#cb39-78" aria-hidden="true" tabindex="-1"></a>                    &lt;/<span class="kw">excludes</span>&gt;</span>
+<span id="cb39-79"><a href="#cb39-79" aria-hidden="true" tabindex="-1"></a>                &lt;/<span class="kw">configuration</span>&gt;</span>
+<span id="cb39-80"><a href="#cb39-80" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">plugin</span>&gt;</span>
+<span id="cb39-81"><a href="#cb39-81" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">plugins</span>&gt;</span>
+<span id="cb39-82"><a href="#cb39-82" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">build</span>&gt;</span>
+<span id="cb39-83"><a href="#cb39-83" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">project</span>&gt;</span></code></pre></div>
+<h3 id="34-完整目录结构">3.4 完整目录结构</h3>
+<div class="visual">
+  <div class="visual-title">图示 16：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">ctts/</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> pom.xml</span>
+<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> main/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> java/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ctts/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> resources/</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml</span>
+<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> test/</span>
+<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> java/</span>
+<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/</span>
+<span class="diagram-line"><span class="tree-token">│</span>               <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ctts/</span>
+<span class="diagram-line"><span class="tree-token">│</span>                   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplicationTests.java</span>
+<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> README.md</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<h3 id="35-启动类-cttsapplicationjava">3.5 启动类
+CttsApplication.java</h3>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">SpringApplication</span><span class="op">;</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">autoconfigure</span><span class="op">.</span><span class="im">SpringBootApplication</span><span class="op">;</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> CTTS <span class="co">校园实训任务管理系统启动类</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CttsApplication <span class="op">{</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>        SpringApplication<span class="op">.</span><span class="fu">run</span><span class="op">(</span>CttsApplication<span class="op">.</span><span class="fu">class</span><span class="op">,</span> args<span class="op">);</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="36-配置文件-applicationyml">3.6 配置文件 application.yml</h3>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8080</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">servlet</span><span class="kw">:</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">context-path</span><span class="kw">:</span><span class="at"> /api</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">spring</span><span class="kw">:</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">application</span><span class="kw">:</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ctts</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">datasource</span><span class="kw">:</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">driver-class-name</span><span class="kw">:</span><span class="at"> com.mysql.cj.jdbc.Driver</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">url</span><span class="kw">:</span><span class="at"> jdbc:mysql://localhost:3306/ctts?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false</span></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">username</span><span class="kw">:</span><span class="at"> root</span></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">password</span><span class="kw">:</span><span class="at"> </span><span class="dv">123456</span></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mybatis-plus</span><span class="kw">:</span></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">mapper-locations</span><span class="kw">:</span><span class="at"> classpath:mapper/*.xml</span></span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">configuration</span><span class="kw">:</span></span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">map-underscore-to-camel-case</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">log-impl</span><span class="kw">:</span><span class="at"> org.apache.ibatis.logging.stdout.StdOutImpl</span></span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span></span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span>
+<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a><span class="fu">knife4j</span><span class="kw">:</span></span>
+<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">enable</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">setting</span><span class="kw">:</span></span>
+<span id="cb42-28"><a href="#cb42-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">language</span><span class="kw">:</span><span class="at"> zh_cn</span></span></code></pre></div>
+<blockquote>
+<p>⚠️ 因为还没建数据库
+<code>ctts</code>，启动时会因数据源连不上而报错。两种解决方法：</p>
+<ol type="1">
+<li>先在 MySQL 中
+<code>CREATE DATABASE ctts DEFAULT CHARACTER SET utf8mb4;</code></li>
+<li>或在启动类上加
+<code>@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)</code>，暂时不配数据源（后续课程再开启）。</li>
+</ol>
+</blockquote>
+<h3 id="37-测试类-cttsapplicationtestsjava">3.7 测试类
+CttsApplicationTests.java</h3>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">;</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">junit</span><span class="op">.</span><span class="im">jupiter</span><span class="op">.</span><span class="im">api</span><span class="op">.</span><span class="im">Test</span><span class="op">;</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">test</span><span class="op">.</span><span class="im">context</span><span class="op">.</span><span class="im">SpringBootTest</span><span class="op">;</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootTest</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CttsApplicationTests <span class="op">{</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Test</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> <span class="fu">contextLoads</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;Spring 容器加载成功&quot;</span><span class="op">);</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="38-启动验证">3.8 启动验证</h3>
+<ol type="1">
+<li>在 IDEA 中打开 <code>CttsApplication.java</code>，点击
+<code>main</code> 方法左侧的绿色三角形 ▶；</li>
+<li>控制台输出 Spring Boot banner 与
+<code>Started CttsApplication in x.xxx seconds</code>；</li>
+<li>浏览器访问 <code>http://localhost:8080/api</code>，看到 Whitelabel
+Error Page（404）即说明服务正常启动；</li>
+<li>运行测试类 <code>contextLoads</code> 方法，控制台输出"Spring
+容器加载成功"即说明容器装配正常。</li>
+</ol>
+<h3 id="39-验证清单">3.9 验证清单</h3>
+<table>
+<thead>
+<tr>
+<th>验证项</th>
+<th>期望结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mvn clean compile</code></td>
+<td>BUILD SUCCESS</td>
+</tr>
+<tr>
+<td>启动 <code>CttsApplication</code></td>
+<td>控制台出现 <code>Started CttsApplication</code></td>
+</tr>
+<tr>
+<td>访问 <code>http://localhost:8080/api</code></td>
+<td>返回 Whitelabel Error Page（404）</td>
+</tr>
+<tr>
+<td>运行 <code>contextLoads</code> 测试</td>
+<td>测试通过</td>
+</tr>
+<tr>
+<td><code>target/classes/com/ctts/CttsApplication.class</code></td>
+<td>存在编译产物</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四拓展阅读">四、拓展阅读</h2>
+<h3 id="41-spring-boot-版本选择">4.1 Spring Boot 版本选择</h3>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>状态</th>
+<th>Java 要求</th>
+<th>推荐场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.7.x</td>
+<td>维护期</td>
+<td>8+</td>
+<td>老项目维护</td>
+</tr>
+<tr>
+<td>3.0.x</td>
+<td>已停止维护</td>
+<td>17+</td>
+<td>不推荐新项目</td>
+</tr>
+<tr>
+<td>3.2.x</td>
+<td><strong>活跃</strong></td>
+<td>17+</td>
+<td><strong>本课程使用</strong></td>
+</tr>
+<tr>
+<td>3.3.x</td>
+<td>活跃</td>
+<td>17+</td>
+<td>可选，新特性更多</td>
+</tr>
+<tr>
+<td>3.4.x</td>
+<td>活跃</td>
+<td>17+</td>
+<td>最新稳定版</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-maven-vs-gradle">4.2 Maven vs Gradle</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Maven</th>
+<th>Gradle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置文件</td>
+<td><code>pom.xml</code>（XML）</td>
+<td><code>build.gradle</code>（Groovy/Kotlin DSL）</td>
+</tr>
+<tr>
+<td>学习曲线</td>
+<td>平缓</td>
+<td>较陡</td>
+</tr>
+<tr>
+<td>构建速度</td>
+<td>较慢</td>
+<td>较快（增量构建）</td>
+</tr>
+<tr>
+<td>生态</td>
+<td>Java 主流</td>
+<td>Android 主流，Java 也常用</td>
+</tr>
+<tr>
+<td>本课程</td>
+<td>✅ 使用</td>
+<td>不涉及</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-推荐资料">4.3 推荐资料</h3>
+<ul>
+<li><strong>官方文档</strong>：<a
+href="https://docs.spring.io/spring-boot/docs/current/reference/html/">https://docs.spring.io/spring-boot/docs/current/reference/html/</a></li>
+<li><strong>Spring Initializr</strong>：<a
+href="https://start.spring.io">https://start.spring.io</a></li>
+<li><strong>Maven 中央仓库搜索</strong>：<a
+href="https://mvnrepository.com">https://mvnrepository.com</a></li>
+<li><strong>阿里云 Maven 镜像</strong>：<a
+href="https://maven.aliyun.com">https://maven.aliyun.com</a></li>
+<li><strong>MyBatis-Plus 官方文档</strong>：<a
+href="https://baomidou.com">https://baomidou.com</a></li>
+<li><strong>Knife4j 官方文档</strong>：<a
+href="https://doc.xiaominfo.com">https://doc.xiaominfo.com</a></li>
+</ul>
+<h3 id="44-进阶概念了解即可">4.4 进阶概念（了解即可）</h3>
+<ul>
+<li><strong>Spring Boot
+DevTools</strong>：开发期热重载工具，改代码自动重启，提升开发效率。</li>
+<li><strong>Spring Boot Actuator</strong>：生产级监控端点，暴露
+<code>/health</code>、<code>/info</code> 等运维接口。</li>
+<li><strong>Spring Boot Loader</strong>：让 <code>java -jar</code>
+能直接运行 Spring Boot fat jar 的加载器。</li>
+</ul>
+<hr />
+<h2 id="五本节小结与知识结构图">五、本节小结与知识结构图</h2>
+<h3 id="51-核心要点回顾">5.1 核心要点回顾</h3>
+<ol type="1">
+<li><strong>Spring Boot = Spring + 自动配置 + 起步依赖 +
+内嵌容器</strong>，让开发"开箱即用"。</li>
+<li><strong>项目结构遵循 Maven
+约定</strong>：<code>src/main/java</code>（源码）+
+<code>src/main/resources</code>（配置）+
+<code>src/test/java</code>（测试）+ <code>pom.xml</code>（依赖）。</li>
+<li><strong>Maven 三坐标</strong>：<code>groupId</code> +
+<code>artifactId</code> + <code>version</code>
+唯一确定依赖；<strong>起步依赖</strong>把场景依赖打包。</li>
+<li><strong><code>application.yml</code></strong> 用 YAML
+层级结构组织配置；常用
+<code>server.port</code>、<code>context-path</code>、<code>datasource.*</code>。</li>
+<li><strong>启动类 <code>@SpringBootApplication</code></strong>
+是三合一注解，<strong>必须放在根包</strong>保证扫描范围；<code>SpringApplication.run()</code>
+启动容器与 Tomcat。</li>
+<li><strong>IDEA 创建流程</strong>：File → New → Project → Spring
+Initializr → 填元数据 → 勾依赖 → Finish → 补 pom → 写 yml →
+启动验证。</li>
+</ol>
+<h3 id="52-知识结构图文字树">5.2 知识结构图（文字树）</h3>
+<pre><code>第 3 次课 Spring Boot 项目搭建与 Maven 管理
+│
+├── K3-1 Spring Boot 特性
+│   ├── 自动配置（Auto-Configuration）
+│   ├── 起步依赖（Starter）
+│   ├── 内嵌 Web 容器（Tomcat）
+│   ├── 约定优于配置
+│   └── 与 Spring 的关系（封装而非取代）
+│
+├── K3-2 项目结构
+│   ├── src/main/java       源码
+│   ├── src/main/resources  配置
+│   ├── src/test/java       测试
+│   ├── pom.xml             依赖
+│   ├── target/             编译输出
+│   └── 启动类位置（根包 com.ctts）
+│
+├── K3-3 Maven 依赖管理
+│   ├── 三坐标 GAV
+│   │   ├── groupId
+│   │   ├── artifactId
+│   │   └── version
+│   ├── 仓库体系
+│   │   ├── 本地仓库 ~/.m2/repository
+│   │   ├── 私服/镜像（阿里云）
+│   │   └── 中央仓库
+│   ├── 父 POM spring-boot-starter-parent
+│   ├── 起步依赖
+│   │   ├── spring-boot-starter-web
+│   │   ├── spring-boot-starter-test
+│   │   └── mybatis-plus-spring-boot3-starter
+│   └── 依赖范围 scope（compile/test/runtime/provided）
+│
+├── K3-4 配置文件 application.yml
+│   ├── YAML 语法（缩进、冒号空格）
+│   ├── 核心配置项
+│   │   ├── server.port
+│   │   ├── server.servlet.context-path
+│   │   ├── spring.datasource.*
+│   │   └── mybatis-plus.*
+│   ├── 多环境（application-{profile}.yml）
+│   └── 加载顺序（命令行 &gt; 环境变量 &gt; yml &gt; 默认值）
+│
+├── K3-5 启动类
+│   ├── @SpringBootApplication 三合一
+│   │   ├── @SpringBootConfiguration
+│   │   ├── @EnableAutoConfiguration
+│   │   └── @ComponentScan
+│   ├── SpringApplication.run() 流程
+│   ├── 组件扫描范围（启动类所在包及子包）
+│   └── exclude / scanBasePackages 参数
+│
+└── K3-6 项目创建流程
+    ├── Spring Initializr（IDEA 内置 / 网页版）
+    ├── 元数据填写（Name/Group/Artifact/Package）
+    ├── Spring Boot 版本选择（3.2.x 稳定版）
+    ├── 依赖勾选（Web/MySQL/Lombok/Validation）
+    ├── 补充 pom.xml（mybatis-plus/knife4j）
+    ├── Maven 阿里云镜像配置
+    ├── 启动验证（localhost:8080）
+    └── 常见报错排查</code></pre>
+<h3 id="53-与上节下节的衔接">5.3 与上节、下节的衔接</h3>
+<div class="visual">
+  <div class="visual-title">图示 17：结构与流程重绘</div>
+  <div class="diagram-lines">
+<span class="diagram-line">第 2 次课：HTTP / JSON / RESTful（通信语言）</span>
+<span class="diagram-line">              <span class="tree-token">│</span></span>
+<span class="diagram-line">              ▼ 知道后端要响应什么</span>
+<span class="diagram-line">第 3 次课：Spring Boot 项目搭建（工程骨架）  ← 本次课</span>
+<span class="diagram-line">              <span class="tree-token">│</span></span>
+<span class="diagram-line">              ▼ 有了能运行的项目</span>
+<span class="diagram-line">第 4 次课：Controller 开发与接口参数接收（写第一个接口）</span>
+<span class="diagram-line">              <span class="tree-token">│</span></span>
+<span class="diagram-line">              ▼ 接口能接收请求</span>
+<span class="diagram-line">第 5 次课：接口调试与 JSON 返回（用 Knife4j 联调）</span>
+  </div>
+  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
+</div>
+<hr />
+<h2 id="六复习思考题">六、复习思考题</h2>
+<blockquote>
+<p>用于课后自测，下次课前提问。答案请自己整理，不在本资料给出。</p>
+</blockquote>
+<ol type="1">
+<li>用一句话解释 Spring Boot 解决了 Spring 的什么问题。</li>
+<li>列举 Spring Boot 的四大核心特性，并各举一个具体例子说明。</li>
+<li>为什么说 Spring Boot 不是取代 Spring 的"新框架"？两者什么关系？</li>
+<li>一个标准 Spring Boot
+项目至少包含哪几个目录/文件？分别存放什么？</li>
+<li>启动类为什么必须放在根包下？如果放在
+<code>com.ctts.controller</code> 包下会发生什么？</li>
+<li>Maven 的三坐标是什么？请用 <code>spring-boot-starter-web</code>
+写出它的 GAV。</li>
+<li>什么是"起步依赖"？<code>spring-boot-starter-web</code>
+包含哪些核心依赖？</li>
+<li>为什么我们不用为每个 Spring Boot 依赖写 <code>&lt;version&gt;</code>
+标签？</li>
+<li>YAML 语法有哪些关键规则？至少说出 3 条。</li>
+<li><code>server.port</code> 和 <code>server.servlet.context-path</code>
+分别有什么作用？</li>
+<li><code>@SpringBootApplication</code>
+注解等价于哪三个注解的组合？分别有什么作用？</li>
+<li>简述 <code>SpringApplication.run()</code>
+启动应用时经历的主要步骤。</li>
+<li>用 IDEA 创建 Spring Boot
+项目大致分几步？最关键的几个选择是什么？</li>
+<li>启动项目后访问 <code>localhost:8080</code> 看到 404
+是正常的吗？为什么？</li>
+<li>8080 端口被占用怎么办？至少给出两种解决方法。</li>
+<li>CTTS 项目使用了哪些核心依赖？每个依赖的作用是什么？</li>
+<li>在 <code>pom.xml</code> 中
+<code>&lt;scope&gt;test&lt;/scope&gt;</code>
+表示什么？<code>&lt;optional&gt;true&lt;/optional&gt;</code>
+又表示什么？</li>
+<li>改了 <code>pom.xml</code>
+之后要做哪一步操作才能让依赖真正生效？</li>
+<li>如果下载 Maven 依赖很慢，你会如何优化？</li>
+<li>简述你对"约定优于配置"的理解，并举一个 Spring Boot 中的例子。</li>
+</ol>
+<hr />
+<blockquote>
+<p>✅ 完成本节资料学习后，请打开 <code>题库.md</code> 进行自测，确保掌握
+6 个知识点。 ✅ 下次课将学习 Controller
+开发与接口参数接收，请确保本次课的项目能正常启动。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

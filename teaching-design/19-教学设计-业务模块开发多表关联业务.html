@@ -1,0 +1,487 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>业务模块开发多表关联业务</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 19 次课 · 教学设计</div>
+      <h1>业务模块开发多表关联业务</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 19 次课</span>
+        <span class="hero-chip"><b>主题</b>业务模块开发多表关联业务</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程基本信息">一、课程基本信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三教学重点">三、教学重点</a>
+<ul>
+</ul></li>
+<li><a href="#四教学难点">四、教学难点</a>
+<ul>
+</ul></li>
+<li><a href="#五学情分析">五、学情分析</a>
+<ul>
+</ul></li>
+<li><a href="#六教学方法">六、教学方法</a>
+<ul>
+</ul></li>
+<li><a href="#七教学准备">七、教学准备</a>
+<ul>
+</ul></li>
+<li><a href="#八教学过程时间分配">八、教学过程（时间分配）</a>
+<ul>
+<li><a href="#第1学时45分钟">第1学时（45分钟）</a></li>
+<li><a href="#第2学时45分钟">第2学时（45分钟）</a></li>
+</ul></li>
+<li><a href="#九教学评价">九、教学评价</a>
+<ul>
+</ul></li>
+<li><a href="#十课后作业与教学反思">十、课后作业与教学反思</a>
+<ul>
+<li><a href="#课后作业">课后作业</a></li>
+<li><a href="#教学反思课后填写">教学反思（课后填写）</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 19 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<h2 id="一课程基本信息">一、课程基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>JavaWeb后端开发技术</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M7 综合项目开发</td>
+</tr>
+<tr>
+<td>课次</td>
+<td>第19次课</td>
+</tr>
+<tr>
+<td>课题</td>
+<td>业务模块开发：多表关联业务</td>
+</tr>
+<tr>
+<td>课时</td>
+<td>2学时（90分钟）</td>
+</tr>
+<tr>
+<td>课型</td>
+<td>理论课</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程/计算机相关专业二年级学生</td>
+</tr>
+<tr>
+<td>项目背景</td>
+<td>CTTS校园实训任务管理系统（5张表：sys_user / training_project / task
+/ task_submission / task_review）</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java 17 + Spring Boot 3.x + MyBatis-Plus + MySQL</td>
+</tr>
+<tr>
+<td>包名</td>
+<td>com.ctts</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>理解多表关联查询的语法差异（INNER JOIN / LEFT
+JOIN），能够根据业务场景选择正确的连接方式。</li>
+<li>掌握 MyBatis 多表映射的两种方式：注解 <code>@Results</code> 映射与
+XML <code>ResultMap</code> 嵌套映射（<code>association</code>
+一对一、<code>collection</code> 一对多）。</li>
+<li>理解业务对象（VO）的设计原则，能够根据接口需要设计
+<code>TaskWithSubmissionVO</code>、<code>ProjectTaskVO</code> 等 VO
+类。</li>
+<li>识别 N+1 查询问题的产生原因，掌握 JOIN
+一次查询与批量查询两种解决方案。</li>
+<li>掌握完整 Controller-Service-Mapper
+链路实现多表关联查询接口的流程。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够独立编写包含 LEFT JOIN 的多表关联 SQL。</li>
+<li>能够独立编写 XML ResultMap 嵌套映射，完成一对多关联结果组装。</li>
+<li>能够在 Service 层组装多表数据并返回 VO 对象。</li>
+<li>能够排查多表查询常见报错（列名歧义、映射错位、N+1 性能问题）。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li><strong>性能与责任</strong>：低效查询是对服务器资源的浪费，工程师对每一行
+SQL 都应怀有敬畏之心，培养性能意识和资源责任感。</li>
+<li><strong>工匠精神</strong>：多表映射的细节决定数据正确性，培养严谨细致的工程态度。</li>
+<li><strong>系统思维</strong>：从单表到多表，从局部到整体，建立系统级的数据视角。</li>
+</ol>
+<h2 id="三教学重点">三、教学重点</h2>
+<ol type="1">
+<li>LEFT JOIN 多表关联 SQL 编写与列名歧义处理。</li>
+<li>XML ResultMap 嵌套映射（<code>association</code> +
+<code>collection</code>）。</li>
+<li>VO 对象设计与 Service 层多表数据组装。</li>
+<li>N+1 查询问题的识别与解决方案。</li>
+</ol>
+<h2 id="四教学难点">四、教学难点</h2>
+<ol type="1">
+<li>ResultMap 嵌套映射中一对多关系的 <code>collection</code>
+配置，特别是 <code>id</code> 列与 <code>result</code>
+列的正确标注。</li>
+<li>JOIN 查询结果集中重复主键列导致的映射错位问题。</li>
+<li>N+1 问题的本质理解——从代码表象到数据库执行过程的思维跃迁。</li>
+</ol>
+<h2 id="五学情分析">五、学情分析</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知识基础</td>
+<td>已完成第6-9次课 MyBatis 与动态 SQL 学习，掌握单表 CRUD
+与分页查询；已完成第10-11次课分层架构与 DTO/VO 规范学习。</td>
+</tr>
+<tr>
+<td>技能基础</td>
+<td>能独立完成单表 Mapper 接口、XML 映射文件、Service 与 Controller
+编写。</td>
+</tr>
+<tr>
+<td>认知特点</td>
+<td>对"关联"概念有数据库课程基础，但将 SQL 关联映射到 Java
+对象嵌套结构是认知跨越点。</td>
+</tr>
+<tr>
+<td>学习困难</td>
+<td>预判：ResultMap 嵌套映射配置容易写错；N+1
+问题难以从代码直观看出。</td>
+</tr>
+<tr>
+<td>学习动机</td>
+<td>进入综合项目阶段，学生渴望做出"真实可用"的功能接口，动机较强。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="六教学方法">六、教学方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>讲授法</td>
+<td>多表 JOIN 语法、ResultMap 嵌套映射原理。</td>
+</tr>
+<tr>
+<td>案例驱动</td>
+<td>以"教师查看某项目下所有任务及提交情况"为主线贯穿全课。</td>
+</tr>
+<tr>
+<td>对比法</td>
+<td>INNER JOIN vs LEFT JOIN；N+1 反例 vs JOIN 优化正例。</td>
+</tr>
+<tr>
+<td>代码阅读法</td>
+<td>课堂互动——阅读 N+1 查询反例代码，定位性能问题。</td>
+</tr>
+<tr>
+<td>启发式提问</td>
+<td>引导学生发现 N+1 问题、思考关联映射配置。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="七教学准备">七、教学准备</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>准备内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>软件环境</td>
+<td>JDK 17、IntelliJ IDEA、MySQL 8.x、Postman</td>
+</tr>
+<tr>
+<td>项目工程</td>
+<td>CTTS 项目代码（含 sys_user / training_project / task /
+task_submission / task_review 5张表与基础实体）</td>
+</tr>
+<tr>
+<td>数据准备</td>
+<td>5张表的测试数据（至少 2 个项目、每个项目 3 个任务、每个任务 2-4
+条提交）</td>
+</tr>
+<tr>
+<td>教学资源</td>
+<td>PPT、本课教学资料.md、代码示例工程、思维导图</td>
+</tr>
+<tr>
+<td>预习任务</td>
+<td>复习第7次课 Mapper 接口与 SQL 映射；复习数据库课程中的 JOIN
+语法</td>
+</tr>
+</tbody>
+</table>
+<h2 id="八教学过程时间分配">八、教学过程（时间分配）</h2>
+<h3 id="第1学时45分钟">第1学时（45分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>教学内容</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-5 min</td>
+<td>课前导入</td>
+<td>回顾单表查询的局限：教师查看项目下任务及提交情况需要跨 3
+张表，单表查询需多次调用。引出本课主题。</td>
+<td>提问引导、展示需求截图</td>
+<td>思考、回答</td>
+<td>制造认知冲突，激发学习需求</td>
+</tr>
+<tr>
+<td>5-15 min</td>
+<td>K19-1 多表关联查询</td>
+<td>讲解 INNER JOIN 与 LEFT JOIN 的语法与差异；演示 task +
+task_submission + sys_user 三表 LEFT JOIN SQL
+编写；强调列名歧义与表别名。</td>
+<td>讲授、SQL 演示</td>
+<td>听讲、记录、跟随编写 SQL</td>
+<td>夯实 SQL 基础</td>
+</tr>
+<tr>
+<td>15-25 min</td>
+<td>K19-2 MyBatis多表映射</td>
+<td>讲解 <code>@Results</code> 注解映射（简洁场景）与 XML ResultMap
+嵌套映射（复杂场景）；重点演示
+<code>association</code>（一对一：任务→提交人）和
+<code>collection</code>（一对多：任务→提交列表）配置。</td>
+<td>讲授、代码演示</td>
+<td>听讲、对照 XML 配置</td>
+<td>突破难点</td>
+</tr>
+<tr>
+<td>25-35 min</td>
+<td>K19-3 业务对象组装</td>
+<td>讲解 VO 设计原则；演示
+<code>TaskWithSubmissionVO</code>（任务+提交列表）、<code>ProjectTaskVO</code>（项目+任务列表）的设计；Service
+层组装多表数据的两种方式（Mapper 直接返回 VO / Service
+层二次组装）。</td>
+<td>讲授、代码演示</td>
+<td>听讲、设计 VO</td>
+<td>培养业务建模能力</td>
+</tr>
+<tr>
+<td>35-45 min</td>
+<td>课堂互动——代码阅读</td>
+<td>展示 N+1
+查询反例代码（循环中调用单表查询），请学生阅读并指出问题。引导学生发现"1
+次查询 + N 次子查询"的执行过程。</td>
+<td>组织代码阅读、启发提问</td>
+<td>阅读代码、讨论、发言</td>
+<td>引出 N+1 问题</td>
+</tr>
+</tbody>
+</table>
+<h3 id="第2学时45分钟">第2学时（45分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>教学内容</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-10 min</td>
+<td>K19-4 N+1查询问题</td>
+<td>系统讲解 N+1 问题定义、产生原因、两种解决方案（JOIN 一次查询 /
+批量查询 <code>&lt;foreach&gt;</code>）；对比反例与优化代码的 SQL
+执行次数。</td>
+<td>讲授、对比演示</td>
+<td>听讲、对比分析</td>
+<td>落实重点难点</td>
+</tr>
+<tr>
+<td>10-25 min</td>
+<td>K19-5 多表业务接口实现</td>
+<td>完整演示"教师查看某项目下所有任务及提交情况"接口：JOIN SQL →
+ResultMap 嵌套映射 → VO → Mapper → Service →
+Controller，打通全链路。</td>
+<td>讲授、全链路代码演示</td>
+<td>跟随实现</td>
+<td>综合应用</td>
+</tr>
+<tr>
+<td>25-35 min</td>
+<td>课程思政融入</td>
+<td>围绕"性能与责任"展开：低效查询对服务器
+CPU、内存、连接池的压力；线上事故案例（一次 N+1
+查询拖垮服务）；工程师的资源责任。</td>
+<td>案例讲述、讨论引导</td>
+<td>思考、讨论</td>
+<td>素养渗透</td>
+</tr>
+<tr>
+<td>35-42 min</td>
+<td>课堂小结</td>
+<td>回顾 5 个知识点；强调 ResultMap 嵌套映射与 N+1
+优化两大重点；预告下次课综合实战。</td>
+<td>总结提问</td>
+<td>回顾、提问</td>
+<td>巩固强化</td>
+</tr>
+<tr>
+<td>42-45 min</td>
+<td>布置作业</td>
+<td>布置课后练习：独立实现"查看某学生所有提交及评审意见"接口（提交表 +
+评审表 + 用户表）。</td>
+<td>说明作业要求</td>
+<td>记录</td>
+<td>延伸训练</td>
+</tr>
+</tbody>
+</table>
+<h2 id="九教学评价">九、教学评价</h2>
+<table>
+<thead>
+<tr>
+<th>评价维度</th>
+<th>评价方式</th>
+<th>评价标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课堂参与</td>
+<td>互动提问、代码阅读发言</td>
+<td>主动发言次数与准确度</td>
+</tr>
+<tr>
+<td>知识掌握</td>
+<td>课堂随堂提问</td>
+<td>能正确区分 JOIN 类型、描述 ResultMap 配置</td>
+</tr>
+<tr>
+<td>能力达成</td>
+<td>课后作业</td>
+<td>能独立完成多表关联接口（SQL + ResultMap + VO + Service +
+Controller）</td>
+</tr>
+<tr>
+<td>素养渗透</td>
+<td>课堂讨论表现</td>
+<td>能从资源责任角度理解查询性能优化的意义</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十课后作业与教学反思">十、课后作业与教学反思</h2>
+<h3 id="课后作业">课后作业</h3>
+<ol type="1">
+<li><strong>基础题</strong>：编写 SQL，使用 LEFT JOIN
+查询某学生（user_id）的所有提交记录及对应任务名称、项目名称。</li>
+<li><strong>应用题</strong>：独立实现"查看某学生所有提交及评审意见"接口，要求：
+<ul>
+<li>编写 JOIN SQL（task_submission + task_review + sys_user）</li>
+<li>编写 XML ResultMap 嵌套映射（一对多：提交→评审列表）</li>
+<li>设计 <code>SubmissionWithReviewVO</code></li>
+<li>完成 Mapper / Service / Controller 全链路</li>
+</ul></li>
+<li><strong>思考题</strong>：对比"JOIN 一次查询"与"批量查询
+<code>&lt;foreach&gt;</code>"两种 N+1 解决方案的适用场景。</li>
+</ol>
+<h3 id="教学反思课后填写">教学反思（课后填写）</h3>
+<table>
+<thead>
+<tr>
+<th>反思维度</th>
+<th>反思要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标达成</td>
+<td>学生是否能独立完成 ResultMap 嵌套映射配置？</td>
+</tr>
+<tr>
+<td>难点突破</td>
+<td>N+1 问题的讲解是否足够直观？是否需要补充数据库执行计划演示？</td>
+</tr>
+<tr>
+<td>互动效果</td>
+<td>代码阅读环节学生参与度如何？是否需要增加更多反例？</td>
+</tr>
+<tr>
+<td>思政融入</td>
+<td>"性能与责任"的案例是否触动了学生？</td>
+</tr>
+<tr>
+<td>改进方向</td>
+<td>下次课综合实战是否需要补充 ResultMap 调试技巧？</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

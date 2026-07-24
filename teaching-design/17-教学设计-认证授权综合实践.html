@@ -1,0 +1,443 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>认证授权综合实践</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 17 次课 · 教学设计</div>
+      <h1>认证授权综合实践</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 17 次课</span>
+        <span class="hero-chip"><b>主题</b>认证授权综合实践</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程基本信息">一、课程基本信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素养目标课程思政">素养目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三教学重难点">三、教学重难点</a>
+<ul>
+</ul></li>
+<li><a href="#四学情分析">四、学情分析</a>
+<ul>
+</ul></li>
+<li><a href="#五教学方法">五、教学方法</a>
+<ul>
+</ul></li>
+<li><a href="#六实践任务设计">六、实践任务设计</a>
+<ul>
+</ul></li>
+<li><a href="#八课堂互动设计">八、课堂互动设计</a>
+<ul>
+<li><a href="#互动1架构图填空热身环节">互动1：架构图填空（热身环节）</a></li>
+<li><a href="#互动2踩坑复盘讨论环节">互动2：踩坑复盘（讨论环节）</a></li>
+<li><a href="#互动3思政讨论结尾环节">互动3：思政讨论（结尾环节）</a></li>
+</ul></li>
+<li><a href="#九考核评价">九、考核评价</a>
+<ul>
+</ul></li>
+<li><a href="#十课后拓展与反思">十、课后拓展与反思</a>
+<ul>
+<li><a href="#课后拓展">课后拓展</a></li>
+<li><a href="#教学反思课后填写">教学反思（课后填写）</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 17 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<h2 id="一课程基本信息">一、课程基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>Java Web后端开发技术</td>
+</tr>
+<tr>
+<td>课时</td>
+<td>第17次课（2学时，90分钟）</td>
+</tr>
+<tr>
+<td>模块归属</td>
+<td>M6 登录认证与权限控制</td>
+</tr>
+<tr>
+<td>课型</td>
+<td>实践课</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程/计算机科学与技术专业本科三年级</td>
+</tr>
+<tr>
+<td>先修内容</td>
+<td>第15次课（密码加密与会话管理）、第16次课（JWT与拦截器）</td>
+</tr>
+<tr>
+<td>项目背景</td>
+<td>CTTS校园实训任务管理系统（三角色：学生/教师/管理员，5张表）</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java17 + SpringBoot 3.x + MyBatis-Plus + MySQL + JWT</td>
+</tr>
+<tr>
+<td>包名约定</td>
+<td>com.ctts</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>理解认证（Authentication）与授权（Authorization）的本质区别。</li>
+<li>掌握基于JWT的无状态认证全链路设计思路。</li>
+<li>理解BCrypt加密的单向不可逆特性与盐值机制。</li>
+<li>掌握ThreadLocal在请求上下文中的应用与内存泄漏风险。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够独立完成"注册—登录—Token签发—拦截器校验—角色控制"完整链路编码。</li>
+<li>能够使用@RequireRole注解+拦截器实现细粒度权限控制。</li>
+<li>能够使用Apifox完成认证授权接口的全链路测试。</li>
+<li>能够定位并修复Token过期、越权访问、ThreadLocal泄漏等典型问题。</li>
+</ol>
+<h3 id="素养目标课程思政">素养目标（课程思政）</h3>
+<ol type="1">
+<li><strong>安全意识</strong>：越权访问是线上常见事故，强化"权限边界即安全边界"理念。</li>
+<li><strong>工程规范</strong>：密码不落明文、Token不长期有效、拦截器不漏配置——体现职业操守。</li>
+<li><strong>责任担当</strong>：作为后端开发者，守护用户数据安全是第一责任。</li>
+</ol>
+<h2 id="三教学重难点">三、教学重难点</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>内容</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>重点</td>
+<td>JWT全链路串联</td>
+<td>注册加密→登录校验→Token签发→拦截器解析→ThreadLocal存取</td>
+</tr>
+<tr>
+<td>重点</td>
+<td>角色权限控制</td>
+<td>@RequireRole注解 + RoleInterceptor的协同机制</td>
+</tr>
+<tr>
+<td>难点</td>
+<td>ThreadLocal内存泄漏</td>
+<td>请求结束后必须remove，否则线程池复用导致用户串号</td>
+</tr>
+<tr>
+<td>难点</td>
+<td>拦截器执行顺序</td>
+<td>JWT认证拦截器先于角色拦截器，order配置错误导致绕过</td>
+</tr>
+</tbody>
+</table>
+<h2 id="四学情分析">四、学情分析</h2>
+<p>学生在第15-16次课已分别学习了BCrypt加密、JWT生成解析、HandlerInterceptor基础用法，但<strong>知识点是割裂的</strong>。本次课的核心挑战是"串联"——把孤立组件拼装成完整的安全防线。常见认知障碍：</p>
+<ul>
+<li>以为"登录成功就安全了"，不理解后续每个请求都需要校验Token。</li>
+<li>把认证（你是谁）和授权（你能干什么）混为一谈。</li>
+<li>写了ThreadLocal.set()却忘了remove()，测试时不暴露但生产环境用户串号。</li>
+</ul>
+<h2 id="五教学方法">五、教学方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>任务驱动法</td>
+<td>以CTTS认证授权7个子任务为载体，按顺序闯关实现</td>
+</tr>
+<tr>
+<td>演示法</td>
+<td>教师演示关键环节（如Apifox带Token请求、越权访问403复现）</td>
+</tr>
+<tr>
+<td>调试法</td>
+<td>故意制造ThreadLocal泄漏Bug，学生用日志定位问题</td>
+</tr>
+<tr>
+<td>小组讨论</td>
+<td>认证踩坑复盘环节，分组讨论Token过期、越权、串号三类问题</td>
+</tr>
+<tr>
+<td>思政融入</td>
+<td>结合"某大厂越权访问致用户数据泄露"真实案例引入安全意识</td>
+</tr>
+</tbody>
+</table>
+<h2 id="六实践任务设计">六、实践任务设计</h2>
+<p>本次实践围绕CTTS系统完成认证授权全链路，共7个子任务：</p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>任务</th>
+<th>验收标准</th>
+<th>对应知识点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>用户注册接口</td>
+<td>用户名唯一校验+BCrypt加密入库，重复注册返回400</td>
+<td>BCrypt、唯一校验</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>用户登录接口</td>
+<td>密码校验通过签发JWT，失败返回401</td>
+<td>JWT签发</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>JWT拦截器</td>
+<td>无Token/过期Token返回401，合法Token解析存ThreadLocal</td>
+<td>拦截器、ThreadLocal</td>
+</tr>
+<tr>
+<td>T4</td>
+<td>角色权限控制</td>
+<td>@RequireRole注解+RoleInterceptor，越权返回403</td>
+<td>注解+拦截器</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>获取当前用户</td>
+<td>从ThreadLocal取用户信息返回</td>
+<td>ThreadLocal读取</td>
+</tr>
+<tr>
+<td>T6</td>
+<td>修改密码</td>
+<td>旧密码校验+新密码加密更新</td>
+<td>综合应用</td>
+</tr>
+<tr>
+<td>T7</td>
+<td>全链路测试</td>
+<td>Apifox按"注册→登录→访问→越权→改密"流程跑通</td>
+<td>集成测试</td>
+</tr>
+</tbody>
+</table>
+<h2
+id="七教学进程与时间分配90分钟">七、教学进程与时间分配（90分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-5min</td>
+<td>课前热身</td>
+<td>回顾15-16次课要点，展示CTTS认证授权架构图</td>
+<td>听讲、回答提问</td>
+<td>激活先备知识</td>
+</tr>
+<tr>
+<td>5-10min</td>
+<td>任务发布</td>
+<td>讲解7个子任务清单与验收标准，演示最终效果</td>
+<td>阅读任务书</td>
+<td>明确目标</td>
+</tr>
+<tr>
+<td>10-25min</td>
+<td>T1+T2 注册与登录</td>
+<td>巡回指导，重点提示BCrypt的matches方法用法</td>
+<td>编码实现注册+登录接口</td>
+<td>完成基础认证</td>
+</tr>
+<tr>
+<td>25-35min</td>
+<td>T3 JWT拦截器</td>
+<td>演示拦截器配置，强调ThreadLocal.remove()</td>
+<td>编写LoginInterceptor+WebMvcConfig</td>
+<td>理解无状态校验</td>
+</tr>
+<tr>
+<td>35-45min</td>
+<td>T4 角色权限</td>
+<td>讲解@RequireRole注解+RoleInterceptor协同</td>
+<td>实现注解+拦截器+配置</td>
+<td>掌握授权机制</td>
+</tr>
+<tr>
+<td>45-55min</td>
+<td>T5+T6 其他接口</td>
+<td>提示从ThreadLocal取用户、旧密码校验</td>
+<td>实现获取当前用户、修改密码</td>
+<td>综合应用</td>
+</tr>
+<tr>
+<td>55-70min</td>
+<td>T7 全链路测试</td>
+<td>演示Apifox带Token请求、越权403复现</td>
+<td>按测试用例跑通全链路</td>
+<td>验证完整性</td>
+</tr>
+<tr>
+<td>70-80min</td>
+<td>问题复盘</td>
+<td>组织小组讨论"认证踩坑"三类问题</td>
+<td>分组讨论+发言</td>
+<td>深化理解</td>
+</tr>
+<tr>
+<td>80-88min</td>
+<td>思政融入</td>
+<td>讲解越权访问真实事故案例，强调安全责任</td>
+<td>反思、发言</td>
+<td>安全意识</td>
+</tr>
+<tr>
+<td>88-90min</td>
+<td>课堂总结</td>
+<td>梳理全链路时序图，布置课后拓展</td>
+<td>记录</td>
+<td>知识固化</td>
+</tr>
+</tbody>
+</table>
+<h2 id="八课堂互动设计">八、课堂互动设计</h2>
+<h3 id="互动1架构图填空热身环节">互动1：架构图填空（热身环节）</h3>
+<p>教师展示一张缺失箭头的CTTS认证授权架构图，学生口头补全"用户→登录→Token→请求→拦截器→ThreadLocal→业务接口"的完整流向。</p>
+<h3 id="互动2踩坑复盘讨论环节">互动2：踩坑复盘（讨论环节）</h3>
+<p>分3组分别讨论以下问题，每组3分钟陈述：</p>
+<ul>
+<li>A组：Token过期了怎么办？前端如何无感刷新？</li>
+<li>B组：为什么越权访问比未登录更危险？</li>
+<li>C组：ThreadLocal不remove()会出现什么现象？如何排查？</li>
+</ul>
+<h3 id="互动3思政讨论结尾环节">互动3：思政讨论（结尾环节）</h3>
+<p>抛出问题："如果你发现同事的接口忘记加@RequireRole，你会怎么做？"引导学生从技术、流程、责任三个维度回答。</p>
+<h2 id="九考核评价">九、考核评价</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>占比</th>
+<th>评价方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代码完成度</td>
+<td>40%</td>
+<td>7个子任务是否全部通过验收</td>
+</tr>
+<tr>
+<td>代码规范</td>
+<td>15%</td>
+<td>包结构、命名、注释、异常处理</td>
+</tr>
+<tr>
+<td>测试完整性</td>
+<td>20%</td>
+<td>Apifox测试用例是否覆盖正常+异常路径</td>
+</tr>
+<tr>
+<td>课堂参与</td>
+<td>15%</td>
+<td>互动回答、小组讨论发言质量</td>
+</tr>
+<tr>
+<td>安全意识</td>
+<td>10%</td>
+<td>是否主动排查ThreadLocal泄漏、越权风险</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十课后拓展与反思">十、课后拓展与反思</h2>
+<h3 id="课后拓展">课后拓展</h3>
+<ol type="1">
+<li>实现Token自动续期机制（滑动过期）。</li>
+<li>引入Redis存储Token黑名单，支持主动注销。</li>
+<li>为管理员接口增加"操作审计日志"拦截器。</li>
+</ol>
+<h3 id="教学反思课后填写">教学反思（课后填写）</h3>
+<ul>
+<li>学生在哪个子任务耗时最长？原因是什么？</li>
+<li>ThreadLocal泄漏的Bug演示是否足够直观？下次如何改进？</li>
+<li>角色拦截器的执行顺序讲解是否清晰？是否有学生配置反了？</li>
+</ul>
+<h2
+id="附录ctts认证授权全链路时序图">附录：CTTS认证授权全链路时序图</h2>
+<pre><code>客户端                LoginInterceptor        RoleInterceptor        Controller
+  |  POST /register                                               |
+  |-----------------------------------------------&gt; AuthController |
+  |&lt;---- 200 注册成功 --------------------------------------------|
+  |  POST /login                                                  |
+  |-----------------------------------------------&gt; AuthController |
+  |&lt;---- 200 {token, userInfo} -----------------------------------|
+  |  GET /api/teacher/list (Header: Authorization)                |
+  |------------------&gt;|                                            |
+  |                    |--解析Token--&gt;ThreadLocal.set              |
+  |                    |--next-----&gt;|                              |
+  |                                 |--读@RequireRole--&gt;比对角色   |
+  |                                 |--next----------------------&gt;|
+  |                                 |                              |--业务逻辑
+  |&lt;---- 200 数据 ------------------------------------------------|
+  |                    |--afterCompletion--&gt;ThreadLocal.remove    |
+  |  GET /api/admin/list (学生Token)                              |
+  |------------------&gt;|                                            |
+  |                    |--解析Token--&gt;ThreadLocal.set              |
+  |                    |--next-----&gt;|                              |
+  |                                 |--读@RequireRole--&gt;角色不符   |
+  |&lt;---- 403 越权 --------------------------------------------|    |</code></pre>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

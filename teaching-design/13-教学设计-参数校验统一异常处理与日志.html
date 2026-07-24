@@ -1,0 +1,1110 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>参数校验统一异常处理与日志</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 13 次课 · 教学设计</div>
+      <h1>参数校验统一异常处理与日志</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 13 次课</span>
+        <span class="hero-chip"><b>主题</b>参数校验统一异常处理与日志</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程基本信息">一、课程基本信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#21-知识目标">2.1 知识目标</a></li>
+<li><a href="#22-能力目标">2.2 能力目标</a></li>
+<li><a href="#23-素质目标课程思政">2.3 素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三教学重点与难点">三、教学重点与难点</a>
+<ul>
+<li><a href="#31-教学重点">3.1 教学重点</a></li>
+<li><a href="#32-教学难点">3.2 教学难点</a></li>
+<li><a href="#33-重点难点突破策略">3.3 重点难点突破策略</a></li>
+</ul></li>
+<li><a href="#四学情分析">四、学情分析</a>
+<ul>
+</ul></li>
+<li><a href="#五教学内容与任务">五、教学内容与任务</a>
+<ul>
+<li><a href="#51-知识点脉络m5-模块第-1-课">5.1 知识点脉络（M5 模块第 1 课）</a></li>
+<li><a href="#52-项目任务ctts-实战">5.2 项目任务（CTTS 实战）</a></li>
+</ul></li>
+<li><a href="#六教学方法与手段">六、教学方法与手段</a>
+<ul>
+</ul></li>
+<li><a href="#七教学过程设计90-分钟">七、教学过程设计（90 分钟）</a>
+<ul>
+<li><a href="#71-时间分配总表">7.1 时间分配总表</a></li>
+<li><a href="#72-详细教学过程">7.2 详细教学过程</a></li>
+</ul></li>
+<li><a href="#八教学评价设计">八、教学评价设计</a>
+<ul>
+<li><a href="#81-过程性评价占-60">8.1 过程性评价（占 60%）</a></li>
+<li><a href="#82-终结性评价占-40">8.2 终结性评价（占 40%）</a></li>
+<li><a href="#83-评价标准针对课后任务">8.3 评价标准（针对课后任务）</a></li>
+</ul></li>
+<li><a href="#九教学资源">九、教学资源</a>
+<ul>
+<li><a href="#91-软硬件资源">9.1 软硬件资源</a></li>
+<li><a href="#92-教学材料">9.2 教学材料</a></li>
+<li><a href="#93-拓展资源">9.3 拓展资源</a></li>
+</ul></li>
+<li><a href="#十教学反思课后填写">十、教学反思（课后填写）</a>
+<ul>
+<li><a href="#101-反思维度">10.1 反思维度</a></li>
+<li><a href="#102-反思记录表课后填写">10.2 反思记录表（课后填写）</a></li>
+<li><a href="#103-典型问题与对策课后补充">10.3 典型问题与对策（课后补充）</a></li>
+</ul></li>
+<li><a href="#附板书设计">附：板书设计</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 13 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>课程名称：Java Web后端开发技术 所属模块：M5 接口规范与工程规范
+项目载体：CTTS 校园实训任务管理系统 技术栈：Java 17 + Spring Boot 3.x +
+MyBatis-Plus + MySQL 基础包名：com.ctts 课型：理论课（理实一体） 学时：2
+学时（90 分钟）</p>
+</blockquote>
+<hr />
+<h2 id="一课程基本信息">一、课程基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程代码</td>
+<td>JWBE-2025</td>
+</tr>
+<tr>
+<td>课程性质</td>
+<td>专业核心课（必修）</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程 / 计算机科学与技术 本科三年级</td>
+</tr>
+<tr>
+<td>先修内容</td>
+<td>Spring Boot 入门、RESTful 接口、MyBatis-Plus 增删改查、DTO 思想</td>
+</tr>
+<tr>
+<td>后续内容</td>
+<td>第14次课 接口文档（Swagger/OpenAPI）、第15次课 拦截器与登录鉴权</td>
+</tr>
+<tr>
+<td>教学场地</td>
+<td>多媒体机房（每人一机，已部署 JDK17 + IDEA + MySQL8 + Maven）</td>
+</tr>
+<tr>
+<td>教学方法</td>
+<td>讲授法 + 案例驱动法 + 对比演示法 + 面试快问快答</td>
+</tr>
+<tr>
+<td>参考资料</td>
+<td>《Spring Boot 实战（第5版）》、Spring 官方文档 validation
+章、Hibernate Validator 文档</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="21-知识目标">2.1 知识目标</h3>
+<ul>
+<li>K13-1 理解 JSR 380（Bean Validation 2.0）规范，掌握
+<code>@Valid</code> / <code>@Validated</code> 区别，熟练使用
+<code>@NotBlank</code> / <code>@NotNull</code> / <code>@NotEmpty</code>
+/ <code>@Size</code> / <code>@Min</code> / <code>@Max</code> /
+<code>@Pattern</code> / <code>@Email</code> 等常用校验注解。</li>
+<li>K13-2 掌握 <code>@RestControllerAdvice</code> +
+<code>@ExceptionHandler</code> 全局异常处理机制，能够针对
+<code>MethodArgumentNotValidException</code>、<code>ConstraintViolationException</code>、<code>MissingServletRequestParameterException</code>、<code>MethodArgumentTypeMismatchException</code>
+等异常分别处理。</li>
+<li>K13-3 掌握自定义业务异常 <code>BusinessException</code>（含 code +
+message）的设计方法，理解其继承 <code>RuntimeException</code>
+的原因，并能被全局异常处理器统一捕获。</li>
+<li>K13-4 理解 SLF4J 门面模式与 Logback 实现，掌握 <code>@Slf4j</code>
+注解、日志级别（TRACE/DEBUG/INFO/WARN/ERROR）、<code>application.yml</code>
+日志配置与日志文件输出策略。</li>
+<li>K13-5 掌握空指针、参数类型不匹配、SQL 异常、404/500
+等常见后端错误的排查思路与定位方法。</li>
+</ul>
+<h3 id="22-能力目标">2.2 能力目标</h3>
+<ul>
+<li>能够为 CTTS 的 <code>ProjectDTO</code> / <code>TaskDTO</code>
+添加合适的校验注解，并实现分组校验。</li>
+<li>能够独立创建 <code>GlobalExceptionHandler</code>
+全局异常处理器，统一返回 <code>Result&lt;T&gt;</code> 标准响应。</li>
+<li>能够设计 <code>BusinessException</code> 并在 Service
+层抛出，由全局处理器转换为友好提示。</li>
+<li>能够在 Controller / Service 中使用 <code>@Slf4j</code>
+输出不同级别日志，并通过 <code>application.yml</code>
+配置日志级别与文件输出。</li>
+<li>能够根据控制台日志、堆栈信息、Postman
+响应快速定位并修复后端常见错误。</li>
+</ul>
+<h3 id="23-素质目标课程思政">2.3 素质目标（课程思政）</h3>
+<ul>
+<li><strong>系统稳定性意识</strong>：异常处理不是"兜底糊弄"，而是对用户、对系统的负责，体现工程师的工匠精神与责任担当。</li>
+<li><strong>服务意识</strong>：把 500
+错误转成"系统繁忙，请稍后重试"是后端对前端、对用户的体贴，体现"以用户为中心"的服务理念。</li>
+<li><strong>规范意识</strong>：统一异常返回结构、统一日志规范，是团队协作的基础，培养工程化思维与团队契约精神。</li>
+<li><strong>底线思维</strong>：日志不是"装饰品"，是生产环境排查问题的"黑匣子"，培养严谨、可追溯的工程素养。</li>
+</ul>
+<hr />
+<h2 id="三教学重点与难点">三、教学重点与难点</h2>
+<h3 id="31-教学重点">3.1 教学重点</h3>
+<ol type="1">
+<li><code>@Valid</code> 与 <code>@Validated</code>
+的区别及分组校验的使用场景。</li>
+<li><code>@RestControllerAdvice</code> + <code>@ExceptionHandler</code>
+的编写套路与异常匹配优先级。</li>
+<li><code>BusinessException</code> 自定义异常类的设计（code + message +
+构造器重载）。</li>
+<li>SLF4J + Logback 的配置与 <code>@Slf4j</code> 的使用。</li>
+<li>统一返回 <code>Result&lt;T&gt;</code>
+与异常处理的配合，形成完整闭环。</li>
+</ol>
+<h3 id="32-教学难点">3.2 教学难点</h3>
+<ol type="1">
+<li>异常处理的"匹配最近原则"：子类异常优先于父类异常，避免被
+<code>Exception</code> "兜底"吃掉。</li>
+<li><code>MethodArgumentNotValidException</code>（表单/JSON
+体校验失败）与
+<code>ConstraintViolationException</code>（<code>@RequestParam</code> /
+<code>@PathVariable</code> 校验失败）的区别与处理。</li>
+<li>日志级别选择：什么时候用 INFO、什么时候用 WARN、什么时候用
+ERROR，避免日志污染。</li>
+<li>参数校验失败 → 异常处理器 → 统一返回 的完整链路理解。</li>
+</ol>
+<h3 id="33-重点难点突破策略">3.3 重点难点突破策略</h3>
+<ul>
+<li><strong>对比演示法</strong>：先写一个没有校验、没有异常处理的"裸接口"，用
+Postman 传入空值/错误类型，让学员直观看到 Spring 默认的 400/500
+错误页有多"难看"，再引入校验与全局异常处理，形成强烈反差。</li>
+<li><strong>流程图法</strong>：用一张"请求 → 校验 → 异常 → 处理器 →
+Result"完整流程图串起所有知识点。</li>
+<li><strong>案例驱动法</strong>：以 CTTS
+的"创建项目"接口为主线，逐步加校验、加异常处理、加日志，最终形成可上线的工业级代码。</li>
+<li><strong>面试快问快答</strong>：把高频面试题（<code>@Valid</code> 与
+<code>@Validated</code>
+区别、全局异常处理原理、日志级别选择）融入课堂，既巩固知识又对接就业。</li>
+</ul>
+<hr />
+<h2 id="四学情分析">四、学情分析</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>分析</th>
+<th>应对策略</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知识基础</td>
+<td>已学 Spring Boot 基础、RESTful 接口、MyBatis-Plus CRUD、DTO
+封装，能独立写出"能用"的接口</td>
+<td>从"能用"到"好用"切入，对比演示</td>
+</tr>
+<tr>
+<td>编程能力</td>
+<td>能写 Controller / Service / Mapper
+三层结构，但对异常处理、日志等工程规范接触少</td>
+<td>强调"工程化"思维，模板化代码</td>
+</tr>
+<tr>
+<td>学习习惯</td>
+<td>重功能实现、轻异常处理与日志，倾向"跑通就行"</td>
+<td>通过面试题与真实生产案例反向激励</td>
+</tr>
+<tr>
+<td>易混淆点</td>
+<td><code>@Valid</code> / <code>@Validated</code>
+混淆；校验异常类型混淆；日志级别乱用</td>
+<td>对比表格 + 案例演示 + 口诀记忆</td>
+</tr>
+<tr>
+<td>兴趣点</td>
+<td>对"为什么大厂接口都很稳"感兴趣，对面试题关注度高</td>
+<td>用面试题串联，课程思政融入稳定性话题</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="五教学内容与任务">五、教学内容与任务</h2>
+<h3 id="51-知识点脉络m5-模块第-1-课">5.1 知识点脉络（M5 模块第 1
+课）</h3>
+<pre><code>第13次课
+├── K13-1 参数校验
+│   ├── JSR 380 规范简介
+│   ├── @Valid vs @Validated
+│   ├── 常用校验注解（@NotBlank/@NotNull/@NotEmpty/@Size/@Min/@Max/@Pattern/@Email）
+│   └── BindingResult 处理（不推荐）vs 全局异常处理（推荐）
+├── K13-2 全局异常处理
+│   ├── @RestControllerAdvice
+│   ├── @ExceptionHandler
+│   ├── MethodArgumentNotValidException（@RequestBody 体校验）
+│   ├── ConstraintViolationException（@RequestParam/@PathVariable 校验）
+│   ├── MethodArgumentTypeMismatchException（类型不匹配）
+│   └── 兜底 Exception 处理
+├── K13-3 自定义业务异常
+│   ├── BusinessException 设计（code + message）
+│   ├── 继承 RuntimeException 的原因
+│   ├── Service 层抛出
+│   └── 全局处理器捕获并返回 Result
+├── K13-4 日志基础
+│   ├── SLF4J 门面 + Logback 实现
+│   ├── @Slf4j 注解
+│   ├── 日志级别 TRACE/DEBUG/INFO/WARN/ERROR
+│   ├── application.yml 日志配置
+│   └── 日志文件输出与滚动策略
+└── K13-5 常见后端错误排查
+    ├── 空指针 NPE
+    ├── 参数类型不匹配
+    ├── SQL 异常
+    └── 404 / 500 排查思路</code></pre>
+<h3 id="52-项目任务ctts-实战">5.2 项目任务（CTTS 实战）</h3>
+<p>为 CTTS 添加工程规范三件套：</p>
+<ol type="1">
+<li>给 <code>ProjectDTO</code> / <code>TaskDTO</code>
+添加参数校验注解；</li>
+<li>创建 <code>GlobalExceptionHandler</code> 全局异常处理器，统一返回
+<code>Result&lt;T&gt;</code>；</li>
+<li>自定义 <code>BusinessException</code>，在 Service
+层抛出业务异常；</li>
+<li>在 Controller / Service 中使用 <code>@Slf4j</code> 输出日志；</li>
+<li>在 <code>application.yml</code> 中配置日志级别与文件输出。</li>
+</ol>
+<hr />
+<h2 id="六教学方法与手段">六、教学方法与手段</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>应用环节</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>讲授法</td>
+<td>K13-1 ~ K13-4 概念讲解</td>
+<td>注解定义、原理、配置项</td>
+</tr>
+<tr>
+<td>案例驱动法</td>
+<td>全程 CTTS 项目贯穿</td>
+<td>用"创建项目"接口串联所有知识点</td>
+</tr>
+<tr>
+<td>对比演示法</td>
+<td>K13-1 / K13-2</td>
+<td>"裸接口" vs "加校验+异常处理"对比</td>
+</tr>
+<tr>
+<td>流程图法</td>
+<td>K13-2</td>
+<td>请求→校验→异常→处理器→Result 流程图</td>
+</tr>
+<tr>
+<td>面试快问快答</td>
+<td>课堂互动环节</td>
+<td>高频面试题巩固</td>
+</tr>
+<tr>
+<td>思政融入</td>
+<td>课程思政环节</td>
+<td>稳定性、服务意识、规范意识</td>
+</tr>
+</tbody>
+</table>
+<p><strong>教学手段</strong>：PPT 课件 + IDEA Live Coding + Postman 演示
++ 流程图 + 思维导图。</p>
+<hr />
+<h2 id="七教学过程设计90-分钟">七、教学过程设计（90 分钟）</h2>
+<h3 id="71-时间分配总表">7.1 时间分配总表</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>环节</th>
+<th>内容</th>
+<th>时长（分钟）</th>
+<th>累计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>课前导入</td>
+<td>"裸接口"翻车现场演示 + 课程思政引入</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>2</td>
+<td>K13-1 参数校验</td>
+<td>校验注解 + @Valid/@Validated + 案例</td>
+<td>18</td>
+<td>26</td>
+</tr>
+<tr>
+<td>3</td>
+<td>K13-2 全局异常处理</td>
+<td>@RestControllerAdvice + @ExceptionHandler</td>
+<td>15</td>
+<td>41</td>
+</tr>
+<tr>
+<td>4</td>
+<td>K13-3 自定义业务异常</td>
+<td>BusinessException 设计与使用</td>
+<td>10</td>
+<td>51</td>
+</tr>
+<tr>
+<td>5</td>
+<td>K13-4 日志基础</td>
+<td>SLF4J + Logback + @Slf4j + 配置</td>
+<td>12</td>
+<td>63</td>
+</tr>
+<tr>
+<td>6</td>
+<td>K13-5 错误排查</td>
+<td>常见错误排查思路</td>
+<td>8</td>
+<td>71</td>
+</tr>
+<tr>
+<td>7</td>
+<td>课堂互动</td>
+<td>面试题快问快答</td>
+<td>10</td>
+<td>81</td>
+</tr>
+<tr>
+<td>8</td>
+<td>课堂小结</td>
+<td>知识串讲 + 布置课后任务</td>
+<td>9</td>
+<td>90</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-详细教学过程">7.2 详细教学过程</h3>
+<h4 id="环节1课前导入8-分钟">环节1：课前导入（8 分钟）</h4>
+<p><strong>教学动作</strong>：</p>
+<ol type="1">
+<li>打开上一次课写的 CTTS
+"创建项目"接口（<strong>没有</strong>校验、<strong>没有</strong>异常处理、<strong>没有</strong>日志）。</li>
+<li>用 Postman 传入空项目名
+<code>{"name": ""}</code>，演示后端直接保存成功（脏数据进库）。</li>
+<li>传入错误类型 <code>{"name": 123}</code>，演示 Spring 默认 400
+错误页（一长串英文堆栈）。</li>
+<li>在 Service 中故意写 <code>String s = null; s.length();</code>，演示
+500 错误页（白板页 + 堆栈泄露）。</li>
+</ol>
+<p><strong>提问引导</strong>：</p>
+<ul>
+<li>"这样的接口能上线吗？"</li>
+<li>"用户看到英文堆栈是什么感受？"</li>
+<li>"线上出问题，没有日志你怎么查？"</li>
+</ul>
+<p><strong>思政融入（2 分钟）</strong>：</p>
+<blockquote>
+<p>系统稳定性与服务意识。异常处理不是"技术装饰"，而是对用户的负责。把
+500
+错误转成"系统繁忙，请稍后重试"，是工程师的体贴；记好每一行日志，是对系统、对团队、对未来的负责。这就是工程师的"服务意识"与"工匠精神"。</p>
+</blockquote>
+<p><strong>引出本课主题</strong>：参数校验 + 统一异常处理 + 日志 =
+后端工程规范三件套。</p>
+<hr />
+<h4 id="环节2k13-1-参数校验18-分钟">环节2：K13-1 参数校验（18
+分钟）</h4>
+<p><strong>教学动作</strong>：</p>
+<p><strong>（1）JSR 380 规范简介（3 分钟）</strong></p>
+<ul>
+<li>Bean Validation 2.0（JSR 380），Hibernate Validator
+是参考实现。</li>
+<li>Spring Boot 3.x 自动集成
+<code>spring-boot-starter-validation</code>。</li>
+</ul>
+<p><strong>（2）常用校验注解（8 分钟）—— 对比表格讲解</strong></p>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>作用</th>
+<th>适用类型</th>
+<th>常用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@NotNull</code></td>
+<td>非 null</td>
+<td>任意类型</td>
+<td>对象字段</td>
+</tr>
+<tr>
+<td><code>@NotEmpty</code></td>
+<td>非 null 且非空</td>
+<td>Collection/Map/Array/String</td>
+<td>集合</td>
+</tr>
+<tr>
+<td><code>@NotBlank</code></td>
+<td>非 null 且去空格后非空</td>
+<td>String</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td><code>@Size(min,max)</code></td>
+<td>长度范围</td>
+<td>String/Collection</td>
+<td>字符串长度、集合大小</td>
+</tr>
+<tr>
+<td><code>@Min</code> / <code>@Max</code></td>
+<td>最小/最大值</td>
+<td>数字</td>
+<td>年龄、进度</td>
+</tr>
+<tr>
+<td><code>@Pattern(regexp)</code></td>
+<td>正则匹配</td>
+<td>String</td>
+<td>手机号、日期格式</td>
+</tr>
+<tr>
+<td><code>@Email</code></td>
+<td>邮箱格式</td>
+<td>String</td>
+<td>邮箱字段</td>
+</tr>
+<tr>
+<td><code>@Past</code> / <code>@Future</code></td>
+<td>过去/未来日期</td>
+<td>Date/LocalDate</td>
+<td>出生日期、截止时间</td>
+</tr>
+</tbody>
+</table>
+<p><strong>口诀记忆</strong>：<code>NotNull</code>
+管对象，<code>@NotEmpty</code> 管集合，<code>@NotBlank</code>
+管字符串，三者层层递进。</p>
+<p><strong>（3）@Valid 与 @Validated 区别（4 分钟）</strong></p>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th><code>@Valid</code></th>
+<th><code>@Validated</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源</td>
+<td>JSR 380（标准）</td>
+<td>Spring（扩展）</td>
+</tr>
+<tr>
+<td>分组校验</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>嵌套校验</td>
+<td>支持（标注在字段上）</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>用在方法参数</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>用在 <code>@RequestParam</code></td>
+<td>不支持</td>
+<td>支持（需类上加 <code>@Validated</code>）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（4）CTTS 实战——ProjectDTO 添加校验（3 分钟）</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectDTO <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotBlank</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;项目名称不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Size</span><span class="op">(</span>min <span class="op">=</span> <span class="dv">2</span><span class="op">,</span> max <span class="op">=</span> <span class="dv">50</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;项目名称长度需在2-50之间&quot;</span><span class="op">)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Size</span><span class="op">(</span>max <span class="op">=</span> <span class="dv">200</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;项目描述不能超过200字&quot;</span><span class="op">)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> description<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotNull</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;负责人ID不能为空&quot;</span><span class="op">)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Min</span><span class="op">(</span>value <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;负责人ID非法&quot;</span><span class="op">)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> leaderId<span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Controller 使用：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@PostMapping</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">create</span><span class="op">(</span><span class="at">@Valid</span> <span class="at">@RequestBody</span> ProjectDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    projectService<span class="op">.</span><span class="fu">create</span><span class="op">(</span>dto<span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">();</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<h4 id="环节3k13-2-全局异常处理15-分钟">环节3：K13-2 全局异常处理（15
+分钟）</h4>
+<p><strong>教学动作</strong>：</p>
+<p><strong>（1）流程图讲解（3 分钟）</strong></p>
+<pre><code>请求 → Controller @Valid 校验
+        ├─ 校验通过 → 业务执行
+        └─ 校验失败 → 抛 MethodArgumentNotValidException
+                          ↓
+                  @RestControllerAdvice 全局捕获
+                          ↓
+                  @ExceptionHandler 匹配处理
+                          ↓
+                  返回统一 Result&lt;T&gt;（含 code/message）</code></pre>
+<p><strong>（2）@RestControllerAdvice 与 @ExceptionHandler 讲解（4
+分钟）</strong></p>
+<ul>
+<li><code>@RestControllerAdvice</code> = <code>@ControllerAdvice</code>
++ <code>@ResponseBody</code>，返回值自动序列化为 JSON。</li>
+<li><code>@ExceptionHandler(XxxException.class)</code>
+标注在方法上，处理指定类型异常。</li>
+<li><strong>匹配原则</strong>：子类优先，最近优先，未被捕获的才会落到
+<code>Exception</code> 兜底。</li>
+</ul>
+<p><strong>（3）GlobalExceptionHandler 完整代码 Live Coding（8
+分钟）</strong></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RestControllerAdvice</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GlobalExceptionHandler <span class="op">{</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span> <span class="co">1. @</span>RequestBody <span class="co">体校验失败</span> <span class="co">*/</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ExceptionHandler</span><span class="op">(</span>MethodArgumentNotValidException<span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">handleValid</span><span class="op">(</span>MethodArgumentNotValidException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> msg <span class="op">=</span> e<span class="op">.</span><span class="fu">getBindingResult</span><span class="op">().</span><span class="fu">getFieldErrors</span><span class="op">().</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">map</span><span class="op">(</span>fe <span class="op">-&gt;</span> fe<span class="op">.</span><span class="fu">getField</span><span class="op">()</span> <span class="op">+</span> <span class="st">&quot;: &quot;</span> <span class="op">+</span> fe<span class="op">.</span><span class="fu">getDefaultMessage</span><span class="op">())</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">joining</span><span class="op">(</span><span class="st">&quot;; &quot;</span><span class="op">));</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">warn</span><span class="op">(</span><span class="st">&quot;参数校验失败: {}&quot;</span><span class="op">,</span> msg<span class="op">);</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">fail</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> msg<span class="op">);</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span> <span class="co">2. @</span>RequestParam<span class="co">/@</span>PathVariable <span class="co">校验失败</span> <span class="co">*/</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ExceptionHandler</span><span class="op">(</span>ConstraintViolationException<span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">handleConstraint</span><span class="op">(</span>ConstraintViolationException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> msg <span class="op">=</span> e<span class="op">.</span><span class="fu">getConstraintViolations</span><span class="op">().</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">map</span><span class="op">(</span>cv <span class="op">-&gt;</span> cv<span class="op">.</span><span class="fu">getMessage</span><span class="op">())</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">joining</span><span class="op">(</span><span class="st">&quot;; &quot;</span><span class="op">));</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">warn</span><span class="op">(</span><span class="st">&quot;约束校验失败: {}&quot;</span><span class="op">,</span> msg<span class="op">);</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">fail</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> msg<span class="op">);</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span> <span class="co">3. 参数类型不匹配</span> <span class="co">*/</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ExceptionHandler</span><span class="op">(</span>MethodArgumentTypeMismatchException<span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">handleTypeMismatch</span><span class="op">(</span>MethodArgumentTypeMismatchException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">warn</span><span class="op">(</span><span class="st">&quot;参数类型不匹配: {}&quot;</span><span class="op">,</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">fail</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> <span class="st">&quot;参数类型不匹配: &quot;</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span> <span class="co">4. 业务异常</span> <span class="co">*/</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ExceptionHandler</span><span class="op">(</span>BusinessException<span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">handleBusiness</span><span class="op">(</span>BusinessException e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">warn</span><span class="op">(</span><span class="st">&quot;业务异常: code={}, msg={}&quot;</span><span class="op">,</span> e<span class="op">.</span><span class="fu">getCode</span><span class="op">(),</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">fail</span><span class="op">(</span>e<span class="op">.</span><span class="fu">getCode</span><span class="op">(),</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span> <span class="co">5. 兜底异常</span> <span class="co">*/</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">@ExceptionHandler</span><span class="op">(</span><span class="bu">Exception</span><span class="op">.</span><span class="fu">class</span><span class="op">)</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">handleException</span><span class="op">(</span><span class="bu">Exception</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="st">&quot;系统异常&quot;</span><span class="op">,</span> e<span class="op">);</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">fail</span><span class="op">(</span><span class="dv">500</span><span class="op">,</span> <span class="st">&quot;系统繁忙，请稍后重试&quot;</span><span class="op">);</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>强调</strong>：兜底异常一定不要把堆栈返回给前端（信息泄露），但要
+<code>log.error</code> 记录完整堆栈便于排查。</p>
+<hr />
+<h4 id="环节4k13-3-自定义业务异常10-分钟">环节4：K13-3
+自定义业务异常（10 分钟）</h4>
+<p><strong>教学动作</strong>：</p>
+<p><strong>（1）为什么需要自定义异常（2 分钟）</strong></p>
+<ul>
+<li>业务错误（如"项目不存在"、"项目名重复"）不是系统异常，不该返回
+500。</li>
+<li>用 <code>RuntimeException</code> 表达太宽泛，无法携带业务码。</li>
+<li><code>BusinessException(code, message)</code>
+可以精准表达业务错误，并返回对应码。</li>
+</ul>
+<p><strong>（2）BusinessException 设计（4 分钟）</strong></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Getter</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> BusinessException <span class="kw">extends</span> <span class="bu">RuntimeException</span> <span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> <span class="bu">Integer</span> code<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">BusinessException</span><span class="op">(</span><span class="bu">Integer</span> code<span class="op">,</span> <span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">super</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">code</span> <span class="op">=</span> code<span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">BusinessException</span><span class="op">(</span><span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">(</span><span class="dv">500</span><span class="op">,</span> message<span class="op">);</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>讲解要点</strong>：</p>
+<ul>
+<li>继承 <code>RuntimeException</code>（非受检异常），避免在 Service
+方法签名上到处 <code>throws</code>。</li>
+<li><code>code</code> 字段携带业务错误码，前端可据此做不同提示（如 40001
+跳登录、40002 弹窗）。</li>
+<li>提供两个构造器重载，简化使用。</li>
+</ul>
+<p><strong>（3）Service 层抛出业务异常（4 分钟）</strong></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectServiceImpl <span class="kw">implements</span> ProjectService <span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">create</span><span class="op">(</span>ProjectDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 1. 校验项目名是否重复</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>projectMapper<span class="op">.</span><span class="fu">existsByName</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getName</span><span class="op">()))</span> <span class="op">{</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            log<span class="op">.</span><span class="fu">warn</span><span class="op">(</span><span class="st">&quot;项目名重复: {}&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span><span class="dv">40010</span><span class="op">,</span> <span class="st">&quot;项目名已存在&quot;</span><span class="op">);</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 2. 校验负责人是否存在</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>userMapper<span class="op">.</span><span class="fu">existsById</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getLeaderId</span><span class="op">()))</span> <span class="op">{</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span><span class="dv">40011</span><span class="op">,</span> <span class="st">&quot;负责人不存在&quot;</span><span class="op">);</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 3. 执行新增</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        Project project <span class="op">=</span> <span class="kw">new</span> <span class="fu">Project</span><span class="op">();</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        BeanUtils<span class="op">.</span><span class="fu">copyProperties</span><span class="op">(</span>dto<span class="op">,</span> project<span class="op">);</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        projectMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>project<span class="op">);</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">&quot;创建项目成功: id={}, name={}&quot;</span><span class="op">,</span> project<span class="op">.</span><span class="fu">getId</span><span class="op">(),</span> project<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<h4 id="环节5k13-4-日志基础12-分钟">环节5：K13-4 日志基础（12
+分钟）</h4>
+<p><strong>教学动作</strong>：</p>
+<p><strong>（1）SLF4J 与 Logback 关系（3 分钟）</strong></p>
+<ul>
+<li>SLF4J 是<strong>门面</strong>（接口），Logback
+是<strong>实现</strong>。</li>
+<li>Spring Boot 默认集成 Logback，无需额外引入依赖。</li>
+<li>门面模式的好处：切换日志实现（如换成 Log4j2）无需改业务代码。</li>
+</ul>
+<p><strong>（2）@Slf4j 注解与日志级别（4 分钟）</strong></p>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>说明</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRACE</td>
+<td>最详细</td>
+<td>极少使用，调试细粒度流程</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td>调试信息</td>
+<td>开发环境，关键变量值</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>重要业务信息</td>
+<td>上线默认级别，如"创建项目成功"</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>警告</td>
+<td>可恢复的异常，如"项目名重复"</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>错误</td>
+<td>影响业务的异常，如"数据库连接失败"</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectServiceImpl <span class="op">{</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">create</span><span class="op">(</span>ProjectDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">debug</span><span class="op">(</span><span class="st">&quot;开始创建项目, dto={}&quot;</span><span class="op">,</span> dto<span class="op">);</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">&quot;创建项目成功, id={}&quot;</span><span class="op">,</span> project<span class="op">.</span><span class="fu">getId</span><span class="op">());</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">warn</span><span class="op">(</span><span class="st">&quot;项目名重复: {}&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="st">&quot;数据库异常&quot;</span><span class="op">,</span> e<span class="op">);</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>口诀</strong>：<code>INFO</code> 记业务，<code>WARN</code>
+记可恢复，<code>ERROR</code> 记不可恢复，<code>DEBUG</code>
+只在开发开。</p>
+<p><strong>（3）application.yml 日志配置（5 分钟）</strong></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">root</span><span class="kw">:</span><span class="at"> INFO</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts.mp.mapper</span><span class="kw">:</span><span class="at"> DEBUG</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">file</span><span class="kw">:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> logs/ctts.log</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">logback</span><span class="kw">:</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">rollingpolicy</span><span class="kw">:</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-file-size</span><span class="kw">:</span><span class="at"> 10MB</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max-history</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">total-size-cap</span><span class="kw">:</span><span class="at"> 1GB</span></span></code></pre></div>
+<p><strong>讲解要点</strong>：</p>
+<ul>
+<li><code>root: INFO</code> 全局默认 INFO。</li>
+<li><code>com.ctts: DEBUG</code> 业务包开 DEBUG，方便排查。</li>
+<li><code>com.ctts.mp.mapper: DEBUG</code> 打印 MyBatis-Plus
+SQL（开发期必备）。</li>
+<li>日志文件按 10MB 滚动，保留 30 天，总容量 1GB
+上限，避免磁盘爆满。</li>
+</ul>
+<hr />
+<h4 id="环节6k13-5-常见后端错误排查8-分钟">环节6：K13-5
+常见后端错误排查（8 分钟）</h4>
+<p><strong>教学动作</strong>：用表格 + 案例 + 排查口诀讲解</p>
+<table>
+<thead>
+<tr>
+<th>错误现象</th>
+<th>可能原因</th>
+<th>排查思路</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空指针 NPE</td>
+<td>对象未初始化 / 查询结果为 null</td>
+<td>看堆栈定位行号 → 检查该行对象是否为 null → 加判空或 Optional</td>
+</tr>
+<tr>
+<td>参数类型不匹配 400</td>
+<td>前端传字符串后端要 Long</td>
+<td>看日志 <code>MethodArgumentTypeMismatchException</code> →
+检查接口参数类型</td>
+</tr>
+<tr>
+<td>SQL 异常</td>
+<td>字段名错 / 类型错 / 唯一约束冲突</td>
+<td>看日志 SQL 与参数 → 对比表结构 → 检查约束</td>
+</tr>
+<tr>
+<td>404</td>
+<td>路径错 / 缺 <code>@RestController</code> / 启动类扫描不到</td>
+<td>Postman 看 URL → 看 Controller 注解 → 看启动类
+<code>@ComponentScan</code></td>
+</tr>
+<tr>
+<td>500</td>
+<td>业务异常 / 空指针 / 数据库异常</td>
+<td>看日志 ERROR 行 + 堆栈 → 定位代码行 → 修复</td>
+</tr>
+</tbody>
+</table>
+<p><strong>排查口诀</strong>：先看状态码（4xx 客户端、5xx 服务端）→
+再看日志（级别 + 堆栈）→ 定位代码行 → 复现验证。</p>
+<hr />
+<h4
+id="环节7课堂互动面试题快问快答10-分钟">环节7：课堂互动——面试题快问快答（10
+分钟）</h4>
+<p><strong>规则</strong>：教师快速提问，学员抢答，答对加分，计入平时分。</p>
+<p><strong>预备题（节选，完整见题库）</strong>：</p>
+<ol type="1">
+<li><code>@Valid</code> 和 <code>@Validated</code> 的区别？</li>
+<li><code>@NotBlank</code> / <code>@NotNull</code> /
+<code>@NotEmpty</code> 三者区别？</li>
+<li><code>@RestControllerAdvice</code> 的原理是什么？</li>
+<li>自定义业务异常为什么要继承 <code>RuntimeException</code> 而不是
+<code>Exception</code>？</li>
+<li>SLF4J 和 Logback 是什么关系？</li>
+<li>日志级别从低到高排列？</li>
+<li>生产环境日志应该用什么级别？</li>
+<li>为什么兜底异常不能把堆栈返回给前端？</li>
+</ol>
+<p><strong>互动节奏</strong>：每题 1 分钟，教师点评 + 补充。</p>
+<hr />
+<h4 id="环节8课堂小结与课后任务9-分钟">环节8：课堂小结与课后任务（9
+分钟）</h4>
+<p><strong>小结（4 分钟）</strong>——用一张串讲图回顾：</p>
+<pre><code>请求 → @Valid 校验 → 失败抛 MethodArgumentNotValidException
+                                   ↓
+                         GlobalExceptionHandler 捕获
+                                   ↓
+        ┌──────────────┬──────────────┬──────────────┐
+        ↓              ↓              ↓              ↓
+   校验异常 400    业务异常 code   类型异常 400   兜底 500
+        └──────────────┴──────────────┴──────────────┘
+                                   ↓
+                         统一返回 Result&lt;T&gt;
+                                   ↓
+                         @Slf4j 全程记录日志</code></pre>
+<p><strong>课后任务（5 分钟）</strong>：</p>
+<ol type="1">
+<li>为 CTTS 的 <code>TaskDTO</code>
+添加校验注解（任务名、状态、截止时间）。</li>
+<li>给 <code>TaskService</code>
+的删除方法加业务异常（"任务不存在"）。</li>
+<li>在 <code>application.yml</code> 配置日志文件输出到
+<code>D:/ctts-logs/ctts.log</code>。</li>
+<li>用 Postman 测试 5 种异常场景（空值、类型错、业务异常、SQL
+异常、404）。</li>
+<li>预习：第14次课接口文档（Swagger/OpenAPI）。</li>
+</ol>
+<p><strong>思政收尾（1 分钟）</strong>：</p>
+<blockquote>
+<p>今天的三件套——校验、异常、日志，看似"不起眼"，却是区分"能跑的接口"和"能上线的接口"的分水岭。一个对用户负责、对系统负责、对团队负责的工程师，永远会把这三件事做扎实。这就是工程师的服务意识与工匠精神。</p>
+</blockquote>
+<hr />
+<h2 id="八教学评价设计">八、教学评价设计</h2>
+<h3 id="81-过程性评价占-60">8.1 过程性评价（占 60%）</h3>
+<table>
+<thead>
+<tr>
+<th>评价项</th>
+<th>分值</th>
+<th>评价方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课堂出勤与参与</td>
+<td>10</td>
+<td>签到 + 互动记录</td>
+</tr>
+<tr>
+<td>面试快问快答抢答</td>
+<td>15</td>
+<td>课堂积分</td>
+</tr>
+<tr>
+<td>Live Coding 跟练</td>
+<td>20</td>
+<td>教师巡场检查</td>
+</tr>
+<tr>
+<td>课后任务提交</td>
+<td>15</td>
+<td>Git 提交 + 代码 Review</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-终结性评价占-40">8.2 终结性评价（占 40%）</h3>
+<table>
+<thead>
+<tr>
+<th>评价项</th>
+<th>分值</th>
+<th>评价方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单元测验（题库抽取 30 题）</td>
+<td>20</td>
+<td>在线答题</td>
+</tr>
+<tr>
+<td>CTTS 工程规范模块作业</td>
+<td>20</td>
+<td>代码 + 文档评审</td>
+</tr>
+</tbody>
+</table>
+<h3 id="83-评价标准针对课后任务">8.3 评价标准（针对课后任务）</h3>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优秀（90-100）</td>
+<td>校验注解齐全合理、异常处理器覆盖 5
+类异常、日志配置规范、能主动测试边界场景</td>
+</tr>
+<tr>
+<td>良好（80-89）</td>
+<td>校验注解基本齐全、异常处理器覆盖 3
+类以上、日志能输出、测试覆盖主要场景</td>
+</tr>
+<tr>
+<td>合格（60-79）</td>
+<td>有校验注解、有异常处理器（至少兜底）、有日志、能跑通主要流程</td>
+</tr>
+<tr>
+<td>不合格（&lt;60）</td>
+<td>缺失校验 / 缺失异常处理 / 无日志 / 代码无法运行</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="九教学资源">九、教学资源</h2>
+<h3 id="91-软硬件资源">9.1 软硬件资源</h3>
+<ul>
+<li>JDK 17、IntelliJ IDEA 2023.x、Maven 3.9、MySQL 8.0、Postman</li>
+<li>CTTS
+项目仓库（Git）：<code>https://edu-git.example.com/ctts</code>（校园内网）</li>
+<li>多媒体投影、机房广播教学系统</li>
+</ul>
+<h3 id="92-教学材料">9.2 教学材料</h3>
+<ul>
+<li>本课 PPT 课件（含流程图、对比表、Live Coding 截图）</li>
+<li>《教学资料.md》（知识点详解 + 完整代码）</li>
+<li>《题库.md》（78 题含答案解析）</li>
+<li>CTTS 完整代码示例（<code>project-service</code> 分支
+<code>lesson-13</code>）</li>
+</ul>
+<h3 id="93-拓展资源">9.3 拓展资源</h3>
+<ul>
+<li>Spring Validation 官方文档：<a
+href="https://docs.spring.io/spring-framework/reference/core/validation.html">https://docs.spring.io/spring-framework/reference/core/validation.html</a></li>
+<li>Hibernate Validator 文档：<a
+href="https://docs.jboss.org/hibernate/stable/validator/reference/">https://docs.jboss.org/hibernate/stable/validator/reference/</a></li>
+<li>Logback 官方文档：<a
+href="https://logback.qos.ch/documentation.html">https://logback.qos.ch/documentation.html</a></li>
+</ul>
+<hr />
+<h2 id="十教学反思课后填写">十、教学反思（课后填写）</h2>
+<h3 id="101-反思维度">10.1 反思维度</h3>
+<ol type="1">
+<li><strong>目标达成</strong>：知识 / 能力 /
+素质目标是否达成？哪些环节超预期？哪些未达预期？</li>
+<li><strong>学生反馈</strong>：学员在哪个环节最投入？哪个环节最困惑？</li>
+<li><strong>方法效果</strong>：对比演示法是否达到预期反差？面试快问快答是否激活课堂？</li>
+<li><strong>时间控制</strong>：各环节实际用时与计划是否吻合？哪个环节超时？哪个环节可压缩？</li>
+<li><strong>思政融入</strong>：稳定性与服务意识是否自然融入？学员是否有共鸣？</li>
+<li><strong>改进措施</strong>：下次课如何优化？哪些内容需要补充或删减？</li>
+</ol>
+<h3 id="102-反思记录表课后填写">10.2 反思记录表（课后填写）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>计划</th>
+<th>实际</th>
+<th>差距</th>
+<th>改进措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标达成度</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>学员参与度</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>时间控制</td>
+<td>90 分钟</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>案例效果</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>思政融入</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="103-典型问题与对策课后补充">10.3 典型问题与对策（课后补充）</h3>
+<ul>
+<li>问题1：学员分不清 <code>@Valid</code> 和 <code>@Validated</code> →
+对策：下次课用一张大对比表贴墙。</li>
+<li>问题2：学员写异常处理器漏掉兜底 →
+对策：强调"兜底是最后一道防线，必须有"。</li>
+<li>问题3：学员日志乱用 ERROR → 对策：口诀"ERROR
+只记不可恢复"反复强化。</li>
+</ul>
+<hr />
+<h2 id="附板书设计">附：板书设计</h2>
+<pre><code>┌─────────────────────────────────────────────────────┐
+│  第13次课 参数校验 · 统一异常处理 · 日志              │
+├─────────────────────────────────────────────────────┤
+│  三件套：                                            │
+│  ① @Valid + 注解 → 入口校验                          │
+│  ② @RestControllerAdvice + @ExceptionHandler → 兜底  │
+│  ③ @Slf4j + Logback → 全程留痕                      │
+│                                                     │
+│  口诀：                                              │
+│  · NotNull 管对象，NotEmpty 管集合，NotBlank 管字符串│
+│  · INFO 记业务，WARN 记可恢复，ERROR 记不可恢复      │
+│  · 4xx 客户端，5xx 服务端，先看日志再定位            │
+│                                                     │
+│  闭环：请求→校验→异常→处理器→Result→日志            │
+└─────────────────────────────────────────────────────┘</code></pre>
+<hr />
+<blockquote>
+<p>本教学设计以 CTTS
+校园实训任务管理系统为载体，围绕"参数校验、统一异常处理、日志"三大工程规范展开，通过对比演示、案例驱动、面试快问快答等方式，让学员从"能跑的接口"迈向"能上线的接口"，在技术能力提升的同时融入系统稳定性与服务意识的思政教育。</p>
+</blockquote>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

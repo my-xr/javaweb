@@ -1,0 +1,721 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>接口规范与工程规范综合实践</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 14 次课 · 教学设计</div>
+      <h1>接口规范与工程规范综合实践</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 14 次课</span>
+        <span class="hero-chip"><b>主题</b>接口规范与工程规范综合实践</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程基本信息">一、课程基本信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#21-知识目标">2.1 知识目标</a></li>
+<li><a href="#22-能力目标">2.2 能力目标</a></li>
+<li><a href="#23-素质目标">2.3 素质目标</a></li>
+</ul></li>
+<li><a href="#三教学重点">三、教学重点</a>
+<ul>
+</ul></li>
+<li><a href="#四教学难点">四、教学难点</a>
+<ul>
+</ul></li>
+<li><a href="#五教学方法">五、教学方法</a>
+<ul>
+</ul></li>
+<li><a href="#六教学准备">六、教学准备</a>
+<ul>
+<li><a href="#61-教师准备">6.1 教师准备</a></li>
+<li><a href="#62-学生准备">6.2 学生准备</a></li>
+</ul></li>
+<li><a href="#七教学内容">七、教学内容</a>
+<ul>
+<li><a href="#81-导入复习5分钟">8.1 导入复习（5分钟）</a></li>
+<li><a href="#82-任务说明5分钟">8.2 任务说明（5分钟）</a></li>
+<li><a href="#83-步骤1完善dto校验注解15分钟">8.3 步骤1：完善DTO校验注解（15分钟）</a></li>
+<li><a href="#84-步骤2完善globalexceptionhandler15分钟">8.4 步骤2：完善GlobalExceptionHandler（15分钟）</a></li>
+<li><a href="#85-步骤3统一controller返回result10分钟">8.5 步骤3：统一Controller返回Result（10分钟）</a></li>
+<li><a href="#86-步骤4添加knife4j文档注解10分钟">8.6 步骤4：添加Knife4j文档注解（10分钟）</a></li>
+<li><a href="#87-步骤5添加日志记录10分钟">8.7 步骤5：添加日志记录（10分钟）</a></li>
+<li><a href="#88-步骤6apifox接口自测15分钟">8.8 步骤6：Apifox接口自测（15分钟）</a></li>
+<li><a href="#89-交叉审查10分钟-课堂互动">8.9 交叉审查（10分钟）— 课堂互动</a></li>
+<li><a href="#810-总结点评5分钟">8.10 总结点评（5分钟）</a></li>
+</ul></li>
+<li><a href="#九教学评价">九、教学评价</a>
+<ul>
+<li><a href="#验收标准6项全部满足为合格">验收标准（6项全部满足为合格）</a></li>
+</ul></li>
+<li><a href="#十课程思政">十、课程思政</a>
+<ul>
+<li><a href="#融入点">融入点</a></li>
+<li><a href="#思政小结">思政小结</a></li>
+</ul></li>
+<li><a href="#附6个实践步骤与验收对照表">附：6个实践步骤与验收对照表</a>
+<ul>
+</ul></li>
+<li><a href="#附板书设计">附：板书设计</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 14 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>课程：Java Web后端开发技术 | 模块：M5 接口规范与工程规范 |
+课型：实践课 项目载体：CTTS校园实训任务管理系统 技术栈：Java17 +
+SpringBoot3.x + MyBatis-Plus + MySQL + Knife4j | 包名：com.ctts</p>
+</blockquote>
+<hr />
+<h2 id="一课程基本信息">一、课程基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>Java Web后端开发技术</td>
+</tr>
+<tr>
+<td>课题名称</td>
+<td>接口规范与工程规范综合实践</td>
+</tr>
+<tr>
+<td>课次</td>
+<td>第14次课</td>
+</tr>
+<tr>
+<td>课时</td>
+<td>2学时（90分钟）</td>
+</tr>
+<tr>
+<td>课型</td>
+<td>实践课</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M5 接口规范与工程规范</td>
+</tr>
+<tr>
+<td>前序课程</td>
+<td>第12次课（RESTful接口设计与Knife4j）、第13次课（参数校验、全局异常、统一响应、日志）</td>
+</tr>
+<tr>
+<td>后续课程</td>
+<td>第15次课（权限认证与JWT）</td>
+</tr>
+<tr>
+<td>项目载体</td>
+<td>CTTS校园实训任务管理系统</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java17 + SpringBoot3.x + MyBatis-Plus + MySQL + Knife4j</td>
+</tr>
+<tr>
+<td>教学场地</td>
+<td>机房（每人一机，已安装IDEA、JDK17、MySQL8、Apifox）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="21-知识目标">2.1 知识目标</h3>
+<ul>
+<li>K1：巩固RESTful接口设计原则与HTTP方法语义</li>
+<li>K2：理解JSR303参数校验体系与校验注解的合理选用</li>
+<li>K3：理解统一响应格式Result<T>与全局异常处理机制</li>
+<li>K4：理解Knife4j接口文档规范与日志记录规范</li>
+</ul>
+<h3 id="22-能力目标">2.2 能力目标</h3>
+<ul>
+<li>A1：能为所有DTO添加合适的校验注解（@NotBlank/@NotNull/@Size/@Pattern等）</li>
+<li>A2：能完善GlobalExceptionHandler处理各类异常（参数校验、业务、系统异常等）</li>
+<li>A3：能统一所有Controller返回Result<T>格式</li>
+<li>A4：能为所有接口添加Knife4j文档注解（@Tag/@Operation/@Parameter/@Schema）</li>
+<li>A5：能在关键操作处添加日志记录</li>
+<li>A6：能使用Apifox完成全部接口自测，输出测试报告</li>
+</ul>
+<h3 id="23-素质目标">2.3 素质目标</h3>
+<ul>
+<li>S1：培养质量意识——规范不是为了好看，是为了少出bug</li>
+<li>S2：培养工程化思维——代码可读性、可维护性优先</li>
+<li>S3：培养协作能力——交叉审查、互查互纠</li>
+</ul>
+<hr />
+<h2 id="三教学重点">三、教学重点</h2>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>重点内容</th>
+<th>突破方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>DTO校验注解的合理使用</td>
+<td>教师示范+学生实践+对比反例</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GlobalExceptionHandler对各类异常的捕获</td>
+<td>异常分类树状图讲解</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Result<T>统一响应格式</td>
+<td>模板代码示范</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Knife4j文档注解的完整填写</td>
+<td>对比"无文档"与"有文档"接口</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四教学难点">四、教学难点</h2>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>难点内容</th>
+<th>突破方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>异常处理的边界与优先级（@Order与异常继承关系）</td>
+<td>异常继承关系图+捕获顺序演示</td>
+</tr>
+<tr>
+<td>2</td>
+<td>校验注解的组合使用与分组校验</td>
+<td>场景化案例（新增vs更新）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>接口自测的完整性（边界用例、异常用例）</td>
+<td>自测清单模板驱动</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="五教学方法">五、教学方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>应用环节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>任务驱动法</td>
+<td>整节课以"完善CTTS全部接口规范"为总任务</td>
+</tr>
+<tr>
+<td>实践操作法</td>
+<td>6个实践步骤，学生动手编码</td>
+</tr>
+<tr>
+<td>示范演示法</td>
+<td>教师在关键步骤投屏示范</td>
+</tr>
+<tr>
+<td>交叉审查法</td>
+<td>同桌互查规范遵循情况</td>
+</tr>
+<tr>
+<td>案例对比法</td>
+<td>正反例代码对比（如无校验vs有校验）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六教学准备">六、教学准备</h2>
+<h3 id="61-教师准备">6.1 教师准备</h3>
+<ul>
+<li>完善的CTTS项目参考代码（含全部规范实现）</li>
+<li>Apifox测试集合（CTTS接口测试合集.json）</li>
+<li>交叉审查表（规范检查清单Checklist）</li>
+<li>异常处理流程图、校验注解速查表</li>
+<li>课程思政案例（一个未校验参数导致线上事故的真实案例）</li>
+</ul>
+<h3 id="62-学生准备">6.2 学生准备</h3>
+<ul>
+<li>第13次课结束后的CTTS项目代码（已实现部分规范）</li>
+<li>Apifox客户端已安装并配置好环境</li>
+<li>预习：复习12-13次课笔记</li>
+</ul>
+<hr />
+<h2 id="七教学内容">七、教学内容</h2>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>内容</th>
+<th>对应实践步骤</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. DTO校验完善</td>
+<td>为所有DTO添加@NotBlank/@NotNull/@Size/@Pattern/@Email等注解</td>
+<td>步骤1</td>
+</tr>
+<tr>
+<td>2. 异常处理完善</td>
+<td>GlobalExceptionHandler处理10类异常</td>
+<td>步骤2</td>
+</tr>
+<tr>
+<td>3. 统一返回格式</td>
+<td>所有Controller返回Result<T></td>
+<td>步骤3</td>
+</tr>
+<tr>
+<td>4. 文档注解完善</td>
+<td>@Tag/@Operation/@Parameter/@Schema注解</td>
+<td>步骤4</td>
+</tr>
+<tr>
+<td>5. 日志记录</td>
+<td>关键操作添加log.info/log.error</td>
+<td>步骤5</td>
+</tr>
+<tr>
+<td>6. 接口自测</td>
+<td>Apifox完成全部接口测试</td>
+<td>步骤6</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2
+id="八教学过程与时间分配90分钟">八、教学过程与时间分配（90分钟）</h2>
+<h3 id="81-导入复习5分钟">8.1 导入复习（5分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-5min</td>
+<td>1. 投屏展示一段"问题代码"：无校验、无异常处理、返回Map、无文档<br>2.
+提问：这段代码上线会出什么问题？<br>3.
+引出本次实践目标：把第12-13次课的知识应用到CTTS全部接口</td>
+<td>观察代码、思考问题、回答提问</td>
+<td>复习旧知、激发问题意识</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-任务说明5分钟">8.2 任务说明（5分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5-10min</td>
+<td>1. 讲解6个实践步骤<br>2. 讲解验收标准（6项）<br>3.
+分发交叉审查表</td>
+<td>听讲、记录验收标准</td>
+<td>明确任务与标准</td>
+</tr>
+</tbody>
+</table>
+<h3 id="83-步骤1完善dto校验注解15分钟">8.3
+步骤1：完善DTO校验注解（15分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10-15min</td>
+<td>投屏示范：UserRegisterDTO添加校验注解（@NotBlank/@Size/@Email/@Pattern）</td>
+<td>观察示范</td>
+<td>掌握方法</td>
+</tr>
+<tr>
+<td>15-25min</td>
+<td>巡视指导</td>
+<td>独立实践：为TaskDTO/ProjectDTO/TeamDTO/ApplyDTO等添加校验注解</td>
+<td>动手实践</td>
+</tr>
+<tr>
+<td>25-30min</td>
+<td>抽查1-2名学生代码投屏讲评</td>
+<td>自查改进</td>
+<td>巩固</td>
+</tr>
+</tbody>
+</table>
+<p><strong>验收点</strong>：所有DTO字段含合适校验注解，启动应用无报错。</p>
+<h3 id="84-步骤2完善globalexceptionhandler15分钟">8.4
+步骤2：完善GlobalExceptionHandler（15分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30-35min</td>
+<td>投屏示范：补充处理MethodArgumentNotValidException、ConstraintViolationException、HttpRequestMethodNotSupportedException等</td>
+<td>观察示范</td>
+<td>掌握异常处理</td>
+</tr>
+<tr>
+<td>35-42min</td>
+<td>巡视指导</td>
+<td>独立实践：完善GlobalExceptionHandler，处理10类异常</td>
+<td>动手实践</td>
+</tr>
+<tr>
+<td>42-45min</td>
+<td>讲解异常捕获优先级</td>
+<td>自查改进</td>
+<td>突破难点</td>
+</tr>
+</tbody>
+</table>
+<p><strong>验收点</strong>：GlobalExceptionHandler处理10类异常，每类异常返回合适Result。</p>
+<h3 id="85-步骤3统一controller返回result10分钟">8.5
+步骤3：统一Controller返回Result<T>（10分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>45-50min</td>
+<td>示范：TaskController改造为返回Result<T></td>
+<td>观察示范</td>
+<td>掌握统一返回</td>
+</tr>
+<tr>
+<td>50-55min</td>
+<td>巡视指导</td>
+<td>独立实践：改造所有Controller</td>
+<td>动手实践</td>
+</tr>
+</tbody>
+</table>
+<p><strong>验收点</strong>：所有Controller方法返回Result<T>，无Map、无裸对象返回。</p>
+<h3 id="86-步骤4添加knife4j文档注解10分钟">8.6
+步骤4：添加Knife4j文档注解（10分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>55-60min</td>
+<td>示范：TaskController添加@Tag/@Operation/@Parameter注解</td>
+<td>观察示范</td>
+<td>掌握文档注解</td>
+</tr>
+<tr>
+<td>60-65min</td>
+<td>巡视指导</td>
+<td>独立实践：为所有接口添加文档注解</td>
+<td>动手实践</td>
+</tr>
+</tbody>
+</table>
+<p><strong>验收点</strong>：访问 http://localhost:8080/doc.html
+看到完整接口文档，描述清晰。</p>
+<h3 id="87-步骤5添加日志记录10分钟">8.7
+步骤5：添加日志记录（10分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>65-70min</td>
+<td>示范：关键操作添加log.info/log.error（登录、增删改、异常）</td>
+<td>观察示范</td>
+<td>掌握日志规范</td>
+</tr>
+<tr>
+<td>70-75min</td>
+<td>巡视指导</td>
+<td>独立实践：添加日志</td>
+<td>动手实践</td>
+</tr>
+</tbody>
+</table>
+<p><strong>验收点</strong>：关键操作有日志，异常有error日志，日志含上下文信息。</p>
+<h3 id="88-步骤6apifox接口自测15分钟">8.8
+步骤6：Apifox接口自测（15分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>75-80min</td>
+<td>示范：导入Apifox测试集合，执行登录接口测试</td>
+<td>观察示范</td>
+<td>掌握自测方法</td>
+</tr>
+<tr>
+<td>80-88min</td>
+<td>巡视指导</td>
+<td>独立实践：按自测清单完成全部接口测试，记录结果</td>
+<td>动手实践</td>
+</tr>
+<tr>
+<td>88-90min</td>
+<td>提示提交测试报告</td>
+<td>提交报告</td>
+<td>完成验收</td>
+</tr>
+</tbody>
+</table>
+<p><strong>验收点</strong>：Apifox测试集合全部执行，通过率≥90%。</p>
+<h3 id="89-交叉审查10分钟-课堂互动">8.9 交叉审查（10分钟）—
+课堂互动</h3>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>90-100min</td>
+<td>1. 组织同桌互换电脑<br>2. 发放交叉审查表<br>3. 提示审查重点</td>
+<td>按审查表逐项检查同桌代码，填写审查意见</td>
+<td>培养协作与批判性思维</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：本环节可弹性延长至课下，课上至少完成30%检查。</p>
+</blockquote>
+<h3 id="810-总结点评5分钟">8.10 总结点评（5分钟）</h3>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100-105min</td>
+<td>1.
+总结共性问题（如：校验注解缺失、异常处理不完整、文档描述不规范）<br>2.
+课程思政：质量意识<br>3. 布置课后任务</td>
+<td>听讲、反思</td>
+<td>升华</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="九教学评价">九、教学评价</h2>
+<table>
+<thead>
+<tr>
+<th>评价维度</th>
+<th>评价内容</th>
+<th>权重</th>
+<th>评价方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>过程性评价</td>
+<td>6个实践步骤完成度</td>
+<td>40%</td>
+<td>教师巡视记录</td>
+</tr>
+<tr>
+<td>结果性评价</td>
+<td>Apifox接口自测通过率</td>
+<td>40%</td>
+<td>测试报告</td>
+</tr>
+<tr>
+<td>协作评价</td>
+<td>交叉审查反馈质量</td>
+<td>20%</td>
+<td>审查表评分</td>
+</tr>
+</tbody>
+</table>
+<h3 id="验收标准6项全部满足为合格">验收标准（6项全部满足为合格）</h3>
+<ol type="1">
+<li>所有DTO字段含合适校验注解</li>
+<li>GlobalExceptionHandler处理10类异常</li>
+<li>所有Controller方法返回Result<T></li>
+<li>所有接口含Knife4j文档注解（@Tag/@Operation/@Parameter）</li>
+<li>关键操作含日志记录（info/error）</li>
+<li>Apifox测试集合通过率≥90%</li>
+</ol>
+<hr />
+<h2 id="十课程思政">十、课程思政</h2>
+<h3
+id="思政主题质量意识规范不是为了好看是为了少出bug">思政主题：质量意识——规范不是为了好看，是为了少出bug</h3>
+<h3 id="融入点">融入点</h3>
+<ul>
+<li><strong>导入环节</strong>：展示一段问题代码（无校验、无异常处理），讲述一个真实案例——某系统因未校验手机号格式，导致短信接口被刷，损失数万元。</li>
+<li><strong>步骤1（DTO校验）</strong>：强调"前端校验是为了用户体验，后端校验是为了安全"。校验是后端的最后一道防线。</li>
+<li><strong>步骤2（异常处理）</strong>：强调"异常不能裸露给用户"。一个未捕获的NullPointerException会让用户恐慌，也会暴露系统结构。</li>
+<li><strong>步骤6（接口自测）</strong>：强调"程序员要对自己的代码负责"。自测是基本职业素养。</li>
+<li><strong>交叉审查</strong>：强调"代码是写给人看的，顺便让机器执行"。规范代码便于团队协作。</li>
+</ul>
+<h3 id="思政小结">思政小结</h3>
+<blockquote>
+<p>工程规范的本质是"质量内建"——把质量建立在编码阶段，而不是测试阶段。一个遵循规范的工程师，bug率更低、协作效率更高、职业寿命更长。规范不是束缚，而是护城河。</p>
+</blockquote>
+<hr />
+<h2 id="附6个实践步骤与验收对照表">附：6个实践步骤与验收对照表</h2>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>实践内容</th>
+<th>验收点</th>
+<th>对应能力目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>完善DTO校验注解</td>
+<td>所有DTO字段含校验注解</td>
+<td>A1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>完善GlobalExceptionHandler</td>
+<td>处理10类异常</td>
+<td>A2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>统一Controller返回Result<T></td>
+<td>所有方法返回Result<T></td>
+<td>A3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>添加Knife4j文档注解</td>
+<td>doc.html显示完整文档</td>
+<td>A4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>添加日志记录</td>
+<td>关键操作有日志</td>
+<td>A5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Apifox接口自测</td>
+<td>通过率≥90%</td>
+<td>A6</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附板书设计">附：板书设计</h2>
+<pre><code>第14次课 接口规范与工程规范综合实践
+─────────────────────────────────
+6步实践：
+  1. DTO校验   →  @NotBlank @NotNull @Size @Email @Pattern
+  2. 异常处理  →  GlobalExceptionHandler（10类异常）
+  3. 统一返回  →  Result&lt;T&gt;（code/message/data）
+  4. 文档注解  →  @Tag @Operation @Parameter @Schema
+  5. 日志记录  →  log.info / log.error
+  6. 接口自测  →  Apifox（通过率≥90%）
+
+验收6项：DTO/异常/返回/文档/日志/自测
+思政：质量意识——规范是为了少出bug</code></pre>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

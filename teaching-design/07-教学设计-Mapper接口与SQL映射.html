@@ -1,0 +1,563 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapper接口与SQL映射</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 07 次课 · 教学设计</div>
+      <h1>Mapper接口与SQL映射</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 07 次课</span>
+        <span class="hero-chip"><b>主题</b>Mapper接口与SQL映射</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务或案例任务">四、项目任务或案例任务</a>
+<ul>
+<li><a href="#贯穿项目推进ctts-持久层落地第-3-阶段">贯穿项目推进：CTTS 持久层落地（第 3 阶段）</a></li>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动-1课前-5-分钟回顾开场导入">互动 1：课前 5 分钟回顾（开场导入）</a></li>
+<li><a href="#互动-2sql-查询挑战讲解-k7-4k7-5-后">互动 2：SQL 查询挑战（讲解 K7-4、K7-5 后）</a></li>
+<li><a href="#互动-3sql-注入演示课程思政环节">互动 3：SQL 注入演示（课程思政环节）</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习或随堂测验">七、课堂练习或随堂测验</a>
+<ul>
+<li><a href="#随堂练习5-分钟讲解结束前进行">随堂练习（5 分钟，讲解结束前进行）</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+</ul></li>
+<li><a href="#九对应岗位能力或面试考点">九、对应岗位能力或面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 07 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>所属模块：M3 持久层与 MyBatis-Plus ｜ 课程：《JavaWeb 后端开发技术》
+配套资料：见同文件夹内
+<code>教学资料.md</code>（学生复习资料）、<code>题库.md</code>（78
+题考试题库）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>次序</td>
+<td>第 7 次课（全课程 24 次之第 7）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>理论课</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M3 持久层与 MyBatis-Plus</td>
+</tr>
+<tr>
+<td>教学主题</td>
+<td>Mapper 接口与 SQL 映射</td>
+</tr>
+<tr>
+<td>先修基础</td>
+<td>第 6 次课（MyBatis 入门、Spring Boot 整合 MyBatis-Plus
+环境集成）；Java 面向对象、JDBC、SQL 基础</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>理解 <code>@Mapper</code> 注解与 <code>@MapperScan</code>
+注解的作用与差异，掌握 Mapper 接口注册到 Spring 容器的两种方式。</li>
+<li>掌握 MyBatis-Plus 内置 <code>BaseMapper</code>
+接口的常用方法：<code>insert</code>、<code>deleteById</code>、<code>updateById</code>、<code>selectById</code>、<code>selectList</code>
+等。</li>
+<li>掌握实体类与数据库表的映射注解：<code>@TableName</code>、<code>@TableId</code>、<code>@TableField</code>，并能正确处理字段不一致与非持久化字段。</li>
+<li>掌握注解 SQL 的写法：<code>@Select</code> / <code>@Insert</code> /
+<code>@Update</code> / <code>@Delete</code>，理解参数绑定
+<code>#{param}</code> 与 <code>${param}</code> 的本质区别。</li>
+<li>掌握 XML SQL
+映射文件的结构：<code>namespace</code>、<code>select</code>/<code>insert</code>/<code>update</code>/<code>delete</code>
+标签、<code>resultMap</code>、<code>parameterType</code>。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够为 CTTS 项目中的
+<code>sys_user</code>、<code>training_project</code>
+表编写符合规范的实体类与 Mapper 接口。</li>
+<li>能够针对同一查询需求，分别使用注解 SQL 与 XML SQL
+两种方式实现并对比优劣。</li>
+<li>能够独立排查 Mapper 开发中的常见错误：Mapper 未扫描、XML
+路径不对、字段映射不一致等。</li>
+<li>能够识别 SQL 注入风险，并在编码中坚持使用 <code>#{}</code>
+参数化查询保障数据安全。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li>树立"数据安全第一"的意识——SQL 注入是 OWASP Top 10
+之首，写代码必须考虑安全。</li>
+<li>培养"按规范做事"的工程素养——Mapper 接口与 XML
+的命名空间、字段映射必须严格对应。</li>
+<li>增强"对比辨析"的批判性思维——注解 SQL 与 XML SQL
+各有适用场景，需根据复杂度选择。</li>
+</ol>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<blockquote>
+<p>详细讲解内容见同文件夹 <code>教学资料.md</code>，此处为纲要。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K7-1</td>
+<td><code>@Mapper</code> 注解与 <code>@MapperScan</code></td>
+<td><code>@Mapper</code> 标注在接口上逐个声明；<code>@MapperScan</code>
+标注在启动类上批量扫描 mapper 包，二者二选一</td>
+</tr>
+<tr>
+<td>K7-2</td>
+<td><code>BaseMapper</code> 接口</td>
+<td>MyBatis-Plus 内置 CRUD
+方法：<code>insert</code>、<code>deleteById</code>、<code>updateById</code>、<code>selectById</code>、<code>selectList</code>、<code>selectBatchIds</code>
+等，无需写 SQL 即可用</td>
+</tr>
+<tr>
+<td>K7-3</td>
+<td>实体类与表映射</td>
+<td><code>@TableName</code> 映射表名；<code>@TableId</code>
+映射主键（<code>IdType.AUTO</code>/<code>ASSIGN_ID</code>）；<code>@TableField</code>
+映射字段、<code>exist=false</code> 标记非表字段</td>
+</tr>
+<tr>
+<td>K7-4</td>
+<td>注解 SQL</td>
+<td><code>@Select</code>/<code>@Insert</code>/<code>@Update</code>/<code>@Delete</code>
+写在接口方法上；参数绑定 <code>#{}</code> 预编译防注入，<code>${}</code>
+字符串拼接有注入风险</td>
+</tr>
+<tr>
+<td>K7-5</td>
+<td>XML SQL 映射</td>
+<td><code>mapper.xml</code> 文件结构：<code>namespace</code>
+绑定接口全限定名；<code>select</code>/<code>insert</code>/<code>update</code>/<code>delete</code>
+标签；<code>resultMap</code> 字段映射；<code>parameterType</code>
+参数类型</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务或案例任务">四、项目任务或案例任务</h2>
+<h3 id="贯穿项目推进ctts-持久层落地第-3-阶段">贯穿项目推进：CTTS
+持久层落地（第 3 阶段）</h3>
+<p><strong>本次课任务</strong>：为 CTTS 系统的 <code>sys_user</code> 与
+<code>training_project</code> 两张表完成持久层基础搭建。</p>
+<ol type="1">
+<li><strong>创建实体类</strong>：根据表结构编写
+<code>SysUser</code>、<code>TrainingProject</code> 实体类，正确使用
+<code>@TableName</code>、<code>@TableId</code>、<code>@TableField</code>
+注解。</li>
+<li><strong>创建 Mapper 接口</strong>：分别编写
+<code>SysUserMapper</code>、<code>TrainingProjectMapper</code>，继承
+<code>BaseMapper</code> 获得内置 CRUD；同时在 <code>SysUserMapper</code>
+上用 <code>@Select</code> 编写一个按用户名模糊查询的自定义方法，在
+<code>TrainingProjectMapper</code> 上用 XML
+编写一个按状态查询的自定义方法。</li>
+<li><strong>编写 XML 映射文件</strong>：为
+<code>TrainingProjectMapper</code> 编写
+<code>TrainingProjectMapper.xml</code>，包含
+<code>namespace</code>、<code>resultMap</code> 与 <code>select</code>
+标签。</li>
+<li><strong>验证 CRUD</strong>：编写一个 <code>MapperTest</code>
+测试类（或简易 Controller），调用
+<code>selectById</code>、<code>insert</code>、<code>selectList</code>、自定义查询方法，验证数据读写正常。</li>
+</ol>
+<blockquote>
+<p>📌 本节课聚焦"持久层 Mapper 与 SQL 映射"，不涉及 Service/Controller
+完整业务层（后续课程内容）。建表 SQL 见 <code>教学资料.md</code>
+综合示例。</p>
+</blockquote>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3 id="互动-1课前-5-分钟回顾开场导入">互动 1：课前 5
+分钟回顾（开场导入）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"上节课我们集成了 MyBatis-Plus 环境，谁能说说现在项目里如果要查询
+sys_user 表的所有用户，最少需要写哪些代码？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>自由发言，教师板书关键词</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>提到"写 SQL"、"写 Mapper"、"配置数据源"等关键词</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>肯定合理认知；引出"有了 MyBatis-Plus 的 BaseMapper，连 SQL
+都不用写"；过渡到 K7-1/K7-2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-2sql-查询挑战讲解-k7-4k7-5-后">互动 2：SQL 查询挑战（讲解
+K7-4、K7-5 后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动任务</td>
+<td>同一查询需求——"按状态查询 training_project
+表中所有进行中的项目"——分两组分别用<strong>注解
+SQL</strong>和<strong>XML SQL</strong>实现，3
+分钟内完成，对比两种写法</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>全班分两组，每组选一种方式，组长展示代码并讲解</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>注解组：<code>@Select("SELECT * FROM training_project WHERE status = #{status}")</code>；XML
+组：写 <code>mapper.xml</code> 中的 <code>&lt;select&gt;</code>
+标签</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>强调两种方式本质都是"接口 + SQL"，区别只在 SQL
+写在哪里；简单查询用注解更轻量，复杂动态 SQL 用 XML
+更清晰；过渡到课程思政——<code>#{}</code> 防注入</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-3sql-注入演示课程思政环节">互动 3：SQL
+注入演示（课程思政环节）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"如果查询用户的 SQL 写成
+<code>SELECT * FROM sys_user WHERE username = '${username}'</code>，当用户输入
+<code>' OR '1'='1</code> 时会发生什么？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>教师演示拼接结果，学生观察并回答</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>"条件变成
+<code>WHERE username = '' OR '1'='1'</code>，永远成立，会查出全部用户"</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>这就是 SQL 注入的经典案例；强调必须用 <code>#{}</code>
+参数化查询；引出数据安全意识</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融入点</td>
+<td>数据安全意识——SQL 注入风险与参数化查询的重要性</td>
+</tr>
+<tr>
+<td>技术关联</td>
+<td><code>${param}</code> 是字符串拼接，可被注入恶意
+SQL；<code>#{param}</code>
+是预编译占位符，参数会被安全转义，从根本上防止注入</td>
+</tr>
+<tr>
+<td>引导问题</td>
+<td>"你写的一行 SQL，如果用错了
+<code>${}</code>，可能让整个数据库被人拖走——这不是危言耸听，是每年都在真实发生的安全事故"</td>
+</tr>
+<tr>
+<td>真实案例</td>
+<td>2024 年某高校教务系统因登录接口使用 <code>${}</code>
+拼接用户名，被攻击者绕过登录获取全部学生信息——技术细节决定数据安全</td>
+</tr>
+<tr>
+<td>预期价值目标</td>
+<td>树立"代码即安全"的意识：写代码时主动考虑安全风险，养成默认使用
+<code>#{}</code> 的习惯；培养工程师对用户数据负责的职业操守</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>思政自然融入技术细节，不空喊口号。通过 <code>${}</code> 与
+<code>#{}</code> 的对比让学生体会"一行代码可能引发安全事故"。</p>
+</blockquote>
+<hr />
+<h2 id="七课堂练习或随堂测验">七、课堂练习或随堂测验</h2>
+<h3 id="随堂练习5-分钟讲解结束前进行">随堂练习（5
+分钟，讲解结束前进行）</h3>
+<p><strong>判断题（口头快速作答）</strong>：</p>
+<ol type="1">
+<li><code>@Mapper</code> 和 <code>@MapperScan</code>
+可以同时使用，但通常二选一即可。（✓）</li>
+<li>继承 <code>BaseMapper</code> 后，无需写任何 SQL
+即可完成单表的增删改查。（✓）</li>
+<li><code>@TableField(exist = false)</code>
+表示该字段在数据库表中不存在，不会被 MyBatis-Plus
+当作表字段处理。（✓）</li>
+<li><code>#{param}</code> 和 <code>${param}</code>
+在功能上完全等价，可以互换使用。（✗）</li>
+</ol>
+<blockquote>
+<p>详细题目与解析见
+<code>题库.md</code>。此处仅作课堂快速互动，不计分。</p>
+</blockquote>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<ol type="1">
+<li><strong>阅读</strong>：通读同文件夹
+<code>教学资料.md</code>，重点理解
+<code>@MapperScan</code>、<code>BaseMapper</code>
+方法、<code>@TableName</code>/<code>@TableId</code>/<code>@TableField</code>
+三大注解、<code>#{}</code> 与 <code>${}</code> 的区别。</li>
+<li><strong>动手实践</strong>：在本机 CTTS 项目中完成
+<code>sys_user</code> 与 <code>training_project</code>
+两张表的实体类、Mapper 接口、XML 映射文件，并通过测试类验证
+CRUD（详见教学资料综合示例）。</li>
+<li><strong>对比思考</strong>：用 200 字描述"注解 SQL 与 XML SQL
+的适用场景对比"，下次课抽查。</li>
+<li><strong>拓展练习（选做）</strong>：尝试为 <code>sys_user</code>
+表编写一个使用 <code>${}</code> 的"动态排序字段"查询（如
+<code>ORDER BY ${column}</code>），思考为什么排序字段必须用
+<code>${}</code> 而不能用 <code>#{}</code>。</li>
+<li><strong>拓展阅读</strong>：阅读 MyBatis-Plus 官方文档关于
+<code>BaseMapper</code> 方法清单，了解
+<code>selectPage</code>、<code>selectByMap</code>
+等扩展方法（选做，为后续课程铺垫）。</li>
+</ol>
+<hr />
+<h2 id="九对应岗位能力或面试考点">九、对应岗位能力或面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>岗位能力/面试考点</th>
+<th>本次课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@Mapper</code> 与 <code>@MapperScan</code>
+的区别（面试高频）</td>
+<td>K7-1</td>
+</tr>
+<tr>
+<td>MyBatis-Plus <code>BaseMapper</code> 内置方法（CRUD 必考）</td>
+<td>K7-2</td>
+</tr>
+<tr>
+<td>实体类与表映射注解
+<code>@TableName</code>/<code>@TableId</code>/<code>@TableField</code></td>
+<td>K7-3</td>
+</tr>
+<tr>
+<td><code>#{}</code> 与 <code>${}</code> 的区别（SQL
+注入，面试超高频）</td>
+<td>K7-4</td>
+</tr>
+<tr>
+<td>注解 SQL 与 XML SQL 的选择（工程经验题）</td>
+<td>K7-4、K7-5</td>
+</tr>
+<tr>
+<td><code>resultMap</code> 的作用与编写（基础必考）</td>
+<td>K7-5</td>
+</tr>
+<tr>
+<td>Mapper 接口与 XML 的 <code>namespace</code> 对应关系</td>
+<td>K7-5</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面试常考"<code>#{}</code>和<code>${}</code>区别是什么""为什么
+<code>#{}</code> 能防止 SQL 注入""<code>@Mapper</code> 和
+<code>@MapperScan</code> 要不要一起用""MyBatis-Plus 的
+<code>BaseMapper</code> 提供了哪些方法"等，均属本次课范围。</p>
+</blockquote>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生复习资料</td>
+<td><code>教学资料.md</code>（同文件夹）</td>
+<td>5 个知识点详解 + 完整可运行代码 + 操作步骤 + 常见报错排查 + 思维导图
++ 复习思考题</td>
+</tr>
+<tr>
+<td>考试题库</td>
+<td><code>题库.md</code>（同文件夹）</td>
+<td>78 题（40 选择 + 20 判断 + 10 填空 + 4 论述简答 + 2 程序阅读补全 + 2
+编程接口设计），含答案解析与评分标准</td>
+</tr>
+<tr>
+<td>课程总览</td>
+<td><code>../00 课程设计总览.md</code></td>
+<td>课程整体框架与 24 次课进度</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~10 min</td>
+<td>课前回顾 + 互动 1：环境回顾导入</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>10~25 min</td>
+<td>知识点 K7-1：<code>@Mapper</code> 与 <code>@MapperScan</code></td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>25~40 min</td>
+<td>知识点 K7-2：<code>BaseMapper</code> 接口</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>40~55 min</td>
+<td>知识点 K7-3：实体类与表映射注解</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>55~70 min</td>
+<td>知识点 K7-4：注解 SQL + <code>#{}</code> 与 <code>${}</code>
+对比</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>70~80 min</td>
+<td>知识点 K7-5：XML SQL 映射 + 互动 2：SQL 查询挑战</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>80~85 min</td>
+<td>互动 3：SQL 注入演示 + 课程思政</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>85~90 min</td>
+<td>随堂练习 + 小结 + 课后任务布置</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

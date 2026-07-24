@@ -1,0 +1,1181 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>认证授权综合实践</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 17 次课 · 题库</div>
+      <h1>认证授权综合实践</h1>
+      <p>面向练习、测验、考试与参考解析 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 17 次课</span>
+        <span class="hero-chip"><b>主题</b>认证授权综合实践</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一单项选择题30题">一、单项选择题（30题）</a>
+<ul>
+<li><a href="#17-xz-01-">17-XZ-01 ★</a></li>
+<li><a href="#17-xz-02-">17-XZ-02 ★</a></li>
+<li><a href="#17-xz-03-">17-XZ-03 ★</a></li>
+<li><a href="#17-xz-04-">17-XZ-04 ★★</a></li>
+<li><a href="#17-xz-05-">17-XZ-05 ★★</a></li>
+<li><a href="#17-xz-06-">17-XZ-06 ★★★</a></li>
+<li><a href="#17-xz-07-">17-XZ-07 ★★</a></li>
+<li><a href="#17-xz-08-">17-XZ-08 ★★</a></li>
+<li><a href="#17-xz-09-">17-XZ-09 ★</a></li>
+<li><a href="#17-xz-10-">17-XZ-10 ★★</a></li>
+<li><a href="#17-xz-11-">17-XZ-11 ★★</a></li>
+<li><a href="#17-xz-12-">17-XZ-12 ★★</a></li>
+<li><a href="#17-xz-13-">17-XZ-13 ★</a></li>
+<li><a href="#17-xz-14-">17-XZ-14 ★★</a></li>
+<li><a href="#17-xz-15-">17-XZ-15 ★★★</a></li>
+<li><a href="#17-xz-16-">17-XZ-16 ★★</a></li>
+<li><a href="#17-xz-17-">17-XZ-17 ★★</a></li>
+<li><a href="#17-xz-18-">17-XZ-18 ★★</a></li>
+<li><a href="#17-xz-19-">17-XZ-19 ★★★</a></li>
+<li><a href="#17-xz-20-">17-XZ-20 ★★</a></li>
+<li><a href="#17-xz-21-">17-XZ-21 ★</a></li>
+<li><a href="#17-xz-22-">17-XZ-22 ★★</a></li>
+<li><a href="#17-xz-23-">17-XZ-23 ★★★</a></li>
+<li><a href="#17-xz-24-">17-XZ-24 ★★</a></li>
+<li><a href="#17-xz-25-">17-XZ-25 ★</a></li>
+<li><a href="#17-xz-26-">17-XZ-26 ★★</a></li>
+<li><a href="#17-xz-27-">17-XZ-27 ★★</a></li>
+<li><a href="#17-xz-28-">17-XZ-28 ★</a></li>
+<li><a href="#17-xz-29-">17-XZ-29 ★★</a></li>
+<li><a href="#17-xz-30-">17-XZ-30 ★★★</a></li>
+</ul></li>
+<li><a href="#二多项选择题10题">二、多项选择题（10题）</a>
+<ul>
+<li><a href="#17-dx-01-">17-DX-01 ★★</a></li>
+<li><a href="#17-dx-02-">17-DX-02 ★★</a></li>
+<li><a href="#17-dx-03-">17-DX-03 ★★</a></li>
+<li><a href="#17-dx-04-">17-DX-04 ★★</a></li>
+<li><a href="#17-dx-05-">17-DX-05 ★★★</a></li>
+<li><a href="#17-dx-06-">17-DX-06 ★★</a></li>
+<li><a href="#17-dx-07-">17-DX-07 ★★</a></li>
+<li><a href="#17-dx-08-">17-DX-08 ★★★</a></li>
+<li><a href="#17-dx-09-">17-DX-09 ★★</a></li>
+<li><a href="#17-dx-10-">17-DX-10 ★★★</a></li>
+</ul></li>
+<li><a href="#三判断题20题">三、判断题（20题）</a>
+<ul>
+<li><a href="#17-pd-01-">17-PD-01 ★</a></li>
+<li><a href="#17-pd-02-">17-PD-02 ★</a></li>
+<li><a href="#17-pd-03-">17-PD-03 ★</a></li>
+<li><a href="#17-pd-04-">17-PD-04 ★★</a></li>
+<li><a href="#17-pd-05-">17-PD-05 ★★</a></li>
+<li><a href="#17-pd-06-">17-PD-06 ★</a></li>
+<li><a href="#17-pd-07-">17-PD-07 ★★</a></li>
+<li><a href="#17-pd-08-">17-PD-08 ★★</a></li>
+<li><a href="#17-pd-09-">17-PD-09 ★</a></li>
+<li><a href="#17-pd-10-">17-PD-10 ★★</a></li>
+<li><a href="#17-pd-11-">17-PD-11 ★</a></li>
+<li><a href="#17-pd-12-">17-PD-12 ★★</a></li>
+<li><a href="#17-pd-13-">17-PD-13 ★★</a></li>
+<li><a href="#17-pd-14-">17-PD-14 ★</a></li>
+<li><a href="#17-pd-15-">17-PD-15 ★★</a></li>
+<li><a href="#17-pd-16-">17-PD-16 ★★</a></li>
+<li><a href="#17-pd-17-">17-PD-17 ★</a></li>
+<li><a href="#17-pd-18-">17-PD-18 ★★</a></li>
+<li><a href="#17-pd-19-">17-PD-19 ★★★</a></li>
+<li><a href="#17-pd-20-">17-PD-20 ★★</a></li>
+</ul></li>
+<li><a href="#四填空题10题">四、填空题（10题）</a>
+<ul>
+<li><a href="#17-tk-01-">17-TK-01 ★</a></li>
+<li><a href="#17-tk-02-">17-TK-02 ★</a></li>
+<li><a href="#17-tk-03-">17-TK-03 ★★</a></li>
+<li><a href="#17-tk-04-">17-TK-04 ★★</a></li>
+<li><a href="#17-tk-05-">17-TK-05 ★</a></li>
+<li><a href="#17-tk-06-">17-TK-06 ★★</a></li>
+<li><a href="#17-tk-07-">17-TK-07 ★★</a></li>
+<li><a href="#17-tk-08-">17-TK-08 ★</a></li>
+<li><a href="#17-tk-09-">17-TK-09 ★★</a></li>
+<li><a href="#17-tk-10-">17-TK-10 ★★</a></li>
+</ul></li>
+<li><a href="#五论述简答题4题">五、论述简答题（4题）</a>
+<ul>
+<li><a href="#17-lw-01-">17-LW-01 ★★</a></li>
+<li><a href="#17-lw-02-">17-LW-02 ★★★</a></li>
+<li><a href="#17-lw-03-">17-LW-03 ★★</a></li>
+<li><a href="#17-lw-04-">17-LW-04 ★★★</a></li>
+</ul></li>
+<li><a href="#六程序阅读补全题2题">六、程序阅读补全题（2题）</a>
+<ul>
+<li><a href="#17-yd-01-">17-YD-01 ★★</a></li>
+<li><a href="#17-yd-02-">17-YD-02 ★★★</a></li>
+</ul></li>
+<li><a href="#七编程接口设计题2题">七、编程接口设计题（2题）</a>
+<ul>
+<li><a href="#17-bc-01-">17-BC-01 ★★★</a></li>
+<li><a href="#17-bc-02-">17-BC-02 ★★★</a></li>
+</ul></li>
+<li><a href="#八题库统计表">八、题库统计表</a>
+<ul>
+<li><a href="#知识点覆盖统计">知识点覆盖统计</a></li>
+<li><a href="#难度分布说明">难度分布说明</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 17 次课 <span>｜</span> <strong>文档：</strong>题库</p>
+<blockquote>
+<p>编号规则：17-题型-序号（XZ=选择/单选、DX=多选、PD=判断、TK=填空、LW=论述、YD=程序阅读、BC=编程）
+难度标注：★（基础识记） ★★（理解应用） ★★★（综合分析）
+全部题目围绕CTTS校园实训任务管理系统认证授权全链路设计。</p>
+</blockquote>
+<hr />
+<h2 id="一单项选择题30题">一、单项选择题（30题）</h2>
+<h3 id="17-xz-01-">17-XZ-01 ★</h3>
+<p><strong>题目</strong>：CTTS系统中用户密码加密采用BCrypt，下列关于BCrypt的说法正确的是？
+A. 同一明文每次加密结果相同 B.
+加密结果以<code>$2a$</code>开头，包含盐值信息 C.
+BCrypt是可逆加密，可通过密文还原明文 D. BCrypt加密速度比MD5快</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：BCrypt每次加密会生成不同盐值，同一明文加密结果不同（A错）；它是单向不可逆哈希（C错）；由于自带盐值和慢哈希设计，加密速度比MD5慢（D错），这正是其防彩虹表、防暴力破解的优势。加密结果格式为<code>$2a$10$...</code>，其中<code>$2a$</code>是版本标识，<code>10</code>是cost因子，后面22位是盐值，31位是哈希值。</p>
+<hr />
+<h3 id="17-xz-02-">17-XZ-02 ★</h3>
+<p><strong>题目</strong>：JWT Token由三部分组成，分别是？ A.
+Header、Payload、Signature B. Header、Body、Footer C.
+Token、Secret、Expire D. Username、Role、Timestamp</p>
+<p><strong>答案</strong>：A <strong>解析</strong>：JWT（JSON Web
+Token）由Header（头部，含算法类型）、Payload（载荷，含用户声明）、Signature（签名，防篡改）三部分组成，用<code>.</code>连接，形如<code>xxxxx.yyyyy.zzzzz</code>。</p>
+<hr />
+<h3 id="17-xz-03-">17-XZ-03 ★</h3>
+<p><strong>题目</strong>：CTTS登录成功后返回的JWT
+Token中，不应该包含以下哪个字段？ A. userId B. username C. role D.
+password</p>
+<p><strong>答案</strong>：D
+<strong>解析</strong>：JWT的Payload虽然Base64解码可见，但仍不应放入敏感信息。password属于高敏感字段，绝不能放入Token。userId、username、role是业务必需的声明字段。</p>
+<hr />
+<h3 id="17-xz-04-">17-XZ-04 ★★</h3>
+<p><strong>题目</strong>：在<code>JwtUtil</code>中生成Token时，<code>signWith(key)</code>使用的签名算法是？
+A. HS256（HMAC-SHA256） B. RS256（RSA-SHA256） C. none D. MD5</p>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：本项目使用<code>Keys.hmacShaKeyFor(secret)</code>生成密钥，配合<code>signWith(key)</code>默认使用HS256对称签名算法。RS256是非对称算法需公私钥对；none不安全已被禁用；MD5不是JWT支持的签名算法。</p>
+<hr />
+<h3 id="17-xz-05-">17-XZ-05 ★★</h3>
+<p><strong>题目</strong>：<code>LoginInterceptor</code>中解析Token后，将用户信息存入ThreadLocal的主要目的是？
+A. 减少数据库查询次数 B. 方便后续业务代码获取当前用户 C.
+加快Token解析速度 D. 防止Token被篡改</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：ThreadLocal实现请求线程内共享用户信息，业务层通过<code>CurrentUserContext.getUserId()</code>直接获取，无需层层传参。同时避免每个接口都查库（A也算部分原因但非主要目的）。Token解析在拦截器中已做，ThreadLocal不影响速度和防篡改。</p>
+<hr />
+<h3 id="17-xz-06-">17-XZ-06 ★★★</h3>
+<p><strong>题目</strong>：<code>LoginInterceptor.afterCompletion</code>中必须调用<code>CurrentUserContext.remove()</code>的根本原因是？
+A. 释放ThreadLocal对象本身占用的内存 B.
+防止Tomcat线程池复用线程时残留上一个用户信息 C. 防止内存溢出 D.
+Spring框架强制要求</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：Tomcat默认使用线程池复用线程，若请求结束后未清理ThreadLocal，下一次请求复用该线程时会读到上一个用户的信息，导致用户串号——这是典型的"测试通过但生产事故"问题。remove()清除的是线程局部变量中的Entry值，防止串号。</p>
+<hr />
+<h3 id="17-xz-07-">17-XZ-07 ★★</h3>
+<p><strong>题目</strong>：关于<code>@RequireRole</code>注解的<code>@Retention</code>策略，正确的是？
+A. <code>RetentionPolicy.SOURCE</code>——编译期丢弃 B.
+<code>RetentionPolicy.CLASS</code>——字节码保留但运行时不可反射读取 C.
+<code>RetentionPolicy.RUNTIME</code>——运行时可反射读取 D.
+任意策略均可</p>
+<p><strong>答案</strong>：C
+<strong>解析</strong>：RoleInterceptor需要在运行时通过反射读取<code>@RequireRole</code>注解，因此必须使用<code>RetentionPolicy.RUNTIME</code>。SOURCE和CLASS策略运行时反射读取不到。</p>
+<hr />
+<h3 id="17-xz-08-">17-XZ-08 ★★</h3>
+<p><strong>题目</strong>：WebMvcConfig中注册拦截器时，<code>LoginInterceptor</code>的order=1、<code>RoleInterceptor</code>的order=2，这意味着？
+A. RoleInterceptor先执行 B. LoginInterceptor先执行 C. 两者并行执行 D.
+执行顺序随机</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：order值越小优先级越高，越先执行。必须LoginInterceptor先执行解析Token、存入ThreadLocal，RoleInterceptor才能从ThreadLocal读到角色进行权限校验。顺序反了会导致RoleInterceptor读到null。</p>
+<hr />
+<h3 id="17-xz-09-">17-XZ-09 ★</h3>
+<p><strong>题目</strong>：前端访问需认证接口时，Token应放在HTTP请求头的哪个字段？
+A. <code>Cookie</code> B. <code>X-Token</code> C.
+<code>Authorization: Bearer {token}</code> D. <code>Token</code></p>
+<p><strong>答案</strong>：C
+<strong>解析</strong>：标准做法是放在<code>Authorization</code>头，格式为<code>Bearer {token}</code>（注意Bearer后有空格）。本项目LoginInterceptor据此解析<code>authHeader.substring(7)</code>截取token。</p>
+<hr />
+<h3 id="17-xz-10-">17-XZ-10 ★★</h3>
+<p><strong>题目</strong>：注册接口<code>POST /api/auth/register</code>在WebMvcConfig中被excludePathPatterns排除，原因是？
+A. 该接口不需要数据库操作 B. 注册时用户尚未登录，无Token可校验 C.
+该接口性能要求高 D. 该接口仅供管理员调用</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：注册和登录是认证入口，用户此时尚无Token，必须放行。若被拦截器拦截会因无Token返回401，导致无法注册登录。</p>
+<hr />
+<h3 id="17-xz-11-">17-XZ-11 ★★</h3>
+<p><strong>题目</strong>：BCrypt的<code>passwordEncoder.matches(rawPassword, encodedPassword)</code>方法，参数顺序正确的是？
+A. (密文, 明文) B. (明文, 密文) C. (明文, 明文) D. (密文, 密文)</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：matches第一个参数是用户输入的明文密码，第二个是数据库存储的BCrypt密文。方法内部会从密文中提取盐值对明文进行同样加密后比对。</p>
+<hr />
+<h3 id="17-xz-12-">17-XZ-12 ★★</h3>
+<p><strong>题目</strong>：JWT的Payload部分使用什么编码方式？ A. AES加密
+B. Base64Url编码（可解码） C. SHA-256哈希 D. RSA加密</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：JWT的Header和Payload都用Base64Url编码（不是加密），任何人都能解码查看内容。因此Payload不能放敏感信息。只有Signature部分是加密签名。</p>
+<hr />
+<h3 id="17-xz-13-">17-XZ-13 ★</h3>
+<p><strong>题目</strong>：CTTS系统中三角色分别是？ A. USER、ADMIN、ROOT
+B. STUDENT、TEACHER、ADMIN C. GUEST、USER、ADMIN D.
+STUDENT、TEACHER、MANAGER</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：CTTS（校园实训任务管理系统）三角色为学生、教师、管理员，对应角色码STUDENT、TEACHER、ADMIN。</p>
+<hr />
+<h3 id="17-xz-14-">17-XZ-14 ★★</h3>
+<p><strong>题目</strong>：登录接口返回的数据结构中，<code>userInfo</code>对象故意不包含password字段，这种做法称为？
+A. 数据脱敏 B. 数据加密 C. 数据压缩 D. 数据校验</p>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：返回给前端时清空或过滤敏感字段（如password）称为数据脱敏，防止敏感信息泄露。在UserServiceImpl的getCurrentUserInfo中通过<code>user.setPassword(null)</code>实现。</p>
+<hr />
+<h3 id="17-xz-15-">17-XZ-15 ★★★</h3>
+<p><strong>题目</strong>：下列哪种情况下JWT
+Token会被判定为非法（返回401）？ A. Token未过期但用户已被禁用 B.
+Token过期 C. Token被篡改 D. 以上都是</p>
+<p><strong>答案</strong>：D
+<strong>解析</strong>：Token过期会抛ExpiredJwtException；被篡改会导致签名校验失败抛JwtException；用户被禁用虽Token合法但业务层应主动校验status。本项目拦截器主要处理B和C，A需要在业务层额外判断。</p>
+<hr />
+<h3 id="17-xz-16-">17-XZ-16 ★★</h3>
+<p><strong>题目</strong>：<code>HandlerInterceptor</code>接口的三个方法执行顺序是？
+A. preHandle → afterCompletion → postHandle B. postHandle → preHandle →
+afterCompletion C. preHandle → postHandle → afterCompletion D.
+afterCompletion → preHandle → postHandle</p>
+<p><strong>答案</strong>：C
+<strong>解析</strong>：preHandle在Controller执行前调用（返回false则中断）；postHandle在Controller返回后、视图渲染前调用；afterCompletion在请求完全结束后调用（用于清理资源，如ThreadLocal.remove）。</p>
+<hr />
+<h3 id="17-xz-17-">17-XZ-17 ★★</h3>
+<p><strong>题目</strong>：RoleInterceptor中<code>handler instanceof HandlerMethod</code>判断的作用是？
+A. 提高性能 B. 排除静态资源等非Controller方法 C. 校验用户权限 D.
+防止异常</p>
+<p><strong>答案</strong>：B <strong>解析</strong>：Spring
+MVC中handler可能是HandlerMethod（Controller方法）也可能是ResourceHttpRequestHandler（静态资源）等。非Controller方法没有@RequireRole注解，直接放行，避免误拦截静态资源。</p>
+<hr />
+<h3 id="17-xz-18-">17-XZ-18 ★★</h3>
+<p><strong>题目</strong>：JWT的"无状态"特性意味着？ A.
+服务端不存储Token，每次靠签名校验合法性 B. Token不可被解析 C.
+Token不能用于认证 D. 服务端必须查库才能校验</p>
+<p><strong>答案</strong>：A
+<strong>解析</strong>：无状态指服务端不保存Session或Token信息，仅靠签名算法验证Token真伪和有效期。优点是易于横向扩展；缺点是无法主动让Token失效（除非引入Redis黑名单）。</p>
+<hr />
+<h3 id="17-xz-19-">17-XZ-19 ★★★</h3>
+<p><strong>题目</strong>：用户修改密码后，原JWT
+Token仍然能正常访问接口，原因是？ A. 拦截器配置错误 B.
+JWT无状态，服务端无法感知密码已改 C. Token未过期 D. B和C</p>
+<p><strong>答案</strong>：D
+<strong>解析</strong>：JWT无状态特性决定服务端不存储Token，只要Token未过期且签名合法就能通过校验。改密后旧Token失效需要额外机制（如Redis黑名单或版本号校验），这是JWT的固有局限。</p>
+<hr />
+<h3 id="17-xz-20-">17-XZ-20 ★★</h3>
+<p><strong>题目</strong>：<code>JwtUtil</code>中<code>@PostConstruct</code>注解的init方法作用是？
+A. 生成Token B. 在Bean初始化后初始化SecretKey C. 解析Token D.
+注册拦截器</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：@PostConstruct在依赖注入完成后执行，用于初始化key对象（从配置的secret字符串生成SecretKey）。避免每次generateToken/parseToken都重新生成key，提升性能。</p>
+<hr />
+<h3 id="17-xz-21-">17-XZ-21 ★</h3>
+<p><strong>题目</strong>：BCryptPasswordEncoder的cost因子（如<code>$2a$10$</code>中的10）表示？
+A. 加密结果长度 B. 加密迭代次数（2的10次方） C. 盐值长度 D. 密钥长度</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：cost因子决定加密迭代次数（2^cost次），值越大加密越慢越安全。默认10表示2^10=1024次迭代。每增加1，时间翻倍。</p>
+<hr />
+<h3 id="17-xz-22-">17-XZ-22 ★★</h3>
+<p><strong>题目</strong>：CTTS项目中<code>@RequireRole({"TEACHER","ADMIN"})</code>表示？
+A. 必须同时具备TEACHER和ADMIN角色 B. 具备TEACHER或ADMIN任一角色即可 C.
+仅TEACHER可访问 D. 仅ADMIN可访问</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：默认requireAll=false，表示角色数组是"或"关系，满足任一即可。若设requireAll=true则要求同时具备（一般用户只有一个角色，此场景少见）。</p>
+<hr />
+<h3 id="17-xz-23-">17-XZ-23 ★★★</h3>
+<p><strong>题目</strong>：若LoginInterceptor的order设为2、RoleInterceptor的order设为1，会出现什么问题？
+A. 一切正常 B.
+RoleInterceptor先执行，从ThreadLocal读到null角色，所有需权限接口都返回401
+C. LoginInterceptor不执行 D. 报错启动失败</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：order小的先执行，RoleInterceptor先跑时ThreadLocal中无用户信息（LoginInterceptor还没执行），getRole()返回null，导致所有带@RequireRole的接口都返回401"未登录"。</p>
+<hr />
+<h3 id="17-xz-24-">17-XZ-24 ★★</h3>
+<p><strong>题目</strong>：<code>BusinessException.of(401, "用户名或密码错误")</code>这种统一异常抛出方式的好处是？
+A. 提高运行速度 B. 避免代码中满地return，统一由全局异常处理器包装响应 C.
+减少数据库查询 D. 自动记录日志</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：业务层抛BusinessException，GlobalExceptionHandler统一捕获并包装成Result返回，避免Controller层写大量try-catch，使业务代码更聚焦。</p>
+<hr />
+<h3 id="17-xz-25-">17-XZ-25 ★</h3>
+<p><strong>题目</strong>：Apifox中配置环境变量<code>{{studentToken}}</code>的作用是？
+A. 加密Token B. 在多个请求间复用Token，避免每次手动复制 C. 校验Token D.
+刷新Token</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：环境变量实现Token在登录后自动保存，后续请求通过<code>{{studentToken}}</code>引用，避免每个请求手动粘贴Token，提升测试效率。</p>
+<hr />
+<h3 id="17-xz-26-">17-XZ-26 ★★</h3>
+<p><strong>题目</strong>：项目中<code>UserMapper extends BaseMapper&lt;User&gt;</code>，这里使用的是？
+A. Spring Data JPA B. MyBatis-Plus C. Hibernate D. JDBC Template</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：BaseMapper是MyBatis-Plus提供的通用Mapper接口，内置selectById、insert、updateById、selectCount等方法，无需手写SQL即可完成单表CRUD。</p>
+<hr />
+<h3 id="17-xz-27-">17-XZ-27 ★★</h3>
+<p><strong>题目</strong>：登录时为什么用<code>passwordEncoder.matches(password, user.getPassword())</code>而不是<code>password.equals(user.getPassword())</code>？
+A. equals方法性能差 B.
+BCrypt每次加密盐值不同，同一明文加密结果不同，必须用matches内部比对 C.
+equals会抛异常 D. matches更快</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：BCrypt加密时盐值随机，同一明文两次加密结果不同，无法用equals直接比对字符串。matches方法会从密文中提取盐值对明文重新加密后比对。</p>
+<hr />
+<h3 id="17-xz-28-">17-XZ-28 ★</h3>
+<p><strong>题目</strong>：JWT Token的标准声明字段<code>exp</code>表示？
+A. 签发时间 B. 过期时间 C. 签发者 D. 主题</p>
+<p><strong>答案</strong>：B <strong>解析</strong>：exp（Expiration
+Time）表示Token过期时间，超过此时间Token自动失效。iat是签发时间，iss是签发者，sub是主题（subject）。</p>
+<hr />
+<h3 id="17-xz-29-">17-XZ-29 ★★</h3>
+<p><strong>题目</strong>：CTTS注册接口中校验用户名唯一的SQL等价操作是？
+A. <code>userMapper.selectById(username)</code> B.
+<code>userMapper.selectCount(new LambdaQueryWrapper&lt;User&gt;().eq(User::getUsername, username))</code>
+C. <code>userMapper.selectAll()</code> D.
+<code>userMapper.delete(username)</code></p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：使用MyBatis-Plus的LambdaQueryWrapper构造条件查询，selectCount返回满足条件的记录数，&gt;0表示已存在。</p>
+<hr />
+<h3 id="17-xz-30-">17-XZ-30 ★★★</h3>
+<p><strong>题目</strong>：下列关于ThreadLocal内存泄漏说法正确的是？ A.
+ThreadLocal本身一定导致内存泄漏 B.
+使用线程池时，若不调用remove()，ThreadLocal中的对象在线程复用时仍然存在
+C. ThreadLocal只能存String类型 D. remove()会销毁ThreadLocal实例</p>
+<p><strong>答案</strong>：B
+<strong>解析</strong>：ThreadLocal的Entry是弱引用key但value是强引用，线程池复用线程时Entry中value不会被回收，导致数据残留。remove()清除当前线程的Entry值，不会销毁ThreadLocal实例本身。</p>
+<hr />
+<h2 id="二多项选择题10题">二、多项选择题（10题）</h2>
+<h3 id="17-dx-01-">17-DX-01 ★★</h3>
+<p><strong>题目</strong>：CTTS认证授权全链路涉及以下哪些组件？（多选）
+A. BCryptPasswordEncoder B. JwtUtil C. LoginInterceptor D.
+RoleInterceptor E. CurrentUserContext F. WebMvcConfig</p>
+<p><strong>答案</strong>：ABCDEF
+<strong>解析</strong>：全链路包含密码加密（A）、Token工具（B）、认证拦截器（C）、授权拦截器（D）、ThreadLocal上下文（E）、拦截器注册配置（F），缺一不可。</p>
+<hr />
+<h3 id="17-dx-02-">17-DX-02 ★★</h3>
+<p><strong>题目</strong>：下列哪些是JWT相比传统Session的优势？（多选）
+A. 无状态，服务端无需存储Session B.
+易于横向扩展（多服务器无需共享Session） C. 天然支持跨域 D.
+可主动让Token失效 E. Payload可放任意数据无安全风险</p>
+<p><strong>答案</strong>：ABC
+<strong>解析</strong>：JWT无状态便于扩展（A、B）；Token放Header中天然支持跨域（C）。D错，JWT无法主动失效（除非引入Redis黑名单）；E错，Payload是Base64可解码，不能放敏感数据。</p>
+<hr />
+<h3 id="17-dx-03-">17-DX-03 ★★</h3>
+<p><strong>题目</strong>：LoginInterceptor的preHandle方法中处理Token校验时，可能抛出的异常包括？（多选）
+A. <code>io.jsonwebtoken.ExpiredJwtException</code>——Token过期 B.
+<code>io.jsonwebtoken.SignatureException</code>——签名不匹配（被篡改） C.
+<code>io.jsonwebtoken.MalformedJwtException</code>——Token格式错误 D.
+<code>NullPointerException</code> E. <code>SQLException</code></p>
+<p><strong>答案</strong>：ABC
+<strong>解析</strong>：JWT解析常见异常：ExpiredJwtException（过期）、SignatureException（签名非法）、MalformedJwtException（格式错误）。本项目通过try-catch统一处理为401。</p>
+<hr />
+<h3 id="17-dx-04-">17-DX-04 ★★</h3>
+<p><strong>题目</strong>：关于@RequireRole注解的Target配置<code>{ElementType.METHOD, ElementType.TYPE}</code>，下列说法正确的是？（多选）
+A. 可标注在方法上 B. 可标注在类上 C. 可标注在字段上 D.
+类上标注对所有方法生效，方法上标注优先级更高 E. 可标注在构造函数上</p>
+<p><strong>答案</strong>：ABD
+<strong>解析</strong>：METHOD表示可标注方法，TYPE表示可标注类（含接口、注解、枚举）。RoleInterceptor优先读方法注解，无则取类注解，方法级覆盖类级。不支持字段和构造函数。</p>
+<hr />
+<h3 id="17-dx-05-">17-DX-05 ★★★</h3>
+<p><strong>题目</strong>：下列哪些场景会导致用户串号（A用户看到B用户数据）？（多选）
+A. ThreadLocal未在afterCompletion中remove B. Tomcat线程池复用线程 C.
+使用同步请求 D. JWT Payload中userId写错 E.
+使用@Async异步方法且未传递用户上下文</p>
+<p><strong>答案</strong>：ABE
+<strong>解析</strong>：A+B是典型ThreadLocal泄漏场景；E中异步线程无ThreadLocal上下文但若误用其他线程的也会串号；C与串号无关；D是数据错误不是串号。</p>
+<hr />
+<h3 id="17-dx-06-">17-DX-06 ★★</h3>
+<p><strong>题目</strong>：CTTS项目中WebMvcConfig的addInterceptors配置中，excludePathPatterns通常包含哪些路径？（多选）
+A. <code>/api/auth/register</code> B. <code>/api/auth/login</code> C.
+<code>/api/user/current</code> D. 静态资源路径 E.
+<code>/error</code></p>
+<p><strong>答案</strong>：ABDE
+<strong>解析</strong>：注册和登录是公开接口必须排除（A、B）；静态资源和错误页也应排除（D、E）；/api/user/current需登录才能访问，不应排除（C）。</p>
+<hr />
+<h3 id="17-dx-07-">17-DX-07 ★★</h3>
+<p><strong>题目</strong>：下列哪些是BCrypt相比MD5+盐的安全优势？（多选）
+A. 自带盐值无需手动管理 B. 慢哈希设计抗暴力破解 C. 加密速度更快 D.
+cost因子可调，适应算力增长 E. 不可逆</p>
+<p><strong>答案</strong>：ABD
+<strong>解析</strong>：BCrypt自带盐值（A）、慢哈希抗破解（B）、cost可调（D）是优势。C错，BCrypt比MD5慢（这是安全优势而非速度优势）；E两者都不可逆，非BCrypt独有优势。</p>
+<hr />
+<h3 id="17-dx-08-">17-DX-08 ★★★</h3>
+<p><strong>题目</strong>：关于RoleInterceptor中读取@RequireRole注解的优先级，下列说法正确的是？（多选）
+A. 方法上的注解优先于类上的注解 B. 若方法和类都无注解则放行 C.
+类上的注解优先于方法上的注解 D. 方法上的注解会覆盖类上的注解 E.
+同时存在时报错</p>
+<p><strong>答案</strong>：ABD
+<strong>解析</strong>：代码逻辑为<code>methodAnno != null ? methodAnno : classAnno</code>，方法注解优先（A），无则取类注解，都无则放行（B）。方法注解覆盖类注解（D是A的另一种表述）。不会报错。</p>
+<hr />
+<h3 id="17-dx-09-">17-DX-09 ★★</h3>
+<p><strong>题目</strong>：JWT全链路测试中，需覆盖的异常路径包括？（多选）
+A. 无Token访问需认证接口（401） B. Token过期访问（401） C.
+Token被篡改访问（401） D. 越权访问（403） E. 错误密码登录（401） F.
+重复注册（400）</p>
+<p><strong>答案</strong>：ABCDEF
+<strong>解析</strong>：完整测试需覆盖认证失败（A/B/C/E）、授权失败（D）、业务校验失败（F）等异常路径，才能验证全链路健壮性。</p>
+<hr />
+<h3 id="17-dx-10-">17-DX-10 ★★★</h3>
+<p><strong>题目</strong>：下列哪些措施可以提升JWT认证授权的安全性？（多选）
+A. secret密钥足够长（≥32字节） B. Token有效期不宜过长（如2小时） C.
+HTTPS传输 D. Payload放密码哈希用于校验 E. 引入Redis黑名单支持主动注销 F.
+关键操作二次验证</p>
+<p><strong>答案</strong>：ABCEF
+<strong>解析</strong>：A防爆破、B缩小泄露窗口、C防中间人、E支持注销、F防越权操作。D错，Payload不能放任何密码相关数据，Base64可解码。</p>
+<hr />
+<h2 id="三判断题20题">三、判断题（20题）</h2>
+<h3 id="17-pd-01-">17-PD-01 ★</h3>
+<p><strong>题目</strong>：BCrypt加密同一明文密码，每次得到的密文相同。
+<strong>答案</strong>：错误
+<strong>解析</strong>：BCrypt每次加密会随机生成盐值，同一明文每次加密结果不同，但都能通过matches方法校验通过。</p>
+<hr />
+<h3 id="17-pd-02-">17-PD-02 ★</h3>
+<p><strong>题目</strong>：JWT的Payload部分是加密的，无法被他人读取。
+<strong>答案</strong>：错误
+<strong>解析</strong>：Payload是Base64Url编码（非加密），任何人都能解码查看。因此不能放敏感信息。</p>
+<hr />
+<h3 id="17-pd-03-">17-PD-03 ★</h3>
+<p><strong>题目</strong>：JWT
+Token一旦签发，在过期前服务端无法主动使其失效。
+<strong>答案</strong>：正确
+<strong>解析</strong>：JWT无状态特性决定服务端不存储Token，无法主动失效。需引入Redis黑名单或短有效期+刷新机制弥补。</p>
+<hr />
+<h3 id="17-pd-04-">17-PD-04 ★★</h3>
+<p><strong>题目</strong>：LoginInterceptor必须在afterCompletion中调用CurrentUserContext.remove()，否则线程池复用会导致用户串号。
+<strong>答案</strong>：正确
+<strong>解析</strong>：Tomcat线程池复用线程，残留的ThreadLocal数据会被下一个请求读到，造成严重安全事故。</p>
+<hr />
+<h3 id="17-pd-05-">17-PD-05 ★★</h3>
+<p><strong>题目</strong>：@<a
+href="mailto:RequireRole注解的@Retention必须是RetentionPolicy.RUNTIME">RequireRole注解的@Retention必须是RetentionPolicy.RUNTIME</a>，否则拦截器运行时反射读取不到。
+<strong>答案</strong>：正确
+<strong>解析</strong>：SOURCE和CLASS策略在运行时不可见，RoleInterceptor的<code>getMethodAnnotation</code>会返回null。</p>
+<hr />
+<h3 id="17-pd-06-">17-PD-06 ★</h3>
+<p><strong>题目</strong>：CTTS系统中注册接口需要被拦截器拦截以校验Token。
+<strong>答案</strong>：错误
+<strong>解析</strong>：注册是用户创建入口，此时无Token，必须excludePathPatterns排除，否则无法注册。</p>
+<hr />
+<h3 id="17-pd-07-">17-PD-07 ★★</h3>
+<p><strong>题目</strong>：BCryptPasswordEncoder的matches方法第一个参数是密文，第二个参数是明文。
+<strong>答案</strong>：错误 <strong>解析</strong>：参数顺序是(明文,
+密文)，即<code>matches(rawPassword, encodedPassword)</code>。</p>
+<hr />
+<h3 id="17-pd-08-">17-PD-08 ★★</h3>
+<p><strong>题目</strong>：RoleInterceptor的order值必须大于LoginInterceptor，确保认证先于授权执行。
+<strong>答案</strong>：正确
+<strong>解析</strong>：order值越小越先执行。LoginInterceptor(order=1)先解析Token存ThreadLocal，RoleInterceptor(order=2)才能读到角色。</p>
+<hr />
+<h3 id="17-pd-09-">17-PD-09 ★</h3>
+<p><strong>题目</strong>：JWT的Signature部分使用的是对称加密算法HS256，服务端用同一密钥签名和校验。
+<strong>答案</strong>：正确
+<strong>解析</strong>：HS256是对称算法，签发和校验用同一SecretKey。RS256才是非对称算法，私钥签名公钥校验。</p>
+<hr />
+<h3 id="17-pd-10-">17-PD-10 ★★</h3>
+<p><strong>题目</strong>：用户修改密码后，旧Token立即失效无法访问。
+<strong>答案</strong>：错误
+<strong>解析</strong>：JWT无状态，改密后旧Token在过期前仍可使用。需引入额外机制（如Redis黑名单或密码版本号）才能使旧Token失效。</p>
+<hr />
+<h3 id="17-pd-11-">17-PD-11 ★</h3>
+<p><strong>题目</strong>：ThreadLocal可以解决多线程并发安全问题，因此可以替代同步锁。
+<strong>答案</strong>：错误
+<strong>解析</strong>：ThreadLocal是空间换时间，每个线程一份副本互不干扰，适用于上下文传递；同步锁是临界区互斥。两者场景不同，不能互替。</p>
+<hr />
+<h3 id="17-pd-12-">17-PD-12 ★★</h3>
+<p><strong>题目</strong>：<code>@RequireRole</code>注解标注在类上时，对该类所有方法生效；方法上的注解会覆盖类上的注解。
+<strong>答案</strong>：正确
+<strong>解析</strong>：RoleInterceptor读取顺序是方法优先，方法无注解才取类注解。因此方法级注解优先级更高。</p>
+<hr />
+<h3 id="17-pd-13-">17-PD-13 ★★</h3>
+<p><strong>题目</strong>：JWT的secret密钥可以公开，因为签名算法是不可逆的。
+<strong>答案</strong>：错误
+<strong>解析</strong>：HS256是对称算法，secret泄露后任何人都能伪造合法Token。secret必须严格保密。</p>
+<hr />
+<h3 id="17-pd-14-">17-PD-14 ★</h3>
+<p><strong>题目</strong>：登录接口返回的userInfo对象应包含password字段以便前端校验。
+<strong>答案</strong>：错误
+<strong>解析</strong>：password是高敏感字段，绝不能返回前端。UserServiceImpl中通过<code>user.setPassword(null)</code>脱敏。</p>
+<hr />
+<h3 id="17-pd-15-">17-PD-15 ★★</h3>
+<p><strong>题目</strong>：LoginInterceptor中解析Token后构造的User对象只含id、username、role三个字段，不查库，这是为了提升性能。
+<strong>答案</strong>：正确
+<strong>解析</strong>：每个请求都查库会带来性能损耗，Token中已含必要信息直接构造User存ThreadLocal即可。需要最新数据时业务层再查库。</p>
+<hr />
+<h3 id="17-pd-16-">17-PD-16 ★★</h3>
+<p><strong>题目</strong>：HandlerInterceptor的preHandle方法返回false时，后续拦截器和Controller都不会执行。
+<strong>答案</strong>：正确
+<strong>解析</strong>：preHandle返回false会中断请求链，后续拦截器的preHandle、Controller、postHandle都不执行，但已执行preHandle的拦截器的afterCompletion会逆序执行。</p>
+<hr />
+<h3 id="17-pd-17-">17-PD-17 ★</h3>
+<p><strong>题目</strong>：CTTS系统支持学生、教师、管理员三种角色，角色码分别为STU、TEA、ADM。
+<strong>答案</strong>：错误
+<strong>解析</strong>：CTTS角色码为STUDENT、TEACHER、ADMIN，不是缩写。</p>
+<hr />
+<h3 id="17-pd-18-">17-PD-18 ★★</h3>
+<p><strong>题目</strong>：WebMvcConfig中excludePathPatterns排除的路径不会被任何拦截器拦截。
+<strong>答案</strong>：正确
+<strong>解析</strong>：excludePathPatterns针对单个拦截器配置，被排除的路径该拦截器不拦截。本项目LoginInterceptor和RoleInterceptor都排除了register和login。</p>
+<hr />
+<h3 id="17-pd-19-">17-PD-19 ★★★</h3>
+<p><strong>题目</strong>：即使Token被中间人截获，由于签名校验机制，攻击者也无法篡改Token内容。
+<strong>答案</strong>：正确
+<strong>解析</strong>：Signature由Header+Payload+secret计算，篡改Payload会导致签名不匹配，parseToken会抛SignatureException。但截获后可直接使用（重放攻击），需配合HTTPS和时间戳防护。</p>
+<hr />
+<h3 id="17-pd-20-">17-PD-20 ★★</h3>
+<p><strong>题目</strong>：全局异常处理器@RestControllerAdvice可以捕获Controller层的BusinessException并统一包装为Result返回。
+<strong>答案</strong>：正确 <strong>解析</strong>：@RestControllerAdvice
++
+@ExceptionHandler统一捕获异常，业务层抛BusinessException，全局处理器包装成Result.error(code,
+message)返回，避免Controller层写try-catch。</p>
+<hr />
+<h2 id="四填空题10题">四、填空题（10题）</h2>
+<h3 id="17-tk-01-">17-TK-01 ★</h3>
+<p><strong>题目</strong>：BCrypt加密结果以<code>$2a$</code>开头，其中<code>$2a$</code>表示______，后面的数字10表示______。</p>
+<p><strong>答案</strong>：版本标识；cost因子（迭代次数为2^10）
+<strong>解析</strong>：BCrypt格式<code>$2a$10$...</code>，<code>$2a$</code>是版本标识，10是cost因子决定迭代次数。</p>
+<hr />
+<h3 id="17-tk-02-">17-TK-02 ★</h3>
+<p><strong>题目</strong>：JWT
+Token由______、______、______三部分组成，用<code>.</code>连接。</p>
+<p><strong>答案</strong>：Header（头部）；Payload（载荷）；Signature（签名）
+<strong>解析</strong>：JWT结构<code>xxxxx.yyyyy.zzzzz</code>，分别对应Header、Payload、Signature。</p>
+<hr />
+<h3 id="17-tk-03-">17-TK-03 ★★</h3>
+<p><strong>题目</strong>：CurrentUserContext基于______实现，用于在请求线程内共享当前登录用户信息，使用后必须在拦截器的______方法中调用remove()清理。</p>
+<p><strong>答案</strong>：ThreadLocal；afterCompletion
+<strong>解析</strong>：ThreadLocal实现线程内变量隔离；afterCompletion在请求结束时执行，必须remove防止线程池复用导致串号。</p>
+<hr />
+<h3 id="17-tk-04-">17-TK-04 ★★</h3>
+<p><strong>题目</strong>：WebMvcConfig中LoginInterceptor的order值为______，RoleInterceptor的order值为______，确保认证先于授权执行。</p>
+<p><strong>答案</strong>：1；2
+<strong>解析</strong>：order值越小越先执行，LoginInterceptor需先解析Token存ThreadLocal，RoleInterceptor才能读到角色。</p>
+<hr />
+<h3 id="17-tk-05-">17-TK-05 ★</h3>
+<p><strong>题目</strong>：前端访问需认证接口时，Token放在请求头______字段中，格式为______。</p>
+<p><strong>答案</strong>：Authorization；<code>Bearer {token}</code>
+<strong>解析</strong>：标准做法是Authorization头，值以<code>Bearer </code>前缀（注意Bearer后有空格），拦截器中substring(7)截取token。</p>
+<hr />
+<h3 id="17-tk-06-">17-TK-06 ★★</h3>
+<p><strong>题目</strong>：JWT工具类中生成Token的方法是______，解析Token的方法是______。</p>
+<p><strong>答案</strong>：generateToken（或Jwts.builder()...compact()）；parseToken（或Jwts.parser()...parseSignedClaims()）
+<strong>解析</strong>：generateToken负责签发，parseToken负责解析校验，解析失败抛ExpiredJwtException或JwtException。</p>
+<hr />
+<h3 id="17-tk-07-">17-TK-07 ★★</h3>
+<p><strong>题目</strong>：@RequireRole注解的@Target配置为______，表示可标注在______和______上。</p>
+<p><strong>答案</strong>：<code>{ElementType.METHOD, ElementType.TYPE}</code>；方法；类
+<strong>解析</strong>：METHOD表示方法级，TYPE表示类级。RoleInterceptor优先读方法注解，无则取类注解。</p>
+<hr />
+<h3 id="17-tk-08-">17-TK-08 ★</h3>
+<p><strong>题目</strong>：CTTS系统三角色码分别为______、<strong><strong><strong>、</strong></strong></strong>。</p>
+<p><strong>答案</strong>：STUDENT；TEACHER；ADMIN
+<strong>解析</strong>：校园实训任务管理系统三角色对应学生、教师、管理员。</p>
+<hr />
+<h3 id="17-tk-09-">17-TK-09 ★★</h3>
+<p><strong>题目</strong>：BCryptPasswordEncoder校验密码的方法是______，参数顺序为（<strong><strong><strong>，</strong></strong></strong>）。</p>
+<p><strong>答案</strong>：matches；明文密码；密文密码
+<strong>解析</strong>：<code>matches(rawPassword, encodedPassword)</code>，第一个是用户输入明文，第二个是数据库存储密文。</p>
+<hr />
+<h3 id="17-tk-10-">17-TK-10 ★★</h3>
+<p><strong>题目</strong>：项目统一异常处理使用______注解标注全局异常处理器类，使用______注解标注异常处理方法。</p>
+<p><strong>答案</strong>：@RestControllerAdvice；@ExceptionHandler
+<strong>解析</strong>：@RestControllerAdvice声明全局异常处理器，@ExceptionHandler指定处理的异常类型，捕获后统一包装为Result返回。</p>
+<hr />
+<h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
+<h3 id="17-lw-01-">17-LW-01 ★★</h3>
+<p><strong>题目</strong>：简述CTTS系统认证授权全链路的执行流程，从用户登录到访问受保护接口的完整过程。</p>
+<p><strong>答案要点</strong>：</p>
+<ol type="1">
+<li><strong>登录阶段</strong>：用户提交用户名密码 → AuthController.login
+→ UserServiceImpl.login查库 → BCrypt.matches校验密码 →
+JwtUtil.generateToken签发Token → 返回token和userInfo。</li>
+<li><strong>访问受保护接口阶段</strong>：
+<ul>
+<li>前端携带<code>Authorization: Bearer {token}</code>发起请求。</li>
+<li>LoginInterceptor.preHandle拦截，从Header提取Token。</li>
+<li>JwtUtil.parseToken解析校验（过期/非法返回401）。</li>
+<li>构造User对象存入CurrentUserContext（ThreadLocal）。</li>
+<li>RoleInterceptor.preHandle执行，读取@RequireRole注解。</li>
+<li>从CurrentUserContext获取角色比对，不符返回403。</li>
+<li>Controller执行业务逻辑，可通过CurrentUserContext.getUserId()获取当前用户。</li>
+<li>afterCompletion中调用CurrentUserContext.remove()清理ThreadLocal。</li>
+</ul></li>
+</ol>
+<p><strong>评分标准</strong>（满分10分）：</p>
+<ul>
+<li>登录阶段流程完整（3分）</li>
+<li>拦截器执行顺序正确（2分）</li>
+<li>Token校验和ThreadLocal存取（3分）</li>
+<li>角色权限校验（1分）</li>
+<li>afterCompletion清理（1分）</li>
+</ul>
+<hr />
+<h3 id="17-lw-02-">17-LW-02 ★★★</h3>
+<p><strong>题目</strong>：什么是ThreadLocal内存泄漏？在CTTS项目中如何避免？请结合Tomcat线程池机制分析原因。</p>
+<p><strong>答案要点</strong>：</p>
+<ol type="1">
+<li><strong>现象</strong>：A用户登录后访问接口，偶发性看到B用户的数据，称为"用户串号"。</li>
+<li><strong>根因</strong>：
+<ul>
+<li>Tomcat默认使用线程池（如maxThreads=200）复用线程处理请求。</li>
+<li>ThreadLocal为每个线程独立存储变量，请求结束后若不remove，变量仍残留在线程的ThreadLocalMap中。</li>
+<li>下一个请求复用该线程时，CurrentUserContext.get()读到的是上一个用户的User对象。</li>
+</ul></li>
+<li><strong>避免方法</strong>：
+<ul>
+<li>在LoginInterceptor.afterCompletion中调用CurrentUserContext.remove()。</li>
+<li>afterCompletion无论Controller是否抛异常都会执行，是清理资源的最佳位置。</li>
+<li>不能在postHandle中清理，因为Controller抛异常时postHandle不执行。</li>
+</ul></li>
+<li><strong>扩展</strong>：ThreadLocal的Entry是弱引用key、强引用value，key被回收后value仍存在导致泄漏，remove()清除整个Entry。</li>
+</ol>
+<p><strong>评分标准</strong>（满分10分）：</p>
+<ul>
+<li>现象描述清晰（2分）</li>
+<li>根因分析涉及线程池复用（3分）</li>
+<li>解决方案正确（remove + afterCompletion）（3分）</li>
+<li>提及postHandle不可靠的原因（1分）</li>
+<li>扩展ThreadLocal底层原理（1分）</li>
+</ul>
+<hr />
+<h3 id="17-lw-03-">17-LW-03 ★★</h3>
+<p><strong>题目</strong>：JWT的"无状态"特性是什么？它带来了哪些优势和劣势？在CTTS项目中如何弥补其劣势？</p>
+<p><strong>答案要点</strong>：</p>
+<ol type="1">
+<li><strong>无状态定义</strong>：服务端不存储Session或Token信息，每次请求靠签名算法校验Token合法性。</li>
+<li><strong>优势</strong>：
+<ul>
+<li>易于横向扩展：多服务器无需共享Session，任意节点都能校验。</li>
+<li>减少服务端存储开销：不占用内存/Redis存储Session。</li>
+<li>天然支持移动端和跨域：Token放Header即可。</li>
+</ul></li>
+<li><strong>劣势</strong>：
+<ul>
+<li>无法主动失效：Token签发后在过期前一直有效，改密、注销都无法让旧Token失效。</li>
+<li>Payload可解码：不能放敏感信息。</li>
+<li>续期复杂：无法像Session那样自动滑动过期。</li>
+</ul></li>
+<li><strong>弥补方案</strong>：
+<ul>
+<li>引入Redis黑名单：注销/改密时将Token加入黑名单，拦截器校验是否在黑名单中。</li>
+<li>短有效期+刷新Token：access_token有效期短（如30分钟），refresh_token有效期长（如7天），access_token过期后用refresh_token换取新的。</li>
+<li>密码版本号：User表加password_version字段，改密时+1，Token中放version，拦截器校验版本号是否一致。</li>
+</ul></li>
+</ol>
+<p><strong>评分标准</strong>（满分10分）：</p>
+<ul>
+<li>无状态定义准确（2分）</li>
+<li>优势列举至少2点（2分）</li>
+<li>劣势列举至少2点（3分）</li>
+<li>弥补方案至少2种（3分）</li>
+</ul>
+<hr />
+<h3 id="17-lw-04-">17-LW-04 ★★★</h3>
+<p><strong>题目</strong>：课程思政讨论——越权访问是常见线上事故。请结合CTTS项目分析：如果某个管理员接口忘记加@RequireRole注解，会产生什么后果？作为开发者应如何防范此类问题？</p>
+<p><strong>答案要点</strong>：</p>
+<ol type="1">
+<li><strong>后果分析</strong>：
+<ul>
+<li>接口仅被LoginInterceptor拦截（需登录），但无角色校验。</li>
+<li>任何已登录用户（学生/教师）都能访问管理员接口。</li>
+<li>可能导致普通用户查看/修改他人数据、越权操作，造成数据泄露或破坏。</li>
+<li>典型案例：某大厂曾因接口越权导致数亿用户数据泄露，造成重大经济损失和信誉损害。</li>
+</ul></li>
+<li><strong>防范措施</strong>：
+<ul>
+<li><strong>代码层面</strong>：敏感接口必须加@RequireRole注解，Code
+Review重点检查。</li>
+<li><strong>测试层面</strong>：自动化测试覆盖越权场景（用低权限Token访问高权限接口，断言403）。</li>
+<li><strong>架构层面</strong>：默认拒绝策略——所有/api/**默认需要ADMIN角色，公开接口用@Public标注显式放行。</li>
+<li><strong>流程层面</strong>：上线前安全扫描，越权检测工具（如Burp
+Suite）辅助。</li>
+<li><strong>责任意识</strong>：发现同事接口漏注解应主动提醒，安全是团队共同责任，不是"事不关己"。</li>
+</ul></li>
+<li><strong>思政升华</strong>：作为后端开发者，守护用户数据安全是第一责任。权限边界即安全边界，每一个@RequireRole都是对用户的承诺。</li>
+</ol>
+<p><strong>评分标准</strong>（满分10分）：</p>
+<ul>
+<li>后果分析全面（3分）</li>
+<li>防范措施涉及代码/测试/架构/流程多维度（4分）</li>
+<li>思政升华到位（责任意识、团队协作）（3分）</li>
+</ul>
+<hr />
+<h2 id="六程序阅读补全题2题">六、程序阅读补全题（2题）</h2>
+<h3 id="17-yd-01-">17-YD-01 ★★</h3>
+<p><strong>题目</strong>：阅读以下LoginInterceptor代码，补全①②③处缺失代码。</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Component</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> LoginInterceptor <span class="kw">implements</span> HandlerInterceptor <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> JwtUtil jwtUtil<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">preHandle</span><span class="op">(</span>HttpServletRequest request<span class="op">,</span> HttpServletResponse response<span class="op">,</span> <span class="bu">Object</span> handler<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> authHeader <span class="op">=</span> request<span class="op">.</span><span class="fu">getHeader</span><span class="op">(</span><span class="st">&quot;Authorization&quot;</span><span class="op">);</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>authHeader <span class="op">==</span> <span class="kw">null</span> <span class="op">||</span> <span class="op">!</span>authHeader<span class="op">.</span><span class="fu">startsWith</span><span class="op">(</span><span class="st">&quot;____①____&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            response<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">401</span><span class="op">);</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            response<span class="op">.</span><span class="fu">getWriter</span><span class="op">().</span><span class="fu">write</span><span class="op">(</span><span class="st">&quot;{</span><span class="sc">\&quot;</span><span class="st">code</span><span class="sc">\&quot;</span><span class="st">:401,</span><span class="sc">\&quot;</span><span class="st">message</span><span class="sc">\&quot;</span><span class="st">:</span><span class="sc">\&quot;</span><span class="st">未携带Token</span><span class="sc">\&quot;</span><span class="st">}&quot;</span><span class="op">);</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> token <span class="op">=</span> ____②____<span class="op">;</span>  <span class="co">// 截取Token部分</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            Claims claims <span class="op">=</span> jwtUtil<span class="op">.</span><span class="fu">parseToken</span><span class="op">(</span>token<span class="op">);</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            User user <span class="op">=</span> <span class="kw">new</span> <span class="fu">User</span><span class="op">();</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            user<span class="op">.</span><span class="fu">setId</span><span class="op">(</span>claims<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;userId&quot;</span><span class="op">,</span> <span class="bu">Long</span><span class="op">.</span><span class="fu">class</span><span class="op">));</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            user<span class="op">.</span><span class="fu">setUsername</span><span class="op">(</span>claims<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;username&quot;</span><span class="op">,</span> <span class="bu">String</span><span class="op">.</span><span class="fu">class</span><span class="op">));</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            user<span class="op">.</span><span class="fu">setRole</span><span class="op">(</span>claims<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;role&quot;</span><span class="op">,</span> <span class="bu">String</span><span class="op">.</span><span class="fu">class</span><span class="op">));</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            ____③____<span class="op">;</span>  <span class="co">// 存入ThreadLocal</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">Exception</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            response<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">401</span><span class="op">);</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            response<span class="op">.</span><span class="fu">getWriter</span><span class="op">().</span><span class="fu">write</span><span class="op">(</span><span class="st">&quot;{</span><span class="sc">\&quot;</span><span class="st">code</span><span class="sc">\&quot;</span><span class="st">:401,</span><span class="sc">\&quot;</span><span class="st">message</span><span class="sc">\&quot;</span><span class="st">:</span><span class="sc">\&quot;</span><span class="st">Token非法</span><span class="sc">\&quot;</span><span class="st">}&quot;</span><span class="op">);</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">afterCompletion</span><span class="op">(</span>HttpServletRequest request<span class="op">,</span> HttpServletResponse response<span class="op">,</span> <span class="bu">Object</span> handler<span class="op">,</span> <span class="bu">Exception</span> ex<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        CurrentUserContext<span class="op">.</span><span class="fu">remove</span><span class="op">();</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>答案</strong>：</p>
+<ul>
+<li>① <code>"Bearer "</code></li>
+<li>② <code>authHeader.substring(7)</code></li>
+<li>③ <code>CurrentUserContext.set(user)</code></li>
+</ul>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>① Header前缀必须是"Bearer "（含空格），startsWith校验格式。</li>
+<li>② "Bearer "占7个字符，substring(7)截取后面的token。</li>
+<li>③
+解析出的User对象必须存入ThreadLocal，业务层才能通过CurrentUserContext.getUserId()获取。</li>
+</ul>
+<p><strong>评分标准</strong>（满分6分，每空2分）：</p>
+<ul>
+<li>① 写出"Bearer "（含空格）得2分，漏空格扣1分</li>
+<li>② 写出authHeader.substring(7)得2分</li>
+<li>③ 写出CurrentUserContext.set(user)得2分</li>
+</ul>
+<hr />
+<h3 id="17-yd-02-">17-YD-02 ★★★</h3>
+<p><strong>题目</strong>：阅读以下UserServiceImpl的login方法，补全①②③④处缺失代码。</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Override</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> <span class="fu">login</span><span class="op">(</span><span class="bu">String</span> username<span class="op">,</span> <span class="bu">String</span> password<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    User user <span class="op">=</span> userMapper<span class="op">.</span><span class="fu">selectOne</span><span class="op">(</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">new</span> LambdaQueryWrapper<span class="op">&lt;</span>User<span class="op">&gt;().</span><span class="fu">eq</span><span class="op">(</span>User<span class="op">::</span>getUsername<span class="op">,</span> username<span class="op">)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">);</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>user <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> BusinessException<span class="op">.</span><span class="fu">of</span><span class="op">(</span>____①____<span class="op">,</span> <span class="st">&quot;用户名或密码错误&quot;</span><span class="op">);</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>user<span class="op">.</span><span class="fu">getStatus</span><span class="op">()</span> <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> user<span class="op">.</span><span class="fu">getStatus</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> BusinessException<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">403</span><span class="op">,</span> <span class="st">&quot;账号已被禁用&quot;</span><span class="op">);</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span>____②____<span class="op">.</span><span class="fu">matches</span><span class="op">(</span>password<span class="op">,</span> user<span class="op">.</span><span class="fu">getPassword</span><span class="op">()))</span> <span class="op">{</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> BusinessException<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">401</span><span class="op">,</span> <span class="st">&quot;用户名或密码错误&quot;</span><span class="op">);</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> token <span class="op">=</span> jwtUtil<span class="op">.</span><span class="fu">____</span>③____<span class="op">(</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        user<span class="op">.</span><span class="fu">getId</span><span class="op">(),</span> user<span class="op">.</span><span class="fu">getUsername</span><span class="op">(),</span> user<span class="op">.</span><span class="fu">getRole</span><span class="op">()</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">);</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> result <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;token&quot;</span><span class="op">,</span> token<span class="op">);</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> userInfo <span class="op">=</span> <span class="kw">new</span> <span class="bu">HashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    userInfo<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;id&quot;</span><span class="op">,</span> user<span class="op">.</span><span class="fu">getId</span><span class="op">());</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    userInfo<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;username&quot;</span><span class="op">,</span> user<span class="op">.</span><span class="fu">getUsername</span><span class="op">());</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    userInfo<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;role&quot;</span><span class="op">,</span> user<span class="op">.</span><span class="fu">getRole</span><span class="op">());</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    ____④____<span class="op">;</span>  <span class="co">// 脱敏：清空password</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;userInfo&quot;</span><span class="op">,</span> userInfo<span class="op">);</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>答案</strong>：</p>
+<ul>
+<li>① <code>401</code></li>
+<li>② <code>passwordEncoder</code></li>
+<li>③ <code>generateToken</code></li>
+<li>④ <code>userInfo.put("password", null)</code> 或
+<code>user.setPassword(null)</code>（注：原代码userInfo未放password，此处考查脱敏意识，写任一合理脱敏语句即可）</li>
+</ul>
+<p><strong>解析</strong>：</p>
+<ul>
+<li>① 用户名或密码错误统一返回401，避免泄露"用户名不存在"信息。</li>
+<li>②
+passwordEncoder是BCryptPasswordEncoder实例，matches方法校验密码。</li>
+<li>③ JwtUtil的generateToken方法签发Token。</li>
+<li>④ 脱敏处理，不返回password字段。</li>
+</ul>
+<p><strong>评分标准</strong>（满分8分，每空2分）：</p>
+<ul>
+<li>① 写出401得2分</li>
+<li>② 写出passwordEncoder得2分</li>
+<li>③ 写出generateToken得2分</li>
+<li>④ 写出合理脱敏语句得2分</li>
+</ul>
+<hr />
+<h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
+<h3 id="17-bc-01-">17-BC-01 ★★★</h3>
+<p><strong>题目</strong>：请按CTTS项目规范实现"注销登录"接口，要求：</p>
+<ol type="1">
+<li>接口路径：<code>POST /api/user/logout</code></li>
+<li>需要登录（任意角色）</li>
+<li>注销后旧Token立即失效（提示：可用内存Map模拟Redis黑名单，key为token，value为过期时间）</li>
+<li>返回统一Result格式</li>
+</ol>
+<p>请编写： （1）JwtUtil新增isBlacklisted/addToBlacklist方法
+（2）AuthController的logout方法
+（3）LoginInterceptor中增加黑名单校验</p>
+<p><strong>参考答案</strong>：</p>
+<p>（1）JwtUtil新增方法：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 黑名单（生产环境应用Redis）</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">final</span> <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Long</span><span class="op">&gt;</span> blacklist <span class="op">=</span> <span class="kw">new</span> <span class="bu">ConcurrentHashMap</span><span class="op">&lt;&gt;();</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">addToBlacklist</span><span class="op">(</span><span class="bu">String</span> token<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 存储Token及其原始过期时间，到期后自动清理</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        Claims claims <span class="op">=</span> <span class="fu">parseToken</span><span class="op">(</span>token<span class="op">);</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        blacklist<span class="op">.</span><span class="fu">put</span><span class="op">(</span>token<span class="op">,</span> claims<span class="op">.</span><span class="fu">getExpiration</span><span class="op">().</span><span class="fu">getTime</span><span class="op">());</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">Exception</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Token已过期或非法，无需加入黑名单</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">isBlacklisted</span><span class="op">(</span><span class="bu">String</span> token<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 清理已过期的黑名单Token</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> now <span class="op">=</span> <span class="bu">System</span><span class="op">.</span><span class="fu">currentTimeMillis</span><span class="op">();</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    blacklist<span class="op">.</span><span class="fu">entrySet</span><span class="op">().</span><span class="fu">removeIf</span><span class="op">(</span>e <span class="op">-&gt;</span> e<span class="op">.</span><span class="fu">getValue</span><span class="op">()</span> <span class="op">&lt;</span> now<span class="op">);</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> blacklist<span class="op">.</span><span class="fu">containsKey</span><span class="op">(</span>token<span class="op">);</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>（2）AuthController.logout方法：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/user/logout&quot;</span><span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Void</span><span class="op">&gt;</span> <span class="fu">logout</span><span class="op">(</span><span class="at">@RequestHeader</span><span class="op">(</span><span class="st">&quot;Authorization&quot;</span><span class="op">)</span> <span class="bu">String</span> authHeader<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> token <span class="op">=</span> authHeader<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">7</span><span class="op">);</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    jwtUtil<span class="op">.</span><span class="fu">addToBlacklist</span><span class="op">(</span>token<span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    CurrentUserContext<span class="op">.</span><span class="fu">remove</span><span class="op">();</span>  <span class="co">// 清理当前线程</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span><span class="kw">null</span><span class="op">);</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>（3）LoginInterceptor黑名单校验（在preHandle中Token解析前增加）：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> token <span class="op">=</span> authHeader<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">7</span><span class="op">);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 黑名单校验</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>jwtUtil<span class="op">.</span><span class="fu">isBlacklisted</span><span class="op">(</span>token<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    response<span class="op">.</span><span class="fu">setStatus</span><span class="op">(</span><span class="dv">401</span><span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    response<span class="op">.</span><span class="fu">setContentType</span><span class="op">(</span><span class="st">&quot;application/json;charset=UTF-8&quot;</span><span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    response<span class="op">.</span><span class="fu">getWriter</span><span class="op">().</span><span class="fu">write</span><span class="op">(</span><span class="st">&quot;{</span><span class="sc">\&quot;</span><span class="st">code</span><span class="sc">\&quot;</span><span class="st">:401,</span><span class="sc">\&quot;</span><span class="st">message</span><span class="sc">\&quot;</span><span class="st">:</span><span class="sc">\&quot;</span><span class="st">Token已失效，请重新登录</span><span class="sc">\&quot;</span><span class="st">}&quot;</span><span class="op">);</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">// 后续Token解析逻辑...</span></span></code></pre></div>
+<p><strong>评分标准</strong>（满分15分）：</p>
+<ul>
+<li>JwtUtil黑名单方法设计合理（5分）：需线程安全、自动清理过期项</li>
+<li>Controller注销逻辑正确（4分）：提取Token、加入黑名单、清理ThreadLocal</li>
+<li>拦截器黑名单校验位置正确（4分）：在Token解析前校验</li>
+<li>代码规范、注释、异常处理（2分）</li>
+</ul>
+<hr />
+<h3 id="17-bc-02-">17-BC-02 ★★★</h3>
+<p><strong>题目</strong>：CTTS项目需要新增一个"仅教师可访问、发布实训任务"的接口，要求：</p>
+<ol type="1">
+<li>接口路径：<code>POST /api/teacher/task</code></li>
+<li>仅TEACHER角色可访问</li>
+<li>请求体：<code>{ "title": "任务标题", "description": "任务描述", "deadline": "2024-12-31" }</code></li>
+<li>任务表t_task（id, title, description, deadline, teacher_id,
+create_time）</li>
+<li>teacher_id从当前登录用户获取（不可由前端传入，防止越权）</li>
+<li>返回统一Result格式</li>
+</ol>
+<p>请编写： （1）Task实体类 （2）TaskMapper接口
+（3）TaskService和TaskServiceImpl
+（4）TeacherController的publishTask方法（含@RequireRole注解）</p>
+<p><strong>参考答案</strong>：</p>
+<p>（1）Task实体：</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">time</span><span class="op">.</span><span class="im">LocalDateTime</span><span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">@TableName</span><span class="op">(</span><span class="st">&quot;t_task&quot;</span><span class="op">)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Task <span class="op">{</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@TableId</span><span class="op">(</span>type <span class="op">=</span> IdType<span class="op">.</span><span class="fu">AUTO</span><span class="op">)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> id<span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> title<span class="op">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> description<span class="op">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime deadline<span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> teacherId<span class="op">;</span>  <span class="co">// 从当前登录用户获取，防越权</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">@TableField</span><span class="op">(</span>fill <span class="op">=</span> FieldFill<span class="op">.</span><span class="fu">INSERT</span><span class="op">)</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime createTime<span class="op">;</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>（2）TaskMapper：</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">BaseMapper</span><span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">apache</span><span class="op">.</span><span class="im">ibatis</span><span class="op">.</span><span class="im">annotations</span><span class="op">.</span><span class="im">Mapper</span><span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">@Mapper</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> TaskMapper <span class="kw">extends</span> BaseMapper<span class="op">&lt;</span>Task<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>（3）TaskService和TaskServiceImpl：</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> TaskService <span class="op">{</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Long</span> <span class="fu">publishTask</span><span class="op">(</span>Task task<span class="op">);</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">impl</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">BusinessException</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">context</span><span class="op">.</span><span class="im">CurrentUserContext</span><span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">TaskMapper</span><span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">TaskService</span><span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">RequiredArgsConstructor</span><span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">stereotype</span><span class="op">.</span><span class="im">Service</span><span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="at">@Service</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskServiceImpl <span class="kw">implements</span> TaskService <span class="op">{</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskMapper taskMapper<span class="op">;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Long</span> <span class="fu">publishTask</span><span class="op">(</span>Task task<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 从ThreadLocal获取当前登录用户ID作为teacherId</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 关键：不能信任前端传入的teacherId，防止越权</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Long</span> teacherId <span class="op">=</span> CurrentUserContext<span class="op">.</span><span class="fu">getUserId</span><span class="op">();</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>teacherId <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> BusinessException<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">401</span><span class="op">,</span> <span class="st">&quot;未登录&quot;</span><span class="op">);</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        task<span class="op">.</span><span class="fu">setTeacherId</span><span class="op">(</span>teacherId<span class="op">);</span>  <span class="co">// 强制覆盖，忽略前端传入</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        task<span class="op">.</span><span class="fu">setId</span><span class="op">(</span><span class="kw">null</span><span class="op">);</span>  <span class="co">// 防止前端传入id覆盖</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        taskMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>task<span class="op">);</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> task<span class="op">.</span><span class="fu">getId</span><span class="op">();</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>（4）TeacherController：</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">RequireRole</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">Task</span><span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">.</span><span class="im">TaskService</span><span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">RequiredArgsConstructor</span><span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.*;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/teacher&quot;</span><span class="op">)</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TeacherController <span class="op">{</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> TaskService taskService<span class="op">;</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>     <span class="co">*</span> <span class="co">发布实训任务（仅教师）</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>     <span class="co">*/</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">@RequireRole</span><span class="op">({</span><span class="st">&quot;TEACHER&quot;</span><span class="op">})</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/task&quot;</span><span class="op">)</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Long</span><span class="op">&gt;</span> <span class="fu">publishTask</span><span class="op">(</span><span class="at">@RequestBody</span> TaskDTO dto<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        Task task <span class="op">=</span> <span class="kw">new</span> <span class="fu">Task</span><span class="op">();</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        task<span class="op">.</span><span class="fu">setTitle</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getTitle</span><span class="op">());</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        task<span class="op">.</span><span class="fu">setDescription</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getDescription</span><span class="op">());</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        task<span class="op">.</span><span class="fu">setDeadline</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getDeadline</span><span class="op">());</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Long</span> id <span class="op">=</span> taskService<span class="op">.</span><span class="fu">publishTask</span><span class="op">(</span>task<span class="op">);</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Data</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> TaskDTO <span class="op">{</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> <span class="bu">String</span> title<span class="op">;</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> <span class="bu">String</span> description<span class="op">;</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> java<span class="op">.</span><span class="fu">time</span><span class="op">.</span><span class="fu">LocalDateTime</span> deadline<span class="op">;</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>评分标准</strong>（满分15分）：</p>
+<ul>
+<li>Task实体注解正确（@TableName、@TableId等）（2分）</li>
+<li>TaskMapper继承BaseMapper（1分）</li>
+<li>ServiceImpl从CurrentUserContext获取teacherId（4分，关键防越权点）</li>
+<li>强制覆盖teacherId、清空id防篡改（3分）</li>
+<li>Controller加@RequireRole({"TEACHER"})注解（3分）</li>
+<li>用DTO接收参数而非直接用实体（防字段污染）（2分）</li>
+</ul>
+<p><strong>防越权关键点</strong>：teacher_id必须从ThreadLocal获取，绝不能用前端传入的值，否则学生可伪造teacherId发布任务。</p>
+<hr />
+<h2 id="八题库统计表">八、题库统计表</h2>
+<table>
+<thead>
+<tr>
+<th>题型</th>
+<th>数量</th>
+<th>难度分布</th>
+<th>分值小计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单项选择题</td>
+<td>30</td>
+<td>★×9, ★★×15, ★★★×6</td>
+<td>每题2分，共60分</td>
+</tr>
+<tr>
+<td>多项选择题</td>
+<td>10</td>
+<td>★★×7, ★★★×3</td>
+<td>每题3分，共30分</td>
+</tr>
+<tr>
+<td>判断题</td>
+<td>20</td>
+<td>★×6, ★★×11, ★★★×3</td>
+<td>每题1分，共20分</td>
+</tr>
+<tr>
+<td>填空题</td>
+<td>10</td>
+<td>★×3, ★★×7</td>
+<td>每题2分，共20分</td>
+</tr>
+<tr>
+<td>论述简答题</td>
+<td>4</td>
+<td>★★×2, ★★★×2</td>
+<td>每题10分，共40分</td>
+</tr>
+<tr>
+<td>程序阅读补全</td>
+<td>2</td>
+<td>★★×1, ★★★×1</td>
+<td>每题6-8分，共14分</td>
+</tr>
+<tr>
+<td>编程接口设计</td>
+<td>2</td>
+<td>★★★×2</td>
+<td>每题15分，共30分</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>78</strong></td>
+<td>★×18, ★★×42, ★★★×18</td>
+<td><strong>214分</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="知识点覆盖统计">知识点覆盖统计</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>题目编号</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BCrypt密码加密</td>
+<td>XZ-01,11,21,27,31; DX-07; PD-01,07</td>
+<td>8</td>
+</tr>
+<tr>
+<td>JWT原理与结构</td>
+<td>XZ-02,03,04,12,18,28; DX-02; PD-02,03,09</td>
+<td>9</td>
+</tr>
+<tr>
+<td>拦截器机制</td>
+<td>XZ-08,16,17,23; DX-04,08; PD-05,08,16,18</td>
+<td>10</td>
+</tr>
+<tr>
+<td>ThreadLocal与串号</td>
+<td>XZ-05,06,30; DX-05; PD-04,11; LW-02</td>
+<td>7</td>
+</tr>
+<tr>
+<td>@RequireRole注解</td>
+<td>XZ-07,22; DX-04,08; PD-05,12</td>
+<td>6</td>
+</tr>
+<tr>
+<td>注册与登录流程</td>
+<td>XZ-10,14,19,24,29; PD-06,14; TK-05,09</td>
+<td>9</td>
+</tr>
+<tr>
+<td>角色权限控制</td>
+<td>XZ-13,17,23; DX-06; PD-17; LW-04</td>
+<td>6</td>
+</tr>
+<tr>
+<td>全链路测试</td>
+<td>XZ-25; DX-09; LW-01</td>
+<td>3</td>
+</tr>
+<tr>
+<td>WebMvcConfig配置</td>
+<td>XZ-08; DX-06; PD-18; TK-04</td>
+<td>4</td>
+</tr>
+<tr>
+<td>异常处理与脱敏</td>
+<td>XZ-14,24; PD-14,20; TK-10</td>
+<td>5</td>
+</tr>
+<tr>
+<td>安全防护与拓展</td>
+<td>DX-10; PD-03,10,13,19; LW-03; BC-01,02</td>
+<td>8</td>
+</tr>
+<tr>
+<td>JWT工具类</td>
+<td>XZ-20; TK-02,06</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="难度分布说明">难度分布说明</h3>
+<ul>
+<li><strong>★（基础识记）</strong>：考查概念记忆，如BCrypt格式、JWT三部分、角色码等，适合课前预习检测。</li>
+<li><strong>★★（理解应用）</strong>：考查原理理解和代码应用，如拦截器order、matches参数顺序、ThreadLocal清理等，适合课堂练习。</li>
+<li><strong>★★★（综合分析）</strong>：考查综合分析和问题定位能力，如order反了的后果、ThreadLocal串号根因、越权防范等，适合课后提升和考核。</li>
+</ul>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

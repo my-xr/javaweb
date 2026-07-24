@@ -1,0 +1,494 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web后端开发认知与课程项目导入</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 01 次课 · 教学设计</div>
+      <h1>Web后端开发认知与课程项目导入</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 01 次课</span>
+        <span class="hero-chip"><b>主题</b>Web后端开发认知与课程项目导入</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#知识目标">知识目标</a></li>
+<li><a href="#能力目标">能力目标</a></li>
+<li><a href="#素质目标课程思政">素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三主要知识点纲要">三、主要知识点纲要</a>
+<ul>
+</ul></li>
+<li><a href="#四项目任务或案例任务">四、项目任务或案例任务</a>
+<ul>
+</ul></li>
+<li><a href="#五课堂互动设计">五、课堂互动设计</a>
+<ul>
+<li><a href="#互动-1课前-5-分钟讨论开场导入">互动 1：课前 5 分钟讨论（开场导入）</a></li>
+<li><a href="#互动-2架构辨识小活动讲解-k1-2k1-3-后">互动 2：架构辨识小活动（讲解 K1-2、K1-3 后）</a></li>
+<li><a href="#互动-3项目角色认领讲解-k1-6-时">互动 3：项目角色认领（讲解 K1-6 时）</a></li>
+</ul></li>
+<li><a href="#六课程思政融入点">六、课程思政融入点</a>
+<ul>
+</ul></li>
+<li><a href="#七课堂练习或随堂测验">七、课堂练习或随堂测验</a>
+<ul>
+<li><a href="#随堂练习5-分钟讲解结束前进行">随堂练习（5 分钟，讲解结束前进行）</a></li>
+</ul></li>
+<li><a href="#八课后任务">八、课后任务</a>
+<ul>
+</ul></li>
+<li><a href="#九对应岗位能力或面试考点">九、对应岗位能力或面试考点</a>
+<ul>
+</ul></li>
+<li><a href="#十教学资料与题库索引">十、教学资料与题库索引</a>
+<ul>
+</ul></li>
+<li><a href="#附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 01 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>所属模块：M1 Web 后端开发认知 ｜ 课程：《JavaWeb 后端开发技术》
+配套资料：见同文件夹内
+<code>教学资料.md</code>（学生复习资料）、<code>题库.md</code>（78
+题考试题库）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>次序</td>
+<td>第 1 次课（全课程 24 次之首）</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>理论课</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M1 Web 后端开发认知</td>
+</tr>
+<tr>
+<td>教学主题</td>
+<td>Web 后端开发认知与课程项目导入</td>
+</tr>
+<tr>
+<td>先修基础</td>
+<td>Java 程序设计、面向对象程序设计、数据库原理、SQL 基础</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="知识目标">知识目标</h3>
+<ol type="1">
+<li>理解 B/S 架构与 C/S 架构的区别，明确前后端分离的开发模式。</li>
+<li>理解 Web 后端开发的核心职责：接收请求 → 处理业务 → 访问数据 →
+返回结果。</li>
+<li>了解 Java 后端开发岗位的典型工作内容与企业项目研发流程。</li>
+<li>了解早期 Servlet + JSP
+开发模式及其被现代框架替代的原因（作为背景）。</li>
+<li>明确本课程贯穿项目"校园实训任务管理系统（CTTS）"的业务背景与整体目标。</li>
+</ol>
+<h3 id="能力目标">能力目标</h3>
+<ol type="1">
+<li>能够用自己的语言准确描述"什么是后端开发""前后端分离"。</li>
+<li>能够识别一个 Web 系统中前端、后端、数据库各自承担的职责。</li>
+<li>能够阅读并理解一份简单的项目需求说明书，明确系统角色与核心业务。</li>
+</ol>
+<h3 id="素质目标课程思政">素质目标（课程思政）</h3>
+<ol type="1">
+<li>树立"技术服务于真实问题"的工程价值观——用所学技术改善校园实训管理。</li>
+<li>培养对国产开源生态与自主创新技术的认同感。</li>
+<li>建立"软件质量责任"的初步意识——后端开发关乎数据与系统稳定。</li>
+</ol>
+<hr />
+<h2 id="三主要知识点纲要">三、主要知识点纲要</h2>
+<blockquote>
+<p>详细讲解内容见同文件夹 <code>教学资料.md</code>，此处为纲要。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>知识点</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K1-1</td>
+<td>什么是 Web 后端开发</td>
+<td>后端 = 接收请求 + 处理业务 + 访问数据 +
+返回结果；后端运行在服务器端</td>
+</tr>
+<tr>
+<td>K1-2</td>
+<td>B/S 架构与 C/S 架构</td>
+<td>B/S 浏览器/服务器、C/S 客户端/服务器；B/S 零安装、易维护，是 Web
+主流</td>
+</tr>
+<tr>
+<td>K1-3</td>
+<td>前后端分离</td>
+<td>前端负责界面展示，后端负责数据与业务，通过 API（JSON）通信；对比传统
+JSP 混合模式</td>
+</tr>
+<tr>
+<td>K1-4</td>
+<td>后端开发岗位与企业项目流程</td>
+<td>岗位职责、需求→设计→开发→联调→测试→部署→维护</td>
+</tr>
+<tr>
+<td>K1-5</td>
+<td>Servlet + JSP 历史背景（背景讲解）</td>
+<td>早期 JavaWeb 方式及其痛点，为何现代转向 Spring
+Boot；仅作背景，不作主线</td>
+</tr>
+<tr>
+<td>K1-6</td>
+<td>课程项目导入：CTTS</td>
+<td>校园实训任务管理系统，三角色五表，八阶段构建</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四项目任务或案例任务">四、项目任务或案例任务</h2>
+<h3
+id="贯穿项目导入校园实训任务管理系统ctts">贯穿项目导入：校园实训任务管理系统（CTTS）</h3>
+<p><strong>本次课任务</strong>：</p>
+<ol type="1">
+<li>教师下发《CTTS 项目需求说明书（简版）》，介绍系统业务背景。</li>
+<li>学生分组（每组 4~5
+人），认领项目角色（学生/教师/管理员视角），从不同角色立场阅读需求。</li>
+<li>每组用 5
+分钟口头描述：从你认领角色的角度看，这个系统需要哪些核心功能？</li>
+</ol>
+<p><strong>项目背景概述</strong>（详见 <code>教学资料.md</code>
+综合示例）：</p>
+<ul>
+<li>系统名称：校园实训任务管理系统（Campus Training Task
+System，CTTS）</li>
+<li>三种角色：学生、教师、管理员</li>
+<li>五张核心表：sys_user、training_project、task、task_submission、task_review</li>
+<li>课程八阶段逐步构建，本课程结束时交付可运行、可演示、可部署的后端项目</li>
+</ul>
+<blockquote>
+<p>📌 本节课不写代码，重点是理解项目、建立全局认知。代码开发从第 3
+次课开始。</p>
+</blockquote>
+<hr />
+<h2 id="五课堂互动设计">五、课堂互动设计</h2>
+<h3 id="互动-1课前-5-分钟讨论开场导入">互动 1：课前 5
+分钟讨论（开场导入）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>"在你理解中，后端开发到底是做什么的？和你学过的 Java
+程序设计有什么不同？"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>自由发言，教师板书关键词，不评判对错</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>提到"服务器""数据库""处理请求""写接口""不画界面"等关键词</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>肯定合理认知，纠正"后端=写 SQL""后端=运维"等偏差；引出 K1-1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-2架构辨识小活动讲解-k1-2k1-3-后">互动
+2：架构辨识小活动（讲解 K1-2、K1-3 后）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动问题</td>
+<td>给出 5 个常见软件（微信 PC 版、淘宝网页版、手机银行
+APP、在线文档、教务系统网页版），请学生判断哪些是 B/S、哪些是
+C/S，哪些是前后端分离</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>全班举手投票，少数派陈述理由</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>能区分 B/S 与 C/S；对"前后端分离"判断可能有分歧</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>强调 B/S 不等于前后端分离（JSP 也是 B/S
+但未分离）；引出现代后端开发主流模式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互动-3项目角色认领讲解-k1-6-时">互动 3：项目角色认领（讲解 K1-6
+时）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互动任务</td>
+<td>分组认领 CTTS 角色，从该角色视角列出"我最希望系统有的 3 个功能"</td>
+</tr>
+<tr>
+<td>组织方式</td>
+<td>小组讨论 5 分钟 → 每组派代表发言 1 分钟</td>
+</tr>
+<tr>
+<td>预期学生输出</td>
+<td>学生视角：查看任务、提交成果、看成绩；教师视角：发布任务、评审、看进度；管理员视角：管用户、管项目</td>
+</tr>
+<tr>
+<td>教师点评要点</td>
+<td>引导发现"同一系统不同角色需求不同"，这正是后端要做权限控制的原因（伏笔，第
+6 模块）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六课程思政融入点">六、课程思政融入点</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>融入点</td>
+<td>用技术解决真实问题：CTTS
+是为了改善校园实训管理中"任务下发混乱、提交易丢失、评审难追溯"的真实痛点</td>
+</tr>
+<tr>
+<td>技术关联</td>
+<td>后端开发的本质是"用技术解决业务问题"，而非堆砌技术</td>
+</tr>
+<tr>
+<td>引导问题</td>
+<td>"如果让你手动统计全班 40
+人的实训任务提交与评审情况，你会遇到什么麻烦？一个系统能解决什么？"</td>
+</tr>
+<tr>
+<td>预期价值目标</td>
+<td>树立"技术服务社会、解决真实问题"的工程价值观；激发学生学习内驱力——所学即所用</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>思政自然融入，不空喊口号。通过真实校园痛点让学生体会"为什么要学后端开发"。</p>
+</blockquote>
+<hr />
+<h2 id="七课堂练习或随堂测验">七、课堂练习或随堂测验</h2>
+<h3 id="随堂练习5-分钟讲解结束前进行">随堂练习（5
+分钟，讲解结束前进行）</h3>
+<p><strong>判断题（口头快速作答）</strong>：</p>
+<ol type="1">
+<li>B/S 架构的软件都需要在客户端安装专门的程序。（✗）</li>
+<li>前后端分离后，前端和后端可以由不同团队并行开发。（✓）</li>
+<li>JSP 页面中既写 HTML 又写 Java
+代码，属于前后端分离的开发模式。（✗）</li>
+<li>后端开发的核心职责包括接收请求、处理业务、访问数据、返回结果。（✓）</li>
+</ol>
+<blockquote>
+<p>详细题目与解析见
+<code>题库.md</code>。此处仅作课堂快速互动，不计分。</p>
+</blockquote>
+<hr />
+<h2 id="八课后任务">八、课后任务</h2>
+<ol type="1">
+<li><strong>阅读</strong>：通读同文件夹
+<code>教学资料.md</code>，重点理解 B/S
+架构、前后端分离、后端开发职责。</li>
+<li><strong>思考</strong>：用 200 字描述"前后端分离与传统 JSP
+模式的区别"，下次课抽查。</li>
+<li><strong>项目准备</strong>：每组讨论并提交一份《CTTS
+角色功能清单》（1 页），列出三种角色各自期望的核心功能（至少各 5
+条）。</li>
+<li><strong>环境准备（可选预习）</strong>：安装 JDK 17、IntelliJ
+IDEA、MySQL 8.x、Apifox/Postman，为第 3 次课搭建项目做准备。</li>
+<li><strong>拓展阅读</strong>：了解 Apache、Tomcat、Nginx 等 Web
+服务器的基本概念（选做）。</li>
+</ol>
+<hr />
+<h2 id="九对应岗位能力或面试考点">九、对应岗位能力或面试考点</h2>
+<table>
+<thead>
+<tr>
+<th>岗位能力/面试考点</th>
+<th>本次课对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>理解 B/S 架构与前后端分离（面试高频基础题）</td>
+<td>K1-2、K1-3</td>
+</tr>
+<tr>
+<td>能清晰表述后端开发职责（面试自我介绍与技术认知）</td>
+<td>K1-1、K1-4</td>
+</tr>
+<tr>
+<td>了解企业项目研发流程（沟通协作基础）</td>
+<td>K1-4</td>
+</tr>
+<tr>
+<td>理解为什么现代项目用 Spring Boot 而非
+Servlet/JSP（技术选型认知）</td>
+<td>K1-5</td>
+</tr>
+<tr>
+<td>需求理解与角色视角（项目协作基础）</td>
+<td>K1-6</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面试常考"请说一下你对前后端分离的理解""B/S 和 C/S
+的区别""后端开发平时做什么"等，均属本次课范围。</p>
+</blockquote>
+<hr />
+<h2 id="十教学资料与题库索引">十、教学资料与题库索引</h2>
+<table>
+<thead>
+<tr>
+<th>资料类型</th>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学生复习资料</td>
+<td><code>教学资料.md</code>（同文件夹）</td>
+<td>6 个知识点详解 + CTTS 项目导入 + 思维导图 + 复习思考题</td>
+</tr>
+<tr>
+<td>考试题库</td>
+<td><code>题库.md</code>（同文件夹）</td>
+<td>78 题（40 选择 + 20 判断 + 10 填空 + 4 论述简答 + 2 程序阅读补全 + 2
+编程接口设计），含答案解析与评分标准</td>
+</tr>
+<tr>
+<td>课程总览</td>
+<td><code>../00 课程设计总览.md</code></td>
+<td>课程整体框架与 24 次课进度</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附课堂时间分配建议90-分钟">附：课堂时间分配建议（90 分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~10 min</td>
+<td>课前 5 分钟讨论 + 课程介绍</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>10~30 min</td>
+<td>知识点 K1-1、K1-2：后端开发职责 + B/S 架构</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>30~45 min</td>
+<td>知识点 K1-3：前后端分离 + 架构辨识互动</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>45~60 min</td>
+<td>知识点 K1-4、K1-5：岗位与企业流程 + Servlet/JSP 背景</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>60~80 min</td>
+<td>知识点 K1-6：CTTS 项目导入 + 分组角色认领</td>
+<td>20 min</td>
+</tr>
+<tr>
+<td>80~85 min</td>
+<td>随堂练习</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>85~90 min</td>
+<td>小结 + 课后任务布置</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

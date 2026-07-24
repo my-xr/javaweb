@@ -1,0 +1,529 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>综合项目实践二权限与异常整合</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 22 次课 · 教学设计</div>
+      <h1>综合项目实践二权限与异常整合</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 22 次课</span>
+        <span class="hero-chip"><b>主题</b>综合项目实践二权限与异常整合</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程信息">一、课程信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#21-知识目标">2.1 知识目标</a></li>
+<li><a href="#22-能力目标">2.2 能力目标</a></li>
+<li><a href="#23-素质目标课程思政">2.3 素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三教学重点与难点">三、教学重点与难点</a>
+<ul>
+<li><a href="#31-教学重点">3.1 教学重点</a></li>
+<li><a href="#32-教学难点">3.2 教学难点</a></li>
+<li><a href="#33-重点难点突破策略">3.3 重点难点突破策略</a></li>
+</ul></li>
+<li><a href="#四学情分析">四、学情分析</a>
+<ul>
+</ul></li>
+<li><a href="#五教学方法">五、教学方法</a>
+<ul>
+</ul></li>
+<li><a href="#六教学准备">六、教学准备</a>
+<ul>
+<li><a href="#61-教师准备">6.1 教师准备</a></li>
+<li><a href="#62-学生准备">6.2 学生准备</a></li>
+<li><a href="#63-环境准备">6.3 环境准备</a></li>
+<li><a href="#71-验收标准">7.1 验收标准</a></li>
+</ul></li>
+<li><a href="#八课程思政设计">八、课程思政设计</a>
+<ul>
+<li><a href="#81-思政元素">8.1 思政元素</a></li>
+<li><a href="#82-融入方式">8.2 融入方式</a></li>
+</ul></li>
+<li><a href="#九教学评价">九、教学评价</a>
+<ul>
+<li><a href="#91-过程性评价60">9.1 过程性评价（60%）</a></li>
+<li><a href="#92-结果性评价40">9.2 结果性评价（40%）</a></li>
+<li><a href="#93-评价标准">9.3 评价标准</a></li>
+</ul></li>
+<li><a href="#十教学反思课后填写">十、教学反思（课后填写）</a>
+<ul>
+</ul></li>
+<li><a href="#十一课后作业">十一、课后作业</a>
+<ul>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 22 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<blockquote>
+<p>课程：Java Web 后端开发技术 · CTTS 校园实训任务管理系统 模块：M7
+综合项目开发 · 课型：实践课 · 学时：2学时（90分钟）</p>
+</blockquote>
+<hr />
+<h2 id="一课程信息">一、课程信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>Java Web 后端开发技术</td>
+</tr>
+<tr>
+<td>课题名称</td>
+<td>综合项目实践二：权限与异常整合</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M7 综合项目开发</td>
+</tr>
+<tr>
+<td>课型</td>
+<td>实践课</td>
+</tr>
+<tr>
+<td>学时</td>
+<td>2 学时（90 分钟）</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程 / 计算机科学与技术专业本科三年级</td>
+</tr>
+<tr>
+<td>先修内容</td>
+<td>第21次课（业务接口开发）、JWT 认证、MyBatis-Plus、Knife4j</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java 17 + Spring Boot 3.x + MyBatis-Plus + MySQL + JWT +
+Knife4j</td>
+</tr>
+<tr>
+<td>项目背景</td>
+<td>CTTS 校园实训任务管理系统（学生/教师/管理员三角色，5 张表）</td>
+</tr>
+<tr>
+<td>包名</td>
+<td>com.ctts</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="21-知识目标">2.1 知识目标</h3>
+<ol type="1">
+<li>掌握 JWT 拦截器与 Spring MVC <code>HandlerInterceptor</code>
+的整合流程。</li>
+<li>理解自定义注解 <code>@RequireRole</code>
+配合拦截器实现声明式权限控制的原理。</li>
+<li>掌握 <code>@RestControllerAdvice</code> +
+<code>@ExceptionHandler</code> 全局异常处理体系。</li>
+<li>理解统一响应 <code>Result&lt;T&gt;</code>
+在分层架构中的规范作用。</li>
+<li>掌握 SLF4J + Logback 日志配置与使用方法。</li>
+</ol>
+<h3 id="22-能力目标">2.2 能力目标</h3>
+<ol type="1">
+<li>能将 JWT 认证拦截器配置到全部业务接口，完成登录态校验。</li>
+<li>能使用 <code>@RequireRole</code> 注解为各 Controller
+接口标注角色权限。</li>
+<li>能编写
+<code>GlobalExceptionHandler</code>，分类处理校验异常、业务异常、权限异常与兜底异常。</li>
+<li>能将原有 Controller 返回值统一改造为 <code>Result&lt;T&gt;</code>
+结构。</li>
+<li>能独立完成越权访问、Token 伪造、参数篡改三类安全自查。</li>
+</ol>
+<h3 id="23-素质目标课程思政">2.3 素质目标（课程思政）</h3>
+<ol type="1">
+<li><strong>质量责任意识</strong>：上线前自检是工程师的基本素养，不放过任何一个权限漏洞。</li>
+<li><strong>严谨求实态度</strong>：通过交叉审查与测试用例发现潜在缺陷，践行"对代码负责"。</li>
+<li><strong>安全合规意识</strong>：理解最小权限原则，树立"安全设计优先"的工程价值观。</li>
+</ol>
+<hr />
+<h2 id="三教学重点与难点">三、教学重点与难点</h2>
+<h3 id="31-教学重点">3.1 教学重点</h3>
+<ol type="1">
+<li>JWT 拦截器的注册与放行路径配置。</li>
+<li><code>@RequireRole</code> 注解 + <code>RoleInterceptor</code>
+的声明式权限控制实现。</li>
+<li><code>GlobalExceptionHandler</code>
+对五类异常的分类处理与统一返回。</li>
+<li><code>Result&lt;T&gt;</code> 对所有 Controller 的统一改造。</li>
+</ol>
+<h3 id="32-教学难点">3.2 教学难点</h3>
+<ol type="1">
+<li>拦截器执行顺序与异常处理器的协同（拦截器抛出异常时如何被全局处理器捕获）。</li>
+<li>自定义注解的反射读取与角色匹配逻辑。</li>
+<li>越权访问测试用例的设计与执行。</li>
+<li>在改造旧接口时不破坏原有业务逻辑的回归验证。</li>
+</ol>
+<h3 id="33-重点难点突破策略">3.3 重点难点突破策略</h3>
+<ul>
+<li><strong>分层演示法</strong>：先认证后权限再异常，由外到内逐层加固。</li>
+<li><strong>对比教学法</strong>：改造前后 Controller
+代码并排展示，直观感受 <code>Result&lt;T&gt;</code> 的统一价值。</li>
+<li><strong>交叉审查法</strong>：学生两两结对互测对方接口，模拟真实 Code
+Review。</li>
+<li><strong>漏洞复现法</strong>：通过 Postman/Knife4j
+实际构造越权请求，让漏洞"可见"。</li>
+</ul>
+<hr />
+<h2 id="四学情分析">四、学情分析</h2>
+<ul>
+<li>学生已完成第21次课全部业务接口开发，5 张表的 CRUD
+均已实现，但接口处于"裸奔"状态：无认证、无权限、无统一异常、无统一响应。</li>
+<li>学生在前序课程中已学习 JWT
+原理、全局异常处理、统一响应等知识，但尚未整合到统一项目中。</li>
+<li>部分学生对自定义注解 +
+反射的组合用法不够熟练，需要在课堂上演示完整链路。</li>
+<li>学生安全意识薄弱，对越权、Token
+伪造等攻击手段缺乏直观认识，需要通过实战自查建立认知。</li>
+</ul>
+<hr />
+<h2 id="五教学方法">五、教学方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>应用环节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>任务驱动法</td>
+<td>以6项实践任务为主线推进课堂</td>
+</tr>
+<tr>
+<td>分层演示法</td>
+<td>认证→权限→异常→响应→日志→自查逐层加固</td>
+</tr>
+<tr>
+<td>对比教学法</td>
+<td>改造前后 Controller 代码并排展示</td>
+</tr>
+<tr>
+<td>交叉审查法</td>
+<td>学生两两结对互测对方接口</td>
+</tr>
+<tr>
+<td>案例复现法</td>
+<td>构造越权请求让漏洞可见</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六教学准备">六、教学准备</h2>
+<h3 id="61-教师准备">6.1 教师准备</h3>
+<ul>
+<li>CTTS 项目第21次课完整代码（已实现5张表 CRUD）。</li>
+<li>整合后的参考实现代码（含拦截器、异常处理器、<code>@RequireRole</code>、<code>Result&lt;T&gt;</code>、日志配置）。</li>
+<li>Postman 集合文件（含三类漏洞自查测试用例）。</li>
+<li>演示用思维导图：权限与异常整合架构图。</li>
+</ul>
+<h3 id="62-学生准备">6.2 学生准备</h3>
+<ul>
+<li>携带第21次课完成的 CTTS 项目代码。</li>
+<li>安装 Postman 或使用 Knife4j 在线调试界面。</li>
+<li>复习 JWT
+拦截器、<code>@RestControllerAdvice</code>、统一响应相关知识点。</li>
+</ul>
+<h3 id="63-环境准备">6.3 环境准备</h3>
+<ul>
+<li>JDK 17、Maven 3.8+、MySQL 8.0、IDEA 2023.x。</li>
+<li>项目依赖：Spring Boot
+3.x、MyBatis-Plus、jjwt、knife4j-openapi3-jakarta-sdk。</li>
+</ul>
+<hr />
+<h2
+id="七教学过程与时间分配90分钟">七、教学过程与时间分配（90分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时长</th>
+<th>环节</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5min</td>
+<td>课前回顾与目标导入</td>
+<td>回顾第21次课5张表接口现状（裸奔状态），引出"上线前必须自检"的质量责任主题</td>
+<td>倾听、记录</td>
+<td>课程思政切入，明确本节课目标</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8min</td>
+<td>任务1：整合JWT认证拦截器</td>
+<td>演示 <code>JwtInterceptor</code> 注册到
+<code>WebMvcConfig</code>，配置放行路径（登录、Knife4j）</td>
+<td>跟随编码、启动项目验证</td>
+<td>建立登录态校验第一道防线</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10min</td>
+<td>任务2：整合角色权限控制</td>
+<td>演示自定义 <code>@RequireRole</code>
+注解、<code>RoleInterceptor</code> 反射读取注解、各 Controller
+标注权限</td>
+<td>编码实现、Postman 测试不同角色访问</td>
+<td>掌握声明式权限控制</td>
+</tr>
+<tr>
+<td>4</td>
+<td>10min</td>
+<td>任务3：整合全局异常处理</td>
+<td>演示 <code>GlobalExceptionHandler</code>
+处理5类异常：校验异常/业务异常/权限异常/参数缺失/兜底异常</td>
+<td>编码实现、构造异常请求验证</td>
+<td>掌握全局异常体系</td>
+</tr>
+<tr>
+<td>5</td>
+<td>8min</td>
+<td>任务4：整合统一响应Result<T></td>
+<td>对比改造前后 Controller，演示 <code>Result.success()</code> /
+<code>Result.fail()</code> 应用到全部接口</td>
+<td>批量改造 Controller、回归测试</td>
+<td>体会统一规范价值</td>
+</tr>
+<tr>
+<td>6</td>
+<td>7min</td>
+<td>任务5：整合日志记录</td>
+<td>演示 <code>logback-spring.xml</code> 配置、<code>@Slf4j</code>
+使用、关键操作日志记录</td>
+<td>配置日志、观察控制台与日志文件</td>
+<td>掌握日志配置与使用</td>
+</tr>
+<tr>
+<td>7</td>
+<td>15min</td>
+<td>任务6：权限漏洞自查</td>
+<td>演示三类漏洞自查：越权访问、Token伪造、参数篡改；发放自查清单</td>
+<td>按清单逐项测试、记录问题</td>
+<td>安全意识与自查能力</td>
+</tr>
+<tr>
+<td>8</td>
+<td>15min</td>
+<td>课堂互动：代码交叉审查</td>
+<td>组织学生两两结对，互相审查对方接口、互测漏洞</td>
+<td>结对审查、提交审查报告</td>
+<td>模拟真实Code Review，培养质量责任</td>
+</tr>
+<tr>
+<td>9</td>
+<td>7min</td>
+<td>阶段成果展示与点评</td>
+<td>邀请2-3组展示自查发现的问题与修复方案，教师点评</td>
+<td>展示、互评、反思</td>
+<td>经验共享与提升</td>
+</tr>
+<tr>
+<td>10</td>
+<td>5min</td>
+<td>课程思政总结与作业布置</td>
+<td>总结"上线前自检是工程师基本素养"，布置课后完善任务</td>
+<td>倾听、记录</td>
+<td>强化质量责任意识</td>
+</tr>
+</tbody>
+</table>
+<h3 id="71-验收标准">7.1 验收标准</h3>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>验收标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>任务1 JWT认证</td>
+<td>未携带 Token 访问任意业务接口返回 401；登录接口、Knife4j
+文档可正常访问</td>
+</tr>
+<tr>
+<td>任务2 角色权限</td>
+<td>学生 Token 访问教师/管理员接口返回 403；管理员 Token
+可访问全部接口</td>
+</tr>
+<tr>
+<td>任务3 异常处理</td>
+<td>参数校验失败、业务异常、权限异常均返回统一 <code>Result</code>
+结构且 code 正确</td>
+</tr>
+<tr>
+<td>任务4 统一响应</td>
+<td>全部 Controller 返回 <code>Result&lt;T&gt;</code>，Knife4j
+文档模型正确显示</td>
+</tr>
+<tr>
+<td>任务5 日志</td>
+<td>关键操作（登录、增删改）写入日志文件，控制台彩色输出</td>
+</tr>
+<tr>
+<td>任务6 漏洞自查</td>
+<td>三类漏洞自查清单全部通过，无越权、无伪造、无篡改风险</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="八课程思政设计">八、课程思政设计</h2>
+<h3 id="81-思政元素">8.1 思政元素</h3>
+<ul>
+<li><strong>质量责任</strong>：上线前自检是工程师的基本素养，任何权限漏洞都可能造成数据泄露。</li>
+<li><strong>严谨求实</strong>：通过交叉审查与测试用例发现缺陷，践行"对代码负责"。</li>
+<li><strong>安全合规</strong>：最小权限原则是系统安全的基石，权限设计应"宁紧勿松"。</li>
+</ul>
+<h3 id="82-融入方式">8.2 融入方式</h3>
+<ul>
+<li><strong>导入环节</strong>：以真实数据泄露案例（如某高校教务系统越权查询成绩）切入，唤起安全意识。</li>
+<li><strong>实践环节</strong>：漏洞自查环节让学生亲自构造攻击请求，体会"漏洞就在身边"。</li>
+<li><strong>总结环节</strong>：引用"代码如施工，质量即生命"，强调工程师的质量责任。</li>
+</ul>
+<hr />
+<h2 id="九教学评价">九、教学评价</h2>
+<h3 id="91-过程性评价60">9.1 过程性评价（60%）</h3>
+<table>
+<thead>
+<tr>
+<th>评价项</th>
+<th>权重</th>
+<th>评价方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6项实践任务完成度</td>
+<td>30%</td>
+<td>教师巡场检查 + 验收标准对照</td>
+</tr>
+<tr>
+<td>漏洞自查清单通过率</td>
+<td>15%</td>
+<td>自查报告提交</td>
+</tr>
+<tr>
+<td>交叉审查参与度与质量</td>
+<td>15%</td>
+<td>审查报告 + 同伴互评</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-结果性评价40">9.2 结果性评价（40%）</h3>
+<table>
+<thead>
+<tr>
+<th>评价项</th>
+<th>权重</th>
+<th>评价方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目最终运行状态</td>
+<td>20%</td>
+<td>教师验收</td>
+</tr>
+<tr>
+<td>代码规范与注释</td>
+<td>10%</td>
+<td>代码审查</td>
+</tr>
+<tr>
+<td>思政感悟与总结</td>
+<td>10%</td>
+<td>课后反思提交</td>
+</tr>
+</tbody>
+</table>
+<h3 id="93-评价标准">9.3 评价标准</h3>
+<ul>
+<li><strong>优秀（90-100）</strong>：6项任务全部完成，漏洞自查零遗漏，交叉审查发现2个以上真实问题。</li>
+<li><strong>良好（80-89）</strong>：6项任务完成，漏洞自查通过，交叉审查能发现1个问题。</li>
+<li><strong>合格（60-79）</strong>：4项以上任务完成，基本通过漏洞自查。</li>
+<li><strong>不合格（&lt;60）</strong>：任务完成不足4项，存在明显未修复漏洞。</li>
+</ul>
+<hr />
+<h2 id="十教学反思课后填写">十、教学反思（课后填写）</h2>
+<table>
+<thead>
+<tr>
+<th>反思维度</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标达成度</td>
+<td>6项实践任务完成率 ___%，漏洞自查通过率 ___%</td>
+</tr>
+<tr>
+<td>学生难点</td>
+<td>自定义注解反射读取、越权测试用例设计是否仍困难</td>
+</tr>
+<tr>
+<td>教学策略</td>
+<td>分层演示与交叉审查是否有效</td>
+</tr>
+<tr>
+<td>改进方向</td>
+<td>是否需要增加安全攻防专题、是否需要补充拦截器源码解析</td>
+</tr>
+<tr>
+<td>思政效果</td>
+<td>学生质量责任意识是否通过自查环节得到强化</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="十一课后作业">十一、课后作业</h2>
+<ol type="1">
+<li>完善权限漏洞自查清单中未通过项，提交修复代码与自查报告。</li>
+<li>为 CTTS 项目补充接口限流（如使用 Bucket4j），防止恶意刷接口。</li>
+<li>撰写一份 500 字课程思政反思，谈谈"上线前自检"对工程师的意义。</li>
+<li>预习第23次课：CTTS 项目前端对接与联调。</li>
+</ol>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>

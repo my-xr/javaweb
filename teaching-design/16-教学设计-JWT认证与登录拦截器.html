@@ -1,0 +1,480 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JWT认证与登录拦截器</title>
+  <link rel="stylesheet" href="assets/course-html.css">
+  <link rel="stylesheet" href="assets/highlight-local.css">
+  <script src="assets/vue-sfc-highlight.js" defer></script>
+  <script src="assets/course-html.js" defer></script>
+</head>
+<body>
+  <a class="archive-home-link" href="index.html" aria-label="回到首页" title="回到首页">首页</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="course-name">Java Web后端开发技术</div>
+      <div class="kicker">第 16 次课 · 教学设计</div>
+      <h1>JWT认证与登录拦截器</h1>
+      <p>面向教师授课组织、课堂流程、知识点拆解与评价设计 ｜ 技术线：Spring Boot + Maven + MyBatis + RESTful API + JWT</p>
+      <div class="hero-meta">
+        <span class="hero-chip"><b>课程</b>Java Web后端开发技术</span>
+        <span class="hero-chip"><b>课次</b>第 16 次课</span>
+        <span class="hero-chip"><b>主题</b>JWT认证与登录拦截器</span>
+      </div>
+    </div>
+  </header>
+  <button class="toc-float-toggle" type="button">目录</button>
+  <div class="layout">
+    <aside class="sidebar" aria-label="页面目录">
+      <div class="toc-heading"><span>目录</span><button class="toc-toggle" type="button">收起</button></div>
+      <ul>
+<li><a href="#一课程基本信息">一、课程基本信息</a>
+<ul>
+</ul></li>
+<li><a href="#二教学目标">二、教学目标</a>
+<ul>
+<li><a href="#21-知识目标">2.1 知识目标</a></li>
+<li><a href="#22-能力目标">2.2 能力目标</a></li>
+<li><a href="#23-素质目标课程思政">2.3 素质目标（课程思政）</a></li>
+</ul></li>
+<li><a href="#三教学重点">三、教学重点</a>
+<ul>
+</ul></li>
+<li><a href="#四教学难点">四、教学难点</a>
+<ul>
+</ul></li>
+<li><a href="#五学情分析">五、学情分析</a>
+<ul>
+</ul></li>
+<li><a href="#六教学方法">六、教学方法</a>
+<ul>
+</ul></li>
+<li><a href="#七教学准备">七、教学准备</a>
+<ul>
+</ul></li>
+<li><a href="#九课程思政融入">九、课程思政融入</a>
+<ul>
+</ul></li>
+<li><a href="#十教学评价与反思">十、教学评价与反思</a>
+<ul>
+<li><a href="#101-教学评价">10.1 教学评价</a></li>
+<li><a href="#102-教学反思课后填写">10.2 教学反思（课后填写）</a></li>
+<li><a href="#103-改进方向">10.3 改进方向</a></li>
+</ul></li>
+</ul>
+
+    </aside>
+    <main class="content">
+      <article class="article">
+        <p class="doc-meta"><strong>课程：</strong>Java Web后端开发技术 <span>｜</span> <strong>课次：</strong>第 16 次课 <span>｜</span> <strong>文档：</strong>教学设计</p>
+<h2 id="一课程基本信息">一、课程基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>Java Web后端开发技术</td>
+</tr>
+<tr>
+<td>授课对象</td>
+<td>软件工程/计算机科学与技术专业 本科三年级</td>
+</tr>
+<tr>
+<td>课时安排</td>
+<td>2学时（90分钟）</td>
+</tr>
+<tr>
+<td>授课类型</td>
+<td>理论课（含代码演示）</td>
+</tr>
+<tr>
+<td>所属模块</td>
+<td>M6 登录认证与权限控制（第2讲）</td>
+</tr>
+<tr>
+<td>项目载体</td>
+<td>CTTS校园实训任务管理系统</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Java 17 + Spring Boot 3.x + MyBatis-Plus + MySQL 8.x + jjwt</td>
+</tr>
+<tr>
+<td>包名约定</td>
+<td>com.ctts</td>
+</tr>
+<tr>
+<td>前置课程</td>
+<td>第15次课 用户注册登录与密码加密（BCrypt + Session/Token 对比）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二教学目标">二、教学目标</h2>
+<h3 id="21-知识目标">2.1 知识目标</h3>
+<ul>
+<li>K1：能够复述 JWT 的三段结构（Header 头部、Payload 载荷、Signature
+签名），并说明每段的作用与编码方式。</li>
+<li>K2：能够阐述 HS256 签名算法的原理（HMAC + SHA-256 +
+密钥），并能说明"为什么签名能防篡改"。</li>
+<li>K3：能够说明 jjwt 库生成与解析 Token 的核心
+API（<code>Jwts.builder()</code>、<code>Jwts.parser()</code>、<code>Claims</code>）。</li>
+<li>K4：能够阐述 <code>HandlerInterceptor</code>
+接口三个方法（<code>preHandle</code>/<code>postHandle</code>/<code>afterCompletion</code>）的执行时机与作用。</li>
+<li>K5：能够说明 <code>WebMvcConfigurer</code> 的
+<code>addInterceptors</code>
+方法注册拦截器的机制，并能区分拦截路径与排除路径。</li>
+<li>K6：能够阐述基于 Token 中 role
+字段实现简单角色权限控制的思路（拦截器校验或注解校验）。</li>
+</ul>
+<h3 id="22-能力目标">2.2 能力目标</h3>
+<ul>
+<li>A1：能够独立在 <code>pom.xml</code> 中添加 jjwt
+依赖（<code>jjwt-api</code>/<code>jjwt-impl</code>/<code>jjwt-jackson</code>）。</li>
+<li>A2：能够独立编写 <code>JwtUtil</code> 工具类，实现生成 Token（含
+userId/username/role claims）、解析 Token、验证过期。</li>
+<li>A3：能够独立实现 <code>LoginInterceptor</code> 拦截器，从
+<code>Authorization</code> Header 获取 Bearer Token 并校验。</li>
+<li>A4：能够独立实现 <code>WebMvcConfig</code>
+配置类，注册拦截器并配置拦截/排除路径（登录、注册、Knife4j 放行）。</li>
+<li>A5：能够改造登录接口，登录成功返回 JWT Token。</li>
+<li>A6：能够使用 <code>ThreadLocal</code> 封装
+<code>CurrentUserContext</code>，在拦截器中存入当前用户，在
+Controller/Service 中取出使用。</li>
+<li>A7：能够使用 Apifox/Postman 完成"无 Token 401→登录获取 Token→携带
+Token 访问"完整认证流程测试，并定位 Token 过期/格式错误/未带 Token
+等常见报错。</li>
+</ul>
+<h3 id="23-素质目标课程思政">2.3 素质目标（课程思政）</h3>
+<ul>
+<li>S1：树立"安全责任"意识——认证授权是系统的第一道防线，一行 Token
+校验代码的疏漏可能导致全量数据泄露。</li>
+<li>S2：培养"防御式编程"思维——永远不信任客户端输入，所有受保护接口必须校验
+Token。</li>
+<li>S3：建立"工程规范"意识——拦截器路径配置、密钥管理、Token
+过期时间等均需遵循团队规范。</li>
+<li>S4：理解"权限最小化"原则——不同角色只授予完成任务所需的最低权限。</li>
+</ul>
+<h2 id="三教学重点">三、教学重点</h2>
+<ol type="1">
+<li>JWT 三段结构（Header + Payload + Signature）与 HS256 签名原理。</li>
+<li>使用 jjwt 库生成与解析 Token 的完整代码（<code>JwtUtil</code>
+工具类）。</li>
+<li><code>HandlerInterceptor.preHandle</code> 校验 Token
+的完整流程。</li>
+<li><code>WebMvcConfigurer.addInterceptors</code>
+注册拦截器与路径配置。</li>
+<li><code>ThreadLocal</code>
+存储当前用户的最佳实践（与内存泄漏防范）。</li>
+</ol>
+<h2 id="四教学难点">四、教学难点</h2>
+<ol type="1">
+<li><strong>JWT 为什么能防篡改</strong>：学生需理解签名 =
+HMAC-SHA256(base64(header) + "." + base64(payload),
+secret)，任一段被改则签名校验失败。</li>
+<li><strong>拦截器执行时机与 Spring MVC
+流程的关系</strong>：<code>preHandle</code> 在
+<code>DispatcherServlet</code>→<code>HandlerMapping</code>→<code>HandlerAdapter</code>
+之间执行，先于 Controller。</li>
+<li><strong>ThreadLocal 与内存泄漏</strong>：为什么必须在
+<code>afterCompletion</code> 中
+<code>remove</code>，否则线程池复用线程会导致用户串号。</li>
+<li><strong>拦截路径与排除路径的优先级</strong>：<code>excludePathPatterns</code>
+优先于 <code>addPathPatterns</code>，且 <code>/**</code>
+与子路径的匹配规则。</li>
+<li><strong>Bearer Token 的约定</strong>：为什么 Header 是
+<code>Authorization: Bearer xxx</code>，<code>Bearer</code>
+前缀的作用与剥离。</li>
+</ol>
+<h2 id="五学情分析">五、学情分析</h2>
+<ul>
+<li><strong>前置基础</strong>：学生已学习第15次课，掌握了 BCrypt
+密码加密、Session/Token 认证对比，知道"登录成功返回
+Token"的概念，但尚未亲手实现 JWT。</li>
+<li><strong>薄弱环节</strong>：
+<ul>
+<li>约 40% 学生对 Base64 编码、HMAC 算法等密码学基础不熟悉，看 JWT
+结构会发懵。</li>
+<li>约 30% 学生没写过拦截器，对 Spring MVC 请求处理流程不清晰。</li>
+<li>多数学生未使用过
+<code>ThreadLocal</code>，不理解"线程内共享"的用途。</li>
+</ul></li>
+<li><strong>学习诉求</strong>：JWT 是面试高频考点（"JWT 结构""JWT 与
+Session 区别""JWT 怎么防篡改"），学生希望学到"能写也能讲"的深度。</li>
+<li><strong>班级差异</strong>：约 25%
+学生基础扎实，可挑战注解式权限控制；约 20% 学生需在 jjwt 依赖导入与 API
+调用上多花时间演示。</li>
+</ul>
+<h2 id="六教学方法">六、教学方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题驱动法</td>
+<td>以"上节课的 Token 是简单字符串，怎么保证不可伪造？"开场导入</td>
+</tr>
+<tr>
+<td>讲授法</td>
+<td>讲解 JWT 三段结构、HS256 算法、拦截器机制</td>
+</tr>
+<tr>
+<td>案例演示法</td>
+<td>现场演示 <a href="https://jwt.io">jwt.io</a> 解析 Token，演示 CTTS
+JWT 全流程代码</td>
+</tr>
+<tr>
+<td>对比分析法</td>
+<td>Session 认证 vs JWT 认证、拦截器 vs Filter</td>
+</tr>
+<tr>
+<td>小组讨论法</td>
+<td>两人一组讲解 JWT 认证完整流程（课堂互动）</td>
+</tr>
+<tr>
+<td>任务驱动法</td>
+<td>课后项目任务：为 CTTS 实现 JWT 登录认证与拦截器</td>
+</tr>
+<tr>
+<td>启发式提问</td>
+<td>"Token 被偷了怎么办？""Token 过期了怎么办？"引导思考</td>
+</tr>
+</tbody>
+</table>
+<h2 id="七教学准备">七、教学准备</h2>
+<ul>
+<li><strong>教师准备</strong>：
+<ul>
+<li>CTTS 项目骨架代码（已含第15次课的注册登录接口、<code>sys_user</code>
+表）。</li>
+<li><a href="https://jwt.io">jwt.io</a> 在线解析演示素材。</li>
+<li>Apifox 测试集合（含"无 Token""带 Token""过期 Token""错误
+Token"四个用例）。</li>
+<li>JWT 三段结构图解、Spring MVC 拦截器执行流程图。</li>
+<li>真实安全事件案例（某系统因未校验 Token 导致越权访问）。</li>
+</ul></li>
+<li><strong>学生准备</strong>：
+<ul>
+<li>复习第15次课 Session/Token 对比、BCrypt 加密。</li>
+<li>预读 jjwt 官方文档 <a href="https://github.com/jwtk/jjwt">jjwt-api
+README</a>。</li>
+<li>复习 Spring MVC 请求处理流程。</li>
+</ul></li>
+<li><strong>环境准备</strong>：JDK 17、IDEA 2023.x、MySQL
+8.x、Apifox/Postman、Git、Maven 3.8+。</li>
+</ul>
+<h2
+id="八教学过程与时间分配90分钟">八、教学过程与时间分配（90分钟）</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>环节</th>
+<th>教学内容</th>
+<th>教师活动</th>
+<th>学生活动</th>
+<th>设计意图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-5</td>
+<td><strong>开场导入</strong>（5分钟）</td>
+<td>回顾上节课 Token
+认证概念，提问："上节课我们登录成功后返回了一个简单字符串 Token，这个
+Token 怎么保证不可伪造？别人能不能随便造一个？"引入 JWT</td>
+<td>提问+回顾</td>
+<td>思考+回答</td>
+<td>衔接旧知、激发需求</td>
+</tr>
+<tr>
+<td>5-10</td>
+<td><strong>课程思政融入</strong>（5分钟）</td>
+<td>安全责任——认证授权是系统第一道防线。讲述某系统因未校验 Token
+导致越权访问真实案例。强调"一行 <code>preHandle</code> 返回 false
+的代码，挡住的是整个恶意请求洪流"</td>
+<td>案例讲述</td>
+<td>倾听、记录</td>
+<td>培养安全责任意识</td>
+</tr>
+<tr>
+<td>10-25</td>
+<td><strong>K16-1 JWT原理与结构</strong>（15分钟）</td>
+<td>① JWT
+三段：Header（alg+typ）、Payload（claims：userId/username/role/exp/iat）、Signature；②
+Base64URL 编码（不同于标准 Base64）；③ HS256 =
+HMAC-SHA256(base64(header)+"."+base64(payload), secret)；④ 现场 <a
+href="https://jwt.io">jwt.io</a> 解析一个真实 Token；⑤
+签名防篡改原理</td>
+<td>讲授+现场演示+图解</td>
+<td>记录、提问、跟看 jwt.io</td>
+<td>突破难点：签名防篡改</td>
+</tr>
+<tr>
+<td>25-40</td>
+<td><strong>K16-2 jjwt生成与解析Token</strong>（15分钟）</td>
+<td>① jjwt
+依赖三件套（<code>jjwt-api</code>+<code>jjwt-impl</code>+<code>jjwt-jackson</code>）；②
+<code>JwtUtil</code> 工具类完整代码：生成
+Token（<code>Jwts.builder().claims().signWith(key).expiration().compact()</code>）、解析
+Token（<code>Jwts.parser().verifyWith(key).build().parseSignedClaims()</code>）、验证过期；③
+密钥管理（<code>Keys.hmacShaKeyFor</code>、密钥长度≥32字节）；④
+现场演示生成与解析</td>
+<td>讲授+代码演示</td>
+<td>跟敲代码、记录 API</td>
+<td>核心代码能力</td>
+</tr>
+<tr>
+<td>40-55</td>
+<td><strong>K16-3 HandlerInterceptor登录拦截器</strong>（15分钟）</td>
+<td>① <code>HandlerInterceptor</code> 接口三方法执行时机（preHandle
+前/postHandle 后/afterCompletion 视图渲染后）；② <code>preHandle</code>
+返回 true 放行、false 拦截；③ <code>LoginInterceptor</code> 完整代码：从
+<code>Authorization</code> Header 取 <code>Bearer xxx</code>→剥离
+Bearer→<code>JwtUtil.parseToken</code>→校验过期→存入
+<code>CurrentUserContext</code>→返回 true/false；④
+<code>ThreadLocal</code> 内存泄漏防范</td>
+<td>讲授+代码演示+流程图</td>
+<td>跟敲代码、画流程图</td>
+<td>核心代码能力</td>
+</tr>
+<tr>
+<td>55-65</td>
+<td><strong>K16-4 WebMvcConfigurer注册拦截器</strong>（10分钟）</td>
+<td>① <code>WebMvcConfigurer</code> 接口与
+<code>@Configuration</code>；② <code>addInterceptors</code> 方法注册
+<code>LoginInterceptor</code>；③ <code>addPathPatterns("/**")</code>
+拦截全部；④ <code>excludePathPatterns</code> 排除
+<code>/api/auth/**</code>、<code>/doc.html</code>、<code>/swagger-ui/**</code>、<code>/v3/api-docs/**</code>；⑤
+排除优先于拦截</td>
+<td>讲授+代码演示</td>
+<td>跟敲代码</td>
+<td>配置能力</td>
+</tr>
+<tr>
+<td>65-75</td>
+<td><strong>K16-5 简单角色权限控制</strong>（10分钟）</td>
+<td>① Token 中携带 role 字段；② 拦截器中校验角色（管理员才能访问
+<code>/api/admin/**</code>）；③ 进阶：自定义 <code>@RequireRole</code>
+注解 + <code>HandlerInterceptor</code> 解析注解校验；④
+三角色（学生/教师/管理员）权限矩阵示例</td>
+<td>讲授+代码演示</td>
+<td>记录、讨论</td>
+<td>权限设计能力</td>
+</tr>
+<tr>
+<td>75-85</td>
+<td><strong>综合演示与课堂互动</strong>（10分钟）</td>
+<td>① 现场演示完整认证流程：无 Token 访问→401→登录获取 Token→携带 Token
+访问→200；② <strong>两人一组讲解 JWT
+认证完整流程</strong>（一人扮演客户端、一人扮演服务端，从登录到访问受保护接口全流程口述）；③
+教师抽查 2-3 组</td>
+<td>演示+组织互动+点评</td>
+<td>分组讲解、互评</td>
+<td>内化流程、表达训练</td>
+</tr>
+<tr>
+<td>85-90</td>
+<td><strong>总结与作业布置</strong>（5分钟）</td>
+<td>① 总结 5 个知识点思维导图；② 布置项目任务：为 CTTS 实现 JWT
+登录认证与拦截器；③ 预告下次课：Spring Security 整合 JWT</td>
+<td>总结+布置</td>
+<td>记录作业</td>
+<td>巩固、衔接</td>
+</tr>
+</tbody>
+</table>
+<h2 id="九课程思政融入">九、课程思政融入</h2>
+<table>
+<thead>
+<tr>
+<th>融入点</th>
+<th>思政元素</th>
+<th>教学方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开场案例：某系统未校验 Token 导致越权访问</td>
+<td>安全责任——认证授权是系统第一道防线</td>
+<td>案例讲述</td>
+</tr>
+<tr>
+<td><code>preHandle</code> 返回 false 拦截非法请求</td>
+<td>防御式编程——不信任任何客户端输入</td>
+<td>代码示范</td>
+</tr>
+<tr>
+<td>密钥管理：密钥不能硬编码、不能提交到 Git</td>
+<td>工程规范——安全配置需走配置中心/环境变量</td>
+<td>强调规范</td>
+</tr>
+<tr>
+<td>不同角色不同权限</td>
+<td>权限最小化原则——最小授权、职责分离</td>
+<td>角色矩阵讲解</td>
+</tr>
+<tr>
+<td>ThreadLocal 必须 remove</td>
+<td>工程严谨——线程池复用导致用户串号是生产事故</td>
+<td>易错点剖析</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十教学评价与反思">十、教学评价与反思</h2>
+<h3 id="101-教学评价">10.1 教学评价</h3>
+<ul>
+<li><strong>过程性评价</strong>：课堂互动"两人一组讲解 JWT 流程"（占
+30%）、代码跟敲完成度（占 30%）。</li>
+<li><strong>结果性评价</strong>：课后项目任务提交（JwtUtil +
+LoginInterceptor + WebMvcConfig + 登录接口改造）（占 40%）。</li>
+<li><strong>评价标准</strong>：
+<ul>
+<li>优秀（90+）：能独立完成全部代码，能口述 JWT 防篡改原理，能排查 Token
+过期/格式错误等报错。</li>
+<li>良好（75-89）：能完成核心代码，能说明 JWT
+三段结构，基本能排查报错。</li>
+<li>合格（60-74）：能在指导下完成代码，能说出 JWT 基本概念。</li>
+<li>不合格（&lt;60）：无法完成核心代码或概念不清。</li>
+</ul></li>
+</ul>
+<h3 id="102-教学反思课后填写">10.2 教学反思（课后填写）</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />学生对 JWT
+三段结构是否理解透彻？是否有必要增加 Base64 编码演示？</label></li>
+<li><label><input type="checkbox" />jjwt
+依赖三件套的引入是否让学生困惑？是否需要解释 API/Impl/Jackson
+分离设计？</label></li>
+<li><label><input type="checkbox" />拦截器与 Filter
+的区别学生是否清晰？是否需要补充对比？</label></li>
+<li><label><input type="checkbox" />ThreadLocal
+内存泄漏的讲解是否到位？是否有学生课后作业中出现用户串号
+bug？</label></li>
+<li><label><input
+type="checkbox" />两人一组讲解互动是否充分？是否有小组流于形式？</label></li>
+<li><label><input type="checkbox" />时间分配是否合理？K16-2/K16-3
+是否需要增加课时？</label></li>
+</ul>
+<h3 id="103-改进方向">10.3 改进方向</h3>
+<ul>
+<li>若学生基础薄弱，可增加 1 课时实训，专门跟敲 JwtUtil 与
+LoginInterceptor。</li>
+<li>可引入"JWT 被盗""Token 过期刷新"等进阶话题作为拓展阅读。</li>
+<li>下次课 Spring Security 整合 JWT 时，可对比"手写拦截器"与"Spring
+Security 过滤器链"的差异。</li>
+</ul>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>
