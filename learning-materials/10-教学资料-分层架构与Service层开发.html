@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -130,23 +130,28 @@ Controller 创建对应 Service 接口与实现；能识别事务场景并正确
 <h3 id="13-本次课任务">1.3 本次课任务</h3>
 <p>把 CTTS 的业务逻辑从 Controller 下沉到 Service 层：</p>
 <div class="visual">
-  <div class="visual-title">图示 1：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">改造前（反例）              改造后（正例）</span>
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐          ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span> Controller   <span class="tree-token">│</span>          <span class="tree-token">│</span> Controller   <span class="tree-token">│</span>  ← 薄层：接请求/返回响应</span>
-<span class="diagram-line"><span class="tree-token">│</span>  - 接请求     <span class="tree-token">│</span>          <span class="tree-token">│</span>  - 接请求     <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  - 写业务     <span class="tree-token">│</span>  <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span>     <span class="tree-token">│</span>  - 调 Service <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  - 调 Mapper  <span class="tree-token">│</span>          <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
-<span class="diagram-line"><span class="tree-token">│</span>  - 异常处理   <span class="tree-token">│</span>          <span class="tree-token">│</span> Service      <span class="tree-token">│</span>  ← 厚层：业务逻辑/事务</span>
-<span class="diagram-line"><span class="tree-token">│</span>  - 返回响应   <span class="tree-token">│</span>          <span class="tree-token">│</span>  - 业务逻辑   <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘          <span class="tree-token">│</span>  - 事务管理   <span class="tree-token">│</span></span>
-<span class="diagram-line">                          <span class="tree-token">│</span>  - 调 Mapper  <span class="tree-token">│</span></span>
-<span class="diagram-line">                          <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
-<span class="diagram-line">                          <span class="tree-token">│</span> Mapper        <span class="tree-token">│</span>  ← 数据访问</span>
-<span class="diagram-line">                          <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+  <div class="visual-title">图示 1：Controller 直连 Mapper 与引入 Service 的差异</div>
+  <div class="edu-diagram">
+    <div class="diagram-grid two">
+      <div class="diagram-panel warn">
+        <span class="diagram-badge warn">改造前</span>
+        <h4>Controller 过重</h4>
+        <div class="diagram-plain">
+          <div class="diagram-plain-line">接收请求、写业务逻辑、调用 Mapper、处理异常、返回响应都挤在 Controller。</div>
+          <div class="diagram-plain-line">业务变化会频繁修改接口层，代码容易膨胀。</div>
+        </div>
+      </div>
+      <div class="diagram-panel good">
+        <span class="diagram-badge good">改造后</span>
+        <h4>Service 承担业务</h4>
+        <div class="diagram-plain">
+          <div class="diagram-plain-line">Controller 只接请求和返回响应。</div>
+          <div class="diagram-plain-line">Service 处理业务逻辑、事务和 Mapper 调用。</div>
+          <div class="diagram-plain-line">Mapper 专注数据访问。</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <p><strong>任务清单</strong>：</p>
 <ol type="1">
@@ -178,12 +183,21 @@ Dijkstra 在 1968 年提出的"分层是组织复杂系统的基本手段"。</p
 <p>在 JavaWeb 后端，最经典的就是 <strong>三层架构</strong>：Controller /
 Service / Mapper（DAO）。三层之间的调用方向是单向的：</p>
 <div class="visual">
-  <div class="visual-title">图示 2：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">请求 <span class="arrow-token">→</span> Controller <span class="arrow-token">→</span> Service <span class="arrow-token">→</span> Mapper <span class="arrow-token">→</span> DB</span>
-<span class="diagram-line">响应 ← Controller ← Service ← Mapper ← DB</span>
+  <div class="visual-title">图示 2：三层架构单向调用链</div>
+  <div class="edu-diagram">
+    <div class="diagram-flow">
+      <div class="diagram-card"><strong>请求</strong><h4>HTTP / JSON</h4><p>前端发起业务请求。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><strong>Controller</strong><h4>接口层</h4><p>参数接收、校验入口、响应封装。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><strong>Service</strong><h4>业务层</h4><p>业务规则、事务边界、组合多个 Mapper。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><strong>Mapper</strong><h4>持久层</h4><p>执行 SQL 或 BaseMapper 方法。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card good"><strong>DB</strong><h4>数据库</h4><p>保存和返回真实业务数据。</p></div>
+    </div>
+    <div class="diagram-callout">调用方向保持单向：Controller 不直接越过 Service 调 Mapper，Mapper 也不反向依赖业务层。</div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h4 id="问题场景不分层会怎样">问题/场景：不分层会怎样？</h4>
 <p>来看一段 CTTS
@@ -344,37 +358,36 @@ Service</strong>。</p>
 <h4 id="完整示例代码分层的价值对比">完整示例代码：分层的价值对比</h4>
 <p>再看一个更直观的对比——<strong>"查询项目列表"这一业务</strong>在不分层与分层下的差异：</p>
 <div class="visual">
-  <div class="visual-title">图示 3：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">不分层：</span>
-<span class="diagram-line">  Controller.list() <span class="arrow-token">→</span> projectMapper.selectList(null) <span class="arrow-token">→</span> 返回</span>
-<span class="diagram-line">  （如果要加&quot;只看进行中的项目&quot;，得改 Controller）</span>
-<span class="diagram-line">分层：</span>
-<span class="diagram-line">  Controller.list() <span class="arrow-token">→</span> projectService.findAll() <span class="arrow-token">→</span> projectMapper.selectList(null)</span>
-<span class="diagram-line">  （如果要加&quot;只看进行中的项目&quot;，只改 Service.findAll，Controller 不动）</span>
+  <div class="visual-title">图示 3：查询项目列表在不分层与分层下的差异</div>
+  <div class="edu-diagram">
+    <div class="diagram-grid two">
+      <div class="diagram-panel warn">
+        <span class="diagram-badge warn">不分层</span>
+        <h4>Controller 直接查库</h4>
+        <p><code>Controller.list()</code> → <code>projectMapper.selectList(null)</code> → 返回。</p>
+        <p>如果要加“只看进行中的项目”，就要修改 Controller。</p>
+      </div>
+      <div class="diagram-panel good">
+        <span class="diagram-badge good">分层</span>
+        <h4>Controller 调 Service</h4>
+        <p><code>Controller.list()</code> → <code>projectService.findAll()</code> → <code>projectMapper.selectList(null)</code>。</p>
+        <p>业务规则放在 Service，Controller 不需要跟着变化。</p>
+      </div>
+    </div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h4 id="图示分层的价值">图示：分层的价值</h4>
 <div class="visual">
-  <div class="visual-title">图示 4：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span>                    为什么分层？五大理由                       <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
-<span class="diagram-line"><span class="tree-token">│</span>  关注点分离   <span class="tree-token">│</span>  可维护性     <span class="tree-token">│</span>  可测试性    <span class="tree-token">│</span>  团队协作      <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>              <span class="tree-token">│</span>              <span class="tree-token">│</span>              <span class="tree-token">│</span>               <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> 每层只干一类 <span class="tree-token">│</span> 改业务只动   <span class="tree-token">│</span> Service 可  <span class="tree-token">│</span> 前端/后端/DBA <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> 事，职责清晰 <span class="tree-token">│</span> Service，    <span class="tree-token">│</span> 脱离 Web    <span class="tree-token">│</span> 各改各的层，  <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>              <span class="tree-token">│</span> Controller   <span class="tree-token">│</span> 容器做单元  <span class="tree-token">│</span> 文件冲突少    <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>              <span class="tree-token">│</span> 不动         <span class="tree-token">│</span> 测试         <span class="tree-token">│</span>               <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">                       <span class="tree-token">│</span></span>
-<span class="diagram-line">                       ▼</span>
-<span class="diagram-line">              避免 Controller 臃肿</span>
-<span class="diagram-line">              （500 行 <span class="arrow-token">→</span> 50 行）</span>
+  <div class="visual-title">图示 4：分层架构的五个价值</div>
+  <div class="edu-diagram">
+    <div class="diagram-grid five">
+      <div class="diagram-card"><strong>1</strong><h4>关注点分离</h4><p>每层只干一类事，职责清晰。</p></div>
+      <div class="diagram-card"><strong>2</strong><h4>可维护性</h4><p>改业务优先动 Service，Controller 尽量稳定。</p></div>
+      <div class="diagram-card"><strong>3</strong><h4>可测试性</h4><p>Service 可脱离 Web 容器做单元测试。</p></div>
+      <div class="diagram-card"><strong>4</strong><h4>团队协作</h4><p>接口、业务、数据库层边界明确，文件冲突更少。</p></div>
+      <div class="diagram-card good"><strong>5</strong><h4>避免臃肿</h4><p>把 500 行 Controller 拆成薄 Controller 与厚 Service。</p></div>
+    </div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h4 id="易错点">易错点</h4>
 <table>
@@ -1272,25 +1285,18 @@ Spring 自动管理事务，开发者只需声明"这个方法需要事务"，�
 <h4 id="原理-2">原理</h4>
 <p>Spring 通过 <strong>AOP 代理</strong> 实现声明式事务：</p>
 <div class="visual">
-  <div class="visual-title">图示 5：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">调用方                     Spring 代理                      目标方法</span>
-<span class="diagram-line">   <span class="tree-token">│</span>                          <span class="tree-token">│</span>                              <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span> service.submitTask(...)  <span class="tree-token">│</span>                              <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>►<span class="tree-token">│</span>                              <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span>                          <span class="tree-token">│</span> 1. 开启事务（TransactionManager）</span>
-<span class="diagram-line">   <span class="tree-token">│</span>                          <span class="tree-token">│</span> 2. 调用目标方法 submitTask()  <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span>                          <span class="tree-token">│</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>►<span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span>                          <span class="tree-token">│</span>                              <span class="tree-token">│</span> 执行业务</span>
-<span class="diagram-line">   <span class="tree-token">│</span>                          <span class="tree-token">│</span>                              <span class="tree-token">│</span> <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper.insert()</span>
-<span class="diagram-line">   <span class="tree-token">│</span>                          <span class="tree-token">│</span>                              <span class="tree-token">│</span> <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper.update()</span>
-<span class="diagram-line">   <span class="tree-token">│</span>                          <span class="tree-token">│</span> 3a. 正常返回 <span class="arrow-token">→</span> commit         <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span>                          <span class="tree-token">│</span> 3b. 抛异常   <span class="arrow-token">→</span> rollback       <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span>                          <span class="tree-token">│</span>◄<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span> 返回结果                  <span class="tree-token">│</span>                              <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span>◄<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">│</span>                              <span class="tree-token">│</span></span>
+  <div class="visual-title">图示 5：Spring 声明式事务代理流程</div>
+  <div class="edu-diagram">
+    <div class="diagram-flow">
+      <div class="diagram-card"><strong>调用方</strong><h4><code>service.submitTask(...)</code></h4><p>外部调用进入 Spring 代理对象。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><strong>Spring 代理</strong><h4>开启事务</h4><p>TransactionManager 创建事务上下文。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><strong>目标方法</strong><h4>执行业务</h4><p>调用 <code>mapper.insert()</code>、<code>mapper.update()</code> 等写操作。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card good"><strong>结果处理</strong><h4>提交或回滚</h4><p>正常返回 commit；抛出运行时异常 rollback。</p></div>
+    </div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <p>Spring Boot
 启动类默认开启事务支持（<code>@EnableTransactionManagement</code> 由
@@ -1557,30 +1563,29 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb23-1"><a href=
 <span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 id="图示事务传播行为对比">图示：事务传播行为对比</h4>
 <div class="visual">
-  <div class="visual-title">图示 6：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">方法A（事务）调用方法B</span>
-<span class="diagram-line">REQUIRED（默认）：</span>
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> 事务A <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span>  A的操作                            <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> B加入事务A <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐    <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  <span class="tree-token">│</span>  B的操作                    <span class="tree-token">│</span>    <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘    <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  A的操作                            <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line"><span class="arrow-token">→</span> 任何一步失败，整个事务A回滚</span>
-<span class="diagram-line">REQUIRES_NEW：</span>
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> 事务A <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span>  A的操作                            <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  ┌<span class="tree-token">─</span><span class="tree-token">─</span> 挂起A <span class="tree-token">─</span><span class="tree-token">─</span>┐ ┌<span class="tree-token">─</span><span class="tree-token">─</span> 事务B <span class="tree-token">─</span><span class="tree-token">─</span>┐       <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  <span class="tree-token">│</span>           <span class="tree-token">│</span> <span class="tree-token">│</span>  B的操作  <span class="tree-token">│</span>       <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  <span class="tree-token">│</span>           <span class="tree-token">│</span> <span class="tree-token">│</span>  提交     <span class="tree-token">│</span>       <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 恢复A <span class="tree-token">─</span><span class="tree-token">─</span>┘ <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘       <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  A的操作                            <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line"><span class="arrow-token">→</span> 事务B独立提交，A回滚不影响B</span>
+  <div class="visual-title">图示 6：事务传播行为 REQUIRED 与 REQUIRES_NEW</div>
+  <div class="edu-diagram">
+    <div class="diagram-grid two">
+      <div class="diagram-panel">
+        <span class="diagram-badge">REQUIRED 默认</span>
+        <h4>B 加入 A 的事务</h4>
+        <div class="diagram-plain">
+          <div class="diagram-plain-line">事务 A 开始</div>
+          <div class="diagram-plain-line">A 的操作 → B 加入事务 A → B 的操作 → A 的操作</div>
+          <div class="diagram-plain-line">任何一步失败，整个事务 A 回滚。</div>
+        </div>
+      </div>
+      <div class="diagram-panel good">
+        <span class="diagram-badge good">REQUIRES_NEW</span>
+        <h4>B 使用独立事务</h4>
+        <div class="diagram-plain">
+          <div class="diagram-plain-line">事务 A 开始，调用 B 时挂起 A。</div>
+          <div class="diagram-plain-line">事务 B 独立执行并提交。</div>
+          <div class="diagram-plain-line">恢复事务 A；A 回滚不影响已提交的 B。</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h4 id="事务失效的-7-大场景面试高频">事务失效的 7
 大场景（面试高频）</h4>
@@ -1760,15 +1765,28 @@ rollbackFor、MyISAM、final/static 方法、多线程。</li>
 <code>@Component / @Service / @Repository / @Controller</code>
 等注解标记的类，都会被实例化为 Bean 放入容器。需要时由容器注入。</p>
 <div class="visual">
-  <div class="visual-title">图示 7：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">传统方式：                     IoC 方式：</span>
-<span class="diagram-line">Controller {                   Controller {</span>
-<span class="diagram-line">  Mapper m = new MapperImpl();   // 自己 new    Mapper m;   // 容器注入</span>
-<span class="diagram-line">}                              }</span>
-<span class="diagram-line">                               容器负责：扫描 <span class="arrow-token">→</span> 实例化 <span class="arrow-token">→</span> 注入</span>
+  <div class="visual-title">图示 7：传统 new 对象与 IoC 容器注入</div>
+  <div class="edu-diagram">
+    <div class="diagram-grid two">
+      <div class="diagram-panel warn">
+        <span class="diagram-badge warn">传统方式</span>
+        <h4>对象自己创建依赖</h4>
+        <p><code>Controller</code> 内部 <code>new MapperImpl()</code>，调用方要知道实现类，耦合度高。</p>
+      </div>
+      <div class="diagram-panel good">
+        <span class="diagram-badge good">IoC 方式</span>
+        <h4>容器创建并注入依赖</h4>
+        <p>Spring 扫描组件、实例化 Bean，再把 Mapper 或 Service 注入需要它的对象。</p>
+      </div>
+    </div>
+    <div class="diagram-flow">
+      <div class="diagram-card"><h4>扫描</h4><p>识别 <code>@Component</code> / <code>@Service</code> 等组件。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><h4>实例化</h4><p>创建 Bean 并放入容器。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card good"><h4>注入</h4><p>按构造器、字段或 Setter 注入依赖。</p></div>
+    </div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h4 id="原理三种依赖注入方式">原理：三种依赖注入方式</h4>
 <p>Spring 提供三种注入方式：</p>
@@ -2115,17 +2133,29 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb34-1"><a href=
 <code>@Transactional</code> 事务。</p>
 <h3 id="32-改造前后对比">3.2 改造前后对比</h3>
 <div class="visual">
-  <div class="visual-title">图示 8：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">改造前：</span>
-<span class="diagram-line">  ProjectController <span class="tree-token">─</span><span class="tree-token">─</span>► ProjectMapper</span>
-<span class="diagram-line">  TaskController    <span class="tree-token">─</span><span class="tree-token">─</span>► TaskMapper</span>
-<span class="diagram-line">  TaskSubmissionController <span class="tree-token">─</span><span class="tree-token">─</span>► TaskSubmissionMapper</span>
-<span class="diagram-line">改造后：</span>
-<span class="diagram-line">  ProjectController <span class="tree-token">─</span><span class="tree-token">─</span>► ProjectService <span class="tree-token">─</span><span class="tree-token">─</span>► ProjectMapper</span>
-<span class="diagram-line">  TaskController    <span class="tree-token">─</span><span class="tree-token">─</span>► TaskService    <span class="tree-token">─</span><span class="tree-token">─</span>► TaskMapper + TaskSubmissionMapper（事务）</span>
+  <div class="visual-title">图示 8：CTTS Controller 引入 Service 前后对比</div>
+  <div class="edu-diagram">
+    <div class="diagram-grid two">
+      <div class="diagram-panel warn">
+        <span class="diagram-badge warn">改造前</span>
+        <h4>Controller 直接访问 Mapper</h4>
+        <div class="diagram-plain">
+          <div class="diagram-plain-line"><code>ProjectController</code> → <code>ProjectMapper</code></div>
+          <div class="diagram-plain-line"><code>TaskController</code> → <code>TaskMapper</code></div>
+          <div class="diagram-plain-line"><code>TaskSubmissionController</code> → <code>TaskSubmissionMapper</code></div>
+        </div>
+      </div>
+      <div class="diagram-panel good">
+        <span class="diagram-badge good">改造后</span>
+        <h4>Controller 通过 Service 编排业务</h4>
+        <div class="diagram-plain">
+          <div class="diagram-plain-line"><code>ProjectController</code> → <code>ProjectService</code> → <code>ProjectMapper</code></div>
+          <div class="diagram-plain-line"><code>TaskController</code> → <code>TaskService</code> → <code>TaskMapper</code></div>
+          <div class="diagram-plain-line"><code>TaskService</code> → <code>TaskMapper</code> + <code>TaskSubmissionMapper</code>，由事务保证一致性。</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h3 id="33-完整代码按文件组织">3.3 完整代码（按文件组织）</h3>
 <h4 id="331-projectservice-接口">3.3.1 ProjectService 接口</h4>

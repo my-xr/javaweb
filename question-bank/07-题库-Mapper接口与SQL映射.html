@@ -133,344 +133,190 @@
 <hr />
 <h2
 id="一单项选择题30题每题2分共60分">一、单项选择题（30题，每题2分，共60分）</h2>
-<h3 id="07-单选-01-">07-单选-01 ★</h3>
-<p><strong>题目</strong>：在 MyBatis-Plus 中，将 Mapper 接口注册到
-Spring 容器的两种注解是？</p>
-<p>A. <code>@Mapper</code> 和 <code>@MapperScan</code> B.
-<code>@Repository</code> 和 <code>@Mapper</code> C.
-<code>@Component</code> 和 <code>@MapperScan</code> D.
-<code>@Service</code> 和 <code>@Mapper</code></p>
-<p><strong>答案</strong>：A <strong>解析</strong>：<code>@Mapper</code>
+<section class="question-card" id="07-单选-01-"><p><strong>07-单选-01 ★</strong></p><p><strong>题目</strong>：在 MyBatis-Plus 中，将 Mapper 接口注册到
+Spring 容器的两种注解是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Mapper</code> 和 <code>@MapperScan</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Repository</code> 和 <code>@Mapper</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Component</code> 和 <code>@MapperScan</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Service</code> 和 <code>@Mapper</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：<code>@Mapper</code>
 标注在接口上逐个声明；<code>@MapperScan</code> 标注在启动类上批量扫描
-mapper 包。两者二选一，不要同时使用。</p>
+mapper 包。两者二选一，不要同时使用。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-02-">07-单选-02 ★</h3>
-<p><strong>题目</strong>：<code>@MapperScan</code>
-注解通常标注在哪个类上？</p>
-<p>A. Mapper 接口 B. 实体类 C.
-启动类（<code>@SpringBootApplication</code>） D. Controller 类</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="07-单选-02-"><p><strong>07-单选-02 ★</strong></p><p><strong>题目</strong>：<code>@MapperScan</code>
+注解通常标注在哪个类上？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Mapper 接口</div></li><li><span class="option-label">B</span><div class="option-content">实体类</div></li><li><span class="option-label">C</span><div class="option-content">启动类（<code>@SpringBootApplication</code>）</div></li><li><span class="option-label">D</span><div class="option-content">Controller 类</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>@MapperScan</code> 标注在启动类或任意
 <code>@Configuration</code> 类上，批量扫描指定包下的所有 Mapper
-接口。</p>
+接口。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-03-">07-单选-03 ★</h3>
-<p><strong>题目</strong>：CTTS 项目启动类上有
-<code>@MapperScan("com.ctts.mapper")</code>，以下说法正确的是？</p>
-<p>A. <code>com.ctts.mapper</code> 包下的所有接口都会被视为 Mapper B.
-<code>com.ctts.mapper</code> 包下的所有类都会被视为 Mapper C. 只有加了
-<code>@Mapper</code> 注解的接口才会被扫描 D. 只扫描
-<code>com.ctts.mapper</code> 包，不扫描子包</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="07-单选-03-"><p><strong>07-单选-03 ★</strong></p><p><strong>题目</strong>：CTTS 项目启动类上有
+<code>@MapperScan("com.ctts.mapper")</code>，以下说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>com.ctts.mapper</code> 包下的所有接口都会被视为 Mapper</div></li><li><span class="option-label">B</span><div class="option-content"><code>com.ctts.mapper</code> 包下的所有类都会被视为 Mapper</div></li><li><span class="option-label">C</span><div class="option-content">只有加了 <code>@Mapper</code> 注解的接口才会被扫描</div></li><li><span class="option-label">D</span><div class="option-content">只扫描 <code>com.ctts.mapper</code> 包，不扫描子包</div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>@MapperScan</code>
 扫描指定包及其子包下的所有<strong>接口</strong>，将其视为 Mapper 注册为
-Bean，无需再加 <code>@Mapper</code> 注解。</p>
+Bean，无需再加 <code>@Mapper</code> 注解。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-04-">07-单选-04 ★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 的
-<code>BaseMapper&lt;T&gt;</code> 中，泛型 <code>T</code> 代表？</p>
-<p>A. 主键类型 B. 实体类类型 C. Mapper 接口类型 D. Service 类型</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="07-单选-04-"><p><strong>07-单选-04 ★</strong></p><p><strong>题目</strong>：MyBatis-Plus 的
+<code>BaseMapper&lt;T&gt;</code> 中，泛型 <code>T</code> 代表？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">主键类型</div></li><li><span class="option-label">B</span><div class="option-content">实体类类型</div></li><li><span class="option-label">C</span><div class="option-content">Mapper 接口类型</div></li><li><span class="option-label">D</span><div class="option-content">Service 类型</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>BaseMapper&lt;T&gt;</code> 的泛型
 <code>T</code> 是实体类类型，如 <code>BaseMapper&lt;SysUser&gt;</code>
-表示该 Mapper 操作 <code>SysUser</code> 实体对应的表。</p>
+表示该 Mapper 操作 <code>SysUser</code> 实体对应的表。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-05-">07-单选-05 ★</h3>
-<p><strong>题目</strong>：以下哪个方法不属于 <code>BaseMapper</code>
-内置的 CRUD 方法？</p>
-<p>A. <code>insert(T entity)</code> B.
-<code>selectById(Serializable id)</code> C.
-<code>deleteByName(String name)</code> D.
-<code>updateById(T entity)</code></p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="07-单选-05-"><p><strong>07-单选-05 ★</strong></p><p><strong>题目</strong>：以下哪个方法不属于 <code>BaseMapper</code>
+内置的 CRUD 方法？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>insert(T entity)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>selectById(Serializable id)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>deleteByName(String name)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>updateById(T entity)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>BaseMapper</code>
 内置方法以主键为核心（<code>ById</code> 后缀），如
 <code>insert</code>、<code>deleteById</code>、<code>updateById</code>、<code>selectById</code>、<code>selectList</code>。<code>deleteByName</code>
-是自定义方法，需开发者自行编写。</p>
+是自定义方法，需开发者自行编写。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-06-">07-单选-06 ★</h3>
-<p><strong>题目</strong>：调用 <code>userMapper.selectList(null)</code>
-的作用是？</p>
-<p>A. 报空指针异常 B. 查询所有记录（无条件） C. 查询主键为 null 的记录
-D. 不执行任何 SQL</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="07-单选-06-"><p><strong>07-单选-06 ★</strong></p><p><strong>题目</strong>：调用 <code>userMapper.selectList(null)</code>
+的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">报空指针异常</div></li><li><span class="option-label">B</span><div class="option-content">查询所有记录（无条件）</div></li><li><span class="option-label">C</span><div class="option-content">查询主键为 null 的记录</div></li><li><span class="option-label">D</span><div class="option-content">不执行任何 SQL</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>selectList</code> 的参数是条件构造器
 <code>Wrapper</code>，传 <code>null</code>
-表示无条件查询全部记录，等价于 <code>SELECT * FROM 表名</code>。</p>
+表示无条件查询全部记录，等价于 <code>SELECT * FROM 表名</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-07-">07-单选-07 ★</h3>
-<p><strong>题目</strong>：<code>userMapper.deleteById(1L)</code> 的参数
-<code>1L</code> 是？</p>
-<p>A. 实体对象 B. 主键值 C. 数组下标 D. 行号</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="07-单选-07-"><p><strong>07-单选-07 ★</strong></p><p><strong>题目</strong>：<code>userMapper.deleteById(1L)</code> 的参数
+<code>1L</code> 是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">实体对象</div></li><li><span class="option-label">B</span><div class="option-content">主键值</div></li><li><span class="option-label">C</span><div class="option-content">数组下标</div></li><li><span class="option-label">D</span><div class="option-content">行号</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>deleteById(Serializable id)</code>
 的参数是主键值，类型为 <code>Serializable</code>（兼容 Long、String
-等主键类型）。</p>
+等主键类型）。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-08-">07-单选-08 ★</h3>
-<p><strong>题目</strong>：实体类 <code>SysUser</code> 对应表
-<code>sys_user</code>，应使用哪个注解映射表名？</p>
-<p>A. <code>@Table</code> B. <code>@TableName("sys_user")</code> C.
-<code>@Entity("sys_user")</code> D.
-<code>@TableField("sys_user")</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：MyBatis-Plus 用
+<section class="question-card" id="07-单选-08-"><p><strong>07-单选-08 ★</strong></p><p><strong>题目</strong>：实体类 <code>SysUser</code> 对应表
+<code>sys_user</code>，应使用哪个注解映射表名？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Table</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@TableName("sys_user")</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Entity("sys_user")</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@TableField("sys_user")</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：MyBatis-Plus 用
 <code>@TableName("表名")</code>
 注解映射实体类与数据库表名。<code>@TableField</code>
-用于字段映射，<code>@Entity</code> 是 JPA 注解。</p>
+用于字段映射，<code>@Entity</code> 是 JPA 注解。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-09-">07-单选-09 ★</h3>
-<p><strong>题目</strong>：实体类主键 <code>id</code>
-是数据库自增的，<code>@TableId</code> 应配置为？</p>
-<p>A. <code>@TableId(type = IdType.NONE)</code> B.
-<code>@TableId(type = IdType.AUTO)</code> C.
-<code>@TableId(type = IdType.ASSIGN_ID)</code> D.
-<code>@TableId(type = IdType.UUID)</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="07-单选-09-"><p><strong>07-单选-09 ★</strong></p><p><strong>题目</strong>：实体类主键 <code>id</code>
+是数据库自增的，<code>@TableId</code> 应配置为？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@TableId(type = IdType.NONE)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@TableId(type = IdType.AUTO)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@TableId(type = IdType.ASSIGN_ID)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@TableId(type = IdType.UUID)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>IdType.AUTO</code>
 表示使用数据库自增策略，插入后主键自动回填到实体对象。CTTS
-项目统一使用此策略。</p>
+项目统一使用此策略。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-10-">07-单选-10 ★</h3>
-<p><strong>题目</strong>：实体类中有 <code>confirmPassword</code>
-字段，但数据库表中无此列，应如何标注？</p>
-<p>A. <code>@TableField("confirm_password")</code> B.
-<code>@TableField(exist = true)</code> C.
-<code>@TableField(exist = false)</code> D.
-<code>@TableField(ignore = true)</code></p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="07-单选-10-"><p><strong>07-单选-10 ★</strong></p><p><strong>题目</strong>：实体类中有 <code>confirmPassword</code>
+字段，但数据库表中无此列，应如何标注？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@TableField("confirm_password")</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@TableField(exist = true)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@TableField(exist = false)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@TableField(ignore = true)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>@TableField(exist = false)</code>
 表示该字段在数据库表中不存在，不参与 CRUD
-映射。常用于前端校验字段、计算字段等。</p>
+映射。常用于前端校验字段、计算字段等。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-11-">07-单选-11 ★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 默认开启的驼峰映射规则是？</p>
-<p>A. <code>createTime</code> → <code>createtime</code> B.
-<code>createTime</code> → <code>create_time</code> C.
-<code>createTime</code> → <code>Create_Time</code> D.
-<code>createTime</code> → <code>create-Time</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：默认
+<section class="question-card" id="07-单选-11-"><p><strong>07-单选-11 ★</strong></p><p><strong>题目</strong>：MyBatis-Plus 默认开启的驼峰映射规则是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>createTime</code> → <code>createtime</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>createTime</code> → <code>create_time</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>createTime</code> → <code>Create_Time</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>createTime</code> → <code>create-Time</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：默认
 <code>map-underscore-to-camel-case: true</code>，Java 驼峰属性
 <code>createTime</code> 自动映射到数据库下划线列
-<code>create_time</code>。</p>
+<code>create_time</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-12-">07-单选-12 ★</h3>
-<p><strong>题目</strong>：注解 SQL 中，<code>#{username}</code>
-的作用是？</p>
-<p>A. 字符串拼接 B. 预编译占位符 C. 注释 D. 变量声明</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>#{param}</code>
+<section class="question-card" id="07-单选-12-"><p><strong>07-单选-12 ★</strong></p><p><strong>题目</strong>：注解 SQL 中，<code>#{username}</code>
+的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">字符串拼接</div></li><li><span class="option-label">B</span><div class="option-content">预编译占位符</div></li><li><span class="option-label">C</span><div class="option-content">注释</div></li><li><span class="option-label">D</span><div class="option-content">变量声明</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>#{param}</code>
 是预编译占位符，被 MyBatis 替换为 JDBC 的 <code>?</code>，参数通过
-<code>PreparedStatement.setXxx()</code> 绑定，防 SQL 注入。</p>
+<code>PreparedStatement.setXxx()</code> 绑定，防 SQL 注入。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-13-">07-单选-13 ★</h3>
-<p><strong>题目</strong>：以下哪种参数绑定方式会导致 SQL 注入风险？</p>
-<p>A. <code>#{param}</code> B. <code>${param}</code> C.
-<code>?param</code> D. <code>:param</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>${param}</code>
+<section class="question-card" id="07-单选-13-"><p><strong>07-单选-13 ★</strong></p><p><strong>题目</strong>：以下哪种参数绑定方式会导致 SQL 注入风险？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>#{param}</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>${param}</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>?param</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>:param</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>${param}</code>
 是字符串拼接，直接把参数值拼入 SQL 字符串，可被注入恶意
-SQL。<code>#{param}</code> 是预编译占位符，安全。</p>
+SQL。<code>#{param}</code> 是预编译占位符，安全。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-14-">07-单选-14 ★</h3>
-<p><strong>题目</strong>：查询 <code>sys_user</code>
-表中按用户名模糊查询的注解 SQL 写法，正确的是？</p>
-<p>A.
-<code>@Select("SELECT * FROM sys_user WHERE username LIKE '%#{keyword}%'")</code>
-B.
-<code>@Select("SELECT * FROM sys_user WHERE username LIKE '%${keyword}%'")</code>
-C.
-<code>@Select("SELECT * FROM sys_user WHERE username LIKE CONCAT('%', #{keyword}, '%')")</code>
-D.
-<code>@Select("SELECT * FROM sys_user WHERE username LIKE CONCAT('%', ${keyword}, '%')")</code></p>
-<p><strong>答案</strong>：C <strong>解析</strong>：<code>#{}</code>
+<section class="question-card" id="07-单选-14-"><p><strong>07-单选-14 ★</strong></p><p><strong>题目</strong>：查询 <code>sys_user</code>
+表中按用户名模糊查询的注解 SQL 写法，正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Select("SELECT * FROM sys_user WHERE username LIKE '%#{keyword}%'")</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Select("SELECT * FROM sys_user WHERE username LIKE '%${keyword}%'")</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Select("SELECT * FROM sys_user WHERE username LIKE CONCAT('%', #{keyword}, '%')")</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Select("SELECT * FROM sys_user WHERE username LIKE CONCAT('%', ${keyword}, '%')")</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：<code>#{}</code>
 在单引号内不会被解析，A 错；B、D 用 <code>${}</code> 有注入风险；C 用
-<code>CONCAT</code> 函数配合 <code>#{}</code>，安全且正确。</p>
+<code>CONCAT</code> 函数配合 <code>#{}</code>，安全且正确。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-15-">07-单选-15 ★</h3>
-<p><strong>题目</strong>：XML 映射文件中，<code>namespace</code>
-的值应该是什么？</p>
-<p>A. 实体类的全限定名 B. Mapper 接口的全限定名 C. 数据库表名 D.
-任意字符串</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="07-单选-15-"><p><strong>07-单选-15 ★</strong></p><p><strong>题目</strong>：XML 映射文件中，<code>namespace</code>
+的值应该是什么？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">实体类的全限定名</div></li><li><span class="option-label">B</span><div class="option-content">Mapper 接口的全限定名</div></li><li><span class="option-label">C</span><div class="option-content">数据库表名</div></li><li><span class="option-label">D</span><div class="option-content">任意字符串</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>namespace</code> 必须等于对应 Mapper
 接口的全限定名（如
 <code>com.ctts.mapper.SysUserMapper</code>），用于建立 XML
-与接口的绑定关系。</p>
+与接口的绑定关系。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-16-">07-单选-16 ★</h3>
-<p><strong>题目</strong>：XML 中
+<section class="question-card" id="07-单选-16-"><p><strong>07-单选-16 ★</strong></p><p><strong>题目</strong>：XML 中
 <code>&lt;select id="selectByStatus"&gt;</code> 的 <code>id</code>
-属性对应？</p>
-<p>A. 实体类的方法名 B. Mapper 接口的方法名 C. 数据库列名 D. SQL
-别名</p>
-<p><strong>答案</strong>：B
+属性对应？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">实体类的方法名</div></li><li><span class="option-label">B</span><div class="option-content">Mapper 接口的方法名</div></li><li><span class="option-label">C</span><div class="option-content">数据库列名</div></li><li><span class="option-label">D</span><div class="option-content">SQL 别名</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>&lt;select&gt;</code> 标签的
 <code>id</code> 必须与 Mapper 接口的方法名完全一致，MyBatis 据此将 XML
-SQL 与接口方法绑定。</p>
+SQL 与接口方法绑定。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-17-">07-单选-17 ★</h3>
-<p><strong>题目</strong>：<code>resultMap</code>
-标签中，<code>&lt;id&gt;</code> 子标签的作用是？</p>
-<p>A. 定义主键字段映射 B. 定义普通字段映射 C. 定义关联关系 D.
-定义集合映射</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="07-单选-17-"><p><strong>07-单选-17 ★</strong></p><p><strong>题目</strong>：<code>resultMap</code>
+标签中，<code>&lt;id&gt;</code> 子标签的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">定义主键字段映射</div></li><li><span class="option-label">B</span><div class="option-content">定义普通字段映射</div></li><li><span class="option-label">C</span><div class="option-content">定义关联关系</div></li><li><span class="option-label">D</span><div class="option-content">定义集合映射</div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>&lt;id column="..." property="..."/&gt;</code>
 用于映射主键字段，<code>&lt;result&gt;</code>
-用于映射普通字段。<code>&lt;id&gt;</code> 有助于提升缓存与对比性能。</p>
+用于映射普通字段。<code>&lt;id&gt;</code> 有助于提升缓存与对比性能。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-18-">07-单选-18 ★</h3>
-<p><strong>题目</strong>：<code>application.yml</code> 中配置 XML
-扫描路径的属性是？</p>
-<p>A. <code>spring.datasource.mapper-locations</code> B.
-<code>mybatis-plus.mapper-locations</code> C.
-<code>mybatis-plus.xml-locations</code> D.
-<code>spring.mybatis.mapper-locations</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：MyBatis-Plus 配置 XML
+<section class="question-card" id="07-单选-18-"><p><strong>07-单选-18 ★</strong></p><p><strong>题目</strong>：<code>application.yml</code> 中配置 XML
+扫描路径的属性是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>spring.datasource.mapper-locations</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>mybatis-plus.mapper-locations</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>mybatis-plus.xml-locations</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>spring.mybatis.mapper-locations</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：MyBatis-Plus 配置 XML
 扫描路径的属性是
-<code>mybatis-plus.mapper-locations: classpath:mapper/*.xml</code>。</p>
+<code>mybatis-plus.mapper-locations: classpath:mapper/*.xml</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-19-">07-单选-19 ★</h3>
-<p><strong>题目</strong>：调用 <code>userMapper.insert(user)</code>
-后，若主键是自增的，如何获取新插入的主键值？</p>
-<p>A. 通过返回值获取 B. 通过 <code>user.getId()</code>
-获取（主键自动回填） C. 再次调用 <code>selectById</code> 查询 D.
-无法获取</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="07-单选-19-"><p><strong>07-单选-19 ★</strong></p><p><strong>题目</strong>：调用 <code>userMapper.insert(user)</code>
+后，若主键是自增的，如何获取新插入的主键值？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">通过返回值获取</div></li><li><span class="option-label">B</span><div class="option-content">通过 <code>user.getId()</code> 获取（主键自动回填）</div></li><li><span class="option-label">C</span><div class="option-content">再次调用 <code>selectById</code> 查询</div></li><li><span class="option-label">D</span><div class="option-content">无法获取</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@TableId(type = IdType.AUTO)</code>
 配置下，插入后数据库生成的自增主键会自动回填到实体对象的 <code>id</code>
-字段，直接 <code>user.getId()</code> 即可获取。</p>
+字段，直接 <code>user.getId()</code> 即可获取。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-20-">07-单选-20 ★</h3>
-<p><strong>题目</strong>：<code>@TableId</code> 的
-<code>IdType.ASSIGN_ID</code> 策略使用什么算法生成主键？</p>
-<p>A. UUID B. 雪花算法（Snowflake） C. 数据库自增 D. 时间戳</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="07-单选-20-"><p><strong>07-单选-20 ★</strong></p><p><strong>题目</strong>：<code>@TableId</code> 的
+<code>IdType.ASSIGN_ID</code> 策略使用什么算法生成主键？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">UUID</div></li><li><span class="option-label">B</span><div class="option-content">雪花算法（Snowflake）</div></li><li><span class="option-label">C</span><div class="option-content">数据库自增</div></li><li><span class="option-label">D</span><div class="option-content">时间戳</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>IdType.ASSIGN_ID</code> 使用雪花算法生成 19
 位 <code>Long</code> 型全局唯一 ID，数据库无需
-<code>AUTO_INCREMENT</code>。</p>
+<code>AUTO_INCREMENT</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-21-">07-单选-21 ★★</h3>
-<p><strong>题目</strong>：以下 <code>@Select</code>
-写法中，多参数绑定正确的是？</p>
-<p>A.
-<code>@Select("... WHERE role = #{role} AND status = #{status}") List&lt;SysUser&gt; select(String role, String status);</code>
-B.
-<code>@Select("... WHERE role = #{role} AND status = #{status}") List&lt;SysUser&gt; select(@Param("role") String role, @Param("status") String status);</code>
-C.
-<code>@Select("... WHERE role = ${role} AND status = ${status}") List&lt;SysUser&gt; select(String role, String status);</code>
-D.
-<code>@Select("... WHERE role = ? AND status = ?") List&lt;SysUser&gt; select(String role, String status);</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：多参数必须用
+<section class="question-card" id="07-单选-21-"><p><strong>07-单选-21 ★★</strong></p><p><strong>题目</strong>：以下 <code>@Select</code>
+写法中，多参数绑定正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Select("... WHERE role = #{role} AND status = #{status}") List&lt;SysUser&gt; select(String role, String status);</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Select("... WHERE role = #{role} AND status = #{status}") List&lt;SysUser&gt; select(@Param("role") String role, @Param("status") String status);</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Select("... WHERE role = ${role} AND status = ${status}") List&lt;SysUser&gt; select(String role, String status);</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Select("... WHERE role = ? AND status = ?") List&lt;SysUser&gt; select(String role, String status);</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：多参数必须用
 <code>@Param("名")</code> 显式指定参数名，MyBatis 才能将
 <code>#{role}</code> 与 <code>#{status}</code> 正确绑定到对应参数。A 缺
 <code>@Param</code> 会报错；C 用 <code>${}</code> 有注入风险；D 不能用
-<code>?</code> 占位符。</p>
+<code>?</code> 占位符。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-22-">07-单选-22 ★★</h3>
-<p><strong>题目</strong>：关于 <code>@Mapper</code> 和
-<code>@MapperScan</code> 的使用，以下说法正确的是？</p>
-<p>A. 必须同时使用才能生效 B. 二选一即可，推荐用
-<code>@MapperScan</code> C. <code>@Mapper</code> 比
-<code>@MapperScan</code> 性能更好 D. <code>@MapperScan</code>
-只能扫描一个包</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="07-单选-22-"><p><strong>07-单选-22 ★★</strong></p><p><strong>题目</strong>：关于 <code>@Mapper</code> 和
+<code>@MapperScan</code> 的使用，以下说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">必须同时使用才能生效</div></li><li><span class="option-label">B</span><div class="option-content">二选一即可，推荐用 <code>@MapperScan</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Mapper</code> 比 <code>@MapperScan</code> 性能更好</div></li><li><span class="option-label">D</span><div class="option-content"><code>@MapperScan</code> 只能扫描一个包</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：两者二选一即可，不要同时使用。<code>@MapperScan</code>
 批量扫描更省事，新增 Mapper
 无需改注解，是项目推荐方式。<code>@MapperScan</code>
-支持扫描多个包：<code>@MapperScan({"com.ctts.mapper", "com.ctts.ext"})</code>。</p>
+支持扫描多个包：<code>@MapperScan({"com.ctts.mapper", "com.ctts.ext"})</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-23-">07-单选-23 ★★</h3>
-<p><strong>题目</strong>：<code>userMapper.updateById(user)</code>
+<section class="question-card" id="07-单选-23-"><p><strong>07-单选-23 ★★</strong></p><p><strong>题目</strong>：<code>userMapper.updateById(user)</code>
 方法，若 <code>user</code> 的某字段为
-<code>null</code>，该字段会被更新到数据库吗？</p>
-<p>A. 会，更新为 <code>null</code> B. 不会，<code>null</code> 字段不参与
-UPDATE C. 取决于数据库配置 D. 报空指针异常</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：MyBatis-Plus 默认策略
+<code>null</code>，该字段会被更新到数据库吗？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">会，更新为 <code>null</code></div></li><li><span class="option-label">B</span><div class="option-content">不会，<code>null</code> 字段不参与 UPDATE</div></li><li><span class="option-label">C</span><div class="option-content">取决于数据库配置</div></li><li><span class="option-label">D</span><div class="option-content">报空指针异常</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：MyBatis-Plus 默认策略
 <code>FieldStrategy.NOT_NULL</code>，<code>null</code> 字段不会被拼入
 UPDATE 语句，避免误覆盖。若需更新为 <code>null</code>，需用
-<code>UpdateWrapper.set("字段", null)</code> 或调整字段策略。</p>
+<code>UpdateWrapper.set("字段", null)</code> 或调整字段策略。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-24-">07-单选-24 ★★</h3>
-<p><strong>题目</strong>：XML 中 <code>resultMap</code> 与
-<code>resultType</code> 的关系是？</p>
-<p>A. 必须同时使用 B. 二选一，不能同时用 C. <code>resultType</code>
-优先级更高 D. <code>resultMap</code> 优先级更高</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="07-单选-24-"><p><strong>07-单选-24 ★★</strong></p><p><strong>题目</strong>：XML 中 <code>resultMap</code> 与
+<code>resultType</code> 的关系是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">必须同时使用</div></li><li><span class="option-label">B</span><div class="option-content">二选一，不能同时用</div></li><li><span class="option-label">C</span><div class="option-content"><code>resultType</code> 优先级更高</div></li><li><span class="option-label">D</span><div class="option-content"><code>resultMap</code> 优先级更高</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>&lt;select&gt;</code> 标签中
 <code>resultMap</code> 与 <code>resultType</code>
 只能选一个。<code>resultType</code>
 直接指定返回类型（要求字段名与属性名一致或驼峰映射）；<code>resultMap</code>
-引用 <code>&lt;resultMap&gt;</code> 定义，处理复杂映射。</p>
+引用 <code>&lt;resultMap&gt;</code> 定义，处理复杂映射。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-25-">07-单选-25 ★★</h3>
-<p><strong>题目</strong>：以下哪种场景<strong>必须</strong>使用
-<code>${}</code> 而不能用 <code>#{}</code>？</p>
-<p>A. WHERE 条件值 B. INSERT VALUES 值 C. 动态排序字段（ORDER BY
-后的列名） D. LIKE 模糊查询值</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="07-单选-25-"><p><strong>07-单选-25 ★★</strong></p><p><strong>题目</strong>：以下哪种场景<strong>必须</strong>使用
+<code>${}</code> 而不能用 <code>#{}</code>？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">WHERE 条件值</div></li><li><span class="option-label">B</span><div class="option-content">INSERT VALUES 值</div></li><li><span class="option-label">C</span><div class="option-content">动态排序字段（ORDER BY 后的列名）</div></li><li><span class="option-label">D</span><div class="option-content">LIKE 模糊查询值</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：动态排序字段（<code>ORDER BY ${column}</code>）不能用
 <code>#{}</code>，因为 <code>#{}</code> 会被替换为 <code>?</code>
 占位符，而 <code>ORDER BY ?</code> 在 SQL
 语法中非法。表名/列名/排序方向都只能用
-<code>${}</code>，且必须做白名单校验。</p>
+<code>${}</code>，且必须做白名单校验。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-26-">07-单选-26 ★★</h3>
-<p><strong>题目</strong>：调用
+<section class="question-card" id="07-单选-26-"><p><strong>07-单选-26 ★★</strong></p><p><strong>题目</strong>：调用
 <code>userMapper.selectBatchIds(Arrays.asList(1L, 2L, 3L))</code> 生成的
-SQL 是？</p>
-<p>A.
-<code>SELECT * FROM sys_user WHERE id = 1 AND id = 2 AND id = 3</code>
-B. <code>SELECT * FROM sys_user WHERE id IN (1, 2, 3)</code> C.
-<code>SELECT * FROM sys_user WHERE id = 1 OR id = 2 OR id = 3</code> D.
-<code>SELECT * FROM sys_user WHERE id BETWEEN 1 AND 3</code></p>
-<p><strong>答案</strong>：B
+SQL 是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>SELECT * FROM sys_user WHERE id = 1 AND id = 2 AND id = 3</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>SELECT * FROM sys_user WHERE id IN (1, 2, 3)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>SELECT * FROM sys_user WHERE id = 1 OR id = 2 OR id = 3</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>SELECT * FROM sys_user WHERE id BETWEEN 1 AND 3</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>selectBatchIds</code> 接收集合参数，生成
-<code>WHERE id IN (...)</code> 的批量查询 SQL。</p>
+<code>WHERE id IN (...)</code> 的批量查询 SQL。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-27-">07-单选-27 ★★</h3>
-<p><strong>题目</strong>：实体类字段使用基本类型 <code>int status</code>
-与包装类型 <code>Integer status</code>，以下说法正确的是？</p>
-<p>A. 两者完全等价 B. 基本类型默认值 0，会被 MyBatis-Plus
-误认为有值参与更新 C. 包装类型默认 0，会被误更新 D.
-基本类型性能更好，推荐使用</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：基本类型
+<section class="question-card" id="07-单选-27-"><p><strong>07-单选-27 ★★</strong></p><p><strong>题目</strong>：实体类字段使用基本类型 <code>int status</code>
+与包装类型 <code>Integer status</code>，以下说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">两者完全等价</div></li><li><span class="option-label">B</span><div class="option-content">基本类型默认值 0，会被 MyBatis-Plus 误认为有值参与更新</div></li><li><span class="option-label">C</span><div class="option-content">包装类型默认 0，会被误更新</div></li><li><span class="option-label">D</span><div class="option-content">基本类型性能更好，推荐使用</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：基本类型
 <code>int</code> 默认值为 0（不是 <code>null</code>），MyBatis-Plus
 会认为该字段"有值"而参与 UPDATE，可能误覆盖数据库中的
 <code>null</code>。包装类型 <code>Integer</code> 默认
-<code>null</code>，不参与更新，更安全。<strong>实体类字段一律用包装类型</strong>。</p>
+<code>null</code>，不参与更新，更安全。<strong>实体类字段一律用包装类型</strong>。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-28-">07-单选-28 ★★</h3>
-<p><strong>题目</strong>：若 XML 文件放在
+<section class="question-card" id="07-单选-28-"><p><strong>07-单选-28 ★★</strong></p><p><strong>题目</strong>：若 XML 文件放在
 <code>src/main/resources/xml/</code>
-目录下，<code>application.yml</code> 应如何配置？</p>
-<p>A. <code>mybatis-plus.mapper-locations: classpath:mapper/*.xml</code>
-B. <code>mybatis-plus.mapper-locations: classpath:xml/*.xml</code> C.
-<code>mybatis-plus.mapper-locations: /xml/*.xml</code> D.
-<code>mybatis-plus.mapper-locations: src/main/resources/xml/*.xml</code></p>
-<p><strong>答案</strong>：B
+目录下，<code>application.yml</code> 应如何配置？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>mybatis-plus.mapper-locations: classpath:mapper/*.xml</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>mybatis-plus.mapper-locations: classpath:xml/*.xml</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>mybatis-plus.mapper-locations: /xml/*.xml</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>mybatis-plus.mapper-locations: src/main/resources/xml/*.xml</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>classpath:</code>
 前缀表示从类路径（<code>src/main/resources</code> 编译后到
 <code>target/classes</code>）下查找。XML 在 <code>resources/xml/</code>
-下，对应 <code>classpath:xml/*.xml</code>。</p>
+下，对应 <code>classpath:xml/*.xml</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-29-">07-单选-29 ★★</h3>
-<p><strong>题目</strong>：调用
+<section class="question-card" id="07-单选-29-"><p><strong>07-单选-29 ★★</strong></p><p><strong>题目</strong>：调用
 <code>userMapper.selectOne(wrapper)</code>
-时，若查询结果有多条记录，会发生什么？</p>
-<p>A. 返回第一条 B. 返回最后一条 C. 抛出
-<code>TooManyResultsException</code> D. 返回 <code>null</code></p>
-<p><strong>答案</strong>：C
+时，若查询结果有多条记录，会发生什么？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">返回第一条</div></li><li><span class="option-label">B</span><div class="option-content">返回最后一条</div></li><li><span class="option-label">C</span><div class="option-content">抛出 <code>TooManyResultsException</code></div></li><li><span class="option-label">D</span><div class="option-content">返回 <code>null</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>selectOne</code>
 期望返回单条记录，若查询结果有多条，会抛出
 <code>TooManyResultsException</code>。若可能有多条，应使用
-<code>selectList</code>。</p>
+<code>selectList</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-单选-30-">07-单选-30 ★★★</h3>
-<p><strong>题目</strong>：以下关于 <code>#{}</code> 与 <code>${}</code>
-的说法，错误的是？</p>
-<p>A. <code>#{}</code> 通过预编译占位符防注入，参数会被转义 B.
-<code>${}</code> 是字符串拼接，有 SQL 注入风险 C. <code>#{}</code>
-会被替换为 JDBC 的 <code>?</code> 占位符 D. <code>#{}</code> 和
-<code>${}</code> 功能完全等价，可以互换使用</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：D
+<section class="question-card" id="07-单选-30-"><p><strong>07-单选-30 ★★★</strong></p><p><strong>题目</strong>：以下关于 <code>#{}</code> 与 <code>${}</code>
+的说法，错误的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>#{}</code> 通过预编译占位符防注入，参数会被转义</div></li><li><span class="option-label">B</span><div class="option-content"><code>${}</code> 是字符串拼接，有 SQL 注入风险</div></li><li><span class="option-label">C</span><div class="option-content"><code>#{}</code> 会被替换为 JDBC 的 <code>?</code> 占位符</div></li><li><span class="option-label">D</span><div class="option-content"><code>#{}</code> 和 <code>${}</code> 功能完全等价，可以互换使用</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：D
 错误。两者本质完全不同：<code>#{}</code> 是预编译占位符（替换为
 <code>?</code>，参数转义，防注入）；<code>${}</code>
 是字符串拼接（直接拼入 SQL，有注入风险）。绝大多数场景用
@@ -478,393 +324,278 @@ B. <code>mybatis-plus.mapper-locations: classpath:xml/*.xml</code> C.
 且需白名单校验。</p>
 <hr />
 <h2
-id="二多项选择题10题每题3分共30分">二、多项选择题（10题，每题3分，共30分）</h2>
-<h3 id="07-多选-01-">07-多选-01 ★</h3>
-<p><strong>题目</strong>：以下哪些是 MyBatis-Plus
-<code>BaseMapper&lt;T&gt;</code> 提供的内置方法？（多选）</p>
-<p>A. <code>insert(T entity)</code> B.
-<code>deleteById(Serializable id)</code> C.
-<code>selectById(Serializable id)</code> D.
-<code>selectList(Wrapper&lt;T&gt; queryWrapper)</code></p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：四个方法都是
+id="二多项选择题10题每题3分共30分">二、多项选择题（10题，每题3分，共30分）</h2></blockquote></section>
+
+<section class="question-card" id="07-多选-01-"><p><strong>07-多选-01 ★</strong></p><p><strong>题目</strong>：以下哪些是 MyBatis-Plus
+<code>BaseMapper&lt;T&gt;</code> 提供的内置方法？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>insert(T entity)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>deleteById(Serializable id)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>selectById(Serializable id)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>selectList(Wrapper&lt;T&gt; queryWrapper)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：四个方法都是
 <code>BaseMapper</code> 内置的通用 CRUD 方法。此外还有
 <code>updateById</code>、<code>deleteBatchIds</code>、<code>selectBatchIds</code>、<code>selectCount</code>、<code>selectPage</code>
-等。</p>
+等。</p></blockquote></section>
 <hr />
-<h3 id="07-多选-02-">07-多选-02 ★</h3>
-<p><strong>题目</strong>：关于 <code>@Mapper</code> 与
-<code>@MapperScan</code>，以下说法正确的有？（多选）</p>
-<p>A. <code>@Mapper</code> 标注在 Mapper 接口上，逐个声明 B.
-<code>@MapperScan</code> 标注在启动类上，批量扫描指定包 C.
-两者二选一即可，不要同时使用 D. <code>@MapperScan</code>
-支持扫描多个包</p>
-<p><strong>答案</strong>：ABCD
+<section class="question-card" id="07-多选-02-"><p><strong>07-多选-02 ★</strong></p><p><strong>题目</strong>：关于 <code>@Mapper</code> 与
+<code>@MapperScan</code>，以下说法正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Mapper</code> 标注在 Mapper 接口上，逐个声明</div></li><li><span class="option-label">B</span><div class="option-content"><code>@MapperScan</code> 标注在启动类上，批量扫描指定包</div></li><li><span class="option-label">C</span><div class="option-content">两者二选一即可，不要同时使用</div></li><li><span class="option-label">D</span><div class="option-content"><code>@MapperScan</code> 支持扫描多个包</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
 <strong>解析</strong>：四个选项都正确。<code>@MapperScan</code>
-扫描多个包用数组语法：<code>@MapperScan({"com.ctts.mapper", "com.ctts.ext"})</code>。</p>
+扫描多个包用数组语法：<code>@MapperScan({"com.ctts.mapper", "com.ctts.ext"})</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-多选-03-">07-多选-03 ★</h3>
-<p><strong>题目</strong>：以下哪些是 MyBatis-Plus
-实体类与表映射的注解？（多选）</p>
-<p>A. <code>@TableName</code> B. <code>@TableId</code> C.
-<code>@TableField</code> D. <code>@Entity</code></p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：MyBatis-Plus
+<section class="question-card" id="07-多选-03-"><p><strong>07-多选-03 ★</strong></p><p><strong>题目</strong>：以下哪些是 MyBatis-Plus
+实体类与表映射的注解？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@TableName</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@TableId</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@TableField</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Entity</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：MyBatis-Plus
 的三大映射注解是
 <code>@TableName</code>（表名）、<code>@TableId</code>（主键）、<code>@TableField</code>（字段）。<code>@Entity</code>
-是 JPA/Hibernate 的注解，不属于 MyBatis-Plus。</p>
+是 JPA/Hibernate 的注解，不属于 MyBatis-Plus。</p></blockquote></section>
 <hr />
-<h3 id="07-多选-04-">07-多选-04 ★</h3>
-<p><strong>题目</strong>：<code>@TableId</code> 注解的
-<code>IdType</code> 策略包括以下哪些？（多选）</p>
-<p>A. <code>IdType.AUTO</code> B. <code>IdType.ASSIGN_ID</code> C.
-<code>IdType.ASSIGN_UUID</code> D. <code>IdType.NONE</code></p>
-<p><strong>答案</strong>：ABCD
+<section class="question-card" id="07-多选-04-"><p><strong>07-多选-04 ★</strong></p><p><strong>题目</strong>：<code>@TableId</code> 注解的
+<code>IdType</code> 策略包括以下哪些？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>IdType.AUTO</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>IdType.ASSIGN_ID</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>IdType.ASSIGN_UUID</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>IdType.NONE</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
 <strong>解析</strong>：四种主键策略：<code>AUTO</code>（数据库自增）、<code>ASSIGN_ID</code>（雪花算法
 Long）、<code>ASSIGN_UUID</code>（UUID
-字符串）、<code>NONE</code>（无策略，跟随全局配置）。</p>
+字符串）、<code>NONE</code>（无策略，跟随全局配置）。</p></blockquote></section>
 <hr />
-<h3 id="07-多选-05-">07-多选-05 ★</h3>
-<p><strong>题目</strong>：关于 <code>#{}</code> 与 <code>${}</code>
-的区别，以下说法正确的有？（多选）</p>
-<p>A. <code>#{}</code> 是预编译占位符，被替换为 JDBC 的 <code>?</code>
-B. <code>${}</code> 是字符串拼接，直接把参数值拼入 SQL C.
-<code>#{}</code> 能防止 SQL 注入，<code>${}</code> 有注入风险 D.
-所有场景下 <code>#{}</code> 和 <code>${}</code> 都可以互换</p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：D
+<section class="question-card" id="07-多选-05-"><p><strong>07-多选-05 ★</strong></p><p><strong>题目</strong>：关于 <code>#{}</code> 与 <code>${}</code>
+的区别，以下说法正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>#{}</code> 是预编译占位符，被替换为 JDBC 的 <code>?</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>${}</code> 是字符串拼接，直接把参数值拼入 SQL</div></li><li><span class="option-label">C</span><div class="option-content"><code>#{}</code> 能防止 SQL 注入，<code>${}</code> 有注入风险</div></li><li><span class="option-label">D</span><div class="option-content">所有场景下 <code>#{}</code> 和 <code>${}</code> 都可以互换</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：D
 错误。两者不能互换：动态表名、动态列名、动态排序方向必须用
 <code>${}</code>（因为 <code>#{}</code> 替换为 <code>?</code> 后这些位置
-SQL 语法非法），其他场景一律用 <code>#{}</code>。</p>
+SQL 语法非法），其他场景一律用 <code>#{}</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-多选-06-">07-多选-06 ★★</h3>
-<p><strong>题目</strong>：以下哪些场景应使用 <code>#{}</code> 而非
-<code>${}</code>？（多选）</p>
-<p>A. <code>WHERE username = ?</code> 的条件值 B.
-<code>INSERT INTO sys_user VALUES(?)</code> 的插入值 C.
-<code>ORDER BY ?</code> 的排序字段名 D.
-<code>LIKE CONCAT('%', ?, '%')</code> 的模糊查询值</p>
-<p><strong>答案</strong>：ABD <strong>解析</strong>：C
+<section class="question-card" id="07-多选-06-"><p><strong>07-多选-06 ★★</strong></p><p><strong>题目</strong>：以下哪些场景应使用 <code>#{}</code> 而非
+<code>${}</code>？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>WHERE username = ?</code> 的条件值</div></li><li><span class="option-label">B</span><div class="option-content"><code>INSERT INTO sys_user VALUES(?)</code> 的插入值</div></li><li><span class="option-label">C</span><div class="option-content"><code>ORDER BY ?</code> 的排序字段名</div></li><li><span class="option-label">D</span><div class="option-content"><code>LIKE CONCAT('%', ?, '%')</code> 的模糊查询值</div></li></ul></div><blockquote><p><strong>答案</strong>：ABD <strong>解析</strong>：C
 是动态排序字段名，必须用 <code>${}</code>（<code>ORDER BY ?</code>
-语法非法）。A、B、D 都是参数值，用 <code>#{}</code> 安全。</p>
+语法非法）。A、B、D 都是参数值，用 <code>#{}</code> 安全。</p></blockquote></section>
 <hr />
-<h3 id="07-多选-07-">07-多选-07 ★★</h3>
-<p><strong>题目</strong>：XML 映射文件中，以下哪些标签是 SQL
-操作标签？（多选）</p>
-<p>A. <code>&lt;select&gt;</code> B. <code>&lt;insert&gt;</code> C.
-<code>&lt;update&gt;</code> D. <code>&lt;delete&gt;</code></p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：四种 SQL
+<section class="question-card" id="07-多选-07-"><p><strong>07-多选-07 ★★</strong></p><p><strong>题目</strong>：XML 映射文件中，以下哪些标签是 SQL
+操作标签？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>&lt;select&gt;</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>&lt;insert&gt;</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>&lt;update&gt;</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>&lt;delete&gt;</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：四种 SQL
 操作标签分别对应查询、新增、修改、删除。每个标签的 <code>id</code>
-属性对应 Mapper 接口的方法名。</p>
+属性对应 Mapper 接口的方法名。</p></blockquote></section>
 <hr />
-<h3 id="07-多选-08-">07-多选-08 ★★</h3>
-<p><strong>题目</strong>：以下哪些是导致
+<section class="question-card" id="07-多选-08-"><p><strong>07-多选-08 ★★</strong></p><p><strong>题目</strong>：以下哪些是导致
 <code>BindingException: Invalid bound statement (not found)</code>
-报错的可能原因？（多选）</p>
-<p>A. XML 的 <code>namespace</code> 与接口全限定名不一致 B.
-<code>&lt;select id="xxx"&gt;</code> 的 <code>id</code>
-与接口方法名不一致 C. XML 文件未被 <code>mapper-locations</code> 扫描到
-D. 实体类未加 <code>@TableName</code> 注解</p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：A、B、C 都会导致
+报错的可能原因？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">XML 的 <code>namespace</code> 与接口全限定名不一致</div></li><li><span class="option-label">B</span><div class="option-content"><code>&lt;select id="xxx"&gt;</code> 的 <code>id</code> 与接口方法名不一致</div></li><li><span class="option-label">C</span><div class="option-content">XML 文件未被 <code>mapper-locations</code> 扫描到</div></li><li><span class="option-label">D</span><div class="option-content">实体类未加 <code>@TableName</code> 注解</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：A、B、C 都会导致
 MyBatis 找不到对应的 SQL 语句从而抛出 <code>BindingException</code>。D
-不会导致此错误，<code>@TableName</code> 缺失会报"表不存在"错误。</p>
+不会导致此错误，<code>@TableName</code> 缺失会报"表不存在"错误。</p></blockquote></section>
 <hr />
-<h3 id="07-多选-09-">07-多选-09 ★★</h3>
-<p><strong>题目</strong>：关于实体类字段类型选择，以下说法正确的有？（多选）</p>
-<p>A. 主键推荐用 <code>Long</code>（包装类型） B. 状态字段推荐用
-<code>Integer</code>（包装类型） C. 时间字段推荐用
-<code>LocalDateTime</code> D. 字符串字段推荐用 <code>String</code></p>
-<p><strong>答案</strong>：ABCD
+<section class="question-card" id="07-多选-09-"><p><strong>07-多选-09 ★★</strong></p><p><strong>题目</strong>：关于实体类字段类型选择，以下说法正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">主键推荐用 <code>Long</code>（包装类型）</div></li><li><span class="option-label">B</span><div class="option-content">状态字段推荐用 <code>Integer</code>（包装类型）</div></li><li><span class="option-label">C</span><div class="option-content">时间字段推荐用 <code>LocalDateTime</code></div></li><li><span class="option-label">D</span><div class="option-content">字符串字段推荐用 <code>String</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
 <strong>解析</strong>：实体类字段应一律使用包装类型（<code>Long</code>、<code>Integer</code>、<code>String</code>
 等），避免基本类型默认值影响 MyBatis-Plus 的 null 判断。时间推荐
 <code>LocalDateTime</code>（Java 8+，线程安全），不推荐老
-<code>Date</code> API。</p>
+<code>Date</code> API。</p></blockquote></section>
 <hr />
-<h3 id="07-多选-10-">07-多选-10 ★★★</h3>
-<p><strong>题目</strong>：以下关于注解 SQL 与 XML SQL
-的对比，正确的有？（多选）</p>
-<p>A. 注解 SQL 写在 Mapper 接口方法上，简洁直观 B. XML SQL
-支持动态标签（<code>&lt;if&gt;</code>/<code>&lt;where&gt;</code>/<code>&lt;foreach&gt;</code>）
-C. 注解 SQL 适合简单固定 SQL，XML SQL 适合复杂动态 SQL D. 同一 Mapper
-接口中注解 SQL 与 XML SQL 不能混用</p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：D 错误。同一 Mapper
+<section class="question-card" id="07-多选-10-"><p><strong>07-多选-10 ★★★</strong></p><p><strong>题目</strong>：以下关于注解 SQL 与 XML SQL
+的对比，正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">注解 SQL 写在 Mapper 接口方法上，简洁直观</div></li><li><span class="option-label">B</span><div class="option-content">XML SQL 支持动态标签（<code>&lt;if&gt;</code>/<code>&lt;where&gt;</code>/<code>&lt;foreach&gt;</code>）</div></li><li><span class="option-label">C</span><div class="option-content">注解 SQL 适合简单固定 SQL，XML SQL 适合复杂动态 SQL</div></li><li><span class="option-label">D</span><div class="option-content">同一 Mapper 接口中注解 SQL 与 XML SQL 不能混用</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：D 错误。同一 Mapper
 接口中注解 SQL 与 XML SQL <strong>可以混用</strong>——部分方法用
 <code>@Select</code>，部分方法用 XML。CTTS 项目
 <code>TrainingProjectMapper</code> 就同时使用了 BaseMapper 内置方法（无
 SQL）和 XML 自定义方法。</p>
 <hr />
 <h2
-id="三判断题20题每题1分共20分">三、判断题（20题，每题1分，共20分）</h2>
-<h3 id="07-判断-01-">07-判断-01 ★</h3>
-<p><strong>题目</strong>：<code>@Mapper</code> 和
-<code>@MapperScan</code> 可以同时使用，但通常二选一即可。</p>
-<p><strong>答案</strong>：正确
+id="三判断题20题每题1分共20分">三、判断题（20题，每题1分，共20分）</h2></blockquote></section>
+
+<section class="question-card" id="07-判断-01-"><p><strong>07-判断-01 ★</strong></p><p><strong>题目</strong>：<code>@Mapper</code> 和
+<code>@MapperScan</code> 可以同时使用，但通常二选一即可。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：两者技术上可以同时使用（不冲突），但属于重复声明。项目实践中推荐
 <code>@MapperScan</code> 批量扫描，Mapper 接口不再加
-<code>@Mapper</code>。</p>
+<code>@Mapper</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-02-">07-判断-02 ★</h3>
-<p><strong>题目</strong>：继承 <code>BaseMapper</code> 后，无需写任何
-SQL 即可完成单表的增删改查。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="07-判断-02-"><p><strong>07-判断-02 ★</strong></p><p><strong>题目</strong>：继承 <code>BaseMapper</code> 后，无需写任何
+SQL 即可完成单表的增删改查。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>BaseMapper&lt;T&gt;</code> 内置了
 <code>insert</code>、<code>deleteById</code>、<code>updateById</code>、<code>selectById</code>、<code>selectList</code>
-等通用方法，MyBatis-Plus 自动注入 SQL，开发者无需编写。</p>
+等通用方法，MyBatis-Plus 自动注入 SQL，开发者无需编写。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-03-">07-判断-03 ★</h3>
-<p><strong>题目</strong>：<code>@TableField(exist = false)</code>
-表示该字段在数据库表中不存在，不会被 MyBatis-Plus 当作表字段处理。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="07-判断-03-"><p><strong>07-判断-03 ★</strong></p><p><strong>题目</strong>：<code>@TableField(exist = false)</code>
+表示该字段在数据库表中不存在，不会被 MyBatis-Plus 当作表字段处理。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>exist = false</code> 标记的字段不参与 CRUD
 映射，常用于前端校验字段（如
-<code>confirmPassword</code>）或计算字段。</p>
+<code>confirmPassword</code>）或计算字段。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-04-">07-判断-04 ★</h3>
-<p><strong>题目</strong>：<code>#{param}</code> 和 <code>${param}</code>
-在功能上完全等价，可以互换使用。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="07-判断-04-"><p><strong>07-判断-04 ★</strong></p><p><strong>题目</strong>：<code>#{param}</code> 和 <code>${param}</code>
+在功能上完全等价，可以互换使用。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：两者本质完全不同。<code>#{}</code>
 是预编译占位符（替换为 <code>?</code>，防注入）；<code>${}</code>
 是字符串拼接（有注入风险）。绝大多数场景用
 <code>#{}</code>，仅动态表名/列名用 <code>${}</code>
-且需白名单校验。</p>
+且需白名单校验。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-05-">07-判断-05 ★</h3>
-<p><strong>题目</strong>：MyBatis-Plus
+<section class="question-card" id="07-判断-05-"><p><strong>07-判断-05 ★</strong></p><p><strong>题目</strong>：MyBatis-Plus
 默认开启驼峰命名映射，<code>createTime</code> 自动映射到
-<code>create_time</code> 列。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：默认
+<code>create_time</code> 列。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：默认
 <code>map-underscore-to-camel-case: true</code>，Java
 驼峰属性自动映射到数据库下划线列名，无需手动配置
-<code>@TableField</code>。</p>
+<code>@TableField</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-06-">07-判断-06 ★</h3>
-<p><strong>题目</strong>：<code>@MapperScan</code>
-只能扫描一个包，不能同时扫描多个包。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="07-判断-06-"><p><strong>07-判断-06 ★</strong></p><p><strong>题目</strong>：<code>@MapperScan</code>
+只能扫描一个包，不能同时扫描多个包。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：<code>@MapperScan</code>
-支持数组语法扫描多个包：<code>@MapperScan({"com.ctts.mapper", "com.ctts.ext"})</code>。</p>
+支持数组语法扫描多个包：<code>@MapperScan({"com.ctts.mapper", "com.ctts.ext"})</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-07-">07-判断-07 ★</h3>
-<p><strong>题目</strong>：XML 映射文件的 <code>namespace</code>
-必须等于对应 Mapper 接口的全限定名。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="07-判断-07-"><p><strong>07-判断-07 ★</strong></p><p><strong>题目</strong>：XML 映射文件的 <code>namespace</code>
+必须等于对应 Mapper 接口的全限定名。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>namespace</code> 是 XML
 与接口绑定的桥梁，必须等于接口全限定名（如
 <code>com.ctts.mapper.SysUserMapper</code>），否则会报
-<code>BindingException</code>。</p>
+<code>BindingException</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-08-">07-判断-08 ★</h3>
-<p><strong>题目</strong>：<code>selectList(null)</code>
-会报空指针异常。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="07-判断-08-"><p><strong>07-判断-08 ★</strong></p><p><strong>题目</strong>：<code>selectList(null)</code>
+会报空指针异常。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：<code>selectList</code> 的参数是条件构造器
 <code>Wrapper</code>，传 <code>null</code>
-表示无条件查询全部记录，不会报错。</p>
+表示无条件查询全部记录，不会报错。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-09-">07-判断-09 ★</h3>
-<p><strong>题目</strong>：实体类名 <code>User</code> 对应表
+<section class="question-card" id="07-判断-09-"><p><strong>07-判断-09 ★</strong></p><p><strong>题目</strong>：实体类名 <code>User</code> 对应表
 <code>sys_user</code>，若不加 <code>@TableName</code> 注解，MyBatis-Plus
-会报"表不存在"。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：MyBatis-Plus
+会报"表不存在"。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：MyBatis-Plus
 默认按类名转下划线找表，<code>User</code> →
 <code>user</code>，但实际表名是 <code>sys_user</code>，找不到会报
 <code>Table 'ctts.user' doesn't exist</code>。必须加
-<code>@TableName("sys_user")</code>。</p>
+<code>@TableName("sys_user")</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-10-">07-判断-10 ★</h3>
-<p><strong>题目</strong>：<code>@TableId(type = IdType.AUTO)</code>
-表示主键由数据库自增生成。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="07-判断-10-"><p><strong>07-判断-10 ★</strong></p><p><strong>题目</strong>：<code>@TableId(type = IdType.AUTO)</code>
+表示主键由数据库自增生成。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>IdType.AUTO</code> 策略下，数据库主键需配置
 <code>AUTO_INCREMENT</code>，插入后自增值自动回填到实体对象的
-<code>id</code> 字段。</p>
+<code>id</code> 字段。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-11-">07-判断-11 ★★</h3>
-<p><strong>题目</strong>：注解 SQL 支持
+<section class="question-card" id="07-判断-11-"><p><strong>07-判断-11 ★★</strong></p><p><strong>题目</strong>：注解 SQL 支持
 <code>&lt;if&gt;</code>、<code>&lt;where&gt;</code>、<code>&lt;foreach&gt;</code>
-等动态 SQL 标签。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：注解
+等动态 SQL 标签。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：注解
 SQL（<code>@Select</code> 等）不支持动态标签。需要动态 SQL 时应使用 XML
-SQL，或用 <code>@SelectProvider</code> 注解配合 Java 代码生成。</p>
+SQL，或用 <code>@SelectProvider</code> 注解配合 Java 代码生成。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-12-">07-判断-12 ★★</h3>
-<p><strong>题目</strong>：<code>updateById</code> 方法会更新实体类中值为
-<code>null</code> 的字段。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：MyBatis-Plus
+<section class="question-card" id="07-判断-12-"><p><strong>07-判断-12 ★★</strong></p><p><strong>题目</strong>：<code>updateById</code> 方法会更新实体类中值为
+<code>null</code> 的字段。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：MyBatis-Plus
 默认策略 <code>FieldStrategy.NOT_NULL</code>，<code>null</code>
 字段不参与 UPDATE，避免误覆盖。若需更新为 <code>null</code>，需用
-<code>UpdateWrapper.set("字段", null)</code> 或调整字段策略。</p>
+<code>UpdateWrapper.set("字段", null)</code> 或调整字段策略。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-13-">07-判断-13 ★★</h3>
-<p><strong>题目</strong>：<code>LIKE '%#{keyword}%'</code>
-是安全的模糊查询写法。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：<code>#{}</code>
+<section class="question-card" id="07-判断-13-"><p><strong>07-判断-13 ★★</strong></p><p><strong>题目</strong>：<code>LIKE '%#{keyword}%'</code>
+是安全的模糊查询写法。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：<code>#{}</code>
 在单引号内不会被 MyBatis 解析，<code>'%#{keyword}%'</code>
-无效。正确写法是 <code>LIKE CONCAT('%', #{keyword}, '%')</code>。</p>
+无效。正确写法是 <code>LIKE CONCAT('%', #{keyword}, '%')</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-14-">07-判断-14 ★★</h3>
-<p><strong>题目</strong>：XML 中 <code>&lt;select&gt;</code>
-标签可以同时使用 <code>resultMap</code> 和 <code>resultType</code>。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="07-判断-14-"><p><strong>07-判断-14 ★★</strong></p><p><strong>题目</strong>：XML 中 <code>&lt;select&gt;</code>
+标签可以同时使用 <code>resultMap</code> 和 <code>resultType</code>。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：<code>resultMap</code> 与 <code>resultType</code>
 互斥，只能选一个。<code>resultType</code>
 直接指定返回类型；<code>resultMap</code> 引用
-<code>&lt;resultMap&gt;</code> 定义，处理复杂映射。</p>
+<code>&lt;resultMap&gt;</code> 定义，处理复杂映射。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-15-">07-判断-15 ★★</h3>
-<p><strong>题目</strong>：实体类字段推荐使用基本类型（如
-<code>int</code>、<code>long</code>）以提高性能。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="07-判断-15-"><p><strong>07-判断-15 ★★</strong></p><p><strong>题目</strong>：实体类字段推荐使用基本类型（如
+<code>int</code>、<code>long</code>）以提高性能。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：基本类型有默认值（<code>int</code> 默认 0），会被
 MyBatis-Plus 误认为有值参与更新，可能误覆盖数据库
 <code>null</code>。推荐使用包装类型（<code>Integer</code>、<code>Long</code>），默认
-<code>null</code> 不参与更新。</p>
+<code>null</code> 不参与更新。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-16-">07-判断-16 ★★</h3>
-<p><strong>题目</strong>：<code>selectOne</code>
-方法查询结果有多条记录时，会返回第一条。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="07-判断-16-"><p><strong>07-判断-16 ★★</strong></p><p><strong>题目</strong>：<code>selectOne</code>
+方法查询结果有多条记录时，会返回第一条。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：<code>selectOne</code>
 期望返回单条记录，若查询结果有多条，会抛出
 <code>TooManyResultsException</code>。可能有多条时应使用
-<code>selectList</code>。</p>
+<code>selectList</code>。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-17-">07-判断-17 ★★</h3>
-<p><strong>题目</strong>：动态排序字段 <code>ORDER BY ${column}</code>
-必须做白名单校验，否则有 SQL 注入风险。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：<code>${}</code>
+<section class="question-card" id="07-判断-17-"><p><strong>07-判断-17 ★★</strong></p><p><strong>题目</strong>：动态排序字段 <code>ORDER BY ${column}</code>
+必须做白名单校验，否则有 SQL 注入风险。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：<code>${}</code>
 是字符串拼接，若 <code>column</code> 来自用户输入且未校验，攻击者可传入
 <code>id; DROP TABLE sys_user --</code> 导致注入。必须在代码层校验
-<code>column</code> 在预定义合法值列表中。</p>
+<code>column</code> 在预定义合法值列表中。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-18-">07-判断-18 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 的 <code>BaseMapper</code>
-方法名中，<code>ById</code> 后缀表示根据主键操作。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="07-判断-18-"><p><strong>07-判断-18 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus 的 <code>BaseMapper</code>
+方法名中，<code>ById</code> 后缀表示根据主键操作。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>deleteById</code>、<code>updateById</code>、<code>selectById</code>
 都带 <code>ById</code>
-后缀，表示根据主键进行操作。参数是主键值（<code>Serializable</code>）。</p>
+后缀，表示根据主键进行操作。参数是主键值（<code>Serializable</code>）。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-19-">07-判断-19 ★★★</h3>
-<p><strong>题目</strong>：<code>@Select("SELECT * FROM sys_user WHERE username = '${username}'")</code>
-在用户输入 <code>admin' OR '1'='1</code> 时会返回所有用户记录。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：<code>${}</code>
+<section class="question-card" id="07-判断-19-"><p><strong>07-判断-19 ★★★</strong></p><p><strong>题目</strong>：<code>@Select("SELECT * FROM sys_user WHERE username = '${username}'")</code>
+在用户输入 <code>admin' OR '1'='1</code> 时会返回所有用户记录。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：<code>${}</code>
 直接拼接，SQL 变为
 <code>WHERE username = 'admin' OR '1'='1'</code>，条件恒真，返回所有用户。这就是典型的
-SQL 注入。必须改用 <code>#{}</code> 防注入。</p>
+SQL 注入。必须改用 <code>#{}</code> 防注入。</p></blockquote></section>
 <hr />
-<h3 id="07-判断-20-">07-判断-20 ★★★</h3>
-<p><strong>题目</strong>：同一 Mapper 接口中可以同时存在
+<section class="question-card" id="07-判断-20-"><p><strong>07-判断-20 ★★★</strong></p><p><strong>题目</strong>：同一 Mapper 接口中可以同时存在
 <code>@Select</code> 注解方法和 XML <code>&lt;select&gt;</code>
-标签方法。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：注解 SQL 与 XML
+标签方法。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：注解 SQL 与 XML
 SQL 可以在同一 Mapper 接口中混用。CTTS 项目
 <code>TrainingProjectMapper</code> 就同时使用了 <code>BaseMapper</code>
 内置方法、XML 自定义方法，互不冲突。</p>
 <hr />
 <h2
-id="四填空题10题每题2分共20分">四、填空题（10题，每题2分，共20分）</h2>
-<h3 id="07-填空-01-">07-填空-01 ★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 中，Mapper 接口需要继承 ________
-接口以获得内置 CRUD 方法。</p>
-<p><strong>答案</strong>：<code>BaseMapper&lt;T&gt;</code>
+id="四填空题10题每题2分共20分">四、填空题（10题，每题2分，共20分）</h2></blockquote></section>
+
+<section class="question-card" id="07-填空-01-"><p><strong>07-填空-01 ★</strong></p><p><strong>题目</strong>：MyBatis-Plus 中，Mapper 接口需要继承 ________
+接口以获得内置 CRUD 方法。</p><blockquote><p><strong>答案</strong>：<code>BaseMapper&lt;T&gt;</code>
 <strong>解析</strong>：<code>BaseMapper&lt;T&gt;</code> 是 MyBatis-Plus
 提供的通用 Mapper 接口，泛型 <code>T</code> 为实体类类型。继承后即拥有
 <code>insert</code>、<code>deleteById</code>、<code>selectById</code>、<code>selectList</code>
-等方法。</p>
+等方法。</p></blockquote></section>
 <hr />
-<h3 id="07-填空-02-">07-填空-02 ★</h3>
-<p><strong>题目</strong>：启动类上标注 ________
-注解可以批量扫描指定包下的所有 Mapper 接口。</p>
-<p><strong>答案</strong>：<code>@MapperScan</code>
+<section class="question-card" id="07-填空-02-"><p><strong>07-填空-02 ★</strong></p><p><strong>题目</strong>：启动类上标注 ________
+注解可以批量扫描指定包下的所有 Mapper 接口。</p><blockquote><p><strong>答案</strong>：<code>@MapperScan</code>
 <strong>解析</strong>：<code>@MapperScan("com.ctts.mapper")</code>
 标注在启动类上，扫描 <code>com.ctts.mapper</code>
-包及其子包下的所有接口，注册为 Mapper Bean。</p>
+包及其子包下的所有接口，注册为 Mapper Bean。</p></blockquote></section>
 <hr />
-<h3 id="07-填空-03-">07-填空-03 ★</h3>
-<p><strong>题目</strong>：实体类与表映射的三大注解中，________
-用于映射表名，________ 用于映射主键，________ 用于映射字段。</p>
-<p><strong>答案</strong>：<code>@TableName</code>；<code>@TableId</code>；<code>@TableField</code>
+<section class="question-card" id="07-填空-03-"><p><strong>07-填空-03 ★</strong></p><p><strong>题目</strong>：实体类与表映射的三大注解中，________
+用于映射表名，________ 用于映射主键，________ 用于映射字段。</p><blockquote><p><strong>答案</strong>：<code>@TableName</code>；<code>@TableId</code>；<code>@TableField</code>
 <strong>解析</strong>：<code>@TableName("sys_user")</code>
 映射表名；<code>@TableId(type = IdType.AUTO)</code>
 映射主键及策略；<code>@TableField</code>
-映射字段或标记非表字段（<code>exist = false</code>）。</p>
+映射字段或标记非表字段（<code>exist = false</code>）。</p></blockquote></section>
 <hr />
-<h3 id="07-填空-04-">07-填空-04 ★</h3>
-<p><strong>题目</strong>：<code>@TableField(exist = ________)</code>
-表示该字段在数据库表中不存在，不参与 CRUD 映射。</p>
-<p><strong>答案</strong>：<code>false</code>
+<section class="question-card" id="07-填空-04-"><p><strong>07-填空-04 ★</strong></p><p><strong>题目</strong>：<code>@TableField(exist = ________)</code>
+表示该字段在数据库表中不存在，不参与 CRUD 映射。</p><blockquote><p><strong>答案</strong>：<code>false</code>
 <strong>解析</strong>：<code>exist = false</code> 标记字段为非表字段，如
-<code>confirmPassword</code> 仅用于前端校验，数据库无此列。</p>
+<code>confirmPassword</code> 仅用于前端校验，数据库无此列。</p></blockquote></section>
 <hr />
-<h3 id="07-填空-05-">07-填空-05 ★</h3>
-<p><strong>题目</strong>：注解 SQL 中，________ 是预编译占位符（防 SQL
-注入），________ 是字符串拼接（有注入风险）。</p>
-<p><strong>答案</strong>：<code>#{}</code>（或
+<section class="question-card" id="07-填空-05-"><p><strong>07-填空-05 ★</strong></p><p><strong>题目</strong>：注解 SQL 中，________ 是预编译占位符（防 SQL
+注入），________ 是字符串拼接（有注入风险）。</p><blockquote><p><strong>答案</strong>：<code>#{}</code>（或
 <code>#{param}</code>）；<code>${}</code>（或 <code>${param}</code>）
 <strong>解析</strong>：<code>#{}</code> 被替换为 JDBC 的
 <code>?</code>，参数通过 <code>PreparedStatement</code>
-绑定并转义，防注入；<code>${}</code> 直接拼接字符串，有注入风险。</p>
+绑定并转义，防注入；<code>${}</code> 直接拼接字符串，有注入风险。</p></blockquote></section>
 <hr />
-<h3 id="07-填空-06-">07-填空-06 ★</h3>
-<p><strong>题目</strong>：XML
+<section class="question-card" id="07-填空-06-"><p><strong>07-填空-06 ★</strong></p><p><strong>题目</strong>：XML
 映射文件中，<code>&lt;mapper namespace="________"&gt;</code>
-的值必须等于 Mapper 接口的 ________。</p>
-<p><strong>答案</strong>：全限定名（或全限定类名）；全限定名
+的值必须等于 Mapper 接口的 ________。</p><blockquote><p><strong>答案</strong>：全限定名（或全限定类名）；全限定名
 <strong>解析</strong>：<code>namespace</code> 是 XML
 与接口绑定的桥梁，如
-<code>namespace="com.ctts.mapper.SysUserMapper"</code>，必须等于接口的全限定名（含包名）。</p>
+<code>namespace="com.ctts.mapper.SysUserMapper"</code>，必须等于接口的全限定名（含包名）。</p></blockquote></section>
 <hr />
-<h3 id="07-填空-07-">07-填空-07 ★★</h3>
-<p><strong>题目</strong>：<code>@TableId(type = IdType.________)</code>
+<section class="question-card" id="07-填空-07-"><p><strong>07-填空-07 ★★</strong></p><p><strong>题目</strong>：<code>@TableId(type = IdType.________)</code>
 表示主键由数据库自增生成；<code>IdType.________</code>
-表示由框架使用雪花算法生成主键。</p>
-<p><strong>答案</strong>：<code>AUTO</code>；<code>ASSIGN_ID</code>
+表示由框架使用雪花算法生成主键。</p><blockquote><p><strong>答案</strong>：<code>AUTO</code>；<code>ASSIGN_ID</code>
 <strong>解析</strong>：<code>AUTO</code> 要求数据库主键配置
 <code>AUTO_INCREMENT</code>；<code>ASSIGN_ID</code> 由框架生成 19 位
-Long 型雪花 ID，数据库无需自增。</p>
+Long 型雪花 ID，数据库无需自增。</p></blockquote></section>
 <hr />
-<h3 id="07-填空-08-">07-填空-08 ★★</h3>
-<p><strong>题目</strong>：<code>application.yml</code> 中通过配置
+<section class="question-card" id="07-填空-08-"><p><strong>07-填空-08 ★★</strong></p><p><strong>题目</strong>：<code>application.yml</code> 中通过配置
 <code>mybatis-plus.________: classpath:mapper/*.xml</code> 来指定 XML
-映射文件的扫描路径。</p>
-<p><strong>答案</strong>：<code>mapper-locations</code>
+映射文件的扫描路径。</p><blockquote><p><strong>答案</strong>：<code>mapper-locations</code>
 <strong>解析</strong>：<code>mybatis-plus.mapper-locations</code>
 属性指定 XML 文件位置，默认 <code>classpath:mapper/*.xml</code>。若 XML
-在其他目录需修改此配置。</p>
+在其他目录需修改此配置。</p></blockquote></section>
 <hr />
-<h3 id="07-填空-09-">07-填空-09 ★★</h3>
-<p><strong>题目</strong>：<code>@Select</code>
-注解中多参数绑定时，必须使用 ________ 注解显式指定参数名。</p>
-<p><strong>答案</strong>：<code>@Param</code>
+<section class="question-card" id="07-填空-09-"><p><strong>07-填空-09 ★★</strong></p><p><strong>题目</strong>：<code>@Select</code>
+注解中多参数绑定时，必须使用 ________ 注解显式指定参数名。</p><blockquote><p><strong>答案</strong>：<code>@Param</code>
 <strong>解析</strong>：多参数时 MyBatis 无法自动识别参数名，需用
 <code>@Param("role") String role</code> 显式指定，SQL 中用
-<code>#{role}</code> 引用。单参数可省略。</p>
+<code>#{role}</code> 引用。单参数可省略。</p></blockquote></section>
 <hr />
-<h3 id="07-填空-10-">07-填空-10 ★★★</h3>
-<p><strong>题目</strong>：模糊查询的安全写法是
+<section class="question-card" id="07-填空-10-"><p><strong>07-填空-10 ★★★</strong></p><p><strong>题目</strong>：模糊查询的安全写法是
 <code>LIKE ________('%', #{keyword}, '%')</code>，不能写成
-<code>LIKE '%#________%'</code>。</p>
-<p><strong>答案</strong>：<code>CONCAT</code>；<code>{keyword}</code>
+<code>LIKE '%#________%'</code>。</p><blockquote><p><strong>答案</strong>：<code>CONCAT</code>；<code>{keyword}</code>
 <strong>解析</strong>：<code>#{}</code>
 在单引号内不会被解析，<code>'%#{keyword}%'</code> 无效。正确写法用
 <code>CONCAT</code>
 函数：<code>LIKE CONCAT('%', #{keyword}, '%')</code>，既安全又能正确解析参数。</p>
 <hr />
 <h2
-id="五论述简答题4题每题10分共40分">五、论述简答题（4题，每题10分，共40分）</h2>
-<h3 id="07-论述-01-">07-论述-01 ★★</h3>
-<p><strong>题目</strong>：简述 <code>@Mapper</code> 与
+id="五论述简答题4题每题10分共40分">五、论述简答题（4题，每题10分，共40分）</h2></blockquote></section>
+
+<section class="question-card" id="07-论述-01-"><p><strong>07-论述-01 ★★</strong></p><p><strong>题目</strong>：简述 <code>@Mapper</code> 与
 <code>@MapperScan</code> 的区别、各自的使用方式及适用场景，并说明 CTTS
-项目应选择哪种方式及原因。</p>
-<p><strong>评分标准</strong>（10分）：</p>
-<ul>
+项目应选择哪种方式及原因。</p><p><strong>评分标准</strong>（10分）：</p><ul>
 <li>两者定义与区别（3分）</li>
 <li>各自使用方式（含代码示例）（3分）</li>
 <li>适用场景分析（2分）</li>
 <li>CTTS 项目选择及理由（2分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>区别与定义</strong>：</p>
-<ul>
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>区别与定义</strong>：</p><ul>
 <li><code>@Mapper</code> 是接口级注解，标注在每个 Mapper
 接口上，逐个声明该接口为 Mapper。</li>
 <li><code>@MapperScan</code> 是类级注解，标注在启动类或
@@ -872,9 +603,7 @@ id="五论述简答题4题每题10分共40分">五、论述简答题（4题，�
 Mapper。</li>
 <li>两者本质都是触发 <code>MapperScannerConfigurer</code>
 扫描并生成动态代理，二选一即可，不要同时使用。</li>
-</ul>
-<p><strong>使用方式</strong>：</p>
-<div class="sourceCode" id="cb1"><pre
+</ul><p><strong>使用方式</strong>：</p><div class="sourceCode" id="cb1"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 方式一：@Mapper 逐个声明</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Mapper</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> SysUserMapper <span class="kw">extends</span> BaseMapper<span class="op">&lt;</span>SysUser<span class="op">&gt;</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
@@ -883,41 +612,30 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">@MapperScan</span><span class="op">(</span><span class="st">&quot;com.ctts.mapper&quot;</span><span class="op">)</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CttsApplication <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">// mapper 包下的接口无需加 @Mapper</span></span></code></pre></div>
-<p><strong>适用场景</strong>：</p>
-<ul>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">// mapper 包下的接口无需加 @Mapper</span></span></code></pre></div><p><strong>适用场景</strong>：</p><ul>
 <li><code>@Mapper</code>：Mapper
 数量少；接口分散在多个不同包；只需个别接口注册。</li>
 <li><code>@MapperScan</code>：Mapper 集中在同一包；项目 Mapper
 数量多；新增 Mapper 频繁（无需改注解）。</li>
-</ul>
-<p><strong>CTTS 项目选择</strong>：采用
+</ul><p><strong>CTTS 项目选择</strong>：采用
 <code>@MapperScan("com.ctts.mapper")</code>。原因：CTTS 有 5 张表对应 5
 个 Mapper，全部位于 <code>com.ctts.mapper</code>
 包下，批量扫描一次配置即可；后续新增表的 Mapper
-只需放入该包，无需修改启动类注解，维护成本低。</p>
+只需放入该包，无需修改启动类注解，维护成本低。</p></blockquote></section>
 <hr />
-<h3 id="07-论述-02-">07-论述-02 ★★★</h3>
-<p><strong>题目</strong>：详细说明 <code>#{}</code> 与 <code>${}</code>
-的本质区别、执行原理、防注入机制，并举例说明各自的适用场景与禁用场景。</p>
-<p><strong>评分标准</strong>（10分）：</p>
-<ul>
+<section class="question-card" id="07-论述-02-"><p><strong>07-论述-02 ★★★</strong></p><p><strong>题目</strong>：详细说明 <code>#{}</code> 与 <code>${}</code>
+的本质区别、执行原理、防注入机制，并举例说明各自的适用场景与禁用场景。</p><p><strong>评分标准</strong>（10分）：</p><ul>
 <li>本质区别说明（2分）</li>
 <li>执行原理（预编译 vs 拼接）（3分）</li>
 <li>防注入机制（2分）</li>
 <li>适用场景与禁用场景举例（3分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>本质区别</strong>：</p>
-<ul>
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>本质区别</strong>：</p><ul>
 <li><code>#{}</code> 是<strong>预编译占位符</strong>，被 MyBatis 替换为
 JDBC 的 <code>?</code>，参数通过 <code>PreparedStatement.setXxx()</code>
 绑定。</li>
 <li><code>${}</code> 是<strong>字符串拼接</strong>，直接把参数值原样拼入
 SQL 字符串中。</li>
-</ul>
-<p><strong>执行原理</strong>：</p>
-<ul>
+</ul><p><strong>执行原理</strong>：</p><ul>
 <li><code>#{}</code>：<code>SELECT * FROM sys_user WHERE username = #{username}</code>
 → 解析为 <code>SELECT * FROM sys_user WHERE username = ?</code> →
 <code>PreparedStatement.setString(1, "admin' OR '1'='1")</code> → 参数被
@@ -926,63 +644,47 @@ JDBC 驱动转义，作为纯字符串值传递。</li>
 → 直接拼接为
 <code>SELECT * FROM sys_user WHERE username = 'admin' OR '1'='1'</code>
 → 原样执行。</li>
-</ul>
-<p><strong>防注入机制</strong>：</p>
-<ul>
+</ul><p><strong>防注入机制</strong>：</p><ul>
 <li><code>#{}</code> 通过预编译使参数<strong>不参与 SQL
 语法解析</strong>——参数值永远被当作数据而非代码，即使含
 <code>'</code>、<code>;</code>、<code>--</code>
 等特殊字符也会被转义，从根本上防止注入。</li>
 <li><code>${}</code> 拼接后参数<strong>参与 SQL
 语法解析</strong>，攻击者可注入任意 SQL 片段。</li>
-</ul>
-<p><strong>适用场景</strong>：</p>
-<ul>
+</ul><p><strong>适用场景</strong>：</p><ul>
 <li><code>#{}</code>：WHERE 条件值、INSERT VALUES、UPDATE SET、LIKE
 模糊查询值（配合 CONCAT）等所有参数值场景。</li>
 <li><code>${}</code>：动态表名（<code>FROM ${table}</code>）、动态列名（<code>ORDER BY ${column}</code>）、动态排序方向（<code>ORDER BY x ${order}</code>）——这些位置不能用
 <code>?</code> 占位符。</li>
-</ul>
-<p><strong>禁用场景</strong>：</p>
-<ul>
+</ul><p><strong>禁用场景</strong>：</p><ul>
 <li>禁止用 <code>${}</code>
 处理用户输入的查询条件、登录用户名密码等——会导致 SQL 注入。</li>
 <li><code>${}</code>
 用于动态表名/列名时必须做白名单校验，只允许预定义合法值。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="07-论述-03-">07-论述-03 ★★</h3>
-<p><strong>题目</strong>：对比注解 SQL 与 XML SQL 两种 SQL
-映射方式的优缺点及适用场景，并说明 CTTS 项目为何同时使用两种方式。</p>
-<p><strong>评分标准</strong>（10分）：</p>
-<ul>
+<section class="question-card" id="07-论述-03-"><p><strong>07-论述-03 ★★</strong></p><p><strong>题目</strong>：对比注解 SQL 与 XML SQL 两种 SQL
+映射方式的优缺点及适用场景，并说明 CTTS 项目为何同时使用两种方式。</p><p><strong>评分标准</strong>（10分）：</p><ul>
 <li>两种方式特点说明（4分，每种2分）</li>
 <li>优缺点对比（3分）</li>
 <li>适用场景与 CTTS 选择理由（3分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>注解 SQL 特点</strong>：SQL 直接写在 Mapper 接口方法上的
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>注解 SQL 特点</strong>：SQL 直接写在 Mapper 接口方法上的
 <code>@Select</code>/<code>@Insert</code>/<code>@Update</code>/<code>@Delete</code>
-注解中。</p>
-<ul>
+注解中。</p><ul>
 <li>优点：简洁直观，SQL 与方法定义在一起，便于查看；无需额外 XML
 文件。</li>
 <li>缺点：不支持动态标签（<code>&lt;if&gt;</code>/<code>&lt;where&gt;</code>/<code>&lt;foreach&gt;</code>）；复杂
 SQL 写在注解中可读性差；修改 SQL 需重新编译。</li>
 <li>适用场景：简单、固定的 SQL，如按主键查询、按单条件查询。</li>
-</ul>
-<p><strong>XML SQL 特点</strong>：SQL 写在独立的
+</ul><p><strong>XML SQL 特点</strong>：SQL 写在独立的
 <code>XxxMapper.xml</code> 文件中，通过 <code>namespace</code>
-与接口绑定。</p>
-<ul>
+与接口绑定。</p><ul>
 <li>优点：支持动态 SQL 标签，适合复杂条件查询；SQL 与 Java
 代码分离，便于维护；可复用 <code>&lt;sql&gt;</code> 片段。</li>
 <li>缺点：文件较多，配置相对繁琐；需注意 <code>namespace</code> 与
 <code>id</code> 的对应关系。</li>
 <li>适用场景：复杂动态 SQL，多条件查询，多表关联查询。</li>
-</ul>
-<p><strong>CTTS 项目同时使用两种方式的原因</strong>：</p>
-<ul>
+</ul><p><strong>CTTS 项目同时使用两种方式的原因</strong>：</p><ul>
 <li><code>SysUserMapper</code> 用注解
 SQL：用户查询相对简单（按角色、按用户名模糊查询），注解足够表达。</li>
 <li><code>TrainingProjectMapper</code> 用 XML
@@ -990,22 +692,16 @@ SQL：项目查询后续会扩展为多条件动态查询（状态+教师+日期
 <code>&lt;if&gt;</code> 标签更适合。</li>
 <li>这样设计既让学生对比两种写法，又符合企业实践——简单查询用注解，复杂查询用
 XML，两者可在同一项目混用。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="07-论述-04-">07-论述-04 ★★★</h3>
-<p><strong>题目</strong>：在 CTTS 项目中为 <code>sys_user</code>
+<section class="question-card" id="07-论述-04-"><p><strong>07-论述-04 ★★★</strong></p><p><strong>题目</strong>：在 CTTS 项目中为 <code>sys_user</code>
 表编写实体类与 Mapper 接口的完整步骤是什么？请从建表 SQL
-到测试验证逐步说明，并列举至少 3 种常见报错及排查方法。</p>
-<p><strong>评分标准</strong>（10分）：</p>
-<ul>
+到测试验证逐步说明，并列举至少 3 种常见报错及排查方法。</p><p><strong>评分标准</strong>（10分）：</p><ul>
 <li>建表 SQL 与实体类编写（3分）</li>
 <li>Mapper 接口编写（含 BaseMapper 继承与自定义方法）（3分）</li>
 <li>测试验证步骤（1分）</li>
 <li>常见报错及排查（至少3种）（3分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>步骤一：建表 SQL</strong></p>
-<div class="sourceCode" id="cb2"><pre
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>步骤一：建表 SQL</strong></p><div class="sourceCode" id="cb2"><pre
 class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> sys_user (</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span> BIGINT <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT <span class="kw">COMMENT</span> <span class="st">&#39;主键ID&#39;</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    username <span class="dt">VARCHAR</span>(<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">COMMENT</span> <span class="st">&#39;用户名&#39;</span>,</span>
@@ -1016,9 +712,7 @@ class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#c
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    create_time DATETIME <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="fu">CURRENT_TIMESTAMP</span> <span class="kw">COMMENT</span> <span class="st">&#39;创建时间&#39;</span>,</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (<span class="kw">id</span>),</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNIQUE</span> <span class="kw">KEY</span> uk_username (username)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>) ENGINE<span class="op">=</span>InnoDB <span class="kw">DEFAULT</span> CHARSET<span class="op">=</span>utf8mb4;</span></code></pre></div>
-<p><strong>步骤二：编写实体类</strong></p>
-<div class="sourceCode" id="cb3"><pre
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>) ENGINE<span class="op">=</span>InnoDB <span class="kw">DEFAULT</span> CHARSET<span class="op">=</span>utf8mb4;</span></code></pre></div><p><strong>步骤二：编写实体类</strong></p><div class="sourceCode" id="cb3"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@TableName</span><span class="op">(</span><span class="st">&quot;sys_user&quot;</span><span class="op">)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> SysUser <span class="op">{</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@TableId</span><span class="op">(</span>type <span class="op">=</span> IdType<span class="op">.</span><span class="fu">AUTO</span><span class="op">)</span></span>
@@ -1032,27 +726,19 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@TableField</span><span class="op">(</span>exist <span class="op">=</span> <span class="kw">false</span><span class="op">)</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> confirmPassword<span class="op">;</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">// getter/setter...</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>步骤三：编写 Mapper 接口</strong></p>
-<div class="sourceCode" id="cb4"><pre
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>步骤三：编写 Mapper 接口</strong></p><div class="sourceCode" id="cb4"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> SysUserMapper <span class="kw">extends</span> BaseMapper<span class="op">&lt;</span>SysUser<span class="op">&gt;</span> <span class="op">{</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 继承 BaseMapper 获得 CRUD</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 自定义注解 SQL</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Select</span><span class="op">(</span><span class="st">&quot;SELECT * FROM sys_user WHERE role = #{role}&quot;</span><span class="op">)</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>SysUser<span class="op">&gt;</span> <span class="fu">selectByRole</span><span class="op">(</span><span class="bu">String</span> role<span class="op">);</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>步骤四：启动类配置扫描</strong></p>
-<div class="sourceCode" id="cb5"><pre
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>步骤四：启动类配置扫描</strong></p><div class="sourceCode" id="cb5"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">@MapperScan</span><span class="op">(</span><span class="st">&quot;com.ctts.mapper&quot;</span><span class="op">)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CttsApplication <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
-<p><strong>步骤五：测试验证</strong></p>
-<p>编写 <code>MapperCrudTest</code>，注入
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CttsApplication <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div><p><strong>步骤五：测试验证</strong></p><p>编写 <code>MapperCrudTest</code>，注入
 <code>SysUserMapper</code>，调用
 <code>selectById</code>、<code>insert</code>、<code>selectList</code>、<code>selectByRole</code>，观察
-SQL 日志与断言结果。</p>
-<p><strong>常见报错及排查</strong>：</p>
-<ol type="1">
+SQL 日志与断言结果。</p><p><strong>常见报错及排查</strong>：</p><ol type="1">
 <li><p><strong>Mapper
 未扫描</strong>（<code>NoSuchBeanDefinitionException</code>）：检查启动类是否有
 <code>@MapperScan("com.ctts.mapper")</code>，包路径大小写是否正确，Mapper
@@ -1075,11 +761,10 @@ SQL。</p></li>
 </ol>
 <hr />
 <h2
-id="六程序阅读补全题2题每题10分共20分">六、程序阅读补全题（2题，每题10分，共20分）</h2>
-<h3 id="07-程序-01-">07-程序-01 ★★</h3>
-<p><strong>题目</strong>：阅读以下 CTTS 项目 <code>SysUserMapper</code>
-接口与实体类代码，补全空白处。</p>
-<div class="sourceCode" id="cb6"><pre
+id="六程序阅读补全题2题每题10分共20分">六、程序阅读补全题（2题，每题10分，共20分）</h2></blockquote></section>
+
+<section class="question-card" id="07-程序-01-"><p><strong>07-程序-01 ★★</strong></p><p><strong>题目</strong>：阅读以下 CTTS 项目 <code>SysUserMapper</code>
+接口与实体类代码，补全空白处。</p><div class="sourceCode" id="cb6"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">IdType</span><span class="op">;</span></span>
@@ -1108,8 +793,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> confirmPassword<span class="op">;</span></span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">// getter/setter 省略</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><div class="sourceCode" id="cb7"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">________(5)________</span><span class="op">;</span></span>
@@ -1128,9 +812,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 按角色查询</span></span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Select</span><span class="op">(</span><span class="st">&quot;SELECT * FROM sys_user WHERE role = #{role}&quot;</span><span class="op">)</span></span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>SysUser<span class="op">&gt;</span> <span class="fu">selectByRole</span><span class="op">(</span><span class="bu">String</span> role<span class="op">);</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>评分标准</strong>（10分，每空1分）：</p>
-<ul>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>评分标准</strong>（10分，每空1分）：</p><ul>
 <li>(1) <code>TableName</code> - 表名映射注解的类名</li>
 <li>(2) <code>@TableName</code> - 表名注解</li>
 <li>(3) <code>@TableId</code> - 主键注解</li>
@@ -1140,15 +822,11 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="
 <li>(7) <code>BaseMapper</code> - 继承的接口</li>
 <li>(8) <code>@Select</code> - 查询注解</li>
 <li>(9) <code>@Param</code> - 参数绑定注解</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p>(1) <code>TableName</code> (2) <code>@TableName</code> (3)
+</ul><blockquote><p><strong>参考答案</strong>：</p><p>(1) <code>TableName</code> (2) <code>@TableName</code> (3)
 <code>@TableId</code> (4) <code>@TableField</code> (5)
 <code>BaseMapper</code> (6) <code>Select</code> (7)
 <code>BaseMapper</code> (8) <code>@Select</code> (9)
-<code>@Param</code></p>
-<p><strong>解析</strong>：</p>
-<ul>
+<code>@Param</code></p><p><strong>解析</strong>：</p><ul>
 <li>(1)(2) <code>@TableName("sys_user")</code> 映射实体类到
 <code>sys_user</code> 表，import 的类名是 <code>TableName</code>。</li>
 <li>(3) <code>@TableId(type = IdType.AUTO)</code>
@@ -1160,12 +838,10 @@ Mapper 接口，泛型为实体类。</li>
 <li>(6)(8) <code>@Select</code> 是 MyBatis 的查询注解，import 的类名是
 <code>Select</code>。</li>
 <li>(9) <code>@Param("keyword")</code> 多参数绑定时显式指定参数名。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="07-程序-02-">07-程序-02 ★★★</h3>
-<p><strong>题目</strong>：阅读以下 CTTS 项目
-<code>TrainingProjectMapper.xml</code> 映射文件，补全空白处。</p>
-<div class="sourceCode" id="cb8"><pre
+<section class="question-card" id="07-程序-02-"><p><strong>07-程序-02 ★★★</strong></p><p><strong>题目</strong>：阅读以下 CTTS 项目
+<code>TrainingProjectMapper.xml</code> 映射文件，补全空白处。</p><div class="sourceCode" id="cb8"><pre
 class="sourceCode xml"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span> <span class="fu">?&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> <span class="dt">mapper</span> PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;<span class="dt">&gt;</span></span>
@@ -1212,9 +888,7 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb8-1"><a href="#c
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>        SELECT COUNT(*) FROM training_project WHERE status = #{status}</span>
 <span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">select</span>&gt;</span>
 <span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">mapper</span>&gt;</span></code></pre></div>
-<p><strong>评分标准</strong>（10分，每空1.25分，全对满分10分）：</p>
-<ul>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">mapper</span>&gt;</span></code></pre></div><p><strong>评分标准</strong>（10分，每空1.25分，全对满分10分）：</p><ul>
 <li>(1) <code>namespace</code> - 命名空间属性</li>
 <li>(2) <code>id</code> - 主键字段映射标签</li>
 <li>(3) <code>teacherId</code> - Java 属性名（驼峰）</li>
@@ -1223,14 +897,10 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb8-1"><a href="#c
 <li>(6) <code>#{status}</code> - 预编译占位符</li>
 <li>(7) <code>keyProperty</code> - 主键属性名</li>
 <li>(8) <code>long</code> - 返回类型</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p>(1) <code>namespace</code> (2) <code>id</code> (3)
+</ul><blockquote><p><strong>参考答案</strong>：</p><p>(1) <code>namespace</code> (2) <code>id</code> (3)
 <code>teacherId</code> (4) <code>BaseResultMap</code> (5)
 <code>include</code> (6) <code>#{status}</code> (7)
-<code>keyProperty</code> (8) <code>long</code></p>
-<p><strong>解析</strong>：</p>
-<ul>
+<code>keyProperty</code> (8) <code>long</code></p><p><strong>解析</strong>：</p><ul>
 <li>(1) <code>namespace</code> 的值必须是 Mapper 接口的全限定名，建立
 XML 与接口绑定。</li>
 <li>(2) <code>&lt;id&gt;</code> 标签映射主键字段（区别于
@@ -1250,12 +920,10 @@ XML 与接口绑定。</li>
 </ul>
 <hr />
 <h2
-id="七编程接口设计题2题每题15分共30分">七、编程接口设计题（2题，每题15分，共30分）</h2>
-<h3 id="07-编程-01-">07-编程-01 ★★</h3>
-<p><strong>题目</strong>：为 CTTS 项目的 <code>sys_user</code>
-表编写完整的实体类与 Mapper 接口。</p>
-<p><strong>要求</strong>：</p>
-<ol type="1">
+id="七编程接口设计题2题每题15分共30分">七、编程接口设计题（2题，每题15分，共30分）</h2></blockquote></section>
+
+<section class="question-card" id="07-编程-01-"><p><strong>07-编程-01 ★★</strong></p><p><strong>题目</strong>：为 CTTS 项目的 <code>sys_user</code>
+表编写完整的实体类与 Mapper 接口。</p><p><strong>要求</strong>：</p><ol type="1">
 <li>表结构：<code>sys_user(id BIGINT AUTO_INCREMENT, username VARCHAR(50), password VARCHAR(100), name VARCHAR(50), role VARCHAR(20), phone VARCHAR(20), create_time DATETIME)</code></li>
 <li>实体类 <code>SysUser</code>：使用 <code>@TableName</code>
 映射表名，<code>@TableId(type = IdType.AUTO)</code>
@@ -1271,18 +939,13 @@ id="七编程接口设计题2题每题15分共30分">七、编程接口设计题
 <code>List&lt;SysUser&gt;</code></li>
 <li>统计某角色用户数，返回 <code>long</code></li>
 </ul></li>
-</ol>
-<p><strong>评分标准</strong>（15分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（15分）：</p><ul>
 <li>实体类注解正确（<code>@TableName</code>/<code>@TableId</code>/<code>@TableField</code>）（4分）</li>
 <li>实体类字段类型正确（包装类型、<code>LocalDateTime</code>）（2分）</li>
 <li>getter/setter 完整（2分）</li>
 <li>Mapper 继承 <code>BaseMapper</code>（2分）</li>
 <li>4 个自定义方法 SQL 正确（含 <code>#{}</code> 安全写法）（5分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>实体类</strong>：</p>
-<div class="sourceCode" id="cb9"><pre
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>实体类</strong>：</p><div class="sourceCode" id="cb9"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">IdType</span><span class="op">;</span></span>
@@ -1323,9 +986,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="
 <span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setCreateTime</span><span class="op">(</span>LocalDateTime createTime<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">createTime</span> <span class="op">=</span> createTime<span class="op">;</span> <span class="op">}</span></span>
 <span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getConfirmPassword</span><span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> confirmPassword<span class="op">;</span> <span class="op">}</span></span>
 <span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setConfirmPassword</span><span class="op">(</span><span class="bu">String</span> confirmPassword<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">confirmPassword</span> <span class="op">=</span> confirmPassword<span class="op">;</span> <span class="op">}</span></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>Mapper 接口</strong>：</p>
-<div class="sourceCode" id="cb10"><pre
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>Mapper 接口</strong>：</p><div class="sourceCode" id="cb10"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">BaseMapper</span><span class="op">;</span></span>
@@ -1351,9 +1012,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href=
 <span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 统计某角色用户数</span></span>
 <span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Select</span><span class="op">(</span><span class="st">&quot;SELECT COUNT(*) FROM sys_user WHERE role = #{role}&quot;</span><span class="op">)</span></span>
 <span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="fu">countByRole</span><span class="op">(</span><span class="bu">String</span> role<span class="op">);</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>解析</strong>：</p>
-<ul>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>解析</strong>：</p><ul>
 <li>实体类三大注解齐全：<code>@TableName</code>
 映射表名，<code>@TableId(type = IdType.AUTO)</code>
 主键自增，<code>@TableField(exist = false)</code> 标记非表字段。</li>
@@ -1363,13 +1022,10 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href=
 防注入。</li>
 <li>模糊查询用 <code>CONCAT('%', #{keyword}, '%')</code>
 安全写法，不能用 <code>'%${keyword}%'</code>。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="07-编程-02-">07-编程-02 ★★★</h3>
-<p><strong>题目</strong>：为 CTTS 项目的 <code>training_project</code>
-表编写 Mapper 接口与对应的 XML 映射文件。</p>
-<p><strong>要求</strong>：</p>
-<ol type="1">
+<section class="question-card" id="07-编程-02-"><p><strong>07-编程-02 ★★★</strong></p><p><strong>题目</strong>：为 CTTS 项目的 <code>training_project</code>
+表编写 Mapper 接口与对应的 XML 映射文件。</p><p><strong>要求</strong>：</p><ol type="1">
 <li>表结构：<code>training_project(id BIGINT AUTO_INCREMENT, title VARCHAR(100), description VARCHAR(500), teacher_id BIGINT, start_date DATE, end_date DATE, status INT, create_time DATETIME)</code></li>
 <li>Mapper 接口 <code>TrainingProjectMapper</code>：
 <ul>
@@ -1397,9 +1053,7 @@ CRUD</li>
 <li>insert 标签配置
 <code>useGeneratedKeys="true" keyProperty="id"</code></li>
 </ul></li>
-</ol>
-<p><strong>评分标准</strong>（15分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（15分）：</p><ul>
 <li>Mapper 接口继承 <code>BaseMapper</code> 且方法签名正确（3分）</li>
 <li>XML 的 <code>namespace</code> 正确（2分）</li>
 <li><code>resultMap</code> 字段映射完整正确（含主键
@@ -1408,10 +1062,7 @@ CRUD</li>
 引用正确（2分）</li>
 <li>4 个 SQL 标签正确（含 <code>#{}</code>
 参数绑定、<code>useGeneratedKeys</code>）（4分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>Mapper 接口</strong>：</p>
-<div class="sourceCode" id="cb11"><pre
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>Mapper 接口</strong>：</p><div class="sourceCode" id="cb11"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">mapper</span><span class="op">;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">mapper</span><span class="op">.</span><span class="im">BaseMapper</span><span class="op">;</span></span>
@@ -1427,9 +1078,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href=
 <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> <span class="fu">insertByXml</span><span class="op">(</span>TrainingProject project<span class="op">);</span></span>
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="fu">countByStatus</span><span class="op">(</span><span class="bu">Integer</span> status<span class="op">);</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>XML 映射文件</strong>：</p>
-<div class="sourceCode" id="cb12"><pre
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>XML 映射文件</strong>：</p><div class="sourceCode" id="cb12"><pre
 class="sourceCode xml"><code class="sourceCode xml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span> <span class="fu">?&gt;</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> <span class="dt">mapper</span> PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;<span class="dt">&gt;</span></span>
@@ -1477,9 +1126,7 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb12-1"><a href="#
 <span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>        SELECT COUNT(*) FROM training_project WHERE status = #{status}</span>
 <span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">select</span>&gt;</span>
 <span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">mapper</span>&gt;</span></code></pre></div>
-<p><strong>解析</strong>：</p>
-<ul>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">mapper</span>&gt;</span></code></pre></div><p><strong>解析</strong>：</p><ul>
 <li>Mapper 接口继承 <code>BaseMapper&lt;TrainingProject&gt;</code>
 获得内置 CRUD，4 个自定义方法无需加注解（由 XML 实现）。</li>
 <li>XML 的 <code>namespace</code> 必须等于
@@ -1497,7 +1144,7 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb12-1"><a href="#
 <li><code>countByStatus</code> 返回
 <code>COUNT(*)</code>，<code>resultType="long"</code> 对应 Java
 <code>long</code> 类型。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="附题库统计表">附：题库统计表</h2>
 <h3 id="题型分布统计">题型分布统计</h3>

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -129,62 +129,10 @@ MyBatis-Plus + MySQL 8.x + JWT + Knife4j 包名：com.ctts
 <hr />
 <h2 id="1-项目结构概览">1. 项目结构概览</h2>
 <div class="visual">
-  <div class="visual-title">图示 1：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">ctts/</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src/main/java/com/ctts/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> common/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Result.java                  # 统一响应</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ResultCode.java              # 状态码</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> BaseEntity.java              # 实体基类</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> PageResult.java              # 分页结果</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> config/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> WebMvcConfig.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> MybatisPlusConfig.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> Knife4jConfig.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> exception/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> BusinessException.java       # 业务异常</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> GlobalExceptionHandler.java  # 全局异常处理</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> interceptor/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> JwtInterceptor.java          # JWT 拦截器</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> teacher/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ReviewController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> student/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> StudentController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> admin/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> AdminUserController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> service/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> SubmissionService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> UserService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> impl/                        # 实现类</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectMapper.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskMapper.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> SubmissionMapper.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> UserMapper.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> User.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Project.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Task.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> Submission.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> dto/</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> teacher/</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> student/</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> common/</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> src/main/resources/</span>
-<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml</span>
-<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper/</span>
-<span class="diagram-line">        <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectMapper.xml</span>
-<span class="diagram-line">        <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskMapper.xml</span>
-<span class="diagram-line">        <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> SubmissionMapper.xml</span>
+  <div class="visual-title">图示 1：核心业务接口开发目录结构</div>
+  <div class="edu-diagram">
+    <div class="diagram-code-tree"><ul><li><span class="tree-label">ctts/</span></li><li>controller/ <span class="tree-comment"># 核心业务 REST 接口</span></li><li>service/impl/ <span class="tree-comment"># 业务编排与事务</span></li><li>mapper/ <span class="tree-comment"># 数据访问</span></li><li>dto/ <span class="tree-comment"># 请求对象</span></li><li>vo/ <span class="tree-comment"># 响应对象</span></li><li>common/ exception/ <span class="tree-comment"># 统一响应与异常处理</span></li></ul></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <hr />
 <h2 id="2-数据库表与实体">2. 数据库表与实体</h2>

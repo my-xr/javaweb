@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -201,19 +201,10 @@ class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#c
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>) <span class="kw">COMMENT</span> <span class="st">&#39;评审表&#39;</span>;</span></code></pre></div>
 <h3 id="15-包结构约定">1.5 包结构约定</h3>
 <div class="visual">
-  <div class="visual-title">图示 1：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">com.ctts</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller      // TaskController / SubmissionController / ReviewController</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> service         // 接口</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> impl        // 实现类（事务方法写这里）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper          // BaseMapper 继承</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity          // Student / Teacher / Task / Submission / Review</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> dto             // 入参对象（QueryDTO / SubmitDTO / ReviewDTO）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> vo              // 出参对象（SubmissionVO / StatVO）</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> common          // Result / 异常 / 枚举</span>
+  <div class="visual-title">图示 1：复杂查询与事务实践包结构</div>
+  <div class="edu-diagram">
+    <div class="diagram-code-tree"><ul><li><span class="tree-label">com.ctts/</span></li><li>controller/ <span class="tree-comment"># TaskController / SubmissionController / ReviewController</span></li><li>service/ 与 service/impl/ <span class="tree-comment"># 事务方法写在实现类</span></li><li>mapper/ <span class="tree-comment"># BaseMapper 继承与自定义查询</span></li><li>entity/ <span class="tree-comment"># Student / Teacher / Task / Submission / Review</span></li><li>dto/ <span class="tree-comment"># QueryDTO / SubmitDTO / ReviewDTO</span></li><li>vo/ <span class="tree-comment"># SubmissionVO / StatVO</span></li><li>common/ <span class="tree-comment"># Result / 异常 / 枚举</span></li></ul></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <hr />
 <h2 id="二知识点详解">二、知识点详解</h2>
@@ -382,20 +373,10 @@ WHERE ( s.name LIKE &#39;%张三%&#39; OR s.name LIKE &#39;%李四%&#39; )
   AND t.title LIKE &#39;%实训%&#39;</code></pre>
 <p><strong>QueryWrapper 拼接流程</strong>：</p>
 <div class="visual">
-  <div class="visual-title">图示 2：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">new QueryWrapper()</span>
-<span class="diagram-line">   <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> eq(&quot;status&quot;, 2)          <span class="arrow-token">→</span>  WHERE status = 2</span>
-<span class="diagram-line">   <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> like(&quot;title&quot;,&quot;实训&quot;)     <span class="arrow-token">→</span>  AND title LIKE &#39;%实训%&#39;</span>
-<span class="diagram-line">   <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> and(w -&gt; w               <span class="arrow-token">→</span>  AND ( name LIKE &#39;%张三%&#39;</span>
-<span class="diagram-line">          .like(&quot;name&quot;,&quot;张三&quot;)         OR name LIKE &#39;%李四%&#39; )</span>
-<span class="diagram-line">          .or()</span>
-<span class="diagram-line">          .like(&quot;name&quot;,&quot;李四&quot;))</span>
+  <div class="visual-title">图示 2：QueryWrapper 复杂条件构造</div>
+  <div class="edu-diagram">
+    <div class="diagram-steps"><div class="diagram-step"><h4>基础条件</h4><p>eq("status", 2) 生成 WHERE status = 2。</p></div><div class="diagram-step"><h4>模糊查询</h4><p>like("title","实训") 追加 title LIKE %实训%。</p></div><div class="diagram-step"><h4>嵌套条件</h4><p>and(w -> w.like("name","张三").or().like("name","李四"))。</p></div><div class="diagram-step"><h4>最终 SQL</h4><p>形成 AND (name LIKE ... OR name LIKE ...) 的括号分组。</p></div></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h4 id="216-易错点">2.1.6 易错点</h4>
 <table>
@@ -567,28 +548,10 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href=
 <h4 id="225-图示">2.2.5 图示</h4>
 <p><strong>统计查询执行流程</strong>：</p>
 <div class="visual">
-  <div class="visual-title">图示 3：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">原始数据 submission 表</span>
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span> id <span class="tree-token">│</span> task_id <span class="tree-token">│</span> status <span class="tree-token">│</span> student<span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┼<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┼<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┼<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
-<span class="diagram-line"><span class="tree-token">│</span> 1  <span class="tree-token">│</span> T1      <span class="tree-token">│</span> 2      <span class="tree-token">│</span> S1     <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> 2  <span class="tree-token">│</span> T1      <span class="tree-token">│</span> 3      <span class="tree-token">│</span> S2     <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> 3  <span class="tree-token">│</span> T1      <span class="tree-token">│</span> 3      <span class="tree-token">│</span> S1     <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> 4  <span class="tree-token">│</span> T2      <span class="tree-token">│</span> 2      <span class="tree-token">│</span> S3     <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">GROUP BY task_id, status</span>
-<span class="diagram-line">        ↓</span>
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span> task_id <span class="tree-token">│</span> status <span class="tree-token">│</span> COUNT<span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┼<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┼<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
-<span class="diagram-line"><span class="tree-token">│</span> T1      <span class="tree-token">│</span> 2      <span class="tree-token">│</span> 1    <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> T1      <span class="tree-token">│</span> 3      <span class="tree-token">│</span> 2    <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> T2      <span class="tree-token">│</span> 2      <span class="tree-token">│</span> 1    <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+  <div class="visual-title">图示 3：按任务与状态分组统计</div>
+  <div class="edu-diagram">
+    <div class="diagram-grid two"><div class="diagram-panel"><span class="diagram-badge">输入</span><h4>原始 submission 数据</h4><div class="diagram-plain"><div class="diagram-plain-line">T1 状态 2：1 条</div><div class="diagram-plain-line">T1 状态 3：2 条</div><div class="diagram-plain-line">T2 状态 2：1 条</div></div></div><div class="diagram-panel"><span class="diagram-badge">输出</span><h4>GROUP BY 结果</h4><div class="diagram-plain"><div class="diagram-plain-line">GROUP BY task_id, status</div><div class="diagram-plain-line">T1 / 2 / COUNT=1</div><div class="diagram-plain-line">T1 / 3 / COUNT=2</div><div class="diagram-plain-line">T2 / 2 / COUNT=1</div></div></div></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h4 id="226-易错点">2.2.6 易错点</h4>
 <table>
@@ -649,16 +612,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href=
 在方法执行前后织入事务管理逻辑。</p>
 <h4 id="232-原理">2.3.2 原理</h4>
 <p><strong>Spring 声明式事务的本质</strong>：基于 AOP 代理。</p>
-<div class="visual">
-  <div class="visual-title">图示 4：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">调用方 <span class="tree-token">─</span><span class="tree-token">─</span>调用<span class="tree-token">─</span><span class="tree-token">─</span>&gt; 代理对象（开启事务）<span class="tree-token">─</span><span class="tree-token">─</span>调用<span class="tree-token">─</span><span class="tree-token">─</span>&gt; 目标方法</span>
-<span class="diagram-line">                       <span class="tree-token">│</span></span>
-<span class="diagram-line">                       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 方法正常返回 <span class="arrow-token">→</span> 提交事务</span>
-<span class="diagram-line">                       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 方法抛出异常   <span class="arrow-token">→</span> 判断 rollbackFor <span class="arrow-token">→</span> 回滚事务</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 4：Spring 事务代理提交与回滚流程</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>调用方</h4><p>调用事务方法。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>代理对象</h4><p>Spring AOP 开启事务。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>目标方法</h4><p>执行业务与数据库操作。</p></div></div><div class="diagram-grid two"><div class="diagram-card good"><h4>正常返回</h4><p>提交事务。</p></div><div class="diagram-card warn"><h4>抛出异常</h4><p>判断 rollbackFor，匹配则回滚事务。</p></div></div></div></div>
 <p><strong><code>@Transactional</code> 核心属性</strong>：</p>
 <table>
 <thead>
@@ -983,48 +937,13 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb22-1"><a href=
 <h4 id="235-图示">2.3.5 图示</h4>
 <p><strong>Spring 声明式事务执行流程</strong>：</p>
 <div class="visual">
-  <div class="visual-title">图示 5：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">   调用方</span>
-<span class="diagram-line">     <span class="tree-token">│</span>  submitTask(...)</span>
-<span class="diagram-line">     ▼</span>
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span>   代理对象       <span class="tree-token">│</span> ← Spring AOP 生成（CGLIB / JDK Proxy）</span>
-<span class="diagram-line"><span class="tree-token">│</span>                 <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  1. 开启事务     <span class="tree-token">│</span> ← TransactionManager.getTransaction()</span>
-<span class="diagram-line"><span class="tree-token">│</span>  2. 调用目标方法  <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> submissionMapper.updateById(...)</span>
-<span class="diagram-line"><span class="tree-token">│</span>  3. 正常返回     <span class="tree-token">│</span> <span class="arrow-token">→</span> 提交事务</span>
-<span class="diagram-line"><span class="tree-token">│</span>     或抛异常     <span class="tree-token">│</span> <span class="arrow-token">→</span> 判断 rollbackFor，匹配则回滚</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">     <span class="tree-token">│</span></span>
-<span class="diagram-line">     ▼</span>
-<span class="diagram-line">   数据库</span>
+  <div class="visual-title">图示 5：事务代理与数据库写入流程</div>
+  <div class="edu-diagram">
+    <div class="diagram-flow"><div class="diagram-card"><h4>调用方</h4><p>调用 submitTask(...)。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>代理对象</h4><p>Spring AOP 生成 CGLIB / JDK Proxy。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>开启事务</h4><p>TransactionManager.getTransaction()。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>目标方法</h4><p>执行 submissionMapper.updateById(...) 等写操作。</p></div><div class="flow-arrow">→</div><div class="diagram-card good"><h4>提交/回滚</h4><p>正常返回提交；异常匹配 rollbackFor 则回滚。</p></div></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <p><strong>三种传播行为对比</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 6：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">场景：methodA (REQUIRED) 调用 methodB</span>
-<span class="diagram-line">1) REQUIRED（默认）—— 加入当前事务</span>
-<span class="diagram-line">   methodA 开事务 T1</span>
-<span class="diagram-line">      <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> methodB 加入 T1</span>
-<span class="diagram-line">   任一异常 <span class="arrow-token">→</span> T1 全部回滚</span>
-<span class="diagram-line">2) REQUIRES_NEW —— 独立新事务</span>
-<span class="diagram-line">   methodA 开事务 T1</span>
-<span class="diagram-line">      <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> methodB 挂起 T1，开 T2</span>
-<span class="diagram-line">          T2 提交 <span class="arrow-token">→</span> 恢复 T1</span>
-<span class="diagram-line">   T1 回滚不影响 T2（日志场景）</span>
-<span class="diagram-line">3) NESTED —— 嵌套事务（保存点）</span>
-<span class="diagram-line">   methodA 开事务 T1</span>
-<span class="diagram-line">      <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> methodB 在 T1 内建保存点 sp1</span>
-<span class="diagram-line">          methodB 异常 <span class="arrow-token">→</span> 回滚到 sp1（只回滚 B 的操作）</span>
-<span class="diagram-line">          methodB 正常 <span class="arrow-token">→</span> 释放 sp1</span>
-<span class="diagram-line">   T1 回滚 <span class="arrow-token">→</span> 全部回滚（包括 B）</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 6：事务传播行为对比</div> <div class="edu-diagram"><div class="diagram-grid three"><div class="diagram-card"><span class="diagram-badge">REQUIRED</span><h4>加入当前事务</h4><p>methodA 开 T1，methodB 加入 T1；任一异常，T1 全部回滚。</p></div><div class="diagram-card"><span class="diagram-badge">REQUIRES_NEW</span><h4>独立新事务</h4><p>methodB 挂起 T1，开启 T2；T2 提交后恢复 T1，适合日志场景。</p></div><div class="diagram-card"><span class="diagram-badge">NESTED</span><h4>保存点</h4><p>methodB 在 T1 内建立保存点；B 异常可回滚到保存点。</p></div></div></div></div>
 <h4 id="236-易错点">2.3.6 易错点</h4>
 <table>
 <thead>
@@ -1098,13 +1017,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb22-1"><a href=
 <li><strong>转换（Transition）</strong>：状态→事件→新状态的映射规则</li>
 </ul>
 <p>合法流转：</p>
-<div class="visual">
-  <div class="visual-title">图示 7：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">未开始 <span class="tree-token">─</span><span class="tree-token">─</span>(开始)<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> 进行中 <span class="tree-token">─</span><span class="tree-token">─</span>(提交)<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> 已提交 <span class="tree-token">─</span><span class="tree-token">─</span>(评审)<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> 已评审</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 7：未开始 (开始) → 进行中 (提交) → 已提交 (评审) → 已评审</div> <div class="edu-diagram"> <div class="diagram-flow"><div class="diagram-card"><h4>未开始 (开始)</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>进行中 (提交)</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>已提交 (评审)</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>已评审</h4></div></div> </div></div>
 <p>非法流转（必须拦截）：</p>
 <ul>
 <li>未开始 → 已提交（跳过开始）</li>
@@ -1204,20 +1117,10 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb28-1"><a href=
 <h4 id="245-图示">2.4.5 图示</h4>
 <p><strong>任务状态流转图</strong>：</p>
 <div class="visual">
-  <div class="visual-title">图示 8：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">   ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐  开始   ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐  提交   ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐  评审   ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line">   <span class="tree-token">│</span>  未开始 (0)  <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> <span class="tree-token">│</span>  进行中 (1)  <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> <span class="tree-token">│</span>  已提交 (2)  <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span> <span class="tree-token">│</span>  已评审 (3)  <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘         <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘         <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘         <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">                                    ↑                     <span class="tree-token">│</span>                     <span class="tree-token">│</span></span>
-<span class="diagram-line">                                    <span class="tree-token">│</span>     退回修改          <span class="tree-token">│</span>                     <span class="tree-token">│</span></span>
-<span class="diagram-line">                                    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘                     <span class="tree-token">│</span></span>
-<span class="diagram-line">                                                          <span class="tree-token">│</span>                     <span class="tree-token">│</span></span>
-<span class="diagram-line">                                                          <span class="tree-token">│</span>   ✗ 非法：跳过开始    <span class="tree-token">│</span></span>
-<span class="diagram-line">                                                          <span class="tree-token">│</span>   ✗ 非法：评审后回退  <span class="tree-token">│</span></span>
-<span class="diagram-line">                                                          <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
+  <div class="visual-title">图示 8：任务流转状态机</div>
+  <div class="edu-diagram">
+    <div class="diagram-flow"><div class="diagram-card"><h4>未开始 0</h4><p>任务尚未进入执行。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>进行中 1</h4><p>学生开始处理任务。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>已提交 2</h4><p>学生提交成果，等待评审。</p></div><div class="flow-arrow">→</div><div class="diagram-card good"><h4>已评审 3</h4><p>教师完成评分和反馈。</p></div></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h4 id="246-易错点">2.4.6 易错点</h4>
 <table>
@@ -1480,27 +1383,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb32-1"><a href=
 <span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 id="255-图示">2.5.5 图示</h4>
 <p><strong>业务链事务边界图</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 9：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">时间轴 <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">→</span></span>
-<span class="diagram-line">[开始任务]   [提交任务]      [评审任务]                [统计]</span>
-<span class="diagram-line">   T1           T2               T3                   (无事务)</span>
-<span class="diagram-line">   <span class="tree-token">│</span>            <span class="tree-token">│</span>                <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span>  日志 T1&#39;  <span class="tree-token">│</span>  日志 T2&#39;      <span class="tree-token">│</span>  日志 T3&#39;</span>
-<span class="diagram-line">   <span class="tree-token">│</span> (REQUIRES_NEW)            (REQUIRES_NEW)</span>
-<span class="diagram-line">   <span class="tree-token">│</span>            <span class="tree-token">│</span>                <span class="tree-token">│</span></span>
-<span class="diagram-line">   ▼            ▼                ▼</span>
-<span class="diagram-line"> submission   submission       submission + review</span>
-<span class="diagram-line"> status 0<span class="arrow-token">→</span>1   status 1<span class="arrow-token">→</span>2       status 2<span class="arrow-token">→</span>3 + 新增 review</span>
-<span class="diagram-line">[批量评审] 一个外层事务 T 包裹 N 次 reviewTask</span>
-<span class="diagram-line">   T <span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span> reviewTask 1 (加入 T)</span>
-<span class="diagram-line">      <span class="tree-token">├</span><span class="tree-token">─</span> reviewTask 2 (加入 T)</span>
-<span class="diagram-line">      <span class="tree-token">└</span><span class="tree-token">─</span> reviewTask N (加入 T)</span>
-<span class="diagram-line">   任一失败 <span class="arrow-token">→</span> T 整体回滚</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 9：任务状态流转与事务边界</div> <div class="edu-diagram"><div class="diagram-grid four"><div class="diagram-card"><h4>开始任务</h4><p>submission status 0→1</p><p>日志使用 REQUIRES_NEW</p></div><div class="diagram-card"><h4>提交任务</h4><p>submission status 1→2</p><p>提交日志独立提交</p></div><div class="diagram-card"><h4>评审任务</h4><p>submission status 2→3<br>新增 review</p><p>评审日志独立提交</p></div><div class="diagram-card"><h4>统计</h4><p>只读查询，通常不需要事务。</p></div></div><div class="diagram-panel"><h4>批量评审事务</h4><p>一个外层事务 T 包裹 N 次 reviewTask；任一失败，T 整体回滚。</p></div></div></div>
 <h4 id="256-易错点">2.5.6 易错点</h4>
 <table>
 <thead>
@@ -1612,16 +1495,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb36-1"><a href=
 <h4 id="step-4测试状态流转">Step 4：测试状态流转</h4>
 <p><strong>任务</strong>：依次调用 start → submit →
 review，观察状态变化。</p>
-<div class="visual">
-  <div class="visual-title">图示 10：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">初始：status = 0 (未开始)</span>
-<span class="diagram-line">POST /api/task/start/1      <span class="arrow-token">→</span> status = 1 (进行中)</span>
-<span class="diagram-line">POST /api/task/submit/1     <span class="arrow-token">→</span> status = 2 (已提交)</span>
-<span class="diagram-line">POST /api/task/review/1     <span class="arrow-token">→</span> status = 3 (已评审) + review 表新增记录</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 10：初始：status = 0 (未开始)</div> <div class="edu-diagram"> <div class="diagram-flow"><div class="diagram-card"><h4>初始：status = 0 (未开始) POST /api/task/start/1</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>status = 1 (进行中) POST /api/task/submit/1</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>status = 2 (已提交) POST /api/task/review/1</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>status = 3 (已评审) + review 表新增记录</h4></div></div> </div></div>
 <p><strong>验证点</strong>：每步后查数据库
 <code>submission.status</code> 字段。</p>
 <h4 id="step-5验证事务回滚">Step 5：验证事务回滚</h4>
@@ -1678,29 +1552,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb38-1"><a href=
 </tbody>
 </table>
 <h3 id="32-完整业务链调用流程">3.2 完整业务链调用流程</h3>
-<div class="visual">
-  <div class="visual-title">图示 11：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">学生端                            教师端</span>
-<span class="diagram-line">  <span class="tree-token">│</span>                                <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span> POST /start/{id}               <span class="tree-token">│</span></span>
-<span class="diagram-line">  ▼                                <span class="tree-token">│</span></span>
-<span class="diagram-line">[T1: status 0<span class="arrow-token">→</span>1]                   <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span>                                <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span> POST /submit/{id}              <span class="tree-token">│</span></span>
-<span class="diagram-line">  ▼                                <span class="tree-token">│</span></span>
-<span class="diagram-line">[T2: status 1<span class="arrow-token">→</span>2]                   <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span>                                <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span>                                <span class="tree-token">│</span> POST /review/{id}</span>
-<span class="diagram-line">  <span class="tree-token">│</span>                                ▼</span>
-<span class="diagram-line">  <span class="tree-token">│</span>                          [T3: status 2<span class="arrow-token">→</span>3 + review 新增]</span>
-<span class="diagram-line">  <span class="tree-token">│</span>                                <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span>                                <span class="tree-token">│</span> GET /stat</span>
-<span class="diagram-line">  <span class="tree-token">│</span>                                ▼</span>
-<span class="diagram-line">  <span class="tree-token">│</span>                          [统计：AVG/MAX/COUNT]</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 11：学生端与教师端核心接口联动</div> <div class="edu-diagram"><div class="sequence-grid" style="--lanes:2"><div class="sequence-lane"><h4>学生端</h4><div class="sequence-event active">POST /start/{id}</div><div class="sequence-event">T1: status 0→1</div><div class="sequence-event active">POST /submit/{id}</div><div class="sequence-event">T2: status 1→2</div></div><div class="sequence-lane"><h4>教师端</h4><div class="sequence-event active">POST /review/{id}</div><div class="sequence-event">T3: status 2→3 + review 新增</div><div class="sequence-event active">GET /stat</div><div class="sequence-event">统计 AVG / MAX / COUNT</div></div></div></div></div>
 <hr />
 <h2 id="四拓展阅读">四、拓展阅读</h2>
 <h3 id="41-spring-事务源码入口">4.1 Spring 事务源码入口</h3>

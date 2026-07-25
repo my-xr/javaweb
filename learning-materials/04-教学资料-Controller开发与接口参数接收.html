@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -123,14 +123,7 @@ MyBatis-Plus 实体与 Mapper 的开发。本次课进入 <strong>M2
 </tbody>
 </table>
 <h3 id="13-学习路径建议">1.3 学习路径建议</h3>
-<div class="visual">
-  <div class="visual-title">图示 1：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">读导读 <span class="arrow-token">→</span> 通读 5 个知识点（K4-1 ~ K4-5）<span class="arrow-token">→</span> 跟敲综合示例 <span class="arrow-token">→</span> 启动项目测试三接口</span>
-<span class="diagram-line"><span class="arrow-token">→</span> 看易错点对照自己的代码 <span class="arrow-token">→</span> 做复习思考题</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 1：读导读 → 通读 5 个知识点（K4-1 ~ K4-5）→ 跟敲综合示例 → 启动项目测试三接口</div> <div class="edu-diagram"> <div class="diagram-flow"><div class="diagram-card"><h4>读导读</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>通读 5 个知识点（K4-1 ~ K4-5）</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>跟敲综合示例</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>启动项目测试三接口</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>看易错点对照自己的代码</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>做复习思考题</h4></div></div> </div></div>
 <h3 id="14-前置知识清单">1.4 前置知识清单</h3>
 <ul>
 <li>已掌握 Java 17 基本语法（注解、泛型、List/Map）</li>
@@ -616,24 +609,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="
 <span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 id="5-图示-2">5. 图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 2：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">HTTP 请求：</span>
-<span class="diagram-line">GET /projects/search?keyword=电商&amp;page=1   Header: Authorization: Bearer xxx</span>
-<span class="diagram-line">            ▲            ▲</span>
-<span class="diagram-line">            <span class="tree-token">│</span>            <span class="tree-token">│</span></span>
-<span class="diagram-line">            <span class="tree-token">│</span>            <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span>&gt; @RequestParam(&quot;keyword&quot;) / @RequestParam(&quot;page&quot;)</span>
-<span class="diagram-line">            <span class="tree-token">│</span></span>
-<span class="diagram-line">GET /projects/123</span>
-<span class="diagram-line">                ▲</span>
-<span class="diagram-line">                <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span>&gt; @PathVariable(&quot;id&quot;)</span>
-<span class="diagram-line">POST /projects   Body: {&quot;name&quot;:&quot;电商实训&quot;,&quot;semester&quot;:&quot;2025春季&quot;}</span>
-<span class="diagram-line">                                  ▲</span>
-<span class="diagram-line">                                  <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span>&gt; @RequestBody Project</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 2：Controller 参数来源与注解对应关系</div> <div class="edu-diagram"><div class="diagram-grid three"><div class="diagram-card"><span class="diagram-badge">Query</span><h4>GET /projects/search?keyword=电商&amp;page=1</h4><p>@RequestParam("keyword") / @RequestParam("page")</p></div><div class="diagram-card"><span class="diagram-badge">Path</span><h4>GET /projects/123</h4><p>@PathVariable("id")</p></div><div class="diagram-card"><span class="diagram-badge">Body</span><h4>POST /projects</h4><pre class="diagram-code">{"name":"电商实训","semester":"2025春季"}</pre><p>@RequestBody Project</p></div></div><div class="diagram-callout">Header 中的 Authorization: Bearer xxx 通常由拦截器或安全组件统一读取。</div></div></div>
 <h4 id="6-易错点-2">6. 易错点</h4>
 <ul>
 <li><strong>易错点 1</strong>：<code>@RequestParam</code> 默认
@@ -678,31 +654,7 @@ JSON 返回：@ResponseBody、自动序列化、返回 List/Map/自定义对象<
 </ul>
 <h4 id="2-原理-3">2. 原理</h4>
 <p>请求处理流程：</p>
-<div class="visual">
-  <div class="visual-title">图示 3：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">方法返回 Java 对象</span>
-<span class="diagram-line">      <span class="tree-token">│</span></span>
-<span class="diagram-line">      ▼</span>
-<span class="diagram-line">RequestResponseBodyMethodProcessor</span>
-<span class="diagram-line">      <span class="tree-token">│</span></span>
-<span class="diagram-line">      ▼</span>
-<span class="diagram-line">遍历 HttpMessageConverter 列表</span>
-<span class="diagram-line">      <span class="tree-token">│</span></span>
-<span class="diagram-line">      ▼</span>
-<span class="diagram-line">MappingJackson2HttpMessageConverter 命中（对象类型 + application/json）</span>
-<span class="diagram-line">      <span class="tree-token">│</span></span>
-<span class="diagram-line">      ▼</span>
-<span class="diagram-line">ObjectMapper.writeValueAsString(obj)</span>
-<span class="diagram-line">      <span class="tree-token">│</span></span>
-<span class="diagram-line">      ▼</span>
-<span class="diagram-line">写入 response.getOutputStream()</span>
-<span class="diagram-line">      <span class="tree-token">│</span></span>
-<span class="diagram-line">      ▼</span>
-<span class="diagram-line">设置 Content-Type: application/json</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 3：Java 对象自动转换为 JSON 的过程</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>Controller 方法</h4><p>返回 Java 对象</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>RequestResponseBodyMethodProcessor</h4><p>接管响应体写出。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>HttpMessageConverter</h4><p>遍历转换器列表。</p></div><div class="flow-arrow">→</div><div class="diagram-card good"><h4>Jackson 命中</h4><p>MappingJackson2HttpMessageConverter 将对象序列化为 JSON。</p></div></div><div class="diagram-callout">最终写入 response.getOutputStream()，并设置 Content-Type: application/json。</div></div></div>
 <h4 id="3-问题场景-2">3. 问题/场景</h4>
 <table>
 <thead>
@@ -821,27 +773,19 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href=
 <span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setCreateTime</span><span class="op">(</span>LocalDateTime createTime<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">createTime</span> <span class="op">=</span> createTime<span class="op">;</span> <span class="op">}</span></span>
 <span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 id="5-图示-3">5. 图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 4：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">List&lt;Project&gt;  <span class="tree-token">─</span><span class="tree-token">─</span>&gt; Jackson 序列化  <span class="tree-token">─</span><span class="tree-token">─</span>&gt; [</span>
-<span class="diagram-line">                                            {&quot;id&quot;:1,&quot;name&quot;:&quot;电商实训&quot;,&quot;semester&quot;:&quot;2025 春季&quot;},</span>
-<span class="diagram-line">                                            {&quot;id&quot;:2,&quot;name&quot;:&quot;大数据实训&quot;,&quot;semester&quot;:&quot;2025 春季&quot;}</span>
-<span class="diagram-line">                                         ]</span>
-<span class="diagram-line">Map&lt;String,Object&gt;  <span class="tree-token">─</span><span class="tree-token">─</span>&gt; {</span>
-<span class="diagram-line">                          &quot;code&quot;:200,</span>
-<span class="diagram-line">                          &quot;msg&quot;:&quot;success&quot;,</span>
-<span class="diagram-line">                          &quot;data&quot;:[ ... ]</span>
-<span class="diagram-line">                        }</span>
-<span class="diagram-line">Project（含 createTime）<span class="tree-token">─</span><span class="tree-token">─</span>&gt; {</span>
-<span class="diagram-line">                              &quot;id&quot;:1,</span>
-<span class="diagram-line">                              &quot;name&quot;:&quot;电商实训&quot;,</span>
-<span class="diagram-line">                              &quot;semester&quot;:&quot;2025 春季&quot;,</span>
-<span class="diagram-line">                              &quot;createTime&quot;:&quot;2025-03-15 10:30:00&quot;</span>
-<span class="diagram-line">                            }</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 4：不同 Java 返回值被 Jackson 序列化为 JSON</div> <div class="edu-diagram"><div class="diagram-grid three"><div class="diagram-card"><span class="diagram-badge">List&lt;Project&gt;</span><h4>数组 JSON</h4><pre class="diagram-code">[
+  {"id":1,"name":"电商实训","semester":"2025 春季"},
+  {"id":2,"name":"大数据实训","semester":"2025 春季"}
+]</pre></div><div class="diagram-card"><span class="diagram-badge">Map&lt;String,Object&gt;</span><h4>对象 JSON</h4><pre class="diagram-code">{
+  "code":200,
+  "msg":"success",
+  "data":[ ... ]
+}</pre></div><div class="diagram-card"><span class="diagram-badge">Project</span><h4>普通对象 JSON</h4><pre class="diagram-code">{
+  "id":1,
+  "name":"电商实训",
+  "semester":"2025 春季",
+  "createTime":"2025-03-15 10:30:00"
+}</pre></div></div></div></div>
 <h4 id="6-易错点-3">6. 易错点</h4>
 <ul>
 <li><strong>易错点 1</strong>：返回 <code>LocalDateTime</code> 没加
@@ -903,22 +847,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href=
 POST/PUT/PATCH 使用。</li>
 </ul>
 <h4 id="3-问题场景决策树">3. 问题/场景——决策树</h4>
-<div class="visual">
-  <div class="visual-title">图示 5：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">参数是资源的唯一标识吗？</span>
-<span class="diagram-line">   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 是 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; path  (例：/projects/{id})</span>
-<span class="diagram-line">   <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 否 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; 是创建/更新资源的完整数据吗？</span>
-<span class="diagram-line">                <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 是 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; body  (例：POST /projects + JSON)</span>
-<span class="diagram-line">                <span class="tree-token">│</span></span>
-<span class="diagram-line">                <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 否 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; 是过滤、分页、排序参数吗？</span>
-<span class="diagram-line">                            <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 是 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; query (例：?page=1&amp;size=10)</span>
-<span class="diagram-line">                            <span class="tree-token">│</span></span>
-<span class="diagram-line">                            <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 否 <span class="tree-token">─</span><span class="tree-token">─</span>&gt; 重新审视设计</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 5：Controller 参数位置选择决策树</div> <div class="edu-diagram"><div class="diagram-grid four"><div class="diagram-card"><h4>资源唯一标识？</h4><p>是：放 path。</p><p>例：/projects/{id}</p></div><div class="diagram-card"><h4>创建 / 更新完整对象？</h4><p>是：放 body。</p><p>例：POST /projects + JSON</p></div><div class="diagram-card"><h4>筛选 / 分页 / 排序？</h4><p>是：放 query。</p><p>例：?page=1&amp;size=10</p></div><div class="diagram-card warn"><h4>都不是？</h4><p>重新审视接口设计，避免参数语义混乱。</p></div></div></div></div>
 <h4 id="4-完整示例代码ctts-三接口">4. 完整示例代码（CTTS 三接口）</h4>
 <div class="sourceCode" id="cb16"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
@@ -962,28 +891,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href=
 <span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 id="5-图示-4">5. 图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 6：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">查询列表  GET /projects?keyword=电商&amp;page=1&amp;size=10</span>
-<span class="diagram-line">                    ▲           ▲           ▲</span>
-<span class="diagram-line">                    <span class="tree-token">│</span>           <span class="tree-token">│</span>           <span class="tree-token">│</span></span>
-<span class="diagram-line">                  query        query       query</span>
-<span class="diagram-line">查单个    GET /projects/1</span>
-<span class="diagram-line">                       ▲</span>
-<span class="diagram-line">                       <span class="tree-token">│</span></span>
-<span class="diagram-line">                     path</span>
-<span class="diagram-line">新增     POST /projects</span>
-<span class="diagram-line">              <span class="tree-token">│</span></span>
-<span class="diagram-line">              <span class="tree-token">│</span>  Body: {&quot;name&quot;:&quot;电商实训&quot;,&quot;semester&quot;:&quot;2025 春季&quot;}</span>
-<span class="diagram-line">              <span class="tree-token">│</span>          ▲</span>
-<span class="diagram-line">              <span class="tree-token">│</span>          <span class="tree-token">│</span></span>
-<span class="diagram-line">              <span class="tree-token">│</span>        body</span>
-<span class="diagram-line">              ▼</span>
-<span class="diagram-line">         Content-Type: application/json</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 6：三接口中的参数位置</div> <div class="edu-diagram"><div class="diagram-grid three"><div class="diagram-card"><span class="diagram-badge">query</span><h4>查询列表</h4><p>GET /projects?keyword=电商&amp;page=1&amp;size=10</p><p>用于筛选、分页、排序。</p></div><div class="diagram-card"><span class="diagram-badge">path</span><h4>查询单个</h4><p>GET /projects/1</p><p>路径中的 1 用于定位唯一资源。</p></div><div class="diagram-card"><span class="diagram-badge">body</span><h4>新增项目</h4><p>POST /projects</p><pre class="diagram-code">{"name":"电商实训","semester":"2025 春季"}</pre><p>Content-Type: application/json</p></div></div></div></div>
 <h4 id="6-易错点-4">6. 易错点</h4>
 <ul>
 <li><strong>易错点 1</strong>：把 ID 放到
@@ -1009,26 +917,7 @@ DTO 对象，Spring 能自动绑定。</li>
 <hr />
 <h2 id="三综合示例">三、综合示例</h2>
 <h3 id="31-项目结构">3.1 项目结构</h3>
-<div class="visual">
-  <div class="visual-title">图示 7：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">ctts/</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> pom.xml</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src/main/java/com/ctts/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> Project.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> service/</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> impl/</span>
-<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectServiceImpl.java</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> src/main/resources/</span>
-<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 7：三接口示例的代码落位</div> <div class="edu-diagram"><div class="diagram-code-tree"><ul><li><span class="tree-label">ctts/</span><ul><li>pom.xml</li><li><span class="tree-label">src/main/java/com/ctts/</span><ul><li>CttsApplication.java</li><li><span class="tree-label">controller/</span><ul><li>ProjectController.java</li></ul></li><li><span class="tree-label">entity/</span><ul><li>Project.java</li></ul></li><li><span class="tree-label">service/</span><ul><li>ProjectService.java</li><li>impl/ProjectServiceImpl.java</li></ul></li></ul></li><li><span class="tree-label">src/main/resources/</span><ul><li>application.yml</li></ul></li></ul></li></ul></div></div></div>
 <h3 id="32-完整-project-实体类">3.2 完整 Project 实体类</h3>
 <div class="sourceCode" id="cb19"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">;</span></span>

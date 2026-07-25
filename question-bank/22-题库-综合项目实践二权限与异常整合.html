@@ -148,554 +148,315 @@ MyBatis-Plus + MySQL + JWT + Knife4j 题量：78 题（30 单选 + 10 多选 + 2
 </blockquote>
 <hr />
 <h2 id="一单项选择题30题">一、单项选择题（30题）</h2>
-<h3 id="22-单选-01">22-单选-01（★）</h3>
-<p>关于 Spring Boot 拦截器 <code>HandlerInterceptor</code> 的
-<code>preHandle</code> 方法返回值的说法，正确的是？ A. 返回
-<code>false</code> 表示请求处理继续，返回 <code>true</code> 表示中断 B.
-返回 <code>true</code> 表示放行，返回 <code>false</code> 表示中断请求 C.
-必须返回 <code>null</code>，由后续拦截器决定 D. 返回值类型是
-<code>void</code>，不存在返回值</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="22-单选-01"><p><strong>22-单选-01（★）</strong></p><p>关于 Spring Boot 拦截器 <code>HandlerInterceptor</code> 的 <code>preHandle</code> 方法返回值的说法，正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">返回 <code>false</code> 表示请求处理继续，返回 <code>true</code> 表示中断</div></li><li><span class="option-label">B</span><div class="option-content">返回 <code>true</code> 表示放行，返回 <code>false</code> 表示中断请求</div></li><li><span class="option-label">C</span><div class="option-content">必须返回 <code>null</code>，由后续拦截器决定</div></li><li><span class="option-label">D</span><div class="option-content">返回值类型是 <code>void</code>，不存在返回值</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>preHandle</code> 返回 <code>true</code>
 表示放行，请求继续传递到下一个拦截器或 Controller；返回
-<code>false</code> 表示中断，后续拦截器与 Controller 不会执行。</p>
+<code>false</code> 表示中断，后续拦截器与 Controller 不会执行。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-02">22-单选-02（★）</h3>
-<p>在 <code>WebMvcConfig</code> 中注册多个拦截器时，执行顺序由什么决定？
-A. 拦截器类名字母顺序 B. <code>@Order</code> 注解或 <code>order()</code>
-方法，数值小的先执行 C. Bean 注入顺序 D. 随机执行</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：通过
+<section class="question-card" id="22-单选-02"><p><strong>22-单选-02（★）</strong></p><p>在 <code>WebMvcConfig</code> 中注册多个拦截器时，执行顺序由什么决定？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">拦截器类名字母顺序</div></li><li><span class="option-label">B</span><div class="option-content"><code>@Order</code> 注解或 <code>order()</code> 方法，数值小的先执行</div></li><li><span class="option-label">C</span><div class="option-content">Bean 注入顺序</div></li><li><span class="option-label">D</span><div class="option-content">随机执行</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：通过
 <code>InterceptorRegistry.addInterceptor(xxx).order(n)</code>
-指定执行顺序，数值小的先执行。</p>
+指定执行顺序，数值小的先执行。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-03">22-单选-03（★）</h3>
-<p>JWT Token 由三部分组成，正确顺序是？ A. Header.Payload.Signature B.
-Payload.Header.Signature C. Signature.Header.Payload D.
-Header.Signature.Payload</p>
-<p><strong>答案</strong>：A <strong>解析</strong>：JWT 格式为
+<section class="question-card" id="22-单选-03"><p><strong>22-单选-03（★）</strong></p><p>JWT Token 由三部分组成，正确顺序是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Header.Payload.Signature</div></li><li><span class="option-label">B</span><div class="option-content">Payload.Header.Signature</div></li><li><span class="option-label">C</span><div class="option-content">Signature.Header.Payload</div></li><li><span class="option-label">D</span><div class="option-content">Header.Signature.Payload</div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：JWT 格式为
 <code>Header.Payload.Signature</code>，三部分以 <code>.</code>
-分隔，Base64URL 编码。</p>
+分隔，Base64URL 编码。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-04">22-单选-04（★）</h3>
-<p>JWT 的 Payload 中通常不存放以下哪类信息？ A. 用户 ID B. 用户名 C.
-角色编码列表 D. 用户密码</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：Payload 会被 Base64
-解码可见，仅存放非敏感信息（uid、username、roles），密码等敏感信息绝对不能放入。</p>
+<section class="question-card" id="22-单选-04"><p><strong>22-单选-04（★）</strong></p><p>JWT 的 Payload 中通常不存放以下哪类信息？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">用户 ID</div></li><li><span class="option-label">B</span><div class="option-content">用户名</div></li><li><span class="option-label">C</span><div class="option-content">角色编码列表</div></li><li><span class="option-label">D</span><div class="option-content">用户密码</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：Payload 会被 Base64
+解码可见，仅存放非敏感信息（uid、username、roles），密码等敏感信息绝对不能放入。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-05">22-单选-05（★）</h3>
-<p>自定义注解 <code>@RequireRole</code>
-要想在运行时被反射读取，<code>@Retention</code> 应配置为？ A.
-<code>RetentionPolicy.SOURCE</code> B.
-<code>RetentionPolicy.CLASS</code> C.
-<code>RetentionPolicy.RUNTIME</code> D.
-<code>RetentionPolicy.DEFAULT</code></p>
-<p><strong>答案</strong>：C <strong>解析</strong>：只有
+<section class="question-card" id="22-单选-05"><p><strong>22-单选-05（★）</strong></p><p>自定义注解 <code>@RequireRole</code> 要想在运行时被反射读取，<code>@Retention</code> 应配置为？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>RetentionPolicy.SOURCE</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>RetentionPolicy.CLASS</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>RetentionPolicy.RUNTIME</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>RetentionPolicy.DEFAULT</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：只有
 <code>RUNTIME</code>
-级别的注解才能在运行时通过反射读取，拦截器校验权限依赖此配置。</p>
+级别的注解才能在运行时通过反射读取，拦截器校验权限依赖此配置。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-06">22-单选-06（★）</h3>
-<p><code>@RestControllerAdvice</code> 注解的组合来源不包括？ A.
-<code>@ControllerAdvice</code> B. <code>@ResponseBody</code> C.
-<code>@Component</code> D. <code>@Configuration</code></p>
-<p><strong>答案</strong>：D
+<section class="question-card" id="22-单选-06"><p><strong>22-单选-06（★）</strong></p><p><code>@RestControllerAdvice</code> 注解的组合来源不包括？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@ControllerAdvice</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@ResponseBody</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Component</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Configuration</code></div></li></ul></div><blockquote><p><strong>答案</strong>：D
 <strong>解析</strong>：<code>@RestControllerAdvice = @ControllerAdvice + @ResponseBody</code>，而
 <code>@ControllerAdvice</code> 本身组合了
-<code>@Component</code>，不包含 <code>@Configuration</code>。</p>
+<code>@Component</code>，不包含 <code>@Configuration</code>。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-07">22-单选-07（★）</h3>
-<p>统一响应 <code>Result&lt;T&gt;</code> 中 <code>data</code>
-字段使用泛型 <code>T</code> 的主要目的是？ A. 节省内存 B. 提高序列化速度
-C. 保证类型安全，便于前端与文档识别 D. 强制使用 Object 类型</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="22-单选-07"><p><strong>22-单选-07（★）</strong></p><p>统一响应 <code>Result&lt;T&gt;</code> 中 <code>data</code> 字段使用泛型 <code>T</code> 的主要目的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">节省内存</div></li><li><span class="option-label">B</span><div class="option-content">提高序列化速度</div></li><li><span class="option-label">C</span><div class="option-content">保证类型安全，便于前端与文档识别</div></li><li><span class="option-label">D</span><div class="option-content">强制使用 Object 类型</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：泛型保证返回数据类型明确，编译期类型检查，Knife4j
-文档也能正确显示数据模型。</p>
+文档也能正确显示数据模型。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-08">22-单选-08（★）</h3>
-<p>全局异常处理器中 <code>@ExceptionHandler(Exception.class)</code>
-的作用是？ A. 处理所有自定义异常 B.
-作为兜底处理器，处理未被其他处理器捕获的异常 C. 仅处理 RuntimeException
-D. 必须放在最前面</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="22-单选-08"><p><strong>22-单选-08（★）</strong></p><p>全局异常处理器中 <code>@ExceptionHandler(Exception.class)</code> 的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">处理所有自定义异常</div></li><li><span class="option-label">B</span><div class="option-content">作为兜底处理器，处理未被其他处理器捕获的异常</div></li><li><span class="option-label">C</span><div class="option-content">仅处理 RuntimeException</div></li><li><span class="option-label">D</span><div class="option-content">必须放在最前面</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>Exception.class</code>
-是所有异常的父类，作为兜底处理器，只在前面的具体异常处理器不匹配时执行。</p>
+是所有异常的父类，作为兜底处理器，只在前面的具体异常处理器不匹配时执行。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-09">22-单选-09（★）</h3>
-<p><code>MethodArgumentNotValidException</code> 通常在什么场景下被抛出？
-A. <code>@RequestParam</code> 参数缺失 B. <code>@RequestBody</code>
-参数校验失败（<code>@Valid</code>） C. 路径变量类型不匹配 D. JSON
-格式错误</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="22-单选-09"><p><strong>22-单选-09（★）</strong></p><p><code>MethodArgumentNotValidException</code> 通常在什么场景下被抛出？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@RequestParam</code> 参数缺失</div></li><li><span class="option-label">B</span><div class="option-content"><code>@RequestBody</code> 参数校验失败（<code>@Valid</code>）</div></li><li><span class="option-label">C</span><div class="option-content">路径变量类型不匹配</div></li><li><span class="option-label">D</span><div class="option-content">JSON 格式错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@RequestBody</code> + <code>@Valid</code>
 校验失败抛出
-<code>MethodArgumentNotValidException</code>，需在全局处理器中专门处理。</p>
+<code>MethodArgumentNotValidException</code>，需在全局处理器中专门处理。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-10">22-单选-10（★）</h3>
-<p>关于 ThreadLocal 在拦截器中的使用，下列说法错误的是？ A.
-用于在拦截器与 Controller 之间传递用户信息 B. 必须在
-<code>afterCompletion</code> 中调用 <code>remove</code> 清理 C.
-适合存放请求维度数据 D. 适合存放全局共享数据</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：ThreadLocal
-是线程隔离的，适合存放请求维度数据，不适合存放跨线程共享的全局数据。</p>
+<section class="question-card" id="22-单选-10"><p><strong>22-单选-10（★）</strong></p><p>关于 ThreadLocal 在拦截器中的使用，下列说法错误的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">用于在拦截器与 Controller 之间传递用户信息</div></li><li><span class="option-label">B</span><div class="option-content">必须在 <code>afterCompletion</code> 中调用 <code>remove</code> 清理</div></li><li><span class="option-label">C</span><div class="option-content">适合存放请求维度数据</div></li><li><span class="option-label">D</span><div class="option-content">适合存放全局共享数据</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：ThreadLocal
+是线程隔离的，适合存放请求维度数据，不适合存放跨线程共享的全局数据。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-11">22-单选-11（★★）</h3>
-<p>在 CTTS 项目中，<code>JwtInterceptor</code> 与
-<code>RoleInterceptor</code> 的执行顺序应是？ A.
-<code>RoleInterceptor</code> 先执行，再 <code>JwtInterceptor</code> B.
-<code>JwtInterceptor</code> 先执行，再 <code>RoleInterceptor</code> C.
-两者并行执行 D. 顺序不影响</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="22-单选-11"><p><strong>22-单选-11（★★）</strong></p><p>在 CTTS 项目中，<code>JwtInterceptor</code> 与 <code>RoleInterceptor</code> 的执行顺序应是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>RoleInterceptor</code> 先执行，再 <code>JwtInterceptor</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>JwtInterceptor</code> 先执行，再 <code>RoleInterceptor</code></div></li><li><span class="option-label">C</span><div class="option-content">两者并行执行</div></li><li><span class="option-label">D</span><div class="option-content">顺序不影响</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>RoleInterceptor</code> 依赖
 <code>BaseContext.getCurrentRoles()</code>，而该数据由
 <code>JwtInterceptor</code> 解析 Token 后注入，因此必须先 JWT
-后角色。</p>
+后角色。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-12">22-单选-12（★★）</h3>
-<p><code>@RequireRole</code>
-注解同时标注在类和方法上时，权限以哪个为准？ A. 类级注解优先 B.
-方法级注解优先（覆盖类级） C. 取两者交集 D. 取两者并集</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="22-单选-12"><p><strong>22-单选-12（★★）</strong></p><p><code>@RequireRole</code> 注解同时标注在类和方法上时，权限以哪个为准？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">类级注解优先</div></li><li><span class="option-label">B</span><div class="option-content">方法级注解优先（覆盖类级）</div></li><li><span class="option-label">C</span><div class="option-content">取两者交集</div></li><li><span class="option-label">D</span><div class="option-content">取两者并集</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>RoleInterceptor</code>
-优先读取方法级注解，若方法级存在则覆盖类级，便于在通用类中实现特殊方法精细化控制。</p>
+优先读取方法级注解，若方法级存在则覆盖类级，便于在通用类中实现特殊方法精细化控制。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-13">22-单选-13（★★）</h3>
-<p>以下哪类异常应使用 <code>PermissionException</code>（403）而非
-<code>AuthException</code>（401）？ A. Token 过期 B. 未携带 Token C.
-Token 签名错误 D. 已登录但角色不匹配</p>
-<p><strong>答案</strong>：D
-<strong>解析</strong>：<code>AuthException</code>（401）表示未认证（身份不明），<code>PermissionException</code>（403）表示已认证但无权限，角色不匹配属于后者。</p>
+<section class="question-card" id="22-单选-13"><p><strong>22-单选-13（★★）</strong></p><p>以下哪类异常应使用 <code>PermissionException</code>（403）而非 <code>AuthException</code>（401）？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Token 过期</div></li><li><span class="option-label">B</span><div class="option-content">未携带 Token</div></li><li><span class="option-label">C</span><div class="option-content">Token 签名错误</div></li><li><span class="option-label">D</span><div class="option-content">已登录但角色不匹配</div></li></ul></div><blockquote><p><strong>答案</strong>：D
+<strong>解析</strong>：<code>AuthException</code>（401）表示未认证（身份不明），<code>PermissionException</code>（403）表示已认证但无权限，角色不匹配属于后者。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-14">22-单选-14（★★）</h3>
-<p>在 <code>GlobalExceptionHandler</code> 中，业务异常
-<code>BusinessException</code> 应返回的 HTTP 状态码通常是？ A. 200 B.
-400 C. 500 D. 403</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="22-单选-14"><p><strong>22-单选-14（★★）</strong></p><p>在 <code>GlobalExceptionHandler</code> 中，业务异常 <code>BusinessException</code> 应返回的 HTTP 状态码通常是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">200</div></li><li><span class="option-label">B</span><div class="option-content">400</div></li><li><span class="option-label">C</span><div class="option-content">500</div></li><li><span class="option-label">D</span><div class="option-content">403</div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：业务异常是用户操作不当导致的预期异常，HTTP
 状态码通常返回 200，通过 <code>Result.code</code>
-字段区分业务错误码，便于前端统一处理。</p>
+字段区分业务错误码，便于前端统一处理。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-15">22-单选-15（★★）</h3>
-<p>日志级别从低到高的正确顺序是？ A. DEBUG → INFO → WARN → ERROR B. INFO
-→ DEBUG → WARN → ERROR C. ERROR → WARN → INFO → DEBUG D. DEBUG → WARN →
-INFO → ERROR</p>
-<p><strong>答案</strong>：A <strong>解析</strong>：日志级别从低到高为
+<section class="question-card" id="22-单选-15"><p><strong>22-单选-15（★★）</strong></p><p>日志级别从低到高的正确顺序是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">DEBUG → INFO → WARN → ERROR</div></li><li><span class="option-label">B</span><div class="option-content">INFO → DEBUG → WARN → ERROR</div></li><li><span class="option-label">C</span><div class="option-content">ERROR → WARN → INFO → DEBUG</div></li><li><span class="option-label">D</span><div class="option-content">DEBUG → WARN → INFO → ERROR</div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：日志级别从低到高为
 TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR，配置 INFO 级别时 DEBUG
-不会输出。</p>
+不会输出。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-16">22-单选-16（★★）</h3>
-<p>Logback 配置文件 <code>logback-spring.xml</code> 比
-<code>logback.xml</code> 的优势是？ A. 加载速度更快 B. 可以使用 Spring
-Boot profile 特性 C. 不需要任何配置 D. 仅在测试环境生效</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="22-单选-16"><p><strong>22-单选-16（★★）</strong></p><p>Logback 配置文件 <code>logback-spring.xml</code> 比 <code>logback.xml</code> 的优势是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">加载速度更快</div></li><li><span class="option-label">B</span><div class="option-content">可以使用 Spring Boot profile 特性</div></li><li><span class="option-label">C</span><div class="option-content">不需要任何配置</div></li><li><span class="option-label">D</span><div class="option-content">仅在测试环境生效</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>logback-spring.xml</code> 由 Spring Boot
-加载，支持 <code>&lt;springProfile&gt;</code> 标签按环境区分配置。</p>
+加载，支持 <code>&lt;springProfile&gt;</code> 标签按环境区分配置。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-17">22-单选-17（★★）</h3>
-<p>关于 <code>@Slf4j</code> 注解，下列说法正确的是？ A. 是 Spring
-提供的注解 B. 由 Lombok 提供，自动生成 <code>log</code> 字段 C. 必须手动
-new Logger D. 仅能在 Controller 中使用</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Slf4j</code>
+<section class="question-card" id="22-单选-17"><p><strong>22-单选-17（★★）</strong></p><p>关于 <code>@Slf4j</code> 注解，下列说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">是 Spring 提供的注解</div></li><li><span class="option-label">B</span><div class="option-content">由 Lombok 提供，自动生成 <code>log</code> 字段</div></li><li><span class="option-label">C</span><div class="option-content">必须手动 new Logger</div></li><li><span class="option-label">D</span><div class="option-content">仅能在 Controller 中使用</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>@Slf4j</code>
 由 Lombok 提供，编译期自动生成
-<code>private static final Logger log = LoggerFactory.getLogger(...)</code>，简化日志使用。</p>
+<code>private static final Logger log = LoggerFactory.getLogger(...)</code>，简化日志使用。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-18">22-单选-18（★★）</h3>
-<p>水平越权与垂直越权的区别是？ A. 垂直越权是同权限级别用户间互访 B.
-水平越权是低权限访问高权限 C. 水平越权是同权限级别用户间互访对方数据 D.
-二者没有区别</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="22-单选-18"><p><strong>22-单选-18（★★）</strong></p><p>水平越权与垂直越权的区别是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">垂直越权是同权限级别用户间互访</div></li><li><span class="option-label">B</span><div class="option-content">水平越权是低权限访问高权限</div></li><li><span class="option-label">C</span><div class="option-content">水平越权是同权限级别用户间互访对方数据</div></li><li><span class="option-label">D</span><div class="option-content">二者没有区别</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：水平越权指相同权限级别的用户 A 访问用户 B
-的数据；垂直越权指低权限用户访问高权限接口。</p>
+的数据；垂直越权指低权限用户访问高权限接口。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-19">22-单选-19（★★）</h3>
-<p>防御 SQL 注入最有效的方式是？ A. 前端校验输入 B.
-使用预编译语句（PreparedStatement） C. 隐藏数据库表名 D.
-限制请求频率</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：预编译语句将 SQL
+<section class="question-card" id="22-单选-19"><p><strong>22-单选-19（★★）</strong></p><p>防御 SQL 注入最有效的方式是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">前端校验输入</div></li><li><span class="option-label">B</span><div class="option-content">使用预编译语句（PreparedStatement）</div></li><li><span class="option-label">C</span><div class="option-content">隐藏数据库表名</div></li><li><span class="option-label">D</span><div class="option-content">限制请求频率</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：预编译语句将 SQL
 与参数分离，参数不会被当作 SQL 解析，从根本上防御注入。MyBatis-Plus
-默认使用预编译。</p>
+默认使用预编译。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-20">22-单选-20（★★）</h3>
-<p>以下哪种做法可能导致水平越权漏洞？ A. Service 层根据
-<code>BaseContext.getCurrentUserId()</code> 过滤数据 B. Controller
-直接接收前端传入的 <code>userId</code> 参数并查询该用户数据 C. 使用
-<code>@RequireRole</code> 限制角色 D. 拦截器校验 Token</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：直接信任前端传入的
+<section class="question-card" id="22-单选-20"><p><strong>22-单选-20（★★）</strong></p><p>以下哪种做法可能导致水平越权漏洞？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Service 层根据 <code>BaseContext.getCurrentUserId()</code> 过滤数据</div></li><li><span class="option-label">B</span><div class="option-content">Controller 直接接收前端传入的 <code>userId</code> 参数并查询该用户数据</div></li><li><span class="option-label">C</span><div class="option-content">使用 <code>@RequireRole</code> 限制角色</div></li><li><span class="option-label">D</span><div class="option-content">拦截器校验 Token</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：直接信任前端传入的
 <code>userId</code> 会导致用户 A 提交用户 B 的 ID 从而访问 B
-的数据，应基于登录态的 userId 查询。</p>
+的数据，应基于登录态的 userId 查询。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-21">22-单选-21（★★）</h3>
-<p>在 Knife4j
-配置中，为了让所有接口文档正常访问，<code>WebMvcConfig</code>
-应放行哪些路径？ A. <code>/auth/**</code> B.
-<code>/doc.html</code>、<code>/swagger-ui/**</code>、<code>/v3/api-docs/**</code>、<code>/webjars/**</code>
-C. <code>/static/**</code> D. <code>/resources/**</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：Knife4j 静态资源与
-API 文档路径必须放行，否则被 JWT 拦截器拦截导致文档无法访问。</p>
+<section class="question-card" id="22-单选-21"><p><strong>22-单选-21（★★）</strong></p><p>在 Knife4j 配置中，为了让所有接口文档正常访问，<code>WebMvcConfig</code> 应放行哪些路径？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>/auth/**</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>/doc.html</code>、<code>/swagger-ui/**</code>、<code>/v3/api-docs/**</code>、<code>/webjars/**</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>/static/**</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>/resources/**</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：Knife4j 静态资源与
+API 文档路径必须放行，否则被 JWT 拦截器拦截导致文档无法访问。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-22">22-单选-22（★★）</h3>
-<p><code>@ResponseStatus(HttpStatus.UNAUTHORIZED)</code> 注解的作用是？
-A. 自动抛出异常 B. 设置 HTTP 响应状态码为 401 C. 阻止方法执行 D.
-仅用于日志记录</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="22-单选-22"><p><strong>22-单选-22（★★）</strong></p><p><code>@ResponseStatus(HttpStatus.UNAUTHORIZED)</code> 注解的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">自动抛出异常</div></li><li><span class="option-label">B</span><div class="option-content">设置 HTTP 响应状态码为 401</div></li><li><span class="option-label">C</span><div class="option-content">阻止方法执行</div></li><li><span class="option-label">D</span><div class="option-content">仅用于日志记录</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@ResponseStatus</code> 指定响应的 HTTP
 状态码，配合 <code>@ExceptionHandler</code>
-使用可让前端通过状态码识别异常类型。</p>
+使用可让前端通过状态码识别异常类型。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-23">22-单选-23（★★★）</h3>
-<p>CTTS 项目中，拦截器抛出的 <code>PermissionException</code> 能否被
-<code>GlobalExceptionHandler</code> 捕获？ A. 不能，拦截器异常不进
-Controller B. 能，Spring MVC 的 <code>DispatcherServlet</code>
-会统一交给 <code>HandlerExceptionResolver</code> 处理 C. 仅在 Controller
-内抛出才能被捕获 D. 需要手动 try-catch</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：拦截器
+<section class="question-card" id="22-单选-23"><p><strong>22-单选-23（★★★）</strong></p><p>CTTS 项目中，拦截器抛出的 <code>PermissionException</code> 能否被 <code>GlobalExceptionHandler</code> 捕获？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">不能，拦截器异常不进 Controller</div></li><li><span class="option-label">B</span><div class="option-content">能，Spring MVC 的 <code>DispatcherServlet</code> 会统一交给 <code>HandlerExceptionResolver</code> 处理</div></li><li><span class="option-label">C</span><div class="option-content">仅在 Controller 内抛出才能被捕获</div></li><li><span class="option-label">D</span><div class="option-content">需要手动 try-catch</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：拦截器
 <code>preHandle</code> 抛出的异常会由 <code>DispatcherServlet</code>
 交给 <code>HandlerExceptionResolver</code>，最终被
-<code>@RestControllerAdvice</code> 捕获。</p>
+<code>@RestControllerAdvice</code> 捕获。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-24">22-单选-24（★★★）</h3>
-<p>关于 JWT 签名算法，CTTS 项目推荐使用？ A. HS256（HMAC-SHA256） B.
-RS256（RSA-SHA256） C. none（不签名） D. MD5</p>
-<p><strong>答案</strong>：A <strong>解析</strong>：单体项目使用 HS256
+<section class="question-card" id="22-单选-24"><p><strong>22-单选-24（★★★）</strong></p><p>关于 JWT 签名算法，CTTS 项目推荐使用？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">HS256（HMAC-SHA256）</div></li><li><span class="option-label">B</span><div class="option-content">RS256（RSA-SHA256）</div></li><li><span class="option-label">C</span><div class="option-content">none（不签名）</div></li><li><span class="option-label">D</span><div class="option-content">MD5</div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：单体项目使用 HS256
 即可，密钥保密；分布式系统可使用 RS256
-实现公钥验签、私钥签发。<code>none</code> 算法存在严重安全漏洞。</p>
+实现公钥验签、私钥签发。<code>none</code> 算法存在严重安全漏洞。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-25">22-单选-25（★★★）</h3>
-<p>如果 JWT 密钥泄露，攻击者可以？ A. 仅能读取 Payload B.
-能伪造任意用户的 Token C. 能修改数据库 D. 无法造成任何危害</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="22-单选-25"><p><strong>22-单选-25（★★★）</strong></p><p>如果 JWT 密钥泄露，攻击者可以？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">仅能读取 Payload</div></li><li><span class="option-label">B</span><div class="option-content">能伪造任意用户的 Token</div></li><li><span class="option-label">C</span><div class="option-content">能修改数据库</div></li><li><span class="option-label">D</span><div class="option-content">无法造成任何危害</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：密钥泄露后，攻击者可自行签发任意 uid/roles 的合法
-Token，冒充任意用户，必须立即更换密钥。</p>
+Token，冒充任意用户，必须立即更换密钥。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-26">22-单选-26（★★★）</h3>
-<p>在 CTTS 项目中，<code>BaseContext.clear()</code>
-必须在哪个拦截器方法中调用？ A. <code>preHandle</code> B.
-<code>postHandle</code> C. <code>afterCompletion</code> D. 任意位置</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="22-单选-26"><p><strong>22-单选-26（★★★）</strong></p><p>在 CTTS 项目中，<code>BaseContext.clear()</code> 必须在哪个拦截器方法中调用？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>preHandle</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>postHandle</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>afterCompletion</code></div></li><li><span class="option-label">D</span><div class="option-content">任意位置</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>afterCompletion</code>
 在请求完成后必定执行（即使出现异常），是清理 ThreadLocal
-的安全位置，防止线程池复用导致内存泄漏。</p>
+的安全位置，防止线程池复用导致内存泄漏。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-27">22-单选-27（★★★）</h3>
-<p>关于 <code>@RequestBody @Valid</code>
-触发的校验异常，以下说法正确的是？ A. Spring 自动返回 200 状态码 B. 抛出
-<code>MethodArgumentNotValidException</code>，需由全局异常处理器统一处理
-C. 会直接抛出 <code>NullPointerException</code> D. 不需要任何处理</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Valid</code>
+<section class="question-card" id="22-单选-27"><p><strong>22-单选-27（★★★）</strong></p><p>关于 <code>@RequestBody @Valid</code> 触发的校验异常，以下说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Spring 自动返回 200 状态码</div></li><li><span class="option-label">B</span><div class="option-content">抛出 <code>MethodArgumentNotValidException</code>，需由全局异常处理器统一处理</div></li><li><span class="option-label">C</span><div class="option-content">会直接抛出 <code>NullPointerException</code></div></li><li><span class="option-label">D</span><div class="option-content">不需要任何处理</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>@Valid</code>
 校验失败抛出 <code>MethodArgumentNotValidException</code>，需在
 <code>GlobalExceptionHandler</code> 中捕获并返回友好的
-<code>Result</code>。</p>
+<code>Result</code>。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-28">22-单选-28（★★★）</h3>
-<p>以下哪种方式能最有效防御 Token 伪造？ A. 使用长密钥且保密 B. Token
-中存放明文密码 C. 使用 <code>none</code> 算法 D. 不验证签名</p>
-<p><strong>答案</strong>：A <strong>解析</strong>：长密钥 + 保密是 HMAC
+<section class="question-card" id="22-单选-28"><p><strong>22-单选-28（★★★）</strong></p><p>以下哪种方式能最有效防御 Token 伪造？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">使用长密钥且保密</div></li><li><span class="option-label">B</span><div class="option-content">Token 中存放明文密码</div></li><li><span class="option-label">C</span><div class="option-content">使用 <code>none</code> 算法</div></li><li><span class="option-label">D</span><div class="option-content">不验证签名</div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：长密钥 + 保密是 HMAC
 算法安全的基石，配合 <code>Jwts.parser().verifyWith(key)</code>
-严格校验签名。</p>
+严格校验签名。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-29">22-单选-29（★★★）</h3>
-<p>日志中记录用户敏感信息（如密码、身份证号）的正确做法是？ A.
-直接打印完整内容 B. 脱敏处理（如
-<code>idCard: 1234**5678</code>）或不记录 C. 加密后打印 D.
-仅记录到文件即可</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：日志文件可能被运维、第三方查看，敏感信息必须脱敏或不记录，符合个人信息保护合规要求。</p>
+<section class="question-card" id="22-单选-29"><p><strong>22-单选-29（★★★）</strong></p><p>日志中记录用户敏感信息（如密码、身份证号）的正确做法是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">直接打印完整内容</div></li><li><span class="option-label">B</span><div class="option-content">脱敏处理（如 <code>idCard: 1234**5678</code>）或不记录</div></li><li><span class="option-label">C</span><div class="option-content">加密后打印</div></li><li><span class="option-label">D</span><div class="option-content">仅记录到文件即可</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：日志文件可能被运维、第三方查看，敏感信息必须脱敏或不记录，符合个人信息保护合规要求。</p></blockquote></section>
 <hr />
-<h3 id="22-单选-30">22-单选-30（★★★）</h3>
-<p>关于"上线前自检"的工程素养，以下做法错误的是？ A.
-编写漏洞自查清单逐项测试 B. 同伴交叉审查代码 C.
-上线后再修复测试中发现的漏洞 D. 修复后重新回归测试</p>
-<p><strong>答案</strong>：C
-<strong>解析</strong>：上线前发现的漏洞必须在上线前修复并回归测试，不能"先上线后修复"，否则可能造成数据泄露事故。</p>
+<section class="question-card" id="22-单选-30"><p><strong>22-单选-30（★★★）</strong></p><p>关于"上线前自检"的工程素养，以下做法错误的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">编写漏洞自查清单逐项测试</div></li><li><span class="option-label">B</span><div class="option-content">同伴交叉审查代码</div></li><li><span class="option-label">C</span><div class="option-content">上线后再修复测试中发现的漏洞</div></li><li><span class="option-label">D</span><div class="option-content">修复后重新回归测试</div></li></ul></div><blockquote><p><strong>答案</strong>：C
+<strong>解析</strong>：上线前发现的漏洞必须在上线前修复并回归测试，不能"先上线后修复"，否则可能造成数据泄露事故。</p></blockquote></section>
 <hr />
 <h2 id="二多项选择题10题">二、多项选择题（10题）</h2>
-<h3 id="22-多选-01">22-多选-01（★）</h3>
-<p><code>@RestControllerAdvice</code> 注解可以用于声明哪些类型的增强？
-A. <code>@ExceptionHandler</code>（异常处理） B.
-<code>@InitBinder</code>（数据绑定） C.
-<code>@ModelAttribute</code>（全局数据绑定） D.
-<code>@RequestMapping</code>（路由映射）</p>
-<p><strong>答案</strong>：A、B、C
+<section class="question-card" id="22-多选-01"><p><strong>22-多选-01（★）</strong></p><p><code>@RestControllerAdvice</code> 注解可以用于声明哪些类型的增强？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@ExceptionHandler</code>（异常处理）</div></li><li><span class="option-label">B</span><div class="option-content"><code>@InitBinder</code>（数据绑定）</div></li><li><span class="option-label">C</span><div class="option-content"><code>@ModelAttribute</code>（全局数据绑定）</div></li><li><span class="option-label">D</span><div class="option-content"><code>@RequestMapping</code>（路由映射）</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C
 <strong>解析</strong>：<code>@RestControllerAdvice</code> 可包含
 <code>@ExceptionHandler</code>、<code>@InitBinder</code>、<code>@ModelAttribute</code>
-三类方法，不用于路由映射。</p>
+三类方法，不用于路由映射。</p></blockquote></section>
 <hr />
-<h3 id="22-多选-02">22-多选-02（★）</h3>
-<p>以下属于 JWT Token 标准声明的字段有？ A. <code>sub</code>（subject）
-B. <code>exp</code>（expiration） C. <code>iat</code>（issued at） D.
-<code>password</code></p>
-<p><strong>答案</strong>：A、B、C <strong>解析</strong>：JWT
+<section class="question-card" id="22-多选-02"><p><strong>22-多选-02（★）</strong></p><p>以下属于 JWT Token 标准声明的字段有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>sub</code>（subject）</div></li><li><span class="option-label">B</span><div class="option-content"><code>exp</code>（expiration）</div></li><li><span class="option-label">C</span><div class="option-content"><code>iat</code>（issued at）</div></li><li><span class="option-label">D</span><div class="option-content"><code>password</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C <strong>解析</strong>：JWT
 标准声明包括
 <code>iss</code>、<code>sub</code>、<code>aud</code>、<code>exp</code>、<code>nbf</code>、<code>iat</code>、<code>jti</code>，不含
-<code>password</code>。</p>
+<code>password</code>。</p></blockquote></section>
 <hr />
-<h3 id="22-多选-03">22-多选-03（★★）</h3>
-<p>CTTS 项目中，应在 <code>WebMvcConfig</code> 中放行的路径包括？ A.
-<code>/auth/login</code> B. <code>/doc.html</code> C.
-<code>/v3/api-docs/**</code> D. <code>/admin/**</code></p>
-<p><strong>答案</strong>：A、B、C
+<section class="question-card" id="22-多选-03"><p><strong>22-多选-03（★★）</strong></p><p>CTTS 项目中，应在 <code>WebMvcConfig</code> 中放行的路径包括？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>/auth/login</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>/doc.html</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>/v3/api-docs/**</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>/admin/**</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C
 <strong>解析</strong>：登录接口、Knife4j
 文档相关路径必须放行；<code>/admin/**</code>
-是管理员接口，必须经过认证与权限校验，不能放行。</p>
+是管理员接口，必须经过认证与权限校验，不能放行。</p></blockquote></section>
 <hr />
-<h3 id="22-多选-04">22-多选-04（★★）</h3>
-<p><code>GlobalExceptionHandler</code> 应处理的异常类型包括？ A.
-参数校验异常（<code>MethodArgumentNotValidException</code>） B.
-业务异常（<code>BusinessException</code>） C.
-认证异常（<code>AuthException</code>） D.
-兜底异常（<code>Exception</code>）</p>
-<p><strong>答案</strong>：A、B、C、D
+<section class="question-card" id="22-多选-04"><p><strong>22-多选-04（★★）</strong></p><p><code>GlobalExceptionHandler</code> 应处理的异常类型包括？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">参数校验异常（<code>MethodArgumentNotValidException</code>）</div></li><li><span class="option-label">B</span><div class="option-content">业务异常（<code>BusinessException</code>）</div></li><li><span class="option-label">C</span><div class="option-content">认证异常（<code>AuthException</code>）</div></li><li><span class="option-label">D</span><div class="option-content">兜底异常（<code>Exception</code>）</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C、D
 <strong>解析</strong>：四类异常均应统一处理，参数异常返回
-400，业务异常返回 200+业务码，认证异常返回 401，兜底异常返回 500。</p>
+400，业务异常返回 200+业务码，认证异常返回 401，兜底异常返回 500。</p></blockquote></section>
 <hr />
-<h3 id="22-多选-05">22-多选-05（★★）</h3>
-<p>以下属于水平越权测试场景的有？ A. 学生 A 访问学生 B 的汇报详情 B.
-学生访问教师接口 C. 教师 A 修改教师 B 发布的任务 D.
-未登录访问受保护接口</p>
-<p><strong>答案</strong>：A、C
+<section class="question-card" id="22-多选-05"><p><strong>22-多选-05（★★）</strong></p><p>以下属于水平越权测试场景的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">学生 A 访问学生 B 的汇报详情</div></li><li><span class="option-label">B</span><div class="option-content">学生访问教师接口</div></li><li><span class="option-label">C</span><div class="option-content">教师 A 修改教师 B 发布的任务</div></li><li><span class="option-label">D</span><div class="option-content">未登录访问受保护接口</div></li></ul></div><blockquote><p><strong>答案</strong>：A、C
 <strong>解析</strong>：水平越权是同权限级别用户间互访对方数据（A、C）；B
-是垂直越权；D 是未认证。</p>
+是垂直越权；D 是未认证。</p></blockquote></section>
 <hr />
-<h3 id="22-多选-06">22-多选-06（★★）</h3>
-<p>关于 <code>@RequireRole</code> 注解，以下说法正确的有？ A.
-可以标注在类上 B. 可以标注在方法上 C. 方法级注解覆盖类级注解 D. 必须配置
-<code>requireAll = true</code></p>
-<p><strong>答案</strong>：A、B、C
+<section class="question-card" id="22-多选-06"><p><strong>22-多选-06（★★）</strong></p><p>关于 <code>@RequireRole</code> 注解，以下说法正确的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">可以标注在类上</div></li><li><span class="option-label">B</span><div class="option-content">可以标注在方法上</div></li><li><span class="option-label">C</span><div class="option-content">方法级注解覆盖类级注解</div></li><li><span class="option-label">D</span><div class="option-content">必须配置 <code>requireAll = true</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C
 <strong>解析</strong>：<code>@RequireRole</code> 支持 TYPE 和 METHOD
 目标，方法级优先；<code>requireAll</code> 默认
-false（满足任一即可），非必需。</p>
+false（满足任一即可），非必需。</p></blockquote></section>
 <hr />
-<h3 id="22-多选-07">22-多选-07（★★★）</h3>
-<p>以下哪些措施有助于防御 Token 伪造？ A. 使用足够长的随机密钥 B.
-设置合理的 Token 过期时间 C. 密钥硬编码在代码中并提交到 Git D. 使用
-HTTPS 传输</p>
-<p><strong>答案</strong>：A、B、D
+<section class="question-card" id="22-多选-07"><p><strong>22-多选-07（★★★）</strong></p><p>以下哪些措施有助于防御 Token 伪造？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">使用足够长的随机密钥</div></li><li><span class="option-label">B</span><div class="option-content">设置合理的 Token 过期时间</div></li><li><span class="option-label">C</span><div class="option-content">密钥硬编码在代码中并提交到 Git</div></li><li><span class="option-label">D</span><div class="option-content">使用 HTTPS 传输</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、D
 <strong>解析</strong>：密钥应通过配置文件或环境变量管理，不能硬编码提交到
-Git 仓库；HTTPS 防止中间人窃取 Token。</p>
+Git 仓库；HTTPS 防止中间人窃取 Token。</p></blockquote></section>
 <hr />
-<h3 id="22-多选-08">22-多选-08（★★★）</h3>
-<p>以下哪些属于参数篡改测试？ A. 提交 SQL 注入字符串 B. 提交超长字符串
-C. 篡改 URL 中的 ID 为负数 D. 使用合法 Token 访问合法接口</p>
-<p><strong>答案</strong>：A、B、C
+<section class="question-card" id="22-多选-08"><p><strong>22-多选-08（★★★）</strong></p><p>以下哪些属于参数篡改测试？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">提交 SQL 注入字符串</div></li><li><span class="option-label">B</span><div class="option-content">提交超长字符串</div></li><li><span class="option-label">C</span><div class="option-content">篡改 URL 中的 ID 为负数</div></li><li><span class="option-label">D</span><div class="option-content">使用合法 Token 访问合法接口</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C
 <strong>解析</strong>：参数篡改测试包括 SQL 注入、超长字符串、非法 ID
-等；D 是正常访问，不属于篡改。</p>
+等；D 是正常访问，不属于篡改。</p></blockquote></section>
 <hr />
-<h3 id="22-多选-09">22-多选-09（★★★）</h3>
-<p>日志规范应遵循的最佳实践包括？ A. 关键操作记录 INFO 级别 B. 异常记录
-ERROR 级别并附带堆栈 C. 敏感信息脱敏 D. 生产环境开启 DEBUG 级别</p>
-<p><strong>答案</strong>：A、B、C <strong>解析</strong>：生产环境应使用
-INFO 或 WARN 级别，DEBUG 会产生大量日志影响性能且可能泄露细节。</p>
+<section class="question-card" id="22-多选-09"><p><strong>22-多选-09（★★★）</strong></p><p>日志规范应遵循的最佳实践包括？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">关键操作记录 INFO 级别</div></li><li><span class="option-label">B</span><div class="option-content">异常记录 ERROR 级别并附带堆栈</div></li><li><span class="option-label">C</span><div class="option-content">敏感信息脱敏</div></li><li><span class="option-label">D</span><div class="option-content">生产环境开启 DEBUG 级别</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C <strong>解析</strong>：生产环境应使用
+INFO 或 WARN 级别，DEBUG 会产生大量日志影响性能且可能泄露细节。</p></blockquote></section>
 <hr />
-<h3 id="22-多选-10">22-多选-10（★★★）</h3>
-<p>CTTS 项目权限漏洞自查应覆盖的场景有？ A.
-垂直越权（低权限访问高权限接口） B. 水平越权（同权限用户互访数据） C.
-Token 伪造与篡改 D. 参数篡改与 SQL 注入</p>
-<p><strong>答案</strong>：A、B、C、D
-<strong>解析</strong>：完整的自查应覆盖四类场景，缺一不可，体现工程师"上线前自检"的严谨态度。</p>
+<section class="question-card" id="22-多选-10"><p><strong>22-多选-10（★★★）</strong></p><p>CTTS 项目权限漏洞自查应覆盖的场景有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">垂直越权（低权限访问高权限接口）</div></li><li><span class="option-label">B</span><div class="option-content">水平越权（同权限用户互访数据）</div></li><li><span class="option-label">C</span><div class="option-content">Token 伪造与篡改</div></li><li><span class="option-label">D</span><div class="option-content">参数篡改与 SQL 注入</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C、D
+<strong>解析</strong>：完整的自查应覆盖四类场景，缺一不可，体现工程师"上线前自检"的严谨态度。</p></blockquote></section>
 <hr />
 <h2 id="三判断题20题">三、判断题（20题）</h2>
-<h3 id="22-判断-01">22-判断-01（★）</h3>
-<p><code>HandlerInterceptor</code> 的 <code>preHandle</code> 方法在
-Controller 方法执行之前调用。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="22-判断-01"><p><strong>22-判断-01（★）</strong></p><p><code>HandlerInterceptor</code> 的 <code>preHandle</code> 方法在
+Controller 方法执行之前调用。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>preHandle</code> 在 Handler
-执行前调用，返回 <code>false</code> 时中断请求。</p>
+执行前调用，返回 <code>false</code> 时中断请求。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-02">22-判断-02（★）</h3>
-<p>JWT Token 的 Payload 部分是加密的，第三方无法读取内容。 A. 正确 B.
-错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：Payload 仅做
-Base64URL 编码，可逆，任何人都能解码查看，不能存放敏感信息。</p>
+<section class="question-card" id="22-判断-02"><p><strong>22-判断-02（★）</strong></p><p>JWT Token 的 Payload 部分是加密的，第三方无法读取内容。 A. 正确 B.
+错误</p><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：Payload 仅做
+Base64URL 编码，可逆，任何人都能解码查看，不能存放敏感信息。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-03">22-判断-03（★）</h3>
-<p><code>@RestControllerAdvice</code> 只能处理 Controller
-抛出的异常，不能处理拦截器抛出的异常。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：拦截器
+<section class="question-card" id="22-判断-03"><p><strong>22-判断-03（★）</strong></p><p><code>@RestControllerAdvice</code> 只能处理 Controller
+抛出的异常，不能处理拦截器抛出的异常。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：拦截器
 <code>preHandle</code> 抛出的异常也会被 <code>DispatcherServlet</code>
-交给 <code>@RestControllerAdvice</code> 处理。</p>
+交给 <code>@RestControllerAdvice</code> 处理。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-04">22-判断-04（★）</h3>
-<p><code>Result&lt;T&gt;</code> 中的泛型 <code>T</code>
-可以省略，统一使用 <code>Object</code>。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：使用
+<section class="question-card" id="22-判断-04"><p><strong>22-判断-04（★）</strong></p><p><code>Result&lt;T&gt;</code> 中的泛型 <code>T</code>
+可以省略，统一使用 <code>Object</code>。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：使用
 <code>Object</code> 会丢失类型信息，Knife4j
-文档无法显示具体模型，不利于前端对接。</p>
+文档无法显示具体模型，不利于前端对接。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-05">22-判断-05（★）</h3>
-<p>ThreadLocal 中的数据在线程结束后会自动清理，无需手动
-<code>remove</code>。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：Tomcat
-使用线程池，线程会被复用，不手动清理会导致数据串号与内存泄漏。</p>
+<section class="question-card" id="22-判断-05"><p><strong>22-判断-05（★）</strong></p><p>ThreadLocal 中的数据在线程结束后会自动清理，无需手动
+<code>remove</code>。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：Tomcat
+使用线程池，线程会被复用，不手动清理会导致数据串号与内存泄漏。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-06">22-判断-06（★）</h3>
-<p><code>@Slf4j</code> 注解由 Spring 框架提供。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Slf4j</code>
-由 Lombok 提供，编译期生成 <code>log</code> 字段。</p>
+<section class="question-card" id="22-判断-06"><p><strong>22-判断-06（★）</strong></p><p><code>@Slf4j</code> 注解由 Spring 框架提供。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>@Slf4j</code>
+由 Lombok 提供，编译期生成 <code>log</code> 字段。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-07">22-判断-07（★★）</h3>
-<p><code>@RequireRole</code> 注解的 <code>@Retention</code> 必须配置为
-<code>RUNTIME</code>，否则拦截器无法通过反射读取。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：A <strong>解析</strong>：只有
-<code>RUNTIME</code> 级别的注解才能在运行时被反射 API 读取。</p>
+<section class="question-card" id="22-判断-07"><p><strong>22-判断-07（★★）</strong></p><p><code>@RequireRole</code> 注解的 <code>@Retention</code> 必须配置为
+<code>RUNTIME</code>，否则拦截器无法通过反射读取。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：只有
+<code>RUNTIME</code> 级别的注解才能在运行时被反射 API 读取。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-08">22-判断-08（★★）</h3>
-<p>全局异常处理器中，<code>Exception.class</code>
-兜底处理器必须放在所有具体异常处理器之前。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：Spring
-会优先匹配最具体的异常类型，与声明顺序无关。但代码风格上建议兜底处理器放在最后，便于阅读。</p>
+<section class="question-card" id="22-判断-08"><p><strong>22-判断-08（★★）</strong></p><p>全局异常处理器中，<code>Exception.class</code>
+兜底处理器必须放在所有具体异常处理器之前。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：Spring
+会优先匹配最具体的异常类型，与声明顺序无关。但代码风格上建议兜底处理器放在最后，便于阅读。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-09">22-判断-09（★★）</h3>
-<p>JWT Token 的过期时间越长，安全性越高。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：TTL 越长，Token
+<section class="question-card" id="22-判断-09"><p><strong>22-判断-09（★★）</strong></p><p>JWT Token 的过期时间越长，安全性越高。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：TTL 越长，Token
 泄露后的风险窗口越大。通常设置为 2-24 小时，配合 Refresh Token
-机制。</p>
+机制。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-10">22-判断-10（★★）</h3>
-<p><code>@Valid</code> 注解只能用于 <code>@RequestBody</code>
-参数校验，不能用于 <code>@RequestParam</code>。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="22-判断-10"><p><strong>22-判断-10（★★）</strong></p><p><code>@Valid</code> 注解只能用于 <code>@RequestBody</code>
+参数校验，不能用于 <code>@RequestParam</code>。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@RequestParam</code> 参数校验需在
 Controller 类上加 <code>@Validated</code>，参数前加
-<code>@NotNull</code> 等约束注解。</p>
+<code>@NotNull</code> 等约束注解。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-11">22-判断-11（★★）</h3>
-<p>水平越权是指低权限用户访问高权限用户的接口。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：水平越权是同权限级别用户间互访对方数据；垂直越权才是低权限访问高权限接口。</p>
+<section class="question-card" id="22-判断-11"><p><strong>22-判断-11（★★）</strong></p><p>水平越权是指低权限用户访问高权限用户的接口。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：水平越权是同权限级别用户间互访对方数据；垂直越权才是低权限访问高权限接口。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-12">22-判断-12（★★）</h3>
-<p><code>@ResponseStatus(HttpStatus.FORBIDDEN)</code> 会让响应 HTTP
-状态码变为 403。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="22-判断-12"><p><strong>22-判断-12（★★）</strong></p><p><code>@ResponseStatus(HttpStatus.FORBIDDEN)</code> 会让响应 HTTP
+状态码变为 403。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>@ResponseStatus</code>
-注解指定响应状态码，常配合 <code>@ExceptionHandler</code> 使用。</p>
+注解指定响应状态码，常配合 <code>@ExceptionHandler</code> 使用。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-13">22-判断-13（★★）</h3>
-<p>MyBatis-Plus 使用预编译语句，天然防止 SQL
-注入，因此无需关心参数安全。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：预编译防止 SQL
+<section class="question-card" id="22-判断-13"><p><strong>22-判断-13（★★）</strong></p><p>MyBatis-Plus 使用预编译语句，天然防止 SQL
+注入，因此无需关心参数安全。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：预编译防止 SQL
 注入，但不能防止水平越权（如直接传入他人 ID 查询），仍需在 Service
-层校验数据归属。</p>
+层校验数据归属。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-14">22-判断-14（★★）</h3>
-<p>拦截器的 <code>order</code> 值越小，执行顺序越靠前。 A. 正确 B.
-错误</p>
-<p><strong>答案</strong>：A <strong>解析</strong>：<code>order</code>
-值小的拦截器先执行，<code>order</code> 值大的后执行。</p>
+<section class="question-card" id="22-判断-14"><p><strong>22-判断-14（★★）</strong></p><p>拦截器的 <code>order</code> 值越小，执行顺序越靠前。 A. 正确 B.
+错误</p><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：<code>order</code>
+值小的拦截器先执行，<code>order</code> 值大的后执行。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-15">22-判断-15（★★★）</h3>
-<p>即使没有 <code>@RequireRole</code> 注解，<code>RoleInterceptor</code>
-也会拦截所有请求。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="22-判断-15"><p><strong>22-判断-15（★★★）</strong></p><p>即使没有 <code>@RequireRole</code> 注解，<code>RoleInterceptor</code>
+也会拦截所有请求。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>RoleInterceptor</code> 在未检测到
 <code>@RequireRole</code> 注解时直接放行，仅做登录态校验（由
-<code>JwtInterceptor</code> 完成）。</p>
+<code>JwtInterceptor</code> 完成）。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-16">22-判断-16（★★★）</h3>
-<p><code>@RestControllerAdvice</code> 返回的对象会自动序列化为 JSON。 A.
-正确 B. 错误</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="22-判断-16"><p><strong>22-判断-16（★★★）</strong></p><p><code>@RestControllerAdvice</code> 返回的对象会自动序列化为 JSON。 A.
+正确 B. 错误</p><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>@RestControllerAdvice</code> 包含
-<code>@ResponseBody</code>，返回对象由 Jackson 序列化为 JSON。</p>
+<code>@ResponseBody</code>，返回对象由 Jackson 序列化为 JSON。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-17">22-判断-17（★★★）</h3>
-<p>生产环境日志级别应配置为 DEBUG 以便排查问题。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：生产环境应使用 INFO
-或 WARN，DEBUG 会产生海量日志影响性能且可能泄露细节。</p>
+<section class="question-card" id="22-判断-17"><p><strong>22-判断-17（★★★）</strong></p><p>生产环境日志级别应配置为 DEBUG 以便排查问题。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：生产环境应使用 INFO
+或 WARN，DEBUG 会产生海量日志影响性能且可能泄露细节。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-18">22-判断-18（★★★）</h3>
-<p>将 JWT 密钥硬编码在代码中并提交到 Git 仓库是安全的做法。 A. 正确 B.
-错误</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：密钥应通过配置文件（<code>application.yml</code>）或环境变量管理，禁止硬编码并提交版本库。</p>
+<section class="question-card" id="22-判断-18"><p><strong>22-判断-18（★★★）</strong></p><p>将 JWT 密钥硬编码在代码中并提交到 Git 仓库是安全的做法。 A. 正确 B.
+错误</p><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：密钥应通过配置文件（<code>application.yml</code>）或环境变量管理，禁止硬编码并提交版本库。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-19">22-判断-19（★★★）</h3>
-<p>代码交叉审查是发现权限漏洞的有效手段，应当作为上线前的必做环节。 A.
-正确 B. 错误</p>
-<p><strong>答案</strong>：A
-<strong>解析</strong>：交叉审查能发现自己难以发现的盲点，是工程实践中质量保障的重要手段。</p>
+<section class="question-card" id="22-判断-19"><p><strong>22-判断-19（★★★）</strong></p><p>代码交叉审查是发现权限漏洞的有效手段，应当作为上线前的必做环节。 A.
+正确 B. 错误</p><blockquote><p><strong>答案</strong>：A
+<strong>解析</strong>：交叉审查能发现自己难以发现的盲点，是工程实践中质量保障的重要手段。</p></blockquote></section>
 <hr />
-<h3 id="22-判断-20">22-判断-20（★★★）</h3>
-<p>CTTS 项目中，学生 Token 访问 <code>/admin/users</code> 接口应返回
-401。 A. 正确 B. 错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：学生已通过 JWT
+<section class="question-card" id="22-判断-20"><p><strong>22-判断-20（★★★）</strong></p><p>CTTS 项目中，学生 Token 访问 <code>/admin/users</code> 接口应返回
+401。 A. 正确 B. 错误</p><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：学生已通过 JWT
 认证，是权限不足而非未认证，应返回 403（Forbidden）而非
-401（Unauthorized）。</p>
+401（Unauthorized）。</p></blockquote></section>
 <hr />
 <h2 id="四填空题10题">四、填空题（10题）</h2>
-<h3 id="22-填空-01">22-填空-01（★）</h3>
-<p><code>HandlerInterceptor</code>
+<section class="question-card" id="22-填空-01"><p><strong>22-填空-01（★）</strong></p><p><code>HandlerInterceptor</code>
 接口定义了三个方法：<code>preHandle</code>、<code>______</code> 和
-<code>afterCompletion</code>。</p>
-<p><strong>答案</strong>：<code>postHandle</code>
+<code>afterCompletion</code>。</p><blockquote><p><strong>答案</strong>：<code>postHandle</code>
 <strong>解析</strong>：<code>postHandle</code> 在 Controller
-方法执行后、视图渲染前调用。</p>
+方法执行后、视图渲染前调用。</p></blockquote></section>
 <hr />
-<h3 id="22-填空-02">22-填空-02（★）</h3>
-<p>JWT Token 由三部分组成：Header、______ 和 Signature。</p>
-<p><strong>答案</strong>：Payload <strong>解析</strong>：Payload
-部分存放用户声明（claims），如 uid、username、roles。</p>
+<section class="question-card" id="22-填空-02"><p><strong>22-填空-02（★）</strong></p><p>JWT Token 由三部分组成：Header、______ 和 Signature。</p><blockquote><p><strong>答案</strong>：Payload <strong>解析</strong>：Payload
+部分存放用户声明（claims），如 uid、username、roles。</p></blockquote></section>
 <hr />
-<h3 id="22-填空-03">22-填空-03（★）</h3>
-<p>自定义注解 <code>@RequireRole</code> 要在运行时被反射读取，必须设置
-<code>@Retention(RetentionPolicy.______)</code>。</p>
-<p><strong>答案</strong>：<code>RUNTIME</code>
+<section class="question-card" id="22-填空-03"><p><strong>22-填空-03（★）</strong></p><p>自定义注解 <code>@RequireRole</code> 要在运行时被反射读取，必须设置
+<code>@Retention(RetentionPolicy.______)</code>。</p><blockquote><p><strong>答案</strong>：<code>RUNTIME</code>
 <strong>解析</strong>：<code>RUNTIME</code>
-级别注解保留到运行时，可被反射 API 读取。</p>
+级别注解保留到运行时，可被反射 API 读取。</p></blockquote></section>
 <hr />
-<h3 id="22-填空-04">22-填空-04（★）</h3>
-<p>Spring Boot 中注册拦截器需实现 <code>______</code> 接口并重写
-<code>addInterceptors</code> 方法。</p>
-<p><strong>答案</strong>：<code>WebMvcConfigurer</code>
+<section class="question-card" id="22-填空-04"><p><strong>22-填空-04（★）</strong></p><p>Spring Boot 中注册拦截器需实现 <code>______</code> 接口并重写
+<code>addInterceptors</code> 方法。</p><blockquote><p><strong>答案</strong>：<code>WebMvcConfigurer</code>
 <strong>解析</strong>：实现 <code>WebMvcConfigurer</code> 接口并重写
-<code>addInterceptors</code> 方法注册自定义拦截器。</p>
+<code>addInterceptors</code> 方法注册自定义拦截器。</p></blockquote></section>
 <hr />
-<h3 id="22-填空-05">22-填空-05（★★）</h3>
-<p><code>@RequestBody @Valid</code> 校验失败时抛出的异常类名是
-<code>______</code>。</p>
-<p><strong>答案</strong>：<code>MethodArgumentNotValidException</code>
+<section class="question-card" id="22-填空-05"><p><strong>22-填空-05（★★）</strong></p><p><code>@RequestBody @Valid</code> 校验失败时抛出的异常类名是
+<code>______</code>。</p><blockquote><p><strong>答案</strong>：<code>MethodArgumentNotValidException</code>
 <strong>解析</strong>：该异常包含
-<code>BindingResult</code>，可获取所有字段校验错误信息。</p>
+<code>BindingResult</code>，可获取所有字段校验错误信息。</p></blockquote></section>
 <hr />
-<h3 id="22-填空-06">22-填空-06（★★）</h3>
-<p>CTTS 项目中，统一响应类 <code>Result&lt;T&gt;</code> 的三段式结构包括
-<code>code</code>、<code>______</code> 和 <code>data</code>。</p>
-<p><strong>答案</strong>：<code>msg</code>
+<section class="question-card" id="22-填空-06"><p><strong>22-填空-06（★★）</strong></p><p>CTTS 项目中，统一响应类 <code>Result&lt;T&gt;</code> 的三段式结构包括
+<code>code</code>、<code>______</code> 和 <code>data</code>。</p><blockquote><p><strong>答案</strong>：<code>msg</code>
 <strong>解析</strong>：<code>code</code> 表示状态码，<code>msg</code>
-表示提示信息，<code>data</code> 表示业务数据。</p>
+表示提示信息，<code>data</code> 表示业务数据。</p></blockquote></section>
 <hr />
-<h3 id="22-填空-07">22-填空-07（★★）</h3>
-<p>日志级别从低到高依次为 TRACE、DEBUG、______、WARN、ERROR。</p>
-<p><strong>答案</strong>：<code>INFO</code>
+<section class="question-card" id="22-填空-07"><p><strong>22-填空-07（★★）</strong></p><p>日志级别从低到高依次为 TRACE、DEBUG、______、WARN、ERROR。</p><blockquote><p><strong>答案</strong>：<code>INFO</code>
 <strong>解析</strong>：默认级别通常为 INFO，生产环境推荐 INFO 或
-WARN。</p>
+WARN。</p></blockquote></section>
 <hr />
-<h3 id="22-填空-08">22-填空-08（★★）</h3>
-<p>水平越权是指 ______ 级别的用户之间互相访问对方数据。</p>
-<p><strong>答案</strong>：相同权限
-<strong>解析</strong>：水平越权是同角色用户间的数据越权，垂直越权才是跨角色越权。</p>
+<section class="question-card" id="22-填空-08"><p><strong>22-填空-08（★★）</strong></p><p>水平越权是指 ______ 级别的用户之间互相访问对方数据。</p><blockquote><p><strong>答案</strong>：相同权限
+<strong>解析</strong>：水平越权是同角色用户间的数据越权，垂直越权才是跨角色越权。</p></blockquote></section>
 <hr />
-<h3 id="22-填空-09">22-填空-09（★★★）</h3>
-<p>在 <code>RoleInterceptor</code> 中，应通过
+<section class="question-card" id="22-填空-09"><p><strong>22-填空-09（★★★）</strong></p><p>在 <code>RoleInterceptor</code> 中，应通过
 <code>handlerMethod.______()</code> 方法获取目标方法上的
-<code>@RequireRole</code> 注解。</p>
-<p><strong>答案</strong>：<code>getMethodAnnotation</code>
+<code>@RequireRole</code> 注解。</p><blockquote><p><strong>答案</strong>：<code>getMethodAnnotation</code>
 <strong>解析</strong>：<code>HandlerMethod.getMethodAnnotation(RequireRole.class)</code>
-读取方法上的注解。</p>
+读取方法上的注解。</p></blockquote></section>
 <hr />
-<h3 id="22-填空-10">22-填空-10（★★★）</h3>
-<p>JWT 拦截器解析 Token 后，应将用户信息存入
-<code>______</code>，便于后续拦截器与 Controller 获取。</p>
-<p><strong>答案</strong>：<code>ThreadLocal</code>（或
+<section class="question-card" id="22-填空-10"><p><strong>22-填空-10（★★★）</strong></p><p>JWT 拦截器解析 Token 后，应将用户信息存入
+<code>______</code>，便于后续拦截器与 Controller 获取。</p><blockquote><p><strong>答案</strong>：<code>ThreadLocal</code>（或
 <code>BaseContext</code>） <strong>解析</strong>：基于 ThreadLocal 的
 <code>BaseContext</code>
-在请求维度传递用户信息，请求结束后必须清理。</p>
+在请求维度传递用户信息，请求结束后必须清理。</p></blockquote></section>
 <hr />
 <h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
-<h3 id="22-论述-01">22-论述-01（★★）</h3>
-<p>请论述 CTTS 项目中 JWT
+<section class="question-card" id="22-论述-01"><p><strong>22-论述-01（★★）</strong></p><p>请论述 CTTS 项目中 JWT
 认证拦截器与角色权限拦截器的协作流程，并说明为什么必须按"先 JWT
-后角色"的顺序执行。</p>
-<p><strong>评分标准（满分 10 分）</strong>：</p>
-<ul>
+后角色"的顺序执行。</p><p><strong>评分标准（满分 10 分）</strong>：</p><ul>
 <li>JWT 拦截器职责说明（3 分）：解析 Token、校验有效性、注入用户信息到
 ThreadLocal。</li>
 <li>角色拦截器职责说明（3 分）：读取 <code>@RequireRole</code> 注解、从
@@ -703,9 +464,7 @@ ThreadLocal 获取角色、匹配校验。</li>
 <li>顺序原因说明（4 分）：角色拦截器依赖 ThreadLocal
 中的角色数据，必须由 JWT 拦截器先注入；若顺序颠倒，角色拦截器读到
 null，导致所有请求被拦截。</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<ol type="1">
+</ul><blockquote><p><strong>参考答案</strong>：</p><ol type="1">
 <li><strong>JWT 拦截器（order=1）</strong>：从请求头获取
 Token，校验签名与过期时间，解析出
 <code>uid</code>、<code>username</code>、<code>roles</code>，注入
@@ -720,21 +479,16 @@ Token，校验签名与过期时间，解析出
 <code>JwtInterceptor</code> 注入。若角色拦截器先执行，ThreadLocal
 为空，会误判为"未登录"或"角色缺失"，导致合法用户被拦截。因此必须按"先
 JWT 后角色"的顺序执行，体现拦截器间的依赖关系。</li>
-</ol>
+</ol></blockquote></section>
 <hr />
-<h3 id="22-论述-02">22-论述-02（★★）</h3>
-<p>请论述 <code>GlobalExceptionHandler</code>
+<section class="question-card" id="22-论述-02"><p><strong>22-论述-02（★★）</strong></p><p>请论述 <code>GlobalExceptionHandler</code>
 中为什么要区分参数校验异常、业务异常、认证异常、权限异常和兜底异常，并说明每类异常对应的
-HTTP 状态码与 <code>Result.code</code> 设计。</p>
-<p><strong>评分标准（满分 10 分）</strong>：</p>
-<ul>
+HTTP 状态码与 <code>Result.code</code> 设计。</p><p><strong>评分标准（满分 10 分）</strong>：</p><ul>
 <li>五类异常的语义差异说明（5 分，每类 1 分）。</li>
 <li>HTTP 状态码设计合理性（2 分）。</li>
 <li><code>Result.code</code> 设计合理性（2 分）。</li>
 <li>不向前端暴露堆栈的安全考虑（1 分）。</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<ol type="1">
+</ul><blockquote><p><strong>参考答案</strong>：</p><ol type="1">
 <li><strong>参数校验异常</strong>：用户输入不符合约束（如字段为空、格式错误），返回
 HTTP 400，<code>Result.code=400</code>，msg 包含具体字段错误。</li>
 <li><strong>业务异常</strong>：业务逻辑不满足（如任务不存在、状态非法），HTTP
@@ -746,21 +500,15 @@ HTTP 400，<code>Result.code=400</code>，msg 包含具体字段错误。</li>
 403，<code>Result.code=403</code>，前端提示无权限。</li>
 <li><strong>兜底异常</strong>：未预期的系统异常，HTTP
 500，<code>Result.code=500</code>，msg 返回"系统繁忙"，不暴露堆栈。</li>
-</ol>
-<p>区分五类异常的意义在于：让前端能根据 <code>code</code> 与 HTTP
-状态码精准识别异常类型并采取不同处理（跳转登录、提示无权限、表单校验提示等），同时兜底异常不暴露堆栈信息，防止泄露系统细节被攻击者利用。</p>
+</ol><p>区分五类异常的意义在于：让前端能根据 <code>code</code> 与 HTTP
+状态码精准识别异常类型并采取不同处理（跳转登录、提示无权限、表单校验提示等），同时兜底异常不暴露堆栈信息，防止泄露系统细节被攻击者利用。</p></blockquote></section>
 <hr />
-<h3 id="22-论述-03">22-论述-03（★★★）</h3>
-<p>请结合 CTTS
-项目说明水平越权与垂直越权的区别，并分别给出一个测试用例与防御方案。</p>
-<p><strong>评分标准（满分 10 分）</strong>：</p>
-<ul>
+<section class="question-card" id="22-论述-03"><p><strong>22-论述-03（★★★）</strong></p><p>请结合 CTTS
+项目说明水平越权与垂直越权的区别，并分别给出一个测试用例与防御方案。</p><p><strong>评分标准（满分 10 分）</strong>：</p><ul>
 <li>水平越权定义与测试用例（3 分）。</li>
 <li>垂直越权定义与测试用例（3 分）。</li>
 <li>各自防御方案（4 分）。</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<ol type="1">
+</ul><blockquote><p><strong>参考答案</strong>：</p><ol type="1">
 <li><p><strong>水平越权</strong>：相同权限级别的用户 A 访问用户 B
 的数据。</p>
 <ul>
@@ -779,33 +527,25 @@ HTTP 400，<code>Result.code=400</code>，msg 包含具体字段错误。</li>
 <code>@RequireRole({"ADMIN"})</code>，<code>RoleInterceptor</code>
 校验角色，不匹配抛 <code>PermissionException</code>。</li>
 </ul></li>
-</ol>
-<p>二者区别：水平越权是"同级别横向"越权，难以通过角色控制防御，必须在
+</ol><p>二者区别：水平越权是"同级别横向"越权，难以通过角色控制防御，必须在
 Service
-层基于登录态过滤数据；垂直越权是"跨级别纵向"越权，通过角色注解即可防御。</p>
+层基于登录态过滤数据；垂直越权是"跨级别纵向"越权，通过角色注解即可防御。</p></blockquote></section>
 <hr />
-<h3 id="22-论述-04">22-论述-04（★★★）</h3>
-<p>结合"质量责任——上线前自检是工程师的基本素养"这一思政主题，谈谈权限漏洞自查对工程项目交付质量的意义。</p>
-<p><strong>评分标准（满分 10 分）</strong>：</p>
-<ul>
+<section class="question-card" id="22-论述-04"><p><strong>22-论述-04（★★★）</strong></p><p>结合"质量责任——上线前自检是工程师的基本素养"这一思政主题，谈谈权限漏洞自查对工程项目交付质量的意义。</p><p><strong>评分标准（满分 10 分）</strong>：</p><ul>
 <li>自检对工程师职业素养的意义（3 分）。</li>
 <li>权限漏洞可能造成的业务与法律后果（3 分）。</li>
 <li>自查清单与交叉审查的实践价值（2 分）。</li>
 <li>个人感悟与承诺（2 分）。</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<ol type="1">
+</ul><blockquote><p><strong>参考答案</strong>：</p><ol type="1">
 <li><strong>职业素养</strong>：工程师的核心职责不仅是"让代码跑起来"，更是"让代码安全地跑起来"。上线前自检体现对代码、对用户、对企业的责任担当，是工程师从"码农"走向"工程师"的必备素养。</li>
 <li><strong>业务与法律后果</strong>：权限漏洞可能导致学生成绩、个人信息泄露，造成声誉损失；根据《个人信息保护法》《数据安全法》，企业可能面临高额罚款，责任人需承担法律责任。</li>
 <li><strong>自查清单的价值</strong>：清单化自查让安全检查可重复、可追溯；交叉审查引入"第二双眼睛"，发现自己难以发现的盲点，是工程实践中的质量保障利器。</li>
 <li><strong>个人承诺</strong>：作为未来工程师，应将"上线前自检"内化为职业习惯，不放过任何一个越权可能，以严谨求实的态度守护每一行代码的安全。</li>
-</ol>
+</ol></blockquote></section>
 <hr />
 <h2 id="六程序阅读补全题2题">六、程序阅读补全题（2题）</h2>
-<h3 id="22-阅读-01">22-阅读-01（★★）</h3>
-<p>阅读以下 <code>RoleInterceptor</code> 代码，补全
-<code>(1)</code>、<code>(2)</code>、<code>(3)</code> 处缺失的代码。</p>
-<div class="sourceCode" id="cb1"><pre
+<section class="question-card" id="22-阅读-01"><p><strong>22-阅读-01（★★）</strong></p><p>阅读以下 <code>RoleInterceptor</code> 代码，补全
+<code>(1)</code>、<code>(2)</code>、<code>(3)</code> 处缺失的代码。</p><div class="sourceCode" id="cb1"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Component</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> RoleInterceptor <span class="kw">implements</span> HandlerInterceptor <span class="op">{</span></span>
@@ -839,26 +579,20 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>答案</strong>：</p>
-<ul>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><blockquote><p><strong>答案</strong>：</p><ul>
 <li>(1) <code>getMethodAnnotation(RequireRole.class)</code></li>
 <li>(2) <code>getAnnotation(RequireRole.class)</code></li>
 <li>(3) <code>anyMatch</code></li>
-</ul>
-<p><strong>解析</strong>：</p>
-<ul>
+</ul><p><strong>解析</strong>：</p><ul>
 <li>(1) <code>HandlerMethod.getMethodAnnotation()</code>
 读取方法上的注解。</li>
 <li>(2) <code>Class.getAnnotation()</code> 读取类上的注解。</li>
 <li>(3) <code>anyMatch</code> 表示只要任一角色匹配即通过（对应
 <code>requireAll=false</code> 默认值）。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="22-阅读-02">22-阅读-02（★★★）</h3>
-<p>阅读以下 <code>GlobalExceptionHandler</code> 代码片段，补全
-<code>(1)</code>、<code>(2)</code>、<code>(3)</code> 处缺失的代码。</p>
-<div class="sourceCode" id="cb2"><pre
+<section class="question-card" id="22-阅读-02"><p><strong>22-阅读-02（★★★）</strong></p><p>阅读以下 <code>GlobalExceptionHandler</code> 代码片段，补全
+<code>(1)</code>、<code>(2)</code>、<code>(3)</code> 处缺失的代码。</p><div class="sourceCode" id="cb2"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RestControllerAdvice</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GlobalExceptionHandler <span class="op">{</span></span>
@@ -878,15 +612,11 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="st">&quot;[系统异常] 系统内部错误&quot;</span><span class="op">,</span> e<span class="op">);</span></span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">fail</span><span class="op">(</span><span class="dv">500</span><span class="op">,</span> <span class="st">&quot;系统繁忙，请稍后重试&quot;</span><span class="op">);</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>答案</strong>：</p>
-<ul>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><blockquote><p><strong>答案</strong>：</p><ul>
 <li>(1) <code>MethodArgumentNotValidException</code></li>
 <li>(2) <code>collect(Collectors.joining</code></li>
 <li>(3) <code>400</code></li>
-</ul>
-<p><strong>解析</strong>：</p>
-<ul>
+</ul><p><strong>解析</strong>：</p><ul>
 <li>(1) <code>@ExceptionHandler</code> 指定处理
 <code>MethodArgumentNotValidException</code>（<code>@RequestBody @Valid</code>
 校验失败抛出）。</li>
@@ -894,24 +624,19 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 将多个字段错误拼接成字符串。</li>
 <li>(3) 参数校验失败对应 <code>Result.code=400</code>，符合 HTTP
 语义。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
-<h3 id="22-编程-01">22-编程-01（★★★）</h3>
-<p><strong>题目</strong>：请为 CTTS 项目实现 <code>@RequireRole</code>
-注解与 <code>RoleInterceptor</code> 拦截器，要求：</p>
-<ol type="1">
+<section class="question-card" id="22-编程-01"><p><strong>22-编程-01（★★★）</strong></p><p><strong>题目</strong>：请为 CTTS 项目实现 <code>@RequireRole</code>
+注解与 <code>RoleInterceptor</code> 拦截器，要求：</p><ol type="1">
 <li><code>@RequireRole</code>
 支持类级与方法级标注，支持多角色（满足任一即可）。</li>
 <li><code>RoleInterceptor</code>
 通过反射读取注解，方法级注解优先于类级。</li>
 <li>未标注注解的接口默认放行（仅做登录校验）。</li>
 <li>角色不匹配时抛出 <code>PermissionException</code>（code=403）。</li>
-</ol>
-<p>请给出完整代码，并说明在 <code>TaskController</code>
-上的使用示例（发布任务需要教师或管理员，删除任务仅管理员）。</p>
-<p><strong>评分标准（满分 15 分）</strong>：</p>
-<ul>
+</ol><p>请给出完整代码，并说明在 <code>TaskController</code>
+上的使用示例（发布任务需要教师或管理员，删除任务仅管理员）。</p><p><strong>评分标准（满分 15 分）</strong>：</p><ul>
 <li><code>@RequireRole</code> 注解定义完整（3
 分）：<code>@Target</code>、<code>@Retention</code>、<code>value()</code>、<code>requireAll()</code>。</li>
 <li><code>RoleInterceptor</code> 反射读取逻辑正确（5
@@ -920,9 +645,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <code>allMatch</code>。</li>
 <li>异常抛出正确（2 分）：抛出 <code>PermissionException</code>。</li>
 <li><code>TaskController</code> 使用示例正确（2 分）。</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<div class="sourceCode" id="cb3"><pre
+</ul><blockquote><p><strong>参考答案</strong>：</p><div class="sourceCode" id="cb3"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ===== 1. 注解定义 =====</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">annotation</span><span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1019,13 +742,11 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 <span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span>TaskVO<span class="op">&gt;</span> <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span>taskService<span class="op">.</span><span class="fu">getById</span><span class="op">(</span>id<span class="op">));</span></span>
 <span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></blockquote></section>
 <hr />
-<h3 id="22-编程-02">22-编程-02（★★★）</h3>
-<p><strong>题目</strong>：请为 CTTS 项目设计并实现
+<section class="question-card" id="22-编程-02"><p><strong>22-编程-02（★★★）</strong></p><p><strong>题目</strong>：请为 CTTS 项目设计并实现
 <code>GlobalExceptionHandler</code>，要求处理以下五类异常并统一返回
-<code>Result&lt;Void&gt;</code>：</p>
-<ol type="1">
+<code>Result&lt;Void&gt;</code>：</p><ol type="1">
 <li><code>MethodArgumentNotValidException</code>（参数校验异常，code=400）</li>
 <li><code>BusinessException</code>（业务异常，code 取异常对象的
 code）</li>
@@ -1034,20 +755,15 @@ code）</li>
 403）</li>
 <li><code>Exception</code>（兜底异常，code=500，HTTP
 500，不暴露堆栈）</li>
-</ol>
-<p>要求：参数校验异常的 msg 包含所有字段错误，使用 <code>;</code>
+</ol><p>要求：参数校验异常的 msg 包含所有字段错误，使用 <code>;</code>
 分隔；兜底异常 msg
-返回"系统繁忙，请稍后重试"，但日志中记录完整堆栈。</p>
-<p><strong>评分标准（满分 15 分）</strong>：</p>
-<ul>
+返回"系统繁忙，请稍后重试"，但日志中记录完整堆栈。</p><p><strong>评分标准（满分 15 分）</strong>：</p><ul>
 <li><code>@RestControllerAdvice</code> 与 <code>@Slf4j</code> 注解（1
 分）。</li>
 <li>五类异常处理器完整（10 分，每类 2 分）。</li>
 <li>参数校验异常 msg 拼接正确（2 分）。</li>
 <li>兜底异常日志记录完整堆栈但不向前端暴露（2 分）。</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<div class="sourceCode" id="cb4"><pre
+</ul><blockquote><p><strong>参考答案</strong>：</p><div class="sourceCode" id="cb4"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">exception</span><span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
@@ -1110,9 +826,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="
 <span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 前端只返回友好提示，不暴露堆栈</span></span>
 <span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">fail</span><span class="op">(</span><span class="dv">500</span><span class="op">,</span> <span class="st">&quot;系统繁忙，请稍后重试&quot;</span><span class="op">);</span></span>
 <span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>关键点说明</strong>：</p>
-<ul>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>关键点说明</strong>：</p><ul>
 <li><code>@Slf4j</code> 提供日志支持。</li>
 <li><code>@ResponseStatus</code> 设置 HTTP
 状态码，便于前端通过状态码识别异常类型。</li>
@@ -1120,7 +834,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="
 第二个参数传入异常对象，Logback 会自动打印堆栈。</li>
 <li>返回 <code>Result.fail(500, "系统繁忙")</code> 不暴露
 <code>e.getMessage()</code>，防止泄露系统细节。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="八统计表">八、统计表</h2>
 <table>

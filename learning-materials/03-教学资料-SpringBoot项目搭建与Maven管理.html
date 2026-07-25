@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -152,17 +152,7 @@ context-path？</li>
 搭建工程骨架。本节结束后，你将拥有一个可启动的、空的 CTTS
 后端工程，后续课程将在其上逐步添加 Controller、Service、Mapper
 等代码。</p>
-<div class="visual">
-  <div class="visual-title">图示 1：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">CTTS 后端工程（com.ctts）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 启动类 CttsApplication.java      ← 本节完成</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 配置文件 application.yml          ← 本节完成</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 依赖管理 pom.xml                  ← 本节完成</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 待添加：Controller / Service / Mapper / Entity ...  ← 后续课程</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 1：本节先搭好 CTTS 后端工程骨架</div> <div class="edu-diagram"><div class="diagram-grid four"><div class="diagram-card good"><span class="diagram-badge">本节完成</span><h4>启动类</h4><p>CttsApplication.java</p></div><div class="diagram-card good"><span class="diagram-badge">本节完成</span><h4>配置文件</h4><p>application.yml</p></div><div class="diagram-card good"><span class="diagram-badge">本节完成</span><h4>依赖管理</h4><p>pom.xml</p></div><div class="diagram-card neutral"><span class="diagram-badge">后续课程</span><h4>业务分层代码</h4><p>Controller / Service / Mapper / Entity ...</p></div></div><div class="diagram-callout">第 3 次课的目标不是写完整业务，而是让后端工程能启动、能配置、能管理依赖。</div></div></div>
 <hr />
 <h2 id="二知识点详解">二、知识点详解</h2>
 <h3 id="知识点-k3-1spring-boot-特性">知识点 K3-1：Spring Boot 特性</h3>
@@ -209,20 +199,7 @@ context-path？</li>
 </tbody>
 </table>
 <p><strong>Spring Boot 与 Spring 的关系</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 2：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span>       你的应用代码（CTTS）         <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
-<span class="diagram-line"><span class="tree-token">│</span>          Spring Boot              <span class="tree-token">│</span>  ← 自动配置、Starter、内嵌容器</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
-<span class="diagram-line"><span class="tree-token">│</span>       Spring Framework            <span class="tree-token">│</span>  ← IoC/AOP/MVC等核心能力</span>
-<span class="diagram-line"><span class="tree-token">│</span>   (spring-context/mvc/beans...)   <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 2：Spring Boot 与 Spring Framework 的层级关系</div> <div class="edu-diagram"><div class="stack-diagram"><div class="stack-layer app">你的应用代码（CTTS）：Controller / Service / Mapper / Entity</div><div class="stack-layer runtime">Spring Boot：自动配置、Starter 起步依赖、内嵌 Servlet 容器</div><div class="stack-layer">Spring Framework：IoC / AOP / MVC / Beans 等核心能力</div><div class="stack-layer base">底层运行环境：JDK、Maven 依赖、内嵌 Tomcat</div></div><div class="diagram-callout">Spring Boot 不是替代 Spring，而是在 Spring 之上提供“约定优于配置”的工程化封装。</div></div></div>
 <ul>
 <li>Spring Boot <strong>不是</strong>取代
 Spring，而是<strong>简化</strong> Spring 应用的搭建。</li>
@@ -293,21 +270,7 @@ Tomcat started on port 8080 (http) with context path &#39;&#39;
 Started CttsApplication in 2.134 seconds (process running for 2.987)</code></pre>
 <p>看到 <code>Started CttsApplication</code> 即表示启动成功。</p>
 <h4 id="图示">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 3：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">传统 Spring Web 项目搭建流程（约 30+ 分钟）</span>
-<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
-<span class="diagram-line">新建Maven工程 <span class="arrow-token">→</span> 加十几个依赖 <span class="arrow-token">→</span> 写web.xml</span>
-<span class="diagram-line"><span class="arrow-token">→</span> 写applicationContext.xml <span class="arrow-token">→</span> 装Tomcat <span class="arrow-token">→</span> 打WAR</span>
-<span class="diagram-line"><span class="arrow-token">→</span> 部署到webapps <span class="arrow-token">→</span> 启动Tomcat <span class="arrow-token">→</span> 访问</span>
-<span class="diagram-line">Spring Boot 项目搭建流程（约 3 分钟）</span>
-<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
-<span class="diagram-line">Spring Initializr生成 <span class="arrow-token">→</span> 勾选Web依赖 <span class="arrow-token">→</span> 写启动类</span>
-<span class="diagram-line"><span class="arrow-token">→</span> 运行main方法 <span class="arrow-token">→</span> 直接访问</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 3：传统 Spring Web 与 Spring Boot 搭建流程对比</div> <div class="edu-diagram"><div class="diagram-grid two"><div class="diagram-panel"><span class="diagram-badge warn">传统 Spring Web：约 30+ 分钟</span><div class="diagram-steps"><div class="diagram-step"><p>新建 Maven 工程</p></div><div class="diagram-step"><p>手动添加十几个依赖</p></div><div class="diagram-step"><p>编写 web.xml 和 applicationContext.xml</p></div><div class="diagram-step"><p>安装外部 Tomcat，打 WAR 包</p></div><div class="diagram-step"><p>部署到 webapps，启动 Tomcat 后访问</p></div></div></div><div class="diagram-panel response"><span class="diagram-badge good">Spring Boot：约 3 分钟</span><div class="diagram-steps"><div class="diagram-step"><p>Spring Initializr 生成工程</p></div><div class="diagram-step"><p>勾选 Web 依赖</p></div><div class="diagram-step"><p>生成启动类</p></div><div class="diagram-step"><p>运行 main 方法</p></div><div class="diagram-step"><p>直接访问内嵌 Tomcat 提供的服务</p></div></div></div></div></div></div>
 <h4 id="易错点">易错点</h4>
 <ol type="1">
 <li><strong>把 Spring Boot 当成"新框架"</strong>：它本质是 Spring
@@ -331,35 +294,7 @@ Boot 工程在文件系统中的标准目录组织方式。它遵循 Maven
 <code>src/main/resources</code>）。</p>
 <h4 id="原理-1">原理</h4>
 <p>Maven 约定的标准目录结构：</p>
-<div class="visual">
-  <div class="visual-title">图示 4：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">ctts/</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> pom.xml                         ← 项目对象模型文件（依赖、构建配置）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> main/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> java/                   ← Java 源代码根目录</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/ctts/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java   ← 启动类</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller/            ← 控制层（后续课程）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> service/               ← 业务层（后续课程）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper/                ← 数据访问层（后续课程）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity/                ← 实体类（后续课程）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> common/                ← 通用工具（后续课程）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> resources/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml      ← 主配置文件</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> application-dev.yml  ← 环境配置（可选）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper/              ← MyBatis SQL 映射文件（后续课程）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> static/              ← 静态资源（前后端分离项目中一般不用）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> test/</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> java/</span>
-<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/ctts/</span>
-<span class="diagram-line"><span class="tree-token">│</span>               <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplicationTests.java  ← 测试类</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> target/                          ← 编译输出目录（自动生成）</span>
-<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> classes/...</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 4：CTTS 标准项目目录结构</div> <div class="edu-diagram"><div class="diagram-code-tree"><ul><li><span class="tree-label">ctts/</span><ul><li>pom.xml <span class="tree-comment">项目对象模型文件：依赖与构建配置</span></li><li><span class="tree-label">src/main/java/com/ctts/</span><ul><li>CttsApplication.java <span class="tree-comment">启动类</span></li><li>controller/ <span class="tree-comment">控制层，后续课程添加</span></li><li>service/ <span class="tree-comment">业务层，后续课程添加</span></li><li>mapper/ <span class="tree-comment">数据访问层，后续课程添加</span></li><li>entity/ <span class="tree-comment">实体类，后续课程添加</span></li><li>common/ <span class="tree-comment">通用工具，后续课程添加</span></li></ul></li><li><span class="tree-label">src/main/resources/</span><ul><li>application.yml <span class="tree-comment">主配置文件</span></li><li>application-dev.yml <span class="tree-comment">环境配置，可选</span></li><li>mapper/ <span class="tree-comment">MyBatis SQL 映射文件</span></li><li>static/ <span class="tree-comment">静态资源，前后端分离项目一般少用</span></li></ul></li><li><span class="tree-label">src/test/java/com/ctts/</span><ul><li>CttsApplicationTests.java <span class="tree-comment">测试类</span></li></ul></li><li>target/ <span class="tree-comment">编译输出目录，自动生成</span></li></ul></li></ul></div></div></div>
 <p>各目录职责：</p>
 <table>
 <thead>
@@ -408,23 +343,7 @@ Boot 工程在文件系统中的标准目录组织方式。它遵循 Maven
 </tbody>
 </table>
 <p><strong>包结构约定</strong>（以 <code>com.ctts</code> 为根包）：</p>
-<div class="visual">
-  <div class="visual-title">图示 5：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">com.ctts</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication         ← 启动类（必须在根包或父包上）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller              ← 接收HTTP请求</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> service                 ← 业务逻辑</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> impl</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper                  ← 数据库访问</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity                  ← 数据库实体</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> dto                     ← 数据传输对象</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> vo                      ← 返回视图对象</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> common                  ← 通用类（Result、异常等）</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> config                  ← 配置类</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 5：com.ctts 根包与分层包职责</div> <div class="edu-diagram"><div class="diagram-grid three"><div class="diagram-card good"><h4>CttsApplication</h4><p>启动类必须放在根包或父包上，保证组件扫描覆盖业务代码。</p></div><div class="diagram-card"><h4>controller</h4><p>接收 HTTP 请求，调用 Service，返回响应。</p></div><div class="diagram-card"><h4>service / impl</h4><p>承载业务逻辑，接口与实现分离。</p></div><div class="diagram-card"><h4>mapper</h4><p>访问数据库，执行 SQL 或 MyBatis 映射。</p></div><div class="diagram-card"><h4>entity / dto / vo</h4><p>Entity 对应表，DTO 接收入参，VO 返回给前端。</p></div><div class="diagram-card"><h4>common / config</h4><p>Result、异常、工具类和配置类等通用能力。</p></div></div></div></div>
 <blockquote>
 <p>⚠️
 <strong>启动类位置很关键</strong>：<code>@SpringBootApplication</code>
@@ -457,26 +376,7 @@ controller/service 等组件扫描不到。</p>
 </ul>
 <h4 id="完整示例代码-1">完整示例代码</h4>
 <p>一个结构完整的 CTTS 工程（本节末尾状态）：</p>
-<div class="visual">
-  <div class="visual-title">图示 6：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">ctts/</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> pom.xml</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> main/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> java/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/ctts/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> resources/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> test/</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> java/</span>
-<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/ctts/</span>
-<span class="diagram-line"><span class="tree-token">│</span>               <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplicationTests.java</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> .gitignore</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 6：Spring Initializr 生成的最小工程结构</div> <div class="edu-diagram"><div class="diagram-code-tree"><ul><li><span class="tree-label">ctts/</span><ul><li>pom.xml</li><li><span class="tree-label">src/main/java/com/ctts/</span><ul><li>CttsApplication.java</li></ul></li><li><span class="tree-label">src/main/resources/</span><ul><li>application.yml</li></ul></li><li><span class="tree-label">src/test/java/com/ctts/</span><ul><li>CttsApplicationTests.java</li></ul></li><li>.gitignore</li></ul></li></ul></div><div class="diagram-callout">这是“能启动”的最小骨架；业务目录会在后续课程逐步补齐。</div></div></div>
 <p><code>CttsApplicationTests.java</code>（Spring Initializr
 自动生成）：</p>
 <div class="sourceCode" id="cb10"><pre
@@ -494,28 +394,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href=
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 id="图示-1">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 7：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">IDEA 项目结构视图</span>
-<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
-<span class="diagram-line">ctts</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> main</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com.ctts</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication    ← 运行 main 启动项目</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> resources</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml        ← 修改端口/配置</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> test</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> java</span>
-<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com.ctts</span>
-<span class="diagram-line"><span class="tree-token">│</span>               <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplicationTests</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> pom.xml                            ← 加依赖的地方</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> External Libraries                  ← Maven下载的jar</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 7：IDEA 中需要关注的项目区域</div> <div class="edu-diagram"><div class="diagram-grid three"><div class="diagram-card"><h4>src/main/java</h4><p>com.ctts.CttsApplication 是运行 main 启动项目的位置。</p></div><div class="diagram-card"><h4>src/main/resources</h4><p>application.yml 用来修改端口、数据库等配置。</p></div><div class="diagram-card"><h4>src/test/java</h4><p>CttsApplicationTests 用于后续编写测试。</p></div><div class="diagram-card"><h4>pom.xml</h4><p>添加依赖和插件配置的地方。</p></div><div class="diagram-card"><h4>External Libraries</h4><p>Maven 下载下来的 jar 包依赖。</p></div><div class="diagram-card good"><h4>运行入口</h4><p>点击启动类 main 方法旁边的 Run。</p></div></div></div></div>
 <h4 id="易错点-1">易错点</h4>
 <ol type="1">
 <li><strong>把启动类放错包</strong>：放在
@@ -583,28 +462,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href=
 <p>三个坐标组合起来唯一确定一个 jar 包，例如：</p>
 <pre><code>org.springframework.boot : spring-boot-starter-web : 3.2.5</code></pre>
 <p><strong>Maven 仓库体系</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 8：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">你声明的依赖 (pom.xml)</span>
-<span class="diagram-line">        <span class="tree-token">│</span></span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">1. 先查【本地仓库】 ~/.m2/repository/</span>
-<span class="diagram-line">        <span class="tree-token">│</span>  找到 <span class="arrow-token">→</span> 直接用</span>
-<span class="diagram-line">        <span class="tree-token">│</span>  没找到</span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">2. 查【私服/镜像】（如阿里云镜像）</span>
-<span class="diagram-line">        <span class="tree-token">│</span>  找到 <span class="arrow-token">→</span> 下载到本地仓库 <span class="arrow-token">→</span> 使用</span>
-<span class="diagram-line">        <span class="tree-token">│</span>  没找到</span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">3. 查【中央仓库】 repo1.maven.org</span>
-<span class="diagram-line">        <span class="tree-token">│</span>  找到 <span class="arrow-token">→</span> 下载到本地仓库 <span class="arrow-token">→</span> 使用</span>
-<span class="diagram-line">        <span class="tree-token">│</span>  没找到</span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">        报错：Could not resolve dependencies</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 8：Maven 依赖查找顺序</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>pom.xml 声明依赖</h4><p>项目需要某个 jar。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>本地仓库</h4><p>~/.m2/repository，找到就直接使用。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>私服 / 镜像</h4><p>如阿里云镜像，找到则下载到本地仓库。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>中央仓库</h4><p>repo1.maven.org，找到则下载到本地仓库。</p></div><div class="flow-arrow">→</div><div class="diagram-card warn"><h4>解析失败</h4><p>Could not resolve dependencies。</p></div></div></div></div>
 <p><strong>pom.xml 的核心结构</strong>：</p>
 <div class="sourceCode" id="cb14"><pre
 class="sourceCode xml"><code class="sourceCode xml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">project</span> <span class="er">...</span>&gt;</span>
@@ -847,26 +705,7 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb15-1"><a href="#
 </tbody>
 </table>
 <h4 id="图示-2">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 9：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">依赖传递示意</span>
-<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
-<span class="diagram-line">ctts</span>
-<span class="diagram-line"> <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> spring-boot-starter-web</span>
-<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> spring-webmvc</span>
-<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> spring-web</span>
-<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> tomcat-embed-core</span>
-<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> jackson-databind</span>
-<span class="diagram-line"> <span class="tree-token">│</span>         <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> jackson-core</span>
-<span class="diagram-line"> <span class="tree-token">│</span>         <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> jackson-annotations</span>
-<span class="diagram-line"> <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mybatis-plus-spring-boot3-starter</span>
-<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mybatis-plus-core</span>
-<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> mybatis-spring</span>
-<span class="diagram-line"> <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> mysql-connector-j</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 9：Maven 依赖传递示意</div> <div class="edu-diagram"><div class="diagram-grid three"><div class="diagram-panel"><span class="diagram-badge">Web Starter</span><h4>spring-boot-starter-web</h4><p>会传递引入 spring-webmvc、spring-web、tomcat-embed-core、jackson-databind 等。</p></div><div class="diagram-panel"><span class="diagram-badge">JSON</span><h4>jackson-databind</h4><p>继续依赖 jackson-core、jackson-annotations，用于对象与 JSON 转换。</p></div><div class="diagram-panel"><span class="diagram-badge">持久层</span><h4>mybatis-plus-spring-boot3-starter</h4><p>会传递引入 mybatis-plus-core、mybatis-spring，并配合 mysql-connector-j 访问 MySQL。</p></div></div><div class="diagram-callout">你只声明少量 Starter，Maven 会自动把它们需要的间接依赖一起带进项目。</div></div></div>
 <h4 id="易错点-2">易错点</h4>
 <ol type="1">
 <li><strong>不继承
@@ -1104,25 +943,17 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href=
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span></span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> INFO</span></span></code></pre></div>
 <h4 id="图示-3">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 10：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">YAML 层级结构（缩进 = 包含关系）</span>
-<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
-<span class="diagram-line">server</span>
-<span class="diagram-line"> <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> port            : 8080</span>
-<span class="diagram-line"> <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> servlet</span>
-<span class="diagram-line">      <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> context-path : /api</span>
-<span class="diagram-line">spring</span>
-<span class="diagram-line"> <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> application</span>
-<span class="diagram-line"> <span class="tree-token">│</span>    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> name       : ctts</span>
-<span class="diagram-line"> <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> datasource</span>
-<span class="diagram-line">      <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> url        : jdbc:mysql://...</span>
-<span class="diagram-line">      <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> username   : root</span>
-<span class="diagram-line">      <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> password   : 123456</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 10：YAML 缩进表达层级关系</div> <div class="edu-diagram"><div class="http-pair"><div class="diagram-panel"><span class="diagram-badge">配置文本</span><pre class="diagram-code">server:
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: ctts
+  datasource:
+    url: jdbc:mysql://...
+    username: root
+    password: 123456</pre></div><div class="diagram-panel response"><span class="diagram-badge good">层级含义</span><div class="diagram-kv"><div class="diagram-kv-row"><b>server.port</b><span>服务端口 8080。</span></div><div class="diagram-kv-row"><b>server.servlet.context-path</b><span>统一访问前缀 /api。</span></div><div class="diagram-kv-row"><b>spring.application.name</b><span>应用名称 ctts。</span></div><div class="diagram-kv-row"><b>spring.datasource</b><span>数据库连接地址、用户名和密码。</span></div></div></div></div><div class="diagram-callout">YAML 的缩进就是包含关系，缩进错了，配置含义就会变。</div></div></div>
 <h4 id="易错点-3">易错点</h4>
 <ol type="1">
 <li><strong>用 Tab 缩进</strong>：YAML 不允许 Tab，必须用空格。IDEA
@@ -1190,37 +1021,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb26-1"><a href=
 </tbody>
 </table>
 <p><strong><code>SpringApplication.run()</code> 做了什么</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 11：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">SpringApplication.run(CttsApplication.class, args)</span>
-<span class="diagram-line">        <span class="tree-token">│</span></span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">1. 创建 SpringApplication 实例</span>
-<span class="diagram-line">        <span class="tree-token">│</span></span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">2. 推断应用类型（SERVLET / REACTIVE / NONE）</span>
-<span class="diagram-line">        <span class="tree-token">│</span></span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">3. 加载 spring.factories / AutoConfiguration.imports</span>
-<span class="diagram-line">        <span class="tree-token">│</span></span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">4. 创建 ApplicationContext（Spring 容器）</span>
-<span class="diagram-line">        <span class="tree-token">│</span></span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">5. refresh() 容器：注册 Bean 定义、执行自动配置</span>
-<span class="diagram-line">        <span class="tree-token">│</span></span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">6. 启动内嵌 Tomcat（Web 应用）</span>
-<span class="diagram-line">        <span class="tree-token">│</span></span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">7. 发布 ApplicationStartedEvent / ApplicationReadyEvent</span>
-<span class="diagram-line">        <span class="tree-token">│</span></span>
-<span class="diagram-line">        ▼</span>
-<span class="diagram-line">8. 控制台打印 banner，返回 ApplicationContext</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 11：SpringApplication.run 启动流程</div> <div class="edu-diagram"><div class="diagram-steps"><div class="diagram-step"><p>创建 SpringApplication 实例。</p></div><div class="diagram-step"><p>推断应用类型：SERVLET / REACTIVE / NONE。</p></div><div class="diagram-step"><p>加载 spring.factories / AutoConfiguration.imports。</p></div><div class="diagram-step"><p>创建 ApplicationContext（Spring 容器）。</p></div><div class="diagram-step"><p>refresh() 容器：注册 Bean 定义，执行自动配置。</p></div><div class="diagram-step"><p>Web 应用启动内嵌 Tomcat。</p></div><div class="diagram-step"><p>发布 ApplicationStartedEvent / ApplicationReadyEvent。</p></div><div class="diagram-step"><p>控制台打印 banner，返回 ApplicationContext。</p></div></div></div></div>
 <p><strong>组件扫描范围</strong>：</p>
 <pre><code>启动类位置：com.ctts.CttsApplication
 
@@ -1384,18 +1185,7 @@ Tomcat。启动类必须放在根包下，否则扫描不到其他组件。</p>
 </tbody>
 </table>
 <p><strong>IDEA 创建步骤（推荐）</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 12：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">1. File <span class="arrow-token">→</span> New <span class="arrow-token">→</span> Project</span>
-<span class="diagram-line">2. 左侧选 Spring Initializr</span>
-<span class="diagram-line">3. 填写项目信息</span>
-<span class="diagram-line">4. 选择依赖</span>
-<span class="diagram-line">5. 选好 JDK 和 Java 版本</span>
-<span class="diagram-line">6. Finish，等待 Maven 下载依赖</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 12：IDEA 创建 Spring Boot 项目的主步骤</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>File → New → Project</h4><p>打开新建项目向导。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>选择 Spring Initializr</h4><p>选择官方或镜像 Server URL。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>填写项目信息</h4><p>Name、Group、Artifact、Package、JDK。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>选择依赖</h4><p>Web、Validation、Lombok、MySQL 等。</p></div><div class="flow-arrow">→</div><div class="diagram-card good"><h4>Finish</h4><p>等待 Maven 下载依赖。</p></div></div></div></div>
 <h4 id="问题--场景-5">问题 / 场景</h4>
 <p><strong>问：Server URL 是 <code>start.spring.io</code> 还是
 <code>start.aliyun.com</code>？</strong></p>
@@ -1422,105 +1212,12 @@ Tomcat。启动类必须放在根包下，否则扫描不到其他组件。</p>
 </ul>
 <h4 id="完整示例代码-5">完整示例代码</h4>
 <p><strong>完整 IDEA 创建步骤（图文版）</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 13：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">步骤 1：打开新建项目向导</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">菜单栏：File <span class="arrow-token">→</span> New <span class="arrow-token">→</span> Project</span>
-<span class="diagram-line">（或欢迎界面：New Project）</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">步骤 2：选择项目类型</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">左侧面板选择：Spring Initializr</span>
-<span class="diagram-line">右侧 Server URL：https://start.spring.io（默认）</span>
-<span class="diagram-line">                或 https://start.aliyun.com（国内快）</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">步骤 3：填写项目元数据</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">Name:           ctts</span>
-<span class="diagram-line">Group:          com.ctts</span>
-<span class="diagram-line">Artifact:       ctts</span>
-<span class="diagram-line">Package name:   com.ctts</span>
-<span class="diagram-line">Packaging:      Jar</span>
-<span class="diagram-line">Java:           17</span>
-<span class="diagram-line">Type:           Maven</span>
-<span class="diagram-line">说明：</span>
-<span class="diagram-line">- Name：项目名，会作为文件夹名</span>
-<span class="diagram-line">- Group：组织域名反写，作为 groupId</span>
-<span class="diagram-line">- Artifact：模块名，作为 artifactId</span>
-<span class="diagram-line">- Package name：根包名，启动类放这里</span>
-<span class="diagram-line">- Java：JDK 版本，Spring Boot 3.x 至少 17</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">步骤 4：选择 Spring Boot 版本与依赖</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">Spring Boot 版本：选 3.2.x（不带 SNAPSHOT/M1 的稳定版）</span>
-<span class="diagram-line">依赖勾选（依次搜索并 Add）：</span>
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span> Web <span class="arrow-token">→</span> Spring Web                          <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> SQL  <span class="arrow-token">→</span> MySQL Driver                       <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> SQL  <span class="arrow-token">→</span> Spring Data JDBC （可选，先不选）   <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> Developer Tools <span class="arrow-token">→</span> Lombok                  <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> I/O  <span class="arrow-token">→</span> Validation                          <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> 测试 <span class="arrow-token">→</span> Spring Boot Starter Test（默认有）  <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">注意：MyBatis-Plus 和 Knife4j 在 Initializr 里没有，</span>
-<span class="diagram-line">      创建后在 pom.xml 手动添加（见 K3-3）。</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">步骤 5：项目名与路径</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">Project name:    ctts</span>
-<span class="diagram-line">Project location: D:\lessson\workspace\ctts</span>
-<span class="diagram-line">（路径不要有中文和空格）</span>
-<span class="diagram-line">点 Finish 完成。</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">步骤 6：等待 Maven 下载依赖</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">右下角进度条显示下载状态，首次较慢（需下载所有依赖）。</span>
-<span class="diagram-line">下载完成后，左侧项目结构出现 src、pom.xml、External Libraries。</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">步骤 7：补充 pom.xml 依赖</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">按 K3-3 的完整 pom.xml 补充 mybatis-plus、mysql-connector-j、knife4j 等。</span>
-<span class="diagram-line">改完点击右上角 Maven 刷新按钮。</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">步骤 8：编写 application.yml</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">删除自动生成的 application.properties</span>
-<span class="diagram-line">新建 application.yml，按 K3-4 写入配置。</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 13：Spring Initializr 创建 CTTS 项目详细步骤</div> <div class="edu-diagram"><div class="diagram-grid two"><div class="diagram-panel"><span class="diagram-badge">项目创建</span><div class="diagram-steps"><div class="diagram-step"><p>File → New → Project，选择 Spring Initializr。</p></div><div class="diagram-step"><p>Server URL 使用 https://start.spring.io，网络慢可换 https://start.aliyun.com。</p></div><div class="diagram-step"><p>填写 Name: ctts，Group: com.ctts，Artifact: ctts，Package name: com.ctts。</p></div><div class="diagram-step"><p>Packaging 选 Jar，Java 选 17，Type 选 Maven。</p></div></div></div><div class="diagram-panel response"><span class="diagram-badge good">依赖与配置</span><div class="diagram-steps"><div class="diagram-step"><p>选择稳定版 Spring Boot 3.2.x，不选 SNAPSHOT/M1。</p></div><div class="diagram-step"><p>勾选 Spring Web、MySQL Driver、Lombok、Validation、Spring Boot Starter Test。</p></div><div class="diagram-step"><p>Finish 后等待 Maven 下载依赖，项目结构出现 src、pom.xml、External Libraries。</p></div><div class="diagram-step"><p>补充 MyBatis-Plus、Knife4j 等依赖，刷新 Maven，并编写 application.yml。</p></div></div></div></div></div></div>
 <p><strong>启动验证</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 14：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">方式 1：IDEA 中运行</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">打开 CttsApplication.java</span>
-<span class="diagram-line">点击 main 方法旁边的绿色三角形 <span class="arrow-token">▶</span> Run</span>
-<span class="diagram-line">（或右键 <span class="arrow-token">→</span> Run &#39;CttsApplication&#39;）</span>
-<span class="diagram-line">控制台出现 &quot;Started CttsApplication&quot; 即成功</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">方式 2：命令行运行</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">mvn spring-boot:run</span>
-<span class="diagram-line">（或 mvn package 后 java -jar target/ctts-1.0.0.jar）</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">方式 3：访问验证</span>
-<span class="diagram-line">═══════════════════════════════════════════════</span>
-<span class="diagram-line">浏览器打开 http://localhost:8080/api</span>
-<span class="diagram-line">（如果没配 context-path 就是 http://localhost:8080）</span>
-<span class="diagram-line">预期响应：</span>
-<span class="diagram-line">- 404 错误页（Whitelabel Error Page）</span>
-<span class="diagram-line">  ← 因为还没写 Controller，但能返回错误页说明服务已启动</span>
-<span class="diagram-line">✅ 看到 404 = 服务正常运行，只是没有接口</span>
-<span class="diagram-line">❌ 连接失败 = 服务没启动成功</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 14：Spring Boot 项目运行与验证方式</div> <div class="edu-diagram"><div class="diagram-grid three"><div class="diagram-card"><span class="diagram-badge">方式 1</span><h4>IDEA 中运行</h4><p>打开 CttsApplication.java，点击 main 方法旁边的绿色三角形 Run，控制台出现 Started CttsApplication 即成功。</p></div><div class="diagram-card"><span class="diagram-badge">方式 2</span><h4>命令行运行</h4><pre class="diagram-code">mvn spring-boot:run
+# 或
+mvn package
+java -jar target/ctts-1.0.0.jar</pre></div><div class="diagram-card"><span class="diagram-badge">方式 3</span><h4>访问验证</h4><p>浏览器打开 http://localhost:8080/api。</p><p>看到 404 说明服务已启动但暂未编写接口；连接失败才是服务未启动。</p></div></div></div></div>
 <p><strong>常见报错排查表</strong>：</p>
 <table>
 <thead>
@@ -1592,33 +1289,7 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb37-1"><a href="#
 <span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">mirrors</span>&gt;</span>
 <span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">settings</span>&gt;</span></code></pre></div>
 <h4 id="图示-5">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 15：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">Spring Initializr 创建流程</span>
-<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
-<span class="diagram-line">   File <span class="arrow-token">→</span> New <span class="arrow-token">→</span> Project</span>
-<span class="diagram-line">            <span class="tree-token">│</span></span>
-<span class="diagram-line">            ▼</span>
-<span class="diagram-line">   选 Spring Initializr</span>
-<span class="diagram-line">            <span class="tree-token">│</span></span>
-<span class="diagram-line">            ▼</span>
-<span class="diagram-line">   填元数据 (Name/Group/Artifact/Package)</span>
-<span class="diagram-line">            <span class="tree-token">│</span></span>
-<span class="diagram-line">            ▼</span>
-<span class="diagram-line">   选 Spring Boot 版本 + 勾依赖</span>
-<span class="diagram-line">            <span class="tree-token">│</span></span>
-<span class="diagram-line">            ▼</span>
-<span class="diagram-line">   Finish <span class="arrow-token">→</span> 等待 Maven 下载</span>
-<span class="diagram-line">            <span class="tree-token">│</span></span>
-<span class="diagram-line">            ▼</span>
-<span class="diagram-line">   补充 pom.xml <span class="arrow-token">→</span> 写 application.yml</span>
-<span class="diagram-line">            <span class="tree-token">│</span></span>
-<span class="diagram-line">            ▼</span>
-<span class="diagram-line">   运行 CttsApplication <span class="arrow-token">→</span> 访问 localhost:8080</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 15：Spring Initializr 创建流程总览</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>新建项目</h4><p>File → New → Project。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>选择 Initializr</h4><p>填写元数据。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>选择版本与依赖</h4><p>Spring Boot 稳定版 + Web 等依赖。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>生成工程</h4><p>Finish，等待 Maven 下载。</p></div><div class="flow-arrow">→</div><div class="diagram-card good"><h4>补配置并启动</h4><p>补 pom.xml，写 application.yml，运行 CttsApplication。</p></div></div></div></div>
 <h4 id="易错点-5">易错点</h4>
 <ol type="1">
 <li><strong>路径含中文或空格</strong>：<code>D:\我的项目\ctts</code> 或
@@ -1778,28 +1449,7 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb39-1"><a href="#
 <span id="cb39-82"><a href="#cb39-82" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">build</span>&gt;</span>
 <span id="cb39-83"><a href="#cb39-83" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">project</span>&gt;</span></code></pre></div>
 <h3 id="34-完整目录结构">3.4 完整目录结构</h3>
-<div class="visual">
-  <div class="visual-title">图示 16：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">ctts/</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> pom.xml</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> src/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> main/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> java/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ctts/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> resources/</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> application.yml</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> test/</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> java/</span>
-<span class="diagram-line"><span class="tree-token">│</span>           <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> com/</span>
-<span class="diagram-line"><span class="tree-token">│</span>               <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ctts/</span>
-<span class="diagram-line"><span class="tree-token">│</span>                   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplicationTests.java</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> README.md</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 16：本节最终保留的工程文件</div> <div class="edu-diagram"><div class="diagram-code-tree"><ul><li><span class="tree-label">ctts/</span><ul><li>pom.xml</li><li><span class="tree-label">src/main/java/com/ctts/</span><ul><li>CttsApplication.java</li></ul></li><li><span class="tree-label">src/main/resources/</span><ul><li>application.yml</li></ul></li><li><span class="tree-label">src/test/java/com/ctts/</span><ul><li>CttsApplicationTests.java</li></ul></li><li>README.md</li></ul></li></ul></div><div class="diagram-callout">这是项目刚搭建完成时的基础形态，后续课程会逐步加入 controller、service、mapper、entity 等业务目录。</div></div></div>
 <h3 id="35-启动类-cttsapplicationjava">3.5 启动类
 CttsApplication.java</h3>
 <div class="sourceCode" id="cb41"><pre
@@ -2108,22 +1758,7 @@ Initializr → 填元数据 → 勾依赖 → Finish → 补 pom → 写 yml →
     ├── 启动验证（localhost:8080）
     └── 常见报错排查</code></pre>
 <h3 id="53-与上节下节的衔接">5.3 与上节、下节的衔接</h3>
-<div class="visual">
-  <div class="visual-title">图示 17：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">第 2 次课：HTTP / JSON / RESTful（通信语言）</span>
-<span class="diagram-line">              <span class="tree-token">│</span></span>
-<span class="diagram-line">              ▼ 知道后端要响应什么</span>
-<span class="diagram-line">第 3 次课：Spring Boot 项目搭建（工程骨架）  ← 本次课</span>
-<span class="diagram-line">              <span class="tree-token">│</span></span>
-<span class="diagram-line">              ▼ 有了能运行的项目</span>
-<span class="diagram-line">第 4 次课：Controller 开发与接口参数接收（写第一个接口）</span>
-<span class="diagram-line">              <span class="tree-token">│</span></span>
-<span class="diagram-line">              ▼ 接口能接收请求</span>
-<span class="diagram-line">第 5 次课：接口调试与 JSON 返回（用 Knife4j 联调）</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 17：第 2 到第 5 次课的能力衔接</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><span class="diagram-badge">第 2 次课</span><h4>HTTP / JSON / RESTful</h4><p>知道后端要响应什么。</p></div><div class="flow-arrow">→</div><div class="diagram-card good"><span class="diagram-badge">第 3 次课</span><h4>Spring Boot 项目搭建</h4><p>有了能运行的工程骨架。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><span class="diagram-badge">第 4 次课</span><h4>Controller 开发</h4><p>接口能接收请求。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><span class="diagram-badge">第 5 次课</span><h4>接口调试与 JSON 返回</h4><p>用 Knife4j / Apifox 联调。</p></div></div></div></div>
 <hr />
 <h2 id="六复习思考题">六、复习思考题</h2>
 <blockquote>

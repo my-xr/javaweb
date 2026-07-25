@@ -1142,3 +1142,50 @@ body{background:linear-gradient(180deg,#eaf1ff 0,#f7f9fc 360px,#f7f9fc 100%)}
   .image-card{box-shadow:none;break-inside:avoid}
 }
 /* ===== END Course image system ===== */
+
+/* ===== JavaWeb question bank option/code stability ===== */
+.option-content{
+  flex:1 1 auto;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.option-list.option-list-code ul{
+  grid-template-columns:1fr!important;
+}
+.option-list:has(.sourceCode) ul{
+  grid-template-columns:1fr!important;
+}
+.option-list.option-list-code li{
+  align-items:flex-start;
+}
+.option-content .sourceCode,
+.option-content pre{
+  max-width:100%;
+  margin:6px 0 0;
+  box-sizing:border-box;
+}
+.option-content .sourceCode{
+  min-width:0;
+  overflow:hidden;
+}
+.option-content pre{
+  width:100%;
+  overflow:auto;
+}
+.question-card details{
+  margin-top:14px;
+  padding:14px 16px;
+  border:1px solid #86efac;
+  border-left:5px solid #16a34a;
+  border-radius:14px;
+  background:#f0fdf4;
+  color:#14532d;
+}
+.question-card details summary{
+  cursor:pointer;
+  font-weight:800;
+  color:#166534;
+}
+.question-card details p:last-child{
+  margin-bottom:0;
+}

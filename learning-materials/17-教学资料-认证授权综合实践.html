@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -97,39 +97,7 @@
 </blockquote>
 <hr />
 <h2 id="一项目结构总览">一、项目结构总览</h2>
-<div class="visual">
-  <div class="visual-title">图示 1：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">src/main/java/com/ctts</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> common</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Result.java                  # 统一响应</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ResultCode.java              # 状态码枚举</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> BusinessException.java       # 业务异常</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> config</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> WebMvcConfig.java            # 拦截器注册</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> interceptor</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> LoginInterceptor.java        # JWT认证拦截器</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> RoleInterceptor.java         # 角色权限拦截器</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> annotation</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> RequireRole.java             # 角色注解</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> context</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> CurrentUserContext.java      # ThreadLocal上下文</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> util</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> JwtUtil.java                 # JWT工具类</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> AuthController.java          # 认证控制器</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> service</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> UserService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> impl</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> UserServiceImpl.java</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> UserMapper.java</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> entity</span>
-<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> User.java</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 1：认证授权综合实践代码结构</div> <div class="edu-diagram"><div class="diagram-code-tree"><ul><li><span class="tree-label">src/main/java/com/ctts</span><ul><li>CttsApplication.java</li><li>common/ <span class="tree-comment">Result、ResultCode、BusinessException</span></li><li>config/WebMvcConfig.java <span class="tree-comment">注册拦截器</span></li><li>interceptor/ <span class="tree-comment">LoginInterceptor、RoleInterceptor</span></li><li>annotation/RequireRole.java <span class="tree-comment">角色注解</span></li><li>context/CurrentUserContext.java <span class="tree-comment">ThreadLocal 上下文</span></li><li>util/JwtUtil.java <span class="tree-comment">JWT 工具类</span></li><li>controller/AuthController.java</li><li>service/UserService.java、impl/UserServiceImpl.java</li><li>mapper/UserMapper.java、entity/User.java</li></ul></li></ul></div></div></div>
 <hr />
 <h2 id="二基础实体与依赖">二、基础实体与依赖</h2>
 <h3 id="21-user实体">2.1 User实体</h3>
@@ -985,13 +953,7 @@ class="sourceCode sql"><code class="sourceCode sql"><span id="cb18-1"><a href="#
 <hr />
 <h2 id="十二全链路测试用例apifox">十二、全链路测试用例（Apifox）</h2>
 <h3 id="121-测试流程总览">12.1 测试流程总览</h3>
-<div class="visual">
-  <div class="visual-title">图示 2：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">注册新用户 <span class="arrow-token">→</span> 登录获取Token <span class="arrow-token">→</span> 带Token访问当前用户 <span class="arrow-token">→</span> 访问有权限接口 <span class="arrow-token">→</span> 访问无权限接口(403) <span class="arrow-token">→</span> 修改密码 <span class="arrow-token">→</span> 用新密码重新登录</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 2：注册新用户 → 登录获取Token → 带Token访问当前用户 → 访问有权限接口 → 访问无权限接口(403</div> <div class="edu-diagram"> <div class="diagram-flow"><div class="diagram-card"><h4>注册新用户</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>登录获取Token</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>带Token访问当前用户</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>访问有权限接口</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>访问无权限接口(403)</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>修改密码</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>用新密码重新登录</h4></div></div> </div></div>
 <h3 id="122-测试用例明细">12.2 测试用例明细</h3>
 <table>
 <thead>

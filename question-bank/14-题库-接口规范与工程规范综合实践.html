@@ -149,857 +149,382 @@
 </blockquote>
 <hr />
 <h2 id="一单选题30题">一、单选题（30题）</h2>
-<h3 id="14-单选-1">14-单选-1（★）</h3>
-<p>关于RESTful API设计，下列说法<strong>错误</strong>的是？</p>
-<ul>
-<li>A. GET请求用于查询资源，不应修改服务器状态</li>
-<li>B. POST请求用于新建资源</li>
-<li>C. PUT请求用于完整更新资源</li>
-<li>D. DELETE请求的请求体必须非空</li>
-</ul>
-<p><strong>答案</strong>：D
+<section class="question-card" id="14-单选-1"><p><strong>14-单选-1（★）</strong></p><p>关于RESTful API设计，下列说法<strong>错误</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">GET请求用于查询资源，不应修改服务器状态</div></li><li><span class="option-label">B</span><div class="option-content">POST请求用于新建资源</div></li><li><span class="option-label">C</span><div class="option-content">PUT请求用于完整更新资源</div></li><li><span class="option-label">D</span><div class="option-content">DELETE请求的请求体必须非空</div></li></ul></div><blockquote><p><strong>答案</strong>：D
 <strong>解析</strong>：DELETE请求通常不需要请求体，要删除的资源ID通过URL路径传递（如
-<code>DELETE /api/users/1</code>）。RESTful规范中DELETE请求体一般为空。</p>
+<code>DELETE /api/users/1</code>）。RESTful规范中DELETE请求体一般为空。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-2">14-单选-2（★）</h3>
-<p>在SpringBoot中，用于校验 <code>@RequestBody</code> 参数的注解是？</p>
-<ul>
-<li>A. @Validated</li>
-<li>B. @Valid</li>
-<li>C. @Validated（类上）</li>
-<li>D. @Validation</li>
-</ul>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Valid</code>
+<section class="question-card" id="14-单选-2"><p><strong>14-单选-2（★）</strong></p><p>在SpringBoot中，用于校验 <code>@RequestBody</code> 参数的注解是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Validated</div></li><li><span class="option-label">B</span><div class="option-content">@Valid</div></li><li><span class="option-label">C</span><div class="option-content">@Validated（类上）</div></li><li><span class="option-label">D</span><div class="option-content">@Validation</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>@Valid</code>
 用于校验 <code>@RequestBody</code>
 标注的DTO对象参数。<code>@Validated</code> 加在类上用于校验
 <code>@RequestParam</code>/<code>@PathVariable</code>
-参数，也可用于分组校验。</p>
+参数，也可用于分组校验。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-3">14-单选-3（★）</h3>
-<p>校验字符串"非null且非空白（去除首尾空格后非空）"的注解是？</p>
-<ul>
-<li>A. @NotNull</li>
-<li>B. @NotEmpty</li>
-<li>C. @NotBlank</li>
-<li>D. @NonNull</li>
-</ul>
-<p><strong>答案</strong>：C
+<section class="question-card" id="14-单选-3"><p><strong>14-单选-3（★）</strong></p><p>校验字符串"非null且非空白（去除首尾空格后非空）"的注解是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@NotNull</div></li><li><span class="option-label">B</span><div class="option-content">@NotEmpty</div></li><li><span class="option-label">C</span><div class="option-content">@NotBlank</div></li><li><span class="option-label">D</span><div class="option-content">@NonNull</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>@NotBlank</code>
 校验CharSequence类型，要求非null且trim()后长度大于0。<code>@NotNull</code>
 仅校验非null（空字符串""可通过）。<code>@NotEmpty</code>
-校验非null且非空（""不通过，但" "可通过）。</p>
+校验非null且非空（""不通过，但" "可通过）。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-4">14-单选-4（★）</h3>
-<p>统一响应类 <code>Result&lt;T&gt;</code> 中，泛型T的作用是？</p>
-<ul>
-<li>A. 限制code的类型</li>
-<li>B. 限制message的类型</li>
-<li>C. 限制data字段的类型</li>
-<li>D. 限制timestamp的类型</li>
-</ul>
-<p><strong>答案</strong>：C
+<section class="question-card" id="14-单选-4"><p><strong>14-单选-4（★）</strong></p><p>统一响应类 <code>Result&lt;T&gt;</code> 中，泛型T的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">限制code的类型</div></li><li><span class="option-label">B</span><div class="option-content">限制message的类型</div></li><li><span class="option-label">C</span><div class="option-content">限制data字段的类型</div></li><li><span class="option-label">D</span><div class="option-content">限制timestamp的类型</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>Result&lt;T&gt;</code>
 中T表示data字段的类型。如 <code>Result&lt;User&gt;</code>
 中data为User类型，<code>Result&lt;Void&gt;</code>
 表示无数据返回，<code>Result&lt;List&lt;Task&gt;&gt;</code>
-中data为任务列表。</p>
+中data为任务列表。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-5">14-单选-5（★）</h3>
-<p>Knife4j文档注解 <code>@Tag</code> 应该添加在？</p>
-<ul>
-<li>A. Controller方法上</li>
-<li>B. Controller类上</li>
-<li>C. DTO字段上</li>
-<li>D. Service类上</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-5"><p><strong>14-单选-5（★）</strong></p><p>Knife4j文档注解 <code>@Tag</code> 应该添加在？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Controller方法上</div></li><li><span class="option-label">B</span><div class="option-content">Controller类上</div></li><li><span class="option-label">C</span><div class="option-content">DTO字段上</div></li><li><span class="option-label">D</span><div class="option-content">Service类上</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@Tag(name="模块名", description="描述")</code>
 用于Controller类上，对接口分组。<code>@Operation</code>
 用于方法上，<code>@Parameter</code> 用于参数上，<code>@Schema</code>
-用于DTO类或字段上。</p>
+用于DTO类或字段上。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-6">14-单选-6（★）</h3>
-<p><code>@Operation</code> 注解的作用是？</p>
-<ul>
-<li>A. 描述接口分组</li>
-<li>B. 描述接口摘要和详细说明</li>
-<li>C. 描述请求参数</li>
-<li>D. 描述响应结果</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-6"><p><strong>14-单选-6（★）</strong></p><p><code>@Operation</code> 注解的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">描述接口分组</div></li><li><span class="option-label">B</span><div class="option-content">描述接口摘要和详细说明</div></li><li><span class="option-label">C</span><div class="option-content">描述请求参数</div></li><li><span class="option-label">D</span><div class="option-content">描述响应结果</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@Operation(summary="接口摘要", description="详细描述")</code>
-用于Controller方法上，生成接口文档的摘要和说明。分组用@Tag，参数用@Parameter，响应用@ApiResponses。</p>
+用于Controller方法上，生成接口文档的摘要和说明。分组用@Tag，参数用@Parameter，响应用@ApiResponses。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-7">14-单选-7（★★）</h3>
-<p>在 <code>GlobalExceptionHandler</code> 中，处理
-<code>@RequestBody</code> 参数校验失败应捕获的异常类型是？</p>
-<ul>
-<li>A. ConstraintViolationException</li>
-<li>B. MethodArgumentNotValidException</li>
-<li>C. BindException</li>
-<li>D. IllegalArgumentException</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-7"><p><strong>14-单选-7（★★）</strong></p><p>在 <code>GlobalExceptionHandler</code> 中，处理
+<code>@RequestBody</code> 参数校验失败应捕获的异常类型是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">ConstraintViolationException</div></li><li><span class="option-label">B</span><div class="option-content">MethodArgumentNotValidException</div></li><li><span class="option-label">C</span><div class="option-content">BindException</div></li><li><span class="option-label">D</span><div class="option-content">IllegalArgumentException</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@RequestBody</code> + <code>@Valid</code>
 校验失败抛
 <code>MethodArgumentNotValidException</code>。<code>@RequestParam</code>/<code>@PathVariable</code>
 + <code>@Validated</code> 校验失败抛
 <code>ConstraintViolationException</code>。表单绑定校验失败抛
-<code>BindException</code>。</p>
+<code>BindException</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-8">14-单选-8（★★）</h3>
-<p><code>@RestControllerAdvice</code> 注解的作用是？</p>
-<ul>
-<li>A. 声明RESTful控制器</li>
-<li>B. 全局异常处理 + 响应体增强</li>
-<li>C. 配置跨域</li>
-<li>D. 配置拦截器</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-8"><p><strong>14-单选-8（★★）</strong></p><p><code>@RestControllerAdvice</code> 注解的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">声明RESTful控制器</div></li><li><span class="option-label">B</span><div class="option-content">全局异常处理 + 响应体增强</div></li><li><span class="option-label">C</span><div class="option-content">配置跨域</div></li><li><span class="option-label">D</span><div class="option-content">配置拦截器</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@RestControllerAdvice</code> =
 <code>@ControllerAdvice</code> +
-<code>@ResponseBody</code>，用于全局异常处理（配合@ExceptionHandler）和全局响应体增强（配合@InitBinder等）。捕获异常后返回的对象会被序列化为JSON。</p>
+<code>@ResponseBody</code>，用于全局异常处理（配合@ExceptionHandler）和全局响应体增强（配合@InitBinder等）。捕获异常后返回的对象会被序列化为JSON。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-9">14-单选-9（★★）</h3>
-<p>下列哪种异常应该用 <code>log.error</code> 记录？</p>
-<ul>
-<li>A. 用户名已存在</li>
-<li>B. 密码错误</li>
-<li>C. NullPointerException</li>
-<li>D. 参数格式错误</li>
-</ul>
-<p><strong>答案</strong>：C
+<section class="question-card" id="14-单选-9"><p><strong>14-单选-9（★★）</strong></p><p>下列哪种异常应该用 <code>log.error</code> 记录？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">用户名已存在</div></li><li><span class="option-label">B</span><div class="option-content">密码错误</div></li><li><span class="option-label">C</span><div class="option-content">NullPointerException</div></li><li><span class="option-label">D</span><div class="option-content">参数格式错误</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：系统异常（NullPointerException等）用
 <code>log.error</code>
 记录并打印堆栈。业务异常（用户名已存在、密码错误）用
 <code>log.warn</code>。正常流程用 <code>log.info</code>。参数错误用
-<code>log.warn</code>。</p>
+<code>log.warn</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-10">14-单选-10（★）</h3>
-<p>Lombok提供用于简化日志的注解是？</p>
-<ul>
-<li>A. @Data</li>
-<li>B. @Slf4j</li>
-<li>C. @Log</li>
-<li>D. @Logger</li>
-</ul>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Slf4j</code>
+<section class="question-card" id="14-单选-10"><p><strong>14-单选-10（★）</strong></p><p>Lombok提供用于简化日志的注解是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Data</div></li><li><span class="option-label">B</span><div class="option-content">@Slf4j</div></li><li><span class="option-label">C</span><div class="option-content">@Log</div></li><li><span class="option-label">D</span><div class="option-content">@Logger</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>@Slf4j</code>
 由Lombok提供，自动在类中生成
 <code>private static final Logger log = LoggerFactory.getLogger(类名.class);</code>，可直接使用
-<code>log.info()</code> 等方法。</p>
+<code>log.info()</code> 等方法。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-11">14-单选-11（★★）</h3>
-<p>校验手机号格式"1开头，第二位3-9，共11位数字"的正则注解是？</p>
-<ul>
-<li>A. @Pattern(regexp = "^1\d{10}$")</li>
-<li>B. @Pattern(regexp = "^1[3-9]\d{9}$")</li>
-<li>C. @Pattern(regexp = "1[3-9]\d{9}")</li>
-<li>D. @Pattern(regexp = "\d{11}")</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-11"><p><strong>14-单选-11（★★）</strong></p><p>校验手机号格式"1开头，第二位3-9，共11位数字"的正则注解是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Pattern(regexp = "^1\d{10}$")</div></li><li><span class="option-label">B</span><div class="option-content">@Pattern(regexp = "^1[3-9]\d{9}$")</div></li><li><span class="option-label">C</span><div class="option-content">@Pattern(regexp = "1[3-9]\d{9}")</div></li><li><span class="option-label">D</span><div class="option-content">@Pattern(regexp = "\d{11}")</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>^1[3-9]\d{9}$</code> 中，<code>^1</code>
 以1开头，<code>[3-9]</code> 第二位3-9，<code>\d{9}</code>
 后9位数字，<code>$</code> 结束。Java字符串中反斜杠需转义，所以写
-<code>^1[3-9]\\d{9}$</code>。</p>
+<code>^1[3-9]\\d{9}$</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-12">14-单选-12（★）</h3>
-<p><code>@Size(min=2, max=50)</code> 注解可以校验的类型是？</p>
-<ul>
-<li>A. 仅String</li>
-<li>B. String、Collection、Map、Array</li>
-<li>C. 仅数字类型</li>
-<li>D. 仅日期类型</li>
-</ul>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Size</code>
-可校验CharSequence（字符串长度）、Collection（集合大小）、Map（键值对数量）、Array（数组长度）。</p>
+<section class="question-card" id="14-单选-12"><p><strong>14-单选-12（★）</strong></p><p><code>@Size(min=2, max=50)</code> 注解可以校验的类型是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">仅String</div></li><li><span class="option-label">B</span><div class="option-content">String、Collection、Map、Array</div></li><li><span class="option-label">C</span><div class="option-content">仅数字类型</div></li><li><span class="option-label">D</span><div class="option-content">仅日期类型</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>@Size</code>
+可校验CharSequence（字符串长度）、Collection（集合大小）、Map（键值对数量）、Array（数组长度）。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-13">14-单选-13（★★）</h3>
-<p>关于 <code>@Valid</code> 和 <code>@Validated</code>
-的区别，下列说法<strong>正确</strong>的是？</p>
-<ul>
-<li>A. @Valid支持分组校验，@Validated不支持</li>
-<li>B. @Validated支持分组校验，@Valid不支持</li>
-<li>C. 两者完全相同</li>
-<li>D. @Valid用于类上，@Validated用于参数上</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-13"><p><strong>14-单选-13（★★）</strong></p><p>关于 <code>@Valid</code> 和 <code>@Validated</code>
+的区别，下列说法<strong>正确</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Valid支持分组校验，@Validated不支持</div></li><li><span class="option-label">B</span><div class="option-content">@Validated支持分组校验，@Valid不支持</div></li><li><span class="option-label">C</span><div class="option-content">两者完全相同</div></li><li><span class="option-label">D</span><div class="option-content">@Valid用于类上，@Validated用于参数上</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@Validated</code>
 是Spring扩展注解，支持分组校验（如Add/Update分组）；<code>@Valid</code>
 是JSR303标准注解，不支持分组。<code>@Valid</code> 用于
 <code>@RequestBody</code> 参数；<code>@Validated</code> 用于类上以启用对
-<code>@RequestParam</code>/<code>@PathVariable</code> 的校验。</p>
+<code>@RequestParam</code>/<code>@PathVariable</code> 的校验。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-14">14-单选-14（★★）</h3>
-<p>在Controller中，处理业务失败的最佳实践是？</p>
-<ul>
-<li>A. 手动返回 <code>Result.error(500, "失败")</code></li>
-<li>B. 抛出
-<code>BusinessException</code>，由全局异常处理器统一处理</li>
-<li>C. 返回null</li>
-<li>D. 抛出RuntimeException</li>
-</ul>
-<p><strong>答案</strong>：B <strong>解析</strong>：业务失败应抛出
+<section class="question-card" id="14-单选-14"><p><strong>14-单选-14（★★）</strong></p><p>在Controller中，处理业务失败的最佳实践是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">手动返回 <code>Result.error(500, "失败")</code></div></li><li><span class="option-label">B</span><div class="option-content">抛出
+<code>BusinessException</code>，由全局异常处理器统一处理</div></li><li><span class="option-label">C</span><div class="option-content">返回null</div></li><li><span class="option-label">D</span><div class="option-content">抛出RuntimeException</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：业务失败应抛出
 <code>BusinessException</code>，由 <code>GlobalExceptionHandler</code>
 统一捕获并转换为
-<code>Result</code>。这样Controller代码更简洁，异常处理逻辑集中，避免到处手写Result.error。</p>
+<code>Result</code>。这样Controller代码更简洁，异常处理逻辑集中，避免到处手写Result.error。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-15">14-单选-15（★★）</h3>
-<p><code>@ExceptionHandler(Exception.class)</code>
-在GlobalExceptionHandler中的作用是？</p>
-<ul>
-<li>A. 处理所有业务异常</li>
-<li>B. 处理所有校验异常</li>
-<li>C. 兜底处理所有未明确捕获的异常</li>
-<li>D. 处理HTTP异常</li>
-</ul>
-<p><strong>答案</strong>：C
+<section class="question-card" id="14-单选-15"><p><strong>14-单选-15（★★）</strong></p><p><code>@ExceptionHandler(Exception.class)</code>
+在GlobalExceptionHandler中的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">处理所有业务异常</div></li><li><span class="option-label">B</span><div class="option-content">处理所有校验异常</div></li><li><span class="option-label">C</span><div class="option-content">兜底处理所有未明确捕获的异常</div></li><li><span class="option-label">D</span><div class="option-content">处理HTTP异常</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>@ExceptionHandler(Exception.class)</code>
-捕获Exception及其所有子类，作为兜底处理。应放在最后，避免提前拦截具体异常。具体异常（如BusinessException）的处理器应优先匹配。</p>
+捕获Exception及其所有子类，作为兜底处理。应放在最后，避免提前拦截具体异常。具体异常（如BusinessException）的处理器应优先匹配。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-16">14-单选-16（★）</h3>
-<p>Apifox导入SpringBoot接口文档的地址是？</p>
-<ul>
-<li>A. /swagger-ui.html</li>
-<li>B. /doc.html</li>
-<li>C. /v3/api-docs</li>
-<li>D. /api-docs.json</li>
-</ul>
-<p><strong>答案</strong>：C
+<section class="question-card" id="14-单选-16"><p><strong>14-单选-16（★）</strong></p><p>Apifox导入SpringBoot接口文档的地址是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">/swagger-ui.html</div></li><li><span class="option-label">B</span><div class="option-content">/doc.html</div></li><li><span class="option-label">C</span><div class="option-content">/v3/api-docs</div></li><li><span class="option-label">D</span><div class="option-content">/api-docs.json</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：OpenAPI3的JSON文档地址是
 <code>/v3/api-docs</code>，Apifox通过该地址导入接口。<code>/doc.html</code>
 是Knife4j的HTML文档页面，<code>/swagger-ui.html</code> 是原生Swagger
-UI页面。</p>
+UI页面。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-17">14-单选-17（★★）</h3>
-<p>下列哪个注解用于标注DTO字段的文档说明？</p>
-<ul>
-<li>A. @ApiModelProperty</li>
-<li>B. @Schema</li>
-<li>C. @ApiModel</li>
-<li>D. @Parameter</li>
-</ul>
-<p><strong>答案</strong>：B <strong>解析</strong>：OpenAPI3（Knife4j
+<section class="question-card" id="14-单选-17"><p><strong>14-单选-17（★★）</strong></p><p>下列哪个注解用于标注DTO字段的文档说明？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@ApiModelProperty</div></li><li><span class="option-label">B</span><div class="option-content">@Schema</div></li><li><span class="option-label">C</span><div class="option-content">@ApiModel</div></li><li><span class="option-label">D</span><div class="option-content">@Parameter</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：OpenAPI3（Knife4j
 4.x）使用 <code>@Schema(description="说明", example="示例")</code>
 描述DTO字段。<code>@ApiModelProperty</code>/<code>@ApiModel</code>
-是Swagger2的旧注解，已不推荐。</p>
+是Swagger2的旧注解，已不推荐。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-18">14-单选-18（★★）</h3>
-<p><code>@ResponseStatus(HttpStatus.BAD_REQUEST)</code>
-注解的作用是？</p>
-<ul>
-<li>A. 设置HTTP响应状态码为400</li>
-<li>B. 设置HTTP响应状态码为200</li>
-<li>C. 设置HTTP响应状态码为500</li>
-<li>D. 设置HTTP响应状态码为404</li>
-</ul>
-<p><strong>答案</strong>：A
+<section class="question-card" id="14-单选-18"><p><strong>14-单选-18（★★）</strong></p><p><code>@ResponseStatus(HttpStatus.BAD_REQUEST)</code>
+注解的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">设置HTTP响应状态码为400</div></li><li><span class="option-label">B</span><div class="option-content">设置HTTP响应状态码为200</div></li><li><span class="option-label">C</span><div class="option-content">设置HTTP响应状态码为500</div></li><li><span class="option-label">D</span><div class="option-content">设置HTTP响应状态码为404</div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>HttpStatus.BAD_REQUEST</code>
-对应HTTP状态码400，表示请求参数错误。用于在@ExceptionHandler方法上设置响应状态码，使HTTP层状态码与业务语义一致。</p>
+对应HTTP状态码400，表示请求参数错误。用于在@ExceptionHandler方法上设置响应状态码，使HTTP层状态码与业务语义一致。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-19">14-单选-19（★★）</h3>
-<p>关于日志级别，从低到高的正确顺序是？</p>
-<ul>
-<li>A. DEBUG &lt; INFO &lt; WARN &lt; ERROR</li>
-<li>B. INFO &lt; DEBUG &lt; WARN &lt; ERROR</li>
-<li>C. ERROR &gt; WARN &gt; INFO &gt; DEBUG</li>
-<li>D. WARN &lt; INFO &lt; DEBUG &lt; ERROR</li>
-</ul>
-<p><strong>答案</strong>：A <strong>解析</strong>：日志级别从低到高为
+<section class="question-card" id="14-单选-19"><p><strong>14-单选-19（★★）</strong></p><p>关于日志级别，从低到高的正确顺序是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">DEBUG &lt; INFO &lt; WARN &lt; ERROR</div></li><li><span class="option-label">B</span><div class="option-content">INFO &lt; DEBUG &lt; WARN &lt; ERROR</div></li><li><span class="option-label">C</span><div class="option-content">ERROR &gt; WARN &gt; INFO &gt; DEBUG</div></li><li><span class="option-label">D</span><div class="option-content">WARN &lt; INFO &lt; DEBUG &lt; ERROR</div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：日志级别从低到高为
 TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR &lt;
-FATAL。级别越高，输出越少。配置INFO级别时，DEBUG及以下不输出。</p>
+FATAL。级别越高，输出越少。配置INFO级别时，DEBUG及以下不输出。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-20">14-单选-20（★★）</h3>
-<p>在 <code>@PathVariable</code> 参数上添加 <code>@NotNull</code>
-注解不生效，原因是？</p>
-<ul>
-<li>A. 注解写错</li>
-<li>B. Controller类上未加@Validated</li>
-<li>C. 参数前未加@Valid</li>
-<li>D. @PathVariable不支持校验</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-20"><p><strong>14-单选-20（★★）</strong></p><p>在 <code>@PathVariable</code> 参数上添加 <code>@NotNull</code>
+注解不生效，原因是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">注解写错</div></li><li><span class="option-label">B</span><div class="option-content">Controller类上未加@Validated</div></li><li><span class="option-label">C</span><div class="option-content">参数前未加@Valid</div></li><li><span class="option-label">D</span><div class="option-content">@PathVariable不支持校验</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@PathVariable</code>/<code>@RequestParam</code>
 参数的校验需在Controller类上加
 <code>@Validated</code>，否则校验注解不生效。<code>@Valid</code> 仅用于
-<code>@RequestBody</code> 参数。</p>
+<code>@RequestBody</code> 参数。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-21">14-单选-21（★★）</h3>
-<p>校验"截止时间必须是未来时间"的注解是？</p>
-<ul>
-<li>A. @Past</li>
-<li>B. @Future</li>
-<li>C. @FutureOrPresent</li>
-<li>D. @After</li>
-</ul>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Future</code>
+<section class="question-card" id="14-单选-21"><p><strong>14-单选-21（★★）</strong></p><p>校验"截止时间必须是未来时间"的注解是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Past</div></li><li><span class="option-label">B</span><div class="option-content">@Future</div></li><li><span class="option-label">C</span><div class="option-content">@FutureOrPresent</div></li><li><span class="option-label">D</span><div class="option-content">@After</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>@Future</code>
 校验日期/时间必须在未来（当前时间之后）。<code>@Past</code>
-校验必须在过去。<code>@FutureOrPresent</code> 校验为当前或未来。</p>
+校验必须在过去。<code>@FutureOrPresent</code> 校验为当前或未来。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-22">14-单选-22（★★）</h3>
-<p><code>Result&lt;Void&gt;</code> 中的 <code>Void</code> 表示？</p>
-<ul>
-<li>A. 返回void类型</li>
-<li>B. data字段为null，无具体数据返回</li>
-<li>C. 方法无返回值</li>
-<li>D. 编译错误</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-22"><p><strong>14-单选-22（★★）</strong></p><p><code>Result&lt;Void&gt;</code> 中的 <code>Void</code> 表示？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">返回void类型</div></li><li><span class="option-label">B</span><div class="option-content">data字段为null，无具体数据返回</div></li><li><span class="option-label">C</span><div class="option-content">方法无返回值</div></li><li><span class="option-label">D</span><div class="option-content">编译错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>Result&lt;Void&gt;</code>
 表示统一响应中data字段为null，用于增删改等无需返回数据的接口。<code>Void</code>
-是包装类型，data字段声明为 <code>Void</code> 时实际值为null。</p>
+是包装类型，data字段声明为 <code>Void</code> 时实际值为null。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-23">14-单选-23（★★）</h3>
-<p>在全局异常处理器中，多个 <code>@ExceptionHandler</code>
-的匹配规则是？</p>
-<ul>
-<li>A. 按方法声明顺序匹配</li>
-<li>B. 按异常类型的最具体子类优先匹配</li>
-<li>C. 随机匹配</li>
-<li>D. 按方法名字母顺序</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-23"><p><strong>14-单选-23（★★）</strong></p><p>在全局异常处理器中，多个 <code>@ExceptionHandler</code>
+的匹配规则是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">按方法声明顺序匹配</div></li><li><span class="option-label">B</span><div class="option-content">按异常类型的最具体子类优先匹配</div></li><li><span class="option-label">C</span><div class="option-content">随机匹配</div></li><li><span class="option-label">D</span><div class="option-content">按方法名字母顺序</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：Spring会优先匹配最具体的异常类型。如抛出BusinessException（继承RuntimeException），会优先匹配
 <code>@ExceptionHandler(BusinessException.class)</code> 而非
-<code>@ExceptionHandler(Exception.class)</code>。</p>
+<code>@ExceptionHandler(Exception.class)</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-24">14-单选-24（★★★）</h3>
-<p>下列哪种情况会导致 <code>HttpMessageNotReadableException</code>？</p>
-<ul>
-<li>A. 请求参数缺失</li>
-<li>B. 请求体JSON格式错误</li>
-<li>C. 请求方法不支持</li>
-<li>D. 参数类型不匹配</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-24"><p><strong>14-单选-24（★★★）</strong></p><p>下列哪种情况会导致 <code>HttpMessageNotReadableException</code>？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">请求参数缺失</div></li><li><span class="option-label">B</span><div class="option-content">请求体JSON格式错误</div></li><li><span class="option-label">C</span><div class="option-content">请求方法不支持</div></li><li><span class="option-label">D</span><div class="option-content">参数类型不匹配</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>HttpMessageNotReadableException</code>
 在请求体无法被反序列化时抛出，如JSON格式错误、字段类型不匹配等。参数缺失抛
 <code>MissingServletRequestParameterException</code>，方法不支持抛
 <code>HttpRequestMethodNotSupportedException</code>，类型不匹配抛
-<code>MethodArgumentTypeMismatchException</code>。</p>
+<code>MethodArgumentTypeMismatchException</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-25">14-单选-25（★★★）</h3>
-<p>在CTTS项目中，<code>@Positive</code> 注解用于校验？</p>
-<ul>
-<li>A. 字符串非空</li>
-<li>B. 数字为正数</li>
-<li>C. 集合非空</li>
-<li>D. 日期为未来</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-25"><p><strong>14-单选-25（★★★）</strong></p><p>在CTTS项目中，<code>@Positive</code> 注解用于校验？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">字符串非空</div></li><li><span class="option-label">B</span><div class="option-content">数字为正数</div></li><li><span class="option-label">C</span><div class="option-content">集合非空</div></li><li><span class="option-label">D</span><div class="option-content">日期为未来</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@Positive</code>
 校验数字为正数（&gt;0），常用于ID字段，确保传入的ID为正数。<code>@PositiveOrZero</code>
-校验为非负（≥0）。</p>
+校验为非负（≥0）。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-26">14-单选-26（★★★）</h3>
-<p>下列关于 <code>@RequestBody</code> 和 <code>@RequestParam</code>
-的说法，<strong>错误</strong>的是？</p>
-<ul>
-<li>A.
-@RequestBody用于接收JSON请求体，@RequestParam用于接收URL查询参数</li>
-<li>B.
-@RequestBody校验用@Valid，@RequestParam校验需类上加@Validated</li>
-<li>C. @RequestBody校验失败抛MethodArgumentNotValidException</li>
-<li>D. 一个方法可以同时使用多个@RequestBody参数</li>
-</ul>
-<p><strong>答案</strong>：D <strong>解析</strong>：一个方法只能有一个
+<section class="question-card" id="14-单选-26"><p><strong>14-单选-26（★★★）</strong></p><p>下列关于 <code>@RequestBody</code> 和 <code>@RequestParam</code>
+的说法，<strong>错误</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@RequestBody用于接收JSON请求体，@RequestParam用于接收URL查询参数</div></li><li><span class="option-label">B</span><div class="option-content">@RequestBody校验用@Valid，@RequestParam校验需类上加@Validated</div></li><li><span class="option-label">C</span><div class="option-content">@RequestBody校验失败抛MethodArgumentNotValidException</div></li><li><span class="option-label">D</span><div class="option-content">一个方法可以同时使用多个@RequestBody参数</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：一个方法只能有一个
 <code>@RequestBody</code> 参数（请求体只能被读取一次）。但可以同时使用
 <code>@RequestBody</code> 和多个
-<code>@RequestParam</code>/<code>@PathVariable</code>。</p>
+<code>@RequestParam</code>/<code>@PathVariable</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-27">14-单选-27（★★★）</h3>
-<p>在GlobalExceptionHandler中，处理
-<code>ConstraintViolationException</code> 的场景是？</p>
-<ul>
-<li>A. @RequestBody参数校验失败</li>
-<li>B. @RequestParam/@PathVariable参数校验失败</li>
-<li>C. JSON格式错误</li>
-<li>D. 业务异常</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-27"><p><strong>14-单选-27（★★★）</strong></p><p>在GlobalExceptionHandler中，处理
+<code>ConstraintViolationException</code> 的场景是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@RequestBody参数校验失败</div></li><li><span class="option-label">B</span><div class="option-content">@RequestParam/@PathVariable参数校验失败</div></li><li><span class="option-label">C</span><div class="option-content">JSON格式错误</div></li><li><span class="option-label">D</span><div class="option-content">业务异常</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>ConstraintViolationException</code> 在
 <code>@Validated</code> +
 <code>@RequestParam</code>/<code>@PathVariable</code>
 校验失败时抛出。<code>@RequestBody</code> 校验失败抛
-<code>MethodArgumentNotValidException</code>。</p>
+<code>MethodArgumentNotValidException</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-28">14-单选-28（★★★）</h3>
-<p>Knife4j注解 <code>@Parameter</code> 的 <code>requiredMode</code>
-属性取值为 <code>Schema.RequiredMode.REQUIRED</code> 表示？</p>
-<ul>
-<li>A. 参数可选</li>
-<li>B. 参数必填</li>
-<li>C. 参数已废弃</li>
-<li>D. 参数有默认值</li>
-</ul>
-<p><strong>答案</strong>：B
+<section class="question-card" id="14-单选-28"><p><strong>14-单选-28（★★★）</strong></p><p>Knife4j注解 <code>@Parameter</code> 的 <code>requiredMode</code>
+属性取值为 <code>Schema.RequiredMode.REQUIRED</code> 表示？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">参数可选</div></li><li><span class="option-label">B</span><div class="option-content">参数必填</div></li><li><span class="option-label">C</span><div class="option-content">参数已废弃</div></li><li><span class="option-label">D</span><div class="option-content">参数有默认值</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>requiredMode = Schema.RequiredMode.REQUIRED</code>
 标注参数为必填，在文档中显示红色星号。<code>NOT_REQUIRED</code>
-表示可选，<code>AUTO</code> 表示自动推断。</p>
+表示可选，<code>AUTO</code> 表示自动推断。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-29">14-单选-29（★★★）</h3>
-<p>下列哪种做法符合"统一返回Result<T>"规范？</p>
-<ul>
-<li>A. 查询接口返回 <code>Result.success(user)</code></li>
-<li>B. 新增接口返回 <code>"success"</code> 字符串</li>
-<li>C. 删除接口返回 <code>Map.of("code", 200)</code></li>
-<li>D. 异常接口返回裸 <code>User</code> 对象</li>
-</ul>
-<p><strong>答案</strong>：A <strong>解析</strong>：所有接口应统一返回
+<section class="question-card" id="14-单选-29"><p><strong>14-单选-29（★★★）</strong></p><p>下列哪种做法符合"统一返回Result<T>"规范？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">查询接口返回 <code>Result.success(user)</code></div></li><li><span class="option-label">B</span><div class="option-content">新增接口返回 <code>"success"</code> 字符串</div></li><li><span class="option-label">C</span><div class="option-content">删除接口返回 <code>Map.of("code", 200)</code></div></li><li><span class="option-label">D</span><div class="option-content">异常接口返回裸 <code>User</code> 对象</div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：所有接口应统一返回
 <code>Result&lt;T&gt;</code>。查询返回
 <code>Result.success(data)</code>，增删改返回
 <code>Result.success()</code>，异常由全局处理器转换为
-<code>Result.error()</code>。返回字符串、Map、裸对象都不符合规范。</p>
+<code>Result.error()</code>。返回字符串、Map、裸对象都不符合规范。</p></blockquote></section>
 <hr />
-<h3 id="14-单选-30">14-单选-30（★★★）</h3>
-<p>关于交叉审查（代码互查），下列说法<strong>正确</strong>的是？</p>
-<ul>
-<li>A. 交叉审查浪费时间，应取消</li>
-<li>B. 交叉审查只检查功能实现，不检查规范</li>
-<li>C. 交叉审查有助于发现个人盲区，提升代码质量</li>
-<li>D. 交叉审查只需检查一次</li>
-</ul>
-<p><strong>答案</strong>：C <strong>解析</strong>：交叉审查（Code
-Review）是工程实践的重要环节，有助于发现个人盲区、传播最佳实践、提升团队代码质量。审查不仅检查功能，更检查规范遵循情况（命名、注释、异常处理等）。</p>
+<section class="question-card" id="14-单选-30"><p><strong>14-单选-30（★★★）</strong></p><p>关于交叉审查（代码互查），下列说法<strong>正确</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">交叉审查浪费时间，应取消</div></li><li><span class="option-label">B</span><div class="option-content">交叉审查只检查功能实现，不检查规范</div></li><li><span class="option-label">C</span><div class="option-content">交叉审查有助于发现个人盲区，提升代码质量</div></li><li><span class="option-label">D</span><div class="option-content">交叉审查只需检查一次</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：交叉审查（Code
+Review）是工程实践的重要环节，有助于发现个人盲区、传播最佳实践、提升团队代码质量。审查不仅检查功能，更检查规范遵循情况（命名、注释、异常处理等）。</p></blockquote></section>
 <hr />
 <h2 id="二多选题10题">二、多选题（10题）</h2>
-<h3 id="14-多选-1">14-多选-1（★）</h3>
-<p>下列属于JSR303校验注解的有？</p>
-<ul>
-<li>A. @NotBlank</li>
-<li>B. @NotNull</li>
-<li>C. @Size</li>
-<li>D. @Email</li>
-<li>E. @Data</li>
-</ul>
-<p><strong>答案</strong>：ABCD
+<section class="question-card" id="14-多选-1"><p><strong>14-多选-1（★）</strong></p><p>下列属于JSR303校验注解的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@NotBlank</div></li><li><span class="option-label">B</span><div class="option-content">@NotNull</div></li><li><span class="option-label">C</span><div class="option-content">@Size</div></li><li><span class="option-label">D</span><div class="option-content">@Email</div></li><li><span class="option-label">E</span><div class="option-content">@Data</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
 <strong>解析</strong>：@NotBlank、@NotNull、@Size、@Email
 都是JSR303（Jakarta Bean
-Validation）校验注解。@Data是Lombok注解，用于生成getter/setter/toString等方法，非校验注解。</p>
+Validation）校验注解。@Data是Lombok注解，用于生成getter/setter/toString等方法，非校验注解。</p></blockquote></section>
 <hr />
-<h3 id="14-多选-2">14-多选-2（★）</h3>
-<p>下列属于Knife4j（OpenAPI3）注解的有？</p>
-<ul>
-<li>A. @Tag</li>
-<li>B. @Operation</li>
-<li>C. @Parameter</li>
-<li>D. @Schema</li>
-<li>E. @ApiModel</li>
-</ul>
-<p><strong>答案</strong>：ABCD
+<section class="question-card" id="14-多选-2"><p><strong>14-多选-2（★）</strong></p><p>下列属于Knife4j（OpenAPI3）注解的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Tag</div></li><li><span class="option-label">B</span><div class="option-content">@Operation</div></li><li><span class="option-label">C</span><div class="option-content">@Parameter</div></li><li><span class="option-label">D</span><div class="option-content">@Schema</div></li><li><span class="option-label">E</span><div class="option-content">@ApiModel</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
 <strong>解析</strong>：@Tag、@Operation、@Parameter、@Schema
 是OpenAPI3注解（Knife4j 4.x使用）。@ApiModel
-是Swagger2旧注解，OpenAPI3中已被@Schema取代。</p>
+是Swagger2旧注解，OpenAPI3中已被@Schema取代。</p></blockquote></section>
 <hr />
-<h3 id="14-多选-3">14-多选-3（★★）</h3>
-<p>GlobalExceptionHandler应该处理的异常类型有？</p>
-<ul>
-<li>A. BusinessException（业务异常）</li>
-<li>B. MethodArgumentNotValidException（参数校验异常）</li>
-<li>C. HttpRequestMethodNotSupportedException（方法不支持）</li>
-<li>D. Exception（兜底异常）</li>
-<li>E. IOException（IO异常，一般不处理）</li>
-</ul>
-<p><strong>答案</strong>：ABCD
-<strong>解析</strong>：全局异常处理器应处理业务异常、参数校验异常、方法不支持异常等，并提供Exception兜底。IOException一般由Spring框架处理，不强制在GlobalExceptionHandler中处理。</p>
+<section class="question-card" id="14-多选-3"><p><strong>14-多选-3（★★）</strong></p><p>GlobalExceptionHandler应该处理的异常类型有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">BusinessException（业务异常）</div></li><li><span class="option-label">B</span><div class="option-content">MethodArgumentNotValidException（参数校验异常）</div></li><li><span class="option-label">C</span><div class="option-content">HttpRequestMethodNotSupportedException（方法不支持）</div></li><li><span class="option-label">D</span><div class="option-content">Exception（兜底异常）</div></li><li><span class="option-label">E</span><div class="option-content">IOException（IO异常，一般不处理）</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
+<strong>解析</strong>：全局异常处理器应处理业务异常、参数校验异常、方法不支持异常等，并提供Exception兜底。IOException一般由Spring框架处理，不强制在GlobalExceptionHandler中处理。</p></blockquote></section>
 <hr />
-<h3 id="14-多选-4">14-多选-4（★★）</h3>
-<p>下列符合RESTful接口设计规范的有？</p>
-<ul>
-<li>A. GET /api/users/1 查询用户</li>
-<li>B. POST /api/users 新增用户</li>
-<li>C. PUT /api/users 更新用户</li>
-<li>D. DELETE /api/users/1 删除用户</li>
-<li>E. POST /api/deleteUser?id=1 删除用户</li>
-</ul>
-<p><strong>答案</strong>：ABCD
-<strong>解析</strong>：RESTful使用HTTP方法表达操作语义：GET查询、POST新增、PUT更新、DELETE删除。URL是资源路径，不应包含动词（如deleteUser）。E选项不符合RESTful。</p>
+<section class="question-card" id="14-多选-4"><p><strong>14-多选-4（★★）</strong></p><p>下列符合RESTful接口设计规范的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">GET /api/users/1 查询用户</div></li><li><span class="option-label">B</span><div class="option-content">POST /api/users 新增用户</div></li><li><span class="option-label">C</span><div class="option-content">PUT /api/users 更新用户</div></li><li><span class="option-label">D</span><div class="option-content">DELETE /api/users/1 删除用户</div></li><li><span class="option-label">E</span><div class="option-content">POST /api/deleteUser?id=1 删除用户</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
+<strong>解析</strong>：RESTful使用HTTP方法表达操作语义：GET查询、POST新增、PUT更新、DELETE删除。URL是资源路径，不应包含动词（如deleteUser）。E选项不符合RESTful。</p></blockquote></section>
 <hr />
-<h3 id="14-多选-5">14-多选-5（★★）</h3>
-<p>统一响应 <code>Result&lt;T&gt;</code> 应包含的字段有？</p>
-<ul>
-<li>A. code（状态码）</li>
-<li>B. message（提示信息）</li>
-<li>C. data（响应数据）</li>
-<li>D. timestamp（时间戳）</li>
-<li>E. stackTrace（异常堆栈）</li>
-</ul>
-<p><strong>答案</strong>：ABCD
-<strong>解析</strong>：统一响应通常包含code、message、data、timestamp。异常堆栈stackTrace不应返回给前端（暴露系统结构，有安全风险），仅在日志中记录。</p>
+<section class="question-card" id="14-多选-5"><p><strong>14-多选-5（★★）</strong></p><p>统一响应 <code>Result&lt;T&gt;</code> 应包含的字段有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">code（状态码）</div></li><li><span class="option-label">B</span><div class="option-content">message（提示信息）</div></li><li><span class="option-label">C</span><div class="option-content">data（响应数据）</div></li><li><span class="option-label">D</span><div class="option-content">timestamp（时间戳）</div></li><li><span class="option-label">E</span><div class="option-content">stackTrace（异常堆栈）</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
+<strong>解析</strong>：统一响应通常包含code、message、data、timestamp。异常堆栈stackTrace不应返回给前端（暴露系统结构，有安全风险），仅在日志中记录。</p></blockquote></section>
 <hr />
-<h3 id="14-多选-6">14-多选-6（★★）</h3>
-<p>关于日志记录规范，下列说法<strong>正确</strong>的有？</p>
-<ul>
-<li>A. 业务异常用log.warn</li>
-<li>B. 系统异常用log.error并打印堆栈</li>
-<li>C. 关键操作用log.info记录上下文</li>
-<li>D. 日志中不打印密码、token等敏感信息</li>
-<li>E. 所有日志都用log.debug</li>
-</ul>
-<p><strong>答案</strong>：ABCD
-<strong>解析</strong>：业务异常warn，系统异常error（含堆栈），关键操作info（含上下文），敏感信息不打日志。全部用debug会导致生产环境无日志，错误。</p>
+<section class="question-card" id="14-多选-6"><p><strong>14-多选-6（★★）</strong></p><p>关于日志记录规范，下列说法<strong>正确</strong>的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">业务异常用log.warn</div></li><li><span class="option-label">B</span><div class="option-content">系统异常用log.error并打印堆栈</div></li><li><span class="option-label">C</span><div class="option-content">关键操作用log.info记录上下文</div></li><li><span class="option-label">D</span><div class="option-content">日志中不打印密码、token等敏感信息</div></li><li><span class="option-label">E</span><div class="option-content">所有日志都用log.debug</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
+<strong>解析</strong>：业务异常warn，系统异常error（含堆栈），关键操作info（含上下文），敏感信息不打日志。全部用debug会导致生产环境无日志，错误。</p></blockquote></section>
 <hr />
-<h3 id="14-多选-7">14-多选-7（★★★）</h3>
-<p>下列注解中，可用于校验字符串长度的有？</p>
-<ul>
-<li>A. @Size</li>
-<li>B. @Length</li>
-<li>C. @MaxLength</li>
-<li>D. @Pattern</li>
-<li>E. @Max</li>
-</ul>
-<p><strong>答案</strong>：AB
+<section class="question-card" id="14-多选-7"><p><strong>14-多选-7（★★★）</strong></p><p>下列注解中，可用于校验字符串长度的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Size</div></li><li><span class="option-label">B</span><div class="option-content">@Length</div></li><li><span class="option-label">C</span><div class="option-content">@MaxLength</div></li><li><span class="option-label">D</span><div class="option-content">@Pattern</div></li><li><span class="option-label">E</span><div class="option-content">@Max</div></li></ul></div><blockquote><p><strong>答案</strong>：AB
 <strong>解析</strong>：<code>@Size</code>（JSR303标准）和
 <code>@Length</code>（Hibernate
 Validator扩展）用于校验字符串长度。<code>@Max</code>
 校验数值最大值，非字符串长度。<code>@Pattern</code>
-是正则匹配，间接限制长度。<code>@MaxLength</code> 非标准注解。</p>
+是正则匹配，间接限制长度。<code>@MaxLength</code> 非标准注解。</p></blockquote></section>
 <hr />
-<h3 id="14-多选-8">14-多选-8（★★★）</h3>
-<p>在Apifox接口自测中，应覆盖的测试场景有？</p>
-<ul>
-<li>A. 正常用例（合法参数，预期成功）</li>
-<li>B. 参数校验用例（非法参数，预期400）</li>
-<li>C. 业务异常用例（如重复注册，预期409）</li>
-<li>D. 边界用例（如长度临界值、数值边界）</li>
-<li>E. 只测正常用例即可</li>
-</ul>
-<p><strong>答案</strong>：ABCD
-<strong>解析</strong>：接口自测应覆盖正常用例、参数校验用例、业务异常用例、边界用例。仅测正常用例无法发现异常处理和边界问题，错误。</p>
+<section class="question-card" id="14-多选-8"><p><strong>14-多选-8（★★★）</strong></p><p>在Apifox接口自测中，应覆盖的测试场景有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正常用例（合法参数，预期成功）</div></li><li><span class="option-label">B</span><div class="option-content">参数校验用例（非法参数，预期400）</div></li><li><span class="option-label">C</span><div class="option-content">业务异常用例（如重复注册，预期409）</div></li><li><span class="option-label">D</span><div class="option-content">边界用例（如长度临界值、数值边界）</div></li><li><span class="option-label">E</span><div class="option-content">只测正常用例即可</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
+<strong>解析</strong>：接口自测应覆盖正常用例、参数校验用例、业务异常用例、边界用例。仅测正常用例无法发现异常处理和边界问题，错误。</p></blockquote></section>
 <hr />
-<h3 id="14-多选-9">14-多选-9（★★★）</h3>
-<p>下列属于 <code>@Operation</code> 注解常用属性的有？</p>
-<ul>
-<li>A. summary（接口摘要）</li>
-<li>B. description（详细描述）</li>
-<li>C. method（HTTP方法）</li>
-<li>D. deprecated（是否废弃）</li>
-<li>E. tags（分组标签）</li>
-</ul>
-<p><strong>答案</strong>：ABDE
-<strong>解析</strong>：@Operation常用属性包括summary、description、deprecated、tags等。HTTP方法通过Spring的@GetMapping/@PostMapping等指定，不在@Operation中配置。</p>
+<section class="question-card" id="14-多选-9"><p><strong>14-多选-9（★★★）</strong></p><p>下列属于 <code>@Operation</code> 注解常用属性的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">summary（接口摘要）</div></li><li><span class="option-label">B</span><div class="option-content">description（详细描述）</div></li><li><span class="option-label">C</span><div class="option-content">method（HTTP方法）</div></li><li><span class="option-label">D</span><div class="option-content">deprecated（是否废弃）</div></li><li><span class="option-label">E</span><div class="option-content">tags（分组标签）</div></li></ul></div><blockquote><p><strong>答案</strong>：ABDE
+<strong>解析</strong>：@Operation常用属性包括summary、description、deprecated、tags等。HTTP方法通过Spring的@GetMapping/@PostMapping等指定，不在@Operation中配置。</p></blockquote></section>
 <hr />
-<h3 id="14-多选-10">14-多选-10（★★★）</h3>
-<p>完善DTO校验注解时，应遵循的原则有？</p>
-<ul>
-<li>A. 字符串非空用@NotBlank而非@NotNull</li>
-<li>B. 数值类型非空用@NotNull</li>
-<li>C. 集合非空用@NotEmpty</li>
-<li>D. ID正数用@Positive</li>
-<li>E. 所有字段都用@NotNull即可</li>
-</ul>
-<p><strong>答案</strong>：ABCD
-<strong>解析</strong>：字符串用@NotBlank（避免空白字符串通过），数值用@NotNull，集合用@NotEmpty，ID用@Positive。全部用@NotNull会导致空字符串/空白字符串通过校验，错误。</p>
+<section class="question-card" id="14-多选-10"><p><strong>14-多选-10（★★★）</strong></p><p>完善DTO校验注解时，应遵循的原则有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">字符串非空用@NotBlank而非@NotNull</div></li><li><span class="option-label">B</span><div class="option-content">数值类型非空用@NotNull</div></li><li><span class="option-label">C</span><div class="option-content">集合非空用@NotEmpty</div></li><li><span class="option-label">D</span><div class="option-content">ID正数用@Positive</div></li><li><span class="option-label">E</span><div class="option-content">所有字段都用@NotNull即可</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
+<strong>解析</strong>：字符串用@NotBlank（避免空白字符串通过），数值用@NotNull，集合用@NotEmpty，ID用@Positive。全部用@NotNull会导致空字符串/空白字符串通过校验，错误。</p></blockquote></section>
 <hr />
 <h2 id="三判断题20题">三、判断题（20题）</h2>
-<h3 id="14-判断-1">14-判断-1（★）</h3>
-<p><code>@NotBlank</code> 注解可以用于校验Integer类型字段。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：B（错误）
+<section class="question-card" id="14-判断-1"><p><strong>14-判断-1（★）</strong></p><p><code>@NotBlank</code> 注解可以用于校验Integer类型字段。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B（错误）
 <strong>解析</strong>：<code>@NotBlank</code>
 仅适用于CharSequence（String等）类型，用于Integer会报错。Integer类型非空用
-<code>@NotNull</code>。</p>
+<code>@NotNull</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-2">14-判断-2（★）</h3>
-<p><code>@Valid</code> 注解用于校验 <code>@RequestBody</code>
+<section class="question-card" id="14-判断-2"><p><strong>14-判断-2（★）</strong></p><p><code>@Valid</code> 注解用于校验 <code>@RequestBody</code>
 参数，<code>@Validated</code> 注解加在类上用于校验
-<code>@RequestParam</code> 参数。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：A（正确）
+<code>@RequestParam</code> 参数。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：A（正确）
 <strong>解析</strong>：<code>@Valid</code> 用于
 <code>@RequestBody</code>
 参数前；<code>@RequestParam</code>/<code>@PathVariable</code>
-参数校验需在Controller类上加 <code>@Validated</code>。</p>
+参数校验需在Controller类上加 <code>@Validated</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-3">14-判断-3（★）</h3>
-<p>Knife4j的 <code>@Tag</code> 注解应该添加在Controller方法上。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：B（错误）
+<section class="question-card" id="14-判断-3"><p><strong>14-判断-3（★）</strong></p><p>Knife4j的 <code>@Tag</code> 注解应该添加在Controller方法上。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B（错误）
 <strong>解析</strong>：<code>@Tag</code>
 添加在Controller类上，用于接口分组。方法上用
-<code>@Operation</code>。</p>
+<code>@Operation</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-4">14-判断-4（★）</h3>
-<p>统一响应 <code>Result&lt;T&gt;</code>
-中，data字段的类型由泛型T决定。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：A（正确）
+<section class="question-card" id="14-判断-4"><p><strong>14-判断-4（★）</strong></p><p>统一响应 <code>Result&lt;T&gt;</code>
+中，data字段的类型由泛型T决定。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：A（正确）
 <strong>解析</strong>：<code>Result&lt;User&gt;</code>
 的data为User类型，<code>Result&lt;List&lt;Task&gt;&gt;</code>
 的data为List<Task>类型，<code>Result&lt;Void&gt;</code>
-的data为null。</p>
+的data为null。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-5">14-判断-5（★）</h3>
-<p>业务异常应该用 <code>log.error</code> 记录。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：B（错误）
+<section class="question-card" id="14-判断-5"><p><strong>14-判断-5（★）</strong></p><p>业务异常应该用 <code>log.error</code> 记录。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B（错误）
 <strong>解析</strong>：业务异常（如"用户名已存在"）是预期内的异常，用
 <code>log.warn</code>
 记录。系统异常（NullPointerException等）才是非预期异常，用
-<code>log.error</code> 记录并打印堆栈。</p>
+<code>log.error</code> 记录并打印堆栈。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-6">14-判断-6（★★）</h3>
-<p><code>@RestControllerAdvice</code> 等价于
-<code>@ControllerAdvice</code> + <code>@ResponseBody</code>。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：A（正确）
+<section class="question-card" id="14-判断-6"><p><strong>14-判断-6（★★）</strong></p><p><code>@RestControllerAdvice</code> 等价于
+<code>@ControllerAdvice</code> + <code>@ResponseBody</code>。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：A（正确）
 <strong>解析</strong>：<code>@RestControllerAdvice</code>
 是组合注解，等价于 <code>@ControllerAdvice</code> +
-<code>@ResponseBody</code>，处理器方法返回的对象直接序列化为JSON响应体。</p>
+<code>@ResponseBody</code>，处理器方法返回的对象直接序列化为JSON响应体。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-7">14-判断-7（★★）</h3>
-<p>在GlobalExceptionHandler中，<code>@ExceptionHandler(Exception.class)</code>
-应该放在最前面，以便捕获所有异常。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：B（错误）
+<section class="question-card" id="14-判断-7"><p><strong>14-判断-7（★★）</strong></p><p>在GlobalExceptionHandler中，<code>@ExceptionHandler(Exception.class)</code>
+应该放在最前面，以便捕获所有异常。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B（错误）
 <strong>解析</strong>：<code>@ExceptionHandler(Exception.class)</code>
-是兜底处理，应放在最后。Spring优先匹配最具体的异常类型，放在前面会拦截所有具体异常，导致具体异常处理器失效。</p>
+是兜底处理，应放在最后。Spring优先匹配最具体的异常类型，放在前面会拦截所有具体异常，导致具体异常处理器失效。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-8">14-判断-8（★★）</h3>
-<p><code>@Size(min=2, max=50)</code>
-可以校验字符串、集合、Map、数组的长度/大小。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：A（正确）
+<section class="question-card" id="14-判断-8"><p><strong>14-判断-8（★★）</strong></p><p><code>@Size(min=2, max=50)</code>
+可以校验字符串、集合、Map、数组的长度/大小。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：A（正确）
 <strong>解析</strong>：<code>@Size</code>
-适用于CharSequence（长度）、Collection（大小）、Map（数量）、Array（长度）。</p>
+适用于CharSequence（长度）、Collection（大小）、Map（数量）、Array（长度）。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-9">14-判断-9（★★）</h3>
-<p><code>@Valid</code> 支持分组校验，<code>@Validated</code>
-不支持。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：B（错误）
-<strong>解析</strong>：相反，<code>@Validated</code>（Spring扩展）支持分组校验，<code>@Valid</code>（JSR303标准）不支持分组校验。</p>
+<section class="question-card" id="14-判断-9"><p><strong>14-判断-9（★★）</strong></p><p><code>@Valid</code> 支持分组校验，<code>@Validated</code>
+不支持。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B（错误）
+<strong>解析</strong>：相反，<code>@Validated</code>（Spring扩展）支持分组校验，<code>@Valid</code>（JSR303标准）不支持分组校验。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-10">14-判断-10（★★）</h3>
-<p>一个Controller方法可以同时有多个 <code>@RequestBody</code> 参数。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：B（错误）
+<section class="question-card" id="14-判断-10"><p><strong>14-判断-10（★★）</strong></p><p>一个Controller方法可以同时有多个 <code>@RequestBody</code> 参数。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B（错误）
 <strong>解析</strong>：请求体只能被读取一次，一个方法最多一个
 <code>@RequestBody</code> 参数。但可以同时使用 <code>@RequestBody</code>
-+ <code>@RequestParam</code> + <code>@PathVariable</code>。</p>
++ <code>@RequestParam</code> + <code>@PathVariable</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-11">14-判断-11（★★）</h3>
-<p><code>@PathVariable</code>
+<section class="question-card" id="14-判断-11"><p><strong>14-判断-11（★★）</strong></p><p><code>@PathVariable</code>
 参数的校验注解（如@NotNull）需要Controller类上加 <code>@Validated</code>
-才生效。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：A（正确）
+才生效。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：A（正确）
 <strong>解析</strong>：<code>@PathVariable</code>/<code>@RequestParam</code>
-参数校验依赖方法级校验，需在类上加 <code>@Validated</code> 启用。</p>
+参数校验依赖方法级校验，需在类上加 <code>@Validated</code> 启用。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-12">14-判断-12（★★）</h3>
-<p>Knife4j文档地址是 <code>/swagger-ui.html</code>。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：B（错误）
+<section class="question-card" id="14-判断-12"><p><strong>14-判断-12（★★）</strong></p><p>Knife4j文档地址是 <code>/swagger-ui.html</code>。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B（错误）
 <strong>解析</strong>：Knife4j文档地址是
 <code>/doc.html</code>。<code>/swagger-ui.html</code> 是原生Swagger
-UI地址。OpenAPI JSON地址是 <code>/v3/api-docs</code>。</p>
+UI地址。OpenAPI JSON地址是 <code>/v3/api-docs</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-13">14-判断-13（★★）</h3>
-<p><code>@Future</code>
-注解校验日期/时间必须在未来（当前时间之后）。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：A（正确）
+<section class="question-card" id="14-判断-13"><p><strong>14-判断-13（★★）</strong></p><p><code>@Future</code>
+注解校验日期/时间必须在未来（当前时间之后）。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：A（正确）
 <strong>解析</strong>：<code>@Future</code>
 校验为未来时间，<code>@Past</code>
-校验为过去时间，<code>@FutureOrPresent</code> 校验为当前或未来。</p>
+校验为过去时间，<code>@FutureOrPresent</code> 校验为当前或未来。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-14">14-判断-14（★★）</h3>
-<p><code>@Email</code> 注解可以校验邮箱格式，无需写正则。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：A（正确）
+<section class="question-card" id="14-判断-14"><p><strong>14-判断-14（★★）</strong></p><p><code>@Email</code> 注解可以校验邮箱格式，无需写正则。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：A（正确）
 <strong>解析</strong>：<code>@Email</code>
 内置邮箱格式正则，直接使用即可。如需更严格的格式，可用
-<code>@Pattern</code> 自定义正则。</p>
+<code>@Pattern</code> 自定义正则。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-15">14-判断-15（★★★）</h3>
-<p>在全局异常处理器中，<code>@ResponseStatus(HttpStatus.BAD_REQUEST)</code>
-的作用是设置HTTP响应状态码为400。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：A（正确）
+<section class="question-card" id="14-判断-15"><p><strong>14-判断-15（★★★）</strong></p><p>在全局异常处理器中，<code>@ResponseStatus(HttpStatus.BAD_REQUEST)</code>
+的作用是设置HTTP响应状态码为400。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：A（正确）
 <strong>解析</strong>：<code>@ResponseStatus(HttpStatus.BAD_REQUEST)</code>
-设置HTTP响应状态码为400，使HTTP层状态码与业务语义（参数错误）一致。</p>
+设置HTTP响应状态码为400，使HTTP层状态码与业务语义（参数错误）一致。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-16">14-判断-16（★★★）</h3>
-<p><code>MethodArgumentNotValidException</code> 在
-<code>@RequestBody</code> + <code>@Valid</code> 校验失败时抛出。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：A（正确）
+<section class="question-card" id="14-判断-16"><p><strong>14-判断-16（★★★）</strong></p><p><code>MethodArgumentNotValidException</code> 在
+<code>@RequestBody</code> + <code>@Valid</code> 校验失败时抛出。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：A（正确）
 <strong>解析</strong>：<code>@RequestBody</code> 参数校验失败抛
 <code>MethodArgumentNotValidException</code>；<code>@RequestParam</code>/<code>@PathVariable</code>
-校验失败抛 <code>ConstraintViolationException</code>。</p>
+校验失败抛 <code>ConstraintViolationException</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-17">14-判断-17（★★★）</h3>
-<p><code>@Schema</code> 注解只能用于DTO类上，不能用于字段。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：B（错误）
+<section class="question-card" id="14-判断-17"><p><strong>14-判断-17（★★★）</strong></p><p><code>@Schema</code> 注解只能用于DTO类上，不能用于字段。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B（错误）
 <strong>解析</strong>：<code>@Schema</code>
 既可用于DTO类（描述整个DTO），也可用于字段（描述单个字段），如
-<code>@Schema(description="用户名", example="zhangsan")</code>。</p>
+<code>@Schema(description="用户名", example="zhangsan")</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-18">14-判断-18（★★★）</h3>
-<p>接口自测时，只需测试正常用例即可，异常用例可以不测。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：B（错误）
-<strong>解析</strong>：接口自测应覆盖正常用例、参数校验用例、业务异常用例、边界用例。仅测正常用例无法验证异常处理逻辑，存在隐患。</p>
+<section class="question-card" id="14-判断-18"><p><strong>14-判断-18（★★★）</strong></p><p>接口自测时，只需测试正常用例即可，异常用例可以不测。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B（错误）
+<strong>解析</strong>：接口自测应覆盖正常用例、参数校验用例、业务异常用例、边界用例。仅测正常用例无法验证异常处理逻辑，存在隐患。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-19">14-判断-19（★★★）</h3>
-<p><code>@Positive</code>
+<section class="question-card" id="14-判断-19"><p><strong>14-判断-19（★★★）</strong></p><p><code>@Positive</code>
 注解校验数字为正数（&gt;0），<code>@PositiveOrZero</code>
-校验为非负（≥0）。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：A（正确）
+校验为非负（≥0）。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：A（正确）
 <strong>解析</strong>：<code>@Positive</code>
 校验&gt;0，<code>@PositiveOrZero</code>
-校验≥0，常用于ID字段确保为正数。</p>
+校验≥0，常用于ID字段确保为正数。</p></blockquote></section>
 <hr />
-<h3 id="14-判断-20">14-判断-20（★★★）</h3>
-<p>日志中可以打印用户密码、token等敏感信息，便于调试。</p>
-<ul>
-<li>A. 正确</li>
-<li>B. 错误</li>
-</ul>
-<p><strong>答案</strong>：B（错误）
-<strong>解析</strong>：日志中不应打印密码、token、身份证号等敏感信息，存在泄露风险。调试时可用脱敏处理或临时打印后删除。</p>
+<section class="question-card" id="14-判断-20"><p><strong>14-判断-20（★★★）</strong></p><p>日志中可以打印用户密码、token等敏感信息，便于调试。</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正确</div></li><li><span class="option-label">B</span><div class="option-content">错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B（错误）
+<strong>解析</strong>：日志中不应打印密码、token、身份证号等敏感信息，存在泄露风险。调试时可用脱敏处理或临时打印后删除。</p></blockquote></section>
 <hr />
 <h2 id="四填空题10题">四、填空题（10题）</h2>
-<h3 id="14-填空-1">14-填空-1（★）</h3>
-<p><code>@NotBlank</code> 注解校验字符串 ______ 且 ______。</p>
-<p><strong>答案</strong>：非null；trim()后长度大于0（非空白）
+<section class="question-card" id="14-填空-1"><p><strong>14-填空-1（★）</strong></p><p><code>@NotBlank</code> 注解校验字符串 ______ 且 ______。</p><blockquote><p><strong>答案</strong>：非null；trim()后长度大于0（非空白）
 <strong>解析</strong>：<code>@NotBlank</code>
 要求字符串非null且去除首尾空格后长度大于0。区别于
 <code>@NotNull</code>（仅非null）和
-<code>@NotEmpty</code>（非null且非空，但" "可通过）。</p>
+<code>@NotEmpty</code>（非null且非空，但" "可通过）。</p></blockquote></section>
 <hr />
-<h3 id="14-填空-2">14-填空-2（★）</h3>
-<p>统一响应类 <code>Result&lt;T&gt;</code>
-通常包含四个字段：code、<strong><strong><strong>、</strong></strong></strong>、timestamp。</p>
-<p><strong>答案</strong>：message；data
-<strong>解析</strong>：统一响应包含code（状态码）、message（提示信息）、data（响应数据）、timestamp（时间戳）。</p>
+<section class="question-card" id="14-填空-2"><p><strong>14-填空-2（★）</strong></p><p>统一响应类 <code>Result&lt;T&gt;</code>
+通常包含四个字段：code、<strong><strong><strong>、</strong></strong></strong>、timestamp。</p><blockquote><p><strong>答案</strong>：message；data
+<strong>解析</strong>：统一响应包含code（状态码）、message（提示信息）、data（响应数据）、timestamp（时间戳）。</p></blockquote></section>
 <hr />
-<h3 id="14-填空-3">14-填空-3（★）</h3>
-<p>Knife4j的文档访问地址是 ______。</p>
-<p><strong>答案</strong>：/doc.html <strong>解析</strong>：Knife4j
+<section class="question-card" id="14-填空-3"><p><strong>14-填空-3（★）</strong></p><p>Knife4j的文档访问地址是 ______。</p><blockquote><p><strong>答案</strong>：/doc.html <strong>解析</strong>：Knife4j
 4.x的HTML文档地址是 <code>/doc.html</code>，OpenAPI JSON地址是
-<code>/v3/api-docs</code>。</p>
+<code>/v3/api-docs</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-填空-4">14-填空-4（★★）</h3>
-<p>在SpringBoot中，<code>@RequestBody</code> 参数校验失败抛出 ______
-异常，<code>@RequestParam</code> 参数校验失败抛出 ______ 异常。</p>
-<p><strong>答案</strong>：MethodArgumentNotValidException；ConstraintViolationException
+<section class="question-card" id="14-填空-4"><p><strong>14-填空-4（★★）</strong></p><p>在SpringBoot中，<code>@RequestBody</code> 参数校验失败抛出 ______
+异常，<code>@RequestParam</code> 参数校验失败抛出 ______ 异常。</p><blockquote><p><strong>答案</strong>：MethodArgumentNotValidException；ConstraintViolationException
 <strong>解析</strong>：<code>@RequestBody</code> + <code>@Valid</code>
 校验失败抛
 <code>MethodArgumentNotValidException</code>；<code>@RequestParam</code>/<code>@PathVariable</code>
 + <code>@Validated</code> 校验失败抛
-<code>ConstraintViolationException</code>。</p>
+<code>ConstraintViolationException</code>。</p></blockquote></section>
 <hr />
-<h3 id="14-填空-5">14-填空-5（★★）</h3>
-<p>全局异常处理器类上需添加 ______ 注解，该注解等价于
-<code>@ControllerAdvice</code> + <code>@ResponseBody</code>。</p>
-<p><strong>答案</strong>：@RestControllerAdvice
+<section class="question-card" id="14-填空-5"><p><strong>14-填空-5（★★）</strong></p><p>全局异常处理器类上需添加 ______ 注解，该注解等价于
+<code>@ControllerAdvice</code> + <code>@ResponseBody</code>。</p><blockquote><p><strong>答案</strong>：@RestControllerAdvice
 <strong>解析</strong>：<code>@RestControllerAdvice</code>
-是组合注解，用于全局异常处理，返回值自动序列化为JSON。</p>
+是组合注解，用于全局异常处理，返回值自动序列化为JSON。</p></blockquote></section>
 <hr />
-<h3 id="14-填空-6">14-填空-6（★★）</h3>
-<p>校验手机号格式"1开头，第二位3-9，共11位数字"的正则表达式是
-______。</p>
-<p><strong>答案</strong>：^1[3-9]\d{9}$（Java字符串中写为
+<section class="question-card" id="14-填空-6"><p><strong>14-填空-6（★★）</strong></p><p>校验手机号格式"1开头，第二位3-9，共11位数字"的正则表达式是
+______。</p><blockquote><p><strong>答案</strong>：^1[3-9]\d{9}$（Java字符串中写为
 ^1[3-9]\d{9}$） <strong>解析</strong>：<code>^1</code>
 以1开头，<code>[3-9]</code> 第二位3-9，<code>\d{9}</code>
-后9位数字，<code>$</code> 结束。</p>
+后9位数字，<code>$</code> 结束。</p></blockquote></section>
 <hr />
-<h3 id="14-填空-7">14-填空-7（★★）</h3>
-<p>在Controller中，业务失败应抛出 ______
-异常，由全局异常处理器统一捕获并转换为 ______。</p>
-<p><strong>答案</strong>：BusinessException；Result
+<section class="question-card" id="14-填空-7"><p><strong>14-填空-7（★★）</strong></p><p>在Controller中，业务失败应抛出 ______
+异常，由全局异常处理器统一捕获并转换为 ______。</p><blockquote><p><strong>答案</strong>：BusinessException；Result
 <strong>解析</strong>：业务失败抛 <code>BusinessException</code>，由
 <code>GlobalExceptionHandler</code> 捕获后转换为 <code>Result</code>
-返回前端。</p>
+返回前端。</p></blockquote></section>
 <hr />
-<h3 id="14-填空-8">14-填空-8（★★★）</h3>
-<p><code>@ExceptionHandler(Exception.class)</code> 作为 ______
-异常处理器，应放在所有具体异常处理器之 ______。</p>
-<p><strong>答案</strong>：兜底；后（最后）
+<section class="question-card" id="14-填空-8"><p><strong>14-填空-8（★★★）</strong></p><p><code>@ExceptionHandler(Exception.class)</code> 作为 ______
+异常处理器，应放在所有具体异常处理器之 ______。</p><blockquote><p><strong>答案</strong>：兜底；后（最后）
 <strong>解析</strong>：<code>@ExceptionHandler(Exception.class)</code>
-捕获所有Exception子类，作为兜底。Spring优先匹配具体异常，兜底处理器应放在最后，避免提前拦截具体异常。</p>
+捕获所有Exception子类，作为兜底。Spring优先匹配具体异常，兜底处理器应放在最后，避免提前拦截具体异常。</p></blockquote></section>
 <hr />
-<h3 id="14-填空-9">14-填空-9（★★★）</h3>
-<p>OpenAPI3中，用于描述DTO字段说明的注解是
-______，用于描述接口摘要的注解是 ______。</p>
-<p><strong>答案</strong>：@Schema；@Operation
+<section class="question-card" id="14-填空-9"><p><strong>14-填空-9（★★★）</strong></p><p>OpenAPI3中，用于描述DTO字段说明的注解是
+______，用于描述接口摘要的注解是 ______。</p><blockquote><p><strong>答案</strong>：@Schema；@Operation
 <strong>解析</strong>：<code>@Schema(description="说明", example="示例")</code>
 描述DTO字段；<code>@Operation(summary="摘要", description="描述")</code>
-描述接口。</p>
+描述接口。</p></blockquote></section>
 <hr />
-<h3 id="14-填空-10">14-填空-10（★★★）</h3>
-<p>日志级别从低到高为
-TRACE、<strong><strong><strong>、</strong></strong></strong>、WARN、ERROR。</p>
-<p><strong>答案</strong>：DEBUG；INFO
+<section class="question-card" id="14-填空-10"><p><strong>14-填空-10（★★★）</strong></p><p>日志级别从低到高为
+TRACE、<strong><strong><strong>、</strong></strong></strong>、WARN、ERROR。</p><blockquote><p><strong>答案</strong>：DEBUG；INFO
 <strong>解析</strong>：日志级别从低到高为 TRACE &lt; DEBUG &lt; INFO
-&lt; WARN &lt; ERROR &lt; FATAL。配置INFO级别时，DEBUG及以下不输出。</p>
+&lt; WARN &lt; ERROR &lt; FATAL。配置INFO级别时，DEBUG及以下不输出。</p></blockquote></section>
 <hr />
 <h2 id="五简答论述题4题">五、简答/论述题（4题）</h2>
-<h3 id="14-简答-1">14-简答-1（★★）</h3>
-<p><strong>题目</strong>：请说明 <code>@Valid</code> 和
-<code>@Validated</code> 的区别，并举例说明各自的使用场景。</p>
-<p><strong>答案要点</strong>：</p>
-<ol type="1">
+<section class="question-card" id="14-简答-1"><p><strong>14-简答-1（★★）</strong></p><p><strong>题目</strong>：请说明 <code>@Valid</code> 和
+<code>@Validated</code> 的区别，并举例说明各自的使用场景。</p><p><strong>答案要点</strong>：</p><ol type="1">
 <li><strong>来源不同</strong>：<code>@Valid</code>
 是JSR303标准注解（jakarta.validation.Valid）；<code>@Validated</code>
 是Spring扩展注解（org.springframework.validation.annotation.Validated）。</li>
@@ -1025,18 +550,14 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span>User<span class="op">&gt;</span> <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="at">@NotNull</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></li>
-</ol>
-<p><strong>评分标准</strong>（满分10分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（满分10分）：</p><ul>
 <li>来源区别（2分）</li>
 <li>分组校验区别（3分）</li>
 <li>使用位置区别（3分）</li>
 <li>代码示例（2分）</li>
-</ul>
+</ul></section>
 <hr />
-<h3 id="14-简答-2">14-简答-2（★★）</h3>
-<p><strong>题目</strong>：请列举GlobalExceptionHandler应处理的至少6类异常，并说明每类异常的触发场景和返回的HTTP状态码。</p>
-<p><strong>答案要点</strong>： | 异常类型 | 触发场景 | HTTP状态码 | |
+<section class="question-card" id="14-简答-2"><p><strong>14-简答-2（★★）</strong></p><p><strong>题目</strong>：请列举GlobalExceptionHandler应处理的至少6类异常，并说明每类异常的触发场景和返回的HTTP状态码。</p><p><strong>答案要点</strong>： | 异常类型 | 触发场景 | HTTP状态码 | |
 --- | --- | --- | | BusinessException |
 业务逻辑校验失败（如用户名已存在） | 200（业务码409）或409 | |
 MethodArgumentNotValidException | @RequestBody + @Valid 校验失败 | 400 |
@@ -1047,20 +568,15 @@ MethodArgumentTypeMismatchException | 参数类型不匹配 | 400 | |
 HttpMessageNotReadableException | 请求体JSON格式错误 | 400 | |
 HttpRequestMethodNotSupportedException | 请求方法不支持 | 405 | |
 NullPointerException | 空指针异常 | 500 | | Exception |
-兜底，其他未捕获异常 | 500 |</p>
-<p><strong>评分标准</strong>（满分10分）：</p>
-<ul>
+兜底，其他未捕获异常 | 500 |</p><p><strong>评分标准</strong>（满分10分）：</p><ul>
 <li>列举至少6类异常（6分，每类1分）</li>
 <li>触发场景说明（2分）</li>
 <li>HTTP状态码正确（2分）</li>
-</ul>
+</ul></section>
 <hr />
-<h3 id="14-简答-3">14-简答-3（★★★）</h3>
-<p><strong>题目</strong>：结合CTTS项目，论述统一响应格式
+<section class="question-card" id="14-简答-3"><p><strong>14-简答-3（★★★）</strong></p><p><strong>题目</strong>：结合CTTS项目，论述统一响应格式
 <code>Result&lt;T&gt;</code>
-的设计意义，并说明如何配合全局异常处理器实现"Controller只关心成功流程"。</p>
-<p><strong>答案要点</strong>：</p>
-<ol type="1">
+的设计意义，并说明如何配合全局异常处理器实现"Controller只关心成功流程"。</p><p><strong>答案要点</strong>：</p><ol type="1">
 <li><p><strong>Result<T>的设计意义</strong>：</p>
 <ul>
 <li><strong>统一响应结构</strong>：所有接口返回
@@ -1103,19 +619,14 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span>user<span class="op">);</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></li>
-</ol>
-<p><strong>评分标准</strong>（满分15分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（满分15分）：</p><ul>
 <li>Result<T>设计意义（5分，至少3点）</li>
 <li>Controller只关心成功流程的实现思路（5分）</li>
 <li>异常处理器配合说明（3分）</li>
 <li>代码示例（2分）</li>
-</ul>
+</ul></section>
 <hr />
-<h3 id="14-简答-4">14-简答-4（★★★）</h3>
-<p><strong>题目</strong>：接口自测是保证接口质量的重要环节。请结合CTTS项目，论述接口自测应覆盖的测试场景类型，并举例说明每类场景至少2个测试用例。</p>
-<p><strong>答案要点</strong>： 接口自测应覆盖以下4类场景：</p>
-<ol type="1">
+<section class="question-card" id="14-简答-4"><p><strong>14-简答-4（★★★）</strong></p><p><strong>题目</strong>：接口自测是保证接口质量的重要环节。请结合CTTS项目，论述接口自测应覆盖的测试场景类型，并举例说明每类场景至少2个测试用例。</p><p><strong>答案要点</strong>： 接口自测应覆盖以下4类场景：</p><ol type="1">
 <li><p><strong>正常用例</strong>（合法参数，预期成功）：</p>
 <ul>
 <li>POST /api/users/register：合法注册参数，预期code=200</li>
@@ -1141,20 +652,15 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <li>发送非法JSON：预期"请求体格式错误"</li>
 <li>使用不支持的HTTP方法：预期"请求方法不支持"</li>
 </ul></li>
-</ol>
-<p><strong>意义</strong>：完整覆盖4类场景，确保接口健壮性，减少线上bug。</p>
-<p><strong>评分标准</strong>（满分15分）：</p>
-<ul>
+</ol><p><strong>意义</strong>：完整覆盖4类场景，确保接口健壮性，减少线上bug。</p><p><strong>评分标准</strong>（满分15分）：</p><ul>
 <li>场景类型列举（5分，至少4类）</li>
 <li>每类场景至少2个用例（6分）</li>
 <li>用例合理性（2分）</li>
 <li>意义论述（2分）</li>
-</ul>
+</ul></section>
 <hr />
 <h2 id="六程序阅读补全题2题">六、程序阅读/补全题（2题）</h2>
-<h3 id="14-程序阅读-1">14-程序阅读-1（★★★）</h3>
-<p><strong>题目</strong>：阅读以下GlobalExceptionHandler代码，回答问题。</p>
-<div class="sourceCode" id="cb3"><pre
+<section class="question-card" id="14-程序阅读-1"><p><strong>14-程序阅读-1（★★★）</strong></p><p><strong>题目</strong>：阅读以下GlobalExceptionHandler代码，回答问题。</p><div class="sourceCode" id="cb3"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RestControllerAdvice</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GlobalExceptionHandler <span class="op">{</span></span>
@@ -1181,28 +687,20 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">________________</span><span class="op">(</span><span class="st">&quot;系统异常：&quot;</span><span class="op">,</span> e<span class="op">);</span>  <span class="co">// 填空④：记录错误日志并打印堆栈</span></span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">error</span><span class="op">(</span>ResultCode<span class="op">.</span><span class="fu">SYSTEM_ERROR</span><span class="op">);</span></span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>问题</strong>：填写4个空缺处代码，并说明兜底异常处理器为什么放在最后。</p>
-<p><strong>答案</strong>：</p>
-<ul>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>问题</strong>：填写4个空缺处代码，并说明兜底异常处理器为什么放在最后。</p><blockquote><p><strong>答案</strong>：</p><ul>
 <li>填空①：<code>MethodArgumentNotValidException e</code></li>
 <li>填空②：<code>FieldError::getDefaultMessage</code></li>
 <li>填空③：<code>INTERNAL_SERVER_ERROR</code></li>
 <li>填空④：<code>error</code></li>
-</ul>
-<p><strong>兜底异常处理器放在最后的原因</strong>： Spring的
+</ul><p><strong>兜底异常处理器放在最后的原因</strong>： Spring的
 <code>@ExceptionHandler</code>
 匹配规则是优先匹配最具体的异常类型。<code>Exception.class</code>
-是所有异常的父类，如果放在前面，会拦截所有具体异常（如BusinessException、MethodArgumentNotValidException），导致具体异常处理器失效。放在最后，确保具体异常优先被对应处理器捕获，只有未匹配的异常才由兜底处理器处理。</p>
-<p><strong>评分标准</strong>（满分15分）：</p>
-<ul>
+是所有异常的父类，如果放在前面，会拦截所有具体异常（如BusinessException、MethodArgumentNotValidException），导致具体异常处理器失效。放在最后，确保具体异常优先被对应处理器捕获，只有未匹配的异常才由兜底处理器处理。</p><p><strong>评分标准</strong>（满分15分）：</p><ul>
 <li>填空①②③④各3分（12分）</li>
 <li>兜底放最后的原因说明（3分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="14-程序阅读-2">14-程序阅读-2（★★★）</h3>
-<p><strong>题目</strong>：阅读以下UserController代码，找出其中<strong>不符合规范</strong>的5处问题，并给出修改建议。</p>
-<div class="sourceCode" id="cb4"><pre
+<section class="question-card" id="14-程序阅读-2"><p><strong>14-程序阅读-2（★★★）</strong></p><p><strong>题目</strong>：阅读以下UserController代码，找出其中<strong>不符合规范</strong>的5处问题，并给出修改建议。</p><div class="sourceCode" id="cb4"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/api/users&quot;</span><span class="op">)</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">@RequiredArgsConstructor</span></span>
@@ -1231,9 +729,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        userService<span class="op">.</span><span class="fu">removeById</span><span class="op">(</span>id<span class="op">);</span></span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;删除成功&quot;</span><span class="op">;</span></span>
 <span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>答案</strong>：5处不符合规范的问题及修改建议：</p>
-<ol type="1">
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><blockquote><p><strong>答案</strong>：5处不符合规范的问题及修改建议：</p><ol type="1">
 <li><p><strong>返回类型不规范</strong>：<code>register</code> 返回
 <code>Map&lt;String, Object&gt;</code>，应改为
 <code>Result&lt;Void&gt;</code>。</p>
@@ -1274,30 +770,21 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="
 <code>@Slf4j</code>。</p></li>
 <li><p><strong>缺少@Validated</strong>：@PathVariable参数校验需类上加
 <code>@Validated</code>。</p></li>
-</ol>
-<p>（答出任意5点即满分）</p>
-<p><strong>评分标准</strong>（满分15分）：</p>
-<ul>
+</ol><p>（答出任意5点即满分）</p><p><strong>评分标准</strong>（满分15分）：</p><ul>
 <li>每处问题及修改建议3分（15分，答出5处即满分）</li>
 <li>多答不扣分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="七编程接口设计题2题">七、编程/接口设计题（2题）</h2>
-<h3 id="14-编程-1">14-编程-1（★★★）</h3>
-<p><strong>题目</strong>：为CTTS系统的TaskController设计并实现"新增任务"接口，要求：</p>
-<ol type="1">
+<section class="question-card" id="14-编程-1"><p><strong>14-编程-1（★★★）</strong></p><p><strong>题目</strong>：为CTTS系统的TaskController设计并实现"新增任务"接口，要求：</p><ol type="1">
 <li>RESTful风格，URL为 <code>POST /api/tasks</code></li>
 <li>使用TaskDTO接收参数，添加完整校验注解（title非空2-50字符，projectId非空正数，assigneeId非空正数，priority非空1-4，deadline非空未来时间，description最长500字符）</li>
 <li>返回 <code>Result&lt;Void&gt;</code></li>
 <li>添加Knife4j文档注解（@Tag/@Operation/@Parameter）</li>
 <li>添加日志记录（请求和成功）</li>
 <li>业务失败抛BusinessException</li>
-</ol>
-<p><strong>请写出</strong>： （1）TaskDTO完整代码
-（2）TaskController的add方法完整代码</p>
-<p><strong>答案</strong>：</p>
-<p><strong>（1）TaskDTO完整代码</strong>：</p>
-<div class="sourceCode" id="cb8"><pre
+</ol><p><strong>请写出</strong>： （1）TaskDTO完整代码
+（2）TaskController的add方法完整代码</p><blockquote><p><strong>答案</strong>：</p><p><strong>（1）TaskDTO完整代码</strong>：</p><div class="sourceCode" id="cb8"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">io</span><span class="op">.</span><span class="im">swagger</span><span class="op">.</span><span class="im">v3</span><span class="op">.</span><span class="im">oas</span><span class="op">.</span><span class="im">annotations</span><span class="op">.</span><span class="im">media</span><span class="op">.</span><span class="im">Schema</span><span class="op">;</span></span>
@@ -1338,9 +825,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="
 <span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotNull</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;截止时间不能为空&quot;</span><span class="op">)</span></span>
 <span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Future</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;截止时间必须是未来时间&quot;</span><span class="op">)</span></span>
 <span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime deadline<span class="op">;</span></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>（2）TaskController的add方法完整代码</strong>：</p>
-<div class="sourceCode" id="cb9"><pre
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>（2）TaskController的add方法完整代码</strong>：</p><div class="sourceCode" id="cb9"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Validated</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
@@ -1367,9 +852,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">&quot;新增任务成功：title={}&quot;</span><span class="op">,</span> dto<span class="op">.</span><span class="fu">getTitle</span><span class="op">());</span></span>
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">();</span></span>
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>评分标准</strong>（满分20分）：</p>
-<ul>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>评分标准</strong>（满分20分）：</p><ul>
 <li>TaskDTO校验注解完整正确（8分）：title
 @NotBlank+@Size（2分）、projectId
 @NotNull+@Positive（1.5分）、assigneeId
@@ -1380,11 +863,9 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="
 <li>Controller类注解（@Slf4j/@Validated/@Tag）（3分）</li>
 <li>add方法（7分）：@PostMapping/@Operation（2分）、@Valid
 @RequestBody（1分）、日志记录（2分）、返回Result.success()（1分）、异常处理（1分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="14-编程-2">14-编程-2（★★★）</h3>
-<p><strong>题目</strong>：为CTTS系统的UserController设计并实现"根据ID查询用户详情"接口，要求：</p>
-<ol type="1">
+<section class="question-card" id="14-编程-2"><p><strong>14-编程-2（★★★）</strong></p><p><strong>题目</strong>：为CTTS系统的UserController设计并实现"根据ID查询用户详情"接口，要求：</p><ol type="1">
 <li>RESTful风格，URL为 <code>GET /api/users/{id}</code></li>
 <li>@PathVariable校验id非空</li>
 <li>用户不存在时抛BusinessException（ResultCode.NOT_FOUND）</li>
@@ -1392,13 +873,9 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="
 <li>添加Knife4j文档注解</li>
 <li>添加日志记录（请求、不存在、成功）</li>
 <li>同时写出GlobalExceptionHandler中处理BusinessException的方法</li>
-</ol>
-<p><strong>请写出</strong>：
+</ol><p><strong>请写出</strong>：
 （1）UserController的getById方法完整代码（含类注解）
-（2）GlobalExceptionHandler中处理BusinessException的方法</p>
-<p><strong>答案</strong>：</p>
-<p><strong>（1）UserController的getById方法</strong>：</p>
-<div class="sourceCode" id="cb10"><pre
+（2）GlobalExceptionHandler中处理BusinessException的方法</p><blockquote><p><strong>答案</strong>：</p><p><strong>（1）UserController的getById方法</strong>：</p><div class="sourceCode" id="cb10"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Validated</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
@@ -1423,9 +900,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href=
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">info</span><span class="op">(</span><span class="st">&quot;查询用户详情成功：id={}&quot;</span><span class="op">,</span> id<span class="op">);</span></span>
 <span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span>user<span class="op">);</span></span>
 <span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>（2）GlobalExceptionHandler中处理BusinessException的方法</strong>：</p>
-<div class="sourceCode" id="cb11"><pre
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>（2）GlobalExceptionHandler中处理BusinessException的方法</strong>：</p><div class="sourceCode" id="cb11"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RestControllerAdvice</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GlobalExceptionHandler <span class="op">{</span></span>
@@ -1435,9 +910,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href=
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">warn</span><span class="op">(</span><span class="st">&quot;业务异常：code={}, message={}&quot;</span><span class="op">,</span> e<span class="op">.</span><span class="fu">getCode</span><span class="op">(),</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">error</span><span class="op">(</span>e<span class="op">.</span><span class="fu">getCode</span><span class="op">(),</span> e<span class="op">.</span><span class="fu">getMessage</span><span class="op">());</span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>说明</strong>：</p>
-<ul>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>说明</strong>：</p><ul>
 <li><code>@ExceptionHandler(BusinessException.class)</code>
 捕获业务异常</li>
 <li>用 <code>log.warn</code> 记录（业务异常是预期内的，非系统错误）</li>
@@ -1445,9 +918,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href=
 <code>Result.error(e.getCode(), e.getMessage())</code>，使用异常中携带的code和message</li>
 <li>不加
 <code>@ResponseStatus</code>，HTTP状态码默认200，业务状态码通过Result.code传递（这是常见做法；也可设置为HttpStatus.OK）</li>
-</ul>
-<p><strong>评分标准</strong>（满分20分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（满分20分）：</p><ul>
 <li>Controller类注解（@Slf4j/@Validated/@RestController/@RequestMapping/@RequiredArgsConstructor/@Tag）（3分）</li>
 <li>@GetMapping + @Operation + @Parameter（3分）</li>
 <li>@PathVariable + @NotNull校验（2分）</li>
@@ -1456,7 +927,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href=
 <li>返回Result.success(user)（2分）</li>
 <li>GlobalExceptionHandler的@ExceptionHandler方法（3分）：注解正确（1分）、log.warn（1分）、返回Result.error（1分）</li>
 <li>代码规范（缩进、命名）（2分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="附题库统计表">附：题库统计表</h2>
 <table>

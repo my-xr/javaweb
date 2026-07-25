@@ -150,120 +150,70 @@
 </blockquote>
 <hr />
 <h2 id="一单选题30-题">一、单选题（30 题）</h2>
-<h3 id="13-单选-01-">13-单选-01 ★</h3>
-<p>关于 <code>@Valid</code> 和
-<code>@Validated</code>，下列说法<strong>正确</strong>的是？ A.
-两者完全等价，可以互换使用 B. <code>@Valid</code> 是 Spring
-提供的注解，<code>@Validated</code> 是 JSR 380 标准注解 C.
-<code>@Validated</code> 支持分组校验，<code>@Valid</code> 不支持 D.
-<code>@Valid</code> 可以用在 <code>@RequestParam</code>
-上触发校验，<code>@Validated</code> 不能</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：<code>@Valid</code>
+<section class="question-card" id="13-单选-01-"><p><strong>13-单选-01 ★</strong></p><p>关于 <code>@Valid</code> 和 <code>@Validated</code>，下列说法<strong>正确</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">两者完全等价，可以互换使用</div></li><li><span class="option-label">B</span><div class="option-content"><code>@Valid</code> 是 Spring 提供的注解，<code>@Validated</code> 是 JSR 380 标准注解</div></li><li><span class="option-label">C</span><div class="option-content"><code>@Validated</code> 支持分组校验，<code>@Valid</code> 不支持</div></li><li><span class="option-label">D</span><div class="option-content"><code>@Valid</code> 可以用在 <code>@RequestParam</code> 上触发校验，<code>@Validated</code> 不能</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：<code>@Valid</code>
 是 JSR 380 标准注解，不支持分组校验；<code>@Validated</code> 是 Spring
 扩展注解，支持分组校验。两者都可用于 <code>@RequestBody</code>
 体校验，但 <code>@RequestParam</code> / <code>@PathVariable</code>
 校验需要在类上加 <code>@Validated</code>。A 错误，两者不等价；B
 错误，来源说反了；D 错误，<code>@Validated</code> 才是用于类级触发 Param
-校验。</p>
+校验。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-02-">13-单选-02 ★</h3>
-<p>在 Spring Boot 3.x 中，使用 Bean Validation 校验需要引入的依赖是？ A.
-spring-boot-starter-web B. spring-boot-starter-validation C.
-hibernate-validator D. javax.validation-api</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：Spring Boot 2.3
+<section class="question-card" id="13-单选-02-"><p><strong>13-单选-02 ★</strong></p><p>在 Spring Boot 3.x 中，使用 Bean Validation 校验需要引入的依赖是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">spring-boot-starter-web</div></li><li><span class="option-label">B</span><div class="option-content">spring-boot-starter-validation</div></li><li><span class="option-label">C</span><div class="option-content">hibernate-validator</div></li><li><span class="option-label">D</span><div class="option-content">javax.validation-api</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：Spring Boot 2.3
 之后，<code>spring-boot-starter-web</code>
 不再自动包含校验依赖，需要单独引入
 <code>spring-boot-starter-validation</code>，它内部已经包含
 hibernate-validator 和 jakarta.validation-api。Spring Boot 3.x 使用
-Jakarta EE 命名空间（jakarta.validation.<em>），不是 javax.</em>。</p>
+Jakarta EE 命名空间（jakarta.validation.<em>），不是 javax.</em>。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-03-">13-单选-03 ★</h3>
-<p>下列注解中，<strong>只能</strong>用于 <code>String</code> 类型的是？
-A. <code>@NotNull</code> B. <code>@NotEmpty</code> C.
-<code>@NotBlank</code> D. <code>@Size</code></p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="13-单选-03-"><p><strong>13-单选-03 ★</strong></p><p>下列注解中，<strong>只能</strong>用于 <code>String</code> 类型的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@NotNull</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@NotEmpty</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@NotBlank</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Size</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>@NotBlank</code> 只能用于
 <code>String</code> 类型，校验非 null
 且去空格后非空。<code>@NotNull</code>
 可用于任意类型；<code>@NotEmpty</code> 可用于 String / Collection / Map
 / Array；<code>@Size</code> 可用于 String / Collection / Map /
-Array。</p>
+Array。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-04-">13-单选-04 ★</h3>
-<p><code>@NotEmpty</code> 注解可以用于下列哪种类型？ A.
-<code>Integer</code> B. <code>Long</code> C.
-<code>List&lt;String&gt;</code> D. <code>LocalDate</code></p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="13-单选-04-"><p><strong>13-单选-04 ★</strong></p><p><code>@NotEmpty</code> 注解可以用于下列哪种类型？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>Integer</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>Long</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>List&lt;String&gt;</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>LocalDate</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>@NotEmpty</code> 用于 String / Collection /
 Map / Array，校验非 null 且长度/大小 &gt; 0。<code>Integer</code> 和
 <code>Long</code> 是数字类型，用 <code>@NotNull</code> /
 <code>@Min</code> / <code>@Max</code>；<code>LocalDate</code> 用
-<code>@NotNull</code> / <code>@Past</code> / <code>@Future</code>。</p>
+<code>@NotNull</code> / <code>@Past</code> / <code>@Future</code>。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-05-">13-单选-05 ★</h3>
-<p>校验"项目名称长度在 2-50 之间"，应使用哪个注解？ A.
-<code>@Min(2)</code> + <code>@Max(50)</code> B.
-<code>@Size(min = 2, max = 50)</code> C.
-<code>@Length(min = 2, max = 50)</code> D.
-<code>@Range(min = 2, max = 50)</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：字符串长度校验用
+<section class="question-card" id="13-单选-05-"><p><strong>13-单选-05 ★</strong></p><p>校验"项目名称长度在 2-50 之间"，应使用哪个注解？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Min(2)</code> + <code>@Max(50)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Size(min = 2, max = 50)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Length(min = 2, max = 50)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Range(min = 2, max = 50)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：字符串长度校验用
 <code>@Size(min, max)</code>。<code>@Min</code> / <code>@Max</code>
 用于数值；<code>@Length</code> 是 Hibernate Validator
 扩展，非标准；<code>@Range</code> 也是 Hibernate
-扩展且用于数值。标准注解优先选 <code>@Size</code>。</p>
+扩展且用于数值。标准注解优先选 <code>@Size</code>。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-06-">13-单选-06 ★</h3>
-<p>校验"年龄必须大于 0"，应使用哪个注解？ A. <code>@NotBlank</code> B.
-<code>@Size(min = 1)</code> C. <code>@Min(1)</code> D.
-<code>@NotEmpty</code></p>
-<p><strong>答案</strong>：C <strong>解析</strong>：年龄是数值类型，用
+<section class="question-card" id="13-单选-06-"><p><strong>13-单选-06 ★</strong></p><p>校验"年龄必须大于 0"，应使用哪个注解？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@NotBlank</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Size(min = 1)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Min(1)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@NotEmpty</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：年龄是数值类型，用
 <code>@Min(1)</code> 校验最小值为 1。<code>@NotBlank</code> 用于
 String；<code>@Size</code> 用于字符串/集合长度；<code>@NotEmpty</code>
-用于集合/字符串非空。</p>
+用于集合/字符串非空。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-07-">13-单选-07 ★</h3>
-<p>校验"手机号格式正确"，应使用哪个注解？ A. <code>@Email</code> B.
-<code>@Pattern(regexp = "...")</code> C. <code>@Size</code> D.
-<code>@NotBlank</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="13-单选-07-"><p><strong>13-单选-07 ★</strong></p><p>校验"手机号格式正确"，应使用哪个注解？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Email</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Pattern(regexp = "...")</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Size</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@NotBlank</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：手机号需要正则匹配，用
 <code>@Pattern(regexp = "^1[3-9]\\d{9}$")</code>。<code>@Email</code>
 只校验邮箱；<code>@Size</code> 只校验长度；<code>@NotBlank</code>
 只校验非空。<code>@Pattern</code>
-内部用正则表达式，可自定义任意格式。</p>
+内部用正则表达式，可自定义任意格式。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-08-">13-单选-08 ★</h3>
-<p>校验"截止日期必须晚于今天"，应使用哪个注解？ A. <code>@Past</code> B.
-<code>@PastOrPresent</code> C. <code>@Future</code> D.
-<code>@FutureOrPresent</code></p>
-<p><strong>答案</strong>：C <strong>解析</strong>：<code>@Future</code>
+<section class="question-card" id="13-单选-08-"><p><strong>13-单选-08 ★</strong></p><p>校验"截止日期必须晚于今天"，应使用哪个注解？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Past</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@PastOrPresent</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Future</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@FutureOrPresent</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：<code>@Future</code>
 校验日期必须是未来的。<code>@Past</code>
 校验过去的日期；<code>@PastOrPresent</code>
 校验过去或现在；<code>@FutureOrPresent</code>
 校验未来或现在。题目要求"晚于今天"，即严格未来，用
-<code>@Future</code>。</p>
+<code>@Future</code>。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-09-">13-单选-09 ★★</h3>
-<p>关于 <code>@Valid</code>
-嵌套校验，下列说法<strong>正确</strong>的是？ A. 在 DTO 类上加
-<code>@Valid</code> 即可触发嵌套校验 B. 在 DTO 的字段上加
-<code>@Valid</code> 即可触发嵌套校验 C. 嵌套校验需要配合
-<code>@Validated</code> 使用 D. 嵌套校验只能有一层</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：嵌套校验是在 DTO
+<section class="question-card" id="13-单选-09-"><p><strong>13-单选-09 ★★</strong></p><p>关于 <code>@Valid</code> 嵌套校验，下列说法<strong>正确</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">在 DTO 类上加 <code>@Valid</code> 即可触发嵌套校验</div></li><li><span class="option-label">B</span><div class="option-content">在 DTO 的字段上加 <code>@Valid</code> 即可触发嵌套校验</div></li><li><span class="option-label">C</span><div class="option-content">嵌套校验需要配合 <code>@Validated</code> 使用</div></li><li><span class="option-label">D</span><div class="option-content">嵌套校验只能有一层</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：嵌套校验是在 DTO
 的字段上标注
 <code>@Valid</code>，表示对该字段对象内部的注解也进行校验。例如
 <code>ProjectDTO</code> 中有
 <code>private List&lt;@Valid TaskDTO&gt; tasks;</code>，会级联校验每个
 <code>TaskDTO</code> 的字段。A 错误，类上加 <code>@Valid</code> 无效；C
-错误，嵌套校验用 <code>@Valid</code> 即可；D 错误，可多层嵌套。</p>
+错误，嵌套校验用 <code>@Valid</code> 即可；D 错误，可多层嵌套。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-10-">13-单选-10 ★★</h3>
-<p><code>@RequestBody</code> 体校验失败时，抛出的异常类型是？ A.
-<code>ConstraintViolationException</code> B.
-<code>MethodArgumentNotValidException</code> C.
-<code>BindException</code> D.
-<code>MethodArgumentTypeMismatchException</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="13-单选-10-"><p><strong>13-单选-10 ★★</strong></p><p><code>@RequestBody</code> 体校验失败时，抛出的异常类型是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>ConstraintViolationException</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>MethodArgumentNotValidException</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>BindException</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>MethodArgumentTypeMismatchException</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@RequestBody</code> + <code>@Valid</code>
 校验失败抛
 <code>MethodArgumentNotValidException</code>。<code>ConstraintViolationException</code>
@@ -271,624 +221,391 @@ String；<code>@Size</code> 用于字符串/集合长度；<code>@NotEmpty</code
 校验失败（类上加
 <code>@Validated</code>）抛出的；<code>BindException</code>
 是表单提交校验失败抛出的；<code>MethodArgumentTypeMismatchException</code>
-是参数类型不匹配抛出的。</p>
+是参数类型不匹配抛出的。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-11-">13-单选-11 ★★</h3>
-<p><code>@RequestParam</code> 校验失败时，抛出的异常类型是？ A.
-<code>ConstraintViolationException</code> B.
-<code>MethodArgumentNotValidException</code> C.
-<code>BindException</code> D.
-<code>MissingServletRequestParameterException</code></p>
-<p><strong>答案</strong>：A <strong>解析</strong>：Controller 类上加
+<section class="question-card" id="13-单选-11-"><p><strong>13-单选-11 ★★</strong></p><p><code>@RequestParam</code> 校验失败时，抛出的异常类型是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>ConstraintViolationException</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>MethodArgumentNotValidException</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>BindException</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>MissingServletRequestParameterException</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：Controller 类上加
 <code>@Validated</code>，方法参数上加 <code>@Min</code>
 等注解，校验失败抛 <code>ConstraintViolationException</code>。B 是 Body
-校验失败；C 是表单校验失败；D 是缺少必填参数（不是校验失败）。</p>
+校验失败；C 是表单校验失败；D 是缺少必填参数（不是校验失败）。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-12-">13-单选-12 ★</h3>
-<p><code>@RestControllerAdvice</code> 注解等价于？ A.
-<code>@ControllerAdvice</code> + <code>@RequestMapping</code> B.
-<code>@ControllerAdvice</code> + <code>@ResponseBody</code> C.
-<code>@Component</code> + <code>@ExceptionHandler</code> D.
-<code>@Service</code> + <code>@Controller</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="13-单选-12-"><p><strong>13-单选-12 ★</strong></p><p><code>@RestControllerAdvice</code> 注解等价于？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@ControllerAdvice</code> + <code>@RequestMapping</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@ControllerAdvice</code> + <code>@ResponseBody</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Component</code> + <code>@ExceptionHandler</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Service</code> + <code>@Controller</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@RestControllerAdvice</code>
 是组合注解，等于 <code>@ControllerAdvice</code> +
 <code>@ResponseBody</code>，表示全局异常处理类的返回值自动序列化为
 JSON。A 错误，不是 <code>@RequestMapping</code>；C
 错误，<code>@ExceptionHandler</code> 是方法级注解，不能加在类上；D
-错误。</p>
+错误。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-13-">13-单选-13 ★★</h3>
-<p>关于 <code>@ExceptionHandler</code>
-的异常匹配规则，下列说法<strong>正确</strong>的是？ A.
-按代码声明顺序匹配，先声明的优先 B.
-按异常类型精确匹配，父类异常优先于子类异常 C.
-按异常类型精确匹配，子类异常优先于父类异常 D. 所有异常都会被
-<code>Exception.class</code> 的 handler 处理</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="13-单选-13-"><p><strong>13-单选-13 ★★</strong></p><p>关于 <code>@ExceptionHandler</code> 的异常匹配规则，下列说法<strong>正确</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">按代码声明顺序匹配，先声明的优先</div></li><li><span class="option-label">B</span><div class="option-content">按异常类型精确匹配，父类异常优先于子类异常</div></li><li><span class="option-label">C</span><div class="option-content">按异常类型精确匹配，子类异常优先于父类异常</div></li><li><span class="option-label">D</span><div class="option-content">所有异常都会被 <code>Exception.class</code> 的 handler 处理</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>@ExceptionHandler</code>
 匹配规则是"子类优先，最近优先"。子类异常会优先匹配到精确类型的
 handler，只有未被精确匹配的异常才会落到父类（如
 <code>Exception</code>）兜底。A 错误，与声明顺序无关；B
-错误，是子类优先；D 错误，有精确匹配的就不会落到兜底。</p>
+错误，是子类优先；D 错误，有精确匹配的就不会落到兜底。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-14-">13-单选-14 ★★</h3>
-<p>自定义业务异常 <code>BusinessException</code> 应该继承哪个类？ A.
-<code>Exception</code> B. <code>RuntimeException</code> C.
-<code>Throwable</code> D. <code>Error</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：业务异常应继承
+<section class="question-card" id="13-单选-14-"><p><strong>13-单选-14 ★★</strong></p><p>自定义业务异常 <code>BusinessException</code> 应该继承哪个类？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>Exception</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>RuntimeException</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>Throwable</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>Error</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：业务异常应继承
 <code>RuntimeException</code>（非受检异常），避免在 Service
 方法签名上到处 <code>throws</code>，且 Spring 事务默认对
 <code>RuntimeException</code> 回滚。继承
 <code>Exception</code>（受检）会导致代码冗余；<code>Throwable</code> 和
-<code>Error</code> 不适合业务异常。</p>
+<code>Error</code> 不适合业务异常。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-15-">13-单选-15 ★★</h3>
-<p>自定义业务异常继承 <code>RuntimeException</code>
-的好处<strong>不包括</strong>？ A. 不需要在方法签名上声明
-<code>throws</code> B. Spring 事务默认会回滚 C. 可以被
-<code>@ExceptionHandler</code> 捕获 D. 编译器强制要求调用方处理</p>
-<p><strong>答案</strong>：D
+<section class="question-card" id="13-单选-15-"><p><strong>13-单选-15 ★★</strong></p><p>自定义业务异常继承 <code>RuntimeException</code> 的好处<strong>不包括</strong>？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">不需要在方法签名上声明 <code>throws</code></div></li><li><span class="option-label">B</span><div class="option-content">Spring 事务默认会回滚</div></li><li><span class="option-label">C</span><div class="option-content">可以被 <code>@ExceptionHandler</code> 捕获</div></li><li><span class="option-label">D</span><div class="option-content">编译器强制要求调用方处理</div></li></ul></div><blockquote><p><strong>答案</strong>：D
 <strong>解析</strong>：<code>RuntimeException</code>
 是非受检异常，编译器<strong>不强制</strong>要求调用方处理（不强制
 try-catch 或 throws）。A、B、C 都是继承 <code>RuntimeException</code>
 的好处。D 是受检异常（<code>Exception</code> 子类）的特性，不是
-<code>RuntimeException</code> 的。</p>
+<code>RuntimeException</code> 的。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-16-">13-单选-16 ★</h3>
-<p>SLF4J 与 Logback 的关系是？ A. SLF4J 是 Logback 的实现 B. Logback 是
-SLF4J 的实现 C. 两者是同一个东西 D. 两者没有关系</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：SLF4J
+<section class="question-card" id="13-单选-16-"><p><strong>13-单选-16 ★</strong></p><p>SLF4J 与 Logback 的关系是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">SLF4J 是 Logback 的实现</div></li><li><span class="option-label">B</span><div class="option-content">Logback 是 SLF4J 的实现</div></li><li><span class="option-label">C</span><div class="option-content">两者是同一个东西</div></li><li><span class="option-label">D</span><div class="option-content">两者没有关系</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：SLF4J
 是日志门面（接口），Logback 是 SLF4J 的实现。业务代码调用 SLF4J
 接口，底层由 Logback
 实现具体输出。这种门面模式的好处是切换日志实现（如换成
-Log4j2）无需改业务代码。</p>
+Log4j2）无需改业务代码。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-17-">13-单选-17 ★</h3>
-<p>Lombok 的 <code>@Slf4j</code> 注解的作用是？ A. 自动配置日志级别 B.
-自动注入 <code>log</code> 对象 C. 自动输出日志 D. 自动生成日志文件</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Slf4j</code>
+<section class="question-card" id="13-单选-17-"><p><strong>13-单选-17 ★</strong></p><p>Lombok 的 <code>@Slf4j</code> 注解的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">自动配置日志级别</div></li><li><span class="option-label">B</span><div class="option-content">自动注入 <code>log</code> 对象</div></li><li><span class="option-label">C</span><div class="option-content">自动输出日志</div></li><li><span class="option-label">D</span><div class="option-content">自动生成日志文件</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>@Slf4j</code>
 注解在编译时自动为类注入一个
 <code>private static final Logger log = LoggerFactory.getLogger(Xxx.class);</code>
 字段，开发者直接用 <code>log.info()</code> 等方法即可。A、C、D 都不是
-<code>@Slf4j</code> 的作用。</p>
+<code>@Slf4j</code> 的作用。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-18-">13-单选-18 ★</h3>
-<p>日志级别从低到高排列，正确的是？ A. TRACE &lt; DEBUG &lt; INFO &lt;
-WARN &lt; ERROR B. DEBUG &lt; TRACE &lt; INFO &lt; WARN &lt; ERROR C.
-ERROR &lt; WARN &lt; INFO &lt; DEBUG &lt; TRACE D. INFO &lt; DEBUG &lt;
-TRACE &lt; WARN &lt; ERROR</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="13-单选-18-"><p><strong>13-单选-18 ★</strong></p><p>日志级别从低到高排列，正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR</div></li><li><span class="option-label">B</span><div class="option-content">DEBUG &lt; TRACE &lt; INFO &lt; WARN &lt; ERROR</div></li><li><span class="option-label">C</span><div class="option-content">ERROR &lt; WARN &lt; INFO &lt; DEBUG &lt; TRACE</div></li><li><span class="option-label">D</span><div class="option-content">INFO &lt; DEBUG &lt; TRACE &lt; WARN &lt; ERROR</div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：日志级别从低到高：TRACE &lt; DEBUG &lt; INFO &lt;
 WARN &lt; ERROR。设置某级别后，只输出该级别及以上的日志。如设置 INFO，则
-TRACE / DEBUG 不输出，INFO / WARN / ERROR 输出。</p>
+TRACE / DEBUG 不输出，INFO / WARN / ERROR 输出。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-19-">13-单选-19 ★</h3>
-<p>生产环境通常使用的日志级别是？ A. TRACE B. DEBUG C. INFO D. ERROR</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：生产环境通常用
+<section class="question-card" id="13-单选-19-"><p><strong>13-单选-19 ★</strong></p><p>生产环境通常使用的日志级别是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">TRACE</div></li><li><span class="option-label">B</span><div class="option-content">DEBUG</div></li><li><span class="option-label">C</span><div class="option-content">INFO</div></li><li><span class="option-label">D</span><div class="option-content">ERROR</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：生产环境通常用
 INFO，既能记录关键业务节点，又不会产生过多日志。TRACE / DEBUG
 日志量太大，影响性能；只用 ERROR 会丢失重要业务信息。INFO
-是生产环境的"黄金级别"。</p>
+是生产环境的"黄金级别"。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-20-">13-单选-20 ★★</h3>
-<p>下列日志写法中，<strong>推荐</strong>的是？ A.
-<code>log.debug("用户信息: " + user);</code> B.
-<code>log.error("失败: " + e.getMessage());</code> C.
-<code>log.info("创建项目成功: id={}", id);</code> D.
-<code>log.warn("项目名重复:" + name);</code></p>
-<p><strong>答案</strong>：C <strong>解析</strong>：推荐用
+<section class="question-card" id="13-单选-20-"><p><strong>13-单选-20 ★★</strong></p><p>下列日志写法中，<strong>推荐</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>log.debug("用户信息: " + user);</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>log.error("失败: " + e.getMessage());</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>log.info("创建项目成功: id={}", id);</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>log.warn("项目名重复:" + name);</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：推荐用
 <code>{}</code> 占位符而非字符串拼接（A、D
 错误），即使日志级别不输出也不会拼接字符串，性能更好。B
 错误，异常日志应该把异常对象作为最后一个参数（<code>log.error("失败", e)</code>），才能打印完整堆栈，而不是
-<code>e.getMessage()</code>（可能为 null 且丢失堆栈）。</p>
+<code>e.getMessage()</code>（可能为 null 且丢失堆栈）。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-21-">13-单选-21 ★★</h3>
-<p>打印异常堆栈的正确写法是？ A.
-<code>log.error("异常: " + e.getMessage());</code> B.
-<code>log.error("异常: {}", e.getMessage());</code> C.
-<code>log.error("异常", e);</code> D.
-<code>log.error("异常: " + e);</code></p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="13-单选-21-"><p><strong>13-单选-21 ★★</strong></p><p>打印异常堆栈的正确写法是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>log.error("异常: " + e.getMessage());</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>log.error("异常: {}", e.getMessage());</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>log.error("异常", e);</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>log.error("异常: " + e);</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：异常对象应作为日志方法的<strong>最后一个参数</strong>，SLF4J
 会自动打印完整堆栈。A、D 是字符串拼接，丢失堆栈；B 只打印
 message，丢失堆栈；C 正确，<code>e</code>
-作为最后一个参数，自动打印堆栈。</p>
+作为最后一个参数，自动打印堆栈。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-22-">13-单选-22 ★★</h3>
-<p>在 <code>application.yml</code> 中配置 <code>com.ctts</code>
-包的日志级别为 DEBUG，正确的写法是？ A.</p>
-<div class="sourceCode" id="cb1"><pre
+<section class="question-card" id="13-单选-22-"><p><strong>13-单选-22 ★★</strong></p><p>在 <code>application.yml</code> 中配置 <code>com.ctts</code>
+包的日志级别为 DEBUG，正确的写法是？ A.</p><div class="sourceCode" id="cb1"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span></code></pre></div>
-<p>B.</p>
-<div class="sourceCode" id="cb2"><pre
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span></code></pre></div><div class="option-list option-list-code"><ul><li><span class="option-label">B</span><div class="option-content"><div class="sourceCode" id="cb2"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span></code></pre></div>
-<p>C.</p>
-<div class="sourceCode" id="cb3"><pre
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span></code></pre></div></div></li><li><span class="option-label">C</span><div class="option-content"><div class="sourceCode" id="cb3"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span><span class="kw">:</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level</span><span class="kw">:</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span></code></pre></div>
-<p>D.</p>
-<div class="sourceCode" id="cb4"><pre
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span></code></pre></div></div></li><li><span class="option-label">D</span><div class="option-content"><div class="sourceCode" id="cb4"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level.com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span></code></pre></div>
-<p><strong>答案</strong>：A <strong>解析</strong>：Spring Boot
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">level.com.ctts</span><span class="kw">:</span><span class="at"> DEBUG</span></span></code></pre></div></div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：Spring Boot
 日志级别配置在 <code>logging.level</code> 下，包名作为 key，级别作为
 value。B、C 结构错误；D 虽然在某些情况下能工作，但标准写法是 A
-的层级结构。</p>
+的层级结构。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-23-">13-单选-23 ★★</h3>
-<p>配置日志文件输出到 <code>logs/ctts.log</code>，正确的
-<code>application.yml</code> 配置是？ A.</p>
-<div class="sourceCode" id="cb5"><pre
+<section class="question-card" id="13-单选-23-"><p><strong>13-单选-23 ★★</strong></p><p>配置日志文件输出到 <code>logs/ctts.log</code>，正确的
+<code>application.yml</code> 配置是？ A.</p><div class="sourceCode" id="cb5"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">file</span><span class="kw">:</span><span class="at"> logs/ctts.log</span></span></code></pre></div>
-<p>B.</p>
-<div class="sourceCode" id="cb6"><pre
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">file</span><span class="kw">:</span><span class="at"> logs/ctts.log</span></span></code></pre></div><div class="option-list option-list-code"><ul><li><span class="option-label">B</span><div class="option-content"><div class="sourceCode" id="cb6"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">file</span><span class="kw">:</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> logs/ctts.log</span></span></code></pre></div>
-<p>C.</p>
-<div class="sourceCode" id="cb7"><pre
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> logs/ctts.log</span></span></code></pre></div></div></li><li><span class="option-label">C</span><div class="option-content"><div class="sourceCode" id="cb7"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logging</span><span class="kw">:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">path</span><span class="kw">:</span><span class="at"> logs/ctts.log</span></span></code></pre></div>
-<p>D.</p>
-<div class="sourceCode" id="cb8"><pre
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">path</span><span class="kw">:</span><span class="at"> logs/ctts.log</span></span></code></pre></div></div></li><li><span class="option-label">D</span><div class="option-content"><div class="sourceCode" id="cb8"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span><span class="kw">:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">file</span><span class="kw">:</span><span class="at"> logs/ctts.log</span></span></code></pre></div>
-<p><strong>答案</strong>：B <strong>解析</strong>：Spring Boot 2.x
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">file</span><span class="kw">:</span><span class="at"> logs/ctts.log</span></span></code></pre></div></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：Spring Boot 2.x
 之后推荐用 <code>logging.file.name</code>
 配置日志文件名（含路径）。<code>logging.file.path</code>
 是配置日志目录（不含文件名，默认名为 spring.log）。A 的
 <code>logging.file</code> 是旧写法已废弃；C 的 <code>logging.path</code>
-同样废弃；D 顶层 key 错误。</p>
+同样废弃；D 顶层 key 错误。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-24-">13-单选-24 ★★</h3>
-<p>日志文件滚动策略中，<code>max-file-size</code> 的作用是？ A.
-单个日志文件最大大小，超过则滚动 B. 所有日志文件总大小上限 C.
-保留日志的天数 D. 日志文件数量上限</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="13-单选-24-"><p><strong>13-单选-24 ★★</strong></p><p>日志文件滚动策略中，<code>max-file-size</code> 的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">单个日志文件最大大小，超过则滚动</div></li><li><span class="option-label">B</span><div class="option-content">所有日志文件总大小上限</div></li><li><span class="option-label">C</span><div class="option-content">保留日志的天数</div></li><li><span class="option-label">D</span><div class="option-content">日志文件数量上限</div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>max-file-size</code>
 配置单个日志文件的最大大小，超过则创建新文件（滚动）。<code>total-size-cap</code>
 是所有日志文件总大小上限；<code>max-history</code>
-是保留天数；日志文件数量上限不是直接配置项。</p>
+是保留天数；日志文件数量上限不是直接配置项。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-25-">13-单选-25 ★★</h3>
-<p>关于全局异常处理器的兜底异常，下列说法<strong>正确</strong>的是？ A.
-兜底异常处理方法返回堆栈信息有助于前端调试 B.
-兜底异常应该把完整堆栈返回给前端 C. 兜底异常应返回友好提示，堆栈记到日志
-D. 不需要兜底异常处理方法</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="13-单选-25-"><p><strong>13-单选-25 ★★</strong></p><p>关于全局异常处理器的兜底异常，下列说法<strong>正确</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">兜底异常处理方法返回堆栈信息有助于前端调试</div></li><li><span class="option-label">B</span><div class="option-content">兜底异常应该把完整堆栈返回给前端</div></li><li><span class="option-label">C</span><div class="option-content">兜底异常应返回友好提示，堆栈记到日志</div></li><li><span class="option-label">D</span><div class="option-content">不需要兜底异常处理方法</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：兜底异常（<code>Exception.class</code>）应该返回友好提示（如"系统繁忙，请稍后重试"），堆栈用
 <code>log.error</code>
 记录到日志，便于排查。把堆栈返回给前端会泄露敏感信息（数据库结构、SQL
-等），A、B 错误；没有兜底会返回 Spring 默认错误页，体验差，D 错误。</p>
+等），A、B 错误；没有兜底会返回 Spring 默认错误页，体验差，D 错误。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-26-">13-单选-26 ★★</h3>
-<p>下列哪种异常<strong>不应该</strong>用 <code>log.error</code> 记录？
-A. 数据库连接失败 B. 业务异常（如"项目名重复"） C. 空指针异常 D. 文件 IO
-异常</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="13-单选-26-"><p><strong>13-单选-26 ★★</strong></p><p>下列哪种异常<strong>不应该</strong>用 <code>log.error</code> 记录？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">数据库连接失败</div></li><li><span class="option-label">B</span><div class="option-content">业务异常（如"项目名重复"）</div></li><li><span class="option-label">C</span><div class="option-content">空指针异常</div></li><li><span class="option-label">D</span><div class="option-content">文件 IO 异常</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：业务异常是<strong>预期内</strong>的错误（如"项目名重复"），属于正常业务流程，用
 <code>log.warn</code> 即可。<code>log.error</code>
 用于<strong>不可恢复</strong>的系统性异常（如数据库连接失败、NPE、IO
-异常），这些才是真正需要告警的。</p>
+异常），这些才是真正需要告警的。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-27-">13-单选-27 ★★★</h3>
-<p>关于分组校验，下列代码<strong>正确</strong>的是？ A.</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Valid</span><span class="op">(</span>AddGroup<span class="op">.</span><span class="fu">class</span><span class="op">)</span> <span class="at">@RequestBody</span> ProjectDTO dto</span></code></pre></div>
-<p>B.</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Validated</span><span class="op">(</span>AddGroup<span class="op">.</span><span class="fu">class</span><span class="op">)</span> <span class="at">@RequestBody</span> ProjectDTO dto</span></code></pre></div>
-<p>C.</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Valid</span> <span class="at">@RequestBody</span><span class="op">(</span>AddGroup<span class="op">.</span><span class="fu">class</span><span class="op">)</span> ProjectDTO dto</span></code></pre></div>
-<p>D.</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Validated</span> <span class="at">@RequestBody</span> ProjectDTO dto<span class="op">,</span> <span class="at">@Group</span> AddGroup<span class="op">.</span><span class="fu">class</span></span></code></pre></div>
-<p><strong>答案</strong>：B <strong>解析</strong>：分组校验用
+<section class="question-card" id="13-单选-27-"><p><strong>13-单选-27 ★★★</strong></p><p>关于分组校验，下列代码<strong>正确</strong>的是？ A.</p><div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Valid</span><span class="op">(</span>AddGroup<span class="op">.</span><span class="fu">class</span><span class="op">)</span> <span class="at">@RequestBody</span> ProjectDTO dto</span></code></pre></div><div class="option-list option-list-code"><ul><li><span class="option-label">B</span><div class="option-content"><div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Validated</span><span class="op">(</span>AddGroup<span class="op">.</span><span class="fu">class</span><span class="op">)</span> <span class="at">@RequestBody</span> ProjectDTO dto</span></code></pre></div></div></li><li><span class="option-label">C</span><div class="option-content"><div class="sourceCode" id="cb11"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Valid</span> <span class="at">@RequestBody</span><span class="op">(</span>AddGroup<span class="op">.</span><span class="fu">class</span><span class="op">)</span> ProjectDTO dto</span></code></pre></div></div></li><li><span class="option-label">D</span><div class="option-content"><div class="sourceCode" id="cb12"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Validated</span> <span class="at">@RequestBody</span> ProjectDTO dto<span class="op">,</span> <span class="at">@Group</span> AddGroup<span class="op">.</span><span class="fu">class</span></span></code></pre></div></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：分组校验用
 <code>@Validated(Group.class)</code>，指定校验分组。<code>@Valid</code>
 不支持分组；<code>@RequestBody</code> 不接分组参数；D
 语法不正确。正确写法是在 <code>@Validated</code> 中指定分组接口的 Class
-对象。</p>
+对象。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-28-">13-单选-28 ★★</h3>
-<p>下列哪种方式可以让 <code>@RequestParam</code> 上的 <code>@Min</code>
-注解生效？ A. 在方法参数上加 <code>@Valid</code> B. 在 Controller 类上加
-<code>@Validated</code> C. 在方法上加 <code>@Validated</code> D. 在 DTO
-字段上加 <code>@Valid</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="13-单选-28-"><p><strong>13-单选-28 ★★</strong></p><p>下列哪种方式可以让 <code>@RequestParam</code> 上的 <code>@Min</code> 注解生效？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">在方法参数上加 <code>@Valid</code></div></li><li><span class="option-label">B</span><div class="option-content">在 Controller 类上加 <code>@Validated</code></div></li><li><span class="option-label">C</span><div class="option-content">在方法上加 <code>@Validated</code></div></li><li><span class="option-label">D</span><div class="option-content">在 DTO 字段上加 <code>@Valid</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@RequestParam</code> /
 <code>@PathVariable</code> 校验需要在 Controller <strong>类</strong>上加
 <code>@Validated</code>，方法参数上的 <code>@Min</code> /
 <code>@Max</code> / <code>@Pattern</code> 等注解才会生效。方法参数上加
 <code>@Valid</code> 用于 <code>@RequestBody</code>
-体校验，不用于单个参数；C、D 语法不正确。</p>
+体校验，不用于单个参数；C、D 语法不正确。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-29-">13-单选-29 ★★</h3>
-<p>下列关于日志级别设置的描述，<strong>错误</strong>的是？ A.
-<code>root: INFO</code> 设置全局默认级别为 INFO B.
-<code>com.ctts: DEBUG</code> 设置 ctts 包的级别为 DEBUG C.
-<code>org.springframework: WARN</code> 降低 Spring 框架日志噪音 D.
-级别设置后不可在运行时动态调整</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：Spring Boot Actuator
+<section class="question-card" id="13-单选-29-"><p><strong>13-单选-29 ★★</strong></p><p>下列关于日志级别设置的描述，<strong>错误</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>root: INFO</code> 设置全局默认级别为 INFO</div></li><li><span class="option-label">B</span><div class="option-content"><code>com.ctts: DEBUG</code> 设置 ctts 包的级别为 DEBUG</div></li><li><span class="option-label">C</span><div class="option-content"><code>org.springframework: WARN</code> 降低 Spring 框架日志噪音</div></li><li><span class="option-label">D</span><div class="option-content">级别设置后不可在运行时动态调整</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：Spring Boot Actuator
 提供了 <code>/loggers</code>
 端点，可以在运行时动态调整日志级别，无需重启应用。A、B、C 都正确。D
-错误。</p>
+错误。</p></blockquote></section>
 <hr />
-<h3 id="13-单选-30-">13-单选-30 ★★★</h3>
-<p>关于 Spring Boot 3.x 中的校验，下列说法<strong>错误</strong>的是？ A.
-校验注解的包名是 <code>jakarta.validation.constraints.*</code> B.
-<code>@Valid</code> 的包名是 <code>jakarta.validation.Valid</code> C.
-Spring Boot 3.x 仍然支持 <code>javax.validation.*</code> 包名 D. Spring
-Boot 3.x 基于 Jakarta EE 9+，包名从 javax 改为 jakarta</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：Spring Boot 3.x 基于
+<section class="question-card" id="13-单选-30-"><p><strong>13-单选-30 ★★★</strong></p><p>关于 Spring Boot 3.x 中的校验，下列说法<strong>错误</strong>的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">校验注解的包名是 <code>jakarta.validation.constraints.*</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Valid</code> 的包名是 <code>jakarta.validation.Valid</code></div></li><li><span class="option-label">C</span><div class="option-content">Spring Boot 3.x 仍然支持 <code>javax.validation.*</code> 包名</div></li><li><span class="option-label">D</span><div class="option-content">Spring Boot 3.x 基于 Jakarta EE 9+，包名从 javax 改为 jakarta</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：Spring Boot 3.x 基于
 Jakarta EE 9+，所有 <code>javax.*</code> 包名改为
 <code>jakarta.*</code>，不再支持
 <code>javax.validation.*</code>。A、B、D 都正确；C 错误。从 Spring Boot
 2.x 迁移到 3.x 时，需要把所有 <code>import javax.validation.*</code>
-改为 <code>import jakarta.validation.*</code>。</p>
+改为 <code>import jakarta.validation.*</code>。</p></blockquote></section>
 <hr />
 <h2 id="二多选题10-题">二、多选题（10 题）</h2>
-<h3 id="13-多选-01-">13-多选-01 ★</h3>
-<p>下列注解中，可以用于校验"非空"的有？ A. <code>@NotNull</code> B.
-<code>@NotEmpty</code> C. <code>@NotBlank</code> D. <code>@Size</code>
-E. <code>@Min</code></p>
-<p><strong>答案</strong>：A、B、C
+<section class="question-card" id="13-多选-01-"><p><strong>13-多选-01 ★</strong></p><p>下列注解中，可以用于校验"非空"的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@NotNull</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@NotEmpty</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@NotBlank</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Size</code></div></li><li><span class="option-label">E</span><div class="option-content"><code>@Min</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C
 <strong>解析</strong>：<code>@NotNull</code>（任意类型非
 null）、<code>@NotEmpty</code>（集合/字符串非空）、<code>@NotBlank</code>（字符串去空格后非空）都是非空校验。<code>@Size</code>
-是长度校验；<code>@Min</code> 是数值最小值校验。</p>
+是长度校验；<code>@Min</code> 是数值最小值校验。</p></blockquote></section>
 <hr />
-<h3 id="13-多选-02-">13-多选-02 ★★</h3>
-<p>下列注解中，属于 JSR 380
-标准（<code>jakarta.validation.constraints</code>）的有？ A.
-<code>@NotNull</code> B. <code>@Size</code> C. <code>@Email</code> D.
-<code>@Length</code> E. <code>@Range</code></p>
-<p><strong>答案</strong>：A、B、C
+<section class="question-card" id="13-多选-02-"><p><strong>13-多选-02 ★★</strong></p><p>下列注解中，属于 JSR 380 标准（<code>jakarta.validation.constraints</code>）的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@NotNull</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Size</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Email</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Length</code></div></li><li><span class="option-label">E</span><div class="option-content"><code>@Range</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C
 <strong>解析</strong>：<code>@NotNull</code>、<code>@Size</code>、<code>@Email</code>
 是 JSR 380 标准注解（<code>jakarta.validation.constraints</code>
 包）。<code>@Length</code> 和 <code>@Range</code> 是 Hibernate Validator
 的扩展注解（<code>org.hibernate.validator.constraints</code>
-包），非标准。</p>
+包），非标准。</p></blockquote></section>
 <hr />
-<h3 id="13-多选-03-">13-多选-03 ★★</h3>
-<p><code>@NotEmpty</code> 注解可以用于下列哪些类型？ A.
-<code>String</code> B. <code>List&lt;String&gt;</code> C.
-<code>Map&lt;String, Object&gt;</code> D. <code>Integer</code> E.
-<code>int[]</code></p>
-<p><strong>答案</strong>：A、B、C、E
+<section class="question-card" id="13-多选-03-"><p><strong>13-多选-03 ★★</strong></p><p><code>@NotEmpty</code> 注解可以用于下列哪些类型？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>String</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>List&lt;String&gt;</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>Map&lt;String, Object&gt;</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>Integer</code></div></li><li><span class="option-label">E</span><div class="option-content"><code>int[]</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C、E
 <strong>解析</strong>：<code>@NotEmpty</code> 用于 String / Collection /
 Map / Array，校验非 null 且长度/大小 &gt; 0。<code>Integer</code>
 是数字类型，不能用 <code>@NotEmpty</code>（用
-<code>@NotNull</code>）。</p>
+<code>@NotNull</code>）。</p></blockquote></section>
 <hr />
-<h3 id="13-多选-04-">13-多选-04 ★★</h3>
-<p><code>@RestControllerAdvice</code>
-全局异常处理器可以处理的异常类型有？ A.
-<code>MethodArgumentNotValidException</code>（Body 校验失败） B.
-<code>ConstraintViolationException</code>（Param 校验失败） C.
-<code>BusinessException</code>（自定义业务异常） D.
-<code>Exception</code>（兜底异常） E. <code>OutOfMemoryError</code>（JVM
-错误）</p>
-<p><strong>答案</strong>：A、B、C、D
+<section class="question-card" id="13-多选-04-"><p><strong>13-多选-04 ★★</strong></p><p><code>@RestControllerAdvice</code> 全局异常处理器可以处理的异常类型有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>MethodArgumentNotValidException</code>（Body 校验失败）</div></li><li><span class="option-label">B</span><div class="option-content"><code>ConstraintViolationException</code>（Param 校验失败）</div></li><li><span class="option-label">C</span><div class="option-content"><code>BusinessException</code>（自定义业务异常）</div></li><li><span class="option-label">D</span><div class="option-content"><code>Exception</code>（兜底异常）</div></li><li><span class="option-label">E</span><div class="option-content"><code>OutOfMemoryError</code>（JVM 错误）</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C、D
 <strong>解析</strong>：<code>@RestControllerAdvice</code>
 可以处理应用层抛出的所有 Exception
 子类，包括校验异常、业务异常、系统异常等。但
 <code>OutOfMemoryError</code> 是 <code>Error</code> 的子类（不是
 <code>Exception</code>），不应该由应用层异常处理器处理，交给 JVM
-处理。</p>
+处理。</p></blockquote></section>
 <hr />
-<h3 id="13-多选-05-">13-多选-05 ★★</h3>
-<p>自定义业务异常 <code>BusinessException</code> 继承
-<code>RuntimeException</code> 的好处有？ A. 不需要在方法签名上声明
-<code>throws</code> B. Spring 事务默认会回滚 C. 代码侵入性低 D.
-编译器强制要求调用方 try-catch E. 可以被 <code>@ExceptionHandler</code>
-捕获</p>
-<p><strong>答案</strong>：A、B、C、E
+<section class="question-card" id="13-多选-05-"><p><strong>13-多选-05 ★★</strong></p><p>自定义业务异常 <code>BusinessException</code> 继承 <code>RuntimeException</code> 的好处有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">不需要在方法签名上声明 <code>throws</code></div></li><li><span class="option-label">B</span><div class="option-content">Spring 事务默认会回滚</div></li><li><span class="option-label">C</span><div class="option-content">代码侵入性低</div></li><li><span class="option-label">D</span><div class="option-content">编译器强制要求调用方 try-catch</div></li><li><span class="option-label">E</span><div class="option-content">可以被 <code>@ExceptionHandler</code> 捕获</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C、E
 <strong>解析</strong>：<code>RuntimeException</code>
 是非受检异常，不需要 <code>throws</code>（A 对）、不强制 try-catch（D
 错）、Spring 事务默认回滚（B 对）、代码侵入性低（C 对）。所有
 <code>Exception</code> 子类都能被 <code>@ExceptionHandler</code> 捕获（E
-对）。</p>
+对）。</p></blockquote></section>
 <hr />
-<h3 id="13-多选-06-">13-多选-06 ★★</h3>
-<p>下列日志写法中，<strong>推荐</strong>的有？ A.
-<code>log.info("创建项目成功: id={}", id);</code> B.
-<code>log.error("系统异常", e);</code> C.
-<code>log.debug("用户: " + user);</code> D.
-<code>log.warn("项目名重复: {}", name);</code> E.
-<code>log.error("失败: " + e.getMessage());</code></p>
-<p><strong>答案</strong>：A、B、D <strong>解析</strong>：A、B、D
+<section class="question-card" id="13-多选-06-"><p><strong>13-多选-06 ★★</strong></p><p>下列日志写法中，<strong>推荐</strong>的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>log.info("创建项目成功: id={}", id);</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>log.error("系统异常", e);</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>log.debug("用户: " + user);</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>log.warn("项目名重复: {}", name);</code></div></li><li><span class="option-label">E</span><div class="option-content"><code>log.error("失败: " + e.getMessage());</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、D <strong>解析</strong>：A、B、D
 都是用占位符或正确传递异常对象的写法。C 是字符串拼接，即使 DEBUG
 不输出也会拼接，性能差；E 只打印 message 丢失堆栈，应该
-<code>log.error("失败", e)</code>。</p>
+<code>log.error("失败", e)</code>。</p></blockquote></section>
 <hr />
-<h3 id="13-多选-07-">13-多选-07 ★★</h3>
-<p>在 <code>application.yml</code> 中配置日志，可以配置的项有？ A.
-日志级别（<code>logging.level</code>） B.
-日志文件路径（<code>logging.file.name</code>） C.
-日志文件滚动策略（<code>logging.logback.rollingpolicy</code>） D.
-日志输出格式（<code>logging.pattern</code>） E. 日志文件加密方式</p>
-<p><strong>答案</strong>：A、B、C、D <strong>解析</strong>：Spring Boot
+<section class="question-card" id="13-多选-07-"><p><strong>13-多选-07 ★★</strong></p><p>在 <code>application.yml</code> 中配置日志，可以配置的项有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">日志级别（<code>logging.level</code>）</div></li><li><span class="option-label">B</span><div class="option-content">日志文件路径（<code>logging.file.name</code>）</div></li><li><span class="option-label">C</span><div class="option-content">日志文件滚动策略（<code>logging.logback.rollingpolicy</code>）</div></li><li><span class="option-label">D</span><div class="option-content">日志输出格式（<code>logging.pattern</code>）</div></li><li><span class="option-label">E</span><div class="option-content">日志文件加密方式</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C、D <strong>解析</strong>：Spring Boot
 的 <code>application.yml</code>
 支持配置日志级别（A）、日志文件（B）、滚动策略（C）、输出格式（D）。日志文件加密不是
-Spring Boot 内置功能，需要自定义实现。</p>
+Spring Boot 内置功能，需要自定义实现。</p></blockquote></section>
 <hr />
-<h3 id="13-多选-08-">13-多选-08 ★★</h3>
-<p>下列属于"4xx 客户端错误"的有？ A. 400 Bad Request B. 401 Unauthorized
-C. 403 Forbidden D. 404 Not Found E. 500 Internal Server Error</p>
-<p><strong>答案</strong>：A、B、C、D <strong>解析</strong>：4xx
+<section class="question-card" id="13-多选-08-"><p><strong>13-多选-08 ★★</strong></p><p>下列属于"4xx 客户端错误"的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">400 Bad Request</div></li><li><span class="option-label">B</span><div class="option-content">401 Unauthorized</div></li><li><span class="option-label">C</span><div class="option-content">403 Forbidden</div></li><li><span class="option-label">D</span><div class="option-content">404 Not Found</div></li><li><span class="option-label">E</span><div class="option-content">500 Internal Server Error</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C、D <strong>解析</strong>：4xx
 是客户端错误：400 参数错、401 未认证、403 无权限、404 找不到、405
-方法不支持。500 是服务端错误（5xx），不属于客户端错误。</p>
+方法不支持。500 是服务端错误（5xx），不属于客户端错误。</p></blockquote></section>
 <hr />
-<h3 id="13-多选-09-">13-多选-09 ★★</h3>
-<p>下列关于日志级别的描述，<strong>正确</strong>的有？ A. 设置 INFO
-级别后，TRACE 和 DEBUG 不输出 B. 设置 INFO 级别后，INFO、WARN、ERROR
-都输出 C. 生产环境推荐用 DEBUG 级别排查问题 D. ERROR
-级别用于不可恢复的系统性异常 E. WARN 级别用于可恢复的异常</p>
-<p><strong>答案</strong>：A、B、D、E
+<section class="question-card" id="13-多选-09-"><p><strong>13-多选-09 ★★</strong></p><p>下列关于日志级别的描述，<strong>正确</strong>的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">设置 INFO 级别后，TRACE 和 DEBUG 不输出</div></li><li><span class="option-label">B</span><div class="option-content">设置 INFO 级别后，INFO、WARN、ERROR 都输出</div></li><li><span class="option-label">C</span><div class="option-content">生产环境推荐用 DEBUG 级别排查问题</div></li><li><span class="option-label">D</span><div class="option-content">ERROR 级别用于不可恢复的系统性异常</div></li><li><span class="option-label">E</span><div class="option-content">WARN 级别用于可恢复的异常</div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、D、E
 <strong>解析</strong>：设置某级别后，只输出该级别及以上的日志（A、B
 对）。生产环境通常用 INFO，排查时临时调 DEBUG，长期 DEBUG 日志量过大（C
-错）。ERROR 用于不可恢复异常（D 对），WARN 用于可恢复异常（E 对）。</p>
+错）。ERROR 用于不可恢复异常（D 对），WARN 用于可恢复异常（E 对）。</p></blockquote></section>
 <hr />
-<h3 id="13-多选-10-">13-多选-10 ★★★</h3>
-<p>关于参数校验异常处理，下列描述<strong>正确</strong>的有？ A.
-<code>@RequestBody</code> 校验失败抛
-<code>MethodArgumentNotValidException</code> B.
-<code>@RequestParam</code> 校验失败抛
-<code>ConstraintViolationException</code> C. 表单提交校验失败抛
-<code>BindException</code> D. 参数类型不匹配抛
-<code>MethodArgumentTypeMismatchException</code> E. 缺少必填的
-<code>@RequestParam</code> 抛
-<code>MissingServletRequestParameterException</code></p>
-<p><strong>答案</strong>：A、B、C、D、E
+<section class="question-card" id="13-多选-10-"><p><strong>13-多选-10 ★★★</strong></p><p>关于参数校验异常处理，下列描述<strong>正确</strong>的有？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@RequestBody</code> 校验失败抛 <code>MethodArgumentNotValidException</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@RequestParam</code> 校验失败抛 <code>ConstraintViolationException</code></div></li><li><span class="option-label">C</span><div class="option-content">表单提交校验失败抛 <code>BindException</code></div></li><li><span class="option-label">D</span><div class="option-content">参数类型不匹配抛 <code>MethodArgumentTypeMismatchException</code></div></li><li><span class="option-label">E</span><div class="option-content">缺少必填的 <code>@RequestParam</code> 抛 <code>MissingServletRequestParameterException</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A、B、C、D、E
 <strong>解析</strong>：全部正确。这是 Spring MVC 中常见的 5
 种参数相关异常，全局异常处理器应该分别处理，返回统一
-<code>Result&lt;T&gt;</code> 结构。</p>
+<code>Result&lt;T&gt;</code> 结构。</p></blockquote></section>
 <hr />
 <h2 id="三判断题20-题">三、判断题（20 题）</h2>
-<h3 id="13-判断-01-">13-判断-01 ★</h3>
-<p><code>@Valid</code> 是 Spring 提供的注解，<code>@Validated</code> 是
-JSR 380 标准注解。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="13-判断-01-"><p><strong>13-判断-01 ★</strong></p><p><code>@Valid</code> 是 Spring 提供的注解，<code>@Validated</code> 是
+JSR 380 标准注解。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：说反了。<code>@Valid</code> 是 JSR 380
 标准（<code>jakarta.validation.Valid</code>），<code>@Validated</code>
 是 Spring
-扩展（<code>org.springframework.validation.annotation.Validated</code>）。</p>
+扩展（<code>org.springframework.validation.annotation.Validated</code>）。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-02-">13-判断-02 ★</h3>
-<p><code>@NotBlank</code> 可以用于 <code>Integer</code> 类型。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="13-判断-02-"><p><strong>13-判断-02 ★</strong></p><p><code>@NotBlank</code> 可以用于 <code>Integer</code> 类型。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：<code>@NotBlank</code> 只能用于
 <code>String</code> 类型，用于 <code>Integer</code>
 启动时会报错。<code>Integer</code> 用 <code>@NotNull</code> +
-<code>@Min</code> / <code>@Max</code>。</p>
+<code>@Min</code> / <code>@Max</code>。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-03-">13-判断-03 ★</h3>
-<p><code>@NotNull</code>
-注解可以用于任意类型，包括对象、数字、字符串。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="13-判断-03-"><p><strong>13-判断-03 ★</strong></p><p><code>@NotNull</code>
+注解可以用于任意类型，包括对象、数字、字符串。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>@NotNull</code> 校验非
-null，适用于任意类型，是最通用的非空校验注解。</p>
+null，适用于任意类型，是最通用的非空校验注解。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-04-">13-判断-04 ★</h3>
-<p><code>@Size(min = 2, max = 50)</code> 可以用于 <code>Integer</code>
-类型。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：<code>@Size</code>
+<section class="question-card" id="13-判断-04-"><p><strong>13-判断-04 ★</strong></p><p><code>@Size(min = 2, max = 50)</code> 可以用于 <code>Integer</code>
+类型。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：<code>@Size</code>
 只能用于 String / Collection / Map / Array。<code>Integer</code>
-是数字类型，用 <code>@Min</code> / <code>@Max</code>。</p>
+是数字类型，用 <code>@Min</code> / <code>@Max</code>。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-05-">13-判断-05 ★</h3>
-<p><code>@RestControllerAdvice</code> 等价于
-<code>@ControllerAdvice</code> + <code>@ResponseBody</code>。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="13-判断-05-"><p><strong>13-判断-05 ★</strong></p><p><code>@RestControllerAdvice</code> 等价于
+<code>@ControllerAdvice</code> + <code>@ResponseBody</code>。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>@RestControllerAdvice</code>
 是组合注解，等于 <code>@ControllerAdvice</code> +
-<code>@ResponseBody</code>，返回值自动序列化为 JSON。</p>
+<code>@ResponseBody</code>，返回值自动序列化为 JSON。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-06-">13-判断-06 ★★</h3>
-<p><code>@ExceptionHandler</code>
-的异常匹配是按代码声明顺序匹配的，先声明的优先。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="13-判断-06-"><p><strong>13-判断-06 ★★</strong></p><p><code>@ExceptionHandler</code>
+的异常匹配是按代码声明顺序匹配的，先声明的优先。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：<code>@ExceptionHandler</code>
 的匹配规则是"子类优先，最近优先"，与代码声明顺序无关。子类异常会优先匹配到精确类型的
-handler。</p>
+handler。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-07-">13-判断-07 ★★</h3>
-<p>自定义业务异常 <code>BusinessException</code> 应该继承
-<code>Exception</code> 而不是 <code>RuntimeException</code>。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：业务异常应该继承
+<section class="question-card" id="13-判断-07-"><p><strong>13-判断-07 ★★</strong></p><p>自定义业务异常 <code>BusinessException</code> 应该继承
+<code>Exception</code> 而不是 <code>RuntimeException</code>。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：业务异常应该继承
 <code>RuntimeException</code>（非受检异常），避免方法签名到处
 <code>throws</code>，且 Spring 事务默认对 <code>RuntimeException</code>
-回滚。继承 <code>Exception</code>（受检）会导致代码冗余。</p>
+回滚。继承 <code>Exception</code>（受检）会导致代码冗余。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-08-">13-判断-08 ★</h3>
-<p>SLF4J 是日志门面（接口），Logback 是日志实现。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：SLF4J
+<section class="question-card" id="13-判断-08-"><p><strong>13-判断-08 ★</strong></p><p>SLF4J 是日志门面（接口），Logback 是日志实现。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：SLF4J
 是门面模式中的"接口"，Logback 是"实现"。业务代码调用 SLF4J 接口，底层由
-Logback 实现，切换实现无需改业务代码。</p>
+Logback 实现，切换实现无需改业务代码。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-09-">13-判断-09 ★</h3>
-<p>Lombok 的 <code>@Slf4j</code> 注解会自动为类注入 <code>log</code>
-对象。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="13-判断-09-"><p><strong>13-判断-09 ★</strong></p><p>Lombok 的 <code>@Slf4j</code> 注解会自动为类注入 <code>log</code>
+对象。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>@Slf4j</code> 编译时自动生成
 <code>private static final Logger log = LoggerFactory.getLogger(Xxx.class);</code>，开发者直接用
-<code>log.info()</code> 等方法。</p>
+<code>log.info()</code> 等方法。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-10-">13-判断-10 ★</h3>
-<p>日志级别从低到高是 TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt;
-ERROR。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="13-判断-10-"><p><strong>13-判断-10 ★</strong></p><p>日志级别从低到高是 TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt;
+ERROR。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：日志级别从低到高：TRACE &lt; DEBUG &lt; INFO &lt;
-WARN &lt; ERROR。设置某级别后，只输出该级别及以上的日志。</p>
+WARN &lt; ERROR。设置某级别后，只输出该级别及以上的日志。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-11-">13-判断-11 ★★</h3>
-<p>设置日志级别为 DEBUG，TRACE 级别的日志也会输出。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：设置 DEBUG
+<section class="question-card" id="13-判断-11-"><p><strong>13-判断-11 ★★</strong></p><p>设置日志级别为 DEBUG，TRACE 级别的日志也会输出。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：设置 DEBUG
 后，只输出 DEBUG 及以上（DEBUG / INFO / WARN / ERROR），TRACE 比 DEBUG
-低，不输出。</p>
+低，不输出。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-12-">13-判断-12 ★★</h3>
-<p>生产环境推荐使用 DEBUG 级别日志，便于排查问题。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：生产环境推荐用
+<section class="question-card" id="13-判断-12-"><p><strong>13-判断-12 ★★</strong></p><p>生产环境推荐使用 DEBUG 级别日志，便于排查问题。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：生产环境推荐用
 INFO 级别。DEBUG 日志量过大，影响性能和磁盘。排查问题时可以临时调
-DEBUG，排查完调回 INFO。</p>
+DEBUG，排查完调回 INFO。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-13-">13-判断-13 ★★</h3>
-<p>日志参数推荐用字符串拼接而不是 <code>{}</code> 占位符。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：推荐用
+<section class="question-card" id="13-判断-13-"><p><strong>13-判断-13 ★★</strong></p><p>日志参数推荐用字符串拼接而不是 <code>{}</code> 占位符。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：推荐用
 <code>{}</code>
-占位符，即使日志级别不输出也不会拼接字符串，性能更好。字符串拼接在日志不输出时仍会执行拼接，浪费性能。</p>
+占位符，即使日志级别不输出也不会拼接字符串，性能更好。字符串拼接在日志不输出时仍会执行拼接，浪费性能。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-14-">13-判断-14 ★★</h3>
-<p>打印异常堆栈时，应该把异常对象作为日志方法的最后一个参数。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="13-判断-14-"><p><strong>13-判断-14 ★★</strong></p><p>打印异常堆栈时，应该把异常对象作为日志方法的最后一个参数。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>log.error("系统异常", e);</code> 把异常对象
 <code>e</code> 作为最后一个参数，SLF4J 会自动打印完整堆栈。如果用
-<code>e.getMessage()</code> 或字符串拼接，会丢失堆栈信息。</p>
+<code>e.getMessage()</code> 或字符串拼接，会丢失堆栈信息。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-15-">13-判断-15 ★★</h3>
-<p>全局异常处理器的兜底异常应该把完整堆栈返回给前端，方便前端调试。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="13-判断-15-"><p><strong>13-判断-15 ★★</strong></p><p>全局异常处理器的兜底异常应该把完整堆栈返回给前端，方便前端调试。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：兜底异常应该返回友好提示（如"系统繁忙，请稍后重试"），堆栈用
 <code>log.error</code>
-记录到日志。把堆栈返回给前端会泄露敏感信息（数据库结构、SQL 等）。</p>
+记录到日志。把堆栈返回给前端会泄露敏感信息（数据库结构、SQL 等）。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-16-">13-判断-16 ★★</h3>
-<p>业务异常（如"项目名重复"）应该用 <code>log.error</code> 记录。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="13-判断-16-"><p><strong>13-判断-16 ★★</strong></p><p>业务异常（如"项目名重复"）应该用 <code>log.error</code> 记录。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：业务异常是预期内的错误，属于正常业务流程，用
 <code>log.warn</code> 即可。<code>log.error</code>
 用于不可恢复的系统性异常（如
-NPE、数据库连接失败），这些才是真正需要告警的。</p>
+NPE、数据库连接失败），这些才是真正需要告警的。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-17-">13-判断-17 ★★</h3>
-<p><code>@RequestParam</code> 校验需要在 Controller 类上加
-<code>@Validated</code> 注解。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="13-判断-17-"><p><strong>13-判断-17 ★★</strong></p><p><code>@RequestParam</code> 校验需要在 Controller 类上加
+<code>@Validated</code> 注解。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>@RequestParam</code> /
 <code>@PathVariable</code> 上的校验注解（如 <code>@Min</code>）需要在
 Controller <strong>类</strong>上加 <code>@Validated</code>
-才能生效。否则注解不起作用。</p>
+才能生效。否则注解不起作用。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-18-">13-判断-18 ★★</h3>
-<p><code>@Valid</code> 支持分组校验，<code>@Validated</code>
-不支持。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="13-判断-18-"><p><strong>13-判断-18 ★★</strong></p><p><code>@Valid</code> 支持分组校验，<code>@Validated</code>
+不支持。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：说反了。<code>@Valid</code>
 不支持分组校验，<code>@Validated</code>
-支持分组校验（<code>@Validated(Group.class)</code>）。</p>
+支持分组校验（<code>@Validated(Group.class)</code>）。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-19-">13-判断-19 ★★</h3>
-<p>Spring Boot 3.x 中，校验注解的包名是
-<code>jakarta.validation.constraints.*</code>。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：Spring Boot 3.x
+<section class="question-card" id="13-判断-19-"><p><strong>13-判断-19 ★★</strong></p><p>Spring Boot 3.x 中，校验注解的包名是
+<code>jakarta.validation.constraints.*</code>。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：Spring Boot 3.x
 基于 Jakarta EE 9+，包名从 <code>javax.*</code> 改为
 <code>jakarta.*</code>。校验注解在
-<code>jakarta.validation.constraints</code> 包下。</p>
+<code>jakarta.validation.constraints</code> 包下。</p></blockquote></section>
 <hr />
-<h3 id="13-判断-20-">13-判断-20 ★★★</h3>
-<p>Spring Boot Actuator 的 <code>/loggers</code>
-端点可以在运行时动态调整日志级别，无需重启应用。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：Spring Boot
+<section class="question-card" id="13-判断-20-"><p><strong>13-判断-20 ★★★</strong></p><p>Spring Boot Actuator 的 <code>/loggers</code>
+端点可以在运行时动态调整日志级别，无需重启应用。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：Spring Boot
 Actuator 提供 <code>/loggers</code>
 端点，支持运行时动态调整日志级别（POST
-请求修改），无需重启应用，便于线上排查问题。</p>
+请求修改），无需重启应用，便于线上排查问题。</p></blockquote></section>
 <hr />
 <h2 id="四填空题10-题">四、填空题（10 题）</h2>
-<h3 id="13-填空-01-">13-填空-01 ★</h3>
-<p><code>@NotBlank</code> 注解只能用于 ________ 类型。</p>
-<p><strong>答案</strong>：String（字符串）
+<section class="question-card" id="13-填空-01-"><p><strong>13-填空-01 ★</strong></p><p><code>@NotBlank</code> 注解只能用于 ________ 类型。</p><blockquote><p><strong>答案</strong>：String（字符串）
 <strong>解析</strong>：<code>@NotBlank</code> 校验字符串非 null
 且去空格后非空，只能用于 <code>String</code> 类型。其他类型用
-<code>@NotNull</code> 或 <code>@NotEmpty</code>。</p>
+<code>@NotNull</code> 或 <code>@NotEmpty</code>。</p></blockquote></section>
 <hr />
-<h3 id="13-填空-02-">13-填空-02 ★</h3>
-<p><code>@RestControllerAdvice</code> 等价于
-<code>@ControllerAdvice</code> + ________ 两个注解。</p>
-<p><strong>答案</strong>：<code>@ResponseBody</code>
+<section class="question-card" id="13-填空-02-"><p><strong>13-填空-02 ★</strong></p><p><code>@RestControllerAdvice</code> 等价于
+<code>@ControllerAdvice</code> + ________ 两个注解。</p><blockquote><p><strong>答案</strong>：<code>@ResponseBody</code>
 <strong>解析</strong>：<code>@RestControllerAdvice</code>
 是组合注解，等于 <code>@ControllerAdvice</code> +
 <code>@ResponseBody</code>，表示全局异常处理类的返回值自动序列化为
-JSON。</p>
+JSON。</p></blockquote></section>
 <hr />
-<h3 id="13-填空-03-">13-填空-03 ★</h3>
-<p>SLF4J 是日志的 ________（门面/实现），Logback 是日志的
-________（门面/实现）。</p>
-<p><strong>答案</strong>：门面；实现 <strong>解析</strong>：SLF4J
+<section class="question-card" id="13-填空-03-"><p><strong>13-填空-03 ★</strong></p><p>SLF4J 是日志的 ________（门面/实现），Logback 是日志的
+________（门面/实现）。</p><blockquote><p><strong>答案</strong>：门面；实现 <strong>解析</strong>：SLF4J
 是日志门面（接口），Logback 是日志实现。业务代码调用 SLF4J 接口，底层由
-Logback 实现具体输出。</p>
+Logback 实现具体输出。</p></blockquote></section>
 <hr />
-<h3 id="13-填空-04-">13-填空-04 ★</h3>
-<p>日志级别从低到高依次是
-TRACE、<strong><strong><strong><strong>、</strong></strong></strong></strong>、WARN、ERROR。</p>
-<p><strong>答案</strong>：DEBUG；INFO
+<section class="question-card" id="13-填空-04-"><p><strong>13-填空-04 ★</strong></p><p>日志级别从低到高依次是
+TRACE、<strong><strong><strong><strong>、</strong></strong></strong></strong>、WARN、ERROR。</p><blockquote><p><strong>答案</strong>：DEBUG；INFO
 <strong>解析</strong>：日志级别从低到高：TRACE &lt; DEBUG &lt; INFO &lt;
-WARN &lt; ERROR。</p>
+WARN &lt; ERROR。</p></blockquote></section>
 <hr />
-<h3 id="13-填空-05-">13-填空-05 ★★</h3>
-<p><code>@RequestBody</code> 体校验失败时抛出的异常类型是 ________。</p>
-<p><strong>答案</strong>：<code>MethodArgumentNotValidException</code>
+<section class="question-card" id="13-填空-05-"><p><strong>13-填空-05 ★★</strong></p><p><code>@RequestBody</code> 体校验失败时抛出的异常类型是 ________。</p><blockquote><p><strong>答案</strong>：<code>MethodArgumentNotValidException</code>
 <strong>解析</strong>：<code>@RequestBody</code> + <code>@Valid</code>
 校验失败抛
 <code>MethodArgumentNotValidException</code>。<code>@RequestParam</code>
-校验失败抛 <code>ConstraintViolationException</code>。</p>
+校验失败抛 <code>ConstraintViolationException</code>。</p></blockquote></section>
 <hr />
-<h3 id="13-填空-06-">13-填空-06 ★★</h3>
-<p>自定义业务异常 <code>BusinessException</code> 应该继承 ________
-类。</p>
-<p><strong>答案</strong>：<code>RuntimeException</code>
+<section class="question-card" id="13-填空-06-"><p><strong>13-填空-06 ★★</strong></p><p>自定义业务异常 <code>BusinessException</code> 应该继承 ________
+类。</p><blockquote><p><strong>答案</strong>：<code>RuntimeException</code>
 <strong>解析</strong>：业务异常继承
 <code>RuntimeException</code>（非受检异常），避免方法签名到处
 <code>throws</code>，且 Spring 事务默认对 <code>RuntimeException</code>
-回滚。</p>
+回滚。</p></blockquote></section>
 <hr />
-<h3 id="13-填空-07-">13-填空-07 ★★</h3>
-<p>在 <code>application.yml</code> 中配置日志级别，应该使用
-<code>logging.________</code> 配置项。</p>
-<p><strong>答案</strong>：<code>level</code>
+<section class="question-card" id="13-填空-07-"><p><strong>13-填空-07 ★★</strong></p><p>在 <code>application.yml</code> 中配置日志级别，应该使用
+<code>logging.________</code> 配置项。</p><blockquote><p><strong>答案</strong>：<code>level</code>
 <strong>解析</strong>：日志级别配置在 <code>logging.level</code> 下，如
-<code>logging.level.com.ctts: DEBUG</code>。</p>
+<code>logging.level.com.ctts: DEBUG</code>。</p></blockquote></section>
 <hr />
-<h3 id="13-填空-08-">13-填空-08 ★★</h3>
-<p>日志参数推荐使用 ________ 占位符，而不是字符串拼接。</p>
-<p><strong>答案</strong>：<code>{}</code> <strong>解析</strong>：用
+<section class="question-card" id="13-填空-08-"><p><strong>13-填空-08 ★★</strong></p><p>日志参数推荐使用 ________ 占位符，而不是字符串拼接。</p><blockquote><p><strong>答案</strong>：<code>{}</code> <strong>解析</strong>：用
 <code>{}</code> 占位符，即使日志级别不输出也不会拼接字符串，性能更好。如
-<code>log.info("id={}", id);</code>。</p>
+<code>log.info("id={}", id);</code>。</p></blockquote></section>
 <hr />
-<h3 id="13-填空-09-">13-填空-09 ★★</h3>
-<p>打印异常堆栈时，应该把异常对象作为日志方法的 ________ 参数。</p>
-<p><strong>答案</strong>：最后一个
+<section class="question-card" id="13-填空-09-"><p><strong>13-填空-09 ★★</strong></p><p>打印异常堆栈时，应该把异常对象作为日志方法的 ________ 参数。</p><blockquote><p><strong>答案</strong>：最后一个
 <strong>解析</strong>：<code>log.error("系统异常", e);</code> 把异常对象
-<code>e</code> 作为最后一个参数，SLF4J 自动打印完整堆栈。</p>
+<code>e</code> 作为最后一个参数，SLF4J 自动打印完整堆栈。</p></blockquote></section>
 <hr />
-<h3 id="13-填空-10-">13-填空-10 ★★★</h3>
-<p>分组校验需要在 Controller 方法参数上使用
-<code>@Validated(________.class)</code> 指定校验分组。</p>
-<p><strong>答案</strong>：分组接口名（如 <code>AddGroup</code> /
+<section class="question-card" id="13-填空-10-"><p><strong>13-填空-10 ★★★</strong></p><p>分组校验需要在 Controller 方法参数上使用
+<code>@Validated(________.class)</code> 指定校验分组。</p><blockquote><p><strong>答案</strong>：分组接口名（如 <code>AddGroup</code> /
 <code>UpdateGroup</code>） <strong>解析</strong>：分组校验用
 <code>@Validated(Group.class)</code>，其中 <code>Group</code>
 是自定义的分组接口。如
-<code>@Validated(ProjectDTO.AddGroup.class)</code>。</p>
+<code>@Validated(ProjectDTO.AddGroup.class)</code>。</p></blockquote></section>
 <hr />
 <h2 id="五论述简答题4-题">五、论述简答题（4 题）</h2>
-<h3 id="13-论述-01-">13-论述-01 ★★</h3>
-<p>简述 <code>@Valid</code> 和 <code>@Validated</code>
-的区别，并说明各自的使用场景。</p>
-<p><strong>答案要点</strong>： | 对比项 | <code>@Valid</code> |
+<section class="question-card" id="13-论述-01-"><p><strong>13-论述-01 ★★</strong></p><p>简述 <code>@Valid</code> 和 <code>@Validated</code>
+的区别，并说明各自的使用场景。</p><p><strong>答案要点</strong>： | 对比项 | <code>@Valid</code> |
 <code>@Validated</code> | | --- | --- | --- | | 来源 | JSR 380
 标准（<code>jakarta.validation.Valid</code>） | Spring
 扩展（<code>org.springframework.validation.annotation.Validated</code>）
 | | 分组校验 | 不支持 | 支持 | | 嵌套校验 | 支持（标注在字段上） | 支持
 | | 用在 <code>@RequestBody</code> | 支持 | 支持 | | 用在
 <code>@RequestParam</code> / <code>@PathVariable</code> | 不支持 |
-支持（需类上加 <code>@Validated</code>） |</p>
-<p><strong>使用场景</strong>：</p>
-<ol type="1">
+支持（需类上加 <code>@Validated</code>） |</p><p><strong>使用场景</strong>：</p><ol type="1">
 <li><code>@RequestBody</code> DTO 校验：两者都可，推荐
 <code>@Valid</code>（标准注解）。</li>
 <li><code>@RequestParam</code> / <code>@PathVariable</code> 校验：必须用
@@ -896,21 +613,15 @@ WARN &lt; ERROR。</p>
 <code>@Max</code> 等注解。</li>
 <li>分组校验：必须用 <code>@Validated(Group.class)</code>。</li>
 <li>嵌套校验：在 DTO 字段上加 <code>@Valid</code>。</li>
-</ol>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>来源区别（2 分）</li>
 <li>分组校验区别（3 分）</li>
 <li>使用场景区别（3 分）</li>
 <li>嵌套校验说明（2 分）</li>
-</ul>
+</ul></section>
 <hr />
-<h3 id="13-论述-02-">13-论述-02 ★★</h3>
-<p>简述全局异常处理器 <code>@RestControllerAdvice</code> +
-<code>@ExceptionHandler</code> 的工作原理，并说明异常匹配规则。</p>
-<p><strong>答案要点</strong>：</p>
-<p><strong>工作原理</strong>：</p>
-<ol type="1">
+<section class="question-card" id="13-论述-02-"><p><strong>13-论述-02 ★★</strong></p><p>简述全局异常处理器 <code>@RestControllerAdvice</code> +
+<code>@ExceptionHandler</code> 的工作原理，并说明异常匹配规则。</p><p><strong>答案要点</strong>：</p><p><strong>工作原理</strong>：</p><ol type="1">
 <li>Spring MVC 处理请求时若抛出异常，交给
 <code>HandlerExceptionResolver</code> 链处理；</li>
 <li><code>ExceptionHandlerExceptionResolver</code> 负责查找
@@ -920,9 +631,7 @@ WARN &lt; ERROR。</p>
 <li>找到匹配的 handler
 方法后，执行该方法，返回值作为响应体（<code>@ResponseBody</code>
 自动序列化为 JSON）。</li>
-</ol>
-<p><strong>异常匹配规则</strong>：</p>
-<ol type="1">
+</ol><p><strong>异常匹配规则</strong>：</p><ol type="1">
 <li><strong>子类优先</strong>：子类异常优先匹配到精确类型的 handler，如
 <code>BusinessException</code> 优先于 <code>Exception</code>；</li>
 <li><strong>最近优先</strong>：Controller 内的
@@ -930,35 +639,25 @@ WARN &lt; ERROR。</p>
 <code>@RestControllerAdvice</code>；</li>
 <li><strong>兜底</strong>：未被精确匹配的异常会落到
 <code>@ExceptionHandler(Exception.class)</code> 兜底处理。</li>
-</ol>
-<p><strong>建议的 handler 顺序</strong>：</p>
-<ol type="1">
+</ol><p><strong>建议的 handler 顺序</strong>：</p><ol type="1">
 <li><code>MethodArgumentNotValidException</code>（Body 校验）</li>
 <li><code>ConstraintViolationException</code>（Param 校验）</li>
 <li><code>MethodArgumentTypeMismatchException</code>（类型不匹配）</li>
 <li><code>BusinessException</code>（业务异常）</li>
 <li><code>Exception</code>（兜底）</li>
-</ol>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>工作原理（4 分）</li>
 <li>匹配规则（3 分）</li>
 <li>handler 顺序建议（3 分）</li>
-</ul>
+</ul></section>
 <hr />
-<h3 id="13-论述-03-">13-论述-03 ★★</h3>
-<p>自定义业务异常为什么要继承 <code>RuntimeException</code> 而不是
-<code>Exception</code>？请从代码侵入性、事务回滚、异常处理三个角度分析。</p>
-<p><strong>答案要点</strong>：</p>
-<p><strong>1. 代码侵入性角度</strong>：</p>
-<ul>
+<section class="question-card" id="13-论述-03-"><p><strong>13-论述-03 ★★</strong></p><p>自定义业务异常为什么要继承 <code>RuntimeException</code> 而不是
+<code>Exception</code>？请从代码侵入性、事务回滚、异常处理三个角度分析。</p><p><strong>答案要点</strong>：</p><p><strong>1. 代码侵入性角度</strong>：</p><ul>
 <li><code>Exception</code> 是受检异常，方法签名必须 <code>throws</code>
 或调用方必须 try-catch，每层都要处理，代码冗余；</li>
 <li><code>RuntimeException</code> 是非受检异常，方法签名不需要
 <code>throws</code>，调用链清爽，代码侵入性低。</li>
-</ul>
-<p><strong>2. 事务回滚角度</strong>：</p>
-<ul>
+</ul><p><strong>2. 事务回滚角度</strong>：</p><ul>
 <li>Spring 的 <code>@Transactional</code> 默认只对
 <code>RuntimeException</code>（及其子类）和 <code>Error</code>
 回滚，对受检 <code>Exception</code> 不回滚；</li>
@@ -967,79 +666,58 @@ WARN &lt; ERROR。</p>
 <li>如果继承 <code>Exception</code>，需要额外配置
 <code>@Transactional(rollbackFor = Exception.class)</code>
 才能回滚。</li>
-</ul>
-<p><strong>3. 异常处理角度</strong>：</p>
-<ul>
+</ul><p><strong>3. 异常处理角度</strong>：</p><ul>
 <li><code>RuntimeException</code> 可以被
 <code>@ExceptionHandler(BusinessException.class)</code> 正常捕获，与继承
 <code>Exception</code> 无区别；</li>
 <li>但 <code>RuntimeException</code>
 不强制调用方处理，更符合"业务异常可预期、由全局处理器统一处理"的设计思路。</li>
-</ul>
-<p><strong>结论</strong>：业务异常应继承
-<code>RuntimeException</code>，代码侵入性低、事务默认回滚、由全局异常处理器统一捕获。</p>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+</ul><p><strong>结论</strong>：业务异常应继承
+<code>RuntimeException</code>，代码侵入性低、事务默认回滚、由全局异常处理器统一捕获。</p><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>代码侵入性分析（3 分）</li>
 <li>事务回滚分析（4 分）</li>
 <li>异常处理分析（2 分）</li>
 <li>结论（1 分）</li>
-</ul>
+</ul></section>
 <hr />
-<h3 id="13-论述-04-">13-论述-04 ★★★</h3>
-<p>在生产环境中，日志应该如何规范配置？请从日志级别、日志文件、滚动策略、敏感信息、性能五个方面论述。</p>
-<p><strong>答案要点</strong>：</p>
-<p><strong>1. 日志级别</strong>：</p>
-<ul>
+<section class="question-card" id="13-论述-04-"><p><strong>13-论述-04 ★★★</strong></p><p>在生产环境中，日志应该如何规范配置？请从日志级别、日志文件、滚动策略、敏感信息、性能五个方面论述。</p><p><strong>答案要点</strong>：</p><p><strong>1. 日志级别</strong>：</p><ul>
 <li><code>root: INFO</code> 全局默认 INFO，平衡信息量与性能；</li>
 <li><code>com.ctts: INFO</code> 业务包 INFO，记录关键业务节点；</li>
 <li><code>org.springframework: WARN</code> 框架日志降级，减少噪音；</li>
 <li>排查问题时临时调 <code>com.ctts: DEBUG</code>，排查完调回
 INFO；</li>
 <li>可用 Actuator <code>/loggers</code> 端点运行时动态调整。</li>
-</ul>
-<p><strong>2. 日志文件</strong>：</p>
-<ul>
+</ul><p><strong>2. 日志文件</strong>：</p><ul>
 <li>必须输出到文件，不能只输出控制台（生产环境没有控制台）；</li>
 <li>配置 <code>logging.file.name: logs/ctts.log</code>；</li>
 <li>日志文件至少保留 15 天（阿里规约），重要系统保留 30 天以上。</li>
-</ul>
-<p><strong>3. 滚动策略</strong>：</p>
-<ul>
+</ul><p><strong>3. 滚动策略</strong>：</p><ul>
 <li><code>max-file-size: 10MB</code> 单个文件最大
 10MB，超过则滚动；</li>
 <li><code>max-history: 30</code> 保留 30 天；</li>
 <li><code>total-size-cap: 1GB</code> 所有日志文件总大小上限
 1GB，超过则删除最旧的；</li>
 <li>避免单个文件无限增长撑爆磁盘。</li>
-</ul>
-<p><strong>4. 敏感信息</strong>：</p>
-<ul>
+</ul><p><strong>4. 敏感信息</strong>：</p><ul>
 <li>日志中不能打印密码、身份证、银行卡号等敏感信息；</li>
 <li>对敏感字段做脱敏处理（如手机号 <code>138****1234</code>）；</li>
 <li>避免在日志中打印完整的请求体（可能含敏感数据）。</li>
-</ul>
-<p><strong>5. 性能</strong>：</p>
-<ul>
+</ul><p><strong>5. 性能</strong>：</p><ul>
 <li>用 <code>{}</code> 占位符，不用字符串拼接；</li>
 <li>异常对象作为最后一个参数；</li>
 <li>避免在循环中打大量日志；</li>
 <li>高并发场景考虑异步日志（<code>AsyncAppender</code>）；</li>
 <li>ERROR 日志要节制，避免告警泛滥。</li>
-</ul>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>日志级别（2 分）</li>
 <li>日志文件（2 分）</li>
 <li>滚动策略（2 分）</li>
 <li>敏感信息（2 分）</li>
 <li>性能（2 分）</li>
-</ul>
+</ul></section>
 <hr />
 <h2 id="六程序阅读补全题2-题">六、程序阅读补全题（2 题）</h2>
-<h3 id="13-程序阅读-01-">13-程序阅读-01 ★★</h3>
-<p>阅读以下 <code>GlobalExceptionHandler</code> 代码，补全缺失部分。</p>
-<div class="sourceCode" id="cb13"><pre
+<section class="question-card" id="13-程序阅读-01-"><p><strong>13-程序阅读-01 ★★</strong></p><p>阅读以下 <code>GlobalExceptionHandler</code> 代码，补全缺失部分。</p><div class="sourceCode" id="cb13"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Slf4j</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RestControllerAdvice</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GlobalExceptionHandler <span class="op">{</span></span>
@@ -1067,10 +745,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href=
 <span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">________</span><span class="op">(</span><span class="dv">6</span><span class="op">)</span><span class="fu">________</span><span class="op">(</span><span class="st">&quot;系统异常&quot;</span><span class="op">,</span> <span class="fu">________</span><span class="op">(</span><span class="dv">7</span><span class="op">)</span>________<span class="op">);</span></span>
 <span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">fail</span><span class="op">(</span><span class="dv">500</span><span class="op">,</span> <span class="st">&quot;系统繁忙，请稍后重试&quot;</span><span class="op">);</span></span>
 <span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>问题</strong>：补全 (1)~(7) 处的代码。</p>
-<p><strong>答案</strong>：</p>
-<ul>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>问题</strong>：补全 (1)~(7) 处的代码。</p><blockquote><p><strong>答案</strong>：</p><ul>
 <li>(1) <code>getDefaultMessage</code></li>
 <li>(2) <code>warn</code></li>
 <li>(3) <code>400</code></li>
@@ -1078,9 +753,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href=
 <li>(5) <code>getMessage</code></li>
 <li>(6) <code>error</code></li>
 <li>(7) <code>e</code></li>
-</ul>
-<p><strong>解析</strong>：</p>
-<ul>
+</ul><p><strong>解析</strong>：</p><ul>
 <li>(1) <code>FieldError.getDefaultMessage()</code>
 获取校验错误信息；</li>
 <li>(2) 参数校验失败是可恢复的，用 <code>warn</code> 级别；</li>
@@ -1091,14 +764,11 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href=
 <code>Throwable</code>）；</li>
 <li>(6) 系统异常是不可恢复的，用 <code>error</code> 级别；</li>
 <li>(7) 异常对象 <code>e</code> 作为最后一个参数，打印完整堆栈。</li>
-</ul>
-<p><strong>评分标准</strong>（满分 10 分，每空 1.5 分，第 7 空 1
-分）：每空填对得分，填错不得分。</p>
+</ul><p><strong>评分标准</strong>（满分 10 分，每空 1.5 分，第 7 空 1
+分）：每空填对得分，填错不得分。</p></blockquote></section>
 <hr />
-<h3 id="13-程序阅读-02-">13-程序阅读-02 ★★★</h3>
-<p>阅读以下 <code>ProjectDTO</code> 与 <code>ProjectController</code>
-代码，回答问题。</p>
-<div class="sourceCode" id="cb14"><pre
+<section class="question-card" id="13-程序阅读-02-"><p><strong>13-程序阅读-02 ★★★</strong></p><p>阅读以下 <code>ProjectDTO</code> 与 <code>ProjectController</code>
+代码，回答问题。</p><div class="sourceCode" id="cb14"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectDTO <span class="op">{</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotBlank</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;项目名称不能为空&quot;</span><span class="op">)</span></span>
@@ -1128,32 +798,21 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb14-1"><a href=
 <span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span>Project<span class="op">&gt;</span> <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="at">@________</span><span class="op">(</span><span class="dv">2</span><span class="op">)</span><span class="fu">________</span><span class="op">(</span>value <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;ID必须大于0&quot;</span><span class="op">)</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span>projectService<span class="op">.</span><span class="fu">getById</span><span class="op">(</span>id<span class="op">));</span></span>
 <span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>问题1</strong>：补全 (1)、(2) 处的注解。</p>
-<p><strong>问题2</strong>：若调用
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>问题1</strong>：补全 (1)、(2) 处的注解。</p><p><strong>问题2</strong>：若调用
 <code>POST /api/projects</code>，请求体为
-<code>{"name": "A", "leaderId": 1, "status": "筹备中"}</code>，会发生什么？返回什么？</p>
-<p><strong>问题3</strong>：若调用
-<code>GET /api/projects/0</code>，会发生什么？返回什么？</p>
-<p><strong>问题4</strong>：若调用
-<code>GET /api/projects/abc</code>，会发生什么？抛什么异常？</p>
-<p><strong>答案</strong>：</p>
-<p><strong>问题1</strong>：</p>
-<ul>
+<code>{"name": "A", "leaderId": 1, "status": "筹备中"}</code>，会发生什么？返回什么？</p><p><strong>问题3</strong>：若调用
+<code>GET /api/projects/0</code>，会发生什么？返回什么？</p><p><strong>问题4</strong>：若调用
+<code>GET /api/projects/abc</code>，会发生什么？抛什么异常？</p><blockquote><p><strong>答案</strong>：</p><p><strong>问题1</strong>：</p><ul>
 <li>(1) <code>@Valid</code></li>
 <li>(2) <code>@Min</code></li>
-</ul>
-<p><strong>问题2</strong>：</p>
-<ul>
+</ul><p><strong>问题2</strong>：</p><ul>
 <li><code>name</code> 为 "A"，长度为 1，不满足
 <code>@Size(min = 2)</code>，校验失败；</li>
 <li>抛出 <code>MethodArgumentNotValidException</code>；</li>
 <li>被 <code>GlobalExceptionHandler</code> 捕获；</li>
 <li>返回
 <code>{"code":400, "message":"name: 项目名称长度需在2-50之间", "data":null}</code>。</li>
-</ul>
-<p><strong>问题3</strong>：</p>
-<ul>
+</ul><p><strong>问题3</strong>：</p><ul>
 <li><code>id</code> 为 0，不满足
 <code>@Min(value = 1)</code>，校验失败；</li>
 <li>抛出 <code>ConstraintViolationException</code>（因为类上有
@@ -1162,29 +821,23 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb14-1"><a href=
 <li>被全局异常处理器捕获；</li>
 <li>返回
 <code>{"code":400, "message":"ID必须大于0", "data":null}</code>。</li>
-</ul>
-<p><strong>问题4</strong>：</p>
-<ul>
+</ul><p><strong>问题4</strong>：</p><ul>
 <li><code>abc</code> 无法转换为 <code>Long</code> 类型；</li>
 <li>抛出 <code>MethodArgumentTypeMismatchException</code>；</li>
 <li>被全局异常处理器捕获；</li>
 <li>返回
 <code>{"code":400, "message":"参数类型不匹配: id", "data":null}</code>。</li>
-</ul>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>问题1（2 分，每空 1 分）</li>
 <li>问题2（2 分，校验失败 + 异常类型 + 返回各 0.5-1 分）</li>
 <li>问题3（3 分，校验失败 + 异常类型 + 返回各 1 分）</li>
 <li>问题4（3 分，类型不匹配 + 异常类型 + 返回各 1 分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="七编程接口设计题2-题">七、编程接口设计题（2 题）</h2>
-<h3 id="13-编程-01-">13-编程-01 ★★</h3>
-<p><strong>题目</strong>：为 CTTS 的任务模块设计
+<section class="question-card" id="13-编程-01-"><p><strong>13-编程-01 ★★</strong></p><p><strong>题目</strong>：为 CTTS 的任务模块设计
 <code>TaskDTO</code>，并编写 <code>TaskController</code>
-的创建任务接口，要求：</p>
-<ol type="1">
+的创建任务接口，要求：</p><ol type="1">
 <li><code>TaskDTO</code>
 包含字段：<code>id</code>（更新时必传）、<code>title</code>（任务标题）、<code>description</code>（任务描述）、<code>projectId</code>（所属项目ID）、<code>assigneeId</code>（指派人ID）、<code>status</code>（状态：0-待办
 1-进行中
@@ -1194,9 +847,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb14-1"><a href=
 更新组）；</li>
 <li>Controller 提供 <code>POST /api/tasks</code>（新增）和
 <code>PUT /api/tasks</code>（更新）两个接口。</li>
-</ol>
-<p><strong>答案</strong>：</p>
-<div class="sourceCode" id="cb15"><pre
+</ol><blockquote><p><strong>答案</strong>：</p><div class="sourceCode" id="cb15"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">task</span><span class="op">.</span><span class="im">dto</span><span class="op">;</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">fasterxml</span><span class="op">.</span><span class="im">jackson</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">JsonFormat</span><span class="op">;</span></span>
@@ -1245,8 +896,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href=
 <span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">interface</span> AddGroup <span class="op">{}</span></span>
 <span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span> <span class="co">更新分组</span> <span class="co">*/</span></span>
 <span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">interface</span> UpdateGroup <span class="op">{}</span></span>
-<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><div class="sourceCode" id="cb16"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">task</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
@@ -1280,9 +930,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href=
 <span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>        taskService<span class="op">.</span><span class="fu">update</span><span class="op">(</span>dto<span class="op">);</span></span>
 <span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">();</span></span>
 <span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>评分标准</strong>（满分 15 分）：</p>
-<ul>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>评分标准</strong>（满分 15 分）：</p><ul>
 <li>TaskDTO 字段完整（2 分）</li>
 <li>校验注解合理（<code>@NotBlank</code> / <code>@Size</code> /
 <code>@NotNull</code> / <code>@Min</code> / <code>@Max</code> /
@@ -1293,13 +941,11 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href=
 <code>@RequestMapping</code> / <code>@Validated</code>）（2 分）</li>
 <li>接口参数使用 <code>@Validated(Group.class)</code>（2 分）</li>
 <li>日志输出（1 分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="13-编程-02-">13-编程-02 ★★★</h3>
-<p><strong>题目</strong>：为 CTTS 编写完整的全局异常处理器
+<section class="question-card" id="13-编程-02-"><p><strong>13-编程-02 ★★★</strong></p><p><strong>题目</strong>：为 CTTS 编写完整的全局异常处理器
 <code>GlobalExceptionHandler</code> 和自定义业务异常
-<code>BusinessException</code>，要求：</p>
-<ol type="1">
+<code>BusinessException</code>，要求：</p><ol type="1">
 <li><code>BusinessException</code> 继承
 <code>RuntimeException</code>，包含 <code>code</code>（Integer）和
 <code>message</code>，提供两个构造器；</li>
@@ -1321,9 +967,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href=
 <code>log.warn</code>，兜底异常用 <code>log.error</code>
 并打印完整堆栈；</li>
 <li>兜底异常返回"系统繁忙，请稍后重试"，不返回堆栈。</li>
-</ol>
-<p><strong>答案</strong>：</p>
-<div class="sourceCode" id="cb17"><pre
+</ol><blockquote><p><strong>答案</strong>：</p><div class="sourceCode" id="cb17"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">exception</span><span class="op">;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Getter</span><span class="op">;</span></span>
@@ -1347,8 +991,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb17-1"><a href=
 <span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">BusinessException</span><span class="op">(</span><span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">(</span><span class="dv">500</span><span class="op">,</span> message<span class="op">);</span></span>
 <span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><div class="sourceCode" id="cb18"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">exception</span><span class="op">;</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
@@ -1409,9 +1052,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href=
 <span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="st">&quot;系统异常&quot;</span><span class="op">,</span> e<span class="op">);</span></span>
 <span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">fail</span><span class="op">(</span><span class="dv">500</span><span class="op">,</span> <span class="st">&quot;系统繁忙，请稍后重试&quot;</span><span class="op">);</span></span>
 <span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>配套的 <code>Result&lt;T&gt;</code></strong>：</p>
-<div class="sourceCode" id="cb19"><pre
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>配套的 <code>Result&lt;T&gt;</code></strong>：</p><div class="sourceCode" id="cb19"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">;</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
@@ -1439,17 +1080,12 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href=
 <span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="bu">Result</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="fu">fail</span><span class="op">(</span><span class="bu">Integer</span> code<span class="op">,</span> <span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Result</span><span class="op">&lt;&gt;(</span>code<span class="op">,</span> message<span class="op">,</span> <span class="kw">null</span><span class="op">);</span></span>
 <span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>评分标准</strong>（满分 15 分）：</p>
-<p><strong>BusinessException（5 分）</strong>：</p>
-<ul>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>评分标准</strong>（满分 15 分）：</p><p><strong>BusinessException（5 分）</strong>：</p><ul>
 <li>继承 <code>RuntimeException</code>（1 分）</li>
 <li><code>code</code> 字段（1 分）</li>
 <li>两个构造器（2 分）</li>
 <li><code>@Getter</code> 或 getter 方法（1 分）</li>
-</ul>
-<p><strong>GlobalExceptionHandler（10 分）</strong>：</p>
-<ul>
+</ul><p><strong>GlobalExceptionHandler（10 分）</strong>：</p><ul>
 <li><code>@RestControllerAdvice</code> 注解（1 分）</li>
 <li><code>@Slf4j</code> 注解（1 分）</li>
 <li><code>MethodArgumentNotValidException</code> 处理（2
@@ -1461,7 +1097,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href=
 <li>兜底 <code>Exception</code> 处理（2 分，<code>log.error</code> +
 异常对象作为参数 + 返回友好提示不返堆栈）</li>
 <li>所有返回统一 <code>Result&lt;T&gt;</code>（1 分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="附题库统计表">附：题库统计表</h2>
 <h3 id="题型分布统计">题型分布统计</h3>

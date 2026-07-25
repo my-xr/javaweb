@@ -146,601 +146,363 @@ R程序阅读 / C编程） 难度标注：★ 基础 / ★★ 进阶 / ★★★
 </blockquote>
 <hr />
 <h2 id="一单项选择题30题">一、单项选择题（30题）</h2>
-<h3 id="16-d-01-">16-D-01 ★</h3>
-<p>JWT 的全称是（ ） A. Java Web Token B. JSON Web Token C. JavaScript
-Web Token D. JSON Web Transfer</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：JWT 全称 JSON Web
+<section class="question-card" id="16-d-01-"><p><strong>16-D-01 ★</strong></p><p>JWT 的全称是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Java Web Token</div></li><li><span class="option-label">B</span><div class="option-content">JSON Web Token</div></li><li><span class="option-label">C</span><div class="option-content">JavaScript Web Token</div></li><li><span class="option-label">D</span><div class="option-content">JSON Web Transfer</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：JWT 全称 JSON Web
 Token，是一种基于 JSON 的开放标准（RFC
-7519），用于在网络应用各方之间以紧凑、自包含的方式安全传递声明。</p>
+7519），用于在网络应用各方之间以紧凑、自包含的方式安全传递声明。</p></blockquote></section>
 <hr />
-<h3 id="16-d-02-">16-D-02 ★</h3>
-<p>JWT 由几段组成，用什么符号连接？（ ） A. 两段，用 <code>:</code> 连接
-B. 三段，用 <code>.</code> 连接 C. 三段，用 <code>-</code> 连接 D.
-四段，用 <code>.</code> 连接</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：JWT 由
+<section class="question-card" id="16-d-02-"><p><strong>16-D-02 ★</strong></p><p>JWT 由几段组成，用什么符号连接？（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">两段，用 <code>:</code> 连接</div></li><li><span class="option-label">B</span><div class="option-content">三段，用 <code>.</code> 连接</div></li><li><span class="option-label">C</span><div class="option-content">三段，用 <code>-</code> 连接</div></li><li><span class="option-label">D</span><div class="option-content">四段，用 <code>.</code> 连接</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：JWT 由
 Header、Payload、Signature 三段组成，每段 Base64URL 编码后用
-<code>.</code> 连接，形如 <code>xxxxx.yyyyy.zzzzz</code>。</p>
+<code>.</code> 连接，形如 <code>xxxxx.yyyyy.zzzzz</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-d-03-">16-D-03 ★</h3>
-<p>JWT 三段中，描述令牌类型与签名算法的是哪一段？（ ） A. Header B.
-Payload C. Signature D. Claim</p>
-<p><strong>答案</strong>：A <strong>解析</strong>：Header 头部包含
+<section class="question-card" id="16-d-03-"><p><strong>16-D-03 ★</strong></p><p>JWT 三段中，描述令牌类型与签名算法的是哪一段？（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Header</div></li><li><span class="option-label">B</span><div class="option-content">Payload</div></li><li><span class="option-label">C</span><div class="option-content">Signature</div></li><li><span class="option-label">D</span><div class="option-content">Claim</div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：Header 头部包含
 <code>alg</code>（签名算法，如 HS256）和 <code>typ</code>（类型，固定为
-JWT）两个字段。</p>
+JWT）两个字段。</p></blockquote></section>
 <hr />
-<h3 id="16-d-04-">16-D-04 ★</h3>
-<p>JWT 的 Payload 中通常不包含以下哪个字段？（ ） A. userId B. username
-C. role D. password</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：Payload 仅做
+<section class="question-card" id="16-d-04-"><p><strong>16-D-04 ★</strong></p><p>JWT 的 Payload 中通常不包含以下哪个字段？（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">userId</div></li><li><span class="option-label">B</span><div class="option-content">username</div></li><li><span class="option-label">C</span><div class="option-content">role</div></li><li><span class="option-label">D</span><div class="option-content">password</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：Payload 仅做
 Base64URL 编码，任何人可解码读取，绝不能放密码等敏感信息。通常放
-userId、username、role、exp、iat 等声明。</p>
+userId、username、role、exp、iat 等声明。</p></blockquote></section>
 <hr />
-<h3 id="16-d-05-">16-D-05 ★</h3>
-<p>JWT 默认推荐的签名算法是（ ） A. MD5 B. SHA-256 C. HS256 D. RS256</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="16-d-05-"><p><strong>16-D-05 ★</strong></p><p>JWT 默认推荐的签名算法是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">MD5</div></li><li><span class="option-label">B</span><div class="option-content">SHA-256</div></li><li><span class="option-label">C</span><div class="option-content">HS256</div></li><li><span class="option-label">D</span><div class="option-content">RS256</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：HS256（HMAC-SHA-256）是对称签名算法，签发与校验用同一密钥，是最常用的默认算法。MD5
 已不安全；SHA-256 是哈希函数不是签名算法；RS256
-是非对称算法，适用于微服务场景。</p>
+是非对称算法，适用于微服务场景。</p></blockquote></section>
 <hr />
-<h3 id="16-d-06-">16-D-06 ★★</h3>
-<p>关于 JWT 三段编码方式，下列说法正确的是（ ） A. Header 和 Payload
-都加密，Signature 不加密 B. Header 加密，Payload 不加密，Signature 加密
-C. Header 和 Payload 都是 Base64URL 编码（可逆），Signature 是
-HMAC-SHA256（需密钥） D. 三段都加密</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：Header 和 Payload 用
+<section class="question-card" id="16-d-06-"><p><strong>16-D-06 ★★</strong></p><p>关于 JWT 三段编码方式，下列说法正确的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Header 和 Payload 都加密，Signature 不加密</div></li><li><span class="option-label">B</span><div class="option-content">Header 加密，Payload 不加密，Signature 加密</div></li><li><span class="option-label">C</span><div class="option-content">Header 和 Payload 都是 Base64URL 编码（可逆），Signature 是 HMAC-SHA256（需密钥）</div></li><li><span class="option-label">D</span><div class="option-content">三段都加密</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：Header 和 Payload 用
 Base64URL 编码（可逆，任何人可解码），不是加密；Signature 是用密钥计算的
-HMAC-SHA256，没有密钥无法伪造。这是常见误区——Payload 不是加密的。</p>
+HMAC-SHA256，没有密钥无法伪造。这是常见误区——Payload 不是加密的。</p></blockquote></section>
 <hr />
-<h3 id="16-d-07-">16-D-07 ★★</h3>
-<p>JWT 使用 Base64URL 编码而非标准 Base64，主要原因是（ ） A. Base64URL
-编码更短 B. Base64URL 编码更安全 C. 标准 Base64 中的
-<code>+</code>、<code>/</code>、<code>=</code> 在 URL/Header
-中有特殊含义 D. Base64URL 编码速度更快</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：标准 Base64 中
+<section class="question-card" id="16-d-07-"><p><strong>16-D-07 ★★</strong></p><p>JWT 使用 Base64URL 编码而非标准 Base64，主要原因是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Base64URL 编码更短</div></li><li><span class="option-label">B</span><div class="option-content">Base64URL 编码更安全</div></li><li><span class="option-label">C</span><div class="option-content">标准 Base64 中的 <code>+</code>、<code>/</code>、<code>=</code> 在 URL/Header 中有特殊含义</div></li><li><span class="option-label">D</span><div class="option-content">Base64URL 编码速度更快</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：标准 Base64 中
 <code>+</code> 可能被解析为空格、<code>/</code>
 是路径分隔符、<code>=</code> 是参数分隔符，在 URL/HTTP Header
 中不安全。Base64URL 用 <code>-</code> 替换
 <code>+</code>、<code>_</code> 替换 <code>/</code>、去掉 <code>=</code>
-填充。</p>
+填充。</p></blockquote></section>
 <hr />
-<h3 id="16-d-08-">16-D-08 ★★</h3>
-<p>HS256 签名算法的"对称"体现在（ ） A. 加密与解密用同一密钥 B.
-签发与验证用同一密钥 C. Token 字符串左右对称 D. 算法可逆</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：HS256 是
+<section class="question-card" id="16-d-08-"><p><strong>16-D-08 ★★</strong></p><p>HS256 签名算法的"对称"体现在（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">加密与解密用同一密钥</div></li><li><span class="option-label">B</span><div class="option-content">签发与验证用同一密钥</div></li><li><span class="option-label">C</span><div class="option-content">Token 字符串左右对称</div></li><li><span class="option-label">D</span><div class="option-content">算法可逆</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：HS256 是
 HMAC-SHA-256，签发 Token 和验证 Token
 使用同一个密钥，故称"对称"。与之相对，RS256
-是非对称，私钥签发、公钥验证。</p>
+是非对称，私钥签发、公钥验证。</p></blockquote></section>
 <hr />
-<h3 id="16-d-09-">16-D-09 ★★</h3>
-<p>JWT 能防止 Token 被篡改的根本原因是（ ） A. Payload 是加密的 B.
-Header 是加密的 C. Signature 用密钥计算，篡改者无法生成正确签名 D. Token
-字符串很长</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：Signature =
+<section class="question-card" id="16-d-09-"><p><strong>16-D-09 ★★</strong></p><p>JWT 能防止 Token 被篡改的根本原因是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Payload 是加密的</div></li><li><span class="option-label">B</span><div class="option-content">Header 是加密的</div></li><li><span class="option-label">C</span><div class="option-content">Signature 用密钥计算，篡改者无法生成正确签名</div></li><li><span class="option-label">D</span><div class="option-content">Token 字符串很长</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：Signature =
 HMAC-SHA256(base64(header) + "." + base64(payload), secret)。攻击者篡改
 Payload 后，由于没有密钥无法生成匹配的
-Signature，服务端验签失败。Payload 本身不加密。</p>
+Signature，服务端验签失败。Payload 本身不加密。</p></blockquote></section>
 <hr />
-<h3 id="16-d-10-">16-D-10 ★</h3>
-<p>下列哪个不是 JWT 的标准注册声明（registered claims）？（ ） A.
-iss（签发者） B. exp（过期时间） C. sub（主题） D. userId（用户ID）</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：标准注册声明包括
+<section class="question-card" id="16-d-10-"><p><strong>16-D-10 ★</strong></p><p>下列哪个不是 JWT 的标准注册声明（registered claims）？（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">iss（签发者）</div></li><li><span class="option-label">B</span><div class="option-content">exp（过期时间）</div></li><li><span class="option-label">C</span><div class="option-content">sub（主题）</div></li><li><span class="option-label">D</span><div class="option-content">userId（用户ID）</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：标准注册声明包括
 iss、sub、aud、exp、nbf、iat、jti。userId 是私有声明（private
-claim），由业务自定义。</p>
+claim），由业务自定义。</p></blockquote></section>
 <hr />
-<h3 id="16-d-11-">16-D-11 ★</h3>
-<p>jjwt 0.12.x 中，生成 Token 的入口 API 是（ ） A.
-<code>Jwts.create()</code> B. <code>Jwts.builder()</code> C.
-<code>Jwts.generate()</code> D. <code>Jwts.token()</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：jjwt 0.12.x 用
+<section class="question-card" id="16-d-11-"><p><strong>16-D-11 ★</strong></p><p>jjwt 0.12.x 中，生成 Token 的入口 API 是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>Jwts.create()</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>Jwts.builder()</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>Jwts.generate()</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>Jwts.token()</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：jjwt 0.12.x 用
 <code>Jwts.builder()</code> 返回 <code>JwtBuilder</code>，链式调用
-<code>.claims().signWith().compact()</code> 生成 Token。</p>
+<code>.claims().signWith().compact()</code> 生成 Token。</p></blockquote></section>
 <hr />
-<h3 id="16-d-12-">16-D-12 ★</h3>
-<p>jjwt 0.12.x 中，解析 Token 的正确写法是（ ） A.
-<code>Jwts.parser().setSigningKey(key).parseClaimsJws(token)</code> B.
-<code>Jwts.parserBuilder().verifyWith(key).build().parseSignedClaims(token)</code>
-C.
-<code>Jwts.parser().verifyWith(key).build().parseSignedClaims(token)</code>
-D. <code>Jwts.parse(token).verifyWith(key)</code></p>
-<p><strong>答案</strong>：C <strong>解析</strong>：0.12.x 新
+<section class="question-card" id="16-d-12-"><p><strong>16-D-12 ★</strong></p><p>jjwt 0.12.x 中，解析 Token 的正确写法是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>Jwts.parser().setSigningKey(key).parseClaimsJws(token)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>Jwts.parserBuilder().verifyWith(key).build().parseSignedClaims(token)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>Jwts.parser().verifyWith(key).build().parseSignedClaims(token)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>Jwts.parse(token).verifyWith(key)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：0.12.x 新
 API：<code>Jwts.parser().verifyWith(key).build().parseSignedClaims(token)</code>。A
 是 0.11.x 旧
 API（<code>setSigningKey</code>/<code>parseClaimsJws</code>）。B 中
-<code>parserBuilder()</code> 已废弃。</p>
+<code>parserBuilder()</code> 已废弃。</p></blockquote></section>
 <hr />
-<h3 id="16-d-13-">16-D-13 ★★</h3>
-<p>jjwt 依赖拆成三个 artifact，其中编译期需要、运行期不需要的是（ ） A.
-jjwt-api B. jjwt-impl C. jjwt-jackson D. 三个都编译期需要</p>
-<p><strong>答案</strong>：A <strong>解析</strong>：<code>jjwt-api</code>
+<section class="question-card" id="16-d-13-"><p><strong>16-D-13 ★★</strong></p><p>jjwt 依赖拆成三个 artifact，其中编译期需要、运行期不需要的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">jjwt-api</div></li><li><span class="option-label">B</span><div class="option-content">jjwt-impl</div></li><li><span class="option-label">C</span><div class="option-content">jjwt-jackson</div></li><li><span class="option-label">D</span><div class="option-content">三个都编译期需要</div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：<code>jjwt-api</code>
 是 API 接口，编译期需要，scope 为默认 compile；<code>jjwt-impl</code> 与
 <code>jjwt-jackson</code> 是运行期实现，scope 设为
-runtime，不参与编译。</p>
+runtime，不参与编译。</p></blockquote></section>
 <hr />
-<h3 id="16-d-14-">16-D-14 ★★</h3>
-<p>HS256 算法要求密钥的最短长度是（ ） A. 16 字节（128 位） B. 24
-字节（192 位） C. 32 字节（256 位） D. 64 字节（512 位）</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：HS256 =
+<section class="question-card" id="16-d-14-"><p><strong>16-D-14 ★★</strong></p><p>HS256 算法要求密钥的最短长度是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">16 字节（128 位）</div></li><li><span class="option-label">B</span><div class="option-content">24 字节（192 位）</div></li><li><span class="option-label">C</span><div class="option-content">32 字节（256 位）</div></li><li><span class="option-label">D</span><div class="option-content">64 字节（512 位）</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：HS256 =
 HMAC-SHA-256，要求密钥至少 256 位 = 32 字节。若密钥过短，jjwt 启动时会抛
-<code>WeakKeyException</code>。</p>
+<code>WeakKeyException</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-d-15-">16-D-15 ★★</h3>
-<p>jjwt 0.12.x 中，获取解析后 Claims 的方法是（ ） A.
-<code>jws.getBody()</code> B. <code>jws.getPayload()</code> C.
-<code>jws.getClaims()</code> D. <code>jws.getData()</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：0.12.x 用
+<section class="question-card" id="16-d-15-"><p><strong>16-D-15 ★★</strong></p><p>jjwt 0.12.x 中，获取解析后 Claims 的方法是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>jws.getBody()</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>jws.getPayload()</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>jws.getClaims()</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>jws.getData()</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：0.12.x 用
 <code>parseSignedClaims(token).getPayload()</code> 获取 Claims。0.11.x
-旧 API 是 <code>getBody()</code>，已废弃。</p>
+旧 API 是 <code>getBody()</code>，已废弃。</p></blockquote></section>
 <hr />
-<h3 id="16-d-16-">16-D-16 ★</h3>
-<p><code>HandlerInterceptor</code> 接口中，在 Controller
-方法执行前调用的方法是（ ） A. <code>preHandle</code> B.
-<code>postHandle</code> C. <code>afterCompletion</code> D.
-<code>beforeHandle</code></p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="16-d-16-"><p><strong>16-D-16 ★</strong></p><p><code>HandlerInterceptor</code> 接口中，在 Controller 方法执行前调用的方法是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>preHandle</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>postHandle</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>afterCompletion</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>beforeHandle</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>preHandle</code> 在 Controller
 方法执行前调用，返回 true 放行、false 拦截。<code>postHandle</code> 在
 Controller 返回后、视图渲染前调用；<code>afterCompletion</code>
-在请求结束时调用。</p>
+在请求结束时调用。</p></blockquote></section>
 <hr />
-<h3 id="16-d-17-">16-D-17 ★★</h3>
-<p><code>HandlerInterceptor.preHandle</code> 的返回值含义是（ ） A. 返回
-true 表示请求处理成功 B. 返回 true 表示放行继续执行，false 表示拦截 C.
-返回 false 表示请求失败 D. 返回值无意义</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="16-d-17-"><p><strong>16-D-17 ★★</strong></p><p><code>HandlerInterceptor.preHandle</code> 的返回值含义是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">返回 true 表示请求处理成功</div></li><li><span class="option-label">B</span><div class="option-content">返回 true 表示放行继续执行，false 表示拦截</div></li><li><span class="option-label">C</span><div class="option-content">返回 false 表示请求失败</div></li><li><span class="option-label">D</span><div class="option-content">返回值无意义</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>preHandle</code> 返回 true 放行请求到
 Controller，返回 false 拦截请求不再继续。返回 false
-时需自己写响应，否则客户端收空响应。</p>
+时需自己写响应，否则客户端收空响应。</p></blockquote></section>
 <hr />
-<h3 id="16-d-18-">16-D-18 ★★</h3>
-<p>下列哪个不是 <code>HandlerInterceptor</code> 的方法？（ ） A.
-<code>preHandle</code> B. <code>postHandle</code> C.
-<code>afterCompletion</code> D. <code>beforeCompletion</code></p>
-<p><strong>答案</strong>：D
+<section class="question-card" id="16-d-18-"><p><strong>16-D-18 ★★</strong></p><p>下列哪个不是 <code>HandlerInterceptor</code> 的方法？（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>preHandle</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>postHandle</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>afterCompletion</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>beforeCompletion</code></div></li></ul></div><blockquote><p><strong>答案</strong>：D
 <strong>解析</strong>：<code>HandlerInterceptor</code>
 接口有三个方法：<code>preHandle</code>、<code>postHandle</code>、<code>afterCompletion</code>。没有
-<code>beforeCompletion</code>。</p>
+<code>beforeCompletion</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-d-19-">16-D-19 ★★</h3>
-<p>HTTP 请求中携带 JWT Token 的 Header 名称通常是（ ） A.
-<code>Token</code> B. <code>Auth</code> C. <code>Authorization</code> D.
-<code>X-Token</code></p>
-<p><strong>答案</strong>：C <strong>解析</strong>：标准做法是
+<section class="question-card" id="16-d-19-"><p><strong>16-D-19 ★★</strong></p><p>HTTP 请求中携带 JWT Token 的 Header 名称通常是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>Token</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>Auth</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>Authorization</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>X-Token</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：标准做法是
 <code>Authorization: Bearer &lt;token&gt;</code>。<code>Authorization</code>
-是 HTTP 标准认证头（RFC 7235），<code>Bearer</code> 表示持有者方案。</p>
+是 HTTP 标准认证头（RFC 7235），<code>Bearer</code> 表示持有者方案。</p></blockquote></section>
 <hr />
-<h3 id="16-d-20-">16-D-20 ★</h3>
-<p>Authorization Header 中，Bearer Token 的正确格式是（ ） A.
-<code>Bearer&lt;token&gt;</code>（无空格） B.
-<code>Bearer &lt;token&gt;</code>（一个空格） C.
-<code>bearer &lt;token&gt;</code>（小写） D.
-<code>token=&lt;token&gt;</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：格式为
+<section class="question-card" id="16-d-20-"><p><strong>16-D-20 ★</strong></p><p>Authorization Header 中，Bearer Token 的正确格式是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>Bearer&lt;token&gt;</code>（无空格）</div></li><li><span class="option-label">B</span><div class="option-content"><code>Bearer &lt;token&gt;</code>（一个空格）</div></li><li><span class="option-label">C</span><div class="option-content"><code>bearer &lt;token&gt;</code>（小写）</div></li><li><span class="option-label">D</span><div class="option-content"><code>token=&lt;token&gt;</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：格式为
 <code>Bearer &lt;token&gt;</code>，"Bearer" 与 token
 之间用一个空格分隔。服务端用 <code>substring(7)</code> 剥离 "Bearer "
-前缀（7 个字符）。注意大小写敏感，应为 "Bearer"。</p>
+前缀（7 个字符）。注意大小写敏感，应为 "Bearer"。</p></blockquote></section>
 <hr />
-<h3 id="16-d-21-">16-D-21 ★★</h3>
-<p><code>HandlerInterceptor.afterCompletion</code> 的典型用途是（ ） A.
-修改 Controller 返回值 B. 渲染视图 C. 清理资源（如 ThreadLocal.remove）
-D. 校验 Token</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="16-d-21-"><p><strong>16-D-21 ★★</strong></p><p><code>HandlerInterceptor.afterCompletion</code> 的典型用途是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">修改 Controller 返回值</div></li><li><span class="option-label">B</span><div class="option-content">渲染视图</div></li><li><span class="option-label">C</span><div class="option-content">清理资源（如 ThreadLocal.remove）</div></li><li><span class="option-label">D</span><div class="option-content">校验 Token</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>afterCompletion</code>
 在请求结束时（无论是否抛异常）调用，适合清理资源。最典型用途是
-<code>ThreadLocal.remove()</code>，防止线程池复用导致用户串号。</p>
+<code>ThreadLocal.remove()</code>，防止线程池复用导致用户串号。</p></blockquote></section>
 <hr />
-<h3 id="16-d-22-">16-D-22 ★★</h3>
-<p>Spring MVC 中，注册拦截器应实现哪个接口？（ ） A.
-<code>WebMvcConfigurer</code> B. <code>WebSecurityConfigurer</code> C.
-<code>ServletContextInitializer</code> D.
-<code>FilterRegistrationBean</code></p>
-<p><strong>答案</strong>：A <strong>解析</strong>：实现
+<section class="question-card" id="16-d-22-"><p><strong>16-D-22 ★★</strong></p><p>Spring MVC 中，注册拦截器应实现哪个接口？（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>WebMvcConfigurer</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>WebSecurityConfigurer</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>ServletContextInitializer</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>FilterRegistrationBean</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：实现
 <code>WebMvcConfigurer</code> 的
 <code>addInterceptors(InterceptorRegistry registry)</code>
-方法注册拦截器。配置类需加 <code>@Configuration</code>。</p>
+方法注册拦截器。配置类需加 <code>@Configuration</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-d-23-">16-D-23 ★★</h3>
-<p><code>WebMvcConfig.addInterceptors</code>
-中，<code>addPathPatterns("/**")</code> 表示（ ） A. 拦截根路径 B.
-拦截所有路径 C. 拦截单级路径 D. 不拦截任何路径</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>/**</code> 是
-Ant 风格通配符，匹配任意多级路径。<code>/*</code> 只匹配单级。</p>
+<section class="question-card" id="16-d-23-"><p><strong>16-D-23 ★★</strong></p><p><code>WebMvcConfig.addInterceptors</code> 中，<code>addPathPatterns("/**")</code> 表示（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">拦截根路径</div></li><li><span class="option-label">B</span><div class="option-content">拦截所有路径</div></li><li><span class="option-label">C</span><div class="option-content">拦截单级路径</div></li><li><span class="option-label">D</span><div class="option-content">不拦截任何路径</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>/**</code> 是
+Ant 风格通配符，匹配任意多级路径。<code>/*</code> 只匹配单级。</p></blockquote></section>
 <hr />
-<h3 id="16-d-24-">16-D-24 ★★</h3>
-<p>下列路径在登录拦截器中通常<strong>不需要</strong>放行的是（ ） A.
-<code>/api/auth/login</code> B. <code>/api/auth/register</code> C.
-<code>/doc.html</code> D. <code>/api/users</code>（获取用户列表）</p>
-<p><strong>答案</strong>：D
+<section class="question-card" id="16-d-24-"><p><strong>16-D-24 ★★</strong></p><p>下列路径在登录拦截器中通常<strong>不需要</strong>放行的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>/api/auth/login</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>/api/auth/register</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>/doc.html</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>/api/users</code>（获取用户列表）</div></li></ul></div><blockquote><p><strong>答案</strong>：D
 <strong>解析</strong>：登录、注册、接口文档（Knife4j/Swagger）等路径需放行。<code>/api/users</code>
-是受保护接口，必须校验 Token。</p>
+是受保护接口，必须校验 Token。</p></blockquote></section>
 <hr />
-<h3 id="16-d-25-">16-D-25 ★★</h3>
-<p>关于 <code>addPathPatterns</code> 与 <code>excludePathPatterns</code>
-的优先级，正确的是（ ） A. <code>addPathPatterns</code> 优先 B.
-<code>excludePathPatterns</code> 优先 C. 按配置顺序执行 D. 随机</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="16-d-25-"><p><strong>16-D-25 ★★</strong></p><p>关于 <code>addPathPatterns</code> 与 <code>excludePathPatterns</code> 的优先级，正确的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>addPathPatterns</code> 优先</div></li><li><span class="option-label">B</span><div class="option-content"><code>excludePathPatterns</code> 优先</div></li><li><span class="option-label">C</span><div class="option-content">按配置顺序执行</div></li><li><span class="option-label">D</span><div class="option-content">随机</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>excludePathPatterns</code> 优先于
 <code>addPathPatterns</code>。即先匹配排除列表，命中则不拦截，无论
-<code>addPathPatterns</code> 是否包含。</p>
+<code>addPathPatterns</code> 是否包含。</p></blockquote></section>
 <hr />
-<h3 id="16-d-26-">16-D-26 ★★★</h3>
-<p>关于 ThreadLocal 在拦截器中的使用，下列说法错误的是（ ） A. 在
-<code>preHandle</code> 中 <code>set</code> 当前用户 B. 在 Controller
-中可通过 <code>get</code> 取出当前用户 C. 在
-<code>afterCompletion</code> 中应 <code>remove</code> 防止内存泄漏 D.
-ThreadLocal 会随请求结束自动清理，无需手动 remove</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：ThreadLocal
+<section class="question-card" id="16-d-26-"><p><strong>16-D-26 ★★★</strong></p><p>关于 ThreadLocal 在拦截器中的使用，下列说法错误的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">在 <code>preHandle</code> 中 <code>set</code> 当前用户</div></li><li><span class="option-label">B</span><div class="option-content">在 Controller 中可通过 <code>get</code> 取出当前用户</div></li><li><span class="option-label">C</span><div class="option-content">在 <code>afterCompletion</code> 中应 <code>remove</code> 防止内存泄漏</div></li><li><span class="option-label">D</span><div class="option-content">ThreadLocal 会随请求结束自动清理，无需手动 remove</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：ThreadLocal
 不会自动清理。Spring Boot 用 Tomcat 线程池，线程被复用，若不
 <code>remove</code>，下一个请求复用该线程时会读到上一个用户的数据，导致"用户串号"事故。必须在
-<code>afterCompletion</code> 手动 <code>remove</code>。</p>
+<code>afterCompletion</code> 手动 <code>remove</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-d-27-">16-D-27 ★★</h3>
-<p>JWT Token 过期时，jjwt 抛出的异常是（ ） A. <code>JwtException</code>
-B. <code>ExpiredJwtException</code> C. <code>SignatureException</code>
-D. <code>IllegalArgumentException</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="16-d-27-"><p><strong>16-D-27 ★★</strong></p><p>JWT Token 过期时，jjwt 抛出的异常是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>JwtException</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>ExpiredJwtException</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>SignatureException</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>IllegalArgumentException</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>ExpiredJwtException</code> 是
 <code>JwtException</code> 的子类，专门表示 Token 过期。签名不匹配抛
 <code>SignatureException</code>，Token 为空或格式错抛
-<code>IllegalArgumentException</code>。</p>
+<code>IllegalArgumentException</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-d-28-">16-D-28 ★★</h3>
-<p><code>@Configuration</code> 注解的配置类与 <code>@Component</code>
-的关键区别是（ ） A. <code>@Configuration</code> 不能用于 WebMvcConfig
-B. <code>@Configuration</code> 用 CGLIB 代理，保证 <code>@Bean</code>
-方法间依赖调用走容器单例 C. <code>@Component</code> 才能用 CGLIB 代理 D.
-两者完全等价</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="16-d-28-"><p><strong>16-D-28 ★★</strong></p><p><code>@Configuration</code> 注解的配置类与 <code>@Component</code> 的关键区别是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Configuration</code> 不能用于 WebMvcConfig</div></li><li><span class="option-label">B</span><div class="option-content"><code>@Configuration</code> 用 CGLIB 代理，保证 <code>@Bean</code> 方法间依赖调用走容器单例</div></li><li><span class="option-label">C</span><div class="option-content"><code>@Component</code> 才能用 CGLIB 代理</div></li><li><span class="option-label">D</span><div class="option-content">两者完全等价</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@Configuration</code>
 是全模式配置类，Spring 用 CGLIB 代理，<code>@Bean</code>
 方法间相互调用时返回容器单例。<code>WebMvcConfigurer</code> 实现类推荐用
-<code>@Configuration</code>。</p>
+<code>@Configuration</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-d-29-">16-D-29 ★★</h3>
-<p>在 <code>LoginInterceptor.preHandle</code> 中，<code>handler</code>
-参数的实际类型通常是（ ） A. <code>HttpServletRequest</code> B.
-<code>HandlerMethod</code> C. <code>Controller</code> D.
-<code>Method</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>handler</code>
+<section class="question-card" id="16-d-29-"><p><strong>16-D-29 ★★</strong></p><p>在 <code>LoginInterceptor.preHandle</code> 中，<code>handler</code> 参数的实际类型通常是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>HttpServletRequest</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>HandlerMethod</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>Controller</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>Method</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>handler</code>
 是 <code>HandlerMethod</code> 对象，封装了要执行的 Controller
 方法。可用于读取方法注解（如
 <code>@RequireRole</code>）。注意静态资源请求时 <code>handler</code>
 可能是 <code>ResourceHttpRequestHandler</code>，需
-<code>instanceof</code> 判断。</p>
+<code>instanceof</code> 判断。</p></blockquote></section>
 <hr />
-<h3 id="16-d-30-">16-D-30 ★★★</h3>
-<p>关于 JWT 与 Session 认证的对比，下列说法错误的是（ ） A. JWT
-是无状态的，服务端不存会话信息；Session 是有状态的，服务端存 Session B.
-JWT 适合分布式/微服务；Session 需解决跨服务共享问题 C. JWT
-一旦签发无法主动吊销；Session 可随时销毁 D. JWT 比 Session 更安全，因为
-Payload 是加密的</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：D 错误。JWT 的
+<section class="question-card" id="16-d-30-"><p><strong>16-D-30 ★★★</strong></p><p>关于 JWT 与 Session 认证的对比，下列说法错误的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">JWT 是无状态的，服务端不存会话信息；Session 是有状态的，服务端存 Session</div></li><li><span class="option-label">B</span><div class="option-content">JWT 适合分布式/微服务；Session 需解决跨服务共享问题</div></li><li><span class="option-label">C</span><div class="option-content">JWT 一旦签发无法主动吊销；Session 可随时销毁</div></li><li><span class="option-label">D</span><div class="option-content">JWT 比 Session 更安全，因为 Payload 是加密的</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：D 错误。JWT 的
 Payload 仅 Base64 编码，不是加密，任何人可读。JWT
 的安全性来自签名防篡改，而非加密。两者安全性各有取舍：JWT
-难以主动吊销，Session 需共享存储。</p>
+难以主动吊销，Session 需共享存储。</p></blockquote></section>
 <hr />
 <h2 id="二多项选择题10题">二、多项选择题（10题）</h2>
-<h3 id="16-m-01-">16-M-01 ★</h3>
-<p>下列属于 JWT 三段结构的有（ ） A. Header B. Payload C. Signature D.
-Cookie E. Session</p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：JWT 由
+<section class="question-card" id="16-m-01-"><p><strong>16-M-01 ★</strong></p><p>下列属于 JWT 三段结构的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Header</div></li><li><span class="option-label">B</span><div class="option-content">Payload</div></li><li><span class="option-label">C</span><div class="option-content">Signature</div></li><li><span class="option-label">D</span><div class="option-content">Cookie</div></li><li><span class="option-label">E</span><div class="option-content">Session</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：JWT 由
 Header（头部）、Payload（载荷）、Signature（签名）三段组成。Cookie 和
-Session 不是 JWT 的组成部分。</p>
+Session 不是 JWT 的组成部分。</p></blockquote></section>
 <hr />
-<h3 id="16-m-02-">16-M-02 ★★</h3>
-<p>JWT Payload 中常见的标准注册声明（registered claims）有（ ） A.
-iss（签发者） B. sub（主题） C. exp（过期时间） D. iat（签发时间） E.
-userId（用户ID）</p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：标准注册声明包括
-iss、sub、aud、exp、nbf、iat、jti。userId 是私有声明，不是标准声明。</p>
+<section class="question-card" id="16-m-02-"><p><strong>16-M-02 ★★</strong></p><p>JWT Payload 中常见的标准注册声明（registered claims）有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">iss（签发者）</div></li><li><span class="option-label">B</span><div class="option-content">sub（主题）</div></li><li><span class="option-label">C</span><div class="option-content">exp（过期时间）</div></li><li><span class="option-label">D</span><div class="option-content">iat（签发时间）</div></li><li><span class="option-label">E</span><div class="option-content">userId（用户ID）</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：标准注册声明包括
+iss、sub、aud、exp、nbf、iat、jti。userId 是私有声明，不是标准声明。</p></blockquote></section>
 <hr />
-<h3 id="16-m-03-">16-M-03 ★★</h3>
-<p>jjwt 0.12.x 的三个依赖 artifact 是（ ） A. jjwt-api B. jjwt-impl C.
-jjwt-jackson D. jjwt-core E. jjwt-impl-jackson</p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：jjwt 0.12.x 拆为
+<section class="question-card" id="16-m-03-"><p><strong>16-M-03 ★★</strong></p><p>jjwt 0.12.x 的三个依赖 artifact 是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">jjwt-api</div></li><li><span class="option-label">B</span><div class="option-content">jjwt-impl</div></li><li><span class="option-label">C</span><div class="option-content">jjwt-jackson</div></li><li><span class="option-label">D</span><div class="option-content">jjwt-core</div></li><li><span class="option-label">E</span><div class="option-content">jjwt-impl-jackson</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：jjwt 0.12.x 拆为
 <code>jjwt-api</code>（API
 接口，编译期）、<code>jjwt-impl</code>（运行时实现）、<code>jjwt-jackson</code>（JSON
-序列化）。后两者 scope 为 runtime。</p>
+序列化）。后两者 scope 为 runtime。</p></blockquote></section>
 <hr />
-<h3 id="16-m-04-">16-M-04 ★★</h3>
-<p><code>HandlerInterceptor</code> 接口的方法有（ ） A. preHandle B.
-postHandle C. afterCompletion D. beforeHandle E. afterHandle</p>
-<p><strong>答案</strong>：ABC
+<section class="question-card" id="16-m-04-"><p><strong>16-M-04 ★★</strong></p><p><code>HandlerInterceptor</code> 接口的方法有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">preHandle</div></li><li><span class="option-label">B</span><div class="option-content">postHandle</div></li><li><span class="option-label">C</span><div class="option-content">afterCompletion</div></li><li><span class="option-label">D</span><div class="option-content">beforeHandle</div></li><li><span class="option-label">E</span><div class="option-content">afterHandle</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC
 <strong>解析</strong>：<code>HandlerInterceptor</code>
 接口有三个方法：<code>preHandle</code>（Controller
 前）、<code>postHandle</code>（Controller
-后视图前）、<code>afterCompletion</code>（请求结束）。默认实现都是空方法。</p>
+后视图前）、<code>afterCompletion</code>（请求结束）。默认实现都是空方法。</p></blockquote></section>
 <hr />
-<h3 id="16-m-05-">16-M-05 ★★</h3>
-<p><code>WebMvcConfig</code>
-中配置登录拦截器时，通常需要放行（excludePathPatterns）的路径有（ ） A.
-<code>/api/auth/login</code> B. <code>/api/auth/register</code> C.
-<code>/doc.html</code> D. <code>/v3/api-docs/**</code> E.
-<code>/error</code></p>
-<p><strong>答案</strong>：ABCDE
+<section class="question-card" id="16-m-05-"><p><strong>16-M-05 ★★</strong></p><p><code>WebMvcConfig</code> 中配置登录拦截器时，通常需要放行（excludePathPatterns）的路径有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>/api/auth/login</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>/api/auth/register</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>/doc.html</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>/v3/api-docs/**</code></div></li><li><span class="option-label">E</span><div class="option-content"><code>/error</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABCDE
 <strong>解析</strong>：登录、注册本身不需 Token；Knife4j/Swagger
 文档路径需放行（<code>/doc.html</code>、<code>/v3/api-docs/**</code>、<code>/webjars/**</code>）；<code>/error</code>
-是 Spring Boot 错误转发路径，不放行会导致错误页 401。</p>
+是 Spring Boot 错误转发路径，不放行会导致错误页 401。</p></blockquote></section>
 <hr />
-<h3 id="16-m-06-">16-M-06 ★★</h3>
-<p>关于 ThreadLocal 在登录拦截器中的使用，下列做法正确的有（ ） A. 在
-<code>preHandle</code> 中 <code>set</code> 当前用户信息 B. 在 Controller
-中通过 <code>get</code> 取出当前用户 C. 在 <code>afterCompletion</code>
-中 <code>remove</code> D. 在 <code>postHandle</code> 中
-<code>remove</code> E. 依赖 JVM 自动清理，无需手动 remove</p>
-<p><strong>答案</strong>：ABC
+<section class="question-card" id="16-m-06-"><p><strong>16-M-06 ★★</strong></p><p>关于 ThreadLocal 在登录拦截器中的使用，下列做法正确的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">在 <code>preHandle</code> 中 <code>set</code> 当前用户信息</div></li><li><span class="option-label">B</span><div class="option-content">在 Controller 中通过 <code>get</code> 取出当前用户</div></li><li><span class="option-label">C</span><div class="option-content">在 <code>afterCompletion</code> 中 <code>remove</code></div></li><li><span class="option-label">D</span><div class="option-content">在 <code>postHandle</code> 中 <code>remove</code></div></li><li><span class="option-label">E</span><div class="option-content">依赖 JVM 自动清理，无需手动 remove</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC
 <strong>解析</strong>：<code>preHandle</code> 存入、Controller
 取用、<code>afterCompletion</code>
 移除是标准做法。<code>afterCompletion</code>
 无论是否抛异常都执行，是清理的可靠位置。不能依赖 JVM
-自动清理，否则线程池复用导致用户串号。</p>
+自动清理，否则线程池复用导致用户串号。</p></blockquote></section>
 <hr />
-<h3 id="16-m-07-">16-M-07 ★★</h3>
-<p>下列属于 JWT 相比 Session 认证优势的有（ ） A.
-无状态，服务端不存会话信息，易于水平扩展 B. 自包含，Token
-本身携带用户信息，减少数据库查询 C. 跨域支持好，适合前后端分离 D.
-可主动吊销单个 Token E. 天然防 CSRF 攻击（不依赖 Cookie）</p>
-<p><strong>答案</strong>：ABCE <strong>解析</strong>：JWT
+<section class="question-card" id="16-m-07-"><p><strong>16-M-07 ★★</strong></p><p>下列属于 JWT 相比 Session 认证优势的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">无状态，服务端不存会话信息，易于水平扩展</div></li><li><span class="option-label">B</span><div class="option-content">自包含，Token 本身携带用户信息，减少数据库查询</div></li><li><span class="option-label">C</span><div class="option-content">跨域支持好，适合前后端分离</div></li><li><span class="option-label">D</span><div class="option-content">可主动吊销单个 Token</div></li><li><span class="option-label">E</span><div class="option-content">天然防 CSRF 攻击（不依赖 Cookie）</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCE <strong>解析</strong>：JWT
 无状态、自包含、跨域好、不依赖 Cookie 故不受 CSRF 攻击。D 是 JWT
-的劣势——一旦签发难以主动吊销（需引入黑名单牺牲无状态性）。</p>
+的劣势——一旦签发难以主动吊销（需引入黑名单牺牲无状态性）。</p></blockquote></section>
 <hr />
-<h3 id="16-m-08-">16-M-08 ★★</h3>
-<p><code>LoginInterceptor.preHandle</code> 中处理 Token 校验的步骤包括（
-） A. 从 <code>Authorization</code> Header 取值 B. 校验是否以
-<code>Bearer </code> 开头并剥离前缀 C. 调用
-<code>JwtUtil.parseToken</code> 解析校验 D. 将用户信息存入
-<code>CurrentUserContext</code> E. 返回 true 放行或返回 false 并写 401
-响应</p>
-<p><strong>答案</strong>：ABCDE <strong>解析</strong>：完整流程：取
+<section class="question-card" id="16-m-08-"><p><strong>16-M-08 ★★</strong></p><p><code>LoginInterceptor.preHandle</code> 中处理 Token 校验的步骤包括（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">从 <code>Authorization</code> Header 取值</div></li><li><span class="option-label">B</span><div class="option-content">校验是否以 <code>Bearer </code> 开头并剥离前缀</div></li><li><span class="option-label">C</span><div class="option-content">调用 <code>JwtUtil.parseToken</code> 解析校验</div></li><li><span class="option-label">D</span><div class="option-content">将用户信息存入 <code>CurrentUserContext</code></div></li><li><span class="option-label">E</span><div class="option-content">返回 true 放行或返回 false 并写 401 响应</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCDE <strong>解析</strong>：完整流程：取
 Header → 校验 Bearer 前缀 → 剥离得到纯 Token → 解析校验 → 存 ThreadLocal
-→ 放行/拒绝。</p>
+→ 放行/拒绝。</p></blockquote></section>
 <hr />
-<h3 id="16-m-09-">16-M-09 ★★</h3>
-<p>CTTS 系统中，三角色（学生/教师/管理员）的权限矩阵正确的有（ ） A.
-学生可查看自己的任务 B. 教师可发布任务 C. 管理员可创建用户 D.
-学生可删除任意任务 E. 教师可创建用户</p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：CTTS
+<section class="question-card" id="16-m-09-"><p><strong>16-M-09 ★★</strong></p><p>CTTS 系统中，三角色（学生/教师/管理员）的权限矩阵正确的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">学生可查看自己的任务</div></li><li><span class="option-label">B</span><div class="option-content">教师可发布任务</div></li><li><span class="option-label">C</span><div class="option-content">管理员可创建用户</div></li><li><span class="option-label">D</span><div class="option-content">学生可删除任意任务</div></li><li><span class="option-label">E</span><div class="option-content">教师可创建用户</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：CTTS
 中学生只能查看自己的任务，不能删除任意任务（D
 错）；教师可发布任务但不能创建用户（E
-错）；管理员可创建用户。遵循权限最小化原则。</p>
+错）；管理员可创建用户。遵循权限最小化原则。</p></blockquote></section>
 <hr />
-<h3 id="16-m-10-">16-M-10 ★★★</h3>
-<p>下列关于 JWT 安全的说法，正确的有（ ） A.
-密钥不能硬编码在代码中，应放配置文件并使用环境变量覆盖 B. Payload
-中不能放密码、身份证号等敏感信息 C. 应设置合理的过期时间，不宜过长 D.
-生产环境应使用 HTTPS 防止 Token 被中间人窃听 E. JWT 的 Payload
-是加密的，可以放心放敏感数据</p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：E 错误，JWT
+<section class="question-card" id="16-m-10-"><p><strong>16-M-10 ★★★</strong></p><p>下列关于 JWT 安全的说法，正确的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">密钥不能硬编码在代码中，应放配置文件并使用环境变量覆盖</div></li><li><span class="option-label">B</span><div class="option-content">Payload 中不能放密码、身份证号等敏感信息</div></li><li><span class="option-label">C</span><div class="option-content">应设置合理的过期时间，不宜过长</div></li><li><span class="option-label">D</span><div class="option-content">生产环境应使用 HTTPS 防止 Token 被中间人窃听</div></li><li><span class="option-label">E</span><div class="option-content">JWT 的 Payload 是加密的，可以放心放敏感数据</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：E 错误，JWT
 Payload 仅 Base64 编码不是加密，任何人可解码。密钥管理、Payload
-内容、过期时间、HTTPS 传输都是 JWT 安全要点。</p>
+内容、过期时间、HTTPS 传输都是 JWT 安全要点。</p></blockquote></section>
 <hr />
 <h2 id="三判断题20题">三、判断题（20题）</h2>
-<h3 id="16-p-01-">16-P-01 ★</h3>
-<p>JWT 的 Payload 是加密的，任何人无法读取其中的内容。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：Payload 仅做
+<section class="question-card" id="16-p-01-"><p><strong>16-P-01 ★</strong></p><p>JWT 的 Payload 是加密的，任何人无法读取其中的内容。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：Payload 仅做
 Base64URL 编码，是可逆的，任何人都能解码读取。绝不能放敏感信息。JWT
-的安全性来自 Signature 防篡改，而非 Payload 加密。</p>
+的安全性来自 Signature 防篡改，而非 Payload 加密。</p></blockquote></section>
 <hr />
-<h3 id="16-p-02-">16-P-02 ★</h3>
-<p>JWT 由 Header、Payload、Signature 三段组成，用 <code>.</code>
-连接。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：JWT 标准结构为
+<section class="question-card" id="16-p-02-"><p><strong>16-P-02 ★</strong></p><p>JWT 由 Header、Payload、Signature 三段组成，用 <code>.</code>
+连接。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：JWT 标准结构为
 <code>header.payload.signature</code>，三段均 Base64URL 编码后用
-<code>.</code> 连接。</p>
+<code>.</code> 连接。</p></blockquote></section>
 <hr />
-<h3 id="16-p-03-">16-P-03 ★</h3>
-<p>HS256 是一种非对称签名算法，签发用私钥，验证用公钥。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：HS256
+<section class="question-card" id="16-p-03-"><p><strong>16-P-03 ★</strong></p><p>HS256 是一种非对称签名算法，签发用私钥，验证用公钥。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：HS256
 是对称算法（HMAC-SHA-256），签发与验证使用同一密钥。RS256
-才是非对称算法。</p>
+才是非对称算法。</p></blockquote></section>
 <hr />
-<h3 id="16-p-04-">16-P-04 ★★</h3>
-<p>JWT 的 Header 和 Payload 都使用 Base64URL 编码，目的是保证在
-URL/Header 中安全传输。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：Base64URL 用
+<section class="question-card" id="16-p-04-"><p><strong>16-P-04 ★★</strong></p><p>JWT 的 Header 和 Payload 都使用 Base64URL 编码，目的是保证在
+URL/Header 中安全传输。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：Base64URL 用
 <code>-</code> 替换 <code>+</code>、<code>_</code> 替换
 <code>/</code>、去掉 <code>=</code>，避免在 URL/HTTP Header
-中被特殊字符干扰。</p>
+中被特殊字符干扰。</p></blockquote></section>
 <hr />
-<h3 id="16-p-05-">16-P-05 ★</h3>
-<p>jjwt 0.12.x 中，生成 Token 使用 <code>Jwts.builder()</code>
-方法。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="16-p-05-"><p><strong>16-P-05 ★</strong></p><p>jjwt 0.12.x 中，生成 Token 使用 <code>Jwts.builder()</code>
+方法。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>Jwts.builder()</code> 返回
 <code>JwtBuilder</code>，链式调用
-<code>.claims().signWith(key).compact()</code> 生成 Token。</p>
+<code>.claims().signWith(key).compact()</code> 生成 Token。</p></blockquote></section>
 <hr />
-<h3 id="16-p-06-">16-P-06 ★★</h3>
-<p>jjwt 0.12.x 中，<code>Jwts.parserBuilder()</code> 是解析 Token
-的推荐写法。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：0.12.x 中
+<section class="question-card" id="16-p-06-"><p><strong>16-P-06 ★★</strong></p><p>jjwt 0.12.x 中，<code>Jwts.parserBuilder()</code> 是解析 Token
+的推荐写法。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：0.12.x 中
 <code>parserBuilder()</code> 已废弃，推荐用
-<code>Jwts.parser().verifyWith(key).build().parseSignedClaims(token)</code>。</p>
+<code>Jwts.parser().verifyWith(key).build().parseSignedClaims(token)</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-p-07-">16-P-07 ★★</h3>
-<p>HS256 算法要求密钥至少 32 字节（256 位），否则会抛
-<code>WeakKeyException</code>。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：HS256 =
+<section class="question-card" id="16-p-07-"><p><strong>16-P-07 ★★</strong></p><p>HS256 算法要求密钥至少 32 字节（256 位），否则会抛
+<code>WeakKeyException</code>。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：HS256 =
 HMAC-SHA-256，密钥长度需 ≥ 256 位 = 32 字节。jjwt
-会在启动时校验密钥长度。</p>
+会在启动时校验密钥长度。</p></blockquote></section>
 <hr />
-<h3 id="16-p-08-">16-P-08 ★</h3>
-<p><code>HandlerInterceptor.preHandle</code> 返回 false 时，请求继续到达
-Controller。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：返回 false
-拦截请求，不会到达 Controller。返回 true 才放行。</p>
+<section class="question-card" id="16-p-08-"><p><strong>16-P-08 ★</strong></p><p><code>HandlerInterceptor.preHandle</code> 返回 false 时，请求继续到达
+Controller。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：返回 false
+拦截请求，不会到达 Controller。返回 true 才放行。</p></blockquote></section>
 <hr />
-<h3 id="16-p-09-">16-P-09 ★★</h3>
-<p><code>HandlerInterceptor.afterCompletion</code> 无论 Controller
-是否抛异常都会执行。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="16-p-09-"><p><strong>16-P-09 ★★</strong></p><p><code>HandlerInterceptor.afterCompletion</code> 无论 Controller
+是否抛异常都会执行。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>afterCompletion</code>
 在请求结束时调用，无论 Controller 是否抛异常。这是清理资源（如
-ThreadLocal.remove）的可靠位置。</p>
+ThreadLocal.remove）的可靠位置。</p></blockquote></section>
 <hr />
-<h3 id="16-p-10-">16-P-10 ★</h3>
-<p>HTTP 请求中携带 JWT 的 Header 名称是 <code>Token</code>。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：标准 Header 名称是
+<section class="question-card" id="16-p-10-"><p><strong>16-P-10 ★</strong></p><p>HTTP 请求中携带 JWT 的 Header 名称是 <code>Token</code>。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：标准 Header 名称是
 <code>Authorization</code>，值为
-<code>Bearer &lt;token&gt;</code>。<code>Token</code> 不是标准名称。</p>
+<code>Bearer &lt;token&gt;</code>。<code>Token</code> 不是标准名称。</p></blockquote></section>
 <hr />
-<h3 id="16-p-11-">16-P-11 ★★</h3>
-<p><code>Bearer </code> 前缀与 token 之间不需要空格，直接拼接即可。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="16-p-11-"><p><strong>16-P-11 ★★</strong></p><p><code>Bearer </code> 前缀与 token 之间不需要空格，直接拼接即可。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：<code>Bearer</code> 与 token
 之间必须有一个空格，即 <code>Bearer &lt;token&gt;</code>。服务端用
-<code>substring(7)</code> 剥离前 7 个字符 "Bearer "。</p>
+<code>substring(7)</code> 剥离前 7 个字符 "Bearer "。</p></blockquote></section>
 <hr />
-<h3 id="16-p-12-">16-P-12 ★★</h3>
-<p>Spring MVC 拦截器在 <code>DispatcherServlet</code> 之前执行。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：Filter 在
+<section class="question-card" id="16-p-12-"><p><strong>16-P-12 ★★</strong></p><p>Spring MVC 拦截器在 <code>DispatcherServlet</code> 之前执行。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：Filter 在
 <code>DispatcherServlet</code> 之前执行；<code>HandlerInterceptor</code>
-在 <code>DispatcherServlet</code> 之后、Controller 之前执行。</p>
+在 <code>DispatcherServlet</code> 之后、Controller 之前执行。</p></blockquote></section>
 <hr />
-<h3 id="16-p-13-">16-P-13 ★★</h3>
-<p><code>WebMvcConfig</code> 配置类应该加 <code>@Configuration</code>
-注解，而不是 <code>@Component</code>。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="16-p-13-"><p><strong>16-P-13 ★★</strong></p><p><code>WebMvcConfig</code> 配置类应该加 <code>@Configuration</code>
+注解，而不是 <code>@Component</code>。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>@Configuration</code> 是全模式配置类，用
 CGLIB 代理保证 <code>@Bean</code>
 方法间依赖调用走容器单例。<code>WebMvcConfigurer</code> 实现类推荐用
-<code>@Configuration</code>。</p>
+<code>@Configuration</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-p-14-">16-P-14 ★★</h3>
-<p><code>excludePathPatterns</code> 优先于
-<code>addPathPatterns</code>，即排除路径命中后不再拦截。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：Spring MVC 先匹配
+<section class="question-card" id="16-p-14-"><p><strong>16-P-14 ★★</strong></p><p><code>excludePathPatterns</code> 优先于
+<code>addPathPatterns</code>，即排除路径命中后不再拦截。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：Spring MVC 先匹配
 <code>excludePathPatterns</code>，命中则跳过拦截器，无论
-<code>addPathPatterns</code> 是否包含该路径。</p>
+<code>addPathPatterns</code> 是否包含该路径。</p></blockquote></section>
 <hr />
-<h3 id="16-p-15-">16-P-15 ★★</h3>
-<p>ThreadLocal 会随请求结束自动清理，无需在拦截器中手动 remove。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：ThreadLocal
+<section class="question-card" id="16-p-15-"><p><strong>16-P-15 ★★</strong></p><p>ThreadLocal 会随请求结束自动清理，无需在拦截器中手动 remove。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：ThreadLocal
 不会自动清理。Spring Boot 用 Tomcat 线程池，线程被复用，若不手动
 <code>remove</code>，下一个请求复用该线程时会读到上一个用户的数据，导致用户串号。必须在
-<code>afterCompletion</code> 手动清理。</p>
+<code>afterCompletion</code> 手动清理。</p></blockquote></section>
 <hr />
-<h3 id="16-p-16-">16-P-16 ★★</h3>
-<p>JWT 一旦签发，在过期前一直有效，服务端难以主动吊销。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：JWT
+<section class="question-card" id="16-p-16-"><p><strong>16-P-16 ★★</strong></p><p>JWT 一旦签发，在过期前一直有效，服务端难以主动吊销。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：JWT
 是无状态的，服务端不存 Token
-列表，无法主动吊销。若需吊销需引入黑名单（牺牲无状态性）或缩短过期时间。</p>
+列表，无法主动吊销。若需吊销需引入黑名单（牺牲无状态性）或缩短过期时间。</p></blockquote></section>
 <hr />
-<h3 id="16-p-17-">16-P-17 ★★</h3>
-<p><code>LoginInterceptor</code> 中 <code>handler</code> 参数一定是
-<code>HandlerMethod</code> 类型，可直接强转。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="16-p-17-"><p><strong>16-P-17 ★★</strong></p><p><code>LoginInterceptor</code> 中 <code>handler</code> 参数一定是
+<code>HandlerMethod</code> 类型，可直接强转。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：<code>handler</code> 不一定是
 <code>HandlerMethod</code>，静态资源请求时可能是
 <code>ResourceHttpRequestHandler</code>。强转前必须
-<code>instanceof</code> 判断，否则 <code>ClassCastException</code>。</p>
+<code>instanceof</code> 判断，否则 <code>ClassCastException</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-p-18-">16-P-18 ★★</h3>
-<p><code>@RequireRole</code> 注解放在 Controller 方法上，拦截器通过
-<code>HandlerMethod.getMethodAnnotation</code> 读取。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="16-p-18-"><p><strong>16-P-18 ★★</strong></p><p><code>@RequireRole</code> 注解放在 Controller 方法上，拦截器通过
+<code>HandlerMethod.getMethodAnnotation</code> 读取。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：自定义注解可用于方法级或类级权限控制。拦截器在
 <code>preHandle</code> 中通过
 <code>hm.getMethodAnnotation(RequireRole.class)</code>
 读取方法注解，类注解用
-<code>hm.getBeanType().getAnnotation()</code>。</p>
+<code>hm.getBeanType().getAnnotation()</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-p-19-">16-P-19 ★★</h3>
-<p>多个拦截器配置时，<code>preHandle</code>
-按注册顺序执行，<code>afterCompletion</code> 按逆序执行。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="16-p-19-"><p><strong>16-P-19 ★★</strong></p><p>多个拦截器配置时，<code>preHandle</code>
+按注册顺序执行，<code>afterCompletion</code> 按逆序执行。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：拦截器执行是栈结构。<code>preHandle</code>
 按注册顺序（order 小的先）执行；<code>afterCompletion</code>
 按逆序执行。可用 <code>registry.addInterceptor(x).order(n)</code>
-指定顺序。</p>
+指定顺序。</p></blockquote></section>
 <hr />
-<h3 id="16-p-20-">16-P-20 ★★</h3>
-<p>JWT 适合前后端分离架构，因为 Token 可放在 <code>Authorization</code>
-Header 中，不依赖 Cookie。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：JWT 不依赖
+<section class="question-card" id="16-p-20-"><p><strong>16-P-20 ★★</strong></p><p>JWT 适合前后端分离架构，因为 Token 可放在 <code>Authorization</code>
+Header 中，不依赖 Cookie。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：JWT 不依赖
 Cookie，通过 Header 传递，天然支持跨域和前后端分离。Session 认证依赖
-Cookie，跨域需额外配置。</p>
+Cookie，跨域需额外配置。</p></blockquote></section>
 <hr />
 <h2 id="四填空题10题">四、填空题（10题）</h2>
-<h3 id="16-f-01-">16-F-01 ★</h3>
-<p>JWT 由 <strong><strong><strong>、</strong></strong></strong>、______
-三段组成，用 <code>.</code> 连接。</p>
-<p><strong>答案</strong>：Header（头部）、Payload（载荷）、Signature（签名）
+<section class="question-card" id="16-f-01-"><p><strong>16-F-01 ★</strong></p><p>JWT 由 <strong><strong><strong>、</strong></strong></strong>、______
+三段组成，用 <code>.</code> 连接。</p><blockquote><p><strong>答案</strong>：Header（头部）、Payload（载荷）、Signature（签名）
 <strong>解析</strong>：JWT
-标准结构，三段分别描述算法类型、存放声明、防篡改签名。</p>
+标准结构，三段分别描述算法类型、存放声明、防篡改签名。</p></blockquote></section>
 <hr />
-<h3 id="16-f-02-">16-F-02 ★</h3>
-<p>JWT 的 Header 中 <code>alg</code> 字段表示 ______，<code>typ</code>
-字段表示 ______。</p>
-<p><strong>答案</strong>：签名算法（如 HS256）、令牌类型（固定为 JWT）
+<section class="question-card" id="16-f-02-"><p><strong>16-F-02 ★</strong></p><p>JWT 的 Header 中 <code>alg</code> 字段表示 ______，<code>typ</code>
+字段表示 ______。</p><blockquote><p><strong>答案</strong>：签名算法（如 HS256）、令牌类型（固定为 JWT）
 <strong>解析</strong>：Header 是一个 JSON 对象，<code>alg</code>
-指定签名算法，<code>typ</code> 通常是 "JWT"。</p>
+指定签名算法，<code>typ</code> 通常是 "JWT"。</p></blockquote></section>
 <hr />
-<h3 id="16-f-03-">16-F-03 ★</h3>
-<p>JWT 默认推荐的对称签名算法是 ______，它是 ______ 与 SHA-256
-的组合。</p>
-<p><strong>答案</strong>：HS256、HMAC <strong>解析</strong>：HS256 =
-HMAC-SHA-256，使用共享密钥计算消息认证码。</p>
+<section class="question-card" id="16-f-03-"><p><strong>16-F-03 ★</strong></p><p>JWT 默认推荐的对称签名算法是 ______，它是 ______ 与 SHA-256
+的组合。</p><blockquote><p><strong>答案</strong>：HS256、HMAC <strong>解析</strong>：HS256 =
+HMAC-SHA-256，使用共享密钥计算消息认证码。</p></blockquote></section>
 <hr />
-<h3 id="16-f-04-">16-F-04 ★★</h3>
-<p>jjwt 0.12.x 生成 Token 的入口方法是 <code>Jwts.______()</code>，解析
-Token 的入口方法是 <code>Jwts.______()</code>。</p>
-<p><strong>答案</strong>：builder、parser
+<section class="question-card" id="16-f-04-"><p><strong>16-F-04 ★★</strong></p><p>jjwt 0.12.x 生成 Token 的入口方法是 <code>Jwts.______()</code>，解析
+Token 的入口方法是 <code>Jwts.______()</code>。</p><blockquote><p><strong>答案</strong>：builder、parser
 <strong>解析</strong>：<code>Jwts.builder()</code> 返回
 <code>JwtBuilder</code>；<code>Jwts.parser()</code> 返回
 <code>JwtParserBuilder</code>，再
-<code>.verifyWith(key).build().parseSignedClaims(token)</code>。</p>
+<code>.verifyWith(key).build().parseSignedClaims(token)</code>。</p></blockquote></section>
 <hr />
-<h3 id="16-f-05-">16-F-05 ★★</h3>
-<p>HS256 算法要求密钥长度至少 ______ 字节，即 ______ 位。</p>
-<p><strong>答案</strong>：32、256 <strong>解析</strong>：HS256 =
+<section class="question-card" id="16-f-05-"><p><strong>16-F-05 ★★</strong></p><p>HS256 算法要求密钥长度至少 ______ 字节，即 ______ 位。</p><blockquote><p><strong>答案</strong>：32、256 <strong>解析</strong>：HS256 =
 HMAC-SHA-256，密钥需 ≥ 256 位 = 32 字节。jjwt 用
-<code>Keys.hmacShaKeyFor</code> 校验。</p>
+<code>Keys.hmacShaKeyFor</code> 校验。</p></blockquote></section>
 <hr />
-<h3 id="16-f-06-">16-F-06 ★★</h3>
-<p>HTTP 请求携带 JWT 的 Header 名称为 ______，值的格式为 ______
-<code>&lt;token&gt;</code>。</p>
-<p><strong>答案</strong>：Authorization、Bearer
+<section class="question-card" id="16-f-06-"><p><strong>16-F-06 ★★</strong></p><p>HTTP 请求携带 JWT 的 Header 名称为 ______，值的格式为 ______
+<code>&lt;token&gt;</code>。</p><blockquote><p><strong>答案</strong>：Authorization、Bearer
 <strong>解析</strong>：标准格式
 <code>Authorization: Bearer &lt;token&gt;</code>，"Bearer" 与 token
-间有一个空格。</p>
+间有一个空格。</p></blockquote></section>
 <hr />
-<h3 id="16-f-07-">16-F-07 ★★</h3>
-<p><code>HandlerInterceptor</code> 接口的三个方法是
-<strong><strong><strong>、</strong></strong></strong>、______。</p>
-<p><strong>答案</strong>：preHandle、postHandle、afterCompletion
+<section class="question-card" id="16-f-07-"><p><strong>16-F-07 ★★</strong></p><p><code>HandlerInterceptor</code> 接口的三个方法是
+<strong><strong><strong>、</strong></strong></strong>、______。</p><blockquote><p><strong>答案</strong>：preHandle、postHandle、afterCompletion
 <strong>解析</strong>：分别对应 Controller 前、Controller
-后视图前、请求结束三个时机。</p>
+后视图前、请求结束三个时机。</p></blockquote></section>
 <hr />
-<h3 id="16-f-08-">16-F-08 ★★</h3>
-<p>在登录拦截器中，应在 <code>______</code> 方法中存入 ThreadLocal，在
-<code>______</code> 方法中移除 ThreadLocal。</p>
-<p><strong>答案</strong>：preHandle、afterCompletion
+<section class="question-card" id="16-f-08-"><p><strong>16-F-08 ★★</strong></p><p>在登录拦截器中，应在 <code>______</code> 方法中存入 ThreadLocal，在
+<code>______</code> 方法中移除 ThreadLocal。</p><blockquote><p><strong>答案</strong>：preHandle、afterCompletion
 <strong>解析</strong>：<code>preHandle</code> 校验 Token
 通过后存入当前用户；<code>afterCompletion</code>
-无论是否异常都执行，是清理 ThreadLocal 的可靠位置。</p>
+无论是否异常都执行，是清理 ThreadLocal 的可靠位置。</p></blockquote></section>
 <hr />
-<h3 id="16-f-09-">16-F-09 ★★</h3>
-<p>Spring MVC 注册拦截器需实现 <code>______</code> 接口的
-<code>______</code> 方法。</p>
-<p><strong>答案</strong>：WebMvcConfigurer、addInterceptors
+<section class="question-card" id="16-f-09-"><p><strong>16-F-09 ★★</strong></p><p>Spring MVC 注册拦截器需实现 <code>______</code> 接口的
+<code>______</code> 方法。</p><blockquote><p><strong>答案</strong>：WebMvcConfigurer、addInterceptors
 <strong>解析</strong>：<code>WebMvcConfigurer</code> 是 Spring MVC
 配置接口，<code>addInterceptors(InterceptorRegistry registry)</code>
-用于注册拦截器并配置路径。</p>
+用于注册拦截器并配置路径。</p></blockquote></section>
 <hr />
-<h3 id="16-f-10-">16-F-10 ★★</h3>
-<p><code>addPathPatterns("/**")</code> 表示
+<section class="question-card" id="16-f-10-"><p><strong>16-F-10 ★★</strong></p><p><code>addPathPatterns("/**")</code> 表示
 ______，<code>excludePathPatterns</code> 表示 ______，二者中 ______
-优先。</p>
-<p><strong>答案</strong>：拦截所有路径、排除路径（放行）、excludePathPatterns
+优先。</p><blockquote><p><strong>答案</strong>：拦截所有路径、排除路径（放行）、excludePathPatterns
 <strong>解析</strong>：<code>/**</code>
-匹配任意多级路径；排除路径优先于拦截路径，命中排除则不拦截。</p>
+匹配任意多级路径；排除路径优先于拦截路径，命中排除则不拦截。</p></blockquote></section>
 <hr />
 <h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
-<h3 id="16-s-01-">16-S-01 ★★</h3>
-<p>请阐述 JWT 的三段结构，并说明 JWT 是如何防止 Token 被篡改的。</p>
-<p><strong>参考答案</strong>：</p>
-<p>JWT 由三段组成，用 <code>.</code> 连接：</p>
-<ol type="1">
+<section class="question-card" id="16-s-01-"><p><strong>16-S-01 ★★</strong></p><p>请阐述 JWT 的三段结构，并说明 JWT 是如何防止 Token 被篡改的。</p><blockquote><p><strong>参考答案</strong>：</p><p>JWT 由三段组成，用 <code>.</code> 连接：</p><ol type="1">
 <li><strong>Header（头部）</strong>：JSON 对象，包含
 <code>alg</code>（签名算法，如 HS256）和 <code>typ</code>（类型，固定
 JWT），Base64URL 编码。</li>
@@ -749,9 +511,7 @@ userId、username、role、exp、iat，Base64URL 编码。注意 Payload
 仅编码不加密，任何人可读。</li>
 <li><strong>Signature（签名）</strong>：<code>HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)</code>，用密钥计算，Base64URL
 编码。</li>
-</ol>
-<p><strong>防篡改原理</strong>：</p>
-<ul>
+</ol><p><strong>防篡改原理</strong>：</p><ul>
 <li>Signature 由 Header、Payload 和密钥共同决定。</li>
 <li>攻击者修改 Payload（如把 role 从 STUDENT 改成
 ADMIN）后，由于没有密钥，无法生成正确的 Signature。</li>
@@ -759,23 +519,17 @@ ADMIN）后，由于没有密钥，无法生成正确的 Signature。</li>
 对比，不匹配则校验失败。</li>
 <li>因此 JWT 的防篡改能力来自"密钥保密 + HMAC 算法"，而非 Payload
 加密。</li>
-</ul>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>三段结构正确说出名称与内容（4 分，每段 1 分 + 编码方式 1 分）</li>
 <li>防篡改原理说清"密钥 + HMAC"（4 分）</li>
 <li>提到 Payload 不加密（1 分）</li>
 <li>表述清晰、逻辑连贯（1 分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="16-s-02-">16-S-02 ★★</h3>
-<p>请描述 <code>HandlerInterceptor</code>
+<section class="question-card" id="16-s-02-"><p><strong>16-S-02 ★★</strong></p><p>请描述 <code>HandlerInterceptor</code>
 接口三个方法的执行时机与典型用途，并说明为什么要在
 <code>afterCompletion</code> 中调用
-<code>ThreadLocal.remove()</code>。</p>
-<p><strong>参考答案</strong>：</p>
-<p><code>HandlerInterceptor</code> 三个方法：</p>
-<ol type="1">
+<code>ThreadLocal.remove()</code>。</p><blockquote><p><strong>参考答案</strong>：</p><p><code>HandlerInterceptor</code> 三个方法：</p><ol type="1">
 <li><strong><code>preHandle(request, response, handler)</code></strong>：在
 Controller 方法执行<strong>前</strong>调用。返回 true 放行，false
 拦截。典型用途：登录校验、权限校验、日志记录。登录拦截器在此校验 Token
@@ -785,10 +539,8 @@ Controller 返回后、视图渲染<strong>前</strong>调用。典型用途：�
 ModelAndView、统一添加响应头。</li>
 <li><strong><code>afterCompletion(request, response, handler, ex)</code></strong>：在请求<strong>结束</strong>时调用，无论
 Controller 是否抛异常。典型用途：清理资源、异常统计。</li>
-</ol>
-<p><strong>为什么 <code>afterCompletion</code> 要
-<code>ThreadLocal.remove()</code></strong>：</p>
-<ul>
+</ol><p><strong>为什么 <code>afterCompletion</code> 要
+<code>ThreadLocal.remove()</code></strong>：</p><ul>
 <li>Spring Boot 默认用 Tomcat 线程池处理请求，线程会被复用。</li>
 <li>若不 <code>remove</code>，当前用户的数据残留在 ThreadLocal 中。</li>
 <li>线程复用给下一个请求时，若该请求未走登录拦截器（如静态资源）或异常中断，ThreadLocal
@@ -797,22 +549,16 @@ Controller 是否抛异常。典型用途：清理资源、异常统计。</li>
 会拿到错误用户，导致"用户串号"——A 看到 B 的数据，是严重安全事故。</li>
 <li><code>afterCompletion</code> 无论是否抛异常都执行，是清理
 ThreadLocal 的可靠位置。</li>
-</ul>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>三方法执行时机正确（3 分，每个 1 分）</li>
 <li>各方法典型用途（2 分）</li>
 <li>ThreadLocal 不清理的后果——用户串号（3 分）</li>
 <li>afterCompletion 可靠性说明（1 分）</li>
 <li>表述清晰（1 分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="16-s-03-">16-S-03 ★★</h3>
-<p>请完整描述 JWT
-登录认证的流程（从用户登录到访问受保护接口），并说明拦截器配置时哪些路径必须放行及原因。</p>
-<p><strong>参考答案</strong>：</p>
-<p><strong>JWT 登录认证完整流程</strong>：</p>
-<ol type="1">
+<section class="question-card" id="16-s-03-"><p><strong>16-S-03 ★★</strong></p><p>请完整描述 JWT
+登录认证的流程（从用户登录到访问受保护接口），并说明拦截器配置时哪些路径必须放行及原因。</p><blockquote><p><strong>参考答案</strong>：</p><p><strong>JWT 登录认证完整流程</strong>：</p><ol type="1">
 <li><strong>登录</strong>：客户端 POST
 <code>/api/auth/login</code>，提交用户名密码。</li>
 <li><strong>校验密码</strong>：服务端查询用户，用
@@ -834,9 +580,7 @@ Token</strong>：校验通过后，<code>JwtUtil.generateToken(userId, username,
 <li><strong>清理</strong>：<code>afterCompletion</code> 调
 <code>CurrentUserContext.remove()</code>。</li>
 <li><strong>响应</strong>：返回数据给客户端。</li>
-</ol>
-<p><strong>必须放行的路径及原因</strong>：</p>
-<table>
+</ol><p><strong>必须放行的路径及原因</strong>：</p><table>
 <thead>
 <tr>
 <th>路径</th>
@@ -865,22 +609,16 @@ Token</strong>：校验通过后，<code>JwtUtil.generateToken(userId, username,
 <td>浏览器图标请求</td>
 </tr>
 </tbody>
-</table>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+</table><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>登录到访问完整流程（5 分，每步 0.5 分）</li>
 <li>必须放行路径至少列出 3 类（3 分）</li>
 <li>原因说明合理（1 分）</li>
 <li>表述清晰（1 分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="16-s-04-">16-S-04 ★★★</h3>
-<p>请对比 JWT 认证与 Session
+<section class="question-card" id="16-s-04-"><p><strong>16-S-04 ★★★</strong></p><p>请对比 JWT 认证与 Session
 认证的优劣，并说明在前后端分离架构中为何通常选择 JWT。若 Token
-被盗，应如何应对？</p>
-<p><strong>参考答案</strong>：</p>
-<p><strong>JWT vs Session 对比</strong>：</p>
-<table>
+被盗，应如何应对？</p><blockquote><p><strong>参考答案</strong>：</p><p><strong>JWT vs Session 对比</strong>：</p><table>
 <thead>
 <tr>
 <th>维度</th>
@@ -930,9 +668,7 @@ Token</strong>：校验通过后，<code>JwtUtil.generateToken(userId, username,
 <td>Token 较长（含 Payload）</td>
 </tr>
 </tbody>
-</table>
-<p><strong>前后端分离选 JWT 的原因</strong>：</p>
-<ol type="1">
+</table><p><strong>前后端分离选 JWT 的原因</strong>：</p><ol type="1">
 <li><strong>跨域友好</strong>：前后端分离常跨域，JWT 通过 Header
 传递不受 Cookie 跨域限制。</li>
 <li><strong>无状态</strong>：服务端不存会话，多实例只需共享密钥，无需
@@ -941,9 +677,7 @@ Redis 共享 Session。</li>
 传递更通用。</li>
 <li><strong>免疫 CSRF</strong>：不依赖
 Cookie，攻击者无法构造伪造请求。</li>
-</ol>
-<p><strong>Token 被盗的应对</strong>：</p>
-<ol type="1">
+</ol><p><strong>Token 被盗的应对</strong>：</p><ol type="1">
 <li><strong>使用
 HTTPS</strong>：防止中间人窃听，是最基础也最有效的措施。</li>
 <li><strong>缩短过期时间</strong>：如 Access Token 设 2
@@ -957,19 +691,15 @@ Refresh Token，Access Token 过期后用 Refresh Token 换新。</li>
 Refresh Token 存 HttpOnly Cookie，避免 XSS 读取。</li>
 <li><strong>监控异常</strong>：检测 Token 使用 IP/UA
 突变，强制重新登录。</li>
-</ol>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>对比维度至少 5 个（3 分）</li>
 <li>前后端分离选 JWT 原因至少 3 条（3 分）</li>
 <li>Token 被盗应对至少 4 种（3 分）</li>
 <li>表述清晰、逻辑严密（1 分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="六程序阅读补全题2题">六、程序阅读补全题（2题）</h2>
-<h3 id="16-r-01-">16-R-01 ★★</h3>
-<p>阅读以下 <code>JwtUtil</code> 工具类代码，补全空白处。</p>
-<div class="sourceCode" id="cb1"><pre
+<section class="question-card" id="16-r-01-"><p><strong>16-R-01 ★★</strong></p><p>阅读以下 <code>JwtUtil</code> 工具类代码，补全空白处。</p><div class="sourceCode" id="cb1"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Component</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> JwtUtil <span class="op">{</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1004,18 +734,13 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">______</span><span class="op">(</span><span class="dv">5</span><span class="op">)</span><span class="fu">______</span><span class="op">(</span>token<span class="op">)</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>                <span class="op">.</span><span class="fu">getPayload</span><span class="op">();</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>要求</strong>：补全 (1)~(5) 处的代码。</p>
-<p><strong>参考答案</strong>：</p>
-<ul>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>要求</strong>：补全 (1)~(5) 处的代码。</p><blockquote><p><strong>参考答案</strong>：</p><ul>
 <li>(1) <code>hmacShaKeyFor</code></li>
 <li>(2) <code>builder</code></li>
 <li>(3) <code>signWith</code></li>
 <li>(4) <code>parser</code></li>
 <li>(5) <code>parseSignedClaims</code></li>
-</ul>
-<p><strong>解析</strong>：</p>
-<ul>
+</ul><p><strong>解析</strong>：</p><ul>
 <li>(1) <code>Keys.hmacShaKeyFor(byte[])</code> 将字节数组转为
 SecretKey，要求字节数 ≥ 32。</li>
 <li>(2) <code>Jwts.builder()</code> 返回 JwtBuilder 链式对象。</li>
@@ -1025,13 +750,10 @@ API）。</li>
 <li>(5) <code>.parseSignedClaims(token)</code> 解析并验签，返回
 <code>Jws&lt;Claims&gt;</code>，再 <code>.getPayload()</code> 获取
 Claims。</li>
-</ul>
-<p><strong>评分标准</strong>（满分 10 分，每空 2 分）。</p>
+</ul><p><strong>评分标准</strong>（满分 10 分，每空 2 分）。</p></blockquote></section>
 <hr />
-<h3 id="16-r-02-">16-R-02 ★★★</h3>
-<p>阅读以下 <code>LoginInterceptor</code>
-代码，补全空白处并回答问题。</p>
-<div class="sourceCode" id="cb2"><pre
+<section class="question-card" id="16-r-02-"><p><strong>16-R-02 ★★★</strong></p><p>阅读以下 <code>LoginInterceptor</code>
+代码，补全空白处并回答问题。</p><div class="sourceCode" id="cb2"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Component</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> LoginInterceptor <span class="kw">implements</span> HandlerInterceptor <span class="op">{</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1070,14 +792,10 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>                                <span class="bu">Object</span> handler<span class="op">,</span> <span class="bu">Exception</span> ex<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        CurrentUserContext<span class="op">.</span><span class="fu">______</span><span class="op">(</span><span class="dv">7</span><span class="op">)</span><span class="fu">______</span><span class="op">();</span></span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>要求</strong>：</p>
-<ol type="1">
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>要求</strong>：</p><ol type="1">
 <li>补全 (1)~(7) 处代码。</li>
 <li>简述为什么必须在 (6) 方法中调用 (7)。</li>
-</ol>
-<p><strong>参考答案</strong>：</p>
-<ul>
+</ol><blockquote><p><strong>参考答案</strong>：</p><ul>
 <li>(1) <code>getHeader</code></li>
 <li>(2) <code>false</code></li>
 <li>(3) <code>substring</code></li>
@@ -1085,33 +803,26 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <li>(5) <code>true</code></li>
 <li>(6) <code>afterCompletion</code></li>
 <li>(7) <code>remove</code></li>
-</ul>
-<p><strong>问题回答</strong>： 必须在 <code>afterCompletion</code>
+</ul><p><strong>问题回答</strong>： 必须在 <code>afterCompletion</code>
 中调用 <code>remove</code>，因为 Spring Boot 使用 Tomcat
 线程池，线程会被复用。若不清理
 ThreadLocal，下一个请求复用该线程时会读到上一个用户的数据，导致"用户串号"事故（A
 用户看到 B 用户的数据）。<code>afterCompletion</code> 无论 Controller
-是否抛异常都会执行，是清理 ThreadLocal 的可靠位置。</p>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+是否抛异常都会执行，是清理 ThreadLocal 的可靠位置。</p><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>(1)~(7) 每空 1 分（7 分）</li>
 <li>问题回答要点：线程池复用 + 用户串号 + afterCompletion 可靠性（3
 分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
-<h3 id="16-c-01-">16-C-01 ★★</h3>
-<p>请为 CTTS 系统编写完整的 <code>JwtUtil</code> 工具类，要求：</p>
-<ol type="1">
+<section class="question-card" id="16-c-01-"><p><strong>16-C-01 ★★</strong></p><p>请为 CTTS 系统编写完整的 <code>JwtUtil</code> 工具类，要求：</p><ol type="1">
 <li>使用 jjwt 0.12.x API。</li>
 <li>密钥从 <code>application.yml</code>
 读取（<code>ctts.jwt.secret</code>、<code>ctts.jwt.expiration</code>）。</li>
 <li>提供方法：<code>generateToken(Long userId, String username, String role)</code>、<code>parseToken(String token)</code>、<code>validateToken(String token)</code>、<code>getUserId(String token)</code>、<code>getRole(String token)</code>。</li>
 <li>密钥长度不足 32 字节时抛出异常。</li>
 <li><code>validateToken</code> 捕获过期与无效异常返回 false。</li>
-</ol>
-<p><strong>参考答案</strong>：</p>
-<div class="sourceCode" id="cb3"><pre
+</ol><blockquote><p><strong>参考答案</strong>：</p><div class="sourceCode" id="cb3"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">jwt</span><span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">io</span><span class="op">.</span><span class="im">jsonwebtoken</span><span class="op">.</span><span class="im">Claims</span><span class="op">;</span></span>
@@ -1203,9 +914,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 <span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getRole</span><span class="op">(</span><span class="bu">String</span> token<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fu">parseToken</span><span class="op">(</span>token<span class="op">).</span><span class="fu">get</span><span class="op">(</span>CLAIM_ROLE<span class="op">,</span> <span class="bu">String</span><span class="op">.</span><span class="fu">class</span><span class="op">);</span></span>
 <span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>评分标准</strong>（满分 15 分）：</p>
-<ul>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>评分标准</strong>（满分 15 分）：</p><ul>
 <li>类注解与依赖注入正确（<code>@Component</code>、<code>@Value</code>）（2
 分）</li>
 <li><code>@PostConstruct</code> 初始化密钥 + 长度校验（3 分）</li>
@@ -1216,21 +925,16 @@ parseSignedClaims + getPayload）（3 分）</li>
 <li><code>validateToken</code> 捕获三类异常返回 false（2 分）</li>
 <li><code>getUserId</code>/<code>getRole</code> 提取正确（1 分）</li>
 <li>代码规范（日志、常量、异常处理）（1 分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="16-c-02-">16-C-02 ★★★</h3>
-<p>请为 CTTS 系统设计并实现完整的登录认证体系，包括：</p>
-<ol type="1">
+<section class="question-card" id="16-c-02-"><p><strong>16-C-02 ★★★</strong></p><p>请为 CTTS 系统设计并实现完整的登录认证体系，包括：</p><ol type="1">
 <li><code>LoginInterceptor</code> 拦截器（校验 Token + 存 ThreadLocal +
 401 响应）。</li>
 <li><code>WebMvcConfig</code> 配置类（注册拦截器 + 配置放行路径）。</li>
 <li><code>AuthController</code> 登录接口（校验密码 + 生成 JWT
 返回）。</li>
 <li>简述测试流程。</li>
-</ol>
-<p><strong>参考答案</strong>：</p>
-<p><strong>1. LoginInterceptor</strong></p>
-<div class="sourceCode" id="cb4"><pre
+</ol><blockquote><p><strong>参考答案</strong>：</p><p><strong>1. LoginInterceptor</strong></p><div class="sourceCode" id="cb4"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">interceptor</span><span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">context</span><span class="op">.</span><span class="im">CurrentUserContext</span><span class="op">;</span></span>
@@ -1295,9 +999,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="
 <span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>        response<span class="op">.</span><span class="fu">getWriter</span><span class="op">().</span><span class="fu">write</span><span class="op">(</span>MAPPER<span class="op">.</span><span class="fu">writeValueAsString</span><span class="op">(</span>body<span class="op">));</span></span>
 <span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
 <span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>2. WebMvcConfig</strong></p>
-<div class="sourceCode" id="cb5"><pre
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>2. WebMvcConfig</strong></p><div class="sourceCode" id="cb5"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">config</span><span class="op">;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">interceptor</span><span class="op">.</span><span class="im">LoginInterceptor</span><span class="op">;</span></span>
@@ -1327,9 +1029,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;/error&quot;</span></span>
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>                <span class="op">);</span></span>
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>3. AuthController 登录接口</strong></p>
-<div class="sourceCode" id="cb6"><pre
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>3. AuthController 登录接口</strong></p><div class="sourceCode" id="cb6"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">jwt</span><span class="op">.</span><span class="im">JwtUtil</span><span class="op">;</span></span>
@@ -1371,9 +1071,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="
 <span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        data<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;role&quot;</span><span class="op">,</span> user<span class="op">.</span><span class="fu">getRole</span><span class="op">());</span></span>
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span>data<span class="op">);</span></span>
 <span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>4. 测试流程</strong>：</p>
-<ol type="1">
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>4. 测试流程</strong>：</p><ol type="1">
 <li><strong>无 Token 访问</strong>：GET <code>/api/tasks</code>（不带
 Authorization）→ 预期 401 "未携带 Token"。</li>
 <li><strong>登录获取 Token</strong>：POST <code>/api/auth/login</code>
@@ -1386,9 +1084,7 @@ Authorization）→ 预期 401 "未携带 Token"。</li>
 秒再访问 → 预期 401 "Token 已过期"。</li>
 <li><strong>错误 Token</strong>：篡改 Token 字符 → 预期 401 "Token
 无效"。</li>
-</ol>
-<p><strong>评分标准</strong>（满分 15 分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（满分 15 分）：</p><ul>
 <li>LoginInterceptor：取 Header + 剥 Bearer + 解析 + 存 ThreadLocal +
 401 响应 + afterCompletion remove（6 分）</li>
 <li>WebMvcConfig：@Configuration + addInterceptors + 放行路径齐全（4
@@ -1396,7 +1092,7 @@ Authorization）→ 预期 401 "未携带 Token"。</li>
 <li>AuthController：查询用户 + BCrypt 校验 + 生成 Token + 返回（3
 分）</li>
 <li>测试流程：至少 4 个测试用例（2 分）</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="附题库统计表">附：题库统计表</h2>
 <table>

@@ -132,624 +132,397 @@
 <hr />
 <h2
 id="一单项选择题30题每题2分共60分">一、单项选择题（30题，每题2分，共60分）</h2>
-<h3 id="06-单选-01-">06-单选-01 ★</h3>
-<p><strong>题目</strong>：JDBC 是 Java 平台提供的一套什么 API？</p>
-<p>A. Web 服务调用标准 B. 数据库访问标准 C. 文件 IO 标准 D.
-网络通信标准</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：JDBC（Java Database
+<section class="question-card" id="06-单选-01-"><p><strong>06-单选-01 ★</strong></p><p><strong>题目</strong>：JDBC 是 Java 平台提供的一套什么 API？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Web 服务调用标准</div></li><li><span class="option-label">B</span><div class="option-content">数据库访问标准</div></li><li><span class="option-label">C</span><div class="option-content">文件 IO 标准</div></li><li><span class="option-label">D</span><div class="option-content">网络通信标准</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：JDBC（Java Database
 Connectivity）是 Java 平台提供的数据库访问标准 API，位于
 <code>java.sql</code> 与 <code>javax.sql</code> 包下，为 Java
-开发者提供统一数据库访问方式。</p>
+开发者提供统一数据库访问方式。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-02-">06-单选-02 ★</h3>
-<p><strong>题目</strong>：MySQL 8.x 的 JDBC 驱动类全限定名是？</p>
-<p>A. <code>com.mysql.jdbc.Driver</code> B.
-<code>com.mysql.cj.jdbc.Driver</code> C. <code>org.mysql.Driver</code>
-D. <code>mysql.jdbc.Driver</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：MySQL 8.x 驱动类为
+<section class="question-card" id="06-单选-02-"><p><strong>06-单选-02 ★</strong></p><p><strong>题目</strong>：MySQL 8.x 的 JDBC 驱动类全限定名是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>com.mysql.jdbc.Driver</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>com.mysql.cj.jdbc.Driver</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>org.mysql.Driver</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>mysql.jdbc.Driver</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：MySQL 8.x 驱动类为
 <code>com.mysql.cj.jdbc.Driver</code>（带
 <code>cj</code>）。<code>com.mysql.jdbc.Driver</code> 是 MySQL 5.x
-旧类名，已废弃。</p>
+旧类名，已废弃。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-03-">06-单选-03 ★</h3>
-<p><strong>题目</strong>：JDBC
-操作数据库的核心六步流程，正确顺序是？</p>
-<p>A. 加载驱动 → 创建 Statement → 获取连接 → 执行 SQL → 处理结果集 →
-关闭资源 B. 获取连接 → 加载驱动 → 创建 Statement → 执行 SQL → 处理结果集
-→ 关闭资源 C. 加载驱动 → 获取连接 → 创建 Statement → 执行 SQL →
-处理结果集 → 关闭资源 D. 创建 Statement → 加载驱动 → 获取连接 → 执行 SQL
-→ 处理结果集 → 关闭资源</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：正确顺序为加载驱动 →
+<section class="question-card" id="06-单选-03-"><p><strong>06-单选-03 ★</strong></p><p><strong>题目</strong>：JDBC
+操作数据库的核心六步流程，正确顺序是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">加载驱动 → 创建 Statement → 获取连接 → 执行 SQL → 处理结果集 → 关闭资源</div></li><li><span class="option-label">B</span><div class="option-content">获取连接 → 加载驱动 → 创建 Statement → 执行 SQL → 处理结果集 → 关闭资源</div></li><li><span class="option-label">C</span><div class="option-content">加载驱动 → 获取连接 → 创建 Statement → 执行 SQL → 处理结果集 → 关闭资源</div></li><li><span class="option-label">D</span><div class="option-content">创建 Statement → 加载驱动 → 获取连接 → 执行 SQL → 处理结果集 → 关闭资源</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：正确顺序为加载驱动 →
 获取连接 → 创建 Statement → 执行 SQL → 处理结果集 →
-关闭资源。每一步依赖前一步产物。</p>
+关闭资源。每一步依赖前一步产物。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-04-">06-单选-04 ★</h3>
-<p><strong>题目</strong>：在 JDBC 中，加载 MySQL 驱动的代码是？</p>
-<p>A. <code>DriverManager.load("com.mysql.cj.jdbc.Driver")</code> B.
-<code>Class.forName("com.mysql.cj.jdbc.Driver")</code> C.
-<code>Class.load("com.mysql.cj.jdbc.Driver")</code> D.
-<code>DriverManager.forName("com.mysql.cj.jdbc.Driver")</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：使用
+<section class="question-card" id="06-单选-04-"><p><strong>06-单选-04 ★</strong></p><p><strong>题目</strong>：在 JDBC 中，加载 MySQL 驱动的代码是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>DriverManager.load("com.mysql.cj.jdbc.Driver")</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>Class.forName("com.mysql.cj.jdbc.Driver")</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>Class.load("com.mysql.cj.jdbc.Driver")</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>DriverManager.forName("com.mysql.cj.jdbc.Driver")</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：使用
 <code>Class.forName(类全限定名)</code> 加载驱动类到 JVM。JDBC 4.0+
-可省略此行（SPI 自动加载），但教学场景建议保留。</p>
+可省略此行（SPI 自动加载），但教学场景建议保留。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-05-">06-单选-05 ★</h3>
-<p><strong>题目</strong>：获取数据库连接的方法是？</p>
-<p>A. <code>Connection.getConnection(url, user, password)</code> B.
-<code>DriverManager.connect(url, user, password)</code> C.
-<code>DriverManager.getConnection(url, user, password)</code> D.
-<code>DataSource.openConnection()</code></p>
-<p><strong>答案</strong>：C <strong>解析</strong>：原生 JDBC 使用
+<section class="question-card" id="06-单选-05-"><p><strong>06-单选-05 ★</strong></p><p><strong>题目</strong>：获取数据库连接的方法是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>Connection.getConnection(url, user, password)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>DriverManager.connect(url, user, password)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>DriverManager.getConnection(url, user, password)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>DataSource.openConnection()</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：原生 JDBC 使用
 <code>DriverManager.getConnection(url, user, password)</code>
-获取连接，返回 <code>Connection</code> 对象。</p>
+获取连接，返回 <code>Connection</code> 对象。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-06-">06-单选-06 ★</h3>
-<p><strong>题目</strong>：执行 SELECT 查询语句应使用哪个方法？</p>
-<p>A. <code>executeUpdate()</code> B. <code>executeQuery()</code> C.
-<code>executeSelect()</code> D. <code>executeInsert()</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="06-单选-06-"><p><strong>06-单选-06 ★</strong></p><p><strong>题目</strong>：执行 SELECT 查询语句应使用哪个方法？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>executeUpdate()</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>executeQuery()</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>executeSelect()</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>executeInsert()</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>executeQuery()</code> 执行 SELECT 返回
 <code>ResultSet</code>；<code>executeUpdate()</code> 执行
-INSERT/UPDATE/DELETE 返回受影响行数 <code>int</code>。</p>
+INSERT/UPDATE/DELETE 返回受影响行数 <code>int</code>。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-07-">06-单选-07 ★</h3>
-<p><strong>题目</strong>：执行 INSERT/UPDATE/DELETE
-语句应使用哪个方法？</p>
-<p>A. <code>executeQuery()</code> B. <code>executeUpdate()</code> C.
-<code>executeInsert()</code> D. <code>executeDelete()</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="06-单选-07-"><p><strong>06-单选-07 ★</strong></p><p><strong>题目</strong>：执行 INSERT/UPDATE/DELETE
+语句应使用哪个方法？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>executeQuery()</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>executeUpdate()</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>executeInsert()</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>executeDelete()</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>executeUpdate()</code> 用于执行 DML
-语句（INSERT/UPDATE/DELETE），返回受影响行数；DDL（CREATE/DROP）也可使用此方法。</p>
+语句（INSERT/UPDATE/DELETE），返回受影响行数；DDL（CREATE/DROP）也可使用此方法。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-08-">06-单选-08 ★</h3>
-<p><strong>题目</strong>：<code>PreparedStatement</code> 设置 String
-类型参数的方法是？</p>
-<p>A. <code>pstmt.setString(0, value)</code> B.
-<code>pstmt.setString(1, value)</code> C.
-<code>pstmt.setString("column", value)</code> D.
-<code>pstmt.addString(1, value)</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="06-单选-08-"><p><strong>06-单选-08 ★</strong></p><p><strong>题目</strong>：<code>PreparedStatement</code> 设置 String
+类型参数的方法是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>pstmt.setString(0, value)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>pstmt.setString(1, value)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>pstmt.setString("column", value)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>pstmt.addString(1, value)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>PreparedStatement</code> 参数下标从
 <strong>1</strong> 开始（不是 0）。语法为
 <code>setString(index, value)</code>，index 是 SQL 中 <code>?</code>
-的位置。</p>
+的位置。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-09-">06-单选-09 ★</h3>
-<p><strong>题目</strong>：<code>ResultSet</code>
-中移动游标到下一行的方法是？</p>
-<p>A. <code>rs.next()</code> B. <code>rs.hasNext()</code> C.
-<code>rs.move()</code> D. <code>rs.forward()</code></p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="06-单选-09-"><p><strong>06-单选-09 ★</strong></p><p><strong>题目</strong>：<code>ResultSet</code>
+中移动游标到下一行的方法是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>rs.next()</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>rs.hasNext()</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>rs.move()</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>rs.forward()</code></div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>rs.next()</code> 将游标向下移动一行，返回
 boolean 表示是否有数据。初始游标在第一行之前，必须先调用
-<code>next()</code> 才能读取数据。</p>
+<code>next()</code> 才能读取数据。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-10-">06-单选-10 ★</h3>
-<p><strong>题目</strong>：JDBC 推荐使用的资源关闭方式是？</p>
-<p>A. 手动在 try 块中调用 close() B. 不需要关闭，JVM 会自动回收 C. 在
-finally 块中按 rs → pstmt → conn 顺序关闭 D. 使用 try-with-resources
-自动关闭</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：Java 7+ 推荐使用
+<section class="question-card" id="06-单选-10-"><p><strong>06-单选-10 ★</strong></p><p><strong>题目</strong>：JDBC 推荐使用的资源关闭方式是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">手动在 try 块中调用 close()</div></li><li><span class="option-label">B</span><div class="option-content">不需要关闭，JVM 会自动回收</div></li><li><span class="option-label">C</span><div class="option-content">在 finally 块中按 rs → pstmt → conn 顺序关闭</div></li><li><span class="option-label">D</span><div class="option-content">使用 try-with-resources 自动关闭</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：Java 7+ 推荐使用
 try-with-resources 语句，实现 <code>AutoCloseable</code>
-的资源会自动调用 close()。无需手动写 finally。</p>
+的资源会自动调用 close()。无需手动写 finally。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-11-">06-单选-11 ★</h3>
-<p><strong>题目</strong>：JDBC 的四大痛点不包括以下哪一项？</p>
-<p>A. 代码繁琐 B. 资源易泄漏 C. 不支持事务 D. SQL 硬编码</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：JDBC
+<section class="question-card" id="06-单选-11-"><p><strong>06-单选-11 ★</strong></p><p><strong>题目</strong>：JDBC 的四大痛点不包括以下哪一项？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">代码繁琐</div></li><li><span class="option-label">B</span><div class="option-content">资源易泄漏</div></li><li><span class="option-label">C</span><div class="option-content">不支持事务</div></li><li><span class="option-label">D</span><div class="option-content">SQL 硬编码</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：JDBC
 四大痛点是：代码繁琐、资源易泄漏、SQL 硬编码、结果集手动映射。JDBC
 支持事务（<code>conn.setAutoCommit(false)</code>），所以 C
-不属于痛点。</p>
+不属于痛点。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-12-">06-单选-12 ★</h3>
-<p><strong>题目</strong>：MyBatis 属于以下哪种类型的框架？</p>
-<p>A. 全自动 ORM B. 半自动 ORM C. 不是 ORM 框架 D. 数据库连接池</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：MyBatis 是半自动
+<section class="question-card" id="06-单选-12-"><p><strong>06-单选-12 ★</strong></p><p><strong>题目</strong>：MyBatis 属于以下哪种类型的框架？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">全自动 ORM</div></li><li><span class="option-label">B</span><div class="option-content">半自动 ORM</div></li><li><span class="option-label">C</span><div class="option-content">不是 ORM 框架</div></li><li><span class="option-label">D</span><div class="option-content">数据库连接池</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：MyBatis 是半自动
 ORM，开发者手写 SQL，框架负责参数绑定与结果映射。JPA/Hibernate 是全自动
-ORM。</p>
+ORM。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-13-">06-单选-13 ★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 与 MyBatis 的关系是？</p>
-<p>A. MyBatis-Plus 替代了 MyBatis B. MyBatis-Plus 是 MyBatis 的增强工具
-C. 两者无任何关系 D. MyBatis 是 MyBatis-Plus 的增强</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：MyBatis-Plus 是
+<section class="question-card" id="06-单选-13-"><p><strong>06-单选-13 ★</strong></p><p><strong>题目</strong>：MyBatis-Plus 与 MyBatis 的关系是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">MyBatis-Plus 替代了 MyBatis</div></li><li><span class="option-label">B</span><div class="option-content">MyBatis-Plus 是 MyBatis 的增强工具</div></li><li><span class="option-label">C</span><div class="option-content">两者无任何关系</div></li><li><span class="option-label">D</span><div class="option-content">MyBatis 是 MyBatis-Plus 的增强</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：MyBatis-Plus 是
 MyBatis 的增强工具（"只做增强不做改变"），底层仍是
-MyBatis，可混用原生功能。</p>
+MyBatis，可混用原生功能。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-14-">06-单选-14 ★</h3>
-<p><strong>题目</strong>：Spring Boot 3 项目集成 MyBatis-Plus 应使用哪个
-starter？</p>
-<p>A. <code>mybatis-plus-boot-starter</code> B.
-<code>mybatis-plus-spring-boot3-starter</code> C.
-<code>mybatis-spring-boot-starter</code> D.
-<code>spring-boot-starter-mybatis</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：Spring Boot 3.x
+<section class="question-card" id="06-单选-14-"><p><strong>06-单选-14 ★</strong></p><p><strong>题目</strong>：Spring Boot 3 项目集成 MyBatis-Plus 应使用哪个
+starter？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>mybatis-plus-boot-starter</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>mybatis-plus-spring-boot3-starter</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>mybatis-spring-boot-starter</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>spring-boot-starter-mybatis</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：Spring Boot 3.x
 必须使用 <code>mybatis-plus-spring-boot3-starter</code>（带
 <code>boot3</code>）。Spring Boot 2.x 用
-<code>mybatis-plus-boot-starter</code>。</p>
+<code>mybatis-plus-boot-starter</code>。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-15-">06-单选-15 ★</h3>
-<p><strong>题目</strong>：MySQL 8 的官方 JDBC 驱动 Maven 坐标 artifactId
-是？</p>
-<p>A. <code>mysql-connector-java</code> B.
-<code>mysql-connector-j</code> C. <code>mysql-jdbc</code> D.
-<code>mysql-driver</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：MySQL 8.0.31
+<section class="question-card" id="06-单选-15-"><p><strong>06-单选-15 ★</strong></p><p><strong>题目</strong>：MySQL 8 的官方 JDBC 驱动 Maven 坐标 artifactId
+是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>mysql-connector-java</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>mysql-connector-j</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>mysql-jdbc</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>mysql-driver</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：MySQL 8.0.31
 后驱动包名从 <code>mysql-connector-java</code> 改为
 <code>mysql-connector-j</code>，groupId 从 <code>mysql</code> 改为
-<code>com.mysql</code>。</p>
+<code>com.mysql</code>。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-16-">06-单选-16 ★</h3>
-<p><strong>题目</strong>：JDBC URL 中
-<code>serverTimezone=Asia/Shanghai</code> 参数的作用是？</p>
-<p>A. 设置客户端时区 B. 设置服务器时区 C. 设置连接超时 D.
-设置字符编码</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="06-单选-16-"><p><strong>06-单选-16 ★</strong></p><p><strong>题目</strong>：JDBC URL 中
+<code>serverTimezone=Asia/Shanghai</code> 参数的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">设置客户端时区</div></li><li><span class="option-label">B</span><div class="option-content">设置服务器时区</div></li><li><span class="option-label">C</span><div class="option-content">设置连接超时</div></li><li><span class="option-label">D</span><div class="option-content">设置字符编码</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>serverTimezone</code> 指定服务器时区，MySQL
-8 必填，否则报"The server time zone value is unrecognized"。</p>
+8 必填，否则报"The server time zone value is unrecognized"。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-17-">06-单选-17 ★★</h3>
-<p><strong>题目</strong>：以下 JDBC URL 配置正确的是？</p>
-<p>A. <code>jdbc:mysql://localhost:3306/ctts</code> B.
-<code>jdbc:mysql://localhost:3306/ctts?serverTimezone=Asia/Shanghai</code>
-C. <code>jdbc:mysql://localhost/ctts?serverTimezone=Asia/Shanghai</code>
-D.
-<code>jdbc:mysql://localhost:3306:ctts?serverTimezone=Asia/Shanghai</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：JDBC URL 格式为
+<section class="question-card" id="06-单选-17-"><p><strong>06-单选-17 ★★</strong></p><p><strong>题目</strong>：以下 JDBC URL 配置正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>jdbc:mysql://localhost:3306/ctts</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>jdbc:mysql://localhost:3306/ctts?serverTimezone=Asia/Shanghai</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>jdbc:mysql://localhost/ctts?serverTimezone=Asia/Shanghai</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>jdbc:mysql://localhost:3306:ctts?serverTimezone=Asia/Shanghai</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：JDBC URL 格式为
 <code>jdbc:mysql://host:port/database?params</code>。A 缺时区参数，C
-缺端口，D 端口与数据库之间用了冒号（应为斜杠）。</p>
+缺端口，D 端口与数据库之间用了冒号（应为斜杠）。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-18-">06-单选-18 ★★</h3>
-<p><strong>题目</strong>：关于 <code>Statement</code> 和
-<code>PreparedStatement</code>，下列说法正确的是？</p>
-<p>A. Statement 性能更好 B. PreparedStatement 不能防止 SQL 注入 C.
-Statement 适用于带参数的动态 SQL D. PreparedStatement
-支持参数预编译，可防止 SQL 注入</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：PreparedStatement
+<section class="question-card" id="06-单选-18-"><p><strong>06-单选-18 ★★</strong></p><p><strong>题目</strong>：关于 <code>Statement</code> 和
+<code>PreparedStatement</code>，下列说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Statement 性能更好</div></li><li><span class="option-label">B</span><div class="option-content">PreparedStatement 不能防止 SQL 注入</div></li><li><span class="option-label">C</span><div class="option-content">Statement 适用于带参数的动态 SQL</div></li><li><span class="option-label">D</span><div class="option-content">PreparedStatement 支持参数预编译，可防止 SQL 注入</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：PreparedStatement
 预编译 SQL，参数用 <code>?</code> 占位后通过 <code>setXxx</code>
 绑定，能防止 SQL 注入；Statement 拼接 SQL 字符串易被注入。生产环境推荐
-PreparedStatement。</p>
+PreparedStatement。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-19-">06-单选-19 ★★</h3>
-<p><strong>题目</strong>：<code>try-with-resources</code>
-中声明多个资源的关闭顺序是？</p>
-<p>A. 按声明顺序关闭 B. 按声明逆序关闭 C. 随机顺序关闭 D. 同时关闭</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：try-with-resources
+<section class="question-card" id="06-单选-19-"><p><strong>06-单选-19 ★★</strong></p><p><strong>题目</strong>：<code>try-with-resources</code>
+中声明多个资源的关闭顺序是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">按声明顺序关闭</div></li><li><span class="option-label">B</span><div class="option-content">按声明逆序关闭</div></li><li><span class="option-label">C</span><div class="option-content">随机顺序关闭</div></li><li><span class="option-label">D</span><div class="option-content">同时关闭</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：try-with-resources
 按<strong>声明逆序</strong>关闭资源（后声明先关闭）。如声明顺序为
 Connection、PreparedStatement、ResultSet，则关闭顺序为 ResultSet →
-PreparedStatement → Connection。</p>
+PreparedStatement → Connection。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-20-">06-单选-20 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 的 <code>BaseMapper</code>
-接口不直接提供以下哪个方法？</p>
-<p>A. <code>insert(entity)</code> B. <code>updateById(entity)</code> C.
-<code>deleteById(id)</code> D. <code>joinSelect(wrapper)</code></p>
-<p><strong>答案</strong>：D <strong>解析</strong>：BaseMapper 提供
+<section class="question-card" id="06-单选-20-"><p><strong>06-单选-20 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus 的 <code>BaseMapper</code>
+接口不直接提供以下哪个方法？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>insert(entity)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>updateById(entity)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>deleteById(id)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>joinSelect(wrapper)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：BaseMapper 提供
 insert、updateById、deleteById、selectById、selectList
-等通用方法，不提供 <code>joinSelect</code>（多表连接需自定义 SQL）。</p>
+等通用方法，不提供 <code>joinSelect</code>（多表连接需自定义 SQL）。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-21-">06-单选-21 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 实体类 <code>User</code>
-对应数据库表 <code>sys_user</code>，应使用哪个注解声明表名？</p>
-<p>A. <code>@Table("sys_user")</code> B.
-<code>@TableName("sys_user")</code> C. <code>@Entity("sys_user")</code>
-D. <code>@Table(name = "sys_user")</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：MyBatis-Plus 使用
+<section class="question-card" id="06-单选-21-"><p><strong>06-单选-21 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus 实体类 <code>User</code>
+对应数据库表 <code>sys_user</code>，应使用哪个注解声明表名？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Table("sys_user")</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@TableName("sys_user")</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Entity("sys_user")</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Table(name = "sys_user")</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：MyBatis-Plus 使用
 <code>@TableName("表名")</code>
 注解声明实体类对应的表名。若类名与表名一致（如 User 对应 user
-表）可省略。</p>
+表）可省略。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-22-">06-单选-22 ★★</h3>
-<p><strong>题目</strong>：Spring Boot 集成 MyBatis-Plus
-后，默认使用的数据库连接池是？</p>
-<p>A. DBCP B. Druid C. HikariCP D. C3P0</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：Spring Boot 默认集成
+<section class="question-card" id="06-单选-22-"><p><strong>06-单选-22 ★★</strong></p><p><strong>题目</strong>：Spring Boot 集成 MyBatis-Plus
+后，默认使用的数据库连接池是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">DBCP</div></li><li><span class="option-label">B</span><div class="option-content">Druid</div></li><li><span class="option-label">C</span><div class="option-content">HikariCP</div></li><li><span class="option-label">D</span><div class="option-content">C3P0</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：Spring Boot 默认集成
 HikariCP（号称最快的连接池）。Druid
-是阿里开源连接池，需要单独引入依赖。</p>
+是阿里开源连接池，需要单独引入依赖。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-23-">06-单选-23 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 实体类字段
+<section class="question-card" id="06-单选-23-"><p><strong>06-单选-23 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus 实体类字段
 <code>createTime</code> 自动映射数据库列
-<code>create_time</code>，依赖的配置是？</p>
-<p>A.
-<code>mybatis-plus.configuration.map-underscore-to-camel-case=true</code>
-B. <code>mybatis-plus.global-config.db-config.underscore=true</code> C.
-<code>mybatis-plus.configuration.camel-case=true</code> D.
-无需配置，自动映射</p>
-<p><strong>答案</strong>：A <strong>解析</strong>：MyBatis-Plus
+<code>create_time</code>，依赖的配置是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>mybatis-plus.configuration.map-underscore-to-camel-case=true</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>mybatis-plus.global-config.db-config.underscore=true</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>mybatis-plus.configuration.camel-case=true</code></div></li><li><span class="option-label">D</span><div class="option-content">无需配置，自动映射</div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：MyBatis-Plus
 默认开启下划线转驼峰（<code>map-underscore-to-camel-case=true</code>），<code>createTime</code>
-自动映射 <code>create_time</code>。若手动关闭则映射失败。</p>
+自动映射 <code>create_time</code>。若手动关闭则映射失败。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-24-">06-单选-24 ★★</h3>
-<p><strong>题目</strong>：以下哪种情况会导致
-<code>Access denied for user 'root'@'localhost'</code> 报错？</p>
-<p>A. MySQL 服务未启动 B. URL 端口错误 C. 数据库密码不正确 D.
-数据库不存在</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="06-单选-24-"><p><strong>06-单选-24 ★★</strong></p><p><strong>题目</strong>：以下哪种情况会导致
+<code>Access denied for user 'root'@'localhost'</code> 报错？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">MySQL 服务未启动</div></li><li><span class="option-label">B</span><div class="option-content">URL 端口错误</div></li><li><span class="option-label">C</span><div class="option-content">数据库密码不正确</div></li><li><span class="option-label">D</span><div class="option-content">数据库不存在</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>Access denied</code>
 表示用户名或密码错误。MySQL 服务未启动会报 Communications link
-failure；端口错误也类似；数据库不存在报 Unknown database。</p>
+failure；端口错误也类似；数据库不存在报 Unknown database。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-25-">06-单选-25 ★★</h3>
-<p><strong>题目</strong>：以下哪种情况会导致
-<code>ClassNotFoundException: com.mysql.cj.jdbc.Driver</code> 报错？</p>
-<p>A. URL 时区未配置 B. 未引入 mysql-connector-j 依赖 C. 密码错误 D.
-数据库不存在</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="06-单选-25-"><p><strong>06-单选-25 ★★</strong></p><p><strong>题目</strong>：以下哪种情况会导致
+<code>ClassNotFoundException: com.mysql.cj.jdbc.Driver</code> 报错？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">URL 时区未配置</div></li><li><span class="option-label">B</span><div class="option-content">未引入 mysql-connector-j 依赖</div></li><li><span class="option-label">C</span><div class="option-content">密码错误</div></li><li><span class="option-label">D</span><div class="option-content">数据库不存在</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>ClassNotFoundException</code>
 表示类找不到，原因是未引入 MySQL 驱动依赖，或引错为旧版
-<code>mysql-connector-java</code>。</p>
+<code>mysql-connector-java</code>。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-26-">06-单选-26 ★★</h3>
-<p><strong>题目</strong>：CTTS
-项目启动日志中出现以下哪条信息，表示数据库连接成功？</p>
-<p>A. <code>Tomcat started on port(s): 8080</code> B.
-<code>Started CttsApplication in 3.4 seconds</code> C.
-<code>HikariPool-1 - Start completed</code> D.
-<code>Spring Boot loaded beans</code></p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="06-单选-26-"><p><strong>06-单选-26 ★★</strong></p><p><strong>题目</strong>：CTTS
+项目启动日志中出现以下哪条信息，表示数据库连接成功？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>Tomcat started on port(s): 8080</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>Started CttsApplication in 3.4 seconds</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>HikariPool-1 - Start completed</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>Spring Boot loaded beans</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>HikariPool-1 - Start completed</code> 表示
 HikariCP 连接池初始化成功，数据库连接已建立。A/B
-是项目启动成功的标志，但不能确认数据库连接成功。</p>
+是项目启动成功的标志，但不能确认数据库连接成功。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-27-">06-单选-27 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 的核心优势不包括以下哪一项？</p>
-<p>A. 内置通用 CRUD B. 条件构造器 QueryWrapper C. 分页插件 D.
-自动生成业务逻辑代码</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：MyBatis-Plus 提供
+<section class="question-card" id="06-单选-27-"><p><strong>06-单选-27 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus 的核心优势不包括以下哪一项？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">内置通用 CRUD</div></li><li><span class="option-label">B</span><div class="option-content">条件构造器 QueryWrapper</div></li><li><span class="option-label">C</span><div class="option-content">分页插件</div></li><li><span class="option-label">D</span><div class="option-content">自动生成业务逻辑代码</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：MyBatis-Plus 提供
 BaseMapper（内置CRUD）、QueryWrapper（条件构造器）、分页插件、代码生成器（生成
-Entity/Mapper/Service/Controller 骨架代码），但不生成业务逻辑代码。</p>
+Entity/Mapper/Service/Controller 骨架代码），但不生成业务逻辑代码。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-28-">06-单选-28 ★★</h3>
-<p><strong>题目</strong>：MyBatis 与 JPA/Hibernate 的核心区别是？</p>
-<p>A. MyBatis 是全自动 ORM，JPA 是半自动 ORM B. MyBatis 需要开发者写
-SQL，JPA 自动生成 SQL C. MyBatis 不支持事务，JPA 支持事务 D. MyBatis
-不支持参数绑定，JPA 支持</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：MyBatis 是半自动
+<section class="question-card" id="06-单选-28-"><p><strong>06-单选-28 ★★</strong></p><p><strong>题目</strong>：MyBatis 与 JPA/Hibernate 的核心区别是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">MyBatis 是全自动 ORM，JPA 是半自动 ORM</div></li><li><span class="option-label">B</span><div class="option-content">MyBatis 需要开发者写 SQL，JPA 自动生成 SQL</div></li><li><span class="option-label">C</span><div class="option-content">MyBatis 不支持事务，JPA 支持事务</div></li><li><span class="option-label">D</span><div class="option-content">MyBatis 不支持参数绑定，JPA 支持</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：MyBatis 是半自动
 ORM（开发者手写 SQL），JPA/Hibernate 是全自动 ORM（框架自动生成
-SQL）。</p>
+SQL）。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-29-">06-单选-29 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 主键自增策略应配置
-<code>@TableId</code> 的 <code>type</code> 属性为？</p>
-<p>A. <code>IdType.NONE</code> B. <code>IdType.AUTO</code> C.
-<code>IdType.INPUT</code> D. <code>IdType.UUID</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="06-单选-29-"><p><strong>06-单选-29 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus 主键自增策略应配置
+<code>@TableId</code> 的 <code>type</code> 属性为？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>IdType.NONE</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>IdType.AUTO</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>IdType.INPUT</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>IdType.UUID</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>IdType.AUTO</code>
 表示使用数据库自增主键。NONE 是无策略（默认），INPUT 是手动输入，UUID 是
-UUID 策略。</p>
+UUID 策略。</p></blockquote></section>
 <hr />
-<h3 id="06-单选-30-">06-单选-30 ★★★</h3>
-<p><strong>题目</strong>：以下关于 JDBC 4.0+
-自动加载驱动机制的说法，正确的是？</p>
-<p>A. 必须显式调用 <code>Class.forName()</code> 加载驱动 B. 通过 SPI
-机制自动加载，<code>Class.forName()</code> 可省略 C. 通过
-<code>DriverManager.registerDriver()</code> 注册驱动 D. 通过 Spring Boot
-自动配置驱动</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：JDBC 4.0+ 引入 SPI
+<section class="question-card" id="06-单选-30-"><p><strong>06-单选-30 ★★★</strong></p><p><strong>题目</strong>：以下关于 JDBC 4.0+
+自动加载驱动机制的说法，正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">必须显式调用 <code>Class.forName()</code> 加载驱动</div></li><li><span class="option-label">B</span><div class="option-content">通过 SPI 机制自动加载，<code>Class.forName()</code> 可省略</div></li><li><span class="option-label">C</span><div class="option-content">通过 <code>DriverManager.registerDriver()</code> 注册驱动</div></li><li><span class="option-label">D</span><div class="option-content">通过 Spring Boot 自动配置驱动</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：JDBC 4.0+ 引入 SPI
 机制，驱动 jar 的 <code>META-INF/services/java.sql.Driver</code>
 声明驱动类全限定名，<code>DriverManager</code>
 类加载时自动发现并加载。因此 <code>Class.forName()</code>
 可省略，但教学场景建议保留。</p>
 <hr />
 <h2
-id="二多项选择题10题每题3分共30分">二、多项选择题（10题，每题3分，共30分）</h2>
-<h3 id="06-多选-01-">06-多选-01 ★</h3>
-<p><strong>题目</strong>：以下哪些是 JDBC
-操作数据库的核心步骤？（多选）</p>
-<p>A. 加载驱动 <code>Class.forName</code> B. 获取连接
-<code>DriverManager.getConnection</code> C. 创建
-<code>PreparedStatement</code> D. 执行 SQL <code>executeQuery</code> /
-<code>executeUpdate</code> E. 处理 <code>ResultSet</code> F.
-关闭资源</p>
-<p><strong>答案</strong>：ABCDEF <strong>解析</strong>：六步全部是 JDBC
-核心步骤，缺一不可。</p>
+id="二多项选择题10题每题3分共30分">二、多项选择题（10题，每题3分，共30分）</h2></blockquote></section>
+
+<section class="question-card" id="06-多选-01-"><p><strong>06-多选-01 ★</strong></p><p><strong>题目</strong>：以下哪些是 JDBC
+操作数据库的核心步骤？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">加载驱动 <code>Class.forName</code></div></li><li><span class="option-label">B</span><div class="option-content">获取连接 <code>DriverManager.getConnection</code></div></li><li><span class="option-label">C</span><div class="option-content">创建 <code>PreparedStatement</code></div></li><li><span class="option-label">D</span><div class="option-content">执行 SQL <code>executeQuery</code> / <code>executeUpdate</code></div></li><li><span class="option-label">E</span><div class="option-content">处理 <code>ResultSet</code></div></li><li><span class="option-label">F</span><div class="option-content">关闭资源</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCDEF <strong>解析</strong>：六步全部是 JDBC
+核心步骤，缺一不可。</p></blockquote></section>
 <hr />
-<h3 id="06-多选-02-">06-多选-02 ★</h3>
-<p><strong>题目</strong>：JDBC 的四大痛点包括哪些？（多选）</p>
-<p>A. 代码繁琐（六步流程） B. 资源易泄漏 C. SQL 硬编码在 Java 文件中 D.
-结果集手动映射到对象 E. 不支持事务 F. 不支持连接池</p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：JDBC 四大痛点是
+<section class="question-card" id="06-多选-02-"><p><strong>06-多选-02 ★</strong></p><p><strong>题目</strong>：JDBC 的四大痛点包括哪些？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">代码繁琐（六步流程）</div></li><li><span class="option-label">B</span><div class="option-content">资源易泄漏</div></li><li><span class="option-label">C</span><div class="option-content">SQL 硬编码在 Java 文件中</div></li><li><span class="option-label">D</span><div class="option-content">结果集手动映射到对象</div></li><li><span class="option-label">E</span><div class="option-content">不支持事务</div></li><li><span class="option-label">F</span><div class="option-content">不支持连接池</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：JDBC 四大痛点是
 ABCD。JDBC
 本身支持事务（<code>setAutoCommit</code>），也支持配合第三方连接池使用，所以
-EF 不属于痛点。</p>
+EF 不属于痛点。</p></blockquote></section>
 <hr />
-<h3 id="06-多选-03-">06-多选-03 ★</h3>
-<p><strong>题目</strong>：以下哪些是 MyBatis-Plus 相对 MyBatis
-的增强功能？（多选）</p>
-<p>A. 内置 BaseMapper 提供 CRUD 方法 B. 条件构造器 QueryWrapper C.
-分页插件 PaginationInnerInterceptor D. 代码生成器 E. 替代了 MyBatis
-所有原生功能 F. SQL 与 Java 代码分离</p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：ABCD 都是
+<section class="question-card" id="06-多选-03-"><p><strong>06-多选-03 ★</strong></p><p><strong>题目</strong>：以下哪些是 MyBatis-Plus 相对 MyBatis
+的增强功能？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">内置 BaseMapper 提供 CRUD 方法</div></li><li><span class="option-label">B</span><div class="option-content">条件构造器 QueryWrapper</div></li><li><span class="option-label">C</span><div class="option-content">分页插件 PaginationInnerInterceptor</div></li><li><span class="option-label">D</span><div class="option-content">代码生成器</div></li><li><span class="option-label">E</span><div class="option-content">替代了 MyBatis 所有原生功能</div></li><li><span class="option-label">F</span><div class="option-content">SQL 与 Java 代码分离</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：ABCD 都是
 MyBatis-Plus 的增强功能。E 错误（MP 不替代 MyBatis，是增强）。F 是
-MyBatis 本身就具备的特性，不是 MP 增强的。</p>
+MyBatis 本身就具备的特性，不是 MP 增强的。</p></blockquote></section>
 <hr />
-<h3 id="06-多选-04-">06-多选-04 ★</h3>
-<p><strong>题目</strong>：Spring Boot 3 项目集成 MyBatis-Plus
-需要引入哪些依赖？（多选）</p>
-<p>A. <code>mybatis-plus-spring-boot3-starter</code> B.
-<code>mysql-connector-j</code> C.
-<code>mybatis-spring-boot-starter</code> D.
-<code>spring-boot-starter-web</code> E.
-<code>mybatis-plus-boot-starter</code></p>
-<p><strong>答案</strong>：AB <strong>解析</strong>：A 是 Spring Boot 3
+<section class="question-card" id="06-多选-04-"><p><strong>06-多选-04 ★</strong></p><p><strong>题目</strong>：Spring Boot 3 项目集成 MyBatis-Plus
+需要引入哪些依赖？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>mybatis-plus-spring-boot3-starter</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>mysql-connector-j</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>mybatis-spring-boot-starter</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>spring-boot-starter-web</code></div></li><li><span class="option-label">E</span><div class="option-content"><code>mybatis-plus-boot-starter</code></div></li></ul></div><blockquote><p><strong>答案</strong>：AB <strong>解析</strong>：A 是 Spring Boot 3
 专用 MyBatis-Plus starter，B 是 MySQL 驱动。C 是 MyBatis 原生
 starter（非 MP），D 是 Web 依赖（非数据库必需）。E 是 Spring Boot 2.x
-用法，3.x 应使用 A。</p>
+用法，3.x 应使用 A。</p></blockquote></section>
 <hr />
-<h3 id="06-多选-05-">06-多选-05 ★★</h3>
-<p><strong>题目</strong>：以下哪些是 JDBC URL
-中常见的必要参数？（多选）</p>
-<p>A. <code>serverTimezone=Asia/Shanghai</code> B.
-<code>useSSL=false</code> C. <code>characterEncoding=utf8</code> D.
-<code>allowPublicKeyRetrieval=true</code> E. <code>poolSize=10</code> F.
-<code>timeout=5000</code></p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：MySQL 8 的 JDBC
+<section class="question-card" id="06-多选-05-"><p><strong>06-多选-05 ★★</strong></p><p><strong>题目</strong>：以下哪些是 JDBC URL
+中常见的必要参数？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>serverTimezone=Asia/Shanghai</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>useSSL=false</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>characterEncoding=utf8</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>allowPublicKeyRetrieval=true</code></div></li><li><span class="option-label">E</span><div class="option-content"><code>poolSize=10</code></div></li><li><span class="option-label">F</span><div class="option-content"><code>timeout=5000</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：MySQL 8 的 JDBC
 URL
 常用参数：serverTimezone（必填，避免时区报错）、useSSL（开发环境关闭）、characterEncoding（避免中文乱码）、allowPublicKeyRetrieval（避免公钥检索错误）。EF
-不是 JDBC URL 参数（连接池参数配置在 hikari 下）。</p>
+不是 JDBC URL 参数（连接池参数配置在 hikari 下）。</p></blockquote></section>
 <hr />
-<h3 id="06-多选-06-">06-多选-06 ★★</h3>
-<p><strong>题目</strong>：以下哪些情况会导致数据库连接失败？（多选）</p>
-<p>A. MySQL 服务未启动 B. URL 端口号错误 C. 用户名或密码错误 D.
-数据库不存在 E. 网络防火墙拦截 3306 端口 F. 时区参数未配置</p>
-<p><strong>答案</strong>：ABCDEF
+<section class="question-card" id="06-多选-06-"><p><strong>06-多选-06 ★★</strong></p><p><strong>题目</strong>：以下哪些情况会导致数据库连接失败？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">MySQL 服务未启动</div></li><li><span class="option-label">B</span><div class="option-content">URL 端口号错误</div></li><li><span class="option-label">C</span><div class="option-content">用户名或密码错误</div></li><li><span class="option-label">D</span><div class="option-content">数据库不存在</div></li><li><span class="option-label">E</span><div class="option-content">网络防火墙拦截 3306 端口</div></li><li><span class="option-label">F</span><div class="option-content">时区参数未配置</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCDEF
 <strong>解析</strong>：六种情况都会导致连接失败，但报错信息不同：A/B/E
 报 Communications link failure；C 报 Access denied；D 报 Unknown
-database；F 报 time zone unrecognized。</p>
+database；F 报 time zone unrecognized。</p></blockquote></section>
 <hr />
-<h3 id="06-多选-07-">06-多选-07 ★★</h3>
-<p><strong>题目</strong>：关于 <code>try-with-resources</code>
-语句，以下说法正确的有？（多选）</p>
-<p>A. 资源必须实现 <code>AutoCloseable</code> 接口 B. 资源在 try
-块结束时自动调用 close() C. 多个资源按声明顺序关闭 D.
-多个资源按声明逆序关闭 E. 无需手动写 finally 关闭资源 F. 可以同时声明
-Connection、PreparedStatement、ResultSet</p>
-<p><strong>答案</strong>：ABDEF <strong>解析</strong>：A（必须实现
+<section class="question-card" id="06-多选-07-"><p><strong>06-多选-07 ★★</strong></p><p><strong>题目</strong>：关于 <code>try-with-resources</code>
+语句，以下说法正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">资源必须实现 <code>AutoCloseable</code> 接口</div></li><li><span class="option-label">B</span><div class="option-content">资源在 try 块结束时自动调用 close()</div></li><li><span class="option-label">C</span><div class="option-content">多个资源按声明顺序关闭</div></li><li><span class="option-label">D</span><div class="option-content">多个资源按声明逆序关闭</div></li><li><span class="option-label">E</span><div class="option-content">无需手动写 finally 关闭资源</div></li><li><span class="option-label">F</span><div class="option-content">可以同时声明 Connection、PreparedStatement、ResultSet</div></li></ul></div><blockquote><p><strong>答案</strong>：ABDEF <strong>解析</strong>：A（必须实现
 AutoCloseable）、B（自动 close）、D（逆序关闭）、E（无需
-finally）、F（可声明多个资源）都正确。C 错误，应为逆序关闭。</p>
+finally）、F（可声明多个资源）都正确。C 错误，应为逆序关闭。</p></blockquote></section>
 <hr />
-<h3 id="06-多选-08-">06-多选-08 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 的
+<section class="question-card" id="06-多选-08-"><p><strong>06-多选-08 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus 的
 <code>BaseMapper&lt;T&gt;</code>
-接口提供的通用方法包括哪些？（多选）</p>
-<p>A. <code>insert(T entity)</code> B. <code>updateById(T entity)</code>
-C. <code>deleteById(Serializable id)</code> D.
-<code>selectById(Serializable id)</code> E.
-<code>selectList(Wrapper&lt;T&gt; queryWrapper)</code> F.
-<code>selectPage(Page&lt;T&gt; page, Wrapper&lt;T&gt; queryWrapper)</code></p>
-<p><strong>答案</strong>：ABCDEF <strong>解析</strong>：六种方法都是
+接口提供的通用方法包括哪些？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>insert(T entity)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>updateById(T entity)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>deleteById(Serializable id)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>selectById(Serializable id)</code></div></li><li><span class="option-label">E</span><div class="option-content"><code>selectList(Wrapper&lt;T&gt; queryWrapper)</code></div></li><li><span class="option-label">F</span><div class="option-content"><code>selectPage(Page&lt;T&gt; page, Wrapper&lt;T&gt; queryWrapper)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABCDEF <strong>解析</strong>：六种方法都是
 BaseMapper 提供的通用 CRUD 方法。还有
-selectByMap、selectCount、selectBatchIds 等。</p>
+selectByMap、selectCount、selectBatchIds 等。</p></blockquote></section>
 <hr />
-<h3 id="06-多选-09-">06-多选-09 ★★</h3>
-<p><strong>题目</strong>：以下哪些是 MyBatis 作为"半自动
-ORM"的特点？（多选）</p>
-<p>A. 开发者手写 SQL B. 框架自动生成 SQL C. 框架负责参数绑定 D.
-框架负责结果映射 E. 框架负责资源管理 F. 完全屏蔽 SQL 细节</p>
-<p><strong>答案</strong>：ACDE <strong>解析</strong>：MyBatis 是半自动
+<section class="question-card" id="06-多选-09-"><p><strong>06-多选-09 ★★</strong></p><p><strong>题目</strong>：以下哪些是 MyBatis 作为"半自动
+ORM"的特点？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">开发者手写 SQL</div></li><li><span class="option-label">B</span><div class="option-content">框架自动生成 SQL</div></li><li><span class="option-label">C</span><div class="option-content">框架负责参数绑定</div></li><li><span class="option-label">D</span><div class="option-content">框架负责结果映射</div></li><li><span class="option-label">E</span><div class="option-content">框架负责资源管理</div></li><li><span class="option-label">F</span><div class="option-content">完全屏蔽 SQL 细节</div></li></ul></div><blockquote><p><strong>答案</strong>：ACDE <strong>解析</strong>：MyBatis 是半自动
 ORM：A 开发者手写 SQL；C/D/E 框架负责参数绑定、结果映射、资源管理。B 和
-F 是全自动 ORM（JPA）的特点。</p>
+F 是全自动 ORM（JPA）的特点。</p></blockquote></section>
 <hr />
-<h3 id="06-多选-10-">06-多选-10 ★★★</h3>
-<p><strong>题目</strong>：CTTS 项目集成 MyBatis-Plus
-的完整流程包括哪些步骤？（多选）</p>
-<p>A. 确认 MySQL 已安装并启动 B. 创建数据库 ctts 与 sys_user 表 C. 在
-pom.xml 添加 mybatis-plus-spring-boot3-starter 和 mysql-connector-j 依赖
-D. 在 application.yml
-配置数据源（url/username/password/driver-class-name） E. 编写 UserMapper
-接口继承 BaseMapper F. 启动项目观察 HikariPool 日志验证连接</p>
-<p><strong>答案</strong>：ABCDF
+<section class="question-card" id="06-多选-10-"><p><strong>06-多选-10 ★★★</strong></p><p><strong>题目</strong>：CTTS 项目集成 MyBatis-Plus
+的完整流程包括哪些步骤？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">确认 MySQL 已安装并启动</div></li><li><span class="option-label">B</span><div class="option-content">创建数据库 ctts 与 sys_user 表</div></li><li><span class="option-label">C</span><div class="option-content">在 pom.xml 添加 mybatis-plus-spring-boot3-starter 和 mysql-connector-j 依赖</div></li><li><span class="option-label">D</span><div class="option-content">在 application.yml 配置数据源（url/username/password/driver-class-name）</div></li><li><span class="option-label">E</span><div class="option-content">编写 UserMapper 接口继承 BaseMapper</div></li><li><span class="option-label">F</span><div class="option-content">启动项目观察 HikariPool 日志验证连接</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCDF
 <strong>解析</strong>：第6次课的集成流程是 ABCDF。E（编写
 Mapper）是第7次课的内容，本次课只验证连接，不写 Mapper。</p>
 <hr />
 <h2
-id="三判断题20题每题1分共20分">三、判断题（20题，每题1分，共20分）</h2>
-<h3 id="06-判断-01-">06-判断-01 ★</h3>
-<p><strong>题目</strong>：JDBC 是 Java
+id="三判断题20题每题1分共20分">三、判断题（20题，每题1分，共20分）</h2></blockquote></section>
+
+<section class="question-card" id="06-判断-01-"><p><strong>06-判断-01 ★</strong></p><p><strong>题目</strong>：JDBC 是 Java
 平台提供的一套独立于具体数据库的访问标准 API。 <strong>答案</strong>：✓
 <strong>解析</strong>：JDBC 屏蔽了不同数据库的差异，无论 MySQL、Oracle
-还是 SQL Server，API 写法一致，只是驱动不同。</p>
+还是 SQL Server，API 写法一致，只是驱动不同。</p></section>
 <hr />
-<h3 id="06-判断-02-">06-判断-02 ★</h3>
-<p><strong>题目</strong>：MySQL 8 的 JDBC 驱动类是
+<section class="question-card" id="06-判断-02-"><p><strong>06-判断-02 ★</strong></p><p><strong>题目</strong>：MySQL 8 的 JDBC 驱动类是
 <code>com.mysql.jdbc.Driver</code>。 <strong>答案</strong>：✗
 <strong>解析</strong>：MySQL 8 的驱动类是
 <code>com.mysql.cj.jdbc.Driver</code>（带
 <code>cj</code>）。<code>com.mysql.jdbc.Driver</code> 是 MySQL 5.x
-旧类名，已废弃。</p>
+旧类名，已废弃。</p></section>
 <hr />
-<h3 id="06-判断-03-">06-判断-03 ★</h3>
-<p><strong>题目</strong>：JDBC 操作完成后，只需关闭
+<section class="question-card" id="06-判断-03-"><p><strong>06-判断-03 ★</strong></p><p><strong>题目</strong>：JDBC 操作完成后，只需关闭
 Connection，Statement 和 ResultSet 会自动关闭。 <strong>答案</strong>：✗
 <strong>解析</strong>：必须显式关闭三个资源（或使用
 try-with-resources）。虽然新版 JDBC
-有一些自动关闭机制，但规范做法是三个都关闭，避免资源泄漏。</p>
+有一些自动关闭机制，但规范做法是三个都关闭，避免资源泄漏。</p></section>
 <hr />
-<h3 id="06-判断-04-">06-判断-04 ★</h3>
-<p><strong>题目</strong>：<code>PreparedStatement</code> 比
+<section class="question-card" id="06-判断-04-"><p><strong>06-判断-04 ★</strong></p><p><strong>题目</strong>：<code>PreparedStatement</code> 比
 <code>Statement</code> 更安全，因为它能防止 SQL 注入。
 <strong>答案</strong>：✓ <strong>解析</strong>：PreparedStatement 使用
 <code>?</code> 占位符预编译 SQL，参数通过 <code>setXxx</code>
-绑定，不会拼接进 SQL 字符串，能有效防止 SQL 注入。</p>
+绑定，不会拼接进 SQL 字符串，能有效防止 SQL 注入。</p></section>
 <hr />
-<h3 id="06-判断-05-">06-判断-05 ★</h3>
-<p><strong>题目</strong>：<code>PreparedStatement</code> 的参数下标从 0
+<section class="question-card" id="06-判断-05-"><p><strong>06-判断-05 ★</strong></p><p><strong>题目</strong>：<code>PreparedStatement</code> 的参数下标从 0
 开始。 <strong>答案</strong>：✗
 <strong>解析</strong>：<code>PreparedStatement</code> 参数下标从
 <strong>1</strong> 开始，不是 0。<code>pstmt.setString(0, value)</code>
-会抛 <code>Parameter index out of range</code>。</p>
+会抛 <code>Parameter index out of range</code>。</p></section>
 <hr />
-<h3 id="06-判断-06-">06-判断-06 ★</h3>
-<p><strong>题目</strong>：<code>ResultSet</code>
+<section class="question-card" id="06-判断-06-"><p><strong>06-判断-06 ★</strong></p><p><strong>题目</strong>：<code>ResultSet</code>
 初始游标位于第一行数据之前，必须调用 <code>next()</code> 才能读取数据。
 <strong>答案</strong>：✓ <strong>解析</strong>：ResultSet
 初始游标在第一行之前，<code>next()</code> 移动到下一行并返回
-boolean，必须先调用才能 <code>getXxx</code> 取值。</p>
+boolean，必须先调用才能 <code>getXxx</code> 取值。</p></section>
 <hr />
-<h3 id="06-判断-07-">06-判断-07 ★</h3>
-<p><strong>题目</strong>：<code>executeQuery()</code> 方法既可以执行
+<section class="question-card" id="06-判断-07-"><p><strong>06-判断-07 ★</strong></p><p><strong>题目</strong>：<code>executeQuery()</code> 方法既可以执行
 SELECT，也可以执行 INSERT。 <strong>答案</strong>：✗
 <strong>解析</strong>：<code>executeQuery()</code> 只能执行 SELECT 返回
 ResultSet；INSERT/UPDATE/DELETE 必须用 <code>executeUpdate()</code>
-返回受影响行数 int。</p>
+返回受影响行数 int。</p></section>
 <hr />
-<h3 id="06-判断-08-">06-判断-08 ★</h3>
-<p><strong>题目</strong>：MyBatis 是全自动 ORM 框架，开发者不需要写
+<section class="question-card" id="06-判断-08-"><p><strong>06-判断-08 ★</strong></p><p><strong>题目</strong>：MyBatis 是全自动 ORM 框架，开发者不需要写
 SQL。 <strong>答案</strong>：✗ <strong>解析</strong>：MyBatis
 是<strong>半自动</strong> ORM，开发者必须手写
-SQL，框架只负责参数绑定和结果映射。JPA/Hibernate 才是全自动 ORM。</p>
+SQL，框架只负责参数绑定和结果映射。JPA/Hibernate 才是全自动 ORM。</p></section>
 <hr />
-<h3 id="06-判断-09-">06-判断-09 ★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 是 MyBatis 的增强工具，使用
+<section class="question-card" id="06-判断-09-"><p><strong>06-判断-09 ★</strong></p><p><strong>题目</strong>：MyBatis-Plus 是 MyBatis 的增强工具，使用
 MyBatis-Plus 时不能使用 MyBatis 原生功能。 <strong>答案</strong>：✗
 <strong>解析</strong>：MyBatis-Plus"只做增强不做改变"，<strong>完全兼容</strong>
-MyBatis 原生功能，可以同时使用 BaseMapper 通用方法和自定义 XML SQL。</p>
+MyBatis 原生功能，可以同时使用 BaseMapper 通用方法和自定义 XML SQL。</p></section>
 <hr />
-<h3 id="06-判断-10-">06-判断-10 ★</h3>
-<p><strong>题目</strong>：Spring Boot 3 项目集成 MyBatis-Plus 应使用
+<section class="question-card" id="06-判断-10-"><p><strong>06-判断-10 ★</strong></p><p><strong>题目</strong>：Spring Boot 3 项目集成 MyBatis-Plus 应使用
 <code>mybatis-plus-spring-boot3-starter</code> 依赖。
 <strong>答案</strong>：✓ <strong>解析</strong>：Spring Boot 3.x 必须使用
 <code>mybatis-plus-spring-boot3-starter</code>（带
 <code>boot3</code>）。Spring Boot 2.x 才用
-<code>mybatis-plus-boot-starter</code>。</p>
+<code>mybatis-plus-boot-starter</code>。</p></section>
 <hr />
-<h3 id="06-判断-11-">06-判断-11 ★★</h3>
-<p><strong>题目</strong>：MySQL 8 的 JDBC 驱动包名是
+<section class="question-card" id="06-判断-11-"><p><strong>06-判断-11 ★★</strong></p><p><strong>题目</strong>：MySQL 8 的 JDBC 驱动包名是
 <code>mysql-connector-java</code>。 <strong>答案</strong>：✗
 <strong>解析</strong>：MySQL 8.0.31 后驱动包名改为
 <code>mysql-connector-j</code>，groupId 改为
-<code>com.mysql</code>。<code>mysql-connector-java</code> 是旧名。</p>
+<code>com.mysql</code>。<code>mysql-connector-java</code> 是旧名。</p></section>
 <hr />
-<h3 id="06-判断-12-">06-判断-12 ★★</h3>
-<p><strong>题目</strong>：JDBC URL 中
+<section class="question-card" id="06-判断-12-"><p><strong>06-判断-12 ★★</strong></p><p><strong>题目</strong>：JDBC URL 中
 <code>serverTimezone=Asia/Shanghai</code> 是可选参数，不影响连接。
 <strong>答案</strong>：✗ <strong>解析</strong>：MySQL 8 中
 <code>serverTimezone</code> 是<strong>必填</strong>参数，不写会报"The
-server time zone value is unrecognized"。</p>
+server time zone value is unrecognized"。</p></section>
 <hr />
-<h3 id="06-判断-13-">06-判断-13 ★★</h3>
-<p><strong>题目</strong>：JDBC 4.0+ 引入了 SPI
+<section class="question-card" id="06-判断-13-"><p><strong>06-判断-13 ★★</strong></p><p><strong>题目</strong>：JDBC 4.0+ 引入了 SPI
 机制，<code>Class.forName()</code> 可以省略。 <strong>答案</strong>：✓
 <strong>解析</strong>：JDBC 4.0+ 通过 SPI 自动加载驱动（驱动 jar 的
 META-INF/services/java.sql.Driver
 文件声明驱动类），<code>Class.forName()</code>
-可省略。教学场景建议保留便于理解。</p>
+可省略。教学场景建议保留便于理解。</p></section>
 <hr />
-<h3 id="06-判断-14-">06-判断-14 ★★</h3>
-<p><strong>题目</strong>：try-with-resources 语句中声明的资源必须实现
+<section class="question-card" id="06-判断-14-"><p><strong>06-判断-14 ★★</strong></p><p><strong>题目</strong>：try-with-resources 语句中声明的资源必须实现
 <code>AutoCloseable</code> 接口。 <strong>答案</strong>：✓
 <strong>解析</strong>：try-with-resources 要求资源实现
 <code>AutoCloseable</code> 或 <code>Closeable</code> 接口，try
 块结束时自动调用 <code>close()</code>
-方法。Connection、Statement、ResultSet 都实现了 AutoCloseable。</p>
+方法。Connection、Statement、ResultSet 都实现了 AutoCloseable。</p></section>
 <hr />
-<h3 id="06-判断-15-">06-判断-15 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 的 BaseMapper
+<section class="question-card" id="06-判断-15-"><p><strong>06-判断-15 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus 的 BaseMapper
 提供了多表连接查询（join）的通用方法。 <strong>答案</strong>：✗
 <strong>解析</strong>：BaseMapper 只提供单表 CRUD 通用方法，多表 join
-查询需自定义 XML SQL 或使用 MyBatis-Plus-Join 等扩展库。</p>
+查询需自定义 XML SQL 或使用 MyBatis-Plus-Join 等扩展库。</p></section>
 <hr />
-<h3 id="06-判断-16-">06-判断-16 ★★</h3>
-<p><strong>题目</strong>：Spring Boot 集成 MyBatis-Plus 后默认使用 Druid
+<section class="question-card" id="06-判断-16-"><p><strong>06-判断-16 ★★</strong></p><p><strong>题目</strong>：Spring Boot 集成 MyBatis-Plus 后默认使用 Druid
 连接池。 <strong>答案</strong>：✗ <strong>解析</strong>：Spring Boot
 默认集成 <strong>HikariCP</strong> 连接池（号称最快的连接池）。Druid
-是阿里开源连接池，需要单独引入依赖。</p>
+是阿里开源连接池，需要单独引入依赖。</p></section>
 <hr />
-<h3 id="06-判断-17-">06-判断-17 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus
+<section class="question-card" id="06-判断-17-"><p><strong>06-判断-17 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus
 默认开启下划线转驼峰映射，<code>createTime</code> 自动映射
 <code>create_time</code> 列。 <strong>答案</strong>：✓
 <strong>解析</strong>：<code>map-underscore-to-camel-case=true</code>
-默认开启，无需手动配置。若关闭则字段无法自动映射。</p>
+默认开启，无需手动配置。若关闭则字段无法自动映射。</p></section>
 <hr />
-<h3 id="06-判断-18-">06-判断-18 ★★★</h3>
-<p><strong>题目</strong>：MyBatis 底层就是通过 JDBC
+<section class="question-card" id="06-判断-18-"><p><strong>06-判断-18 ★★★</strong></p><p><strong>题目</strong>：MyBatis 底层就是通过 JDBC
 完成数据库操作，只是把模板代码封装了。 <strong>答案</strong>：✓
 <strong>解析</strong>：MyBatis 内部通过 SqlSession 调用 JDBC
-API（Connection、PreparedStatement、ResultSet），只是把这些重复工作自动化了。</p>
+API（Connection、PreparedStatement、ResultSet），只是把这些重复工作自动化了。</p></section>
 <hr />
-<h3 id="06-判断-19-">06-判断-19 ★★★</h3>
-<p><strong>题目</strong>：JDBC 中使用 <code>Statement</code> 拼接 SQL
+<section class="question-card" id="06-判断-19-"><p><strong>06-判断-19 ★★★</strong></p><p><strong>题目</strong>：JDBC 中使用 <code>Statement</code> 拼接 SQL
 字符串是安全的，只要开发者注意检查输入。 <strong>答案</strong>：✗
 <strong>解析</strong>：Statement 拼接 SQL
 字符串<strong>永远不安全</strong>，存在 SQL
 注入风险。即使开发者检查输入也可能被绕过，必须使用 PreparedStatement
-参数绑定。</p>
+参数绑定。</p></section>
 <hr />
-<h3 id="06-判断-20-">06-判断-20 ★★★</h3>
-<p><strong>题目</strong>：CTTS 项目第6次课的目标是完成 MyBatis-Plus
+<section class="question-card" id="06-判断-20-"><p><strong>06-判断-20 ★★★</strong></p><p><strong>题目</strong>：CTTS 项目第6次课的目标是完成 MyBatis-Plus
 集成并编写 UserMapper 接口实现用户 CRUD。 <strong>答案</strong>：✗
 <strong>解析</strong>：第6次课<strong>只做环境集成与连接验证</strong>，不写
 Mapper 接口。UserMapper 编写在第7次课进行。</p>
 <hr />
 <h2
-id="四填空题10题每题2分共20分">四、填空题（10题，每题2分，共20分）</h2>
-<h3 id="06-填空-01-">06-填空-01 ★</h3>
-<p><strong>题目</strong>：JDBC
+id="四填空题10题每题2分共20分">四、填空题（10题，每题2分，共20分）</h2></section>
+
+<section class="question-card" id="06-填空-01-"><p><strong>06-填空-01 ★</strong></p><p><strong>题目</strong>：JDBC
 操作数据库的核心六步流程是：加载驱动、获取连接、创建 Statement、执行
 SQL、处理 ________、关闭资源。
 <strong>答案</strong>：ResultSet（结果集）
 <strong>解析</strong>：第五步是处理 ResultSet 结果集，使用
 <code>rs.next()</code> 移动游标，<code>rs.getXxx("列名")</code>
-取值。</p>
+取值。</p></section>
 <hr />
-<h3 id="06-填空-02-">06-填空-02 ★</h3>
-<p><strong>题目</strong>：MySQL 8 的 JDBC 驱动类全限定名是 ________。
+<section class="question-card" id="06-填空-02-"><p><strong>06-填空-02 ★</strong></p><p><strong>题目</strong>：MySQL 8 的 JDBC 驱动类全限定名是 ________。
 <strong>答案</strong>：<code>com.mysql.cj.jdbc.Driver</code>
 <strong>解析</strong>：注意必带 <code>cj</code>，MySQL 5.x 的
-<code>com.mysql.jdbc.Driver</code> 已废弃。</p>
+<code>com.mysql.jdbc.Driver</code> 已废弃。</p></section>
 <hr />
-<h3 id="06-填空-03-">06-填空-03 ★</h3>
-<p><strong>题目</strong>：JDBC 获取数据库连接使用 ________ 类的
+<section class="question-card" id="06-填空-03-"><p><strong>06-填空-03 ★</strong></p><p><strong>题目</strong>：JDBC 获取数据库连接使用 ________ 类的
 <code>getConnection(url, user, password)</code> 静态方法。
 <strong>答案</strong>：DriverManager
 <strong>解析</strong>：<code>DriverManager.getConnection()</code> 是
-JDBC 获取连接的标准方式，返回 <code>Connection</code> 对象。</p>
+JDBC 获取连接的标准方式，返回 <code>Connection</code> 对象。</p></section>
 <hr />
-<h3 id="06-填空-04-">06-填空-04 ★</h3>
-<p><strong>题目</strong>：MyBatis 是 ________ ORM 框架，开发者需手写
+<section class="question-card" id="06-填空-04-"><p><strong>06-填空-04 ★</strong></p><p><strong>题目</strong>：MyBatis 是 ________ ORM 框架，开发者需手写
 SQL，框架负责参数绑定与结果映射。 <strong>答案</strong>：半自动
 <strong>解析</strong>：相对于 JPA 全自动 ORM，MyBatis 是半自动——SQL
-手写，其他自动化。</p>
+手写，其他自动化。</p></section>
 <hr />
-<h3 id="06-填空-05-">06-填空-05 ★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 的核心理念是"只做 ________
+<section class="question-card" id="06-填空-05-"><p><strong>06-填空-05 ★</strong></p><p><strong>题目</strong>：MyBatis-Plus 的核心理念是"只做 ________
 不做改变"，即完全兼容 MyBatis 原生功能。 <strong>答案</strong>：增强
 <strong>解析</strong>：MyBatis-Plus 官方口号"只做增强不做改变"，在
-MyBatis 基础上增强而不替代。</p>
+MyBatis 基础上增强而不替代。</p></section>
 <hr />
-<h3 id="06-填空-06-">06-填空-06 ★★</h3>
-<p><strong>题目</strong>：Spring Boot 3 项目集成 MyBatis-Plus，必须使用
+<section class="question-card" id="06-填空-06-"><p><strong>06-填空-06 ★★</strong></p><p><strong>题目</strong>：Spring Boot 3 项目集成 MyBatis-Plus，必须使用
 ________ starter 依赖（填 artifactId）。
 <strong>答案</strong>：<code>mybatis-plus-spring-boot3-starter</code>
 <strong>解析</strong>：注意带 <code>boot3</code>，Spring Boot 2.x 用
-<code>mybatis-plus-boot-starter</code>（无 boot3）。</p>
+<code>mybatis-plus-boot-starter</code>（无 boot3）。</p></section>
 <hr />
-<h3 id="06-填空-07-">06-填空-07 ★★</h3>
-<p><strong>题目</strong>：MySQL 8 的 JDBC URL 中必须配置 ________
+<section class="question-card" id="06-填空-07-"><p><strong>06-填空-07 ★★</strong></p><p><strong>题目</strong>：MySQL 8 的 JDBC URL 中必须配置 ________
 参数，否则会报时区错误。
 <strong>答案</strong>：<code>serverTimezone</code>（如
 <code>serverTimezone=Asia/Shanghai</code>） <strong>解析</strong>：MySQL
-8 默认使用系统时区，JDBC 驱动无法识别，必须显式指定 serverTimezone。</p>
+8 默认使用系统时区，JDBC 驱动无法识别，必须显式指定 serverTimezone。</p></section>
 <hr />
-<h3 id="06-填空-08-">06-填空-08 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 中 Mapper 接口继承 ________
+<section class="question-card" id="06-填空-08-"><p><strong>06-填空-08 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus 中 Mapper 接口继承 ________
 接口即可拥有 insert、updateById、deleteById、selectById 等通用方法。
 <strong>答案</strong>：<code>BaseMapper&lt;T&gt;</code>
 <strong>解析</strong>：BaseMapper 是 MyBatis-Plus 提供的通用 Mapper
-接口，泛型 T 为实体类类型。</p>
+接口，泛型 T 为实体类类型。</p></section>
 <hr />
-<h3 id="06-填空-09-">06-填空-09 ★★</h3>
-<p><strong>题目</strong>：MyBatis-Plus 实体类使用 ________
+<section class="question-card" id="06-填空-09-"><p><strong>06-填空-09 ★★</strong></p><p><strong>题目</strong>：MyBatis-Plus 实体类使用 ________
 注解声明对应的数据库表名，使用 ________ 注解声明主键。
 <strong>答案</strong>：<code>@TableName</code>；<code>@TableId</code>
 <strong>解析</strong>：<code>@TableName("sys_user")</code>
 声明表名；<code>@TableId(type = IdType.AUTO)</code>
-声明主键自增策略。</p>
+声明主键自增策略。</p></section>
 <hr />
-<h3 id="06-填空-10-">06-填空-10 ★★★</h3>
-<p><strong>题目</strong>：CTTS 项目启动日志中出现 ________ 信息，表示
+<section class="question-card" id="06-填空-10-"><p><strong>06-填空-10 ★★★</strong></p><p><strong>题目</strong>：CTTS 项目启动日志中出现 ________ 信息，表示
 HikariCP 数据库连接池初始化成功。
 <strong>答案</strong>：<code>HikariPool-1 - Start completed</code>
 <strong>解析</strong>：HikariCP 是 Spring Boot
@@ -757,18 +530,13 @@ HikariCP 数据库连接池初始化成功。
 表示连接池已建立与数据库的连接。</p>
 <hr />
 <h2
-id="五论述简答题4题每题10分共40分">五、论述简答题（4题，每题10分，共40分）</h2>
-<h3 id="06-论述-01-">06-论述-01 ★★</h3>
-<p><strong>题目</strong>：请详细描述 JDBC
-操作数据库的六步流程，并说明每一步的作用。</p>
-<p><strong>评分标准</strong>（10分）：</p>
-<ul>
+id="五论述简答题4题每题10分共40分">五、论述简答题（4题，每题10分，共40分）</h2></section>
+
+<section class="question-card" id="06-论述-01-"><p><strong>06-论述-01 ★★</strong></p><p><strong>题目</strong>：请详细描述 JDBC
+操作数据库的六步流程，并说明每一步的作用。</p><p><strong>评分标准</strong>（10分）：</p><ul>
 <li>六步流程完整正确（6分，每步1分）</li>
 <li>每步作用说明准确（4分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p>JDBC 操作数据库的六步流程如下：</p>
-<ol type="1">
+</ul><blockquote><p><strong>参考答案</strong>：</p><p>JDBC 操作数据库的六步流程如下：</p><ol type="1">
 <li><p><strong>加载驱动</strong>：<code>Class.forName("com.mysql.cj.jdbc.Driver")</code>，将
 MySQL 驱动类加载到 JVM，注册到 DriverManager。JDBC 4.0+ 可省略（SPI
 自动加载）。</p></li>
@@ -792,20 +560,14 @@ SQL 执行对象 <code>PreparedStatement</code>。推荐使用 PreparedStatement
 <li><p><strong>关闭资源</strong>：使用 try-with-resources
 自动关闭，关闭顺序为 ResultSet → PreparedStatement →
 Connection（先开后关）。不关闭会导致资源泄漏，最终耗尽数据库连接。</p></li>
-</ol>
+</ol></blockquote></section>
 <hr />
-<h3 id="06-论述-02-">06-论述-02 ★★</h3>
-<p><strong>题目</strong>：JDBC 原生开发有哪些痛点？MyBatis 与
-MyBatis-Plus 分别解决了哪些问题？</p>
-<p><strong>评分标准</strong>（10分）：</p>
-<ul>
+<section class="question-card" id="06-论述-02-"><p><strong>06-论述-02 ★★</strong></p><p><strong>题目</strong>：JDBC 原生开发有哪些痛点？MyBatis 与
+MyBatis-Plus 分别解决了哪些问题？</p><p><strong>评分标准</strong>（10分）：</p><ul>
 <li>JDBC 四大痛点准确（4分，每点1分）</li>
 <li>MyBatis 解决方案说明（3分）</li>
 <li>MyBatis-Plus 增强说明（3分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>JDBC 四大痛点</strong>：</p>
-<ol type="1">
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>JDBC 四大痛点</strong>：</p><ol type="1">
 <li><strong>代码繁琐</strong>：每次操作都要走六步流程，简单的查询也要
 30+ 行代码。</li>
 <li><strong>资源易泄漏</strong>：忘记 close、异常导致 close
@@ -814,38 +576,28 @@ MyBatis-Plus 分别解决了哪些问题？</p>
 文件中，修改需重新编译，可维护性差。</li>
 <li><strong>结果集手动映射</strong>：<code>rs.getString("name")</code> →
 <code>user.setName()</code>，字段多了代码冗长易错。</li>
-</ol>
-<p><strong>MyBatis 的解决</strong>：</p>
-<ul>
+</ol><p><strong>MyBatis 的解决</strong>：</p><ul>
 <li>SQL 与 Java 代码分离（写在 XML 或注解中），解决 SQL 硬编码。</li>
 <li>框架托管资源管理（SqlSession 内部关闭 Connection
 等），解决资源泄漏。</li>
 <li>自动结果映射（resultType + 驼峰转换），解决手动映射。</li>
 <li>仍需手写 SQL，未解决代码繁琐（简单 CRUD 仍要写）。</li>
-</ul>
-<p><strong>MyBatis-Plus 的增强</strong>：</p>
-<ul>
+</ul><p><strong>MyBatis-Plus 的增强</strong>：</p><ul>
 <li>内置 BaseMapper 提供 20+ 通用 CRUD 方法，<strong>简单 CRUD 零
 SQL</strong>，解决代码繁琐。</li>
 <li>QueryWrapper 链式条件构造器，避免 SQL 拼接。</li>
 <li>分页插件，自动分页。</li>
 <li>代码生成器，自动生成 Entity/Mapper/Service 骨架。</li>
 <li>完全兼容 MyBatis 原生功能，复杂查询仍可手写 SQL。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="06-论述-03-">06-论述-03 ★★★</h3>
-<p><strong>题目</strong>：在 CTTS 项目中集成 MyBatis-Plus
+<section class="question-card" id="06-论述-03-"><p><strong>06-论述-03 ★★★</strong></p><p><strong>题目</strong>：在 CTTS 项目中集成 MyBatis-Plus
 的完整步骤是什么？请从依赖添加到连接验证逐步说明，并列举至少 3
-种常见报错及排查方法。</p>
-<p><strong>评分标准</strong>（10分）：</p>
-<ul>
+种常见报错及排查方法。</p><p><strong>评分标准</strong>（10分）：</p><ul>
 <li>集成步骤完整正确（5分）</li>
 <li>常见报错列举至少 3 种（3分）</li>
 <li>排查方法准确（2分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>集成步骤</strong>：</p>
-<ol type="1">
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>集成步骤</strong>：</p><ol type="1">
 <li><p><strong>确认 MySQL
 已安装启动</strong>：<code>net start mysql80</code>，<code>mysql -u root -p</code>
 验证登录。</p></li>
@@ -877,9 +629,7 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="
 <li><p><strong>运行测试类验证</strong>：编写
 <code>DataSourceConnectionTest</code>，注入
 <code>DataSource</code>，获取 Connection 并打印数据库元数据。</p></li>
-</ol>
-<p><strong>常见报错及排查</strong>：</p>
-<ol type="1">
+</ol><p><strong>常见报错及排查</strong>：</p><ol type="1">
 <li><p><strong>时区错误</strong>：<code>The server time zone value 'xxx' is unrecognized</code>。排查：检查
 URL 是否有 <code>serverTimezone=Asia/Shanghai</code>。</p></li>
 <li><p><strong>驱动类找不到</strong>：<code>ClassNotFoundException: com.mysql.cj.jdbc.Driver</code>。排查：检查
@@ -895,22 +645,16 @@ password 是否一致。</p></li>
 添加 <code>allowPublicKeyRetrieval=true</code>。</p></li>
 <li><p><strong>连接超时</strong>：<code>Communications link failure</code>。排查：检查
 MySQL 服务是否启动，端口 3306 是否被防火墙拦截。</p></li>
-</ol>
+</ol></blockquote></section>
 <hr />
-<h3 id="06-论述-04-">06-论述-04 ★★★</h3>
-<p><strong>题目</strong>：对比
+<section class="question-card" id="06-论述-04-"><p><strong>06-论述-04 ★★★</strong></p><p><strong>题目</strong>：对比
 JDBC、MyBatis、MyBatis-Plus、JPA(Hibernate)
 四种数据库访问方案，说明各自的特点与适用场景，并说明 CTTS 项目为什么选择
-MyBatis-Plus。</p>
-<p><strong>评分标准</strong>（10分）：</p>
-<ul>
+MyBatis-Plus。</p><p><strong>评分标准</strong>（10分）：</p><ul>
 <li>四种方案特点对比（4分，每方案1分）</li>
 <li>适用场景分析（3分）</li>
 <li>CTTS 选择 MyBatis-Plus 的理由（3分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>四种方案对比</strong>：</p>
-<table>
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>四种方案对比</strong>：</p><table>
 <thead>
 <tr>
 <th>方案</th>
@@ -950,9 +694,7 @@ MyBatis-Plus。</p>
 <td>简单 CRUD、对象关系映射重的系统</td>
 </tr>
 </tbody>
-</table>
-<p><strong>适用场景分析</strong>：</p>
-<ul>
+</table><p><strong>适用场景分析</strong>：</p><ul>
 <li><strong>JDBC</strong>：仅用于理解原理或框架开发场景，业务代码不直接使用。</li>
 <li><strong>MyBatis</strong>：业务复杂、SQL
 灵活度要求高，如电商订单查询、报表统计。</li>
@@ -960,9 +702,7 @@ MyBatis-Plus。</p>
 复杂查询，兼顾效率与灵活度。</li>
 <li><strong>JPA</strong>：对象关系映射复杂、CRUD
 为主，如内容管理系统、配置管理。</li>
-</ul>
-<p><strong>CTTS 选择 MyBatis-Plus 的理由</strong>：</p>
-<ol type="1">
+</ul><p><strong>CTTS 选择 MyBatis-Plus 的理由</strong>：</p><ol type="1">
 <li><strong>业务场景匹配</strong>：CTTS 是中大型业务系统，包含 5
 张核心表（用户/项目/任务/提交/评审），80% 操作是简单 CRUD，MyBatis-Plus
 内置方法可零 SQL 完成。</li>
@@ -980,11 +720,10 @@ BaseMapper、QueryWrapper 等增强 API，无需重新学习。</li>
 </ol>
 <hr />
 <h2
-id="六程序阅读补全题2题每题10分共20分">六、程序阅读补全题（2题，每题10分，共20分）</h2>
-<h3 id="06-程序-01-">06-程序-01 ★★</h3>
-<p><strong>题目</strong>：阅读以下 JDBC 查询 <code>sys_user</code>
-表的代码，补全空白处。</p>
-<div class="sourceCode" id="cb3"><pre
+id="六程序阅读补全题2题每题10分共20分">六、程序阅读补全题（2题，每题10分，共20分）</h2></blockquote></section>
+
+<section class="question-card" id="06-程序-01-"><p><strong>06-程序-01 ★★</strong></p><p><strong>题目</strong>：阅读以下 JDBC 查询 <code>sys_user</code>
+表的代码，补全空白处。</p><div class="sourceCode" id="cb3"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">sql</span><span class="op">.*;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> JdbcQueryDemo <span class="op">{</span></span>
@@ -1023,22 +762,16 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>            e<span class="op">.</span><span class="fu">printStackTrace</span><span class="op">();</span></span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>评分标准</strong>（10分，每空1.5分，全对满分10分）：</p>
-<ul>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>评分标准</strong>（10分，每空1.5分，全对满分10分）：</p><ul>
 <li>(1) <code>forName</code> - 加载驱动类的方法名</li>
 <li>(2) <code>getConnection</code> - DriverManager 获取连接的方法</li>
 <li>(3) <code>prepareStatement</code> - 创建预编译 Statement</li>
 <li>(4) <code>executeQuery</code> - 执行 SELECT 查询</li>
 <li>(5) <code>setString</code> - 设置 String 参数</li>
 <li>(6) <code>next</code> - 移动 ResultSet 游标</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p>(1) <code>forName</code> (2) <code>getConnection</code> (3)
+</ul><blockquote><p><strong>参考答案</strong>：</p><p>(1) <code>forName</code> (2) <code>getConnection</code> (3)
 <code>prepareStatement</code> (4) <code>executeQuery</code> (5)
-<code>setString</code> (6) <code>next</code></p>
-<p><strong>解析</strong>：</p>
-<ul>
+<code>setString</code> (6) <code>next</code></p><p><strong>解析</strong>：</p><ul>
 <li>(1) <code>Class.forName(类名)</code> 是 Java
 反射加载类的标准方法。</li>
 <li>(2) <code>DriverManager.getConnection(url, user, password)</code>
@@ -1050,12 +783,10 @@ ResultSet。</li>
 <li>(5) <code>pstmt.setString(index, value)</code> 设置 String
 类型参数，下标从 1 开始。</li>
 <li>(6) <code>rs.next()</code> 移动游标到下一行，返回 boolean。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="06-程序-02-">06-程序-02 ★★★</h3>
-<p><strong>题目</strong>：阅读以下 CTTS 项目
-<code>application.yml</code> 配置，补全空白处。</p>
-<div class="sourceCode" id="cb4"><pre
+<section class="question-card" id="06-程序-02-"><p><strong>06-程序-02 ★★★</strong></p><p><strong>题目</strong>：阅读以下 CTTS 项目
+<code>application.yml</code> 配置，补全空白处。</p><div class="sourceCode" id="cb4"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">server</span><span class="kw">:</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8080</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1080,9 +811,7 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">global-config</span><span class="kw">:</span></span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">db-config</span><span class="kw">:</span></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">      # 主键自增策略</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">id-type</span><span class="kw">:</span><span class="at"> ________(9)________</span></span></code></pre></div>
-<p><strong>评分标准</strong>（10分，每空1分）：</p>
-<ul>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">id-type</span><span class="kw">:</span><span class="at"> ________(9)________</span></span></code></pre></div><p><strong>评分标准</strong>（10分，每空1分）：</p><ul>
 <li>(1) <code>ctts</code> - 数据库名</li>
 <li>(2) <code>serverTimezone</code> - 时区参数名</li>
 <li>(3) <code>root</code> - 默认用户名</li>
@@ -1092,15 +821,11 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="
 <li>(7) <code>StdOutImpl</code> - SQL 日志输出实现类</li>
 <li>(8) <code>underscore</code> - 下划线</li>
 <li>(9) <code>AUTO</code> - 主键自增策略</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p>(1) <code>ctts</code> (2) <code>serverTimezone</code> (3)
+</ul><blockquote><p><strong>参考答案</strong>：</p><p>(1) <code>ctts</code> (2) <code>serverTimezone</code> (3)
 <code>root</code>（或实际用户名） (4) <code>123456</code>（或实际密码）
 (5) <code>com.mysql.cj.jdbc.Driver</code> (6)
 <code>20</code>（合理数字即可） (7) <code>StdOutImpl</code> (8)
-<code>underscore</code> (9) <code>AUTO</code></p>
-<p><strong>解析</strong>：</p>
-<ul>
+<code>underscore</code> (9) <code>AUTO</code></p><p><strong>解析</strong>：</p><ul>
 <li>(1) CTTS 项目数据库名为 <code>ctts</code>。</li>
 <li>(2) <code>serverTimezone=Asia/Shanghai</code> 是 MySQL 8
 必填时区参数。</li>
@@ -1117,28 +842,23 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="
 </ul>
 <hr />
 <h2
-id="七编程接口设计题2题每题15分共30分">七、编程接口设计题（2题，每题15分，共30分）</h2>
-<h3 id="06-编程-01-">06-编程-01 ★★</h3>
-<p><strong>题目</strong>：使用原生 JDBC 编写一个
+id="七编程接口设计题2题每题15分共30分">七、编程接口设计题（2题，每题15分，共30分）</h2></blockquote></section>
+
+<section class="question-card" id="06-编程-01-"><p><strong>06-编程-01 ★★</strong></p><p><strong>题目</strong>：使用原生 JDBC 编写一个
 <code>UserJdbcDao</code> 类，实现以下功能（查询 CTTS 项目的
-<code>sys_user</code> 表）：</p>
-<ol type="1">
+<code>sys_user</code> 表）：</p><ol type="1">
 <li><code>findById(Long id)</code> - 根据用户 ID 查询用户</li>
 <li><code>findByUsername(String username)</code> -
 根据用户名查询用户</li>
 <li><code>findAll()</code> - 查询所有用户</li>
 <li><code>insert(User user)</code> - 新增用户</li>
 <li><code>deleteById(Long id)</code> - 根据ID删除用户</li>
-</ol>
-<p><strong>要求</strong>：</p>
-<ul>
+</ol><p><strong>要求</strong>：</p><ul>
 <li>使用 <code>PreparedStatement</code> 防止 SQL 注入</li>
 <li>使用 <code>try-with-resources</code> 自动关闭资源</li>
 <li>实体类字段：id、username、password、name、role、phone、createTime</li>
 <li>数据库连接信息：URL=<code>jdbc:mysql://localhost:3306/ctts?serverTimezone=Asia/Shanghai</code>，user=<code>root</code>，password=<code>123456</code></li>
-</ul>
-<p><strong>评分标准</strong>（15分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（15分）：</p><ul>
 <li>类结构与常量定义正确（2分）</li>
 <li>5 个方法各 2.5 分（共 12.5 分）：
 <ul>
@@ -1149,9 +869,7 @@ id="七编程接口设计题2题每题15分共30分">七、编程接口设计题
 <li>结果映射/参数设置正确（0.5分）</li>
 </ul></li>
 <li>代码风格规范（0.5分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<div class="sourceCode" id="cb5"><pre
+</ul><blockquote><p><strong>参考答案</strong>：</p><div class="sourceCode" id="cb5"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dao</span><span class="op">;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">entity</span><span class="op">.</span><span class="im">User</span><span class="op">;</span></span>
@@ -1271,9 +989,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="
 <span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>        user<span class="op">.</span><span class="fu">setCreateTime</span><span class="op">(</span>rs<span class="op">.</span><span class="fu">getTimestamp</span><span class="op">(</span><span class="st">&quot;create_time&quot;</span><span class="op">));</span></span>
 <span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> user<span class="op">;</span></span>
 <span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>解析</strong>：</p>
-<ul>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>解析</strong>：</p><ul>
 <li>使用静态代码块加载驱动，避免每次方法都加载。</li>
 <li>每个方法独立获取连接（生产环境应使用连接池），try-with-resources
 自动关闭。</li>
@@ -1281,13 +997,11 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="
 映射，避免代码重复。</li>
 <li>INSERT 使用 <code>NOW()</code> 函数设置 create_time，避免 Java
 端时区问题。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="06-编程-02-">06-编程-02 ★★★</h3>
-<p><strong>题目</strong>：编写一个 Spring Boot 测试类
+<section class="question-card" id="06-编程-02-"><p><strong>06-编程-02 ★★★</strong></p><p><strong>题目</strong>：编写一个 Spring Boot 测试类
 <code>DataSourceConnectionTest</code>，验证 CTTS
-项目数据库连接是否成功。要求：</p>
-<ol type="1">
+项目数据库连接是否成功。要求：</p><ol type="1">
 <li>使用 <code>@SpringBootTest</code> 注解</li>
 <li>注入 <code>DataSource</code> 对象</li>
 <li>编写 <code>testConnection()</code> 测试方法：
@@ -1298,9 +1012,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="
 <li>使用 JUnit 5 断言验证连接有效性</li>
 </ul></li>
 <li>使用 try-with-resources 关闭 Connection</li>
-</ol>
-<p><strong>评分标准</strong>（15分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（15分）：</p><ul>
 <li>类注解与结构正确（2分）</li>
 <li>DataSource 注入正确（2分）</li>
 <li>testConnection 方法签名与注解正确（2分）</li>
@@ -1309,9 +1021,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="
 <li>数据库元数据打印完整（3分）</li>
 <li>JUnit 5 断言使用正确（2分）</li>
 <li>try-with-resources 使用正确（1分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<div class="sourceCode" id="cb6"><pre
+</ul><blockquote><p><strong>参考答案</strong>：</p><div class="sourceCode" id="cb6"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">junit</span><span class="op">.</span><span class="im">jupiter</span><span class="op">.</span><span class="im">api</span><span class="op">.</span><span class="im">Test</span><span class="op">;</span></span>
@@ -1366,9 +1076,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="
 <span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;========== 测试通过：数据库连接正常 ==========&quot;</span><span class="op">);</span></span>
 <span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>预期输出</strong>：</p>
-<pre><code>========== 数据源类型 ==========
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>预期输出</strong>：</p><pre><code>========== 数据源类型 ==========
 DataSource = com.zaxxer.hikari.HikariDataSource
 ========== 连接成功 ==========
 Connection = HikariProxyConnection@xxxxxx wrapping com.mysql.cj.jdbc.ConnectionImpl@xxxxxx
@@ -1381,9 +1089,7 @@ Connection = HikariProxyConnection@xxxxxx wrapping com.mysql.cj.jdbc.ConnectionI
 驱动版本 = mysql-connector-j 8.2.0
 URL = jdbc:mysql://localhost:3306/ctts?useSSL=false&amp;serverTimezone=Asia/Shanghai...
 用户名 = root@localhost
-========== 测试通过：数据库连接正常 ==========</code></pre>
-<p><strong>解析</strong>：</p>
-<ul>
+========== 测试通过：数据库连接正常 ==========</code></pre><p><strong>解析</strong>：</p><ul>
 <li><code>@SpringBootTest</code> 启动完整 Spring 上下文，能自动注入
 DataSource Bean。</li>
 <li><code>dataSource.getConnection()</code> 借出连接，try-with-resources
@@ -1394,7 +1100,7 @@ DataSource Bean。</li>
 提供数据库产品信息，可用于排查驱动版本不匹配等问题。</li>
 <li>JUnit 5
 断言：<code>assertNotNull</code>、<code>assertFalse</code>、<code>assertTrue</code>，第一个参数为实际值，第二个为失败消息。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="附题库统计表">附：题库统计表</h2>
 <h3 id="题型分布统计">题型分布统计</h3>

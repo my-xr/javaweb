@@ -134,469 +134,322 @@ Lombok 题量：78题｜总分：40×2 + 20×1 + 10×2 + 4×(6~10) + 2×(10~15) 
 <hr />
 <h2
 id="一单项选择题30题每题2分共60分">一、单项选择题（30题，每题2分，共60分）</h2>
-<h3 id="11-单选-01">11-单选-01（★）</h3>
-<p>关于PO（Persistent Object），下列说法正确的是： A.
-PO必须实现Serializable接口才能入库 B.
-PO是持久化对象，对应数据库中的一条记录 C. PO只能用于接收前端请求参数 D.
-PO和VO是同一个概念</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：PO（Persistent
-Object）持久化对象，对应数据库中的一条记录，强调持久化语义。在MyBatis-Plus中Entity类充当PO角色。PO不一定要实现Serializable（除非需要缓存/序列化），也不是接收请求参数（那是DTO），更不等同于VO。</p>
-<h3 id="11-单选-02">11-单选-02（★）</h3>
-<p>在Spring Boot + MyBatis-Plus项目中，以下哪个类通常充当PO的角色？ A.
-ProjectController B. ProjectDTO C. ProjectVO D.
-TrainingProject（Entity）</p>
-<p><strong>答案</strong>：D
-<strong>解析</strong>：Entity类对应数据库表，在MyBatis-Plus中由BaseMapper操作，实际充当PO（持久化对象）角色。Controller是表现层，DTO是入参，VO是出参，都不充当PO。</p>
-<h3 id="11-单选-03">11-单选-03（★）</h3>
-<p>DTO的主要职责是： A. 对应数据库表结构 B. 接收请求参数并在层间传输数据
-C. 返回给前端展示的数据 D. 处理业务逻辑</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：DTO（Data Transfer
-Object）数据传输对象，主要用于接收前端请求参数，以及服务层之间传递数据。A是Entity的职责，C是VO的职责，D是Service的职责。</p>
-<h3 id="11-单选-04">11-单选-04（★）</h3>
-<p>VO（View Object）的主要用途是： A. 接收前端请求参数 B. 对应数据库表
-C. 返回给前端展示的数据，可脱敏和聚合 D. 承载业务逻辑</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：VO（View
-Object）视图对象，用于返回给前端展示，可聚合多表字段、脱敏敏感字段（如隐藏password）。A是DTO，B是Entity，D是Service。</p>
-<h3 id="11-单选-05">11-单选-05（★★）</h3>
-<p>下列哪种场景最适合使用VO而非直接返回Entity？ A. 列表查询返回所有字段
-B. 返回的数据包含password等敏感字段 C. 简单的单表查询 D.
-内部服务间调用</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：当返回数据包含敏感字段（如password、deleted）时，必须用VO裁剪脱敏，避免泄露。A、C场景简单时可返回Entity（虽然不推荐），D场景多用DTO。</p>
-<h3 id="11-单选-06">11-单选-06（★）</h3>
-<p>统一响应Result<T>中，泛型T的作用是： A. 限制code的类型 B.
-表示data字段的具体类型 C. 限制message的长度 D. 表示HTTP方法类型</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：Result<T>中T是data字段的类型，如Result<ProjectVO>表示data是ProjectVO类型。这样既保证编译期类型安全，又便于Knife4j生成准确文档。</p>
-<h3 id="11-单选-07">11-单选-07（★）</h3>
-<p>Result<T>的静态方法ok()返回的类型是： A. Result B. Result<T> C. T D.
-void</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：ok()定义为<code>public static &lt;T&gt; Result&lt;T&gt; ok()</code>，返回Result<T>。注意静态方法需自带泛型声明<code>&lt;T&gt;</code>，否则会丢失类型信息。</p>
-<h3 id="11-单选-08">11-单选-08（★★）</h3>
-<p>以下Result<T>的fail方法定义，正确的是： A.
-<code>public static Result fail(int code, String msg)</code> B.
-<code>public static &lt;T&gt; Result&lt;T&gt; fail(int code, String msg)</code>
-C.
-<code>public &lt;T&gt; Result&lt;T&gt; fail(int code, String msg)</code>
-D.
-<code>public static Result&lt;T&gt; fail(int code, String msg)</code></p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：静态方法需要自带泛型声明<code>&lt;T&gt;</code>放在static之后、返回类型之前，即<code>public static &lt;T&gt; Result&lt;T&gt; fail(...)</code>。A丢失泛型，C不是静态方法，D缺少方法级泛型声明会编译报错。</p>
-<h3 id="11-单选-09">11-单选-09（★）</h3>
-<p>Spring的BeanUtils.copyProperties方法的参数顺序是： A. (target,
-source) B. (source, target) C. (key, value) D. (targetClass,
-sourceClass)</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：Spring的<code>BeanUtils.copyProperties(Object source, Object target)</code>是source在前、target在后。这是高频易错点，Apache的BeanUtils则相反。</p>
-<h3 id="11-单选-10">11-单选-10（★★）</h3>
-<p>关于Spring BeanUtils.copyProperties，下列说法错误的是： A.
-基于反射实现，运行期执行 B. 按属性名和类型匹配进行拷贝 C.
-能自动将LocalDateTime转为String D. 属性名不一致的字段不会被拷贝</p>
-<p><strong>答案</strong>：C
-<strong>解析</strong>：BeanUtils不会自动做类型转换，LocalDateTime和String类型不一致时该字段会被跳过，不会自动转换。A、B、D均正确。</p>
-<h3 id="11-单选-11">11-单选-11（★★）</h3>
-<p>MapStruct相比BeanUtils的主要优势是： A. 使用更简单，无需配置 B.
-基于编译期生成代码，性能接近手写 C. 不需要引入任何依赖 D.
-支持所有Java版本</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="11-单选-01"><p><strong>11-单选-01（★）</strong></p><p>关于PO（Persistent Object），下列说法正确的是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">PO必须实现Serializable接口才能入库</div></li><li><span class="option-label">B</span><div class="option-content">PO是持久化对象，对应数据库中的一条记录</div></li><li><span class="option-label">C</span><div class="option-content">PO只能用于接收前端请求参数</div></li><li><span class="option-label">D</span><div class="option-content">PO和VO是同一个概念</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：PO（Persistent
+Object）持久化对象，对应数据库中的一条记录，强调持久化语义。在MyBatis-Plus中Entity类充当PO角色。PO不一定要实现Serializable（除非需要缓存/序列化），也不是接收请求参数（那是DTO），更不等同于VO。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-02"><p><strong>11-单选-02（★）</strong></p><p>在Spring Boot + MyBatis-Plus项目中，以下哪个类通常充当PO的角色？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">ProjectController</div></li><li><span class="option-label">B</span><div class="option-content">ProjectDTO</div></li><li><span class="option-label">C</span><div class="option-content">ProjectVO</div></li><li><span class="option-label">D</span><div class="option-content">TrainingProject（Entity）</div></li></ul></div><blockquote><p><strong>答案</strong>：D
+<strong>解析</strong>：Entity类对应数据库表，在MyBatis-Plus中由BaseMapper操作，实际充当PO（持久化对象）角色。Controller是表现层，DTO是入参，VO是出参，都不充当PO。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-03"><p><strong>11-单选-03（★）</strong></p><p>DTO的主要职责是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">对应数据库表结构</div></li><li><span class="option-label">B</span><div class="option-content">接收请求参数并在层间传输数据</div></li><li><span class="option-label">C</span><div class="option-content">返回给前端展示的数据</div></li><li><span class="option-label">D</span><div class="option-content">处理业务逻辑</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：DTO（Data Transfer
+Object）数据传输对象，主要用于接收前端请求参数，以及服务层之间传递数据。A是Entity的职责，C是VO的职责，D是Service的职责。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-04"><p><strong>11-单选-04（★）</strong></p><p>VO（View Object）的主要用途是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">接收前端请求参数</div></li><li><span class="option-label">B</span><div class="option-content">对应数据库表</div></li><li><span class="option-label">C</span><div class="option-content">返回给前端展示的数据，可脱敏和聚合</div></li><li><span class="option-label">D</span><div class="option-content">承载业务逻辑</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：VO（View
+Object）视图对象，用于返回给前端展示，可聚合多表字段、脱敏敏感字段（如隐藏password）。A是DTO，B是Entity，D是Service。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-05"><p><strong>11-单选-05（★★）</strong></p><p>下列哪种场景最适合使用VO而非直接返回Entity？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">列表查询返回所有字段</div></li><li><span class="option-label">B</span><div class="option-content">返回的数据包含password等敏感字段</div></li><li><span class="option-label">C</span><div class="option-content">简单的单表查询</div></li><li><span class="option-label">D</span><div class="option-content">内部服务间调用</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：当返回数据包含敏感字段（如password、deleted）时，必须用VO裁剪脱敏，避免泄露。A、C场景简单时可返回Entity（虽然不推荐），D场景多用DTO。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-06"><p><strong>11-单选-06（★）</strong></p><p>统一响应Result<T>中，泛型T的作用是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">限制code的类型</div></li><li><span class="option-label">B</span><div class="option-content">表示data字段的具体类型</div></li><li><span class="option-label">C</span><div class="option-content">限制message的长度</div></li><li><span class="option-label">D</span><div class="option-content">表示HTTP方法类型</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：Result<T>中T是data字段的类型，如Result<ProjectVO>表示data是ProjectVO类型。这样既保证编译期类型安全，又便于Knife4j生成准确文档。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-07"><p><strong>11-单选-07（★）</strong></p><p>Result<T>的静态方法ok()返回的类型是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Result</div></li><li><span class="option-label">B</span><div class="option-content">Result<T></div></li><li><span class="option-label">C</span><div class="option-content">T</div></li><li><span class="option-label">D</span><div class="option-content">void</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：ok()定义为<code>public static &lt;T&gt; Result&lt;T&gt; ok()</code>，返回Result<T>。注意静态方法需自带泛型声明<code>&lt;T&gt;</code>，否则会丢失类型信息。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-08"><p><strong>11-单选-08（★★）</strong></p><p>以下Result<T>的fail方法定义，正确的是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>public static Result fail(int code, String msg)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>public static &lt;T&gt; Result&lt;T&gt; fail(int code, String msg)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>public &lt;T&gt; Result&lt;T&gt; fail(int code, String msg)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>public static Result&lt;T&gt; fail(int code, String msg)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：静态方法需要自带泛型声明<code>&lt;T&gt;</code>放在static之后、返回类型之前，即<code>public static &lt;T&gt; Result&lt;T&gt; fail(...)</code>。A丢失泛型，C不是静态方法，D缺少方法级泛型声明会编译报错。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-09"><p><strong>11-单选-09（★）</strong></p><p>Spring的BeanUtils.copyProperties方法的参数顺序是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">(target, source)</div></li><li><span class="option-label">B</span><div class="option-content">(source, target)</div></li><li><span class="option-label">C</span><div class="option-content">(key, value)</div></li><li><span class="option-label">D</span><div class="option-content">(targetClass, sourceClass)</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：Spring的<code>BeanUtils.copyProperties(Object source, Object target)</code>是source在前、target在后。这是高频易错点，Apache的BeanUtils则相反。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-10"><p><strong>11-单选-10（★★）</strong></p><p>关于Spring BeanUtils.copyProperties，下列说法错误的是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">基于反射实现，运行期执行</div></li><li><span class="option-label">B</span><div class="option-content">按属性名和类型匹配进行拷贝</div></li><li><span class="option-label">C</span><div class="option-content">能自动将LocalDateTime转为String</div></li><li><span class="option-label">D</span><div class="option-content">属性名不一致的字段不会被拷贝</div></li></ul></div><blockquote><p><strong>答案</strong>：C
+<strong>解析</strong>：BeanUtils不会自动做类型转换，LocalDateTime和String类型不一致时该字段会被跳过，不会自动转换。A、B、D均正确。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-11"><p><strong>11-单选-11（★★）</strong></p><p>MapStruct相比BeanUtils的主要优势是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">使用更简单，无需配置</div></li><li><span class="option-label">B</span><div class="option-content">基于编译期生成代码，性能接近手写</div></li><li><span class="option-label">C</span><div class="option-content">不需要引入任何依赖</div></li><li><span class="option-label">D</span><div class="option-content">支持所有Java版本</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：MapStruct在编译期（maven
 compile阶段）生成转换实现类，内部是纯new+setter代码，无反射，性能接近手写。A错误（需配annotation
-processor），C错误（需引入依赖），D错误（需Java 8+）。</p>
-<h3 id="11-单选-12">11-单选-12（★）</h3>
-<p>MapStruct的@Mapper注解中，componentModel="spring"的作用是： A.
-标识这是一个Spring配置类 B. 让生成的实现类成为Spring
-Bean，可被@Autowired注入 C. 启用Spring事务管理 D. 指定Spring
-Boot版本</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：<code>@Mapper(componentModel = "spring")</code>让MapStruct生成的XxxConverterImpl类上加@Component注解，从而可被Spring容器管理，通过@Autowired注入使用。</p>
-<h3 id="11-单选-13">11-单选-13（★）</h3>
-<p>CTTS项目的标准包结构中，Controller类应放在： A. com.ctts.entity B.
-com.ctts.controller C. com.ctts.service D. com.ctts.dto</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：Controller是表现层，放在com.ctts.controller包下。entity放实体，service放业务接口，dto放数据传输对象。</p>
-<h3 id="11-单选-14">11-单选-14（★）</h3>
-<p>关于service和serviceImpl的分离，下列说法正确的是： A.
-service接口和impl实现必须放在同一个包 B.
-service放接口定义，service/impl放实现类，体现分层解耦 C.
-小项目可以不写service接口，直接写实现类 D.
-service接口主要是为了减少代码量</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：阿里规范要求service层先定义接口再实现，接口放service包，实现放service/impl子包。这样Controller依赖接口而非实现，便于解耦、替换实现、AOP代理。C、D说法错误。</p>
-<h3 id="11-单选-15">11-单选-15（★）</h3>
-<p>Spring Boot项目的启动类应放在： A. com.ctts.controller包下 B.
-任意包都可以 C. com.ctts根包下 D. resource目录下</p>
-<p><strong>答案</strong>：C
-<strong>解析</strong>：启动类应放在根包com.ctts下，这样@SpringBootApplication的默认扫描范围能覆盖所有子包（controller/service/mapper等）。放子包会导致其他包扫描不到。</p>
-<h3 id="11-单选-16">11-单选-16（★）</h3>
-<p>Lombok的@Data注解不包含以下哪个： A. @Getter B. @Setter C.
-@NoArgsConstructor D. @ToString</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：@Data = @Getter +
+processor），C错误（需引入依赖），D错误（需Java 8+）。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-12"><p><strong>11-单选-12（★）</strong></p><p>MapStruct的@Mapper注解中，componentModel="spring"的作用是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">标识这是一个Spring配置类</div></li><li><span class="option-label">B</span><div class="option-content">让生成的实现类成为Spring Bean，可被@Autowired注入</div></li><li><span class="option-label">C</span><div class="option-content">启用Spring事务管理</div></li><li><span class="option-label">D</span><div class="option-content">指定Spring Boot版本</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：<code>@Mapper(componentModel = "spring")</code>让MapStruct生成的XxxConverterImpl类上加@Component注解，从而可被Spring容器管理，通过@Autowired注入使用。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-13"><p><strong>11-单选-13（★）</strong></p><p>CTTS项目的标准包结构中，Controller类应放在：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">com.ctts.entity</div></li><li><span class="option-label">B</span><div class="option-content">com.ctts.controller</div></li><li><span class="option-label">C</span><div class="option-content">com.ctts.service</div></li><li><span class="option-label">D</span><div class="option-content">com.ctts.dto</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：Controller是表现层，放在com.ctts.controller包下。entity放实体，service放业务接口，dto放数据传输对象。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-14"><p><strong>11-单选-14（★）</strong></p><p>关于service和serviceImpl的分离，下列说法正确的是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">service接口和impl实现必须放在同一个包</div></li><li><span class="option-label">B</span><div class="option-content">service放接口定义，service/impl放实现类，体现分层解耦</div></li><li><span class="option-label">C</span><div class="option-content">小项目可以不写service接口，直接写实现类</div></li><li><span class="option-label">D</span><div class="option-content">service接口主要是为了减少代码量</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：阿里规范要求service层先定义接口再实现，接口放service包，实现放service/impl子包。这样Controller依赖接口而非实现，便于解耦、替换实现、AOP代理。C、D说法错误。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-15"><p><strong>11-单选-15（★）</strong></p><p>Spring Boot项目的启动类应放在：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">com.ctts.controller包下</div></li><li><span class="option-label">B</span><div class="option-content">任意包都可以</div></li><li><span class="option-label">C</span><div class="option-content">com.ctts根包下</div></li><li><span class="option-label">D</span><div class="option-content">resource目录下</div></li></ul></div><blockquote><p><strong>答案</strong>：C
+<strong>解析</strong>：启动类应放在根包com.ctts下，这样@SpringBootApplication的默认扫描范围能覆盖所有子包（controller/service/mapper等）。放子包会导致其他包扫描不到。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-16"><p><strong>11-单选-16（★）</strong></p><p>Lombok的@Data注解不包含以下哪个：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Getter</div></li><li><span class="option-label">B</span><div class="option-content">@Setter</div></li><li><span class="option-label">C</span><div class="option-content">@NoArgsConstructor</div></li><li><span class="option-label">D</span><div class="option-content">@ToString</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：@Data = @Getter +
 @Setter + @ToString + @EqualsAndHashCode +
-@RequiredArgsConstructor。它包含的是@RequiredArgsConstructor（仅final字段构造），不包含@NoArgsConstructor（无参构造）。需要无参构造要单独加。</p>
-<h3 id="11-单选-17">11-单选-17（★）</h3>
-<p>Lombok的@Builder注解单独使用可能导致的问题是： A.
-编译报错找不到getter B. 类失去无参构造，影响JSON反序列化 C.
-自动生成太多构造器 D. 与@Data冲突</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：@Builder会生成全参私有构造器，导致类没有无参构造。Jackson反序列化JSON时需要无参构造，会报错。解决方法是同时加@NoArgsConstructor和@AllArgsConstructor。</p>
-<h3 id="11-单选-18">11-单选-18（★）</h3>
-<p>开启Lombok链式setter（如user.setName("x").setAge(20)）的注解是： A.
-@Data B. @Builder C. @Accessors(chain = true) D. @Slf4j</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：@Accessors(chain =
-true)让setter返回this而非void，从而支持链式调用。@Data生成的setter默认返回void。</p>
-<h3 id="11-单选-19">11-单选-19（★★）</h3>
-<p>在IDEA中使用Lombok，除了引入依赖，还必须： A.
-安装Lombok插件并开启Annotation Processing B. 重启电脑 C. 升级JDK到21 D.
-关闭防火墙</p>
-<p><strong>答案</strong>：A
+@RequiredArgsConstructor。它包含的是@RequiredArgsConstructor（仅final字段构造），不包含@NoArgsConstructor（无参构造）。需要无参构造要单独加。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-17"><p><strong>11-单选-17（★）</strong></p><p>Lombok的@Builder注解单独使用可能导致的问题是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">编译报错找不到getter</div></li><li><span class="option-label">B</span><div class="option-content">类失去无参构造，影响JSON反序列化</div></li><li><span class="option-label">C</span><div class="option-content">自动生成太多构造器</div></li><li><span class="option-label">D</span><div class="option-content">与@Data冲突</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：@Builder会生成全参私有构造器，导致类没有无参构造。Jackson反序列化JSON时需要无参构造，会报错。解决方法是同时加@NoArgsConstructor和@AllArgsConstructor。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-18"><p><strong>11-单选-18（★）</strong></p><p>开启Lombok链式setter（如user.setName("x").setAge(20)）的注解是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Data</div></li><li><span class="option-label">B</span><div class="option-content">@Builder</div></li><li><span class="option-label">C</span><div class="option-content">@Accessors(chain = true)</div></li><li><span class="option-label">D</span><div class="option-content">@Slf4j</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：@Accessors(chain =
+true)让setter返回this而非void，从而支持链式调用。@Data生成的setter默认返回void。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-19"><p><strong>11-单选-19（★★）</strong></p><p>在IDEA中使用Lombok，除了引入依赖，还必须：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">安装Lombok插件并开启Annotation Processing</div></li><li><span class="option-label">B</span><div class="option-content">重启电脑</div></li><li><span class="option-label">C</span><div class="option-content">升级JDK到21</div></li><li><span class="option-label">D</span><div class="option-content">关闭防火墙</div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：IDEA需安装Lombok插件（2020.3+已内置）并在Settings
 → Build → Compiler → Annotation Processors中开启Enable annotation
-processing，否则编译报"找不到符号"。</p>
-<h3 id="11-单选-20">11-单选-20（★）</h3>
-<p>Result<T>类中code字段表示： A. HTTP状态码 B. 业务状态码，200表示成功
-C. 接口耗时毫秒数 D. 数据条数</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：Result中的code是业务状态码，约定200成功、4xx客户端错误、5xx服务端错误、5xxxx业务错误。它与HTTP状态码独立，HTTP层通常恒返回200。</p>
-<h3 id="11-单选-21">11-单选-21（★★）</h3>
-<p>下列关于HTTP状态码与业务code的说法，正确的是： A.
-业务错误时应返回HTTP 500 B. HTTP状态码和业务code应保持一致 C.
-业务错误时HTTP仍返回200，通过Result.code区分 D.
-前端只需判断HTTP状态码</p>
-<p><strong>答案</strong>：C
-<strong>解析</strong>：统一响应规范下，HTTP层恒返回200（除非网络层错误），业务成败通过Result.code区分。这样前端只需解析JSON的code字段，逻辑统一。A会导致前端误判为网络错误。</p>
-<h3 id="11-单选-22">11-单选-22（★）</h3>
-<p>ProjectDTO中给projectName字段添加"不能为空"校验的注解是： A. @NotNull
-B. @NotBlank C. @NotEmpty D. @Size</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：@NotBlank用于String类型，校验非null且去除首尾空格后长度&gt;0。@NotNull只校验非null（空字符串能过），@NotEmpty校验非null且非空（但允许纯空格），@Size校验长度。字符串用@NotBlank最严格。</p>
-<h3 id="11-单选-23">11-单选-23（★）</h3>
-<p>在Controller方法参数上启用DTO校验，需要加的注解是： A. @Valid B.
-@Validated C. @RequestBody D. @Param</p>
-<p><strong>答案</strong>：A
-<strong>解析</strong>：在@RequestBody参数前加@Valid（或@Validated）才会触发JSR-303校验。@RequestBody只负责反序列化，不做校验。@Validated是Spring扩展，支持分组校验。</p>
-<h3 id="11-单选-24">11-单选-24（★★）</h3>
-<p>CTTS项目中，全局异常处理类GlobalExceptionHandler通常放在： A.
-com.ctts.controller B. com.ctts.exception C. com.ctts.config D.
-com.ctts.utils</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：自定义异常类、业务异常类、全局异常处理器统一放在com.ctts.exception包。config放配置类，utils放工具类，controller放控制器。</p>
-<h3 id="11-单选-25">11-单选-25（★）</h3>
-<p>Lombok的@Slf4j注解的作用是： A. 生成toString方法 B.
-注入一个名为log的Logger实例 C. 配置日志级别 D. 输出SQL日志</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：@Slf4j在类中注入<code>private static final Logger log = LoggerFactory.getLogger(Xxx.class);</code>，直接用log.info()/log.error()即可，无需手写Logger声明。</p>
-<h3 id="11-单选-26">11-单选-26（★★）</h3>
-<p>关于Entity、DTO、VO的命名约定，下列最规范的是： A.
-User、UserDTO、UserVO B. UserEntity、UserDto、UserView C.
-SysUser、SysUserDTO、SysUserVO D. user、userDto、userVo</p>
-<p><strong>答案</strong>：C
-<strong>解析</strong>：命名应体现业务含义+角色后缀。SysUser（Entity，对应sys_user表）、SysUserDTO（入参）、SysUserVO（出参）最规范。A的User不够业务化，B后缀不统一，D类名首字母小写违反Java规范。</p>
-<h3 id="11-单选-27">11-单选-27（★）</h3>
-<p>Result<T>类实现Serializable接口的主要原因是： A.
-必须实现才能被Spring管理 B. 便于分布式/缓存场景下的序列化 C. 提升性能 D.
-Knife4j要求</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：Serializable是标识接口，便于在分布式（RPC）、缓存（Redis）、会话持久化等场景序列化。非必须，但企业项目通常加上以备扩展。</p>
-<h3 id="11-单选-28">11-单选-28（★★）</h3>
-<p>下列哪种情况会导致BeanUtils.copyProperties拷贝失败（字段为null）？ A.
-source和target属性名相同且类型相同 B. source字段为private C.
-source和target属性名相同但类型不同（如LocalDateTime vs String） D.
-target有无参构造</p>
-<p><strong>答案</strong>：C
-<strong>解析</strong>：BeanUtils按属性名+类型匹配，类型不一致时（如LocalDateTime和String）会跳过该字段不拷贝。A是正常拷贝，B不影响（反射能访问private），D是必要条件不影响。</p>
-<h3 id="11-单选-29">11-单选-29（★）</h3>
-<p>包名com.ctts.controller的命名风格是： A. 大驼峰 B. 小驼峰 C. 全小写
-D. 下划线</p>
-<p><strong>答案</strong>：C
-<strong>解析</strong>：Java包名约定全小写，避免与类名/关键字冲突。com.ctts.controller全小写符合规范。大驼峰用于类名，小驼峰用于变量/方法名。</p>
-<h3 id="11-单选-30">11-单选-30（★★）</h3>
-<p>项目中Result<T>和ResultCode通常放在： A. com.ctts.controller B.
-com.ctts.common C. com.ctts.entity D. com.ctts.dto</p>
-<p><strong>答案</strong>：B
+processing，否则编译报"找不到符号"。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-20"><p><strong>11-单选-20（★）</strong></p><p>Result<T>类中code字段表示：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">HTTP状态码</div></li><li><span class="option-label">B</span><div class="option-content">业务状态码，200表示成功</div></li><li><span class="option-label">C</span><div class="option-content">接口耗时毫秒数</div></li><li><span class="option-label">D</span><div class="option-content">数据条数</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：Result中的code是业务状态码，约定200成功、4xx客户端错误、5xx服务端错误、5xxxx业务错误。它与HTTP状态码独立，HTTP层通常恒返回200。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-21"><p><strong>11-单选-21（★★）</strong></p><p>下列关于HTTP状态码与业务code的说法，正确的是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">业务错误时应返回HTTP 500</div></li><li><span class="option-label">B</span><div class="option-content">HTTP状态码和业务code应保持一致</div></li><li><span class="option-label">C</span><div class="option-content">业务错误时HTTP仍返回200，通过Result.code区分</div></li><li><span class="option-label">D</span><div class="option-content">前端只需判断HTTP状态码</div></li></ul></div><blockquote><p><strong>答案</strong>：C
+<strong>解析</strong>：统一响应规范下，HTTP层恒返回200（除非网络层错误），业务成败通过Result.code区分。这样前端只需解析JSON的code字段，逻辑统一。A会导致前端误判为网络错误。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-22"><p><strong>11-单选-22（★）</strong></p><p>ProjectDTO中给projectName字段添加"不能为空"校验的注解是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@NotNull</div></li><li><span class="option-label">B</span><div class="option-content">@NotBlank</div></li><li><span class="option-label">C</span><div class="option-content">@NotEmpty</div></li><li><span class="option-label">D</span><div class="option-content">@Size</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：@NotBlank用于String类型，校验非null且去除首尾空格后长度&gt;0。@NotNull只校验非null（空字符串能过），@NotEmpty校验非null且非空（但允许纯空格），@Size校验长度。字符串用@NotBlank最严格。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-23"><p><strong>11-单选-23（★）</strong></p><p>在Controller方法参数上启用DTO校验，需要加的注解是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Valid</div></li><li><span class="option-label">B</span><div class="option-content">@Validated</div></li><li><span class="option-label">C</span><div class="option-content">@RequestBody</div></li><li><span class="option-label">D</span><div class="option-content">@Param</div></li></ul></div><blockquote><p><strong>答案</strong>：A
+<strong>解析</strong>：在@RequestBody参数前加@Valid（或@Validated）才会触发JSR-303校验。@RequestBody只负责反序列化，不做校验。@Validated是Spring扩展，支持分组校验。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-24"><p><strong>11-单选-24（★★）</strong></p><p>CTTS项目中，全局异常处理类GlobalExceptionHandler通常放在：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">com.ctts.controller</div></li><li><span class="option-label">B</span><div class="option-content">com.ctts.exception</div></li><li><span class="option-label">C</span><div class="option-content">com.ctts.config</div></li><li><span class="option-label">D</span><div class="option-content">com.ctts.utils</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：自定义异常类、业务异常类、全局异常处理器统一放在com.ctts.exception包。config放配置类，utils放工具类，controller放控制器。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-25"><p><strong>11-单选-25（★）</strong></p><p>Lombok的@Slf4j注解的作用是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">生成toString方法</div></li><li><span class="option-label">B</span><div class="option-content">注入一个名为log的Logger实例</div></li><li><span class="option-label">C</span><div class="option-content">配置日志级别</div></li><li><span class="option-label">D</span><div class="option-content">输出SQL日志</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：@Slf4j在类中注入<code>private static final Logger log = LoggerFactory.getLogger(Xxx.class);</code>，直接用log.info()/log.error()即可，无需手写Logger声明。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-26"><p><strong>11-单选-26（★★）</strong></p><p>关于Entity、DTO、VO的命名约定，下列最规范的是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">User、UserDTO、UserVO</div></li><li><span class="option-label">B</span><div class="option-content">UserEntity、UserDto、UserView</div></li><li><span class="option-label">C</span><div class="option-content">SysUser、SysUserDTO、SysUserVO</div></li><li><span class="option-label">D</span><div class="option-content">user、userDto、userVo</div></li></ul></div><blockquote><p><strong>答案</strong>：C
+<strong>解析</strong>：命名应体现业务含义+角色后缀。SysUser（Entity，对应sys_user表）、SysUserDTO（入参）、SysUserVO（出参）最规范。A的User不够业务化，B后缀不统一，D类名首字母小写违反Java规范。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-27"><p><strong>11-单选-27（★）</strong></p><p>Result<T>类实现Serializable接口的主要原因是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">必须实现才能被Spring管理</div></li><li><span class="option-label">B</span><div class="option-content">便于分布式/缓存场景下的序列化</div></li><li><span class="option-label">C</span><div class="option-content">提升性能</div></li><li><span class="option-label">D</span><div class="option-content">Knife4j要求</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：Serializable是标识接口，便于在分布式（RPC）、缓存（Redis）、会话持久化等场景序列化。非必须，但企业项目通常加上以备扩展。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-28"><p><strong>11-单选-28（★★）</strong></p><p>下列哪种情况会导致BeanUtils.copyProperties拷贝失败（字段为null）？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">source和target属性名相同且类型相同</div></li><li><span class="option-label">B</span><div class="option-content">source字段为private</div></li><li><span class="option-label">C</span><div class="option-content">source和target属性名相同但类型不同（如LocalDateTime vs String）</div></li><li><span class="option-label">D</span><div class="option-content">target有无参构造</div></li></ul></div><blockquote><p><strong>答案</strong>：C
+<strong>解析</strong>：BeanUtils按属性名+类型匹配，类型不一致时（如LocalDateTime和String）会跳过该字段不拷贝。A是正常拷贝，B不影响（反射能访问private），D是必要条件不影响。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-29"><p><strong>11-单选-29（★）</strong></p><p>包名com.ctts.controller的命名风格是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">大驼峰</div></li><li><span class="option-label">B</span><div class="option-content">小驼峰</div></li><li><span class="option-label">C</span><div class="option-content">全小写</div></li><li><span class="option-label">D</span><div class="option-content">下划线</div></li></ul></div><blockquote><p><strong>答案</strong>：C
+<strong>解析</strong>：Java包名约定全小写，避免与类名/关键字冲突。com.ctts.controller全小写符合规范。大驼峰用于类名，小驼峰用于变量/方法名。</p></blockquote></section>
+
+<section class="question-card" id="11-单选-30"><p><strong>11-单选-30（★★）</strong></p><p>项目中Result<T>和ResultCode通常放在：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">com.ctts.controller</div></li><li><span class="option-label">B</span><div class="option-content">com.ctts.common</div></li><li><span class="option-label">C</span><div class="option-content">com.ctts.entity</div></li><li><span class="option-label">D</span><div class="option-content">com.ctts.dto</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：Result和ResultCode是全项目共用的基础设施类，放在com.ctts.common包。common包专门放跨层共享的公共类。</p>
 <hr />
 <h2
-id="二多项选择题10题每题2分共20分少选得1分多选错选不得分">二、多项选择题（10题，每题2分，共20分；少选得1分，多选/错选不得分）</h2>
-<h3 id="11-多选-01">11-多选-01（★）</h3>
-<p>下列属于"数据载体"类的有： A. Entity B. DTO C. VO D. Controller E.
-Service</p>
-<p><strong>答案</strong>：ABC
-<strong>解析</strong>：Entity、DTO、VO都是承载数据的对象。Controller是控制器，Service是业务逻辑层，都不是数据载体。</p>
-<h3 id="11-多选-02">11-多选-02（★）</h3>
-<p>统一响应Result<T>的标准三字段是： A. code B. message C. data D.
-timestamp E. traceId</p>
-<p><strong>答案</strong>：ABC
-<strong>解析</strong>：标准Result<T>包含code（业务码）、message（提示信息）、data（数据）三字段。timestamp和traceId是可选扩展字段，非标准三字段。</p>
-<h3 id="11-多选-03">11-多选-03（★★）</h3>
-<p>Lombok的@Data注解包含以下哪些注解的功能？ A. @Getter B. @Setter C.
-@ToString D. @EqualsAndHashCode E. @RequiredArgsConstructor F.
-@NoArgsConstructor</p>
-<p><strong>答案</strong>：ABCDE <strong>解析</strong>：@Data = @Getter +
+id="二多项选择题10题每题2分共20分少选得1分多选错选不得分">二、多项选择题（10题，每题2分，共20分；少选得1分，多选/错选不得分）</h2></blockquote></section>
+
+<section class="question-card" id="11-多选-01"><p><strong>11-多选-01（★）</strong></p><p>下列属于"数据载体"类的有：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Entity</div></li><li><span class="option-label">B</span><div class="option-content">DTO</div></li><li><span class="option-label">C</span><div class="option-content">VO</div></li><li><span class="option-label">D</span><div class="option-content">Controller</div></li><li><span class="option-label">E</span><div class="option-content">Service</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC
+<strong>解析</strong>：Entity、DTO、VO都是承载数据的对象。Controller是控制器，Service是业务逻辑层，都不是数据载体。</p></blockquote></section>
+
+<section class="question-card" id="11-多选-02"><p><strong>11-多选-02（★）</strong></p><p>统一响应Result<T>的标准三字段是：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">code</div></li><li><span class="option-label">B</span><div class="option-content">message</div></li><li><span class="option-label">C</span><div class="option-content">data</div></li><li><span class="option-label">D</span><div class="option-content">timestamp</div></li><li><span class="option-label">E</span><div class="option-content">traceId</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC
+<strong>解析</strong>：标准Result<T>包含code（业务码）、message（提示信息）、data（数据）三字段。timestamp和traceId是可选扩展字段，非标准三字段。</p></blockquote></section>
+
+<section class="question-card" id="11-多选-03"><p><strong>11-多选-03（★★）</strong></p><p>Lombok的@Data注解包含以下哪些注解的功能？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Getter</div></li><li><span class="option-label">B</span><div class="option-content">@Setter</div></li><li><span class="option-label">C</span><div class="option-content">@ToString</div></li><li><span class="option-label">D</span><div class="option-content">@EqualsAndHashCode</div></li><li><span class="option-label">E</span><div class="option-content">@RequiredArgsConstructor</div></li><li><span class="option-label">F</span><div class="option-content">@NoArgsConstructor</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCDE <strong>解析</strong>：@Data = @Getter +
 @Setter + @ToString + @EqualsAndHashCode +
-@RequiredArgsConstructor。不包含@NoArgsConstructor，需单独加。</p>
-<h3 id="11-多选-04">11-多选-04（★★）</h3>
-<p>关于Spring BeanUtils.copyProperties的说法，正确的有： A.
-source在前，target在后 B. 基于反射实现，有性能开销 C. 按属性名+类型匹配
-D. 类型不一致会自动转换 E. 嵌套对象是浅拷贝（引用共享）</p>
-<p><strong>答案</strong>：ABCE
-<strong>解析</strong>：A、B、C、E均正确。D错误，BeanUtils不会自动转换类型，类型不一致时跳过该字段。</p>
-<h3 id="11-多选-05">11-多选-05（★★）</h3>
-<p>下列哪些是MapStruct相比BeanUtils的优势？ A. 编译期生成代码，性能高 B.
-类型安全，编译期就能发现错误 C. 支持字段映射自定义（@Mapping） D.
-无需引入任何依赖 E. 生成代码可调试查看</p>
-<p><strong>答案</strong>：ABCE
-<strong>解析</strong>：A、B、C、E都是MapStruct优势。D错误，MapStruct需引入mapstruct和mapstruct-processor依赖。</p>
-<h3 id="11-多选-06">11-多选-06（★）</h3>
-<p>CTTS项目的标准包结构包含以下哪些包？ A. controller B. service C.
-mapper D. entity E. dto F. vo G. config H. exception</p>
-<p><strong>答案</strong>：ABCDEFGH
-<strong>解析</strong>：CTTS标准包结构包含controller、service（含impl）、mapper、entity、dto、vo、common、config、utils、exception，八个均正确。</p>
-<h3 id="11-多选-07">11-多选-07（★★）</h3>
-<p>关于service接口与serviceImpl实现分离的好处，正确的有： A.
-Controller依赖接口而非实现，降低耦合 B. 便于Spring AOP基于接口做动态代理
-C. 便于单元测试时Mock实现 D. 减少代码总量 E. 符合阿里Java开发规范</p>
-<p><strong>答案</strong>：ABCE
-<strong>解析</strong>：A解耦、B利于AOP代理、C便于Mock测试、E符合阿里规范。D错误，分离反而增加代码量（多一个接口文件），但换来可维护性。</p>
-<h3 id="11-多选-08">11-多选-08（★★）</h3>
-<p>下列哪些注解可用于DTO的字段校验？ A. @NotBlank B. @NotNull C.
-@NotEmpty D. @Size E. @JsonFormat F. @Schema</p>
-<p><strong>答案</strong>：ABCD
-<strong>解析</strong>：A、B、C、D都是JSR-303校验注解。@JsonFormat是Jackson的日期格式化注解，@Schema是Knife4j/SpringDoc的文档注解，都不做校验。</p>
-<h3 id="11-多选-09">11-多选-09（★★）</h3>
-<p>使用Lombok时，在IDEA中需要做哪些配置？ A.
-安装Lombok插件（2020.3+已内置） B. 开启Annotation Processing C.
-引入lombok的Maven依赖 D. 升级JDK到17 E. 配置lombok.config文件</p>
-<p><strong>答案</strong>：ABC
+@RequiredArgsConstructor。不包含@NoArgsConstructor，需单独加。</p></blockquote></section>
+
+<section class="question-card" id="11-多选-04"><p><strong>11-多选-04（★★）</strong></p><p>关于Spring BeanUtils.copyProperties的说法，正确的有：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">source在前，target在后</div></li><li><span class="option-label">B</span><div class="option-content">基于反射实现，有性能开销</div></li><li><span class="option-label">C</span><div class="option-content">按属性名+类型匹配</div></li><li><span class="option-label">D</span><div class="option-content">类型不一致会自动转换</div></li><li><span class="option-label">E</span><div class="option-content">嵌套对象是浅拷贝（引用共享）</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCE
+<strong>解析</strong>：A、B、C、E均正确。D错误，BeanUtils不会自动转换类型，类型不一致时跳过该字段。</p></blockquote></section>
+
+<section class="question-card" id="11-多选-05"><p><strong>11-多选-05（★★）</strong></p><p>下列哪些是MapStruct相比BeanUtils的优势？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">编译期生成代码，性能高</div></li><li><span class="option-label">B</span><div class="option-content">类型安全，编译期就能发现错误</div></li><li><span class="option-label">C</span><div class="option-content">支持字段映射自定义（@Mapping）</div></li><li><span class="option-label">D</span><div class="option-content">无需引入任何依赖</div></li><li><span class="option-label">E</span><div class="option-content">生成代码可调试查看</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCE
+<strong>解析</strong>：A、B、C、E都是MapStruct优势。D错误，MapStruct需引入mapstruct和mapstruct-processor依赖。</p></blockquote></section>
+
+<section class="question-card" id="11-多选-06"><p><strong>11-多选-06（★）</strong></p><p>CTTS项目的标准包结构包含以下哪些包？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">controller</div></li><li><span class="option-label">B</span><div class="option-content">service</div></li><li><span class="option-label">C</span><div class="option-content">mapper</div></li><li><span class="option-label">D</span><div class="option-content">entity</div></li><li><span class="option-label">E</span><div class="option-content">dto</div></li><li><span class="option-label">F</span><div class="option-content">vo</div></li><li><span class="option-label">G</span><div class="option-content">config</div></li><li><span class="option-label">H</span><div class="option-content">exception</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCDEFGH
+<strong>解析</strong>：CTTS标准包结构包含controller、service（含impl）、mapper、entity、dto、vo、common、config、utils、exception，八个均正确。</p></blockquote></section>
+
+<section class="question-card" id="11-多选-07"><p><strong>11-多选-07（★★）</strong></p><p>关于service接口与serviceImpl实现分离的好处，正确的有：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Controller依赖接口而非实现，降低耦合</div></li><li><span class="option-label">B</span><div class="option-content">便于Spring AOP基于接口做动态代理</div></li><li><span class="option-label">C</span><div class="option-content">便于单元测试时Mock实现</div></li><li><span class="option-label">D</span><div class="option-content">减少代码总量</div></li><li><span class="option-label">E</span><div class="option-content">符合阿里Java开发规范</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCE
+<strong>解析</strong>：A解耦、B利于AOP代理、C便于Mock测试、E符合阿里规范。D错误，分离反而增加代码量（多一个接口文件），但换来可维护性。</p></blockquote></section>
+
+<section class="question-card" id="11-多选-08"><p><strong>11-多选-08（★★）</strong></p><p>下列哪些注解可用于DTO的字段校验？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@NotBlank</div></li><li><span class="option-label">B</span><div class="option-content">@NotNull</div></li><li><span class="option-label">C</span><div class="option-content">@NotEmpty</div></li><li><span class="option-label">D</span><div class="option-content">@Size</div></li><li><span class="option-label">E</span><div class="option-content">@JsonFormat</div></li><li><span class="option-label">F</span><div class="option-content">@Schema</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
+<strong>解析</strong>：A、B、C、D都是JSR-303校验注解。@JsonFormat是Jackson的日期格式化注解，@Schema是Knife4j/SpringDoc的文档注解，都不做校验。</p></blockquote></section>
+
+<section class="question-card" id="11-多选-09"><p><strong>11-多选-09（★★）</strong></p><p>使用Lombok时，在IDEA中需要做哪些配置？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">安装Lombok插件（2020.3+已内置）</div></li><li><span class="option-label">B</span><div class="option-content">开启Annotation Processing</div></li><li><span class="option-label">C</span><div class="option-content">引入lombok的Maven依赖</div></li><li><span class="option-label">D</span><div class="option-content">升级JDK到17</div></li><li><span class="option-label">E</span><div class="option-content">配置lombok.config文件</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC
 <strong>解析</strong>：A（插件）、B（注解处理开关）、C（依赖）是必需三件套。D非必需（Lombok支持JDK
-8+），E非必需（仅高级配置时才用lombok.config）。</p>
-<h3 id="11-多选-10">11-多选-10（★★★）</h3>
-<p>关于Result<T>的设计，下列做法合理的有： A.
-code用业务码，HTTP恒返回200 B. 用ResultCode枚举管理错误码 C.
-静态方法ok()/fail()作为统一入口 D. data字段类型用泛型T E.
-把业务逻辑写在Result类中 F. Result做成单例</p>
-<p><strong>答案</strong>：ABCD
+8+），E非必需（仅高级配置时才用lombok.config）。</p></blockquote></section>
+
+<section class="question-card" id="11-多选-10"><p><strong>11-多选-10（★★★）</strong></p><p>关于Result<T>的设计，下列做法合理的有：</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">code用业务码，HTTP恒返回200</div></li><li><span class="option-label">B</span><div class="option-content">用ResultCode枚举管理错误码</div></li><li><span class="option-label">C</span><div class="option-content">静态方法ok()/fail()作为统一入口</div></li><li><span class="option-label">D</span><div class="option-content">data字段类型用泛型T</div></li><li><span class="option-label">E</span><div class="option-content">把业务逻辑写在Result类中</div></li><li><span class="option-label">F</span><div class="option-content">Result做成单例</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
 <strong>解析</strong>：A、B、C、D都是标准设计。E错误，Result只做数据载体不含业务逻辑。F错误，Result有状态（data每次不同）不能单例。</p>
 <hr />
 <h2
-id="三判断题20题每题1分共20分">三、判断题（20题，每题1分，共20分）</h2>
-<h3 id="11-判断-01">11-判断-01（★）</h3>
-<p>PO和Entity在MyBatis-Plus项目中通常是同一个类。
+id="三判断题20题每题1分共20分">三、判断题（20题，每题1分，共20分）</h2></blockquote></section>
+
+<section class="question-card" id="11-判断-01"><p><strong>11-判断-01（★）</strong></p><p>PO和Entity在MyBatis-Plus项目中通常是同一个类。
 <strong>答案</strong>：正确
-<strong>解析</strong>：MyBatis-Plus中Entity类对应数据库表，由BaseMapper操作，实际充当PO角色，通常不单独建PO包。</p>
-<h3 id="11-判断-02">11-判断-02（★）</h3>
-<p>DTO既可以用于接收前端请求，也可以用于返回给前端展示。
+<strong>解析</strong>：MyBatis-Plus中Entity类对应数据库表，由BaseMapper操作，实际充当PO角色，通常不单独建PO包。</p></section>
+
+<section class="question-card" id="11-判断-02"><p><strong>11-判断-02（★）</strong></p><p>DTO既可以用于接收前端请求，也可以用于返回给前端展示。
 <strong>答案</strong>：错误
-<strong>解析</strong>：DTO主要用于接收请求和层间传输，返回前端展示用VO。小项目可合并，但概念上DTO和VO职责不同。</p>
-<h3 id="11-判断-03">11-判断-03（★）</h3>
-<p>VO可以聚合多个表的字段，而Entity通常对应单表。
+<strong>解析</strong>：DTO主要用于接收请求和层间传输，返回前端展示用VO。小项目可合并，但概念上DTO和VO职责不同。</p></section>
+
+<section class="question-card" id="11-判断-03"><p><strong>11-判断-03（★）</strong></p><p>VO可以聚合多个表的字段，而Entity通常对应单表。
 <strong>答案</strong>：正确
-<strong>解析</strong>：VO是视图对象，可关联查询多表聚合字段（如creatorName来自sys_user表）；Entity通常一一对应单表结构。</p>
-<h3 id="11-判断-04">11-判断-04（★）</h3>
-<p>Result<T>中的code应该直接使用HTTP状态码（如404、500）。
+<strong>解析</strong>：VO是视图对象，可关联查询多表聚合字段（如creatorName来自sys_user表）；Entity通常一一对应单表结构。</p></section>
+
+<section class="question-card" id="11-判断-04"><p><strong>11-判断-04（★）</strong></p><p>Result<T>中的code应该直接使用HTTP状态码（如404、500）。
 <strong>答案</strong>：错误
-<strong>解析</strong>：Result.code是业务状态码，独立于HTTP状态码。HTTP层恒返回200，业务成败通过Result.code区分，避免前端误判网络错误。</p>
-<h3 id="11-判断-05">11-判断-05（★）</h3>
-<p>Spring的BeanUtils.copyProperties方法中，第一个参数是target，第二个是source。
+<strong>解析</strong>：Result.code是业务状态码，独立于HTTP状态码。HTTP层恒返回200，业务成败通过Result.code区分，避免前端误判网络错误。</p></section>
+
+<section class="question-card" id="11-判断-05"><p><strong>11-判断-05（★）</strong></p><p>Spring的BeanUtils.copyProperties方法中，第一个参数是target，第二个是source。
 <strong>答案</strong>：错误
 <strong>解析</strong>：Spring的BeanUtils.copyProperties(Object source,
 Object target)，source在前、target在后。Apache的才是(target,
-source)。</p>
-<h3 id="11-判断-06">11-判断-06（★）</h3>
-<p>MapStruct在运行期通过反射生成转换代码。 <strong>答案</strong>：错误
+source)。</p></section>
+
+<section class="question-card" id="11-判断-06"><p><strong>11-判断-06（★）</strong></p><p>MapStruct在运行期通过反射生成转换代码。 <strong>答案</strong>：错误
 <strong>解析</strong>：MapStruct在编译期（maven
-compile阶段）生成实现类代码，运行期直接调用，无反射，性能接近手写。</p>
-<h3 id="11-判断-07">11-判断-07（★）</h3>
-<p>Lombok通过编译期注解处理器修改AST生成字节码，源码不变。
+compile阶段）生成实现类代码，运行期直接调用，无反射，性能接近手写。</p></section>
+
+<section class="question-card" id="11-判断-07"><p><strong>11-判断-07（★）</strong></p><p>Lombok通过编译期注解处理器修改AST生成字节码，源码不变。
 <strong>答案</strong>：正确
-<strong>解析</strong>：Lombok在javac编译期拦截AST插入方法节点，生成的是字节码，.java源码不变。反编译class能看到getter/setter。</p>
-<h3 id="11-判断-08">11-判断-08（★）</h3>
-<p>@Data注解已经包含@NoArgsConstructor，无需单独添加。
+<strong>解析</strong>：Lombok在javac编译期拦截AST插入方法节点，生成的是字节码，.java源码不变。反编译class能看到getter/setter。</p></section>
+
+<section class="question-card" id="11-判断-08"><p><strong>11-判断-08（★）</strong></p><p>@Data注解已经包含@NoArgsConstructor，无需单独添加。
 <strong>答案</strong>：错误
-<strong>解析</strong>：@Data包含的是@RequiredArgsConstructor（仅final字段构造），不包含@NoArgsConstructor。需要无参构造要单独加。</p>
-<h3 id="11-判断-09">11-判断-09（★）</h3>
-<p>@Builder注解单独使用可能导致类失去无参构造，影响JSON反序列化。
+<strong>解析</strong>：@Data包含的是@RequiredArgsConstructor（仅final字段构造），不包含@NoArgsConstructor。需要无参构造要单独加。</p></section>
+
+<section class="question-card" id="11-判断-09"><p><strong>11-判断-09（★）</strong></p><p>@Builder注解单独使用可能导致类失去无参构造，影响JSON反序列化。
 <strong>答案</strong>：正确
 <strong>解析</strong>：@Builder生成全参私有构造器，导致无参构造丢失。Jackson反序列化需要无参构造，会报错。解决：加@NoArgsConstructor
-+ @AllArgsConstructor。</p>
-<h3 id="11-判断-10">11-判断-10（★）</h3>
-<p>Java包名约定使用全小写字母。 <strong>答案</strong>：正确
-<strong>解析</strong>：Java包名约定全小写，如com.ctts.controller，避免与类名/关键字冲突。</p>
-<h3 id="11-判断-11">11-判断-11（★）</h3>
-<p>Spring Boot启动类应放在项目的根包下，以保证组件扫描覆盖所有子包。
++ @AllArgsConstructor。</p></section>
+
+<section class="question-card" id="11-判断-10"><p><strong>11-判断-10（★）</strong></p><p>Java包名约定使用全小写字母。 <strong>答案</strong>：正确
+<strong>解析</strong>：Java包名约定全小写，如com.ctts.controller，避免与类名/关键字冲突。</p></section>
+
+<section class="question-card" id="11-判断-11"><p><strong>11-判断-11（★）</strong></p><p>Spring Boot启动类应放在项目的根包下，以保证组件扫描覆盖所有子包。
 <strong>答案</strong>：正确
-<strong>解析</strong>：@SpringBootApplication默认扫描启动类所在包及其子包，放根包com.ctts下能覆盖所有业务包。</p>
-<h3 id="11-判断-12">11-判断-12（★★）</h3>
-<p>service接口和serviceImpl实现类放在同一个包下，便于管理。
+<strong>解析</strong>：@SpringBootApplication默认扫描启动类所在包及其子包，放根包com.ctts下能覆盖所有业务包。</p></section>
+
+<section class="question-card" id="11-判断-12"><p><strong>11-判断-12（★★）</strong></p><p>service接口和serviceImpl实现类放在同一个包下，便于管理。
 <strong>答案</strong>：错误
-<strong>解析</strong>：规范做法是service放接口、service/impl放实现，分开管理。混在一起无法体现分层，且不符合阿里规范。</p>
-<h3 id="11-判断-13">11-判断-13（★）</h3>
-<p>DTO中应该包含数据库自动生成的字段（如id、createTime），以便前端传入。
+<strong>解析</strong>：规范做法是service放接口、service/impl放实现，分开管理。混在一起无法体现分层，且不符合阿里规范。</p></section>
+
+<section class="question-card" id="11-判断-13"><p><strong>11-判断-13（★）</strong></p><p>DTO中应该包含数据库自动生成的字段（如id、createTime），以便前端传入。
 <strong>答案</strong>：错误
-<strong>解析</strong>：DTO只暴露前端应填字段，数据库自动生成的id/createTime/updateTime/deleted不应放在新增DTO中，避免前端伪造。</p>
-<h3 id="11-判断-14">11-判断-14（★★）</h3>
-<p>BeanUtils.copyProperties能自动将String类型的日期转为LocalDateTime。
+<strong>解析</strong>：DTO只暴露前端应填字段，数据库自动生成的id/createTime/updateTime/deleted不应放在新增DTO中，避免前端伪造。</p></section>
+
+<section class="question-card" id="11-判断-14"><p><strong>11-判断-14（★★）</strong></p><p>BeanUtils.copyProperties能自动将String类型的日期转为LocalDateTime。
 <strong>答案</strong>：错误
-<strong>解析</strong>：BeanUtils不做类型转换，类型不一致时直接跳过该字段。日期转换需手动处理或用MapStruct自定义方法。</p>
-<h3 id="11-判断-15">11-判断-15（★）</h3>
-<p>Result<T>使用泛型T而不是Object，主要是为了类型安全和文档清晰。
+<strong>解析</strong>：BeanUtils不做类型转换，类型不一致时直接跳过该字段。日期转换需手动处理或用MapStruct自定义方法。</p></section>
+
+<section class="question-card" id="11-判断-15"><p><strong>11-判断-15（★）</strong></p><p>Result<T>使用泛型T而不是Object，主要是为了类型安全和文档清晰。
 <strong>答案</strong>：正确
 <strong>解析</strong>：泛型T保证编译期类型检查（取data无需强转），且Knife4j能根据T生成准确的data
-Schema文档。Object会丢失类型信息。</p>
-<h3 id="11-判断-16">11-判断-16（★★）</h3>
-<p>@Accessors(chain = true)注解可以让setter方法返回this，支持链式调用。
+Schema文档。Object会丢失类型信息。</p></section>
+
+<section class="question-card" id="11-判断-16"><p><strong>11-判断-16（★★）</strong></p><p>@Accessors(chain = true)注解可以让setter方法返回this，支持链式调用。
 <strong>答案</strong>：正确 <strong>解析</strong>：@Accessors(chain =
-true)修改setter返回值为this，从而支持<code>obj.setX().setY()</code>链式写法。</p>
-<h3 id="11-判断-17">11-判断-17（★★）</h3>
-<p>Result<T>应该设计成单例，节省内存。 <strong>答案</strong>：错误
-<strong>解析</strong>：Result有状态（每次code/message/data不同），不能单例。每次响应都应new新对象，静态方法ok()/fail()已封装此逻辑。</p>
-<h3 id="11-判断-18">11-判断-18（★）</h3>
-<p>config包用于存放@Configuration标注的配置类，如Knife4jConfig、MyBatisPlusConfig。
+true)修改setter返回值为this，从而支持<code>obj.setX().setY()</code>链式写法。</p></section>
+
+<section class="question-card" id="11-判断-17"><p><strong>11-判断-17（★★）</strong></p><p>Result<T>应该设计成单例，节省内存。 <strong>答案</strong>：错误
+<strong>解析</strong>：Result有状态（每次code/message/data不同），不能单例。每次响应都应new新对象，静态方法ok()/fail()已封装此逻辑。</p></section>
+
+<section class="question-card" id="11-判断-18"><p><strong>11-判断-18（★）</strong></p><p>config包用于存放@Configuration标注的配置类，如Knife4jConfig、MyBatisPlusConfig。
 <strong>答案</strong>：正确
 <strong>解析</strong>：config包专门放配置类，如
-Knife4jConfig、MyBatisPlusConfig、CorsConfig、WebMvcConfig等，不放业务类。</p>
-<h3 id="11-判断-19">11-判断-19（★★）</h3>
-<p>Apache的BeanUtils.copyProperties性能优于Spring的BeanUtils。
+Knife4jConfig、MyBatisPlusConfig、CorsConfig、WebMvcConfig等，不放业务类。</p></section>
+
+<section class="question-card" id="11-判断-19"><p><strong>11-判断-19（★★）</strong></p><p>Apache的BeanUtils.copyProperties性能优于Spring的BeanUtils。
 <strong>答案</strong>：错误
-<strong>解析</strong>：Apache的BeanUtils由于额外的类型转换和日志记录，性能远差于Spring的BeanUtils（约10倍差距）。生产环境推荐用Spring版。</p>
-<h3 id="11-判断-20">11-判断-20（★）</h3>
-<p>Lombok的scope应配置为provided，因为它只在编译期需要，运行期由JVM处理。
+<strong>解析</strong>：Apache的BeanUtils由于额外的类型转换和日志记录，性能远差于Spring的BeanUtils（约10倍差距）。生产环境推荐用Spring版。</p></section>
+
+<section class="question-card" id="11-判断-20"><p><strong>11-判断-20（★）</strong></p><p>Lombok的scope应配置为provided，因为它只在编译期需要，运行期由JVM处理。
 <strong>答案</strong>：正确
 <strong>解析</strong>：Lombok是编译期工具，字节码生成后运行期不再需要，scope=provided不会打进最终jar，减小体积。</p>
 <hr />
 <h2
-id="四填空题10题每题2分共20分">四、填空题（10题，每题2分，共20分）</h2>
-<h3 id="11-填空-01">11-填空-01（★）</h3>
-<p>PO的全称是 ________，中文含义是 ________。</p>
-<p><strong>答案</strong>：Persistent Object；持久化对象
+id="四填空题10题每题2分共20分">四、填空题（10题，每题2分，共20分）</h2></section>
+
+<section class="question-card" id="11-填空-01"><p><strong>11-填空-01（★）</strong></p><p>PO的全称是 ________，中文含义是 ________。</p><blockquote><p><strong>答案</strong>：Persistent Object；持久化对象
 <strong>解析</strong>：PO = Persistent
-Object，持久化对象，对应数据库中的一条记录。</p>
-<h3 id="11-填空-02">11-填空-02（★）</h3>
-<p>DTO的全称是 ________，主要用于 ________。</p>
-<p><strong>答案</strong>：Data Transfer
+Object，持久化对象，对应数据库中的一条记录。</p></blockquote></section>
+
+<section class="question-card" id="11-填空-02"><p><strong>11-填空-02（★）</strong></p><p>DTO的全称是 ________，主要用于 ________。</p><blockquote><p><strong>答案</strong>：Data Transfer
 Object；接收请求参数/层间传输数据 <strong>解析</strong>：DTO = Data
 Transfer
-Object，数据传输对象，用于接收前端请求或在服务层间传递数据。</p>
-<h3 id="11-填空-03">11-填空-03（★）</h3>
-<p>统一响应Result<T>的标准三字段是
-<strong><strong><strong><strong>、</strong></strong></strong></strong>、________。</p>
-<p><strong>答案</strong>：code；message；data
-<strong>解析</strong>：code业务状态码、message提示信息、data响应数据，是统一响应的标准三字段。</p>
-<h3 id="11-填空-04">11-填空-04（★）</h3>
-<p>Spring的BeanUtils.copyProperties方法中，第一个参数是
-________，第二个参数是 ________。</p>
-<p><strong>答案</strong>：source；target
+Object，数据传输对象，用于接收前端请求或在服务层间传递数据。</p></blockquote></section>
+
+<section class="question-card" id="11-填空-03"><p><strong>11-填空-03（★）</strong></p><p>统一响应Result<T>的标准三字段是
+<strong><strong><strong><strong>、</strong></strong></strong></strong>、________。</p><blockquote><p><strong>答案</strong>：code；message；data
+<strong>解析</strong>：code业务状态码、message提示信息、data响应数据，是统一响应的标准三字段。</p></blockquote></section>
+
+<section class="question-card" id="11-填空-04"><p><strong>11-填空-04（★）</strong></p><p>Spring的BeanUtils.copyProperties方法中，第一个参数是
+________，第二个参数是 ________。</p><blockquote><p><strong>答案</strong>：source；target
 <strong>解析</strong>：Spring的BeanUtils.copyProperties(Object source,
-Object target)，source在前、target在后，这是高频易错点。</p>
-<h3 id="11-填空-05">11-填空-05（★）</h3>
-<p>Lombok的@Data注解等价于@Getter、@Setter、@ToString、________ 和
-________ 五个注解的组合。</p>
-<p><strong>答案</strong>：@EqualsAndHashCode；@RequiredArgsConstructor
+Object target)，source在前、target在后，这是高频易错点。</p></blockquote></section>
+
+<section class="question-card" id="11-填空-05"><p><strong>11-填空-05（★）</strong></p><p>Lombok的@Data注解等价于@Getter、@Setter、@ToString、________ 和
+________ 五个注解的组合。</p><blockquote><p><strong>答案</strong>：@EqualsAndHashCode；@RequiredArgsConstructor
 <strong>解析</strong>：@Data = @Getter + @Setter + @ToString +
 @EqualsAndHashCode +
-@RequiredArgsConstructor。注意不包含@NoArgsConstructor。</p>
-<h3 id="11-填空-06">11-填空-06（★）</h3>
-<p>CTTS项目的包结构中，存放MyBatis-Plus Mapper接口的包是
-________，存放业务实现类的包是 ________。</p>
-<p><strong>答案</strong>：mapper；service/impl（或service.impl）
-<strong>解析</strong>：mapper包放Mapper接口，service包放Service接口，service/impl子包放Service实现类。</p>
-<h3 id="11-填空-07">11-填空-07（★★）</h3>
-<p>@Builder注解单独使用会导致类失去 ________
+@RequiredArgsConstructor。注意不包含@NoArgsConstructor。</p></blockquote></section>
+
+<section class="question-card" id="11-填空-06"><p><strong>11-填空-06（★）</strong></p><p>CTTS项目的包结构中，存放MyBatis-Plus Mapper接口的包是
+________，存放业务实现类的包是 ________。</p><blockquote><p><strong>答案</strong>：mapper；service/impl（或service.impl）
+<strong>解析</strong>：mapper包放Mapper接口，service包放Service接口，service/impl子包放Service实现类。</p></blockquote></section>
+
+<section class="question-card" id="11-填空-07"><p><strong>11-填空-07（★★）</strong></p><p>@Builder注解单独使用会导致类失去 ________
 构造器，影响JSON反序列化，解决方法是同时添加 ________ 和 ________
-注解。</p>
-<p><strong>答案</strong>：无参；@NoArgsConstructor；@AllArgsConstructor
-<strong>解析</strong>：@Builder生成全参私有构造器导致无参丢失，需加@NoArgsConstructor补无参、@AllArgsConstructor补全参（供Builder用）。</p>
-<h3 id="11-填空-08">11-填空-08（★）</h3>
-<p>Result<T>中泛型T表示 ________
-字段的具体类型，静态方法ok()的完整方法签名是 ________。</p>
-<p><strong>答案</strong>：data；public static <T> Result<T> ok()
-<strong>解析</strong>：T是data的类型；静态方法需自带泛型声明<code>&lt;T&gt;</code>放在static后、返回类型前。</p>
-<h3 id="11-填空-09">11-填空-09（★）</h3>
-<p>在IDEA中使用Lombok，除了引入Maven依赖，还需在Settings → Build →
-Compiler → ________ 中开启Enable选项。</p>
-<p><strong>答案</strong>：Annotation Processors（注解处理器）
+注解。</p><blockquote><p><strong>答案</strong>：无参；@NoArgsConstructor；@AllArgsConstructor
+<strong>解析</strong>：@Builder生成全参私有构造器导致无参丢失，需加@NoArgsConstructor补无参、@AllArgsConstructor补全参（供Builder用）。</p></blockquote></section>
+
+<section class="question-card" id="11-填空-08"><p><strong>11-填空-08（★）</strong></p><p>Result<T>中泛型T表示 ________
+字段的具体类型，静态方法ok()的完整方法签名是 ________。</p><blockquote><p><strong>答案</strong>：data；public static <T> Result<T> ok()
+<strong>解析</strong>：T是data的类型；静态方法需自带泛型声明<code>&lt;T&gt;</code>放在static后、返回类型前。</p></blockquote></section>
+
+<section class="question-card" id="11-填空-09"><p><strong>11-填空-09（★）</strong></p><p>在IDEA中使用Lombok，除了引入Maven依赖，还需在Settings → Build →
+Compiler → ________ 中开启Enable选项。</p><blockquote><p><strong>答案</strong>：Annotation Processors（注解处理器）
 <strong>解析</strong>：需开启Annotation
-Processing，否则Lombok注解处理器不工作，编译报"找不到符号"。</p>
-<h3 id="11-填空-10">11-填空-10（★★）</h3>
-<p>MapStruct通过 ________ 注解标识映射接口，编译后会在 ________
-目录下生成实现类。</p>
-<p><strong>答案</strong>：@Mapper；target/generated-sources/annotations
+Processing，否则Lombok注解处理器不工作，编译报"找不到符号"。</p></blockquote></section>
+
+<section class="question-card" id="11-填空-10"><p><strong>11-填空-10（★★）</strong></p><p>MapStruct通过 ________ 注解标识映射接口，编译后会在 ________
+目录下生成实现类。</p><blockquote><p><strong>答案</strong>：@Mapper；target/generated-sources/annotations
 <strong>解析</strong>：@Mapper标识映射接口，maven
-compile后在target/generated-sources/annotations下生成XxxImpl.java实现类。</p>
+compile后在target/generated-sources/annotations下生成XxxImpl.java实现类。</p></blockquote></section>
 <hr />
 <h2 id="五论述简答题4题共32分">五、论述简答题（4题，共32分）</h2>
-<h3 id="11-论述-018分">11-论述-01（8分，★★）</h3>
-<p>请详细说明PO、Entity、DTO、VO四类对象的定义、职责与区别，并各举一个CTTS项目中的具体例子。</p>
-<p><strong>评分标准</strong>：</p>
-<ul>
+<section class="question-card" id="11-论述-018分"><p><strong>11-论述-01（8分，★★）</strong></p><p>请详细说明PO、Entity、DTO、VO四类对象的定义、职责与区别，并各举一个CTTS项目中的具体例子。</p><blockquote><p><strong>评分标准</strong>：</p><ul>
 <li>四类对象定义准确（每类1分，共4分）</li>
 <li>职责区别说明清晰（2分）</li>
 <li>CTTS举例恰当（2分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<ul>
+</ul><p><strong>参考答案</strong>：</p><ul>
 <li><strong>PO（Persistent
 Object）持久化对象</strong>：对应数据库中的一条记录，强调持久化语义。在MyBatis-Plus中Entity充当PO。例：TrainingProject被ProjectMapper操作时即为PO。</li>
 <li><strong>Entity实体类</strong>：对应数据库表结构，字段与表列一一映射。例：TrainingProject对应training_project表，含id/projectName/creatorId等字段。</li>
 <li><strong>DTO数据传输对象</strong>：接收前端请求参数，带JSR-303校验注解，只暴露前端应填字段。例：ProjectDTO接收新增项目请求，含projectName(@NotBlank)/startTime(@NotNull)等，不含id/createTime。</li>
 <li><strong>VO视图对象</strong>：返回给前端展示的数据，可脱敏敏感字段、聚合多表字段。例：ProjectVO返回项目列表，含creatorName（聚合自sys_user表），不含deleted字段。</li>
-</ul>
-<p><strong>区别</strong>：Entity对应表结构（全字段），DTO管"进"（裁剪+校验），VO管"出"（脱敏+聚合），PO是Entity在持久化层的角色概念。</p>
-<h3 id="11-论述-028分">11-论述-02（8分，★★）</h3>
-<p>请说明为什么Controller不应直接返回Entity，而要用VO包装并配合Result<T>统一响应？请至少列出4条理由。</p>
-<p><strong>评分标准</strong>：</p>
-<ul>
+</ul><p><strong>区别</strong>：Entity对应表结构（全字段），DTO管"进"（裁剪+校验），VO管"出"（脱敏+聚合），PO是Entity在持久化层的角色概念。</p></blockquote></section>
+
+<section class="question-card" id="11-论述-028分"><p><strong>11-论述-02（8分，★★）</strong></p><p>请说明为什么Controller不应直接返回Entity，而要用VO包装并配合Result<T>统一响应？请至少列出4条理由。</p><blockquote><p><strong>评分标准</strong>：</p><ul>
 <li>每条理由2分，列满4条得8分（理由合理即可）</li>
 <li>理由不充分或重复酌情扣分</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<ol type="1">
+</ul><p><strong>参考答案</strong>：</p><ol type="1">
 <li><strong>敏感字段泄露风险</strong>：Entity含password、deleted等敏感字段，直接返回会暴露给前端。如SysUser的password字段必须用VO裁剪。</li>
 <li><strong>返回格式不统一</strong>：直接返回Entity/List/String导致前端解析逻辑分散，每个接口都要单独处理。用Result<T>统一外壳，前端拦截器只判code===200。</li>
 <li><strong>无法聚合多表字段</strong>：Entity对应单表，但前端常需展示关联数据（如项目的创建人姓名），VO可聚合多表查询结果。</li>
 <li><strong>数据库结构变更耦合前端</strong>：Entity字段随表结构变化，直接返回会导致前端接口契约不稳定。VO作为中间层解耦。</li>
 <li><strong>错误信息标准化</strong>：业务出错时直接抛异常前端无法解析，Result<T>.fail(code,msg)统一错误格式，便于前端友好提示。</li>
 <li><strong>文档不清晰</strong>：Knife4j直接展示Entity会暴露所有字段，VO+Result让文档准确反映接口契约。</li>
-</ol>
-<h3 id="11-论述-038分">11-论述-03（8分，★★）</h3>
-<p>请比较Spring
-BeanUtils.copyProperties与MapStruct两种对象转换方案的原理、性能、适用场景。</p>
-<p><strong>评分标准</strong>：</p>
-<ul>
+</ol></blockquote></section>
+
+<section class="question-card" id="11-论述-038分"><p><strong>11-论述-03（8分，★★）</strong></p><p>请比较Spring
+BeanUtils.copyProperties与MapStruct两种对象转换方案的原理、性能、适用场景。</p><blockquote><p><strong>评分标准</strong>：</p><ul>
 <li>原理对比（3分）</li>
 <li>性能对比（2分）</li>
 <li>适用场景（3分）</li>
-</ul>
-<p><strong>参考答案</strong>： <strong>原理</strong>：</p>
-<ul>
+</ul><p><strong>参考答案</strong>： <strong>原理</strong>：</p><ul>
 <li>Spring
 BeanUtils：运行期通过反射获取source/target属性，按属性名+类型匹配调用setter。无代码生成。</li>
 <li>MapStruct：编译期（maven
 compile）读取@Mapper接口，生成XxxImpl.java纯setter代码，运行期无反射。</li>
-</ul>
-<p><strong>性能</strong>（10万次转换参考）：</p>
-<ul>
+</ul><p><strong>性能</strong>（10万次转换参考）：</p><ul>
 <li>手写setter ~5ms（基准）</li>
 <li>MapStruct ~6ms（接近手写）</li>
 <li>Spring BeanUtils ~300ms（反射开销）</li>
 <li>Apache BeanUtils ~3000ms（最差）</li>
-</ul>
-<p><strong>适用场景</strong>：</p>
-<ul>
+</ul><p><strong>适用场景</strong>：</p><ul>
 <li>BeanUtils：小项目、转换少、字段简单、快速开发。优点是零配置、灵活；缺点是性能差、类型不安全（运行期才发现问题）。</li>
 <li>MapStruct：大项目、转换频繁、字段复杂、追求性能与类型安全。优点是性能好、编译期检查、支持@Mapping自定义；缺点是需配annotation
 processor、学习成本略高。</li>
-</ul>
-<p><strong>结论</strong>：CTTS这种教学项目用BeanUtils足够；企业级生产项目推荐MapStruct。</p>
-<h3 id="11-论述-048分">11-论述-04（8分，★★★）</h3>
-<p>请画出（或文字描述）CTTS项目的标准包结构树，并说明service为什么要分接口和impl。</p>
-<p><strong>评分标准</strong>：</p>
-<ul>
+</ul><p><strong>结论</strong>：CTTS这种教学项目用BeanUtils足够；企业级生产项目推荐MapStruct。</p></blockquote></section>
+
+<section class="question-card" id="11-论述-048分"><p><strong>11-论述-04（8分，★★★）</strong></p><p>请画出（或文字描述）CTTS项目的标准包结构树，并说明service为什么要分接口和impl。</p><blockquote><p><strong>评分标准</strong>：</p><ul>
 <li>包结构树完整准确（4分，每漏1个核心包扣0.5分）</li>
 <li>service分离理由（4分，每条1分）</li>
-</ul>
-<p><strong>参考答案</strong>： <strong>包结构树</strong>：</p>
-<pre><code>com.ctts
+</ul><p><strong>参考答案</strong>： <strong>包结构树</strong>：</p><pre><code>com.ctts
 ├── CttsApplication.java
 ├── controller          // 表现层
 ├── service             // 业务接口
@@ -608,9 +461,7 @@ processor、学习成本略高。</li>
 ├── common              // 公共类（Result/ResultCode）
 ├── config              // 配置类
 ├── utils               // 工具类
-└── exception           // 异常处理</code></pre>
-<p><strong>service分接口和impl的理由</strong>：</p>
-<ol type="1">
+└── exception           // 异常处理</code></pre><p><strong>service分接口和impl的理由</strong>：</p><ol type="1">
 <li><strong>解耦</strong>：Controller依赖ProjectService接口而非ProjectServiceImpl实现，替换实现类不影响Controller。</li>
 <li><strong>AOP代理</strong>：Spring基于接口做JDK动态代理更自然，事务@Transactionall等AOP功能更顺畅。</li>
 <li><strong>便于Mock测试</strong>：单元测试时可Mock接口，不依赖具体实现和数据库。</li>
@@ -619,10 +470,9 @@ processor、学习成本略高。</li>
 </ol>
 <hr />
 <h2
-id="六程序阅读补全题2题共25分">六、程序阅读补全题（2题，共25分）</h2>
-<h3 id="11-程序阅读-0112分">11-程序阅读-01（12分，★★）</h3>
-<p>阅读以下Result<T>类代码，补全空白处。</p>
-<div class="sourceCode" id="cb2"><pre
+id="六程序阅读补全题2题共25分">六、程序阅读补全题（2题，共25分）</h2></blockquote></section>
+
+<section class="question-card" id="11-程序阅读-0112分"><p><strong>11-程序阅读-01（12分，★★）</strong></p><p>阅读以下Result<T>类代码，补全空白处。</p><div class="sourceCode" id="cb2"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
@@ -660,27 +510,22 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">()</span> <span class="op">{}</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>问题</strong>：</p>
-<ol type="1">
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>问题</strong>：</p><ol type="1">
 <li>(1)处方法名应为？（2分）</li>
 <li>(2)处方法名应为？（2分）</li>
 <li>(3)处两个空白应填什么？（4分）</li>
 <li>若调用<code>Result.ok(vo).setMessage("成功")</code>，利用了哪个特性？（2分）</li>
 <li>静态方法前的<code>&lt;T&gt;</code>作用是什么？（2分）</li>
-</ol>
-<p><strong>答案</strong>：</p>
-<ol type="1">
+</ol><blockquote><p><strong>答案</strong>：</p><ol type="1">
 <li>(1) <code>ok</code> —— 成功带数据方法名为ok（2分）</li>
 <li>(2) <code>fail</code> —— 失败方法名为fail（2分）</li>
 <li>(3) <code>resultCode</code>、<code>resultCode</code> ——
 分别调用resultCode.getCode()和resultCode.getMessage()（4分）</li>
 <li>链式调用，由@Accessors(chain = true)提供，setter返回this（2分）</li>
 <li><code>&lt;T&gt;</code>是方法级泛型声明，让静态方法能使用泛型T（独立于类的T），保证返回Result<T>而非Result<Object>，保留类型信息（2分）</li>
-</ol>
-<h3 id="11-程序阅读-0213分">11-程序阅读-02（13分，★★★）</h3>
-<p>阅读以下Controller改造代码，回答问题。</p>
-<div class="sourceCode" id="cb3"><pre
+</ol></blockquote></section>
+
+<section class="question-card" id="11-程序阅读-0213分"><p><strong>11-程序阅读-02（13分，★★★）</strong></p><p>阅读以下Controller改造代码，回答问题。</p><div class="sourceCode" id="cb3"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">@RequestMapping</span><span class="op">(</span><span class="st">&quot;/project&quot;</span><span class="op">)</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProjectController <span class="op">{</span></span>
@@ -707,17 +552,13 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span>________<span class="op">&gt;</span> <span class="fu">delete</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span>   <span class="co">// (5)</span></span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">ok</span><span class="op">(</span>projectService<span class="op">.</span><span class="fu">delete</span><span class="op">(</span>id<span class="op">));</span></span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>问题</strong>：</p>
-<ol type="1">
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>问题</strong>：</p><ol type="1">
 <li>(1)处应填什么类型？（2分）</li>
 <li>(2)处应填什么方法名？（2分）</li>
 <li>(3)处应填什么注解？作用是什么？（3分）</li>
 <li>(4)处应填什么注解？（2分）</li>
 <li>(5)处应填什么类型？为什么不是void？（4分）</li>
-</ol>
-<p><strong>答案</strong>：</p>
-<ol type="1">
+</ol><blockquote><p><strong>答案</strong>：</p><ol type="1">
 <li>(1) <code>List&lt;ProjectVO&gt;</code> ——
 列表查询返回ProjectVO的List（2分）</li>
 <li>(2) <code>ok</code> —— 用ok(data)静态方法包装成功响应（2分）</li>
@@ -729,31 +570,24 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 </ol>
 <hr />
 <h2
-id="七编程接口设计题2题共35分">七、编程接口设计题（2题，共35分）</h2>
-<h3 id="11-编程-0115分">11-编程-01（15分，★★）</h3>
-<p><strong>题目</strong>：为CTTS项目的"任务提交"模块设计完整的DTO、VO和Controller接口。</p>
-<p><strong>背景</strong>：task_submission表字段：id、task_id、submitter_id、content、file_url、submit_time、score、status（0待批改
+id="七编程接口设计题2题共35分">七、编程接口设计题（2题，共35分）</h2></blockquote></section>
+
+<section class="question-card" id="11-编程-0115分"><p><strong>11-编程-01（15分，★★）</strong></p><p><strong>题目</strong>：为CTTS项目的"任务提交"模块设计完整的DTO、VO和Controller接口。</p><p><strong>背景</strong>：task_submission表字段：id、task_id、submitter_id、content、file_url、submit_time、score、status（0待批改
 1已批改
-2打回）。需支持：学生提交任务、查询自己的提交列表、教师批改打分。</p>
-<p><strong>要求</strong>：</p>
-<ol type="1">
+2打回）。需支持：学生提交任务、查询自己的提交列表、教师批改打分。</p><p><strong>要求</strong>：</p><ol type="1">
 <li>编写 TaskSubmissionDTO（学生提交用，含校验注解）（5分）</li>
 <li>编写 TaskReviewDTO（教师批改用，含score和reviewComment）（4分）</li>
 <li>编写
 TaskSubmissionVO（返回前端，不含submitter的敏感信息）（3分）</li>
 <li>编写
 TaskSubmissionController的三个接口（提交/查列表/批改），统一返回Result<T>（3分）</li>
-</ol>
-<p><strong>评分标准</strong>：</p>
-<ul>
+</ol><blockquote><p><strong>评分标准</strong>：</p><ul>
 <li>DTO字段合理+校验注解正确（5分）</li>
 <li>ReviewDTO完整（4分）</li>
 <li>VO脱敏合理（3分）</li>
 <li>Controller接口规范、Result统一（3分）</li>
 <li>缺漏/错误酌情扣分</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<div class="sourceCode" id="cb4"><pre
+</ul><p><strong>参考答案</strong>：</p><div class="sourceCode" id="cb4"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ===== 1. TaskSubmissionDTO（学生提交）=====</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">;</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -868,14 +702,11 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="
 <span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Boolean</span><span class="op">&gt;</span> <span class="fu">review</span><span class="op">(</span><span class="at">@Valid</span> <span class="at">@RequestBody</span> TaskReviewDTO dto<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">ok</span><span class="op">(</span>submissionService<span class="op">.</span><span class="fu">review</span><span class="op">(</span>dto<span class="op">));</span></span>
 <span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<h3 id="11-编程-0220分">11-编程-02（20分，★★★）</h3>
-<p><strong>题目</strong>：为CTTS项目的SysUser模块编写完整的Result<T>、ResultCode，并改造登录接口为统一响应格式。</p>
-<p><strong>背景</strong>：sys_user表字段：id、username、password、role（1学生
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></blockquote></section>
+
+<section class="question-card" id="11-编程-0220分"><p><strong>11-编程-02（20分，★★★）</strong></p><p><strong>题目</strong>：为CTTS项目的SysUser模块编写完整的Result<T>、ResultCode，并改造登录接口为统一响应格式。</p><p><strong>背景</strong>：sys_user表字段：id、username、password、role（1学生
 2教师 3管理员）、status（0禁用
-1启用）。登录接口接收username/password，返回token和用户基本信息（不含password）。</p>
-<p><strong>要求</strong>：</p>
-<ol type="1">
+1启用）。登录接口接收username/password，返回token和用户基本信息（不含password）。</p><p><strong>要求</strong>：</p><ol type="1">
 <li>编写完整的 Result<T>
 类（含code/message/data、ok()/fail()静态方法、泛型、链式）（6分）</li>
 <li>编写 ResultCode
@@ -884,17 +715,13 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="
 LoginVO（LoginVO含token和userBasicInfo，不含password）（4分）</li>
 <li>编写 SysUserController 的 login 方法，统一返回
 Result<LoginVO>（5分）</li>
-</ol>
-<p><strong>评分标准</strong>：</p>
-<ul>
+</ol><blockquote><p><strong>评分标准</strong>：</p><ul>
 <li>Result<T>完整正确（6分，缺一项扣1分）</li>
 <li>ResultCode枚举完整（5分，每个码0.5分）</li>
 <li>LoginDTO/VO设计合理（4分，VO不含password得2分）</li>
 <li>login接口规范（5分，Result统一、逻辑清晰）</li>
 <li>编译错误/逻辑错误酌情扣分</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<div class="sourceCode" id="cb5"><pre
+</ul><p><strong>参考答案</strong>：</p><div class="sourceCode" id="cb5"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ===== 1. Result&lt;T&gt; =====</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">;</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1051,7 +878,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="
 <span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>        vo<span class="op">.</span><span class="fu">setRole</span><span class="op">(</span>user<span class="op">.</span><span class="fu">getRole</span><span class="op">());</span></span>
 <span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">ok</span><span class="op">(</span>vo<span class="op">);</span></span>
 <span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></blockquote></section>
 <hr />
 <h2 id="附题库统计表">附：题库统计表</h2>
 <h3 id="题型分布">题型分布</h3>

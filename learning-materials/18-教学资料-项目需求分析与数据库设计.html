@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -358,15 +358,7 @@ NF）是关系数据库设计的规范，目标是<strong>减少冗余、消除�
 </tbody>
 </table>
 <p><strong>实体关系链</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 1：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">sys_user(教师) 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N training_project 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N task 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N task_submission 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N task_review</span>
-<span class="diagram-line">sys_user(学生) 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N task_submission</span>
-<span class="diagram-line">sys_user(教师) 1<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>N task_review (作为评审人)</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 1：CTTS 核心表关系总览</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>sys_user（教师）</h4><p>1 : N 创建实训项目。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>training_project</h4><p>1 : N 包含任务。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>task</h4><p>1 : N 产生提交。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>task_submission</h4><p>1 : N 被评审。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>task_review</h4><p>评审人仍来自 sys_user（教师）。</p></div></div><div class="diagram-grid two"><div class="diagram-callout">sys_user（学生）1 : N task_submission。</div><div class="diagram-callout">sys_user（教师）1 : N task_review，作为评审人。</div></div></div></div>
 <h4 id="232-通用设计规范">2.3.2 通用设计规范</h4>
 <ul>
 <li>主键：id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY</li>
@@ -687,13 +679,10 @@ task_review（评审）</strong>：一对多。一个教师可进行多次评审
 </ol>
 <p><strong>实体关系图（文字版）</strong>：</p>
 <div class="visual">
-  <div class="visual-title">图示 2：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">sys_user(教师) <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> training_project <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> task <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> task_submission <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> task_review</span>
-<span class="diagram-line">sys_user(学生) <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> task_submission</span>
-<span class="diagram-line">sys_user(教师) <span class="tree-token">─</span><span class="tree-token">─</span>1:N<span class="tree-token">─</span><span class="tree-token">─</span> task_review</span>
+  <div class="visual-title">图示 2：CTTS 核心表关系链</div>
+  <div class="edu-diagram">
+    <div class="diagram-flow"><div class="diagram-card"><h4>sys_user 教师</h4><p>1:N 创建 training_project，并可评审 task_review。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>training_project</h4><p>1:N 包含多个 task。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>task</h4><p>1:N 产生 task_submission。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>task_submission</h4><p>N:1 关联 sys_user 学生，1:N 关联 task_review。</p></div><div class="flow-arrow">→</div><div class="diagram-card good"><h4>task_review</h4><p>N:1 关联教师用户，记录评分与评语。</p></div></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <hr />
 <h3 id="33-范式分析说明">3.3 范式分析说明</h3>
@@ -981,49 +970,7 @@ DBeaver</strong>：可视化数据库管理工具，支持ER图导出。</li>
 </ul>
 <hr />
 <h2 id="五思维导图文字版">五、思维导图（文字版）</h2>
-<div class="visual">
-  <div class="visual-title">图示 3：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">第18次课 项目需求分析与数据库设计</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> K18-1 需求分析</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 需求拆解方法（自顶向下 / 自底向上）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 功能需求（5大模块）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 用户管理</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 项目管理</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 任务管理</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 提交管理</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 评审管理</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 非功能需求（安全/性能/可用性/可维护/可扩展）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 用例图基础（参与者 / 用例 / 关系）</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> K18-2 数据库设计基础</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ER图三要素（实体 / 属性 / 关系）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 实体关系（1:1 / 1:N / M:N）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 外键设计（在&quot;多&quot;方加外键）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 范式（1NF原子 / 2NF完全依赖 / 3NF消除传递依赖）</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> K18-3 CTTS五张表设计</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> sys_user（用户表，被多表引用）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> training_project（项目表，FK<span class="arrow-token">→</span>sys_user）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> task（任务表，FK<span class="arrow-token">→</span>training_project）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> task_submission（提交表，FK<span class="arrow-token">→</span>task + sys_user）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> task_review（评审表，FK<span class="arrow-token">→</span>task_submission + sys_user）</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> K18-4 索引基础</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 概念（B+树，空间换时间）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 类型（主键 / 唯一 / 普通）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 何时建（查询频繁 / 区分度高 / JOIN列）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 何时不建（数据量小 / 区分度低 / 写入频繁）</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> K18-5 数据库初始化脚本</span>
-<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CREATE DATABASE（utf8mb4）</span>
-<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CREATE TABLE（按依赖顺序，含外键/注释/索引）</span>
-<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> INSERT（测试数据，先被引用表后引用表）</span>
-<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 验证（JOIN查询确认外键关系）</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 3：第18次课知识结构</div> <div class="edu-diagram"><div class="diagram-grid five"><div class="diagram-card"><span class="diagram-badge">K18-1</span><h4>需求分析</h4><p>五大功能模块；安全、性能、可用性、可维护、可扩展。</p></div><div class="diagram-card"><span class="diagram-badge">K18-2</span><h4>数据库设计基础</h4><p>实体、属性、关系；1:1、1:N、M:N；外键在“多”方。</p></div><div class="diagram-card"><span class="diagram-badge">K18-3</span><h4>CTTS 五张表</h4><p>sys_user、training_project、task、task_submission、task_review。</p></div><div class="diagram-card"><span class="diagram-badge">K18-4</span><h4>索引基础</h4><p>B+树、主键/唯一/普通索引，空间换时间。</p></div><div class="diagram-card"><span class="diagram-badge">K18-5</span><h4>初始化脚本</h4><p>建库、建表、插入测试数据、JOIN 验证关系。</p></div></div></div></div>
 <hr />
 <h2 id="六复习思考题">六、复习思考题</h2>
 <h3 id="61-基础题">6.1 基础题</h3>

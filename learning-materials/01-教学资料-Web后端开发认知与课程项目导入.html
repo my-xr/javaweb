@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -130,16 +130,7 @@
 </blockquote>
 <h4 id="原理">原理</h4>
 <p>一个 Web 系统通常由三部分组成：</p>
-<div class="visual">
-  <div class="visual-title">图示 1：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐   HTTP请求    ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐   SQL/数据   ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span>  前端     <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span>  <span class="tree-token">│</span>  后端     <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> <span class="tree-token">│</span>  数据库   <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> (浏览器)  <span class="tree-token">│</span> ◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>  <span class="tree-token">│</span> (服务器)  <span class="tree-token">│</span> ◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span> (MySQL)  <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘   HTTP响应    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘   数据结果    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 1：Web 后端系统三层协作关系</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><span class="diagram-badge">前端</span><h4>浏览器 / 页面</h4><p>展示界面，接收用户操作，向后端发起 HTTP 请求。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><span class="diagram-badge">后端</span><h4>服务器 / Java 程序</h4><p>接收请求，处理业务逻辑，并通过 SQL 读写数据库。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><span class="diagram-badge">数据库</span><h4>MySQL / 持久化数据</h4><p>保存项目、任务、提交、评审等业务数据。</p></div></div><div class="diagram-grid two"><div class="diagram-callout">正向链路：浏览器发送 HTTP 请求 → 后端处理 → 数据库返回数据。</div><div class="diagram-callout">返回链路：数据库结果 → 后端封装响应 → 浏览器显示结果。</div></div></div></div>
 <ul>
 <li><strong>前端</strong>：用户看到的界面（HTML/CSS/JS），负责展示与交互。</li>
 <li><strong>后端</strong>：运行在服务器上的程序，负责业务逻辑与数据处理。</li>
@@ -177,22 +168,14 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>对应客户端发起的请求与服务器返回的响应：</p>
-<div class="visual">
-  <div class="visual-title">图示 2：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">请求（客户端 <span class="arrow-token">→</span> 后端）：</span>
-<span class="diagram-line">GET /api/projects/list HTTP/1.1</span>
-<span class="diagram-line">Host: localhost:8080</span>
-<span class="diagram-line">响应（后端 <span class="arrow-token">→</span> 客户端）：</span>
-<span class="diagram-line">HTTP/1.1 200 OK</span>
-<span class="diagram-line">Content-Type: application/json</span>
-<span class="diagram-line">[</span>
-<span class="diagram-line">  {&quot;id&quot;: 1, &quot;title&quot;: &quot;JavaWeb 课程实训&quot;, &quot;status&quot;: &quot;进行中&quot;},</span>
-<span class="diagram-line">  {&quot;id&quot;: 2, &quot;title&quot;: &quot;数据库课程实训&quot;, &quot;status&quot;: &quot;已结束&quot;}</span>
-<span class="diagram-line">]</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 2：一次接口调用中的请求与响应</div> <div class="edu-diagram"><div class="http-pair"><div class="diagram-panel"><span class="diagram-badge">请求：客户端 → 后端</span><pre class="diagram-code">GET /api/projects/list HTTP/1.1
+Host: localhost:8080</pre></div><div class="diagram-panel response"><span class="diagram-badge good">响应：后端 → 客户端</span><pre class="diagram-code">HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+  {"id": 1, "title": "JavaWeb 课程实训", "status": "进行中"},
+  {"id": 2, "title": "数据库课程实训", "status": "已结束"}
+]</pre></div></div></div></div>
 <blockquote>
 <p>📌 这个示例体现了后端的四个核心动作：接收请求（GET
 /api/projects/list）→ 处理业务（projectService.findAll）→
@@ -200,22 +183,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 的具体写法在第 3~4 次课学习。</p>
 </blockquote>
 <h4 id="图示">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 3：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">用户操作            前端                后端              数据库</span>
-<span class="diagram-line">  <span class="tree-token">│</span>  点击&quot;查看项目&quot;  <span class="tree-token">│</span>  发起HTTP请求  <span class="tree-token">│</span>  接收请求        <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> <span class="tree-token">│</span> <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> <span class="tree-token">│</span>                 <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span>                 <span class="tree-token">│</span>                <span class="tree-token">│</span>  处理业务        <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span>                 <span class="tree-token">│</span>                <span class="tree-token">│</span>  查询项目 <span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span><span class="tree-token">│</span> 查询表</span>
-<span class="diagram-line">  <span class="tree-token">│</span>                 <span class="tree-token">│</span>                <span class="tree-token">│</span>  ◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> 返回数据 <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span>                 <span class="tree-token">│</span>                <span class="tree-token">│</span>  封装JSON响应    <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span>                 <span class="tree-token">│</span> ◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> <span class="tree-token">│</span>                 <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span>  显示项目列表    <span class="tree-token">│</span>  接收JSON响应  <span class="tree-token">│</span>                 <span class="tree-token">│</span></span>
-<span class="diagram-line">  <span class="tree-token">│</span> ◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">│</span>                 <span class="tree-token">│</span>                 <span class="tree-token">│</span></span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 3：用户查看项目列表的时序流程</div> <div class="edu-diagram"><div class="sequence-grid" style="--lanes:4"><div class="sequence-lane"><h4>用户操作</h4><div class="sequence-event active">点击“查看项目”</div><div class="sequence-event">等待结果</div><div class="sequence-event active">看到项目列表</div></div><div class="sequence-lane"><h4>前端</h4><div class="sequence-event active">发起 HTTP 请求</div><div class="sequence-event">接收 JSON 响应</div><div class="sequence-event active">渲染项目列表</div></div><div class="sequence-lane"><h4>后端</h4><div class="sequence-event active">接收请求</div><div class="sequence-event active">处理业务</div><div class="sequence-event">查询项目</div><div class="sequence-event active">封装 JSON 响应</div></div><div class="sequence-lane"><h4>数据库</h4><div class="sequence-event">查询表</div><div class="sequence-event active">返回数据</div></div></div></div></div>
 <h4 id="易错点">易错点</h4>
 <ol type="1">
 <li>❌ 误认为"后端 = 写 SQL"。✅ 后端核心是业务逻辑，SQL 只是工具。</li>
@@ -299,17 +267,7 @@ APP 版。</li>
 手机银行 APP          专用程序（需安装）  C/S
 腾讯文档（网页）       浏览器            B/S</code></pre>
 <h4 id="图示-1">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 4：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">B/S 架构：                          C/S 架构：</span>
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐  HTTP   ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐      ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐  自定义协议  ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span> 浏览器  <span class="tree-token">│</span> ◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> <span class="tree-token">│</span> 服务器  <span class="tree-token">│</span>      <span class="tree-token">│</span> 专用客户端<span class="tree-token">│</span> ◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> <span class="tree-token">│</span> 服务器  <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘         <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘      <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘             <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">（无需安装）                        （需下载安装）</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 4：B/S 架构与 C/S 架构对比</div> <div class="edu-diagram"><div class="bs-cs-compare"><div class="diagram-panel"><span class="diagram-badge good">B/S 架构</span><div class="compare-flow"><div class="diagram-card"><h4>浏览器</h4><p>无需安装应用</p></div><div class="flow-arrow">↔</div><div class="diagram-card"><h4>服务器</h4><p>通过 HTTP 通信</p></div></div></div><div class="diagram-panel"><span class="diagram-badge warn">C/S 架构</span><div class="compare-flow"><div class="diagram-card"><h4>专用客户端</h4><p>需要下载和安装</p></div><div class="flow-arrow">↔</div><div class="diagram-card"><h4>服务器</h4><p>可使用自定义协议</p></div></div></div></div></div></div>
 <h4 id="易错点-1">易错点</h4>
 <ol type="1">
 <li>❌ 误认为"B/S 架构就是前后端分离"。✅ B/S 只是指客户端是浏览器；JSP
@@ -330,33 +288,9 @@ APP 版。</li>
 <h4 id="原理-2">原理</h4>
 <p>对比两种模式：</p>
 <p><strong>传统 JSP 模式（未分离）</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 5：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">浏览器 <span class="tree-token">─</span><span class="tree-token">─</span>请求<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 服务器(JSP) <span class="tree-token">─</span><span class="tree-token">─</span>SQL<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 数据库</span>
-<span class="diagram-line">                  <span class="tree-token">│</span></span>
-<span class="diagram-line">                  ▼</span>
-<span class="diagram-line">        JSP 中混合 HTML + Java 代码</span>
-<span class="diagram-line">        在服务器端拼装出完整 HTML 页面</span>
-<span class="diagram-line">        返回给浏览器直接显示</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 5：传统 JSP 模式的页面生成链路</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>浏览器</h4><p>发送页面请求</p></div><div class="flow-arrow">→</div><div class="diagram-card warn"><h4>服务器 JSP</h4><p>在服务器端混合 HTML + Java，拼装完整 HTML 页面。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>数据库</h4><p>通过 SQL 提供页面所需数据</p></div></div><div class="diagram-callout">返回结果是完整 HTML 页面，浏览器直接显示，前端与后端耦合较重。</div></div></div>
 <p><strong>前后端分离模式</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 6：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">浏览器(JS前端) <span class="tree-token">─</span><span class="tree-token">─</span>请求API<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 后端(Java) <span class="tree-token">─</span><span class="tree-token">─</span>SQL<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 数据库</span>
-<span class="diagram-line">                              <span class="tree-token">│</span></span>
-<span class="diagram-line">                              ▼</span>
-<span class="diagram-line">                     后端只返回 JSON 数据</span>
-<span class="diagram-line">                     （不含任何 HTML）</span>
-<span class="diagram-line">                              <span class="tree-token">│</span></span>
-<span class="diagram-line">浏览器(JS前端) ◀<span class="tree-token">─</span><span class="tree-token">─</span>JSON数据<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">   前端拿到数据后，自己渲染成界面</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 6：前后端分离模式的数据链路</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card good"><h4>浏览器 JS 前端</h4><p>调用 API，并负责把数据渲染成页面。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>后端 Java API</h4><p>处理业务，只返回 JSON 数据，不拼 HTML。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>数据库</h4><p>保存并返回业务数据</p></div></div><div class="diagram-callout">返回链路：数据库数据 → 后端封装 JSON → 前端渲染界面。</div></div></div>
 <h4 id="问题--场景-2">问题 / 场景</h4>
 <p><strong>问：为什么要前后端分离？</strong></p>
 <ul>
@@ -414,21 +348,7 @@ class="sourceCode json"><code class="sourceCode json"><span id="cb12-1"><a href=
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span> <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="st">&quot;数据库实训&quot;</span><span class="fu">,</span> <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;已结束&quot;</span><span class="fu">}</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
 <h4 id="图示-2">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 7：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">        传统 JSP（未分离）                前后端分离</span>
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐      ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐        ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span>   服务器            <span class="tree-token">│</span>      <span class="tree-token">│</span>  前端     <span class="tree-token">│</span>  API   <span class="tree-token">│</span>  后端     <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐  <span class="tree-token">│</span>      <span class="tree-token">│</span> (JS渲染)  <span class="tree-token">│</span>◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span><span class="tree-token">│</span> (Java)   <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> <span class="tree-token">│</span>JSP:HTML+Java  <span class="tree-token">│</span>  <span class="tree-token">│</span>      <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘  JSON  <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line"><span class="tree-token">│</span> <span class="tree-token">│</span>混合，拼装HTML  <span class="tree-token">│</span>  <span class="tree-token">│</span>      独立开发部署        独立开发部署</span>
-<span class="diagram-line"><span class="tree-token">│</span> <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘  <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">   前后端耦合在一起              前后端解耦，各司其职</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 7：传统 JSP 与前后端分离的职责差异</div> <div class="edu-diagram"><div class="diagram-grid two"><div class="diagram-panel"><span class="diagram-badge warn">传统 JSP</span><h4>服务器负责拼页面</h4><p>HTML 与 Java 混在 JSP 中，后端生成完整 HTML 返回给浏览器。</p><div class="diagram-callout">特点：前后端耦合，页面与业务修改互相影响。</div></div><div class="diagram-panel"><span class="diagram-badge good">前后端分离</span><h4>后端提供 API，前端负责渲染</h4><p>前端通过 API 获取 JSON，后端专注业务与数据。</p><div class="diagram-callout">特点：职责清晰，可以独立开发、联调和部署。</div></div></div></div></div>
 <h4 id="易错点-2">易错点</h4>
 <ol type="1">
 <li>❌ 误认为"B/S = 前后端分离"。✅ B/S
@@ -458,14 +378,7 @@ K1-4：后端开发岗位与企业项目流程</h3>
 <li>参与代码评审、测试、部署与运维。</li>
 </ol>
 <p><strong>企业项目研发流程</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 8：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">需求分析 <span class="arrow-token">→</span> 概要设计(接口/数据库) <span class="arrow-token">→</span> 详细设计 <span class="arrow-token">→</span> 编码开发</span>
-<span class="diagram-line">       <span class="arrow-token">→</span> 前后端联调 <span class="arrow-token">→</span> 测试 <span class="arrow-token">→</span> 部署上线 <span class="arrow-token">→</span> 运维维护</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 8：企业项目从需求到上线的完整流程</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><span class="diagram-badge">1</span><h4>需求分析</h4><p>理解业务场景，明确用户要解决什么问题。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><span class="diagram-badge">2</span><h4>概要设计</h4><p>设计接口、数据库、模块边界与整体方案。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><span class="diagram-badge">3</span><h4>详细设计</h4><p>细化字段、流程、异常、权限和边界条件。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><span class="diagram-badge">4</span><h4>编码开发</h4><p>完成 Controller、Service、Mapper 等代码。</p></div></div><div class="diagram-flow"><div class="diagram-card"><span class="diagram-badge">5</span><h4>前后端联调</h4><p>按接口文档验证请求、响应和页面交互。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><span class="diagram-badge">6</span><h4>测试</h4><p>覆盖正常流程、异常流程、权限和数据一致性。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><span class="diagram-badge">7</span><h4>部署上线</h4><p>打包、配置环境、发布到服务器。</p></div><div class="flow-arrow">→</div><div class="diagram-card good"><span class="diagram-badge">8</span><h4>运维维护</h4><p>监控运行状态，修复问题并持续迭代。</p></div></div><div class="diagram-callout">真实项目不是“写完代码就结束”，设计、联调、测试、部署和维护都属于交付链路的一部分。</div></div></div>
 <table>
 <thead>
 <tr>
@@ -535,16 +448,7 @@ K1-4：后端开发岗位与企业项目流程</h3>
   - 与前端联调
   - 提交代码到 Git，发起代码评审</code></pre>
 <h4 id="图示-3">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 9：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">企业项目流程（后端视角）：</span>
-<span class="diagram-line">需求 <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 设计DB/接口 <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 编码 <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 自测 <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 联调 <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 测试 <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 部署 <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 维护</span>
-<span class="diagram-line">                          ▲                                        <span class="tree-token">│</span></span>
-<span class="diagram-line">                          <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> 修bug/加功能 ◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 9：企业项目流程（后端视角）</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>需求</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>设计 DB / 接口</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>编码与自测</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>联调测试</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>部署维护</h4></div></div><div class="diagram-callout">上线后会继续修 bug、加功能，并把反馈带回设计与开发流程。</div></div></div>
 <h4 id="易错点-3">易错点</h4>
 <ol type="1">
 <li>❌ 误认为"后端开发就是闷头写代码"。✅
@@ -564,18 +468,7 @@ JSP 历史背景（背景讲解）</h3>
 代码生成动态页面的技术。二者是早期 JavaWeb 开发的主流方式。</p>
 <h4 id="原理-4">原理</h4>
 <p>早期 JavaWeb 开发流程（了解即可，本课程不深入）：</p>
-<div class="visual">
-  <div class="visual-title">图示 10：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">浏览器 <span class="tree-token">─</span><span class="tree-token">─</span>请求<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> Tomcat(Web服务器) <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> Servlet(处理请求,写Java)</span>
-<span class="diagram-line">                                          <span class="tree-token">│</span></span>
-<span class="diagram-line">                                          ▼</span>
-<span class="diagram-line">                                   JSP(HTML+Java,拼页面)</span>
-<span class="diagram-line">                                          <span class="tree-token">│</span></span>
-<span class="diagram-line">浏览器 ◀<span class="tree-token">─</span><span class="tree-token">─</span>HTML页面<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span> Tomcat ◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 10：Servlet 与 JSP 的传统处理链路</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>浏览器</h4><p>发送请求</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>Tomcat</h4><p>Web 服务器接收请求</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>Servlet</h4><p>处理请求，编写 Java 逻辑</p></div><div class="flow-arrow">→</div><div class="diagram-card warn"><h4>JSP</h4><p>拼接 HTML 页面并返回</p></div></div><div class="diagram-callout">浏览器最终收到 HTML 页面，而不是现在常见的 JSON 数据。</div></div></div>
 <p><strong>为什么现代项目不再用 Servlet/JSP 作为主线？</strong></p>
 <table>
 <thead>
@@ -652,15 +545,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href=
 Spring Boot。</p>
 </blockquote>
 <h4 id="图示-4">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 11：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">技术演进：</span>
-<span class="diagram-line">Servlet(1997) <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> JSP <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> Struts/Spring MVC(XML) <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> Spring Boot(注解+自动配置)</span>
-<span class="diagram-line">  繁琐            混合       配置仍多                    简洁高效(本课程)</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 11：Java Web 技术演进</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card warn"><h4>Servlet</h4><p>底层规范，直接开发较繁琐。</p></div><div class="flow-arrow">→</div><div class="diagram-card warn"><h4>JSP</h4><p>HTML 与 Java 混合。</p></div><div class="flow-arrow">→</div><div class="diagram-card neutral"><h4>Struts / Spring MVC</h4><p>框架化，但 XML 配置较多。</p></div><div class="flow-arrow">→</div><div class="diagram-card good"><h4>Spring Boot</h4><p>注解 + 自动配置，本课程主线。</p></div></div></div></div>
 <h4 id="易错点-4">易错点</h4>
 <ol type="1">
 <li>❌ 误认为"Servlet 已被淘汰，完全不用了"。✅ Servlet
@@ -802,49 +687,9 @@ Maven + Git。</li>
 </ul>
 <h4 id="完整示例ctts-需求说明书简版">完整示例：CTTS
 需求说明书（简版）</h4>
-<div class="visual">
-  <div class="visual-title">图示 12：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">===================================================</span>
-<span class="diagram-line">        校园实训任务管理系统（CTTS）需求说明书（简版）</span>
-<span class="diagram-line">===================================================</span>
-<span class="diagram-line">一、系统目标</span>
-<span class="diagram-line">  实现高校实训任务的发布、提交、评审、统计的全流程线上管理。</span>
-<span class="diagram-line">二、用户角色</span>
-<span class="diagram-line">  1. 管理员：负责系统用户与基础数据维护</span>
-<span class="diagram-line">  2. 教师：负责实训项目与任务的管理、评审</span>
-<span class="diagram-line">  3. 学生：负责查看任务、提交成果、查看成绩</span>
-<span class="diagram-line">三、核心业务流程</span>
-<span class="diagram-line">  管理员创建用户 <span class="arrow-token">→</span> 教师创建实训项目 <span class="arrow-token">→</span> 教师发布任务</span>
-<span class="diagram-line">  <span class="arrow-token">→</span> 学生查看任务 <span class="arrow-token">→</span> 学生提交成果 <span class="arrow-token">→</span> 教师评审打分</span>
-<span class="diagram-line">  <span class="arrow-token">→</span> 学生查看反馈 <span class="arrow-token">→</span> 各角色查询统计</span>
-<span class="diagram-line">四、核心功能模块</span>
-<span class="diagram-line">  1. 用户管理：注册、登录、角色分配、用户增删改查</span>
-<span class="diagram-line">  2. 实训项目管理：项目增删改查、状态维护</span>
-<span class="diagram-line">  3. 任务管理：任务增删改查、截止时间管理</span>
-<span class="diagram-line">  4. 任务提交：学生提交、状态更新、重复提交控制</span>
-<span class="diagram-line">  5. 评审管理：教师评审、打分、评语</span>
-<span class="diagram-line">  6. 统计查询：按项目/学生/任务统计完成情况</span>
-<span class="diagram-line">五、技术要求</span>
-<span class="diagram-line">  前后端分离，后端提供 RESTful API，返回 JSON 数据。</span>
-<span class="diagram-line">  认证采用 JWT，接口文档采用 Knife4j。</span>
-<span class="diagram-line">===================================================</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 12：CTTS 需求说明书（简版）</div> <div class="edu-diagram"><div class="doc-sheet"><h4>校园实训任务管理系统（CTTS）需求说明书</h4><div class="doc-section"><b>一、系统目标</b><p>实现高校实训任务发布、提交、评审、统计的全流程线上管理。</p></div><div class="doc-section"><b>二、用户角色</b><p>管理员维护用户与基础数据；教师管理项目、任务与评审；学生查看任务、提交成果、查看成绩。</p></div><div class="doc-section"><b>三、核心业务流程</b><p>管理员创建用户 → 教师创建实训项目 → 教师发布任务 → 学生查看任务 → 学生提交成果 → 教师评审打分 → 学生查看反馈 → 各角色查询统计。</p></div><div class="doc-section"><b>四、核心功能模块</b><p>用户管理、实训项目管理、任务管理、任务提交、评审管理、统计查询。</p></div><div class="doc-section"><b>五、技术要求</b><p>前后端分离，后端提供 RESTful API，返回 JSON 数据；认证采用 JWT，接口文档采用 Knife4j。</p></div></div></div></div>
 <h4 id="图示-5">图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 13：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">CTTS 业务流程：</span>
-<span class="diagram-line">管理员 <span class="tree-token">─</span><span class="tree-token">─</span>创建用户<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 教师 <span class="tree-token">─</span><span class="tree-token">─</span>创建项目<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 教师 <span class="tree-token">─</span><span class="tree-token">─</span>发布任务<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 学生</span>
-<span class="diagram-line">                                                              <span class="tree-token">│</span></span>
-<span class="diagram-line">                         学生 ◀<span class="tree-token">─</span><span class="tree-token">─</span>查看反馈<span class="tree-token">─</span><span class="tree-token">─</span> 教师 ◀<span class="tree-token">─</span><span class="tree-token">─</span>评审<span class="tree-token">─</span><span class="tree-token">─</span> 学生 ◀<span class="tree-token">─</span><span class="tree-token">─</span>提交成果<span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">                                                              <span class="tree-token">│</span></span>
-<span class="diagram-line">                         各角色 <span class="tree-token">─</span><span class="tree-token">─</span>查询统计<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 系统</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 13：CTTS 业务流程</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>管理员</h4><p>创建用户</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>教师</h4><p>创建项目、发布任务</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>学生</h4><p>查看任务、提交成果</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>教师</h4><p>评审打分</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>各角色</h4><p>查看反馈与统计</p></div></div></div></div>
 <h4 id="易错点-5">易错点</h4>
 <ol type="1">
 <li>❌ 误认为"第一节课就要把项目做完"。✅ 项目分 8 个阶段、24
@@ -861,27 +706,10 @@ Maven + Git。</li>
 id="三综合示例从需求到接口的初步认识">三、综合示例：从需求到接口的初步认识</h2>
 <p>把前面所有知识点串起来，看一个 CTTS
 中"学生查看任务列表"的完整链路（本节只看流程，不写实现）：</p>
-<div class="visual">
-  <div class="visual-title">图示 14：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">1. 业务需求（来自CTTS需求说明书）</span>
-<span class="diagram-line">   &quot;学生登录后，能查看自己所属实训项目下的所有任务&quot;</span>
-<span class="diagram-line">2. 接口设计（后端工程师设计）</span>
-<span class="diagram-line">   GET /api/tasks?projectId=1</span>
-<span class="diagram-line">   返回：该项目的任务列表（JSON）</span>
-<span class="diagram-line">3. 后端实现（后续课程学习）</span>
-<span class="diagram-line">   Controller 接收请求 <span class="arrow-token">→</span> Service 查业务 <span class="arrow-token">→</span> Mapper 查数据库 <span class="arrow-token">→</span> 返回 JSON</span>
-<span class="diagram-line">4. 数据库（第18次课设计）</span>
-<span class="diagram-line">   task 表：id, project_id, title, deadline, ...</span>
-<span class="diagram-line">5. 返回示例（JSON）</span>
-<span class="diagram-line">   [</span>
-<span class="diagram-line">     {&quot;id&quot;: 1, &quot;title&quot;: &quot;任务1：搭建项目&quot;, &quot;deadline&quot;: &quot;2026-08-01&quot;},</span>
-<span class="diagram-line">     {&quot;id&quot;: 2, &quot;title&quot;: &quot;任务2：实现登录&quot;, &quot;deadline&quot;: &quot;2026-08-10&quot;}</span>
-<span class="diagram-line">   ]</span>
-<span class="diagram-line">6. 前端拿到 JSON 后渲染成列表页面（前端工作，本课程不涉及）</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 14：CTTS 从需求到交付的完整逻辑链</div> <div class="edu-diagram"><div class="diagram-grid three"><div class="diagram-card"><span class="diagram-badge">1 业务需求</span><h4>学生查看任务</h4><p>学生登录后，能查看自己所属实训项目下的所有任务。</p></div><div class="diagram-card"><span class="diagram-badge">2 接口设计</span><h4>GET /api/tasks?projectId=1</h4><p>返回该项目的任务列表，数据格式为 JSON。</p></div><div class="diagram-card"><span class="diagram-badge">3 后端实现</span><h4>Controller → Service → Mapper</h4><p>接收请求、查询业务、访问数据库并返回 JSON。</p></div><div class="diagram-card"><span class="diagram-badge">4 数据库</span><h4>task 表</h4><p>关键字段：id, project_id, title, deadline, ...</p></div><div class="diagram-card"><span class="diagram-badge">5 返回示例</span><pre class="diagram-code">[
+  {"id":1,"title":"任务1：搭建项目","deadline":"2026-08-01"},
+  {"id":2,"title":"任务2：实现登录","deadline":"2026-08-10"}
+]</pre></div><div class="diagram-card"><span class="diagram-badge">6 前端渲染</span><h4>JSON → 列表页面</h4><p>前端拿到 JSON 后渲染成学生可阅读的任务列表。</p></div></div></div></div>
 <blockquote>
 <p>这个链路体现了后端开发的完整职责：需求 → 接口设计 → 编码 → 数据 →
 返回。后续 23 次课就是在学如何实现这条链路的每一步。</p>
@@ -902,29 +730,20 @@ Swagger 增强）、Sa-Token（国产认证框架）——体现自主可控技�
 <h2 id="五本节小结与知识结构图">五、本节小结与知识结构图</h2>
 <h3 id="知识结构图思维导图">知识结构图（思维导图）</h3>
 <div class="visual">
-  <div class="visual-title">图示 15：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">Web后端开发认知</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 什么是后端开发</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 核心职责：接收请求<span class="arrow-token">→</span>处理业务<span class="arrow-token">→</span>访问数据<span class="arrow-token">→</span>返回结果</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 运行在服务器端</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 架构模式</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> B/S（浏览器/服务器）← 本课程采用</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> C/S（客户端/服务器）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 开发模式</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 传统JSP（未分离，HTML+Java混合）← 已淘汰</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 前后端分离（API+JSON）← 本课程采用</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 岗位与流程</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Java后端工程师职责</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 需求<span class="arrow-token">→</span>设计<span class="arrow-token">→</span>编码<span class="arrow-token">→</span>联调<span class="arrow-token">→</span>测试<span class="arrow-token">→</span>部署<span class="arrow-token">→</span>维护</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 技术演进</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> Servlet/JSP <span class="arrow-token">→</span> Spring MVC <span class="arrow-token">→</span> Spring Boot</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 课程项目CTTS</span>
-<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 三角色：学生/教师/管理员</span>
-<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 五张表：user/project/task/submission/review</span>
-<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 八阶段逐步构建</span>
+  <div class="visual-title">图示 15：Web后端开发认知</div>
+  <div class="edu-diagram knowledge-map">
+    <div class="mindmap-grid">
+      <div class="mind-root">Web 后端开发认知</div>
+      <div class="mind-branch-grid">
+        <div class="diagram-card"><strong>后端本质</strong><h4>运行在服务器端</h4><p>围绕“接收请求、处理业务、访问数据、返回结果”完成一次完整服务。</p></div>
+        <div class="diagram-card"><strong>架构模式</strong><h4>B/S 是课程主线</h4><ul><li>B/S：浏览器访问服务器，本课程采用。</li><li>C/S：专用客户端访问服务器，理解即可。</li></ul></div>
+        <div class="diagram-card"><strong>开发模式</strong><h4>从 JSP 到前后端分离</h4><ul><li>传统 JSP：HTML 与 Java 混合，维护成本高。</li><li>前后端分离：后端提供 API，前端消费 JSON。</li></ul></div>
+        <div class="diagram-card"><strong>岗位流程</strong><h4>Java 后端工程师职责</h4><p>需求 → 设计 → 编码 → 联调 → 测试 → 部署 → 维护，贯穿项目交付全过程。</p></div>
+        <div class="diagram-card"><strong>技术演进</strong><h4>Servlet/JSP → Spring MVC → Spring Boot</h4><p>框架不断把重复配置和底层细节收拢，让开发者更聚焦业务接口。</p></div>
+        <div class="diagram-card good"><strong>课程项目 CTTS</strong><h4>用项目串起能力</h4><ul><li>三角色：学生 / 教师 / 管理员。</li><li>五张表：user / project / task / submission / review。</li><li>八阶段逐步构建。</li></ul></div>
+      </div>
+    </div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h3 id="一句话总结">一句话总结</h3>
 <blockquote>

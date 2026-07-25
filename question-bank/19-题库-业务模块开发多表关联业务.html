@@ -144,542 +144,321 @@
 </blockquote>
 <hr />
 <h2 id="一单项选择题30题">一、单项选择题（30题）</h2>
-<h3 id="19-单选-01k19-1">19-单选-01（★，K19-1）</h3>
-<p>在 SQL 多表关联查询中，INNER JOIN 的特点是？ A.
-返回左表所有行，右表不匹配填 NULL B. 返回两表中满足连接条件的行（交集）
-C. 返回右表所有行，左表不匹配填 NULL D. 返回两表的笛卡尔积</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：INNER
+<section class="question-card" id="19-单选-01k19-1"><p><strong>19-单选-01（★，K19-1）</strong></p><p>在 SQL 多表关联查询中，INNER JOIN 的特点是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">返回左表所有行，右表不匹配填 NULL</div></li><li><span class="option-label">B</span><div class="option-content">返回两表中满足连接条件的行（交集）</div></li><li><span class="option-label">C</span><div class="option-content">返回右表所有行，左表不匹配填 NULL</div></li><li><span class="option-label">D</span><div class="option-content">返回两表的笛卡尔积</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：INNER
 JOIN（内连接）只返回两表中满足 ON 连接条件的行，不匹配的行被丢弃。A 是
-LEFT JOIN，C 是 RIGHT JOIN，D 是 CROSS JOIN。</p>
+LEFT JOIN，C 是 RIGHT JOIN，D 是 CROSS JOIN。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-02k19-1">19-单选-02（★，K19-1）</h3>
-<p>查询"某项目下所有任务及提交情况"时，希望"零提交的任务"也出现在结果中，应使用哪种
-JOIN？ A. INNER JOIN B. LEFT JOIN C. RIGHT JOIN D. CROSS JOIN</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：LEFT JOIN
+<section class="question-card" id="19-单选-02k19-1"><p><strong>19-单选-02（★，K19-1）</strong></p><p>查询"某项目下所有任务及提交情况"时，希望"零提交的任务"也出现在结果中，应使用哪种 JOIN？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">INNER JOIN</div></li><li><span class="option-label">B</span><div class="option-content">LEFT JOIN</div></li><li><span class="option-label">C</span><div class="option-content">RIGHT JOIN</div></li><li><span class="option-label">D</span><div class="option-content">CROSS JOIN</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：LEFT JOIN
 保留左表（task）所有行，右表（task_submission）不匹配时填
-NULL，保证零提交任务不丢失。INNER JOIN 会丢失零提交任务。</p>
+NULL，保证零提交任务不丢失。INNER JOIN 会丢失零提交任务。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-03k19-1">19-单选-03（★★，K19-1）</h3>
-<p>执行
-<code>SELECT t.id, ts.id FROM task t LEFT JOIN task_submission ts ON t.id = ts.task_id</code>
-时报错 "Column 'id' is ambiguous"，原因是？ A. 表别名写错 B. SELECT 中
-<code>id</code> 未指定表别名前缀，数据库不知取哪张表的 id C. ON 条件写错
-D. LEFT JOIN 应改为 INNER JOIN</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：task 和
+<section class="question-card" id="19-单选-03k19-1"><p><strong>19-单选-03（★★，K19-1）</strong></p><p>执行 <code>SELECT t.id, ts.id FROM task t LEFT JOIN task_submission ts ON t.id = ts.task_id</code> 时报错 "Column 'id' is ambiguous"，原因是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">表别名写错</div></li><li><span class="option-label">B</span><div class="option-content">SELECT 中 <code>id</code> 未指定表别名前缀，数据库不知取哪张表的 id</div></li><li><span class="option-label">C</span><div class="option-content">ON 条件写错</div></li><li><span class="option-label">D</span><div class="option-content">LEFT JOIN 应改为 INNER JOIN</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：task 和
 task_submission 都有 id 列，直接写 <code>id</code>
-会列名歧义。正确写法是 <code>t.id, ts.id</code>，加表别名前缀。</p>
+会列名歧义。正确写法是 <code>t.id, ts.id</code>，加表别名前缀。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-04k19-1">19-单选-04（★，K19-1）</h3>
-<p>多表 JOIN 时，连接条件应写在哪个子句中？ A. WHERE B. ON C. GROUP BY
-D. HAVING</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：JOIN 的连接条件写在
+<section class="question-card" id="19-单选-04k19-1"><p><strong>19-单选-04（★，K19-1）</strong></p><p>多表 JOIN 时，连接条件应写在哪个子句中？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">WHERE</div></li><li><span class="option-label">B</span><div class="option-content">ON</div></li><li><span class="option-label">C</span><div class="option-content">GROUP BY</div></li><li><span class="option-label">D</span><div class="option-content">HAVING</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：JOIN 的连接条件写在
 ON 子句中。WHERE 用于结果集过滤。虽然旧式 SQL 可用 WHERE
-写连接条件（隐式连接），但标准写法是 ON。</p>
+写连接条件（隐式连接），但标准写法是 ON。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-05k19-1">19-单选-05（★★，K19-1）</h3>
-<p>关于 LEFT JOIN 中过滤右表字段的条件，下列说法正确的是？ A. 写在 WHERE
-中和写在 ON 中效果完全相同 B. 写在 WHERE
-中会使"左表无匹配的行"也被过滤掉，LEFT JOIN 等效于 INNER JOIN C. 写在 ON
-中会影响左表所有行的返回 D. 必须写在 GROUP BY 中</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：右表过滤条件写在
+<section class="question-card" id="19-单选-05k19-1"><p><strong>19-单选-05（★★，K19-1）</strong></p><p>关于 LEFT JOIN 中过滤右表字段的条件，下列说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">写在 WHERE 中和写在 ON 中效果完全相同</div></li><li><span class="option-label">B</span><div class="option-content">写在 WHERE 中会使"左表无匹配的行"也被过滤掉，LEFT JOIN 等效于 INNER JOIN</div></li><li><span class="option-label">C</span><div class="option-content">写在 ON 中会影响左表所有行的返回</div></li><li><span class="option-label">D</span><div class="option-content">必须写在 GROUP BY 中</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：右表过滤条件写在
 WHERE 中时，"零提交任务"的右表字段为 NULL，不满足 WHERE
 条件会被过滤，LEFT JOIN 退化成 INNER
-JOIN。要保留左表全部，右表过滤应写在 ON 中。</p>
+JOIN。要保留左表全部，右表过滤应写在 ON 中。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-06k19-1">19-单选-06（★，K19-1）</h3>
-<p>表别名的作用是？ A. 给列重命名 B. 简化表名书写并消除列名歧义 C.
-改变表的真实名称 D. 提高查询速度</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：表别名用
+<section class="question-card" id="19-单选-06k19-1"><p><strong>19-单选-06（★，K19-1）</strong></p><p>表别名的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">给列重命名</div></li><li><span class="option-label">B</span><div class="option-content">简化表名书写并消除列名歧义</div></li><li><span class="option-label">C</span><div class="option-content">改变表的真实名称</div></li><li><span class="option-label">D</span><div class="option-content">提高查询速度</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：表别名用
 <code>AS</code> 或空格定义，如 <code>task t</code>，简化 SQL 书写并通过
-<code>t.id</code> 形式消除多表同名列歧义。不会改变表真实名称。</p>
+<code>t.id</code> 形式消除多表同名列歧义。不会改变表真实名称。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-07k19-1">19-单选-07（★★，K19-1）</h3>
-<p>三表关联查询
-<code>task t LEFT JOIN task_submission ts LEFT JOIN sys_user u</code>，下列
-ON 条件正确的是？ A.
-<code>ON t.id = ts.task_id AND ts.user_id = u.id</code> B.
-<code>ON t.id = ts.task_id</code> 紧跟第一个
-JOIN，<code>ON ts.user_id = u.id</code> 紧跟第二个 JOIN C. 所有 ON
-条件都写在最后一个 JOIN 后 D. 三表关联不需要 ON 条件</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：每个 JOIN
+<section class="question-card" id="19-单选-07k19-1"><p><strong>19-单选-07（★★，K19-1）</strong></p><p>三表关联查询 <code>task t LEFT JOIN task_submission ts LEFT JOIN sys_user u</code>，下列 ON 条件正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>ON t.id = ts.task_id AND ts.user_id = u.id</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>ON t.id = ts.task_id</code> 紧跟第一个 JOIN，<code>ON ts.user_id = u.id</code> 紧跟第二个 JOIN</div></li><li><span class="option-label">C</span><div class="option-content">所有 ON 条件都写在最后一个 JOIN 后</div></li><li><span class="option-label">D</span><div class="option-content">三表关联不需要 ON 条件</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：每个 JOIN
 后紧跟自己的 ON 条件，写法清晰。A 把两个 ON
-合并写法不规范且某些数据库不支持。C、D 错误。</p>
+合并写法不规范且某些数据库不支持。C、D 错误。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-08k19-2">19-单选-08（★，K19-2）</h3>
-<p>MyBatis ResultMap 中，<code>association</code> 标签用于映射哪种关系？
-A. 一对多 B. 一对一 / 多对一 C. 多对多 D. 自关联</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="19-单选-08k19-2"><p><strong>19-单选-08（★，K19-2）</strong></p><p>MyBatis ResultMap 中，<code>association</code> 标签用于映射哪种关系？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">一对多</div></li><li><span class="option-label">B</span><div class="option-content">一对一 / 多对一</div></li><li><span class="option-label">C</span><div class="option-content">多对多</div></li><li><span class="option-label">D</span><div class="option-content">自关联</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>association</code> 映射 Java
 中单个对象的关系，对应一对一或多对一（如提交→提交人）。一对多用
-<code>collection</code>。</p>
+<code>collection</code>。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-09k19-2">19-单选-09（★，K19-2）</h3>
-<p>MyBatis ResultMap 中，<code>collection</code> 标签用于映射哪种关系？
-A. 一对一 B. 一对多 C. 多对一 D. 一对一或多对一</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="19-单选-09k19-2"><p><strong>19-单选-09（★，K19-2）</strong></p><p>MyBatis ResultMap 中，<code>collection</code> 标签用于映射哪种关系？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">一对一</div></li><li><span class="option-label">B</span><div class="option-content">一对多</div></li><li><span class="option-label">C</span><div class="option-content">多对一</div></li><li><span class="option-label">D</span><div class="option-content">一对一或多对一</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>collection</code> 映射 Java 中 List
 集合的关系，对应一对多（如任务→提交列表）。一对一用
-<code>association</code>。</p>
+<code>association</code>。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-10k19-2">19-单选-10（★★，K19-2）</h3>
-<p>ResultMap 中 <code>collection</code> 标签指定集合元素类型用哪个属性？
-A. javaType B. ofType C. type D. property</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="19-单选-10k19-2"><p><strong>19-单选-10（★★，K19-2）</strong></p><p>ResultMap 中 <code>collection</code> 标签指定集合元素类型用哪个属性？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">javaType</div></li><li><span class="option-label">B</span><div class="option-content">ofType</div></li><li><span class="option-label">C</span><div class="option-content">type</div></li><li><span class="option-label">D</span><div class="option-content">property</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>collection</code> 用 <code>ofType</code>
 指定集合元素类型，如
 <code>&lt;collection property="submissions" ofType="com.ctts.vo.SubmissionDetailVO"&gt;</code>。<code>javaType</code>
-用于 <code>association</code>。</p>
+用于 <code>association</code>。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-11k19-2">19-单选-11（★★，K19-2）</h3>
-<p>ResultMap 中 <code>association</code>
-标签指定关联对象类型用哪个属性？ A. ofType B. javaType C. type D.
-column</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="19-单选-11k19-2"><p><strong>19-单选-11（★★，K19-2）</strong></p><p>ResultMap 中 <code>association</code> 标签指定关联对象类型用哪个属性？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">ofType</div></li><li><span class="option-label">B</span><div class="option-content">javaType</div></li><li><span class="option-label">C</span><div class="option-content">type</div></li><li><span class="option-label">D</span><div class="option-content">column</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>association</code> 用 <code>javaType</code>
 指定关联对象类型，如
-<code>&lt;association property="user" javaType="com.ctts.vo.UserSimpleVO"&gt;</code>。</p>
+<code>&lt;association property="user" javaType="com.ctts.vo.UserSimpleVO"&gt;</code>。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-12k19-2">19-单选-12（★★★，K19-2）</h3>
-<p>MyBatis ResultMap 嵌套映射中，<code>&lt;id&gt;</code> 标签的作用是？
-A. 标记主键列，作为对象分组的依据 B. 标记非主键列 C. 标记外键列 D.
-标记自增列</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="19-单选-12k19-2"><p><strong>19-单选-12（★★★，K19-2）</strong></p><p>MyBatis ResultMap 嵌套映射中，<code>&lt;id&gt;</code> 标签的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">标记主键列，作为对象分组的依据</div></li><li><span class="option-label">B</span><div class="option-content">标记非主键列</div></li><li><span class="option-label">C</span><div class="option-content">标记外键列</div></li><li><span class="option-label">D</span><div class="option-content">标记自增列</div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>&lt;id&gt;</code> 标记的列是 MyBatis
 分组对象的依据。一对多映射中，相同 <code>&lt;id&gt;</code>
 列值的行会合并成一个对象。漏标 <code>&lt;id&gt;</code>
-会导致每行一个对象，一对多失效。</p>
+会导致每行一个对象，一对多失效。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-13k19-2">19-单选-13（★★★，K19-2）</h3>
-<p>一对多 ResultMap 映射后，发现集合中只有一个元素，最可能的原因是？ A.
-SQL 写错 B. <code>&lt;id&gt;</code> 列漏标或标错，MyBatis 未正确分组 C.
-ofType 写错 D. 数据库只有一条数据</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="19-单选-13k19-2"><p><strong>19-单选-13（★★★，K19-2）</strong></p><p>一对多 ResultMap 映射后，发现集合中只有一个元素，最可能的原因是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">SQL 写错</div></li><li><span class="option-label">B</span><div class="option-content"><code>&lt;id&gt;</code> 列漏标或标错，MyBatis 未正确分组</div></li><li><span class="option-label">C</span><div class="option-content">ofType 写错</div></li><li><span class="option-label">D</span><div class="option-content">数据库只有一条数据</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>&lt;id&gt;</code>
 是分组依据，漏标会导致每行都被当成新对象，一对多关系丢失，集合中每行只对应一个元素。应确保主表主键标
-<code>&lt;id&gt;</code>。</p>
+<code>&lt;id&gt;</code>。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-14k19-2">19-单选-14（★★，K19-2）</h3>
-<p>ResultMap 中 <code>column</code> 属性的含义是？ A. Java 字段名 B. SQL
-结果集列名（或别名） C. 表名 D. 数据库类型</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>column</code>
+<section class="question-card" id="19-单选-14k19-2"><p><strong>19-单选-14（★★，K19-2）</strong></p><p>ResultMap 中 <code>column</code> 属性的含义是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Java 字段名</div></li><li><span class="option-label">B</span><div class="option-content">SQL 结果集列名（或别名）</div></li><li><span class="option-label">C</span><div class="option-content">表名</div></li><li><span class="option-label">D</span><div class="option-content">数据库类型</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>column</code>
 指 SQL 结果集的列名或别名，<code>property</code> 指 Java
 字段名。两者对应完成映射。如 <code>column="task_id"</code> 对应 SQL 中
-<code>AS task_id</code>。</p>
+<code>AS task_id</code>。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-15k19-2">19-单选-15（★★，K19-2）</h3>
-<p>ResultMap 中 <code>property</code> 属性的含义是？ A. SQL 列名 B. Java
-对象的字段名 C. 表名 D. 数据库类型</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>property</code>
+<section class="question-card" id="19-单选-15k19-2"><p><strong>19-单选-15（★★，K19-2）</strong></p><p>ResultMap 中 <code>property</code> 属性的含义是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">SQL 列名</div></li><li><span class="option-label">B</span><div class="option-content">Java 对象的字段名</div></li><li><span class="option-label">C</span><div class="option-content">表名</div></li><li><span class="option-label">D</span><div class="option-content">数据库类型</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>property</code>
 是 Java 对象的字段名，与 <code>column</code>（SQL
-列名）对应，完成"列→字段"映射。</p>
+列名）对应，完成"列→字段"映射。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-16k19-2">19-单选-16（★★，K19-2）</h3>
-<p>关于 MyBatis 嵌套结果与嵌套 select，下列说法正确的是？ A. 嵌套 select
-性能更好 B. 嵌套结果（一次 JOIN 查询）性能更好，且不会产生 N+1 问题 C.
-两者性能完全相同 D. 嵌套 select 不会产生 N+1 问题</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：嵌套结果是一次 JOIN
+<section class="question-card" id="19-单选-16k19-2"><p><strong>19-单选-16（★★，K19-2）</strong></p><p>关于 MyBatis 嵌套结果与嵌套 select，下列说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">嵌套 select 性能更好</div></li><li><span class="option-label">B</span><div class="option-content">嵌套结果（一次 JOIN 查询）性能更好，且不会产生 N+1 问题</div></li><li><span class="option-label">C</span><div class="option-content">两者性能完全相同</div></li><li><span class="option-label">D</span><div class="option-content">嵌套 select 不会产生 N+1 问题</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：嵌套结果是一次 JOIN
 查询后映射，SQL 只执行 1 次。嵌套 select 是对每条主记录触发额外
-SQL，会产生 N+1 问题。优先用嵌套结果。</p>
+SQL，会产生 N+1 问题。优先用嵌套结果。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-17k19-3">19-单选-17（★，K19-3）</h3>
-<p>关于 VO 对象的设计原则，下列说法错误的是？ A. 按接口设计，不按表设计
-B. 不复用实体类 C. 包含所有数据库字段 D. 不包含密码等敏感字段</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：VO
+<section class="question-card" id="19-单选-17k19-3"><p><strong>19-单选-17（★，K19-3）</strong></p><p>关于 VO 对象的设计原则，下列说法错误的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">按接口设计，不按表设计</div></li><li><span class="option-label">B</span><div class="option-content">不复用实体类</div></li><li><span class="option-label">C</span><div class="option-content">包含所有数据库字段</div></li><li><span class="option-label">D</span><div class="option-content">不包含密码等敏感字段</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：VO
 按接口需要设计字段，不应包含所有数据库字段（尤其敏感字段如密码）。VO
-与实体分离，按需定义。</p>
+与实体分离，按需定义。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-18k19-3">19-单选-18（★★，K19-3）</h3>
-<p>在分层架构中，VO 主要用于？ A. 接收前端请求参数 B. 返回前端展示数据
-C. Service 层内部传递 D. 对应数据库表</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：VO（View
+<section class="question-card" id="19-单选-18k19-3"><p><strong>19-单选-18（★★，K19-3）</strong></p><p>在分层架构中，VO 主要用于？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">接收前端请求参数</div></li><li><span class="option-label">B</span><div class="option-content">返回前端展示数据</div></li><li><span class="option-label">C</span><div class="option-content">Service 层内部传递</div></li><li><span class="option-label">D</span><div class="option-content">对应数据库表</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：VO（View
 Object）视图对象，用于返回前端展示。DTO 用于接收请求参数，BO 用于
-Service 内部传递，PO 对应数据库表。</p>
+Service 内部传递，PO 对应数据库表。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-19k19-3">19-单选-19（★★，K19-3）</h3>
-<p>Service 层组装多表数据的两种方式中，"Mapper 一次 JOIN 查询直接返回
-VO"的优点是？ A. 代码量最多 B. 性能最优（一次 SQL） C. 灵活性最高 D.
-不需要 ResultMap 配置</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：一次 JOIN 查询 SQL
+<section class="question-card" id="19-单选-19k19-3"><p><strong>19-单选-19（★★，K19-3）</strong></p><p>Service 层组装多表数据的两种方式中，"Mapper 一次 JOIN 查询直接返回 VO"的优点是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">代码量最多</div></li><li><span class="option-label">B</span><div class="option-content">性能最优（一次 SQL）</div></li><li><span class="option-label">C</span><div class="option-content">灵活性最高</div></li><li><span class="option-label">D</span><div class="option-content">不需要 ResultMap 配置</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：一次 JOIN 查询 SQL
 只执行 1 次，性能最优。缺点是 ResultMap 配置复杂。需要 ResultMap
-配置。</p>
+配置。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-20k19-3">19-单选-20（★★★，K19-3）</h3>
-<p>关于
-<code>BeanUtils.copyProperties(source, target)</code>，下列说法正确的是？
-A. 可以复制字段名不同的属性 B. 只能复制字段名相同的属性 C.
-会自动转换所有类型 D. 会复制 source 的所有字段到 target，无视字段名</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="19-单选-20k19-3"><p><strong>19-单选-20（★★★，K19-3）</strong></p><p>关于 <code>BeanUtils.copyProperties(source, target)</code>，下列说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">可以复制字段名不同的属性</div></li><li><span class="option-label">B</span><div class="option-content">只能复制字段名相同的属性</div></li><li><span class="option-label">C</span><div class="option-content">会自动转换所有类型</div></li><li><span class="option-label">D</span><div class="option-content">会复制 source 的所有字段到 target，无视字段名</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>BeanUtils.copyProperties</code>
 按"同名字段"复制，字段名不同不会复制（如 source.title 不会复制到
-target.taskTitle）。类型需兼容。</p>
+target.taskTitle）。类型需兼容。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-21k19-4">19-单选-21（★，K19-4）</h3>
-<p>N+1 查询问题是指？ A. 一次查询获取 N 条记录 B. 1 次主查询获取 N
-条主记录，再对每条主记录执行 1 次子查询，共 N+1 次 SQL C. N 张表关联查询
-D. 1 条 SQL 查询 N+1 个字段</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：N+1 问题：1 次主查询
-+ N 次循环子查询 = N+1 次 SQL。是 ORM 常见性能陷阱。</p>
+<section class="question-card" id="19-单选-21k19-4"><p><strong>19-单选-21（★，K19-4）</strong></p><p>N+1 查询问题是指？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">一次查询获取 N 条记录</div></li><li><span class="option-label">B</span><div class="option-content">1 次主查询获取 N 条主记录，再对每条主记录执行 1 次子查询，共 N+1 次 SQL</div></li><li><span class="option-label">C</span><div class="option-content">N 张表关联查询</div></li><li><span class="option-label">D</span><div class="option-content">1 条 SQL 查询 N+1 个字段</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：N+1 问题：1 次主查询
++ N 次循环子查询 = N+1 次 SQL。是 ORM 常见性能陷阱。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-22k19-4">19-单选-22（★★，K19-4）</h3>
-<p>下列代码哪种写法是 N+1 问题的典型特征？ A. Mapper 中写 JOIN SQL B.
-Service 中 for 循环内调用 Mapper C. Controller 直接返回 VO D. 使用
-ResultMap 嵌套映射</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：循环内调用 Mapper 是
+<section class="question-card" id="19-单选-22k19-4"><p><strong>19-单选-22（★★，K19-4）</strong></p><p>下列代码哪种写法是 N+1 问题的典型特征？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Mapper 中写 JOIN SQL</div></li><li><span class="option-label">B</span><div class="option-content">Service 中 for 循环内调用 Mapper</div></li><li><span class="option-label">C</span><div class="option-content">Controller 直接返回 VO</div></li><li><span class="option-label">D</span><div class="option-content">使用 ResultMap 嵌套映射</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：循环内调用 Mapper 是
 N+1 的典型特征——每次循环触发一次 SQL。识别口诀："Mapper 调用出现在 for
-循环里，警惕 N+1"。</p>
+循环里，警惕 N+1"。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-23k19-4">19-单选-23（★★，K19-4）</h3>
-<p>下列哪种方式不能解决 N+1 问题？ A. 使用 JOIN 一次查询 + ResultMap
-嵌套映射 B. 使用批量查询（<code>&lt;foreach&gt;</code> IN 查询） C.
-继续使用循环内单表查询 D. 使用 MyBatis 延迟加载并按需访问</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：A、B
+<section class="question-card" id="19-单选-23k19-4"><p><strong>19-单选-23（★★，K19-4）</strong></p><p>下列哪种方式不能解决 N+1 问题？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">使用 JOIN 一次查询 + ResultMap 嵌套映射</div></li><li><span class="option-label">B</span><div class="option-content">使用批量查询（<code>&lt;foreach&gt;</code> IN 查询）</div></li><li><span class="option-label">C</span><div class="option-content">继续使用循环内单表查询</div></li><li><span class="option-label">D</span><div class="option-content">使用 MyBatis 延迟加载并按需访问</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：A、B
 是常用解决方案。D 延迟加载按需访问可减少不必要查询（但仍可能 N+1）。C
-继续循环查询就是 N+1 本身，不能解决。</p>
+继续循环查询就是 N+1 本身，不能解决。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-24k19-4">19-单选-24（★★，K19-4）</h3>
-<p>N+1 问题中，若主查询返回 100 条记录，每条记录再查 1
-次子查询，总共执行多少次 SQL？ A. 1 B. 100 C. 101 D. 200</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：1 次主查询 + 100
-次子查询 = 101 次 SQL。N=100，N+1=101。</p>
+<section class="question-card" id="19-单选-24k19-4"><p><strong>19-单选-24（★★，K19-4）</strong></p><p>N+1 问题中，若主查询返回 100 条记录，每条记录再查 1 次子查询，总共执行多少次 SQL？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">1</div></li><li><span class="option-label">B</span><div class="option-content">100</div></li><li><span class="option-label">C</span><div class="option-content">101</div></li><li><span class="option-label">D</span><div class="option-content">200</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：1 次主查询 + 100
+次子查询 = 101 次 SQL。N=100，N+1=101。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-25k19-4">19-单选-25（★★★，K19-4）</h3>
-<p>MyBatis 中 <code>&lt;collection select="..."&gt;</code> 嵌套 select
-写法，下列说法正确的是？ A. 一次 JOIN 查询完成映射，无 N+1 B.
-对每条主记录触发一次子查询，会产生 N+1 问题 C. 性能优于嵌套结果 D.
-不需要配置 ResultMap</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="19-单选-25k19-4"><p><strong>19-单选-25（★★★，K19-4）</strong></p><p>MyBatis 中 <code>&lt;collection select="..."&gt;</code> 嵌套 select 写法，下列说法正确的是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">一次 JOIN 查询完成映射，无 N+1</div></li><li><span class="option-label">B</span><div class="option-content">对每条主记录触发一次子查询，会产生 N+1 问题</div></li><li><span class="option-label">C</span><div class="option-content">性能优于嵌套结果</div></li><li><span class="option-label">D</span><div class="option-content">不需要配置 ResultMap</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>&lt;collection select="..."&gt;</code>
 是嵌套 select，对每条主记录触发一次 select 指定的 SQL，产生
 N+1。应改用嵌套结果 <code>&lt;collection resultMap="..."&gt;</code>
-或内联配置。</p>
+或内联配置。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-26k19-5">19-单选-26（★，K19-5）</h3>
-<p>在 Controller-Service-Mapper 分层中，多表关联查询的 SQL 应写在？ A.
-Controller B. Service C. Mapper（XML 或注解） D. VO</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：SQL
+<section class="question-card" id="19-单选-26k19-5"><p><strong>19-单选-26（★，K19-5）</strong></p><p>在 Controller-Service-Mapper 分层中，多表关联查询的 SQL 应写在？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Controller</div></li><li><span class="option-label">B</span><div class="option-content">Service</div></li><li><span class="option-label">C</span><div class="option-content">Mapper（XML 或注解）</div></li><li><span class="option-label">D</span><div class="option-content">VO</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：SQL
 属于数据访问层职责，写在 Mapper 的 XML 或注解中。Service 负责调用 Mapper
-并组装业务，Controller 负责接收请求和返回结果。</p>
+并组装业务，Controller 负责接收请求和返回结果。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-27k19-5">19-单选-27（★，K19-5）</h3>
-<p>Controller 层应该调用？ A. Mapper B. Service C. VO D. Entity</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：严格分层中 Controller
-只调 Service，不直接调 Mapper。Service 编排业务，Mapper 只管数据。</p>
+<section class="question-card" id="19-单选-27k19-5"><p><strong>19-单选-27（★，K19-5）</strong></p><p>Controller 层应该调用？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Mapper</div></li><li><span class="option-label">B</span><div class="option-content">Service</div></li><li><span class="option-label">C</span><div class="option-content">VO</div></li><li><span class="option-label">D</span><div class="option-content">Entity</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：严格分层中 Controller
+只调 Service，不直接调 Mapper。Service 编排业务，Mapper 只管数据。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-28k19-5">19-单选-28（★★，K19-5）</h3>
-<p><code>@PathVariable</code> 注解的作用是？ A. 接收查询参数 B.
-接收请求体参数 C. 接收 URL 路径中的变量 D. 接收请求头参数</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="19-单选-28k19-5"><p><strong>19-单选-28（★★，K19-5）</strong></p><p><code>@PathVariable</code> 注解的作用是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">接收查询参数</div></li><li><span class="option-label">B</span><div class="option-content">接收请求体参数</div></li><li><span class="option-label">C</span><div class="option-content">接收 URL 路径中的变量</div></li><li><span class="option-label">D</span><div class="option-content">接收请求头参数</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>@PathVariable</code> 接收 URL 路径变量，如
 <code>/project/{projectId}</code> 中的
 <code>projectId</code>。<code>@RequestParam</code>
-接收查询参数，<code>@RequestBody</code> 接收请求体。</p>
+接收查询参数，<code>@RequestBody</code> 接收请求体。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-29k19-5">19-单选-29（★★，K19-5）</h3>
-<p>Spring Boot 中统一返回结构 <code>Result&lt;T&gt;</code>
-的设计，<code>T</code> 代表？ A. 返回的数据类型（泛型） B. 错误码 C.
-消息内容 D. 请求类型</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="19-单选-29k19-5"><p><strong>19-单选-29（★★，K19-5）</strong></p><p>Spring Boot 中统一返回结构 <code>Result&lt;T&gt;</code> 的设计，<code>T</code> 代表？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">返回的数据类型（泛型）</div></li><li><span class="option-label">B</span><div class="option-content">错误码</div></li><li><span class="option-label">C</span><div class="option-content">消息内容</div></li><li><span class="option-label">D</span><div class="option-content">请求类型</div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>Result&lt;T&gt;</code>
 是泛型类，<code>T</code> 代表返回数据的类型，如
 <code>Result&lt;ProjectTaskVO&gt;</code>、<code>Result&lt;List&lt;TaskWithSubmissionVO&gt;&gt;</code>。code、message
-是固定字段。</p>
+是固定字段。</p></blockquote></section>
 <hr />
-<h3 id="19-单选-30k19-5">19-单选-30（★★★，K19-5）</h3>
-<p>接口 <code>/api/tasks/project/{projectId}</code> 返回的 JSON
-中，零提交任务的 <code>submissions</code> 字段应该是？ A. null B. 空数组
-<code>[]</code> C. 报错 D. 不出现该字段</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：LEFT JOIN
+<section class="question-card" id="19-单选-30k19-5"><p><strong>19-单选-30（★★★，K19-5）</strong></p><p>接口 <code>/api/tasks/project/{projectId}</code> 返回的 JSON 中，零提交任务的 <code>submissions</code> 字段应该是？</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">null</div></li><li><span class="option-label">B</span><div class="option-content">空数组 <code>[]</code></div></li><li><span class="option-label">C</span><div class="option-content">报错</div></li><li><span class="option-label">D</span><div class="option-content">不出现该字段</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：LEFT JOIN
 保证零提交任务出现，ResultMap 的 <code>collection</code>
 会将其映射为空集合（MyBatis 默认 new ArrayList）。返回 <code>[]</code>
-符合前端处理预期（避免 null 判断）。</p>
+符合前端处理预期（避免 null 判断）。</p></blockquote></section>
 <hr />
 <h2 id="二多项选择题10题">二、多项选择题（10题）</h2>
-<h3 id="19-多选-01k19-1">19-多选-01（★★，K19-1）</h3>
-<p>下列关于 LEFT JOIN 的说法，正确的有？（多选） A. 返回左表所有行 B.
-右表不匹配的行填 NULL C. 适合"主记录必须出现，子记录可有可无"的场景 D.
-零提交的任务会从结果中消失</p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：LEFT JOIN
+<section class="question-card" id="19-多选-01k19-1"><p><strong>19-多选-01（★★，K19-1）</strong></p><p>下列关于 LEFT JOIN 的说法，正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">返回左表所有行</div></li><li><span class="option-label">B</span><div class="option-content">右表不匹配的行填 NULL</div></li><li><span class="option-label">C</span><div class="option-content">适合"主记录必须出现，子记录可有可无"的场景</div></li><li><span class="option-label">D</span><div class="option-content">零提交的任务会从结果中消失</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：LEFT JOIN
 保留左表全部，右表不匹配填 NULL，适合"主记录必现"场景。D
-错误，零提交任务会保留（右表字段为 NULL）。</p>
+错误，零提交任务会保留（右表字段为 NULL）。</p></blockquote></section>
 <hr />
-<h3 id="19-多选-02k19-2">19-多选-02（★★，K19-2）</h3>
-<p>MyBatis 多表映射的配置方式有？（多选） A. 注解 <code>@Results</code>
-+ <code>@One</code> / <code>@Many</code> B. XML ResultMap 嵌套映射 C.
-<code>@TableField</code> 注解 D.
-<code>BeanUtils.copyProperties</code></p>
-<p><strong>答案</strong>：AB <strong>解析</strong>：A
+<section class="question-card" id="19-多选-02k19-2"><p><strong>19-多选-02（★★，K19-2）</strong></p><p>MyBatis 多表映射的配置方式有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">注解 <code>@Results</code> + <code>@One</code> / <code>@Many</code></div></li><li><span class="option-label">B</span><div class="option-content">XML ResultMap 嵌套映射</div></li><li><span class="option-label">C</span><div class="option-content"><code>@TableField</code> 注解</div></li><li><span class="option-label">D</span><div class="option-content"><code>BeanUtils.copyProperties</code></div></li></ul></div><blockquote><p><strong>答案</strong>：AB <strong>解析</strong>：A
 是注解方式（简单场景），B 是 XML 方式（复杂嵌套场景）。C 是 MyBatis-Plus
-字段注解，D 是 Spring 工具类，都不是多表映射方式。</p>
+字段注解，D 是 Spring 工具类，都不是多表映射方式。</p></blockquote></section>
 <hr />
-<h3 id="19-多选-03k19-2">19-多选-03（★★，K19-2）</h3>
-<p>ResultMap 嵌套映射中，下列标签/属性搭配正确的有？（多选） A.
-<code>&lt;association javaType="..."&gt;</code> 一对一 B.
-<code>&lt;collection ofType="..."&gt;</code> 一对多 C.
-<code>&lt;id column="..."&gt;</code> 标记主键列 D.
-<code>&lt;result property="..."&gt;</code> 标记普通列映射</p>
-<p><strong>答案</strong>：ABCD
+<section class="question-card" id="19-多选-03k19-2"><p><strong>19-多选-03（★★，K19-2）</strong></p><p>ResultMap 嵌套映射中，下列标签/属性搭配正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>&lt;association javaType="..."&gt;</code> 一对一</div></li><li><span class="option-label">B</span><div class="option-content"><code>&lt;collection ofType="..."&gt;</code> 一对多</div></li><li><span class="option-label">C</span><div class="option-content"><code>&lt;id column="..."&gt;</code> 标记主键列</div></li><li><span class="option-label">D</span><div class="option-content"><code>&lt;result property="..."&gt;</code> 标记普通列映射</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
 <strong>解析</strong>：四项都正确。association+javaType
 处理一对一，collection+ofType 处理一对多，<code>&lt;id&gt;</code>
-标主键（分组依据），<code>&lt;result&gt;</code> 标普通列。</p>
+标主键（分组依据），<code>&lt;result&gt;</code> 标普通列。</p></blockquote></section>
 <hr />
-<h3 id="19-多选-04k19-3">19-多选-04（★★，K19-3）</h3>
-<p>关于 VO 设计，下列做法正确的有？（多选） A. 按接口需要设计字段 B.
-不包含密码等敏感字段 C. 一对多用 List&lt;子VO&gt; D. 一个 VO
-通吃所有接口</p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：A、B、C 正确。D
-错误，应"一个接口一个 VO"，不复用通吃。</p>
+<section class="question-card" id="19-多选-04k19-3"><p><strong>19-多选-04（★★，K19-3）</strong></p><p>关于 VO 设计，下列做法正确的有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">按接口需要设计字段</div></li><li><span class="option-label">B</span><div class="option-content">不包含密码等敏感字段</div></li><li><span class="option-label">C</span><div class="option-content">一对多用 List&lt;子VO&gt;</div></li><li><span class="option-label">D</span><div class="option-content">一个 VO 通吃所有接口</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：A、B、C 正确。D
+错误，应"一个接口一个 VO"，不复用通吃。</p></blockquote></section>
 <hr />
-<h3 id="19-多选-05k19-3">19-多选-05（★★★，K19-3）</h3>
-<p>Service 层组装多表数据的两种方式是？（多选） A. Mapper 一次 JOIN
-查询直接返回 VO（ResultMap 映射） B. Service 层先分别查多表，再内存组装
-C. Controller 层写 SQL 查询 D. 前端发起多次请求组装</p>
-<p><strong>答案</strong>：AB <strong>解析</strong>：A 是 Mapper 直接返回
+<section class="question-card" id="19-多选-05k19-3"><p><strong>19-多选-05（★★★，K19-3）</strong></p><p>Service 层组装多表数据的两种方式是？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Mapper 一次 JOIN 查询直接返回 VO（ResultMap 映射）</div></li><li><span class="option-label">B</span><div class="option-content">Service 层先分别查多表，再内存组装</div></li><li><span class="option-label">C</span><div class="option-content">Controller 层写 SQL 查询</div></li><li><span class="option-label">D</span><div class="option-content">前端发起多次请求组装</div></li></ul></div><blockquote><p><strong>答案</strong>：AB <strong>解析</strong>：A 是 Mapper 直接返回
 VO（性能优）。B 是 Service 二次组装（逻辑清晰但多次查询）。C、D
-违反分层与接口设计规范。</p>
+违反分层与接口设计规范。</p></blockquote></section>
 <hr />
-<h3 id="19-多选-06k19-4">19-多选-06（★★，K19-4）</h3>
-<p>N+1 查询问题的危害有？（多选） A. SQL 执行次数暴增，数据库压力增大 B.
-网络往返延迟累积 C. 接口响应时间线性增长 D. 高并发下连接池可能耗尽</p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：四项都是 N+1
-的危害。SQL 次数暴增、网络延迟累积、响应慢、连接池耗尽导致服务雪崩。</p>
+<section class="question-card" id="19-多选-06k19-4"><p><strong>19-多选-06（★★，K19-4）</strong></p><p>N+1 查询问题的危害有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">SQL 执行次数暴增，数据库压力增大</div></li><li><span class="option-label">B</span><div class="option-content">网络往返延迟累积</div></li><li><span class="option-label">C</span><div class="option-content">接口响应时间线性增长</div></li><li><span class="option-label">D</span><div class="option-content">高并发下连接池可能耗尽</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：四项都是 N+1
+的危害。SQL 次数暴增、网络延迟累积、响应慢、连接池耗尽导致服务雪崩。</p></blockquote></section>
 <hr />
-<h3 id="19-多选-07k19-4">19-多选-07（★★★，K19-4）</h3>
-<p>解决 N+1 问题的方案有？（多选） A. JOIN 一次查询 + ResultMap 嵌套映射
-B. 批量查询（<code>&lt;foreach&gt;</code> IN 查询） C.
-继续循环内单表查询 D. 避免使用
-<code>&lt;collection select="..."&gt;</code> 嵌套 select</p>
-<p><strong>答案</strong>：ABD <strong>解析</strong>：A、B、D
-都是有效方案。C 是 N+1 问题本身，不是解决方案。</p>
+<section class="question-card" id="19-多选-07k19-4"><p><strong>19-多选-07（★★★，K19-4）</strong></p><p>解决 N+1 问题的方案有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">JOIN 一次查询 + ResultMap 嵌套映射</div></li><li><span class="option-label">B</span><div class="option-content">批量查询（<code>&lt;foreach&gt;</code> IN 查询）</div></li><li><span class="option-label">C</span><div class="option-content">继续循环内单表查询</div></li><li><span class="option-label">D</span><div class="option-content">避免使用 <code>&lt;collection select="..."&gt;</code> 嵌套 select</div></li></ul></div><blockquote><p><strong>答案</strong>：ABD <strong>解析</strong>：A、B、D
+都是有效方案。C 是 N+1 问题本身，不是解决方案。</p></blockquote></section>
 <hr />
-<h3 id="19-多选-08k19-5">19-多选-08（★★，K19-5）</h3>
-<p>完整多表业务接口的链路包含哪些层？（多选） A. Controller 接收请求 B.
-Service 组装业务数据 C. Mapper 执行多表查询 D. ResultMap
-嵌套映射结果</p>
-<p><strong>答案</strong>：ABCD
+<section class="question-card" id="19-多选-08k19-5"><p><strong>19-多选-08（★★，K19-5）</strong></p><p>完整多表业务接口的链路包含哪些层？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Controller 接收请求</div></li><li><span class="option-label">B</span><div class="option-content">Service 组装业务数据</div></li><li><span class="option-label">C</span><div class="option-content">Mapper 执行多表查询</div></li><li><span class="option-label">D</span><div class="option-content">ResultMap 嵌套映射结果</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
 <strong>解析</strong>：完整链路：Controller 接收 → Service 组装 → Mapper
-查询 → ResultMap 映射 → VO 返回。四项都涉及。</p>
+查询 → ResultMap 映射 → VO 返回。四项都涉及。</p></blockquote></section>
 <hr />
-<h3 id="19-多选-09k19-1">19-多选-09（★★，K19-1）</h3>
-<p>多表 JOIN SQL 编写的良好习惯有？（多选） A. 使用表别名 B.
-所有列加表别名前缀 C. 重名列用 AS 重命名 D. 把所有过滤条件都写在 ON
-中</p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：A、B、C 是好习惯。D
+<section class="question-card" id="19-多选-09k19-1"><p><strong>19-多选-09（★★，K19-1）</strong></p><p>多表 JOIN SQL 编写的良好习惯有？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">使用表别名</div></li><li><span class="option-label">B</span><div class="option-content">所有列加表别名前缀</div></li><li><span class="option-label">C</span><div class="option-content">重名列用 AS 重命名</div></li><li><span class="option-label">D</span><div class="option-content">把所有过滤条件都写在 ON 中</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：A、B、C 是好习惯。D
 不准确——左表过滤写 WHERE 或 ON 都可，但右表过滤写 WHERE 会使 LEFT JOIN
-退化，应视场景而定。</p>
+退化，应视场景而定。</p></blockquote></section>
 <hr />
-<h3 id="19-多选-10k19-2">19-多选-10（★★★，K19-2）</h3>
-<p>下列哪些是 ResultMap 嵌套映射常见报错原因？（多选） A.
-<code>&lt;id&gt;</code> 漏标导致分组失败 B. <code>column</code> 与 SQL
-别名不一致 C. <code>ofType</code> 写成 <code>javaType</code> D.
-<code>property</code> 与 VO 字段名不一致</p>
-<p><strong>答案</strong>：ABCD
+<section class="question-card" id="19-多选-10k19-2"><p><strong>19-多选-10（★★★，K19-2）</strong></p><p>下列哪些是 ResultMap 嵌套映射常见报错原因？（多选）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>&lt;id&gt;</code> 漏标导致分组失败</div></li><li><span class="option-label">B</span><div class="option-content"><code>column</code> 与 SQL 别名不一致</div></li><li><span class="option-label">C</span><div class="option-content"><code>ofType</code> 写成 <code>javaType</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>property</code> 与 VO 字段名不一致</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
 <strong>解析</strong>：四项都是常见报错原因。漏标 id
 导致一对多失效；column/property 不一致导致映射为 null；ofType/javaType
-混用导致类型错误。</p>
+混用导致类型错误。</p></blockquote></section>
 <hr />
 <h2 id="三判断题20题">三、判断题（20题）</h2>
-<h3 id="19-判断-01k19-1">19-判断-01（★，K19-1）</h3>
-<p>INNER JOIN
-会返回两表中所有满足连接条件的行，不满足条件的行被丢弃。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：INNER JOIN
-取交集，只返回满足 ON 条件的行，不匹配的行被丢弃。</p>
+<section class="question-card" id="19-判断-01k19-1"><p><strong>19-判断-01（★，K19-1）</strong></p><p>INNER JOIN
+会返回两表中所有满足连接条件的行，不满足条件的行被丢弃。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：INNER JOIN
+取交集，只返回满足 ON 条件的行，不匹配的行被丢弃。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-02k19-1">19-判断-02（★，K19-1）</h3>
-<p>LEFT JOIN 中，右表不匹配的行会被自动丢弃。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：LEFT JOIN
-保留左表所有行，右表不匹配时填 NULL，不会丢弃。INNER JOIN 才会丢弃。</p>
+<section class="question-card" id="19-判断-02k19-1"><p><strong>19-判断-02（★，K19-1）</strong></p><p>LEFT JOIN 中，右表不匹配的行会被自动丢弃。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：LEFT JOIN
+保留左表所有行，右表不匹配时填 NULL，不会丢弃。INNER JOIN 才会丢弃。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-03k19-1">19-判断-03（★★，K19-1）</h3>
-<p>多表 JOIN 时，所有列必须加表别名前缀以避免歧义。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：多表常有同名列（如
+<section class="question-card" id="19-判断-03k19-1"><p><strong>19-判断-03（★★，K19-1）</strong></p><p>多表 JOIN 时，所有列必须加表别名前缀以避免歧义。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：多表常有同名列（如
 id、create_time），加表别名前缀（t.id、ts.id）避免 "ambiguous"
-报错，是好习惯。</p>
+报错，是好习惯。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-04k19-1">19-判断-04（★★，K19-1）</h3>
-<p>LEFT JOIN 的 ON
-条件中可以写右表的过滤条件，不会影响左表全部行的返回。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：ON
+<section class="question-card" id="19-判断-04k19-1"><p><strong>19-判断-04（★★，K19-1）</strong></p><p>LEFT JOIN 的 ON
+条件中可以写右表的过滤条件，不会影响左表全部行的返回。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：ON
 中的右表过滤条件只影响右表的匹配，左表全部行仍返回（右表字段为
-NULL）。若写在 WHERE 中则会使 LEFT JOIN 退化成 INNER JOIN。</p>
+NULL）。若写在 WHERE 中则会使 LEFT JOIN 退化成 INNER JOIN。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-05k19-2">19-判断-05（★，K19-2）</h3>
-<p>MyBatis ResultMap 中 <code>association</code>
-用于一对一关系映射。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：association 映射
-Java 单个对象，对应一对一/多对一。一对多用 collection。</p>
+<section class="question-card" id="19-判断-05k19-2"><p><strong>19-判断-05（★，K19-2）</strong></p><p>MyBatis ResultMap 中 <code>association</code>
+用于一对一关系映射。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：association 映射
+Java 单个对象，对应一对一/多对一。一对多用 collection。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-06k19-2">19-判断-06（★，K19-2）</h3>
-<p>MyBatis ResultMap 中 <code>collection</code> 用于一对多关系映射。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：collection 映射
-Java List 集合，对应一对多。</p>
+<section class="question-card" id="19-判断-06k19-2"><p><strong>19-判断-06（★，K19-2）</strong></p><p>MyBatis ResultMap 中 <code>collection</code> 用于一对多关系映射。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：collection 映射
+Java List 集合，对应一对多。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-07k19-2">19-判断-07（★★，K19-2）</h3>
-<p>ResultMap 中 <code>collection</code> 用 <code>javaType</code>
-指定集合元素类型。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：collection 用
+<section class="question-card" id="19-判断-07k19-2"><p><strong>19-判断-07（★★，K19-2）</strong></p><p>ResultMap 中 <code>collection</code> 用 <code>javaType</code>
+指定集合元素类型。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：collection 用
 <code>ofType</code> 指定集合元素类型。<code>javaType</code> 用于
-association 指定对象类型。</p>
+association 指定对象类型。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-08k19-2">19-判断-08（★★★，K19-2）</h3>
-<p>ResultMap 嵌套映射中，<code>&lt;id&gt;</code>
-标签可以省略，不影响一对多分组。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="19-判断-08k19-2"><p><strong>19-判断-08（★★★，K19-2）</strong></p><p>ResultMap 嵌套映射中，<code>&lt;id&gt;</code>
+标签可以省略，不影响一对多分组。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：<code>&lt;id&gt;</code> 是 MyBatis
-分组对象的依据，省略会导致每行一个对象，一对多关系失效。必须正确标注主表和子表主键。</p>
+分组对象的依据，省略会导致每行一个对象，一对多关系失效。必须正确标注主表和子表主键。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-09k19-2">19-判断-09（★★，K19-2）</h3>
-<p>SQL 中 <code>SELECT t.id AS task_id</code>，ResultMap 中
-<code>column="taskId"</code> 能正确映射。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：SQL 别名是
+<section class="question-card" id="19-判断-09k19-2"><p><strong>19-判断-09（★★，K19-2）</strong></p><p>SQL 中 <code>SELECT t.id AS task_id</code>，ResultMap 中
+<code>column="taskId"</code> 能正确映射。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：SQL 别名是
 <code>task_id</code>（下划线），ResultMap 的 <code>column</code> 必须是
 <code>task_id</code> 与之一致。写成
-<code>taskId</code>（驼峰）会映射失败（NULL）。</p>
+<code>taskId</code>（驼峰）会映射失败（NULL）。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-10k19-2">19-判断-10（★★★，K19-2）</h3>
-<p>MyBatis <code>&lt;collection select="..."&gt;</code> 嵌套 select
-写法会产生 N+1 问题。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：嵌套 select
+<section class="question-card" id="19-判断-10k19-2"><p><strong>19-判断-10（★★★，K19-2）</strong></p><p>MyBatis <code>&lt;collection select="..."&gt;</code> 嵌套 select
+写法会产生 N+1 问题。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：嵌套 select
 对每条主记录触发一次子查询 SQL，产生 N+1。应改用嵌套结果
-<code>&lt;collection resultMap="..."&gt;</code> 一次 JOIN 查询。</p>
+<code>&lt;collection resultMap="..."&gt;</code> 一次 JOIN 查询。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-11k19-3">19-判断-11（★，K19-3）</h3>
-<p>VO 对象应该按接口需要设计，而不是按数据库表结构设计。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：VO
-是视图对象，面向接口返回，按需设计字段。与表结构解耦。</p>
+<section class="question-card" id="19-判断-11k19-3"><p><strong>19-判断-11（★，K19-3）</strong></p><p>VO 对象应该按接口需要设计，而不是按数据库表结构设计。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：VO
+是视图对象，面向接口返回，按需设计字段。与表结构解耦。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-12k19-3">19-判断-12（★★，K19-3）</h3>
-<p>VO 可以继承实体类以减少重复代码。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：不推荐 VO
-继承实体，会导致 VO 暴露实体所有字段（含敏感字段）。VO 应独立定义。</p>
+<section class="question-card" id="19-判断-12k19-3"><p><strong>19-判断-12（★★，K19-3）</strong></p><p>VO 可以继承实体类以减少重复代码。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：不推荐 VO
+继承实体，会导致 VO 暴露实体所有字段（含敏感字段）。VO 应独立定义。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-13k19-3">19-判断-13（★★，K19-3）</h3>
-<p>DTO 用于接收前端请求参数，VO 用于返回前端展示数据。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：DTO（Data Transfer
-Object）接收参数，VO（View Object）返回展示。规范项目中两者分离。</p>
+<section class="question-card" id="19-判断-13k19-3"><p><strong>19-判断-13（★★，K19-3）</strong></p><p>DTO 用于接收前端请求参数，VO 用于返回前端展示数据。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：DTO（Data Transfer
+Object）接收参数，VO（View Object）返回展示。规范项目中两者分离。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-14k19-4">19-判断-14（★，K19-4）</h3>
-<p>N+1 问题是指 1 次主查询加 N 次子查询，共 N+1 次 SQL。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：N+1
+<section class="question-card" id="19-判断-14k19-4"><p><strong>19-判断-14（★，K19-4）</strong></p><p>N+1 问题是指 1 次主查询加 N 次子查询，共 N+1 次 SQL。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：N+1
 问题的标准定义。主查询 1 次获取 N 条主记录，循环对每条主记录查询 1
-次，共 N+1 次。</p>
+次，共 N+1 次。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-15k19-4">19-判断-15（★★，K19-4）</h3>
-<p>在 for 循环内调用 Mapper 是 N+1 问题的典型特征。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：循环内调 Mapper
+<section class="question-card" id="19-判断-15k19-4"><p><strong>19-判断-15（★★，K19-4）</strong></p><p>在 for 循环内调用 Mapper 是 N+1 问题的典型特征。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：循环内调 Mapper
 意味着每次循环触发一次 SQL，是 N+1 的典型特征。识别口诀："循环内调
-Mapper，警惕 N+1"。</p>
+Mapper，警惕 N+1"。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-16k19-4">19-判断-16（★★★，K19-4）</h3>
-<p>JOIN 一次查询 + ResultMap 嵌套映射可以解决 N+1 问题。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：一次 JOIN 查询 SQL
+<section class="question-card" id="19-判断-16k19-4"><p><strong>19-判断-16（★★★，K19-4）</strong></p><p>JOIN 一次查询 + ResultMap 嵌套映射可以解决 N+1 问题。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：一次 JOIN 查询 SQL
 只执行 1 次，ResultMap 嵌套映射完成"扁平→嵌套"转换，无
-N+1。是首选方案。</p>
+N+1。是首选方案。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-17k19-5">19-判断-17（★，K19-5）</h3>
-<p>Controller 层可以直接调用 Mapper 层，跳过 Service 层。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：严格分层中
+<section class="question-card" id="19-判断-17k19-5"><p><strong>19-判断-17（★，K19-5）</strong></p><p>Controller 层可以直接调用 Mapper 层，跳过 Service 层。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：严格分层中
 Controller 只调 Service，不直接调 Mapper。Service 编排业务，Mapper
-只管数据。</p>
+只管数据。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-18k19-5">19-判断-18（★★，K19-5）</h3>
-<p><code>@PathVariable</code> 用于接收 URL 路径中的变量。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="19-判断-18k19-5"><p><strong>19-判断-18（★★，K19-5）</strong></p><p><code>@PathVariable</code> 用于接收 URL 路径中的变量。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>@PathVariable</code> 接收
 <code>/project/{projectId}</code> 中的
 <code>projectId</code>。<code>@RequestParam</code>
-接收查询参数，<code>@RequestBody</code> 接收请求体。</p>
+接收查询参数，<code>@RequestBody</code> 接收请求体。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-19k19-5">19-判断-19（★★★，K19-5）</h3>
-<p>多表关联查询接口返回的 JSON 中，零提交任务的 submissions
-字段应为空数组 <code>[]</code> 而非 null。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：LEFT JOIN
+<section class="question-card" id="19-判断-19k19-5"><p><strong>19-判断-19（★★★，K19-5）</strong></p><p>多表关联查询接口返回的 JSON 中，零提交任务的 submissions
+字段应为空数组 <code>[]</code> 而非 null。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：LEFT JOIN
 保证零提交任务出现，ResultMap 的 collection 会映射为空集合（MyBatis 默认
-new ArrayList）。返回 <code>[]</code> 便于前端处理，避免 null 判断。</p>
+new ArrayList）。返回 <code>[]</code> 便于前端处理，避免 null 判断。</p></blockquote></section>
 <hr />
-<h3 id="19-判断-20k19-4">19-判断-20（★★，K19-4）</h3>
-<p>N+1
-问题在测试环境（少量数据）下往往难以察觉，上线后数据量增大才暴露。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：N+1 的隐蔽性——10
+<section class="question-card" id="19-判断-20k19-4"><p><strong>19-判断-20（★★，K19-4）</strong></p><p>N+1
+问题在测试环境（少量数据）下往往难以察觉，上线后数据量增大才暴露。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：N+1 的隐蔽性——10
 条数据时 11 次 SQL 几乎无感，1000 条时 1001 次 SQL
-接口耗时暴增。需在开发阶段主动识别。</p>
+接口耗时暴增。需在开发阶段主动识别。</p></blockquote></section>
 <hr />
 <h2 id="四填空题10题">四、填空题（10题）</h2>
-<h3 id="19-填空-01k19-1">19-填空-01（★，K19-1）</h3>
-<p>SQL 多表关联查询中，______ JOIN 返回左表所有行，右表不匹配的行填
-NULL。</p>
-<p><strong>答案</strong>：LEFT（或左连接） <strong>解析</strong>：LEFT
+<section class="question-card" id="19-填空-01k19-1"><p><strong>19-填空-01（★，K19-1）</strong></p><p>SQL 多表关联查询中，______ JOIN 返回左表所有行，右表不匹配的行填
+NULL。</p><blockquote><p><strong>答案</strong>：LEFT（或左连接） <strong>解析</strong>：LEFT
 JOIN 保留左表全部，右表不匹配填 NULL。INNER JOIN 取交集，RIGHT JOIN
-保留右表全部。</p>
+保留右表全部。</p></blockquote></section>
 <hr />
-<h3 id="19-填空-02k19-1">19-填空-02（★，K19-1）</h3>
-<p>多表 JOIN 时，为避免列名歧义，应在列名前加 ______ 前缀。</p>
-<p><strong>答案</strong>：表别名（或表别名前缀）
+<section class="question-card" id="19-填空-02k19-1"><p><strong>19-填空-02（★，K19-1）</strong></p><p>多表 JOIN 时，为避免列名歧义，应在列名前加 ______ 前缀。</p><blockquote><p><strong>答案</strong>：表别名（或表别名前缀）
 <strong>解析</strong>：如
-<code>t.id</code>、<code>ts.id</code>，通过表别名前缀消除多表同名列歧义。</p>
+<code>t.id</code>、<code>ts.id</code>，通过表别名前缀消除多表同名列歧义。</p></blockquote></section>
 <hr />
-<h3 id="19-填空-03k19-2">19-填空-03（★★，K19-2）</h3>
-<p>MyBatis ResultMap 中，______ 标签用于映射一对一关系，______
-标签用于映射一对多关系。</p>
-<p><strong>答案</strong>：association；collection
+<section class="question-card" id="19-填空-03k19-2"><p><strong>19-填空-03（★★，K19-2）</strong></p><p>MyBatis ResultMap 中，______ 标签用于映射一对一关系，______
+标签用于映射一对多关系。</p><blockquote><p><strong>答案</strong>：association；collection
 <strong>解析</strong>：association 映射一对一（单个对象），collection
-映射一对多（List 集合）。</p>
+映射一对多（List 集合）。</p></blockquote></section>
 <hr />
-<h3 id="19-填空-04k19-2">19-填空-04（★★，K19-2）</h3>
-<p>ResultMap 中 <code>collection</code> 标签用 ______
+<section class="question-card" id="19-填空-04k19-2"><p><strong>19-填空-04（★★，K19-2）</strong></p><p>ResultMap 中 <code>collection</code> 标签用 ______
 属性指定集合元素类型，<code>association</code> 标签用 ______
-属性指定对象类型。</p>
-<p><strong>答案</strong>：ofType；javaType
+属性指定对象类型。</p><blockquote><p><strong>答案</strong>：ofType；javaType
 <strong>解析</strong>：collection 用 ofType，association 用
-javaType，不可混用。</p>
+javaType，不可混用。</p></blockquote></section>
 <hr />
-<h3 id="19-填空-05k19-2">19-填空-05（★★★，K19-2）</h3>
-<p>MyBatis ResultMap 嵌套映射中，______ 标签标记主键列，是 MyBatis
-进行对象分组的依据。</p>
-<p><strong>答案</strong>：<code>&lt;id&gt;</code>（或 id）
+<section class="question-card" id="19-填空-05k19-2"><p><strong>19-填空-05（★★★，K19-2）</strong></p><p>MyBatis ResultMap 嵌套映射中，______ 标签标记主键列，是 MyBatis
+进行对象分组的依据。</p><blockquote><p><strong>答案</strong>：<code>&lt;id&gt;</code>（或 id）
 <strong>解析</strong>：<code>&lt;id&gt;</code> 标记的列是分组依据，相同
-id 值的行合并成一个对象。漏标会导致一对多失效。</p>
+id 值的行合并成一个对象。漏标会导致一对多失效。</p></blockquote></section>
 <hr />
-<h3 id="19-填空-06k19-3">19-填空-06（★★，K19-3）</h3>
-<p>分层架构中，______ 对象用于返回前端展示数据，______
-对象用于接收前端请求参数。</p>
-<p><strong>答案</strong>：VO（View Object）；DTO（Data Transfer Object）
+<section class="question-card" id="19-填空-06k19-3"><p><strong>19-填空-06（★★，K19-3）</strong></p><p>分层架构中，______ 对象用于返回前端展示数据，______
+对象用于接收前端请求参数。</p><blockquote><p><strong>答案</strong>：VO（View Object）；DTO（Data Transfer Object）
 <strong>解析</strong>：VO 返回展示，DTO 接收参数，PO 对应表，BO
-内部传递。</p>
+内部传递。</p></blockquote></section>
 <hr />
-<h3 id="19-填空-07k19-4">19-填空-07（★，K19-4）</h3>
-<p>N+1 问题中，若主查询返回 N 条记录，每条记录再查 1 次子查询，共执行
-______ 次 SQL。</p>
-<p><strong>答案</strong>：N+1 <strong>解析</strong>：1 次主查询 + N
-次子查询 = N+1 次 SQL。</p>
+<section class="question-card" id="19-填空-07k19-4"><p><strong>19-填空-07（★，K19-4）</strong></p><p>N+1 问题中，若主查询返回 N 条记录，每条记录再查 1 次子查询，共执行
+______ 次 SQL。</p><blockquote><p><strong>答案</strong>：N+1 <strong>解析</strong>：1 次主查询 + N
+次子查询 = N+1 次 SQL。</p></blockquote></section>
 <hr />
-<h3 id="19-填空-08k19-4">19-填空-08（★★★，K19-4）</h3>
-<p>解决 N+1 问题的两种常用方案是 ______ 查询和 ______ 查询。</p>
-<p><strong>答案</strong>：JOIN 一次（或 JOIN）；批量（或 IN 批量 /
+<section class="question-card" id="19-填空-08k19-4"><p><strong>19-填空-08（★★★，K19-4）</strong></p><p>解决 N+1 问题的两种常用方案是 ______ 查询和 ______ 查询。</p><blockquote><p><strong>答案</strong>：JOIN 一次（或 JOIN）；批量（或 IN 批量 /
 foreach 批量） <strong>解析</strong>：方案 A：JOIN 一次查询 + ResultMap
 嵌套映射（SQL 1 次）。方案 B：批量查询 <code>&lt;foreach&gt;</code>
-IN（SQL 2 次）。</p>
+IN（SQL 2 次）。</p></blockquote></section>
 <hr />
-<h3 id="19-填空-09k19-5">19-填空-09（★★，K19-5）</h3>
-<p>Spring Boot 中，<code>@PathVariable</code> 注解用于接收 ______
-中的变量。</p>
-<p><strong>答案</strong>：URL 路径（或请求路径）
+<section class="question-card" id="19-填空-09k19-5"><p><strong>19-填空-09（★★，K19-5）</strong></p><p>Spring Boot 中，<code>@PathVariable</code> 注解用于接收 ______
+中的变量。</p><blockquote><p><strong>答案</strong>：URL 路径（或请求路径）
 <strong>解析</strong>：<code>@PathVariable</code> 接收
-<code>/project/{projectId}</code> 中的 projectId 路径变量。</p>
+<code>/project/{projectId}</code> 中的 projectId 路径变量。</p></blockquote></section>
 <hr />
-<h3 id="19-填空-10k19-2">19-填空-10（★★，K19-2）</h3>
-<p>MyBatis 中 <code>&lt;collection select="..."&gt;</code> 是嵌套 ______
-写法，会产生 N+1 问题；应改用嵌套 ______ 写法。</p>
-<p><strong>答案</strong>：select；结果（或 resultMap）
+<section class="question-card" id="19-填空-10k19-2"><p><strong>19-填空-10（★★，K19-2）</strong></p><p>MyBatis 中 <code>&lt;collection select="..."&gt;</code> 是嵌套 ______
+写法，会产生 N+1 问题；应改用嵌套 ______ 写法。</p><blockquote><p><strong>答案</strong>：select；结果（或 resultMap）
 <strong>解析</strong>：嵌套 select 每条主记录触发一次
-SQL（N+1）。嵌套结果是一次 JOIN 查询后映射（1 次 SQL）。</p>
+SQL（N+1）。嵌套结果是一次 JOIN 查询后映射（1 次 SQL）。</p></blockquote></section>
 <hr />
 <h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
-<h3 id="19-简答-01k19-1">19-简答-01（★★，K19-1）</h3>
-<p>简述 INNER JOIN 与 LEFT JOIN
+<section class="question-card" id="19-简答-01k19-1"><p><strong>19-简答-01（★★，K19-1）</strong></p><p>简述 INNER JOIN 与 LEFT JOIN
 的区别，并结合"查询某项目下所有任务及提交情况"的场景说明应选择哪种 JOIN
-及原因。</p>
-<p><strong>参考答案</strong>：</p>
-<ul>
+及原因。</p><blockquote><p><strong>参考答案</strong>：</p><ul>
 <li><strong>INNER JOIN</strong>：内连接，只返回两表中满足 ON
 连接条件的行，不匹配的行被丢弃，结果是两表的交集。</li>
 <li><strong>LEFT JOIN</strong>：左连接，返回左表所有行，右表不匹配的行填
@@ -691,21 +470,16 @@ INNER JOIN
 会让这些"零提交任务"从结果中消失，教师无法看到完整任务列表。LEFT JOIN
 保证所有任务都出现，没有提交时提交相关字段为
 NULL，符合"教师查看全部任务进度"的业务预期。</li>
-</ul>
-<p><strong>评分标准</strong>（满分 10 分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（满分 10 分）：</p><ul>
 <li>INNER JOIN 含义正确：3 分</li>
 <li>LEFT JOIN 含义正确：3 分</li>
 <li>场景选择正确（LEFT JOIN）：1 分</li>
 <li>原因说明清晰（零提交任务不丢失）：3 分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="19-简答-02k19-2">19-简答-02（★★★，K19-2）</h3>
-<p>详细说明 MyBatis ResultMap 嵌套映射中 <code>&lt;id&gt;</code>
+<section class="question-card" id="19-简答-02k19-2"><p><strong>19-简答-02（★★★，K19-2）</strong></p><p>详细说明 MyBatis ResultMap 嵌套映射中 <code>&lt;id&gt;</code>
 标签的作用，并解释漏标 <code>&lt;id&gt;</code>
-会导致一对多映射出现什么问题及原因。</p>
-<p><strong>参考答案</strong>：</p>
-<ul>
+会导致一对多映射出现什么问题及原因。</p><blockquote><p><strong>参考答案</strong>：</p><ul>
 <li><strong><code>&lt;id&gt;</code>
 标签的作用</strong>：<code>&lt;id&gt;</code>
 标签用于标记结果集的主键列，是 MyBatis 进行对象分组的依据。在处理 JOIN
@@ -725,21 +499,16 @@ collection 集合中只有一个元素（或为空）。</li>
 一行、task_id=3 一行），正确标注后得到 3 个 Task 对象（第 1 个
 submissions 含 2 元素）；漏标 task_id 的 <code>&lt;id&gt;</code> 会得到
 4 个 Task 对象，每个 submissions 只含 1 元素。</li>
-</ul>
-<p><strong>评分标准</strong>（满分 12 分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（满分 12 分）：</p><ul>
 <li><code>&lt;id&gt;</code> 作用说明（分组依据）：3 分</li>
 <li>漏标问题现象描述（一对多失效）：3 分</li>
 <li>原因解释（MyBatis 分组逻辑）：4 分</li>
 <li>给出正确做法或示例：2 分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="19-简答-03k19-4">19-简答-03（★★★，K19-4）</h3>
-<p>什么是 N+1
+<section class="question-card" id="19-简答-03k19-4"><p><strong>19-简答-03（★★★，K19-4）</strong></p><p>什么是 N+1
 查询问题？请描述其产生原因、危害，并说明两种解决方案的原理与 SQL
-执行次数。</p>
-<p><strong>参考答案</strong>：</p>
-<ul>
+执行次数。</p><blockquote><p><strong>参考答案</strong>：</p><ul>
 <li><strong>定义</strong>：N+1 查询问题是指在循环中执行 1 次主查询获取 N
 条主记录，再对每条主记录执行 1 次子查询获取关联数据，总共执行 N+1 次 SQL
 的性能问题。</li>
@@ -767,21 +536,17 @@ ID 列表，用 <code>&lt;foreach&gt;</code> IN
 <li><strong>识别口诀</strong>：Mapper 调用出现在 for 循环里，警惕
 N+1。</li>
 </ul>
-<p><strong>评分标准</strong>（满分 12 分）：</p>
-<ul>
+<p><strong>评分标准</strong>（满分 12 分）：</p><ul>
 <li>定义正确：2 分</li>
 <li>产生原因（循环调 Mapper / 嵌套 select）：2 分</li>
 <li>危害（至少答出 3 点）：3 分</li>
 <li>方案 A 原理与 SQL 次数：2 分</li>
 <li>方案 B 原理与 SQL 次数：2 分</li>
 <li>识别口诀或补充说明：1 分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="19-简答-04k19-3k19-5">19-简答-04（★★★，K19-3/K19-5）</h3>
-<p>请说明 VO 对象的设计原则，并简述 Service
-层组装多表数据的两种方式及各自的优缺点。</p>
-<p><strong>参考答案</strong>：</p>
-<ul>
+<section class="question-card" id="19-简答-04k19-3k19-5"><p><strong>19-简答-04（★★★，K19-3/K19-5）</strong></p><p>请说明 VO 对象的设计原则，并简述 Service
+层组装多表数据的两种方式及各自的优缺点。</p><blockquote><p><strong>参考答案</strong>：</p><ul>
 <li><strong>VO 设计原则</strong>：
 <ol type="1">
 <li>按接口设计，不按表设计——一个接口一个 VO，不通吃；</li>
@@ -806,18 +571,15 @@ N+1（应用批量查询优化）。</li>
 <li><strong>推荐</strong>：关联层级少时优先方式 A（一次
 JOIN）；关联层级多或需复杂业务逻辑时用方式 B + 批量查询。</li>
 </ul>
-<p><strong>评分标准</strong>（满分 12 分）：</p>
-<ul>
+<p><strong>评分标准</strong>（满分 12 分）：</p><ul>
 <li>VO 设计原则（至少答出 4 点）：4 分</li>
 <li>方式 A 描述及优缺点：3 分</li>
 <li>方式 B 描述及优缺点：3 分</li>
 <li>推荐场景说明：2 分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="六程序阅读补全题2题">六、程序阅读补全题（2题）</h2>
-<h3 id="19-程序-01k19-2">19-程序-01（★★★，K19-2）</h3>
-<p>阅读以下 MyBatis XML ResultMap 配置，补全 ____ 处的代码。</p>
-<div class="sourceCode" id="cb1"><pre
+<section class="question-card" id="19-程序-01k19-2"><p><strong>19-程序-01（★★★，K19-2）</strong></p><p>阅读以下 MyBatis XML ResultMap 配置，补全 ____ 处的代码。</p><div class="sourceCode" id="cb1"><pre
 class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">resultMap</span><span class="ot"> id=</span><span class="st">&quot;taskWithSubmissionMap&quot;</span><span class="ot"> type=</span><span class="st">&quot;com.ctts.vo.TaskWithSubmissionVO&quot;</span>&gt;</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- (1) ____ --&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">id</span><span class="ot"> column=</span><span class="st">&quot;task_id&quot;</span><span class="ot"> property=</span><span class="st">&quot;taskId&quot;</span>/&gt;</span>
@@ -836,15 +598,11 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#c
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">result</span><span class="ot"> column=</span><span class="st">&quot;user_real_name&quot;</span><span class="ot"> property=</span><span class="st">&quot;realName&quot;</span>/&gt;</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">association</span>&gt;</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">collection</span>&gt;</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">resultMap</span>&gt;</span></code></pre></div>
-<p><strong>问题</strong>：</p>
-<ol type="1">
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">resultMap</span>&gt;</span></code></pre></div><p><strong>问题</strong>：</p><ol type="1">
 <li>(1) 处注释应说明什么？该处标签的作用是什么？</li>
 <li>(2) 处 <code>____</code> 应填什么属性？为什么？</li>
 <li>(3) 处 <code>____</code> 应填什么属性？为什么？</li>
-</ol>
-<p><strong>参考答案</strong>：</p>
-<ol type="1">
+</ol><blockquote><p><strong>参考答案</strong>：</p><ol type="1">
 <li>(1) 处注释应说明"主表 task 字段"。<code>&lt;id&gt;</code>
 标签的作用是标记主键列 <code>task_id</code>，作为 MyBatis
 对象分组的依据，相同 task_id 的行会合并成一个 TaskWithSubmissionVO
@@ -857,20 +615,16 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#c
 <strong><code>javaType</code></strong>。因为 <code>association</code>
 标签映射一对一关系（单个对象），用 <code>javaType</code>
 指定关联对象类型为 <code>UserSimpleVO</code>。</li>
-</ol>
-<p><strong>评分标准</strong>（满分 15 分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（满分 15 分）：</p><ul>
 <li>(1) 注释说明（主表字段）2 分；<code>&lt;id&gt;</code>
 作用（分组依据）3 分——共 5 分</li>
 <li>(2) 填 <code>ofType</code> 3 分；原因（collection 一对多用 ofType）2
 分——共 5 分</li>
 <li>(3) 填 <code>javaType</code> 3 分；原因（association 一对一用
 javaType）2 分——共 5 分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="19-程序-02k19-4">19-程序-02（★★★，K19-4）</h3>
-<p>阅读以下存在 N+1 问题的 Service 代码，回答问题。</p>
-<div class="sourceCode" id="cb2"><pre
+<section class="question-card" id="19-程序-02k19-4"><p><strong>19-程序-02（★★★，K19-4）</strong></p><p>阅读以下存在 N+1 问题的 Service 代码，回答问题。</p><div class="sourceCode" id="cb2"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>TaskWithSubmissionVO<span class="op">&gt;</span> <span class="fu">getTasksBad</span><span class="op">(</span><span class="bu">Long</span> projectId<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 第 1 次 SQL</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span>Task<span class="op">&gt;</span> tasks <span class="op">=</span> taskMapper<span class="op">.</span><span class="fu">selectList</span><span class="op">(</span></span>
@@ -901,18 +655,14 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        result<span class="op">.</span><span class="fu">add</span><span class="op">(</span>vo<span class="op">);</span></span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>问题</strong>：</p>
-<ol type="1">
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>问题</strong>：</p><ol type="1">
 <li>(1) 处代码存在什么问题？假设项目下有 10 个任务，该处会执行多少次
 SQL？</li>
 <li>(2) 处代码存在什么问题？整个方法共执行多少次 SQL（10
 个任务，每个任务 3 条提交）？</li>
 <li>请用"JOIN 一次查询 + ResultMap 嵌套映射"方案重写该方法（写出优化后的
 Service 方法体）。</li>
-</ol>
-<p><strong>参考答案</strong>：</p>
-<ol type="1">
+</ol><blockquote><p><strong>参考答案</strong>：</p><ol type="1">
 <li>(1) 处在 for 循环内调用 <code>submissionMapper.selectList</code>，是
 N+1 问题的典型特征。10 个任务会执行 <strong>10 次</strong> SQL
 查询提交表。</li>
@@ -921,21 +671,17 @@ N+1 问题的典型特征。10 个任务会执行 <strong>10 次</strong> SQL
 次数：1（查任务）+ 10（每个任务查提交）+ 30（每个提交查用户，10 任务 × 3
 提交）= <strong>41 次</strong> SQL。</li>
 <li>优化后代码：</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre
+</ol><div class="sourceCode" id="cb3"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">List</span><span class="op">&lt;</span>TaskWithSubmissionVO<span class="op">&gt;</span> <span class="fu">getTasksGood</span><span class="op">(</span><span class="bu">Long</span> projectId<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 一次 JOIN 查询，ResultMap 嵌套映射，SQL 只执行 1 次</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> taskMapper<span class="op">.</span><span class="fu">selectTasksWithSubmissionsByProjectId</span><span class="op">(</span>projectId<span class="op">);</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>（配合 K19-2 中的 XML ResultMap 配置和 Mapper 接口方法，一次 LEFT
-JOIN 三表查询完成所有数据组装。）</p>
-<p><strong>评分标准</strong>（满分 15 分）：</p>
-<ul>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p>（配合 K19-2 中的 XML ResultMap 配置和 Mapper 接口方法，一次 LEFT
+JOIN 三表查询完成所有数据组装。）</p><p><strong>评分标准</strong>（满分 15 分）：</p><ul>
 <li>(1) 指出 N+1 问题 2 分；SQL 次数（10 次）2 分——共 4 分</li>
 <li>(2) 指出 N+1 问题 2 分；总 SQL 次数（41 次）3 分——共 5 分</li>
 <li>(3) 优化方案正确（调用一次 JOIN 查询的 Mapper 方法）4 分；说明 SQL
 只 1 次 2 分——共 6 分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
 <h3

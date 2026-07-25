@@ -146,571 +146,332 @@ R程序阅读 / C编程） 难度标注：★ 基础 / ★★ 进阶 / ★★★
 </blockquote>
 <hr />
 <h2 id="一单项选择题30题">一、单项选择题（30题）</h2>
-<h3 id="15-d-01-">15-D-01 ★</h3>
-<p>关于用户注册流程，下列顺序正确的是（ ） A. 加密密码 → 校验用户名唯一
-→ 入库 B. 入库 → 加密密码 → 校验用户名唯一 C. 校验用户名唯一 → 加密密码
-→ 入库 D. 校验用户名唯一 → 入库 → 加密密码</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="15-d-01-"><p><strong>15-D-01 ★</strong></p><p>关于用户注册流程，下列顺序正确的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">加密密码 → 校验用户名唯一 → 入库</div></li><li><span class="option-label">B</span><div class="option-content">入库 → 加密密码 → 校验用户名唯一</div></li><li><span class="option-label">C</span><div class="option-content">校验用户名唯一 → 加密密码 → 入库</div></li><li><span class="option-label">D</span><div class="option-content">校验用户名唯一 → 入库 → 加密密码</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：注册流程应先校验用户名是否唯一，避免无效加密；再对密码做
 BCrypt
-加密；最后将加密后的密码与用户信息入库。若先入库后加密，则入库时密码为明文，存在安全风险。</p>
+加密；最后将加密后的密码与用户信息入库。若先入库后加密，则入库时密码为明文，存在安全风险。</p></blockquote></section>
 <hr />
-<h3 id="15-d-02-">15-D-02 ★</h3>
-<p>下列关于密码存储的说法，正确的是（ ） A. 为方便找回密码，应明文存储
-B. 为加快登录校验速度，可使用 MD5 存储并建立索引 C.
-必须使用不可逆的哈希算法存储，推荐 BCrypt D. 可使用对称加密（如
-AES）加密后存储，便于解密</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="15-d-02-"><p><strong>15-D-02 ★</strong></p><p>下列关于密码存储的说法，正确的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">为方便找回密码，应明文存储</div></li><li><span class="option-label">B</span><div class="option-content">为加快登录校验速度，可使用 MD5 存储并建立索引</div></li><li><span class="option-label">C</span><div class="option-content">必须使用不可逆的哈希算法存储，推荐 BCrypt</div></li><li><span class="option-label">D</span><div class="option-content">可使用对称加密（如 AES）加密后存储，便于解密</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：密码必须以不可逆哈希存储，BCrypt
 是当前推荐方案。明文存储、可逆加密都违反安全底线；MD5
-因彩虹表和计算过快已不推荐。</p>
+因彩虹表和计算过快已不推荐。</p></blockquote></section>
 <hr />
-<h3 id="15-d-03-">15-D-03 ★★</h3>
-<p>关于 BCrypt 加密，下列说法错误的是（ ） A. 同一明文每次加密结果不同
-B. 盐会作为密文的一部分存储 C. 校验密码时从密文中解析盐再哈希明文 D.
-同一明文加密两次结果不同会导致校验失败</p>
-<p><strong>答案</strong>：D <strong>解析</strong>：BCrypt
+<section class="question-card" id="15-d-03-"><p><strong>15-D-03 ★★</strong></p><p>关于 BCrypt 加密，下列说法错误的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">同一明文每次加密结果不同</div></li><li><span class="option-label">B</span><div class="option-content">盐会作为密文的一部分存储</div></li><li><span class="option-label">C</span><div class="option-content">校验密码时从密文中解析盐再哈希明文</div></li><li><span class="option-label">D</span><div class="option-content">同一明文加密两次结果不同会导致校验失败</div></li></ul></div><blockquote><p><strong>答案</strong>：D <strong>解析</strong>：BCrypt
 自带盐，盐嵌入在密文中。虽然每次加密结果不同，但 <code>matches</code>
-会从密文解析盐并重新哈希明文进行比对，因此校验依然正确。D 说法错误。</p>
+会从密文解析盐并重新哈希明文进行比对，因此校验依然正确。D 说法错误。</p></blockquote></section>
 <hr />
-<h3 id="15-d-04-">15-D-04 ★★</h3>
-<p><code>BCryptPasswordEncoder</code> 中 <code>strength</code>
-参数的意义是（ ） A. 密文长度 B. 盐的长度 C. 成本因子，表示 2 的
-strength 次方轮哈希 D. 加密算法版本号</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：<code>strength</code>
+<section class="question-card" id="15-d-04-"><p><strong>15-D-04 ★★</strong></p><p><code>BCryptPasswordEncoder</code> 中 <code>strength</code> 参数的意义是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">密文长度</div></li><li><span class="option-label">B</span><div class="option-content">盐的长度</div></li><li><span class="option-label">C</span><div class="option-content">成本因子，表示 2 的 strength 次方轮哈希</div></li><li><span class="option-label">D</span><div class="option-content">加密算法版本号</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：<code>strength</code>
 是成本因子（log2 rounds），如 strength=10 表示 2^10=1024
-轮哈希。值越大越安全但越慢，生产推荐 10-12。</p>
+轮哈希。值越大越安全但越慢，生产推荐 10-12。</p></blockquote></section>
 <hr />
-<h3 id="15-d-05-">15-D-05 ★</h3>
-<p>Spring Security 中 <code>PasswordEncoder</code>
-接口校验密码的方法是（ ） A.
-<code>encode(rawPassword, encodedPassword)</code> B.
-<code>matches(rawPassword, encodedPassword)</code> C.
-<code>verify(rawPassword, encodedPassword)</code> D.
-<code>check(rawPassword, encodedPassword)</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="15-d-05-"><p><strong>15-D-05 ★</strong></p><p>Spring Security 中 <code>PasswordEncoder</code> 接口校验密码的方法是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>encode(rawPassword, encodedPassword)</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>matches(rawPassword, encodedPassword)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>verify(rawPassword, encodedPassword)</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>check(rawPassword, encodedPassword)</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>PasswordEncoder</code> 接口定义
-<code>encode</code> 加密、<code>matches</code> 校验两个核心方法。</p>
+<code>encode</code> 加密、<code>matches</code> 校验两个核心方法。</p></blockquote></section>
 <hr />
-<h3 id="15-d-06-">15-D-06 ★★</h3>
-<p>下列关于 MD5 密码存储不安全的原因，描述错误的是（ ） A. MD5
-是可逆加密，能从密文还原明文 B. MD5 计算速度过快，暴力破解成本低 C.
-相同明文 MD5 结果相同，易被彩虹表攻击 D. MD5 存在碰撞漏洞</p>
-<p><strong>答案</strong>：A <strong>解析</strong>：MD5
+<section class="question-card" id="15-d-06-"><p><strong>15-D-06 ★★</strong></p><p>下列关于 MD5 密码存储不安全的原因，描述错误的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">MD5 是可逆加密，能从密文还原明文</div></li><li><span class="option-label">B</span><div class="option-content">MD5 计算速度过快，暴力破解成本低</div></li><li><span class="option-label">C</span><div class="option-content">相同明文 MD5 结果相同，易被彩虹表攻击</div></li><li><span class="option-label">D</span><div class="option-content">MD5 存在碰撞漏洞</div></li></ul></div><blockquote><p><strong>答案</strong>：A <strong>解析</strong>：MD5
 是单向哈希，理论不可逆。不安全的原因是彩虹表、计算快、相同明文相同密文、存在碰撞。A
-说法错误，MD5 不是"可逆加密"。</p>
+说法错误，MD5 不是"可逆加密"。</p></blockquote></section>
 <hr />
-<h3 id="15-d-07-">15-D-07 ★</h3>
-<p>用户登录时，根据用户名查询到用户后，校验密码应使用（ ） A.
-<code>password.equals(user.getPassword())</code> B.
-<code>user.getPassword().equals(password)</code> C.
-<code>passwordEncoder.matches(password, user.getPassword())</code> D.
-<code>passwordEncoder.encode(password).equals(user.getPassword())</code></p>
-<p><strong>答案</strong>：C <strong>解析</strong>：BCrypt
+<section class="question-card" id="15-d-07-"><p><strong>15-D-07 ★</strong></p><p>用户登录时，根据用户名查询到用户后，校验密码应使用（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>password.equals(user.getPassword())</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>user.getPassword().equals(password)</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>passwordEncoder.matches(password, user.getPassword())</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>passwordEncoder.encode(password).equals(user.getPassword())</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：BCrypt
 每次加密结果不同，不能用 <code>equals</code> 比对，必须用
 <code>matches(明文, 密文)</code>。D
-选项虽看似可行但每次加密结果不同必然失败。</p>
+选项虽看似可行但每次加密结果不同必然失败。</p></blockquote></section>
 <hr />
-<h3 id="15-d-08-">15-D-08 ★★</h3>
-<p>关于 Session 认证，下列说法正确的是（ ） A. Session 存储在客户端 B.
-SessionID 通过 HTTP Header 传递 C. SessionID 通过 Cookie 返回客户端 D.
-Session 认证是无状态的</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：Session
+<section class="question-card" id="15-d-08-"><p><strong>15-D-08 ★★</strong></p><p>关于 Session 认证，下列说法正确的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Session 存储在客户端</div></li><li><span class="option-label">B</span><div class="option-content">SessionID 通过 HTTP Header 传递</div></li><li><span class="option-label">C</span><div class="option-content">SessionID 通过 Cookie 返回客户端</div></li><li><span class="option-label">D</span><div class="option-content">Session 认证是无状态的</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：Session
 存储在服务端，SessionID 通过 <code>Set-Cookie</code>
-响应头返回客户端，浏览器后续自动携带。Session 认证是有状态的。</p>
+响应头返回客户端，浏览器后续自动携带。Session 认证是有状态的。</p></blockquote></section>
 <hr />
-<h3 id="15-d-09-">15-D-09 ★★</h3>
-<p>关于 Token 认证，下列说法错误的是（ ） A. Token 通常存储在客户端
-localStorage B. Token 通常通过 HTTP Header 携带到服务端 C. Token
-认证是有状态的 D. JWT 是 Token 的一种常见格式</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：Token
-认证是无状态的，服务端不存储 Session。C 错误。</p>
+<section class="question-card" id="15-d-09-"><p><strong>15-D-09 ★★</strong></p><p>关于 Token 认证，下列说法错误的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Token 通常存储在客户端 localStorage</div></li><li><span class="option-label">B</span><div class="option-content">Token 通常通过 HTTP Header 携带到服务端</div></li><li><span class="option-label">C</span><div class="option-content">Token 认证是有状态的</div></li><li><span class="option-label">D</span><div class="option-content">JWT 是 Token 的一种常见格式</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：Token
+认证是无状态的，服务端不存储 Session。C 错误。</p></blockquote></section>
 <hr />
-<h3 id="15-d-10-">15-D-10 ★</h3>
-<p>前后端分离架构通常选择 Token 认证而非 Session，主要原因是（ ） A.
-Token 比 Session 更安全 B. Token 无状态、跨域友好、适配多端 C. Token
-实现比 Session 简单 D. Session 已被淘汰</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：Token
+<section class="question-card" id="15-d-10-"><p><strong>15-D-10 ★</strong></p><p>前后端分离架构通常选择 Token 认证而非 Session，主要原因是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Token 比 Session 更安全</div></li><li><span class="option-label">B</span><div class="option-content">Token 无状态、跨域友好、适配多端</div></li><li><span class="option-label">C</span><div class="option-content">Token 实现比 Session 简单</div></li><li><span class="option-label">D</span><div class="option-content">Session 已被淘汰</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：Token
 无状态、易扩展、跨域友好、适配 Web/小程序/App
 多端，是前后端分离的首选。Token 与 Session 安全性取决于实现，并非 Token
-一定更安全；Session 在同域传统 Web 中仍广泛使用。</p>
+一定更安全；Session 在同域传统 Web 中仍广泛使用。</p></blockquote></section>
 <hr />
-<h3 id="15-d-11-">15-D-11 ★</h3>
-<p>注册接口应使用什么 HTTP 方法（ ） A. GET B. POST C. PUT D. DELETE</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="15-d-11-"><p><strong>15-D-11 ★</strong></p><p>注册接口应使用什么 HTTP 方法（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">GET</div></li><li><span class="option-label">B</span><div class="option-content">POST</div></li><li><span class="option-label">C</span><div class="option-content">PUT</div></li><li><span class="option-label">D</span><div class="option-content">DELETE</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：注册是创建资源，语义上应使用 POST。GET
-不应携带敏感信息（密码会出现在 URL 日志中）。</p>
+不应携带敏感信息（密码会出现在 URL 日志中）。</p></blockquote></section>
 <hr />
-<h3 id="15-d-12-">15-D-12 ★★</h3>
-<p>BCrypt 加密后密文长度约为多少字符（ ） A. 32 B. 40 C. 60 D. 128</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：BCrypt 标准密文 60
+<section class="question-card" id="15-d-12-"><p><strong>15-D-12 ★★</strong></p><p>BCrypt 加密后密文长度约为多少字符（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">32</div></li><li><span class="option-label">B</span><div class="option-content">40</div></li><li><span class="option-label">C</span><div class="option-content">60</div></li><li><span class="option-label">D</span><div class="option-content">128</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：BCrypt 标准密文 60
 字符。建议数据库字段 <code>VARCHAR(100)</code> 留余量。MD5 为 32
-字符，SHA-1 为 40 字符。</p>
+字符，SHA-1 为 40 字符。</p></blockquote></section>
 <hr />
-<h3 id="15-d-13-">15-D-13 ★★</h3>
-<p>下列哪个不是注册接口需要做的校验（ ） A. 用户名非空校验 B.
-用户名唯一性校验 C. 密码长度校验 D. Token 有效性校验</p>
-<p><strong>答案</strong>：D
+<section class="question-card" id="15-d-13-"><p><strong>15-D-13 ★★</strong></p><p>下列哪个不是注册接口需要做的校验（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">用户名非空校验</div></li><li><span class="option-label">B</span><div class="option-content">用户名唯一性校验</div></li><li><span class="option-label">C</span><div class="option-content">密码长度校验</div></li><li><span class="option-label">D</span><div class="option-content">Token 有效性校验</div></li></ul></div><blockquote><p><strong>答案</strong>：D
 <strong>解析</strong>：注册接口是建立身份的入口，注册前用户尚未登录，无需
-Token 校验。ABC 都是注册必备校验。</p>
+Token 校验。ABC 都是注册必备校验。</p></blockquote></section>
 <hr />
-<h3 id="15-d-14-">15-D-14 ★</h3>
-<p><code>@Valid</code> 注解的作用是（ ） A. 校验用户登录状态 B. 触发 DTO
-上的 JSR-303 校验注解 C. 校验数据库连接 D. 校验 Token 有效性</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Valid</code>
+<section class="question-card" id="15-d-14-"><p><strong>15-D-14 ★</strong></p><p><code>@Valid</code> 注解的作用是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">校验用户登录状态</div></li><li><span class="option-label">B</span><div class="option-content">触发 DTO 上的 JSR-303 校验注解</div></li><li><span class="option-label">C</span><div class="option-content">校验数据库连接</div></li><li><span class="option-label">D</span><div class="option-content">校验 Token 有效性</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>@Valid</code>
 配合 DTO 上的
 <code>@NotBlank</code>、<code>@Size</code>、<code>@Pattern</code> 等
-JSR-303 注解，触发参数自动校验。</p>
+JSR-303 注解，触发参数自动校验。</p></blockquote></section>
 <hr />
-<h3 id="15-d-15-">15-D-15 ★★</h3>
-<p>登录失败时，下列哪种提示更安全（ ） A. "用户名不存在" B. "密码错误"
-C. "用户名或密码错误" D. "数据库连接失败"</p>
-<p><strong>答案</strong>：C
-<strong>解析</strong>：分别提示"用户名不存在"或"密码错误"会暴露用户是否注册，便于攻击者枚举用户名。统一提示"用户名或密码错误"更安全。</p>
+<section class="question-card" id="15-d-15-"><p><strong>15-D-15 ★★</strong></p><p>登录失败时，下列哪种提示更安全（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">"用户名不存在"</div></li><li><span class="option-label">B</span><div class="option-content">"密码错误"</div></li><li><span class="option-label">C</span><div class="option-content">"用户名或密码错误"</div></li><li><span class="option-label">D</span><div class="option-content">"数据库连接失败"</div></li></ul></div><blockquote><p><strong>答案</strong>：C
+<strong>解析</strong>：分别提示"用户名不存在"或"密码错误"会暴露用户是否注册，便于攻击者枚举用户名。统一提示"用户名或密码错误"更安全。</p></blockquote></section>
 <hr />
-<h3 id="15-d-16-">15-D-16 ★★</h3>
-<p>关于 <code>BCryptPasswordEncoder</code>，下列说法正确的是（ ） A.
-需要自己生成盐并单独存储 B. 盐会自动生成并嵌入密文中 C.
-同一明文每次加密结果相同 D. 不需要任何配置即可使用</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：BCrypt
+<section class="question-card" id="15-d-16-"><p><strong>15-D-16 ★★</strong></p><p>关于 <code>BCryptPasswordEncoder</code>，下列说法正确的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">需要自己生成盐并单独存储</div></li><li><span class="option-label">B</span><div class="option-content">盐会自动生成并嵌入密文中</div></li><li><span class="option-label">C</span><div class="option-content">同一明文每次加密结果相同</div></li><li><span class="option-label">D</span><div class="option-content">不需要任何配置即可使用</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：BCrypt
 自带盐，<code>encode</code>
 时自动生成随机盐并嵌入密文，无需单独维护盐字段。同一明文每次加密结果不同。使用前需配置
-<code>@Bean</code>。</p>
+<code>@Bean</code>。</p></blockquote></section>
 <hr />
-<h3 id="15-d-17-">15-D-17 ★</h3>
-<p>下列依赖中，仅引入密码加密能力而不引入 Spring Security
-全套过滤链的是（ ） A. <code>spring-boot-starter-security</code> B.
-<code>spring-security-crypto</code> C.
-<code>spring-boot-starter-web</code> D.
-<code>spring-security-config</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="15-d-17-"><p><strong>15-D-17 ★</strong></p><p>下列依赖中，仅引入密码加密能力而不引入 Spring Security 全套过滤链的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>spring-boot-starter-security</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>spring-security-crypto</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>spring-boot-starter-web</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>spring-security-config</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>spring-security-crypto</code> 是 Spring
 Security 的加密子模块，仅含 <code>BCryptPasswordEncoder</code>
 等，不会启用 Security 过滤链。<code>spring-boot-starter-security</code>
-会启用全套过滤链默认拦截所有请求。</p>
+会启用全套过滤链默认拦截所有请求。</p></blockquote></section>
 <hr />
-<h3 id="15-d-18-">15-D-18 ★★</h3>
-<p>引入 <code>spring-boot-starter-security</code> 后所有接口返回
-401，原因和解决方案是（ ） A. 密码错误 → 修改密码 B. Security
-默认拦截所有请求 → 配置 <code>permitAll()</code> 放行 C. 接口路径错误 →
-修改路径 D. 端口被占用 → 换端口</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="15-d-18-"><p><strong>15-D-18 ★★</strong></p><p>引入 <code>spring-boot-starter-security</code> 后所有接口返回 401，原因和解决方案是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">密码错误 → 修改密码</div></li><li><span class="option-label">B</span><div class="option-content">Security 默认拦截所有请求 → 配置 <code>permitAll()</code> 放行</div></li><li><span class="option-label">C</span><div class="option-content">接口路径错误 → 修改路径</div></li><li><span class="option-label">D</span><div class="option-content">端口被占用 → 换端口</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>spring-boot-starter-security</code>
 默认启用认证过滤链拦截所有请求。需配置 <code>SecurityFilterChain</code>
 设置 <code>anyRequest().permitAll()</code> 或排除
-<code>SecurityAutoConfiguration</code>。</p>
+<code>SecurityAutoConfiguration</code>。</p></blockquote></section>
 <hr />
-<h3 id="15-d-19-">15-D-19 ★</h3>
-<p><code>sys_user</code> 表中 <code>password</code> 字段推荐的设计是（
-） A. <code>VARCHAR(32)</code> 存 MD5 B. <code>VARCHAR(100)</code> 存
-BCrypt C. <code>VARCHAR(20)</code> 存明文 D. <code>TEXT</code>
-存任意长度</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：BCrypt 密文 60
+<section class="question-card" id="15-d-19-"><p><strong>15-D-19 ★</strong></p><p><code>sys_user</code> 表中 <code>password</code> 字段推荐的设计是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>VARCHAR(32)</code> 存 MD5</div></li><li><span class="option-label">B</span><div class="option-content"><code>VARCHAR(100)</code> 存 BCrypt</div></li><li><span class="option-label">C</span><div class="option-content"><code>VARCHAR(20)</code> 存明文</div></li><li><span class="option-label">D</span><div class="option-content"><code>TEXT</code> 存任意长度</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：BCrypt 密文 60
 字符，<code>VARCHAR(100)</code> 留余量。明文存储违规，MD5
-不推荐，<code>VARCHAR(20)</code> 太短。</p>
+不推荐，<code>VARCHAR(20)</code> 太短。</p></blockquote></section>
 <hr />
-<h3 id="15-d-20-">15-D-20 ★★</h3>
-<p>关于登出，下列说法正确的是（ ） A. 登出只需前端清空 Token
-即可，服务端无需处理 B. 登出时服务端应使 Token 失效（删 Redis
-或加黑名单） C. 登出后 Token 仍可继续使用 D. Token 不存在失效问题</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：仅前端清 Token
+<section class="question-card" id="15-d-20-"><p><strong>15-D-20 ★★</strong></p><p>关于登出，下列说法正确的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">登出只需前端清空 Token 即可，服务端无需处理</div></li><li><span class="option-label">B</span><div class="option-content">登出时服务端应使 Token 失效（删 Redis 或加黑名单）</div></li><li><span class="option-label">C</span><div class="option-content">登出后 Token 仍可继续使用</div></li><li><span class="option-label">D</span><div class="option-content">Token 不存在失效问题</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：仅前端清 Token
 不够安全，攻击者可能已窃取 Token。服务端应通过删除 Redis 中的 Token
-或加入黑名单使其失效。</p>
+或加入黑名单使其失效。</p></blockquote></section>
 <hr />
-<h3 id="15-d-21-">15-D-21 ★★</h3>
-<p>Session 认证中，SessionID 默认通过什么字段在请求中携带（ ） A.
-<code>Authorization</code> B. <code>X-Token</code> C.
-<code>Cookie</code> D. <code>Referer</code></p>
-<p><strong>答案</strong>：C <strong>解析</strong>：SessionID 默认通过
+<section class="question-card" id="15-d-21-"><p><strong>15-D-21 ★★</strong></p><p>Session 认证中，SessionID 默认通过什么字段在请求中携带（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>Authorization</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>X-Token</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>Cookie</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>Referer</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：SessionID 默认通过
 <code>Cookie: JSESSIONID=xxx</code>
-携带，浏览器自动管理。<code>Authorization</code> 用于 Token 认证。</p>
+携带，浏览器自动管理。<code>Authorization</code> 用于 Token 认证。</p></blockquote></section>
 <hr />
-<h3 id="15-d-22-">15-D-22 ★</h3>
-<p>Token 认证中，Token 通常通过什么 Header 携带（ ） A.
-<code>Cookie</code> B. <code>Authorization</code> C.
-<code>User-Agent</code> D. <code>Host</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：Token 通常通过
+<section class="question-card" id="15-d-22-"><p><strong>15-D-22 ★</strong></p><p>Token 认证中，Token 通常通过什么 Header 携带（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>Cookie</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>Authorization</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>User-Agent</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>Host</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：Token 通常通过
 <code>Authorization: Bearer &lt;token&gt;</code> 携带，也可自定义
 <code>X-Token</code>。<code>Cookie</code> 是 Session
-认证的传递方式。</p>
+认证的传递方式。</p></blockquote></section>
 <hr />
-<h3 id="15-d-23-">15-D-23 ★★</h3>
-<p>关于 Session 与 Token 的对比，下列说法错误的是（ ） A. Session
-状态存服务端，Token 状态存客户端 B. Session 跨域复杂，Token 跨域简单 C.
-Session 扩展性优于 Token D. Token 更适配前后端分离</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：Session
+<section class="question-card" id="15-d-23-"><p><strong>15-D-23 ★★</strong></p><p>关于 Session 与 Token 的对比，下列说法错误的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Session 状态存服务端，Token 状态存客户端</div></li><li><span class="option-label">B</span><div class="option-content">Session 跨域复杂，Token 跨域简单</div></li><li><span class="option-label">C</span><div class="option-content">Session 扩展性优于 Token</div></li><li><span class="option-label">D</span><div class="option-content">Token 更适配前后端分离</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：Session
 有状态，多服务器需 Session 共享，扩展性差；Token
-无状态，天然支持分布式，扩展性更优。C 错误。</p>
+无状态，天然支持分布式，扩展性更优。C 错误。</p></blockquote></section>
 <hr />
-<h3 id="15-d-24-">15-D-24 ★★</h3>
-<p>JWT 相比 UUID 形式 Token 的核心优势是（ ） A. 长度更短 B.
-自包含用户信息，无需查库即可识别用户 C. 不能被伪造 D. 永不过期</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：JWT 自包含
+<section class="question-card" id="15-d-24-"><p><strong>15-D-24 ★★</strong></p><p>JWT 相比 UUID 形式 Token 的核心优势是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">长度更短</div></li><li><span class="option-label">B</span><div class="option-content">自包含用户信息，无需查库即可识别用户</div></li><li><span class="option-label">C</span><div class="option-content">不能被伪造</div></li><li><span class="option-label">D</span><div class="option-content">永不过期</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：JWT 自包含
 Payload（用户信息），服务端解析即得用户身份，无需查 Redis。JWT
-靠签名防篡改但仍可能被劫持；可设过期时间并非永不过期。</p>
+靠签名防篡改但仍可能被劫持；可设过期时间并非永不过期。</p></blockquote></section>
 <hr />
-<h3 id="15-d-25-">15-D-25 ★</h3>
-<p><code>@NotBlank</code> 注解的作用是（ ） A. 校验字符串非 null
-且非空串 B. 校验字符串长度 C. 校验字符串格式 D. 校验数字范围</p>
-<p><strong>答案</strong>：A
+<section class="question-card" id="15-d-25-"><p><strong>15-D-25 ★</strong></p><p><code>@NotBlank</code> 注解的作用是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">校验字符串非 null 且非空串</div></li><li><span class="option-label">B</span><div class="option-content">校验字符串长度</div></li><li><span class="option-label">C</span><div class="option-content">校验字符串格式</div></li><li><span class="option-label">D</span><div class="option-content">校验数字范围</div></li></ul></div><blockquote><p><strong>答案</strong>：A
 <strong>解析</strong>：<code>@NotBlank</code> 校验字符串非 null
 且去除空格后长度大于 0，适用于文本字段。<code>@Size</code>
-校验长度，<code>@Pattern</code> 校验格式。</p>
+校验长度，<code>@Pattern</code> 校验格式。</p></blockquote></section>
 <hr />
-<h3 id="15-d-26-">15-D-26 ★★</h3>
-<p>用户注册时用户名唯一性校验，最稳健的做法是（ ） A. 仅业务层
-selectCount 校验 B. 仅数据库 UNIQUE 约束 C. 业务层校验 + 数据库 UNIQUE
-约束兜底 D. 不需要校验</p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="15-d-26-"><p><strong>15-D-26 ★★</strong></p><p>用户注册时用户名唯一性校验，最稳健的做法是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">仅业务层 selectCount 校验</div></li><li><span class="option-label">B</span><div class="option-content">仅数据库 UNIQUE 约束</div></li><li><span class="option-label">C</span><div class="option-content">业务层校验 + 数据库 UNIQUE 约束兜底</div></li><li><span class="option-label">D</span><div class="option-content">不需要校验</div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：业务层校验给出友好提示，数据库 UNIQUE
-约束兜底防止高并发下重复注册。两者结合最稳健。</p>
+约束兜底防止高并发下重复注册。两者结合最稳健。</p></blockquote></section>
 <hr />
-<h3 id="15-d-27-">15-D-27 ★</h3>
-<p><code>PasswordEncoder</code> 接口中加密方法名是（ ） A.
-<code>hash</code> B. <code>encrypt</code> C. <code>encode</code> D.
-<code>digest</code></p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="15-d-27-"><p><strong>15-D-27 ★</strong></p><p><code>PasswordEncoder</code> 接口中加密方法名是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>hash</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>encrypt</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>encode</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>digest</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：<code>PasswordEncoder</code> 接口定义
 <code>encode(CharSequence rawPassword)</code>
-加密、<code>matches(...)</code> 校验。</p>
+加密、<code>matches(...)</code> 校验。</p></blockquote></section>
 <hr />
-<h3 id="15-d-28-">15-D-28 ★★</h3>
-<p>关于密码加密的"加盐"，下列说法正确的是（ ） A. 加盐是指把密码变长 B.
-加盐是在密码中加入随机串再哈希，防止彩虹表攻击 C. BCrypt
-需要开发者自己管理盐 D. 加盐会使密码可逆</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="15-d-28-"><p><strong>15-D-28 ★★</strong></p><p>关于密码加密的"加盐"，下列说法正确的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">加盐是指把密码变长</div></li><li><span class="option-label">B</span><div class="option-content">加盐是在密码中加入随机串再哈希，防止彩虹表攻击</div></li><li><span class="option-label">C</span><div class="option-content">BCrypt 需要开发者自己管理盐</div></li><li><span class="option-label">D</span><div class="option-content">加盐会使密码可逆</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：加盐是在密码中加入随机串再哈希，使相同明文产生不同密文，防止彩虹表攻击。BCrypt
-自动管理盐，无需开发者干预。加盐不会使哈希可逆。</p>
+自动管理盐，无需开发者干预。加盐不会使哈希可逆。</p></blockquote></section>
 <hr />
-<h3 id="15-d-29-">15-D-29 ★★</h3>
-<p>下列场景中，仍适合使用 Session 认证的是（ ） A. 前后端分离的 RESTful
-API B. 移动端 App C. 同域传统服务端渲染 Web 应用（如 Thymeleaf） D.
-微信小程序</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：同域传统 Web
+<section class="question-card" id="15-d-29-"><p><strong>15-D-29 ★★</strong></p><p>下列场景中，仍适合使用 Session 认证的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">前后端分离的 RESTful API</div></li><li><span class="option-label">B</span><div class="option-content">移动端 App</div></li><li><span class="option-label">C</span><div class="option-content">同域传统服务端渲染 Web 应用（如 Thymeleaf）</div></li><li><span class="option-label">D</span><div class="option-content">微信小程序</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：同域传统 Web
 应用（服务端渲染）用 Session 简单高效，浏览器自动管理
-Cookie。前后端分离、移动端、小程序等场景更适合 Token。</p>
+Cookie。前后端分离、移动端、小程序等场景更适合 Token。</p></blockquote></section>
 <hr />
-<h3 id="15-d-30-">15-D-30 ★★</h3>
-<p>登录成功后返回给前端的数据中，下列字段不应该出现的是（ ） A.
-<code>token</code> B. <code>username</code> C. <code>role</code> D.
-<code>password</code>（密文）</p>
-<p><strong>答案</strong>：D
-<strong>解析</strong>：任何情况下都不应将密码（无论明文还是密文）返回给前端。即使密文不应泄漏，避免被反向工程或撞库。</p>
+<section class="question-card" id="15-d-30-"><p><strong>15-D-30 ★★</strong></p><p>登录成功后返回给前端的数据中，下列字段不应该出现的是（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>token</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>username</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>role</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>password</code>（密文）</div></li></ul></div><blockquote><p><strong>答案</strong>：D
+<strong>解析</strong>：任何情况下都不应将密码（无论明文还是密文）返回给前端。即使密文不应泄漏，避免被反向工程或撞库。</p></blockquote></section>
 <hr />
 <h2 id="二多项选择题10题">二、多项选择题（10题）</h2>
-<h3 id="15-m-01-">15-M-01 ★★</h3>
-<p>下列关于密码存储的说法，正确的有（ ） A. 密码必须以不可逆哈希存储 B.
-BCrypt 是推荐的密码加密算法 C. 明文存储违反《个人信息保护法》 D. MD5
-加盐后即与 BCrypt 安全性相当 E. 密码字段应建立索引以加速登录校验</p>
-<p><strong>答案</strong>：ABC <strong>解析</strong>：ABC 正确。D
+<section class="question-card" id="15-m-01-"><p><strong>15-M-01 ★★</strong></p><p>下列关于密码存储的说法，正确的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">密码必须以不可逆哈希存储</div></li><li><span class="option-label">B</span><div class="option-content">BCrypt 是推荐的密码加密算法</div></li><li><span class="option-label">C</span><div class="option-content">明文存储违反《个人信息保护法》</div></li><li><span class="option-label">D</span><div class="option-content">MD5 加盐后即与 BCrypt 安全性相当</div></li><li><span class="option-label">E</span><div class="option-content">密码字段应建立索引以加速登录校验</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC <strong>解析</strong>：ABC 正确。D
 错误：MD5 计算太快即便加盐仍可被暴力破解，远不及 BCrypt。E
-错误：密码字段不应建索引，登录依据用户名查询，且密码索引反而便于攻击者获取密文。</p>
+错误：密码字段不应建索引，登录依据用户名查询，且密码索引反而便于攻击者获取密文。</p></blockquote></section>
 <hr />
-<h3 id="15-m-02-">15-M-02 ★★</h3>
-<p>用户注册接口需要做的校验包括（ ） A. 用户名非空与格式校验 B.
-密码长度校验 C. 用户名唯一性校验 D. 角色合法性校验 E. Token
-有效性校验</p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：ABCD
-均为注册必备校验。E 错误：注册时用户尚未登录，无需 Token。</p>
+<section class="question-card" id="15-m-02-"><p><strong>15-M-02 ★★</strong></p><p>用户注册接口需要做的校验包括（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">用户名非空与格式校验</div></li><li><span class="option-label">B</span><div class="option-content">密码长度校验</div></li><li><span class="option-label">C</span><div class="option-content">用户名唯一性校验</div></li><li><span class="option-label">D</span><div class="option-content">角色合法性校验</div></li><li><span class="option-label">E</span><div class="option-content">Token 有效性校验</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：ABCD
+均为注册必备校验。E 错误：注册时用户尚未登录，无需 Token。</p></blockquote></section>
 <hr />
-<h3 id="15-m-03-">15-M-03 ★★</h3>
-<p>下列关于 BCrypt 的说法，正确的有（ ） A. 同一明文每次加密结果不同 B.
-盐嵌入在密文中 C. 校验时用 <code>matches</code> 方法 D. 计算速度比 MD5
-快 E. <code>strength</code> 越大越安全但越慢</p>
-<p><strong>答案</strong>：ABCE <strong>解析</strong>：ABCE 正确。D
+<section class="question-card" id="15-m-03-"><p><strong>15-M-03 ★★</strong></p><p>下列关于 BCrypt 的说法，正确的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">同一明文每次加密结果不同</div></li><li><span class="option-label">B</span><div class="option-content">盐嵌入在密文中</div></li><li><span class="option-label">C</span><div class="option-content">校验时用 <code>matches</code> 方法</div></li><li><span class="option-label">D</span><div class="option-content">计算速度比 MD5 快</div></li><li><span class="option-label">E</span><div class="option-content"><code>strength</code> 越大越安全但越慢</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCE <strong>解析</strong>：ABCE 正确。D
 错误：BCrypt 是慢哈希算法，计算速度远慢于
-MD5，这是其安全的特性之一。</p>
+MD5，这是其安全的特性之一。</p></blockquote></section>
 <hr />
-<h3 id="15-m-04-">15-M-04 ★★</h3>
-<p>下列属于 Token 认证特点的有（ ） A. 无状态 B. 客户端存储 Token C.
-通过 Header 携带 D. 跨域友好 E. 服务端默认存储 Session</p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：ABCD 均为 Token
-认证特点。E 错误：Token 认证无状态，服务端不存储 Session。</p>
+<section class="question-card" id="15-m-04-"><p><strong>15-M-04 ★★</strong></p><p>下列属于 Token 认证特点的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">无状态</div></li><li><span class="option-label">B</span><div class="option-content">客户端存储 Token</div></li><li><span class="option-label">C</span><div class="option-content">通过 Header 携带</div></li><li><span class="option-label">D</span><div class="option-content">跨域友好</div></li><li><span class="option-label">E</span><div class="option-content">服务端默认存储 Session</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：ABCD 均为 Token
+认证特点。E 错误：Token 认证无状态，服务端不存储 Session。</p></blockquote></section>
 <hr />
-<h3 id="15-m-05-">15-M-05 ★★</h3>
-<p>下列属于 Session 认证特点的有（ ） A. 有状态 B. 服务端存储 Session C.
-通过 Cookie 传递 SessionID D. 多服务器部署需 Session 共享 E. 跨域时
-Cookie 默认携带</p>
-<p><strong>答案</strong>：ABCD <strong>解析</strong>：ABCD 均为 Session
+<section class="question-card" id="15-m-05-"><p><strong>15-M-05 ★★</strong></p><p>下列属于 Session 认证特点的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">有状态</div></li><li><span class="option-label">B</span><div class="option-content">服务端存储 Session</div></li><li><span class="option-label">C</span><div class="option-content">通过 Cookie 传递 SessionID</div></li><li><span class="option-label">D</span><div class="option-content">多服务器部署需 Session 共享</div></li><li><span class="option-label">E</span><div class="option-content">跨域时 Cookie 默认携带</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD <strong>解析</strong>：ABCD 均为 Session
 认证特点。E 错误：跨域时 Cookie 默认不携带，需配置 CORS +
-<code>withCredentials</code>。</p>
+<code>withCredentials</code>。</p></blockquote></section>
 <hr />
-<h3 id="15-m-06-">15-M-06 ★★</h3>
-<p>前后端分离架构选择 Token 认证的原因包括（ ） A. 移动端不方便管理
-Cookie B. Token 跨域更友好 C. Token 无状态利于服务端扩展 D. Token 一定比
-Session 安全 E. Token 适配多端（Web/App/小程序）</p>
-<p><strong>答案</strong>：ABCE <strong>解析</strong>：ABCE 正确。D
-错误：Token 与 Session 安全性取决于实现，并非 Token 一定更安全。</p>
+<section class="question-card" id="15-m-06-"><p><strong>15-M-06 ★★</strong></p><p>前后端分离架构选择 Token 认证的原因包括（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">移动端不方便管理 Cookie</div></li><li><span class="option-label">B</span><div class="option-content">Token 跨域更友好</div></li><li><span class="option-label">C</span><div class="option-content">Token 无状态利于服务端扩展</div></li><li><span class="option-label">D</span><div class="option-content">Token 一定比 Session 安全</div></li><li><span class="option-label">E</span><div class="option-content">Token 适配多端（Web/App/小程序）</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCE <strong>解析</strong>：ABCE 正确。D
+错误：Token 与 Session 安全性取决于实现，并非 Token 一定更安全。</p></blockquote></section>
 <hr />
-<h3 id="15-m-07-">15-M-07 ★★</h3>
-<p>下列哪些是 MD5 不适合用于密码存储的原因（ ） A. 计算速度过快 B.
-存在彩虹表攻击 C. 相同明文产生相同密文 D. 是可逆加密 E. 存在碰撞漏洞</p>
-<p><strong>答案</strong>：ABCE <strong>解析</strong>：ABCE 均正确。D
-错误：MD5 是单向哈希，理论不可逆。</p>
+<section class="question-card" id="15-m-07-"><p><strong>15-M-07 ★★</strong></p><p>下列哪些是 MD5 不适合用于密码存储的原因（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">计算速度过快</div></li><li><span class="option-label">B</span><div class="option-content">存在彩虹表攻击</div></li><li><span class="option-label">C</span><div class="option-content">相同明文产生相同密文</div></li><li><span class="option-label">D</span><div class="option-content">是可逆加密</div></li><li><span class="option-label">E</span><div class="option-content">存在碰撞漏洞</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCE <strong>解析</strong>：ABCE 均正确。D
+错误：MD5 是单向哈希，理论不可逆。</p></blockquote></section>
 <hr />
-<h3 id="15-m-08-">15-M-08 ★★</h3>
-<p><code>@Valid</code> 注解可以触发的校验注解包括（ ） A.
-<code>@NotBlank</code> B. <code>@Size</code> C. <code>@Pattern</code> D.
-<code>@NotBlank</code> 作用于整数类型 E.
-<code>@Min</code>/<code>@Max</code></p>
-<p><strong>答案</strong>：ABCE <strong>解析</strong>：ABCE 均为 JSR-303
+<section class="question-card" id="15-m-08-"><p><strong>15-M-08 ★★</strong></p><p><code>@Valid</code> 注解可以触发的校验注解包括（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@NotBlank</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Size</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Pattern</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@NotBlank</code> 作用于整数类型</div></li><li><span class="option-label">E</span><div class="option-content"><code>@Min</code>/<code>@Max</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABCE <strong>解析</strong>：ABCE 均为 JSR-303
 校验注解。D 错误：<code>@NotBlank</code> 仅适用于
-<code>CharSequence</code>，整数应用 <code>@NotNull</code>。</p>
+<code>CharSequence</code>，整数应用 <code>@NotNull</code>。</p></blockquote></section>
 <hr />
-<h3 id="15-m-09-">15-M-09 ★★</h3>
-<p>下列关于登录接口设计的做法，正确的有（ ） A.
-登录失败统一提示"用户名或密码错误" B. 登录成功返回 Token 和基本用户信息
-C. 返回结果中包含 password 字段 D. 使用 <code>@Valid</code> 校验请求参数
-E. 使用 POST 方法</p>
-<p><strong>答案</strong>：ABDE <strong>解析</strong>：ABDE 正确。C
-错误：返回结果不应包含 password 字段。</p>
+<section class="question-card" id="15-m-09-"><p><strong>15-M-09 ★★</strong></p><p>下列关于登录接口设计的做法，正确的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">登录失败统一提示"用户名或密码错误"</div></li><li><span class="option-label">B</span><div class="option-content">登录成功返回 Token 和基本用户信息</div></li><li><span class="option-label">C</span><div class="option-content">返回结果中包含 password 字段</div></li><li><span class="option-label">D</span><div class="option-content">使用 <code>@Valid</code> 校验请求参数</div></li><li><span class="option-label">E</span><div class="option-content">使用 POST 方法</div></li></ul></div><blockquote><p><strong>答案</strong>：ABDE <strong>解析</strong>：ABDE 正确。C
+错误：返回结果不应包含 password 字段。</p></blockquote></section>
 <hr />
-<h3 id="15-m-10-">15-M-10 ★★★</h3>
-<p>下列关于认证方案选型的说法，正确的有（ ） A. 同域传统 Web 应用可使用
-Session B. 前后端分离推荐 Token C.
-强安全场景需主动踢人下线，Session+Redis 仍可考虑 D. Token 一定比 Session
-更适合所有场景 E. JWT 签发后难以主动失效是其缺点</p>
-<p><strong>答案</strong>：ABCE <strong>解析</strong>：ABCE 正确。D
+<section class="question-card" id="15-m-10-"><p><strong>15-M-10 ★★★</strong></p><p>下列关于认证方案选型的说法，正确的有（ ）</p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">同域传统 Web 应用可使用 Session</div></li><li><span class="option-label">B</span><div class="option-content">前后端分离推荐 Token</div></li><li><span class="option-label">C</span><div class="option-content">强安全场景需主动踢人下线，Session+Redis 仍可考虑</div></li><li><span class="option-label">D</span><div class="option-content">Token 一定比 Session 更适合所有场景</div></li><li><span class="option-label">E</span><div class="option-content">JWT 签发后难以主动失效是其缺点</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCE <strong>解析</strong>：ABCE 正确。D
 错误：没有"一定"，需根据场景选型。同域传统 Web、强安全场景 Session
-仍是合理选择。</p>
+仍是合理选择。</p></blockquote></section>
 <hr />
 <h2 id="三判断题20题">三、判断题（20题）</h2>
-<h3 id="15-p-01-">15-P-01 ★</h3>
-<p>密码可以使用 MD5 加密存储，因为 MD5 是不可逆的哈希算法。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：MD5
+<section class="question-card" id="15-p-01-"><p><strong>15-P-01 ★</strong></p><p>密码可以使用 MD5 加密存储，因为 MD5 是不可逆的哈希算法。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：MD5
 虽不可逆，但因计算速度快、存在彩虹表、相同明文相同密文，已不适合密码存储。应使用
-BCrypt 等慢哈希算法。</p>
+BCrypt 等慢哈希算法。</p></blockquote></section>
 <hr />
-<h3 id="15-p-02-">15-P-02 ★</h3>
-<p>BCrypt 加密同一明文，每次产生的密文不同，但都能正确校验。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：BCrypt
+<section class="question-card" id="15-p-02-"><p><strong>15-P-02 ★</strong></p><p>BCrypt 加密同一明文，每次产生的密文不同，但都能正确校验。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：BCrypt
 自带随机盐，盐嵌入密文。<code>matches</code>
-时从密文解析盐重新哈希明文比对，因此校验正确。</p>
+时从密文解析盐重新哈希明文比对，因此校验正确。</p></blockquote></section>
 <hr />
-<h3 id="15-p-03-">15-P-03 ★</h3>
-<p>用户注册时，应先加密密码再校验用户名是否唯一，以提升性能。</p>
-<p><strong>答案</strong>：错误
-<strong>解析</strong>：应先校验用户名唯一性，避免对已存在用户的密码做无效加密。顺序错误会浪费计算资源。</p>
+<section class="question-card" id="15-p-03-"><p><strong>15-P-03 ★</strong></p><p>用户注册时，应先加密密码再校验用户名是否唯一，以提升性能。</p><blockquote><p><strong>答案</strong>：错误
+<strong>解析</strong>：应先校验用户名唯一性，避免对已存在用户的密码做无效加密。顺序错误会浪费计算资源。</p></blockquote></section>
 <hr />
-<h3 id="15-p-04-">15-P-04 ★</h3>
-<p>登录失败时分别提示"用户名不存在"和"密码错误"可以让用户更清楚问题，是推荐做法。</p>
-<p><strong>答案</strong>：错误
-<strong>解析</strong>：分别提示会暴露用户是否注册，便于攻击者枚举用户名。应统一提示"用户名或密码错误"。</p>
+<section class="question-card" id="15-p-04-"><p><strong>15-P-04 ★</strong></p><p>登录失败时分别提示"用户名不存在"和"密码错误"可以让用户更清楚问题，是推荐做法。</p><blockquote><p><strong>答案</strong>：错误
+<strong>解析</strong>：分别提示会暴露用户是否注册，便于攻击者枚举用户名。应统一提示"用户名或密码错误"。</p></blockquote></section>
 <hr />
-<h3 id="15-p-05-">15-P-05 ★★</h3>
-<p>BCrypt 密文长度是 32 字符，数据库字段 <code>VARCHAR(32)</code>
-足够。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：BCrypt 密文 60
-字符，建议 <code>VARCHAR(100)</code>。32 字符是 MD5 密文长度。</p>
+<section class="question-card" id="15-p-05-"><p><strong>15-P-05 ★★</strong></p><p>BCrypt 密文长度是 32 字符，数据库字段 <code>VARCHAR(32)</code>
+足够。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：BCrypt 密文 60
+字符，建议 <code>VARCHAR(100)</code>。32 字符是 MD5 密文长度。</p></blockquote></section>
 <hr />
-<h3 id="15-p-06-">15-P-06 ★</h3>
-<p>Session 认证是无状态认证，服务端不存储任何用户信息。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：Session
-认证是有状态的，服务端存储 Session 对象。Token 认证才是无状态的。</p>
+<section class="question-card" id="15-p-06-"><p><strong>15-P-06 ★</strong></p><p>Session 认证是无状态认证，服务端不存储任何用户信息。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：Session
+认证是有状态的，服务端存储 Session 对象。Token 认证才是无状态的。</p></blockquote></section>
 <hr />
-<h3 id="15-p-07-">15-P-07 ★</h3>
-<p>Token 认证中，Token 通常通过 HTTP Header <code>Authorization</code>
-携带。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：约定通过
+<section class="question-card" id="15-p-07-"><p><strong>15-P-07 ★</strong></p><p>Token 认证中，Token 通常通过 HTTP Header <code>Authorization</code>
+携带。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：约定通过
 <code>Authorization: Bearer &lt;token&gt;</code> 携带，也可自定义
-Header。</p>
+Header。</p></blockquote></section>
 <hr />
-<h3 id="15-p-08-">15-P-08 ★★</h3>
-<p>引入 <code>spring-boot-starter-security</code>
-后默认放行所有接口无需认证。</p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="15-p-08-"><p><strong>15-P-08 ★★</strong></p><p>引入 <code>spring-boot-starter-security</code>
+后默认放行所有接口无需认证。</p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：默认拦截所有请求需认证。需配置
 <code>permitAll()</code> 或排除
-<code>SecurityAutoConfiguration</code>。</p>
+<code>SecurityAutoConfiguration</code>。</p></blockquote></section>
 <hr />
-<h3 id="15-p-09-">15-P-09 ★</h3>
-<p><code>@Valid</code> 注解可以触发 DTO 上的 JSR-303 校验注解。</p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="15-p-09-"><p><strong>15-P-09 ★</strong></p><p><code>@Valid</code> 注解可以触发 DTO 上的 JSR-303 校验注解。</p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：<code>@Valid</code> 配合
-<code>@NotBlank</code>、<code>@Size</code> 等触发参数自动校验。</p>
+<code>@NotBlank</code>、<code>@Size</code> 等触发参数自动校验。</p></blockquote></section>
 <hr />
-<h3 id="15-p-10-">15-P-10 ★★</h3>
-<p>BCrypt 需要开发者自己生成盐并单独存储到数据库。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：BCrypt
-自带盐，自动生成并嵌入密文，无需开发者单独管理盐字段。</p>
+<section class="question-card" id="15-p-10-"><p><strong>15-P-10 ★★</strong></p><p>BCrypt 需要开发者自己生成盐并单独存储到数据库。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：BCrypt
+自带盐，自动生成并嵌入密文，无需开发者单独管理盐字段。</p></blockquote></section>
 <hr />
-<h3 id="15-p-11-">15-P-11 ★</h3>
-<p>注册接口可以使用 GET 方法，将参数放在 URL 中。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：GET 将参数暴露在
+<section class="question-card" id="15-p-11-"><p><strong>15-P-11 ★</strong></p><p>注册接口可以使用 GET 方法，将参数放在 URL 中。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：GET 将参数暴露在
 URL 中，密码会出现在浏览器历史和服务器日志中，存在安全风险。注册应用
-POST。</p>
+POST。</p></blockquote></section>
 <hr />
-<h3 id="15-p-12-">15-P-12 ★★</h3>
-<p>JWT 是自包含的 Token，服务端解析即可获得用户信息，无需查库。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：JWT 的 Payload
-自包含用户信息，服务端解析校验签名后即可获得用户身份，无需查 Redis。</p>
+<section class="question-card" id="15-p-12-"><p><strong>15-P-12 ★★</strong></p><p>JWT 是自包含的 Token，服务端解析即可获得用户信息，无需查库。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：JWT 的 Payload
+自包含用户信息，服务端解析校验签名后即可获得用户身份，无需查 Redis。</p></blockquote></section>
 <hr />
-<h3 id="15-p-13-">15-P-13 ★★</h3>
-<p>Session 认证在多服务器部署时无需任何额外配置即可天然共享
-Session。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：默认 Session
+<section class="question-card" id="15-p-13-"><p><strong>15-P-13 ★★</strong></p><p>Session 认证在多服务器部署时无需任何额外配置即可天然共享
+Session。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：默认 Session
 存在服务器本地内存，多服务器需 Session 共享（粘性会话、Spring
-Session+Redis 等）。</p>
+Session+Redis 等）。</p></blockquote></section>
 <hr />
-<h3 id="15-p-14-">15-P-14 ★</h3>
-<p>密码加密是为了防止数据库泄漏后密码被直接获取。</p>
-<p><strong>答案</strong>：正确
-<strong>解析</strong>：密码加密核心目的就是即便数据库泄漏，攻击者也无法直接获得明文密码。</p>
+<section class="question-card" id="15-p-14-"><p><strong>15-P-14 ★</strong></p><p>密码加密是为了防止数据库泄漏后密码被直接获取。</p><blockquote><p><strong>答案</strong>：正确
+<strong>解析</strong>：密码加密核心目的就是即便数据库泄漏，攻击者也无法直接获得明文密码。</p></blockquote></section>
 <hr />
-<h3 id="15-p-15-">15-P-15 ★★</h3>
-<p><code>passwordEncoder.encode("123456").equals(passwordEncoder.encode("123456"))</code>
-的结果为 true。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：BCrypt
+<section class="question-card" id="15-p-15-"><p><strong>15-P-15 ★★</strong></p><p><code>passwordEncoder.encode("123456").equals(passwordEncoder.encode("123456"))</code>
+的结果为 true。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：BCrypt
 每次加密产生不同盐，结果不同，equals 返回 false。校验应用
-<code>matches</code>。</p>
+<code>matches</code>。</p></blockquote></section>
 <hr />
-<h3 id="15-p-16-">15-P-16 ★</h3>
-<p>登出时只需前端清空本地 Token，服务端无需任何处理。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：仅前端清 Token
+<section class="question-card" id="15-p-16-"><p><strong>15-P-16 ★</strong></p><p>登出时只需前端清空本地 Token，服务端无需任何处理。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：仅前端清 Token
 不够，攻击者可能已窃取。服务端应使 Token 失效（删 Redis
-或加黑名单）。</p>
+或加黑名单）。</p></blockquote></section>
 <hr />
-<h3 id="15-p-17-">15-P-17 ★★</h3>
-<p>前后端分离架构下，Session 认证因跨域 Cookie
-默认不携带，使用较为复杂。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：跨域请求 Cookie
+<section class="question-card" id="15-p-17-"><p><strong>15-P-17 ★★</strong></p><p>前后端分离架构下，Session 认证因跨域 Cookie
+默认不携带，使用较为复杂。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：跨域请求 Cookie
 默认不携带，需配置 CORS + <code>withCredentials=true</code> +
-<code>allowCredentials=true</code>，配置复杂。</p>
+<code>allowCredentials=true</code>，配置复杂。</p></blockquote></section>
 <hr />
-<h3 id="15-p-18-">15-P-18 ★</h3>
-<p><code>BCryptPasswordEncoder</code> 的 <code>strength</code>
-参数值越大越安全，因此应设为最大值 31。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：strength
-越大越慢，31 会导致单次加密数秒，严重影响登录性能。生产推荐 10-12。</p>
+<section class="question-card" id="15-p-18-"><p><strong>15-P-18 ★</strong></p><p><code>BCryptPasswordEncoder</code> 的 <code>strength</code>
+参数值越大越安全，因此应设为最大值 31。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：strength
+越大越慢，31 会导致单次加密数秒，严重影响登录性能。生产推荐 10-12。</p></blockquote></section>
 <hr />
-<h3 id="15-p-19-">15-P-19 ★★</h3>
-<p>注册接口的用户名唯一性校验可以完全由数据库 UNIQUE
-约束替代，业务层无需校验。</p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：数据库 UNIQUE
+<section class="question-card" id="15-p-19-"><p><strong>15-P-19 ★★</strong></p><p>注册接口的用户名唯一性校验可以完全由数据库 UNIQUE
+约束替代，业务层无需校验。</p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：数据库 UNIQUE
 约束兜底防重，但抛出的是
-<code>DuplicateKeyException</code>，提示不友好。业务层应主动校验给出友好提示。</p>
+<code>DuplicateKeyException</code>，提示不友好。业务层应主动校验给出友好提示。</p></blockquote></section>
 <hr />
-<h3 id="15-p-20-">15-P-20 ★★</h3>
-<p>Token 认证相比 Session
-更适合分布式部署，因为服务端无状态可任意横向扩展。</p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：Token
+<section class="question-card" id="15-p-20-"><p><strong>15-P-20 ★★</strong></p><p>Token 认证相比 Session
+更适合分布式部署，因为服务端无状态可任意横向扩展。</p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：Token
 无状态，服务端不存储 Session，任何节点解析 Token
-即可识别用户，天然支持横向扩展。</p>
+即可识别用户，天然支持横向扩展。</p></blockquote></section>
 <hr />
 <h2 id="四填空题10题">四、填空题（10题）</h2>
-<h3 id="15-f-01-">15-F-01 ★</h3>
-<p>用户注册的标准流程是：① 校验用户名______；② ______密码；③
-______。</p>
-<p><strong>答案</strong>：唯一性；BCrypt 加密；入库
+<section class="question-card" id="15-f-01-"><p><strong>15-F-01 ★</strong></p><p>用户注册的标准流程是：① 校验用户名______；② ______密码；③
+______。</p><blockquote><p><strong>答案</strong>：唯一性；BCrypt 加密；入库
 <strong>解析</strong>：注册流程三步走：唯一性校验、BCrypt
-加密、入库。</p>
+加密、入库。</p></blockquote></section>
 <hr />
-<h3 id="15-f-02-">15-F-02 ★</h3>
-<p>Spring Security 提供 ______
+<section class="question-card" id="15-f-02-"><p><strong>15-F-02 ★</strong></p><p>Spring Security 提供 ______
 接口统一抽象密码加密与校验，其中加密方法名为 ______，校验方法名为
-______。</p>
-<p><strong>答案</strong>：PasswordEncoder；encode；matches
+______。</p><blockquote><p><strong>答案</strong>：PasswordEncoder；encode；matches
 <strong>解析</strong>：<code>PasswordEncoder</code>
-接口，<code>encode</code> 加密，<code>matches</code> 校验。</p>
+接口，<code>encode</code> 加密，<code>matches</code> 校验。</p></blockquote></section>
 <hr />
-<h3 id="15-f-03-">15-F-03 ★★</h3>
-<p>BCrypt 密文长度约 ______ 字符，建议数据库字段设计为 ______。</p>
-<p><strong>答案</strong>：60；VARCHAR(100) <strong>解析</strong>：BCrypt
-密文 60 字符，VARCHAR(100) 留余量。</p>
+<section class="question-card" id="15-f-03-"><p><strong>15-F-03 ★★</strong></p><p>BCrypt 密文长度约 ______ 字符，建议数据库字段设计为 ______。</p><blockquote><p><strong>答案</strong>：60；VARCHAR(100) <strong>解析</strong>：BCrypt
+密文 60 字符，VARCHAR(100) 留余量。</p></blockquote></section>
 <hr />
-<h3 id="15-f-04-">15-F-04 ★★</h3>
-<p>BCrypt 加密同一明文，每次结果 ______（相同/不同），原因是
-______。</p>
-<p><strong>答案</strong>：不同；每次加密自动生成随机盐
+<section class="question-card" id="15-f-04-"><p><strong>15-F-04 ★★</strong></p><p>BCrypt 加密同一明文，每次结果 ______（相同/不同），原因是
+______。</p><blockquote><p><strong>答案</strong>：不同；每次加密自动生成随机盐
 <strong>解析</strong>：BCrypt
-自带随机盐，每次加密产生不同盐导致结果不同。</p>
+自带随机盐，每次加密产生不同盐导致结果不同。</p></blockquote></section>
 <hr />
-<h3 id="15-f-05-">15-F-05 ★</h3>
-<p>Session 认证中，SessionID 通过 HTTP 响应头 ______
-返回客户端，后续请求通过 ______ 自动携带。</p>
-<p><strong>答案</strong>：Set-Cookie；Cookie
+<section class="question-card" id="15-f-05-"><p><strong>15-F-05 ★</strong></p><p>Session 认证中，SessionID 通过 HTTP 响应头 ______
+返回客户端，后续请求通过 ______ 自动携带。</p><blockquote><p><strong>答案</strong>：Set-Cookie；Cookie
 <strong>解析</strong>：<code>Set-Cookie: JSESSIONID=xxx</code>
-返回，后续 <code>Cookie: JSESSIONID=xxx</code> 携带。</p>
+返回，后续 <code>Cookie: JSESSIONID=xxx</code> 携带。</p></blockquote></section>
 <hr />
-<h3 id="15-f-06-">15-F-06 ★</h3>
-<p>Token 认证中，Token 通常通过 HTTP Header ______ 携带，格式为
-______。</p>
-<p><strong>答案</strong>：Authorization；Bearer &lt;token&gt;
+<section class="question-card" id="15-f-06-"><p><strong>15-F-06 ★</strong></p><p>Token 认证中，Token 通常通过 HTTP Header ______ 携带，格式为
+______。</p><blockquote><p><strong>答案</strong>：Authorization；Bearer &lt;token&gt;
 <strong>解析</strong>：约定
-<code>Authorization: Bearer &lt;token&gt;</code>。</p>
+<code>Authorization: Bearer &lt;token&gt;</code>。</p></blockquote></section>
 <hr />
-<h3 id="15-f-07-">15-F-07 ★★</h3>
-<p>BCrypt 加密的成本因子参数名为 ______，默认值为 ______，表示 ______
-轮哈希。</p>
-<p><strong>答案</strong>：strength；10；2^10=1024
-<strong>解析</strong>：strength 默认 10，表示 2^10=1024 轮。</p>
+<section class="question-card" id="15-f-07-"><p><strong>15-F-07 ★★</strong></p><p>BCrypt 加密的成本因子参数名为 ______，默认值为 ______，表示 ______
+轮哈希。</p><blockquote><p><strong>答案</strong>：strength；10；2^10=1024
+<strong>解析</strong>：strength 默认 10，表示 2^10=1024 轮。</p></blockquote></section>
 <hr />
-<h3 id="15-f-08-">15-F-08 ★★</h3>
-<p>登录失败时统一提示"______"，避免暴露用户是否注册，这种做法称为防止
-______ 攻击。</p>
-<p><strong>答案</strong>：用户名或密码错误；用户名枚举
-<strong>解析</strong>：统一提示防止攻击者通过差异化提示枚举系统用户名。</p>
+<section class="question-card" id="15-f-08-"><p><strong>15-F-08 ★★</strong></p><p>登录失败时统一提示"______"，避免暴露用户是否注册，这种做法称为防止
+______ 攻击。</p><blockquote><p><strong>答案</strong>：用户名或密码错误；用户名枚举
+<strong>解析</strong>：统一提示防止攻击者通过差异化提示枚举系统用户名。</p></blockquote></section>
 <hr />
-<h3 id="15-f-09-">15-F-09 ★</h3>
-<p><code>@Valid</code> 注解需要配合 ______ 注解（如
+<section class="question-card" id="15-f-09-"><p><strong>15-F-09 ★</strong></p><p><code>@Valid</code> 注解需要配合 ______ 注解（如
 <code>@NotBlank</code>、<code>@Size</code>、<code>@Pattern</code>）实现参数校验，这些注解来自
-______ 规范。</p>
-<p><strong>答案</strong>：JSR-303 校验；JSR-303 Bean Validation
+______ 规范。</p><blockquote><p><strong>答案</strong>：JSR-303 校验；JSR-303 Bean Validation
 <strong>解析</strong>：JSR-303（Bean Validation）规范定义
 <code>@NotBlank</code>、<code>@Size</code>、<code>@Pattern</code>
-等注解。</p>
+等注解。</p></blockquote></section>
 <hr />
-<h3 id="15-f-10-">15-F-10 ★★</h3>
-<p>Session 认证是 ______（有状态/无状态）认证，Token 认证是
-______（有状态/无状态）认证；前后端分离架构通常选择 ______。</p>
-<p><strong>答案</strong>：有状态；无状态；Token
+<section class="question-card" id="15-f-10-"><p><strong>15-F-10 ★★</strong></p><p>Session 认证是 ______（有状态/无状态）认证，Token 认证是
+______（有状态/无状态）认证；前后端分离架构通常选择 ______。</p><blockquote><p><strong>答案</strong>：有状态；无状态；Token
 <strong>解析</strong>：Session 有状态存服务端，Token
-无状态存客户端，前后端分离选 Token。</p>
+无状态存客户端，前后端分离选 Token。</p></blockquote></section>
 <hr />
 <h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
-<h3 id="15-s-01-">15-S-01 ★★</h3>
-<p><strong>论述题</strong>：请从数据库泄漏、撞库攻击、内部审计三个角度，详细说明为什么密码不能明文存储。</p>
-<p><strong>参考答案与评分标准</strong>（满分10分）：</p>
-<p><strong>1. 数据库泄漏角度（3分）</strong></p>
-<ul>
+<section class="question-card" id="15-s-01-"><p><strong>15-S-01 ★★</strong></p><p><strong>论述题</strong>：请从数据库泄漏、撞库攻击、内部审计三个角度，详细说明为什么密码不能明文存储。</p><p><strong>参考答案与评分标准</strong>（满分10分）：</p><p><strong>1. 数据库泄漏角度（3分）</strong></p><ul>
 <li>一旦数据库被 SQL
 注入或拖库，所有用户密码直接以明文形式暴露（1分）。</li>
 <li>攻击者可立即登录所有账户，造成盗号、资金损失、信息篡改等严重后果（1分）。</li>
 <li>加密存储即便库泄漏，攻击者也无法直接获得明文，需付出极高破解成本（1分）。</li>
-</ul>
-<p><strong>2. 撞库攻击角度（3分）</strong></p>
-<ul>
+</ul><p><strong>2. 撞库攻击角度（3分）</strong></p><ul>
 <li>用户习惯在多个网站复用同一密码（1分）。</li>
 <li>明文泄漏后，攻击者将"用户名+密码"组合用于登录其他网站，即撞库（1分）。</li>
 <li>加密存储（尤其 BCrypt
 加盐）使每个站点密文不同，即便泄漏也难以反推明文用于撞库（1分）。</li>
-</ul>
-<p><strong>3. 内部审计角度（2分）</strong></p>
-<ul>
+</ul><p><strong>3. 内部审计角度（2分）</strong></p><ul>
 <li>明文存储意味着有数据库读权限的内部员工可查看所有用户密码（1分）。</li>
 <li>违反最小权限原则和职业道德，加密存储使内部员工也只能看到密文（1分）。</li>
-</ul>
-<p><strong>4. 法律法规角度（2分）</strong></p>
-<ul>
+</ul><p><strong>4. 法律法规角度（2分）</strong></p><ul>
 <li>《个人信息保护法》第51条要求采取技术措施保障个人信息安全（1分）。</li>
 <li>明文存储属于未履行安全保护义务，可能面临行政处罚和民事赔偿（1分）。</li>
-</ul>
-<p><strong>评分要点</strong>：每个角度要点齐全得满分；论述清晰、有例证加分；仅泛泛而谈酌情扣分。</p>
+</ul><p><strong>评分要点</strong>：每个角度要点齐全得满分；论述清晰、有例证加分；仅泛泛而谈酌情扣分。</p></section>
 <hr />
-<h3 id="15-s-02-">15-S-02 ★★</h3>
-<p><strong>论述题</strong>：请对比 MD5 与 BCrypt
-在密码存储场景下的差异，并说明 BCrypt 是如何解决 MD5 的安全问题的。</p>
-<p><strong>参考答案与评分标准</strong>（满分10分）：</p>
-<p><strong>1. MD5 的问题（4分）</strong></p>
-<ul>
+<section class="question-card" id="15-s-02-"><p><strong>15-S-02 ★★</strong></p><p><strong>论述题</strong>：请对比 MD5 与 BCrypt
+在密码存储场景下的差异，并说明 BCrypt 是如何解决 MD5 的安全问题的。</p><p><strong>参考答案与评分标准</strong>（满分10分）：</p><p><strong>1. MD5 的问题（4分）</strong></p><ul>
 <li>计算速度极快：现代 GPU 每秒可计算数十亿次
 MD5，暴力破解成本低（1分）。</li>
 <li>彩虹表攻击：预先计算的明文→MD5 对照表可秒查反推（1分）。</li>
 <li>相同明文相同密文：一旦某站泄漏，相同密码账户都被识别（1分）。</li>
 <li>存在碰撞漏洞：虽对密码存储影响有限，但反映算法已被攻破（1分）。</li>
-</ul>
-<p><strong>2. BCrypt 的解决方案（4分）</strong></p>
-<ul>
+</ul><p><strong>2. BCrypt 的解决方案（4分）</strong></p><ul>
 <li>慢哈希：成本因子 strength
 可调，计算慢，暴力破解成本极高（1分）。</li>
 <li>自带随机盐：每次加密产生不同盐，相同明文产生不同密文，防彩虹表（1分）。</li>
@@ -718,89 +479,58 @@ MD5，暴力破解成本低（1分）。</li>
 自动解析盐重新哈希（1分）。</li>
 <li>不可逆：与 MD5 一样是单向哈希，但抗暴力破解能力远强于
 MD5（1分）。</li>
-</ul>
-<p><strong>3. 对比小结（2分）</strong></p>
-<ul>
+</ul><p><strong>3. 对比小结（2分）</strong></p><ul>
 <li>MD5：快、无盐、不安全（1分）。</li>
 <li>BCrypt：慢、自带盐、安全，是密码存储推荐方案（1分）。</li>
-</ul>
-<p><strong>评分要点</strong>：要点齐全满分；只列现象不解释原理扣分；能结合"为什么慢更安全"加分。</p>
+</ul><p><strong>评分要点</strong>：要点齐全满分；只列现象不解释原理扣分；能结合"为什么慢更安全"加分。</p></section>
 <hr />
-<h3 id="15-s-03-">15-S-03 ★★</h3>
-<p><strong>论述题</strong>：请从存储位置、扩展性、跨域、前后端分离适配性四个维度对比
-Session 与 Token 认证，并说明前后端分离架构为何选择 Token。</p>
-<p><strong>参考答案与评分标准</strong>（满分12分）：</p>
-<p><strong>1. 存储位置（2分）</strong></p>
-<ul>
+<section class="question-card" id="15-s-03-"><p><strong>15-S-03 ★★</strong></p><p><strong>论述题</strong>：请从存储位置、扩展性、跨域、前后端分离适配性四个维度对比
+Session 与 Token 认证，并说明前后端分离架构为何选择 Token。</p><p><strong>参考答案与评分标准</strong>（满分12分）：</p><p><strong>1. 存储位置（2分）</strong></p><ul>
 <li>Session：服务端内存/Redis，有状态（1分）。</li>
 <li>Token：客户端 localStorage，无状态（1分）。</li>
-</ul>
-<p><strong>2. 扩展性（3分）</strong></p>
-<ul>
+</ul><p><strong>2. 扩展性（3分）</strong></p><ul>
 <li>Session：多服务器需 Session 共享（粘性会话/Spring
 Session+Redis），扩展成本高（1.5分）。</li>
 <li>Token：无状态，任何节点解析 Token
 即可识别用户，天然支持横向扩展（1.5分）。</li>
-</ul>
-<p><strong>3. 跨域（2分）</strong></p>
-<ul>
+</ul><p><strong>3. 跨域（2分）</strong></p><ul>
 <li>Session：Cookie 跨域默认不携带，需 CORS +
 withCredentials，配置复杂（1分）。</li>
 <li>Token：通过 Header 传递，跨域只需简单 CORS 配置即可（1分）。</li>
-</ul>
-<p><strong>4. 前后端分离适配性（3分）</strong></p>
-<ul>
+</ul><p><strong>4. 前后端分离适配性（3分）</strong></p><ul>
 <li>Session：移动端 App/小程序不方便管理 Cookie，适配差（1.5分）。</li>
 <li>Token：统一 Header
 传递，与客户端类型无关，Web/App/小程序通用（1.5分）。</li>
-</ul>
-<p><strong>5. 结论（2分）</strong></p>
-<ul>
+</ul><p><strong>5. 结论（2分）</strong></p><ul>
 <li>前后端分离架构下，后端是独立 RESTful API，前端可能是
 Web/App/小程序，需跨域、需多端适配、需分布式扩展（1分）。</li>
 <li>Token
 无状态、跨域友好、多端通用的特性完美匹配这些需求，因此是首选（1分）。</li>
-</ul>
-<p><strong>评分要点</strong>：四个维度对照清晰满分；只答维度不展开扣分；结合实际场景论述加分。</p>
+</ul><p><strong>评分要点</strong>：四个维度对照清晰满分；只答维度不展开扣分；结合实际场景论述加分。</p></section>
 <hr />
-<h3 id="15-s-04-">15-S-04 ★★</h3>
-<p><strong>简答题</strong>：简述用户登录的完整流程，并说明每一步的作用。</p>
-<p><strong>参考答案与评分标准</strong>（满分10分）：</p>
-<p><strong>1. 接收请求与参数校验（2分）</strong></p>
-<ul>
+<section class="question-card" id="15-s-04-"><p><strong>15-S-04 ★★</strong></p><p><strong>简答题</strong>：简述用户登录的完整流程，并说明每一步的作用。</p><p><strong>参考答案与评分标准</strong>（满分10分）：</p><p><strong>1. 接收请求与参数校验（2分）</strong></p><ul>
 <li>Controller 接收 POST
 <code>/api/auth/login</code>，<code>@Valid</code> 触发 DTO
 校验（1分）。</li>
 <li>作用：防止空值、格式错误的参数进入业务层（1分）。</li>
-</ul>
-<p><strong>2. 根据用户名查询用户（2分）</strong></p>
-<ul>
+</ul><p><strong>2. 根据用户名查询用户（2分）</strong></p><ul>
 <li>通过 <code>userMapper.selectOne</code> 根据 username
 查询（1分）。</li>
 <li>作用：判断用户是否存在，获取密文密码（1分）。</li>
-</ul>
-<p><strong>3. 用户存在性校验（1分）</strong></p>
-<ul>
+</ul><p><strong>3. 用户存在性校验（1分）</strong></p><ul>
 <li>若 user 为 null，抛出"用户名或密码错误"异常（0.5分）。</li>
 <li>作用：防止用户名枚举攻击（0.5分）。</li>
-</ul>
-<p><strong>4. BCrypt 校验密码（2分）</strong></p>
-<ul>
+</ul><p><strong>4. BCrypt 校验密码（2分）</strong></p><ul>
 <li><code>passwordEncoder.matches(rawPassword, encodedPassword)</code>（1分）。</li>
 <li>作用：安全校验密码，不暴露明文（1分）。</li>
-</ul>
-<p><strong>5. 生成 Token 并返回（3分）</strong></p>
-<ul>
+</ul><p><strong>5. 生成 Token 并返回（3分）</strong></p><ul>
 <li>生成 Token（UUID 或 JWT），可选存 Redis 关联 userId（1分）。</li>
 <li>封装 token + 用户基本信息（不含密码）返回（1分）。</li>
 <li>作用：Token 作为后续请求的身份凭证（1分）。</li>
-</ul>
-<p><strong>评分要点</strong>：五步完整满分；漏步骤扣分；每步既说"做什么"又说"为什么"加分。</p>
+</ul><p><strong>评分要点</strong>：五步完整满分；漏步骤扣分；每步既说"做什么"又说"为什么"加分。</p></section>
 <hr />
 <h2 id="六程序阅读补全题2题">六、程序阅读补全题（2题）</h2>
-<h3 id="15-r-01-">15-R-01 ★★</h3>
-<p>阅读以下 UserService.register 方法，补全①②③处代码。</p>
-<div class="sourceCode" id="cb1"><pre
+<section class="question-card" id="15-r-01-"><p><strong>15-R-01 ★★</strong></p><p>阅读以下 UserService.register 方法，补全①②③处代码。</p><div class="sourceCode" id="cb1"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">register</span><span class="op">(</span>UserRegisterDTO dto<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ① 用户名唯一性校验</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Long</span> count <span class="op">=</span> userMapper<span class="op">.</span><span class="fu">selectCount</span><span class="op">(</span></span>
@@ -819,33 +549,23 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ③ 入库</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    __________<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>user<span class="op">);</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>参考答案</strong>：</p>
-<ul>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><blockquote><p><strong>参考答案</strong>：</p><ul>
 <li>① 处：（已在题中给出，无需补全）</li>
 <li>② 处：<code>passwordEncoder.encode(dto.getPassword())</code></li>
 <li>③ 处：<code>userMapper</code></li>
-</ul>
-<p><strong>完整代码</strong>：</p>
-<div class="sourceCode" id="cb2"><pre
+</ul><p><strong>完整代码</strong>：</p><div class="sourceCode" id="cb2"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>user<span class="op">.</span><span class="fu">setPassword</span><span class="op">(</span>passwordEncoder<span class="op">.</span><span class="fu">encode</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getPassword</span><span class="op">()));</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>userMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>user<span class="op">);</span></span></code></pre></div>
-<p><strong>解析</strong>：</p>
-<ul>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>userMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>user<span class="op">);</span></span></code></pre></div><p><strong>解析</strong>：</p><ul>
 <li>② 必须使用注入的 <code>passwordEncoder.encode()</code>
 加密密码，不能直接 <code>dto.getPassword()</code> 存明文。</li>
 <li>③ 通过 <code>userMapper.insert()</code> 入库。</li>
-</ul>
-<p><strong>评分标准</strong>（满分6分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（满分6分）：</p><ul>
 <li>② 正确 <code>passwordEncoder.encode(dto.getPassword())</code>
 得3分（漏 <code>encode</code> 扣2分，漏参数扣1分）</li>
 <li>③ 正确 <code>userMapper</code> 得3分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="15-r-02-">15-R-02 ★★</h3>
-<p>阅读以下 UserService.login 方法，补全①②③④处代码。</p>
-<div class="sourceCode" id="cb3"><pre
+<section class="question-card" id="15-r-02-"><p><strong>15-R-02 ★★</strong></p><p>阅读以下 UserService.login 方法，补全①②③④处代码。</p><div class="sourceCode" id="cb3"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> <span class="fu">login</span><span class="op">(</span>UserLoginDTO dto<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ① 根据用户名查用户</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    User user <span class="op">=</span> userMapper<span class="op">.</span><span class="fu">__________</span><span class="op">(</span></span>
@@ -868,44 +588,33 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;token&quot;</span><span class="op">,</span> token<span class="op">);</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;user&quot;</span><span class="op">,</span> userInfo<span class="op">);</span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>参考答案</strong>：</p>
-<ul>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><blockquote><p><strong>参考答案</strong>：</p><ul>
 <li>① 处：<code>selectOne</code></li>
 <li>② 处：<code>matches</code></li>
 <li>③ 处：<code>UUID</code></li>
 <li>④ 处：（已在题中给出，无需补全）</li>
-</ul>
-<p><strong>完整代码</strong>：</p>
-<div class="sourceCode" id="cb4"><pre
+</ul><p><strong>完整代码</strong>：</p><div class="sourceCode" id="cb4"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>User user <span class="op">=</span> userMapper<span class="op">.</span><span class="fu">selectOne</span><span class="op">(</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">new</span> LambdaQueryWrapper<span class="op">&lt;</span>User<span class="op">&gt;().</span><span class="fu">eq</span><span class="op">(</span>User<span class="op">::</span>getUsername<span class="op">,</span> dto<span class="op">.</span><span class="fu">getUsername</span><span class="op">())</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">);</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span>passwordEncoder<span class="op">.</span><span class="fu">matches</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getPassword</span><span class="op">(),</span> user<span class="op">.</span><span class="fu">getPassword</span><span class="op">()))</span> <span class="op">{</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">throw</span> <span class="kw">new</span> <span class="fu">BusinessException</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> <span class="st">&quot;用户名或密码错误&quot;</span><span class="op">);</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> token <span class="op">=</span> <span class="bu">UUID</span><span class="op">.</span><span class="fu">randomUUID</span><span class="op">().</span><span class="fu">toString</span><span class="op">().</span><span class="fu">replace</span><span class="op">(</span><span class="st">&quot;-&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">);</span></span></code></pre></div>
-<p><strong>解析</strong>：</p>
-<ul>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> token <span class="op">=</span> <span class="bu">UUID</span><span class="op">.</span><span class="fu">randomUUID</span><span class="op">().</span><span class="fu">toString</span><span class="op">().</span><span class="fu">replace</span><span class="op">(</span><span class="st">&quot;-&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">);</span></span></code></pre></div><p><strong>解析</strong>：</p><ul>
 <li>① 查询单个用户用 <code>selectOne</code>（不是
 <code>selectList</code>）。</li>
 <li>② BCrypt 校验用 <code>matches(明文, 密文)</code>，不能用
 <code>equals</code>。</li>
 <li>③ 生成 UUID 用 <code>java.util.UUID.randomUUID()</code>。</li>
-</ul>
-<p><strong>评分标准</strong>（满分8分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（满分8分）：</p><ul>
 <li>① <code>selectOne</code> 得2分</li>
 <li>② <code>matches</code> 得3分（写成 <code>equals</code> 0分）</li>
 <li>③ <code>UUID</code> 得3分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
-<h3 id="15-c-01-">15-C-01 ★★</h3>
-<p><strong>编程题</strong>：请基于 Spring Boot + MyBatis-Plus + BCrypt
-实现 CTTS 用户注册接口。</p>
-<p><strong>要求</strong>：</p>
-<ol type="1">
+<section class="question-card" id="15-c-01-"><p><strong>15-C-01 ★★</strong></p><p><strong>编程题</strong>：请基于 Spring Boot + MyBatis-Plus + BCrypt
+实现 CTTS 用户注册接口。</p><p><strong>要求</strong>：</p><ol type="1">
 <li>接口路径 <code>POST /api/auth/register</code>。</li>
 <li>请求体字段：username（3-20
 字母数字下划线）、password（6-20）、name、role（STUDENT/TEACHER/ADMIN）。</li>
@@ -915,10 +624,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="
 <li>参数校验使用 <code>@Valid</code>。</li>
 <li>返回统一响应体 <code>Result&lt;Void&gt;</code>。</li>
 <li>编写：DTO、Controller、UserService、PasswordEncoder 配置类。</li>
-</ol>
-<p><strong>参考答案</strong>：</p>
-<p><strong>（1）UserRegisterDTO</strong>：</p>
-<div class="sourceCode" id="cb5"><pre
+</ol><blockquote><p><strong>参考答案</strong>：</p><p><strong>（1）UserRegisterDTO</strong>：</p><div class="sourceCode" id="cb5"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">jakarta</span><span class="op">.</span><span class="im">validation</span><span class="op">.</span><span class="im">constraints</span><span class="op">.</span><span class="im">NotBlank</span><span class="op">;</span></span>
@@ -944,9 +650,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotBlank</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;角色不能为空&quot;</span><span class="op">)</span></span>
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Pattern</span><span class="op">(</span>regexp <span class="op">=</span> <span class="st">&quot;STUDENT|TEACHER|ADMIN&quot;</span><span class="op">,</span> message <span class="op">=</span> <span class="st">&quot;角色必须为STUDENT/TEACHER/ADMIN&quot;</span><span class="op">)</span></span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> role<span class="op">;</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>（2）PasswordEncoder 配置类</strong>：</p>
-<div class="sourceCode" id="cb6"><pre
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>（2）PasswordEncoder 配置类</strong>：</p><div class="sourceCode" id="cb6"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">config</span><span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">context</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Bean</span><span class="op">;</span></span>
@@ -960,9 +664,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> PasswordEncoder <span class="fu">passwordEncoder</span><span class="op">()</span> <span class="op">{</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="fu">BCryptPasswordEncoder</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>（3）UserService.register</strong>：</p>
-<div class="sourceCode" id="cb7"><pre
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>（3）UserService.register</strong>：</p><div class="sourceCode" id="cb7"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">service</span><span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">baomidou</span><span class="op">.</span><span class="im">mybatisplus</span><span class="op">.</span><span class="im">core</span><span class="op">.</span><span class="im">conditions</span><span class="op">.</span><span class="im">query</span><span class="op">.</span><span class="im">LambdaQueryWrapper</span><span class="op">;</span></span>
@@ -997,9 +699,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="
 <span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        user<span class="op">.</span><span class="fu">setRole</span><span class="op">(</span>dto<span class="op">.</span><span class="fu">getRole</span><span class="op">());</span></span>
 <span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        userMapper<span class="op">.</span><span class="fu">insert</span><span class="op">(</span>user<span class="op">);</span></span>
 <span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>（4）UserController.register</strong>：</p>
-<div class="sourceCode" id="cb8"><pre
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>（4）UserController.register</strong>：</p><div class="sourceCode" id="cb8"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
@@ -1021,28 +721,21 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        userService<span class="op">.</span><span class="fu">register</span><span class="op">(</span>dto<span class="op">);</span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">ok</span><span class="op">();</span></span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>评分标准</strong>（满分20分）：</p>
-<ul>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>评分标准</strong>（满分20分）：</p><ul>
 <li>DTO 校验注解完整（4个字段均含校验）：6分</li>
 <li>PasswordEncoder 配置正确：4分</li>
 <li>UserService 用户名唯一性校验：3分</li>
 <li>UserService BCrypt 加密：3分</li>
 <li>UserService 入库：2分</li>
 <li>Controller 路径与方法、<code>@Valid</code>：2分</li>
-</ul>
-<p><strong>常见扣分点</strong>：</p>
-<ul>
+</ul><p><strong>常见扣分点</strong>：</p><ul>
 <li>漏 <code>@Valid</code> 扣2分</li>
 <li>用 <code>equals</code> 比对密码（本题无此环节，登录题扣分）</li>
 <li>未做唯一性校验扣3分</li>
 <li>未加密直接入库扣3分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="15-c-02-">15-C-02 ★★</h3>
-<p><strong>编程题</strong>：请基于上一题继续实现 CTTS 用户登录接口。</p>
-<p><strong>要求</strong>：</p>
-<ol type="1">
+<section class="question-card" id="15-c-02-"><p><strong>15-C-02 ★★</strong></p><p><strong>编程题</strong>：请基于上一题继续实现 CTTS 用户登录接口。</p><p><strong>要求</strong>：</p><ol type="1">
 <li>接口路径 <code>POST /api/auth/login</code>。</li>
 <li>请求体字段：username、password，均非空校验。</li>
 <li>根据用户名查询用户，不存在抛
@@ -1054,10 +747,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="
 <code>token</code> 和 <code>user</code>（id/username/name/role，不含
 password）。</li>
 <li>编写：DTO、Controller 方法、UserService 方法。</li>
-</ol>
-<p><strong>参考答案</strong>：</p>
-<p><strong>（1）UserLoginDTO</strong>：</p>
-<div class="sourceCode" id="cb9"><pre
+</ol><blockquote><p><strong>参考答案</strong>：</p><p><strong>（1）UserLoginDTO</strong>：</p><div class="sourceCode" id="cb9"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">dto</span><span class="op">;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">jakarta</span><span class="op">.</span><span class="im">validation</span><span class="op">.</span><span class="im">constraints</span><span class="op">.</span><span class="im">NotBlank</span><span class="op">;</span></span>
@@ -1070,9 +760,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@NotBlank</span><span class="op">(</span>message <span class="op">=</span> <span class="st">&quot;密码不能为空&quot;</span><span class="op">)</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> password<span class="op">;</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>（2）UserService.login</strong>：</p>
-<div class="sourceCode" id="cb10"><pre
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>（2）UserService.login</strong>：</p><div class="sourceCode" id="cb10"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> <span class="fu">login</span><span class="op">(</span>UserLoginDTO dto<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 1. 查用户</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    User user <span class="op">=</span> userMapper<span class="op">.</span><span class="fu">selectOne</span><span class="op">(</span></span>
@@ -1101,16 +789,12 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href=
 <span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    result<span class="op">.</span><span class="fu">put</span><span class="op">(</span><span class="st">&quot;user&quot;</span><span class="op">,</span> userInfo<span class="op">);</span></span>
 <span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>（3）UserController.login</strong>：</p>
-<div class="sourceCode" id="cb11"><pre
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>（3）UserController.login</strong>：</p><div class="sourceCode" id="cb11"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">@PostMapping</span><span class="op">(</span><span class="st">&quot;/login&quot;</span><span class="op">)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span><span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;&gt;</span> <span class="fu">login</span><span class="op">(</span><span class="at">@Valid</span> <span class="at">@RequestBody</span> UserLoginDTO dto<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Object</span><span class="op">&gt;</span> data <span class="op">=</span> userService<span class="op">.</span><span class="fu">login</span><span class="op">(</span>dto<span class="op">);</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">ok</span><span class="op">(</span>data<span class="op">);</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>评分标准</strong>（满分20分）：</p>
-<ul>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>评分标准</strong>（满分20分）：</p><ul>
 <li>DTO 校验（两个字段非空）：3分</li>
 <li>selectOne 查询用户：3分</li>
 <li>用户不存在抛统一异常：3分</li>
@@ -1119,14 +803,12 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href=
 <li>密码错误抛统一异常（提示与用户不存在一致）：2分</li>
 <li>生成 UUID Token：2分</li>
 <li>返回结构含 token + user（不含 password）：3分</li>
-</ul>
-<p><strong>常见扣分点</strong>：</p>
-<ul>
+</ul><p><strong>常见扣分点</strong>：</p><ul>
 <li>用 <code>equals</code> 比对密码：本题核心错误，扣4分</li>
 <li>用户不存在和密码错误提示不一致：扣2分（安全问题）</li>
 <li>返回结果含 password：扣3分（安全漏洞）</li>
 <li>漏 <code>@Valid</code>：扣2分</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="八统计表">八、统计表</h2>
 <table>

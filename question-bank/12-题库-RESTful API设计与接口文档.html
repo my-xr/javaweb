@@ -149,517 +149,294 @@ Knife4j 4.x</p>
 </blockquote>
 <hr />
 <h2 id="一单项选择题30题">一、单项选择题（30题）</h2>
-<h3 id="12-单选-01">12-单选-01（★）</h3>
-<p><strong>RESTful API设计中，URL应该使用什么词性表示资源？</strong> A.
-动词 B. 名词复数 C. 形容词 D. 副词</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="12-单选-01"><p><strong>12-单选-01（★）</strong></p><p><strong>RESTful API设计中，URL应该使用什么词性表示资源？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">动词</div></li><li><span class="option-label">B</span><div class="option-content">名词复数</div></li><li><span class="option-label">C</span><div class="option-content">形容词</div></li><li><span class="option-label">D</span><div class="option-content">副词</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：RESTful核心原则之一是"资源用名词复数"，如
-<code>/users</code>、<code>/projects</code>。动词由HTTP方法（GET/POST/PUT/DELETE）表达，不应出现在URL中。</p>
+<code>/users</code>、<code>/projects</code>。动词由HTTP方法（GET/POST/PUT/DELETE）表达，不应出现在URL中。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-02">12-单选-02（★）</h3>
-<p><strong>下列哪个URL符合RESTful规范？</strong> A.
-<code>/api/getUserById?id=1</code> B. <code>/api/user/1</code> C.
-<code>/api/users/1</code> D. <code>/api/users/get/1</code></p>
-<p><strong>答案</strong>：C
+<section class="question-card" id="12-单选-02"><p><strong>12-单选-02（★）</strong></p><p><strong>下列哪个URL符合RESTful规范？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>/api/getUserById?id=1</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>/api/user/1</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>/api/users/1</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>/api/users/get/1</code></div></li></ul></div><blockquote><p><strong>答案</strong>：C
 <strong>解析</strong>：A含动词getUserById；B用单数user；D含动词get。C用名词复数users
-+ 路径参数1，符合规范。</p>
++ 路径参数1，符合规范。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-03">12-单选-03（★）</h3>
-<p><strong>查询用户列表应使用哪个HTTP方法？</strong> A. GET B. POST C.
-PUT D. DELETE</p>
-<p><strong>答案</strong>：A
-<strong>解析</strong>：GET方法语义为"查询"，是安全且幂等的，可被缓存。POST用于创建，PUT用于更新，DELETE用于删除。</p>
+<section class="question-card" id="12-单选-03"><p><strong>12-单选-03（★）</strong></p><p><strong>查询用户列表应使用哪个HTTP方法？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">GET</div></li><li><span class="option-label">B</span><div class="option-content">POST</div></li><li><span class="option-label">C</span><div class="option-content">PUT</div></li><li><span class="option-label">D</span><div class="option-content">DELETE</div></li></ul></div><blockquote><p><strong>答案</strong>：A
+<strong>解析</strong>：GET方法语义为"查询"，是安全且幂等的，可被缓存。POST用于创建，PUT用于更新，DELETE用于删除。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-04">12-单选-04（★）</h3>
-<p><strong>创建新用户应使用哪个HTTP方法？</strong> A. GET B. POST C. PUT
-D. PATCH</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：POST方法语义为"创建资源"，是非幂等的（多次调用会创建多个资源）。</p>
+<section class="question-card" id="12-单选-04"><p><strong>12-单选-04（★）</strong></p><p><strong>创建新用户应使用哪个HTTP方法？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">GET</div></li><li><span class="option-label">B</span><div class="option-content">POST</div></li><li><span class="option-label">C</span><div class="option-content">PUT</div></li><li><span class="option-label">D</span><div class="option-content">PATCH</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：POST方法语义为"创建资源"，是非幂等的（多次调用会创建多个资源）。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-05">12-单选-05（★）</h3>
-<p><strong>更新用户id=1的全部信息，应使用哪个HTTP方法？</strong> A. POST
-B. PUT C. PATCH D. GET</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：PUT用于全量更新（客户端提供完整资源），PATCH用于部分更新。全量更新用PUT。</p>
+<section class="question-card" id="12-单选-05"><p><strong>12-单选-05（★）</strong></p><p><strong>更新用户id=1的全部信息，应使用哪个HTTP方法？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">POST</div></li><li><span class="option-label">B</span><div class="option-content">PUT</div></li><li><span class="option-label">C</span><div class="option-content">PATCH</div></li><li><span class="option-label">D</span><div class="option-content">GET</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：PUT用于全量更新（客户端提供完整资源），PATCH用于部分更新。全量更新用PUT。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-06">12-单选-06（★★）</h3>
-<p><strong>PATCH方法与PUT方法的主要区别是？</strong> A.
-PATCH用于删除，PUT用于更新 B. PUT全量替换，PATCH部分更新 C.
-PATCH是安全的，PUT不是 D. PUT只能更新，PATCH只能创建</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：PUT要求客户端提供完整资源做全量替换；PATCH只发送需要更新的字段做部分更新。</p>
+<section class="question-card" id="12-单选-06"><p><strong>12-单选-06（★★）</strong></p><p><strong>PATCH方法与PUT方法的主要区别是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">PATCH用于删除，PUT用于更新</div></li><li><span class="option-label">B</span><div class="option-content">PUT全量替换，PATCH部分更新</div></li><li><span class="option-label">C</span><div class="option-content">PATCH是安全的，PUT不是</div></li><li><span class="option-label">D</span><div class="option-content">PUT只能更新，PATCH只能创建</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：PUT要求客户端提供完整资源做全量替换；PATCH只发送需要更新的字段做部分更新。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-07">12-单选-07（★）</h3>
-<p><strong>RESTful API中，资源ID应该放在哪里？</strong> A. query参数 B.
-path参数 C. body D. header</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="12-单选-07"><p><strong>12-单选-07（★）</strong></p><p><strong>RESTful API中，资源ID应该放在哪里？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">query参数</div></li><li><span class="option-label">B</span><div class="option-content">path参数</div></li><li><span class="option-label">C</span><div class="option-content">body</div></li><li><span class="option-label">D</span><div class="option-content">header</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：定位具体资源用path参数，如 <code>/users/1</code>
 中的
-<code>1</code>。query用于筛选，body用于创建/更新，header用于认证。</p>
+<code>1</code>。query用于筛选，body用于创建/更新，header用于认证。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-08">12-单选-08（★）</h3>
-<p><strong>下列哪个HTTP方法是幂等的？</strong> A. GET B. POST C. CONNECT
-D. PATCH（部分实现）</p>
-<p><strong>答案</strong>：A
-<strong>解析</strong>：GET是幂等的（多次调用结果相同）。POST非幂等。PATCH通常幂等但不强制。</p>
+<section class="question-card" id="12-单选-08"><p><strong>12-单选-08（★）</strong></p><p><strong>下列哪个HTTP方法是幂等的？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">GET</div></li><li><span class="option-label">B</span><div class="option-content">POST</div></li><li><span class="option-label">C</span><div class="option-content">CONNECT</div></li><li><span class="option-label">D</span><div class="option-content">PATCH（部分实现）</div></li></ul></div><blockquote><p><strong>答案</strong>：A
+<strong>解析</strong>：GET是幂等的（多次调用结果相同）。POST非幂等。PATCH通常幂等但不强制。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-09">12-单选-09（★）</h3>
-<p><strong>HTTP状态码404表示？</strong> A. 请求成功 B. 未授权 C.
-资源不存在 D. 服务器内部错误</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：404 Not Found
-表示请求的资源不存在。200成功，401未授权，500服务器错误。</p>
+<section class="question-card" id="12-单选-09"><p><strong>12-单选-09（★）</strong></p><p><strong>HTTP状态码404表示？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">请求成功</div></li><li><span class="option-label">B</span><div class="option-content">未授权</div></li><li><span class="option-label">C</span><div class="option-content">资源不存在</div></li><li><span class="option-label">D</span><div class="option-content">服务器内部错误</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：404 Not Found
+表示请求的资源不存在。200成功，401未授权，500服务器错误。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-10">12-单选-10（★）</h3>
-<p><strong>HTTP状态码201表示？</strong> A. 查询成功 B. 创建成功 C.
-删除成功 D. 参数错误</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：201 Created
-表示资源创建成功。查询成功用200，删除成功用204，参数错误用400。</p>
+<section class="question-card" id="12-单选-10"><p><strong>12-单选-10（★）</strong></p><p><strong>HTTP状态码201表示？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">查询成功</div></li><li><span class="option-label">B</span><div class="option-content">创建成功</div></li><li><span class="option-label">C</span><div class="option-content">删除成功</div></li><li><span class="option-label">D</span><div class="option-content">参数错误</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：201 Created
+表示资源创建成功。查询成功用200，删除成功用204，参数错误用400。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-11">12-单选-11（★）</h3>
-<p><strong>CTTS系统中，"查询项目1下的任务列表"的RESTful路径应为？</strong>
-A. <code>/api/v1/tasks?projectId=1</code> B.
-<code>/api/v1/projects/1/tasks</code> C.
-<code>/api/v1/projects/1/getTasks</code> D.
-<code>/api/v1/tasks/projects/1</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：嵌套资源用
+<section class="question-card" id="12-单选-11"><p><strong>12-单选-11（★）</strong></p><p><strong>CTTS系统中，"查询项目1下的任务列表"的RESTful路径应为？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>/api/v1/tasks?projectId=1</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>/api/v1/projects/1/tasks</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>/api/v1/projects/1/getTasks</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>/api/v1/tasks/projects/1</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：嵌套资源用
 <code>/父资源/{id}/子资源</code>
 表达从属关系，<code>/projects/1/tasks</code>
-规范。A虽可用但未体现从属；C含动词；D层级混乱。</p>
+规范。A虽可用但未体现从属；C含动词；D层级混乱。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-12">12-单选-12（★★）</h3>
-<p><strong>RESTful推荐的最大嵌套层级是？</strong> A. 1层 B. 2层 C. 3层
-D. 无限制</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="12-单选-12"><p><strong>12-单选-12（★★）</strong></p><p><strong>RESTful推荐的最大嵌套层级是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">1层</div></li><li><span class="option-label">B</span><div class="option-content">2层</div></li><li><span class="option-label">C</span><div class="option-content">3层</div></li><li><span class="option-label">D</span><div class="option-content">无限制</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：嵌套资源一般不超过2层，如
-<code>/projects/1/tasks/2</code>。过深会导致URL难读、耦合度高，深层关系应用query或独立资源。</p>
+<code>/projects/1/tasks/2</code>。过深会导致URL难读、耦合度高，深层关系应用query或独立资源。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-13">12-单选-13（★）</h3>
-<p><strong>接口版本管理最推荐的方式是？</strong> A. URL版本
-<code>/api/v1/users</code> B. Header版本 C. Query版本 D. Cookie版本</p>
-<p><strong>答案</strong>：A
-<strong>解析</strong>：URL版本最直观、可缓存、易调试，是业界最推荐的方式。Header版本不可缓存且难调试，Query版本易被忽略。</p>
+<section class="question-card" id="12-单选-13"><p><strong>12-单选-13（★）</strong></p><p><strong>接口版本管理最推荐的方式是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">URL版本 <code>/api/v1/users</code></div></li><li><span class="option-label">B</span><div class="option-content">Header版本</div></li><li><span class="option-label">C</span><div class="option-content">Query版本</div></li><li><span class="option-label">D</span><div class="option-content">Cookie版本</div></li></ul></div><blockquote><p><strong>答案</strong>：A
+<strong>解析</strong>：URL版本最直观、可缓存、易调试，是业界最推荐的方式。Header版本不可缓存且难调试，Query版本易被忽略。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-14">12-单选-14（★）</h3>
-<p><strong>下列哪个是Knife4j的访问地址？</strong> A.
-<code>/swagger-ui.html</code> B. <code>/doc.html</code> C.
-<code>/api-docs</code> D. <code>/knife4j.html</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="12-单选-14"><p><strong>12-单选-14（★）</strong></p><p><strong>下列哪个是Knife4j的访问地址？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>/swagger-ui.html</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>/doc.html</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>/api-docs</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>/knife4j.html</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：Knife4j的默认访问地址是
 <code>/doc.html</code>。<code>/swagger-ui.html</code> 是原生Swagger
-UI地址。</p>
+UI地址。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-15">12-单选-15（★）</h3>
-<p><strong>Knife4j中，用于接口分组的注解是？</strong> A.
-<code>@Operation</code> B. <code>@Tag</code> C. <code>@Parameter</code>
-D. <code>@Schema</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>@Tag</code>
+<section class="question-card" id="12-单选-15"><p><strong>12-单选-15（★）</strong></p><p><strong>Knife4j中，用于接口分组的注解是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Operation</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Tag</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Parameter</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Schema</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>@Tag</code>
 加在Controller类上，用于接口分组，如
-<code>@Tag(name="用户管理")</code>。<code>@Operation</code>描述接口，<code>@Parameter</code>描述参数，<code>@Schema</code>描述模型字段。</p>
+<code>@Tag(name="用户管理")</code>。<code>@Operation</code>描述接口，<code>@Parameter</code>描述参数，<code>@Schema</code>描述模型字段。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-16">12-单选-16（★）</h3>
-<p><strong>Knife4j中，描述接口方法的注解是？</strong> A.
-<code>@Tag</code> B. <code>@Operation</code> C. <code>@Parameter</code>
-D. <code>@ApiResponse</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="12-单选-16"><p><strong>12-单选-16（★）</strong></p><p><strong>Knife4j中，描述接口方法的注解是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Tag</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Operation</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Parameter</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@ApiResponse</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：<code>@Operation(summary="...", description="...")</code>
-加在方法上，描述接口用途。summary是短标题，description是详细说明。</p>
+加在方法上，描述接口用途。summary是短标题，description是详细说明。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-17">12-单选-17（★）</h3>
-<p><strong>Knife4j中，描述DTO/VO字段含义的注解是？</strong> A.
-<code>@Tag</code> B. <code>@Operation</code> C. <code>@Parameter</code>
-D. <code>@Schema</code></p>
-<p><strong>答案</strong>：D
+<section class="question-card" id="12-单选-17"><p><strong>12-单选-17（★）</strong></p><p><strong>Knife4j中，描述DTO/VO字段含义的注解是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Tag</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Operation</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Parameter</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Schema</code></div></li></ul></div><blockquote><p><strong>答案</strong>：D
 <strong>解析</strong>：<code>@Schema(description="用户名", example="张三")</code>
-加在DTO/VO字段上，描述字段含义与示例值。</p>
+加在DTO/VO字段上，描述字段含义与示例值。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-18">12-单选-18（★★）</h3>
-<p><strong>下列代码缺少哪个Knife4j注解？</strong></p>
-<div class="sourceCode" id="cb1"><pre
+<section class="question-card" id="12-单选-18"><p><strong>12-单选-18（★★）</strong></p><p><strong>下列代码缺少哪个Knife4j注解？</strong></p><div class="sourceCode" id="cb1"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">@GetMapping</span><span class="op">(</span><span class="st">&quot;/{id}&quot;</span><span class="op">)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span>UserVO<span class="op">&gt;</span> <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div>
-<p>A. <code>@Tag</code> B. <code>@Operation</code> C.
-<code>@Schema</code> D. <code>@ApiResponse</code></p>
-<p><strong>答案</strong>：B <strong>解析</strong>：方法上缺
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">Result</span><span class="op">&lt;</span>UserVO<span class="op">&gt;</span> <span class="fu">getById</span><span class="op">(</span><span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span> <span class="kw">...</span> <span class="op">}</span></span></code></pre></div><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Tag</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Operation</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Schema</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@ApiResponse</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：方法上缺
 <code>@Operation</code>
-描述接口用途。<code>@Tag</code>加在类上，<code>@Schema</code>加在字段上，<code>@ApiResponse</code>描述响应码。</p>
+描述接口用途。<code>@Tag</code>加在类上，<code>@Schema</code>加在字段上，<code>@ApiResponse</code>描述响应码。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-19">12-单选-19（★）</h3>
-<p><strong>统一响应结构 <code>Result&lt;T&gt;</code>
-至少应包含哪三个字段？</strong> A. id、name、value B.
-code、message、data C. status、msg、result D. success、error、data</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="12-单选-19"><p><strong>12-单选-19（★）</strong></p><p><strong>统一响应结构 <code>Result&lt;T&gt;</code> 至少应包含哪三个字段？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">id、name、value</div></li><li><span class="option-label">B</span><div class="option-content">code、message、data</div></li><li><span class="option-label">C</span><div class="option-content">status、msg、result</div></li><li><span class="option-label">D</span><div class="option-content">success、error、data</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：统一响应需含业务码code、提示信息message、业务数据data。CTTS采用
-<code>Result&lt;T&gt;</code> 结构。</p>
+<code>Result&lt;T&gt;</code> 结构。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-20">12-单选-20（★）</h3>
-<p><strong>分页响应 <code>PageResult&lt;T&gt;</code>
-必须包含的字段是？</strong> A. list、total、page、size B. data、count C.
-items、num D. rows、cols</p>
-<p><strong>答案</strong>：A
-<strong>解析</strong>：分页响应需含当前页数据list、总记录数total、当前页码page、每页条数size，通常还包含totalPages总页数。</p>
+<section class="question-card" id="12-单选-20"><p><strong>12-单选-20（★）</strong></p><p><strong>分页响应 <code>PageResult&lt;T&gt;</code> 必须包含的字段是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">list、total、page、size</div></li><li><span class="option-label">B</span><div class="option-content">data、count</div></li><li><span class="option-label">C</span><div class="option-content">items、num</div></li><li><span class="option-label">D</span><div class="option-content">rows、cols</div></li></ul></div><blockquote><p><strong>答案</strong>：A
+<strong>解析</strong>：分页响应需含当前页数据list、总记录数total、当前页码page、每页条数size，通常还包含totalPages总页数。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-21">12-单选-21（★★）</h3>
-<p><strong>用户登录接口 <code>/api/v1/auth/login</code>
-应使用什么方法？</strong> A. GET B. POST C. PUT D. DELETE</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：登录需要提交账号密码等敏感信息，应用POST放在body中，不能放URL（GET参数会暴露在日志和浏览器历史）。</p>
+<section class="question-card" id="12-单选-21"><p><strong>12-单选-21（★★）</strong></p><p><strong>用户登录接口 <code>/api/v1/auth/login</code> 应使用什么方法？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">GET</div></li><li><span class="option-label">B</span><div class="option-content">POST</div></li><li><span class="option-label">C</span><div class="option-content">PUT</div></li><li><span class="option-label">D</span><div class="option-content">DELETE</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：登录需要提交账号密码等敏感信息，应用POST放在body中，不能放URL（GET参数会暴露在日志和浏览器历史）。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-22">12-单选-22（★★）</h3>
-<p><strong>下列哪个参数应该放在header中？</strong> A. 用户ID B. 分页页码
-C. 访问令牌Token D. 用户名</p>
-<p><strong>答案</strong>：C
-<strong>解析</strong>：认证信息（Token、Authorization）应放header，避免出现在URL或body。用户ID定位资源用path，分页用query，用户名查询用query。</p>
+<section class="question-card" id="12-单选-22"><p><strong>12-单选-22（★★）</strong></p><p><strong>下列哪个参数应该放在header中？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">用户ID</div></li><li><span class="option-label">B</span><div class="option-content">分页页码</div></li><li><span class="option-label">C</span><div class="option-content">访问令牌Token</div></li><li><span class="option-label">D</span><div class="option-content">用户名</div></li></ul></div><blockquote><p><strong>答案</strong>：C
+<strong>解析</strong>：认证信息（Token、Authorization）应放header，避免出现在URL或body。用户ID定位资源用path，分页用query，用户名查询用query。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-23">12-单选-23（★）</h3>
-<p><strong>查询用户列表并按角色筛选，role参数应放在？</strong> A. path
-B. query C. body D. header</p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="12-单选-23"><p><strong>12-单选-23（★）</strong></p><p><strong>查询用户列表并按角色筛选，role参数应放在？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">path</div></li><li><span class="option-label">B</span><div class="option-content">query</div></li><li><span class="option-label">C</span><div class="option-content">body</div></li><li><span class="option-label">D</span><div class="option-content">header</div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：筛选条件用query参数，如
-<code>/users?role=STUDENT</code>。path定位资源，body创建/更新，header认证。</p>
+<code>/users?role=STUDENT</code>。path定位资源，body创建/更新，header认证。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-24">12-单选-24（★★）</h3>
-<p><strong>下列哪个场景适合用DELETE方法？</strong> A.
-更新用户状态为"已禁用" B. 删除id=5的评论 C. 查询已删除的任务 D.
-关闭项目</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：DELETE语义为"删除资源"。更新状态用PATCH，查询用GET，关闭项目是状态变更用PATCH。</p>
+<section class="question-card" id="12-单选-24"><p><strong>12-单选-24（★★）</strong></p><p><strong>下列哪个场景适合用DELETE方法？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">更新用户状态为"已禁用"</div></li><li><span class="option-label">B</span><div class="option-content">删除id=5的评论</div></li><li><span class="option-label">C</span><div class="option-content">查询已删除的任务</div></li><li><span class="option-label">D</span><div class="option-content">关闭项目</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：DELETE语义为"删除资源"。更新状态用PATCH，查询用GET，关闭项目是状态变更用PATCH。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-25">12-单选-25（★★）</h3>
-<p><strong>HTTP状态码"409 Conflict"在CTTS中可表示？</strong> A.
-用户不存在 B. 邮箱已注册 C. 未登录 D. 服务器宕机</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：409表示资源冲突，邮箱已注册、项目名已存在等"唯一约束冲突"适用。用户不存在用404，未登录用401，服务器错误用500。</p>
+<section class="question-card" id="12-单选-25"><p><strong>12-单选-25（★★）</strong></p><p><strong>HTTP状态码"409 Conflict"在CTTS中可表示？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">用户不存在</div></li><li><span class="option-label">B</span><div class="option-content">邮箱已注册</div></li><li><span class="option-label">C</span><div class="option-content">未登录</div></li><li><span class="option-label">D</span><div class="option-content">服务器宕机</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：409表示资源冲突，邮箱已注册、项目名已存在等"唯一约束冲突"适用。用户不存在用404，未登录用401，服务器错误用500。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-26">12-单选-26（★★）</h3>
-<p><strong>"指派任务给学生"这个操作，RESTful路径最合理的是？</strong> A.
-<code>POST /api/v1/tasks/2/assign?userId=5</code> B.
-<code>PATCH /api/v1/projects/1/tasks/2/assignee</code> C.
-<code>PUT /api/v1/tasks/2/assign/5</code> D.
-<code>POST /api/v1/assign/task/2/user/5</code></p>
-<p><strong>答案</strong>：B
+<section class="question-card" id="12-单选-26"><p><strong>12-单选-26（★★）</strong></p><p><strong>"指派任务给学生"这个操作，RESTful路径最合理的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>POST /api/v1/tasks/2/assign?userId=5</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>PATCH /api/v1/projects/1/tasks/2/assignee</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>PUT /api/v1/tasks/2/assign/5</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>POST /api/v1/assign/task/2/user/5</code></div></li></ul></div><blockquote><p><strong>答案</strong>：B
 <strong>解析</strong>：指派是"部分更新任务的指派人字段"，用PATCH。assignee是任务的子资源/字段，路径
 <code>/projects/1/tasks/2/assignee</code>
-规范。A用query传参不规范；C用PUT是全量更新语义不符；D含动词assign且层级混乱。</p>
+规范。A用query传参不规范；C用PUT是全量更新语义不符；D含动词assign且层级混乱。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-27">12-单选-27（★★）</h3>
-<p><strong>Knife4j注解 <code>@Parameter</code> 的 <code>example</code>
-属性作用是？</strong> A. 设置参数默认值 B. 提供文档示例值 C.
-校验参数格式 D. 设置参数加密</p>
-<p><strong>答案</strong>：B <strong>解析</strong>：<code>example</code>
-仅用于文档展示示例值，不影响运行逻辑，也不校验格式，只是帮助前端理解参数应该传什么。</p>
+<section class="question-card" id="12-单选-27"><p><strong>12-单选-27（★★）</strong></p><p><strong>Knife4j注解 <code>@Parameter</code> 的 <code>example</code> 属性作用是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">设置参数默认值</div></li><li><span class="option-label">B</span><div class="option-content">提供文档示例值</div></li><li><span class="option-label">C</span><div class="option-content">校验参数格式</div></li><li><span class="option-label">D</span><div class="option-content">设置参数加密</div></li></ul></div><blockquote><p><strong>答案</strong>：B <strong>解析</strong>：<code>example</code>
+仅用于文档展示示例值，不影响运行逻辑，也不校验格式，只是帮助前端理解参数应该传什么。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-28">12-单选-28（★★）</h3>
-<p><strong>下列哪个不属于RESTful的"无状态"约束？</strong> A.
-服务器不保存客户端会话状态 B. 每个请求需自包含所有信息 C.
-使用Token而非Session认证 D. 客户端不能缓存响应</p>
-<p><strong>答案</strong>：D
-<strong>解析</strong>：无状态指服务器不保存会话状态，每个请求自包含信息（如Token）。但客户端<strong>可以</strong>缓存GET响应，这是REST的"可缓存"约束。D错误。</p>
+<section class="question-card" id="12-单选-28"><p><strong>12-单选-28（★★）</strong></p><p><strong>下列哪个不属于RESTful的"无状态"约束？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">服务器不保存客户端会话状态</div></li><li><span class="option-label">B</span><div class="option-content">每个请求需自包含所有信息</div></li><li><span class="option-label">C</span><div class="option-content">使用Token而非Session认证</div></li><li><span class="option-label">D</span><div class="option-content">客户端不能缓存响应</div></li></ul></div><blockquote><p><strong>答案</strong>：D
+<strong>解析</strong>：无状态指服务器不保存会话状态，每个请求自包含信息（如Token）。但客户端<strong>可以</strong>缓存GET响应，这是REST的"可缓存"约束。D错误。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-29">12-单选-29（★★★）</h3>
-<p><strong>REST成熟度模型（Richardson Maturity
-Model）中，正确使用HTTP方法和状态码属于哪一级？</strong> A. Level 0 B.
-Level 1 C. Level 2 D. Level 3</p>
-<p><strong>答案</strong>：C <strong>解析</strong>：Level
+<section class="question-card" id="12-单选-29"><p><strong>12-单选-29（★★★）</strong></p><p><strong>REST成熟度模型（Richardson Maturity Model）中，正确使用HTTP方法和状态码属于哪一级？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Level 0</div></li><li><span class="option-label">B</span><div class="option-content">Level 1</div></li><li><span class="option-label">C</span><div class="option-content">Level 2</div></li><li><span class="option-label">D</span><div class="option-content">Level 3</div></li></ul></div><blockquote><p><strong>答案</strong>：C <strong>解析</strong>：Level
 0是单一端点全POST；Level 1是资源化但仍全POST；Level
 2正确使用HTTP方法和状态码；Level 3是HATEOAS（超媒体）。CTTS目标达到Level
-2。</p>
+2。</p></blockquote></section>
 <hr />
-<h3 id="12-单选-30">12-单选-30（★★★）</h3>
-<p><strong>关于Knife4j与SpringDoc的关系，正确的是？</strong> A.
-Knife4j是SpringDoc的替代品，两者不兼容 B.
-Knife4j是SpringDoc/OpenAPI3的增强UI，底层依赖SpringDoc C.
-SpringDoc是Knife4j的旧版本 D. 两者完全独立，无任何关系</p>
-<p><strong>答案</strong>：B
-<strong>解析</strong>：Knife4j是基于SpringDoc/OpenAPI3的增强文档UI，底层依赖SpringDoc扫描注解生成OpenAPI描述，Knife4j提供更美观的中文界面。两者不是替代关系。</p>
+<section class="question-card" id="12-单选-30"><p><strong>12-单选-30（★★★）</strong></p><p><strong>关于Knife4j与SpringDoc的关系，正确的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Knife4j是SpringDoc的替代品，两者不兼容</div></li><li><span class="option-label">B</span><div class="option-content">Knife4j是SpringDoc/OpenAPI3的增强UI，底层依赖SpringDoc</div></li><li><span class="option-label">C</span><div class="option-content">SpringDoc是Knife4j的旧版本</div></li><li><span class="option-label">D</span><div class="option-content">两者完全独立，无任何关系</div></li></ul></div><blockquote><p><strong>答案</strong>：B
+<strong>解析</strong>：Knife4j是基于SpringDoc/OpenAPI3的增强文档UI，底层依赖SpringDoc扫描注解生成OpenAPI描述，Knife4j提供更美观的中文界面。两者不是替代关系。</p></blockquote></section>
 <hr />
 <h2 id="二多项选择题10题">二、多项选择题（10题）</h2>
-<h3 id="12-多选-01">12-多选-01（★）</h3>
-<p><strong>下列哪些URL符合RESTful规范？（多选）</strong> A.
-<code>/api/v1/users/1</code> B. <code>/api/v1/projects/1/tasks</code> C.
-<code>/api/v1/getUserList</code> D.
-<code>/api/v1/users?role=STUDENT</code></p>
-<p><strong>答案</strong>：ABD
-<strong>解析</strong>：C含动词getUserList，不符合规范。ABD均符合：A用path定位，B用嵌套资源，D用query筛选。</p>
+<section class="question-card" id="12-多选-01"><p><strong>12-多选-01（★）</strong></p><p><strong>下列哪些URL符合RESTful规范？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>/api/v1/users/1</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>/api/v1/projects/1/tasks</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>/api/v1/getUserList</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>/api/v1/users?role=STUDENT</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABD
+<strong>解析</strong>：C含动词getUserList，不符合规范。ABD均符合：A用path定位，B用嵌套资源，D用query筛选。</p></blockquote></section>
 <hr />
-<h3 id="12-多选-02">12-多选-02（★）</h3>
-<p><strong>HTTP方法中，属于"幂等"操作的有？（多选）</strong> A. GET B.
-POST C. PUT D. DELETE</p>
-<p><strong>答案</strong>：ACD
-<strong>解析</strong>：幂等指多次调用结果相同。GET查询、PUT全量更新、DELETE删除都是幂等的。POST创建是非幂等的（多次调用创建多个资源）。</p>
+<section class="question-card" id="12-多选-02"><p><strong>12-多选-02（★）</strong></p><p><strong>HTTP方法中，属于"幂等"操作的有？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">GET</div></li><li><span class="option-label">B</span><div class="option-content">POST</div></li><li><span class="option-label">C</span><div class="option-content">PUT</div></li><li><span class="option-label">D</span><div class="option-content">DELETE</div></li></ul></div><blockquote><p><strong>答案</strong>：ACD
+<strong>解析</strong>：幂等指多次调用结果相同。GET查询、PUT全量更新、DELETE删除都是幂等的。POST创建是非幂等的（多次调用创建多个资源）。</p></blockquote></section>
 <hr />
-<h3 id="12-多选-03">12-多选-03（★）</h3>
-<p><strong>下列哪些是Knife4j的常用注解？（多选）</strong> A.
-<code>@Tag</code> B. <code>@Operation</code> C. <code>@Parameter</code>
-D. <code>@Schema</code> E. <code>@Controller</code></p>
-<p><strong>答案</strong>：ABCD
+<section class="question-card" id="12-多选-03"><p><strong>12-多选-03（★）</strong></p><p><strong>下列哪些是Knife4j的常用注解？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>@Tag</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>@Operation</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>@Parameter</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>@Schema</code></div></li><li><span class="option-label">E</span><div class="option-content"><code>@Controller</code></div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
 <strong>解析</strong>：ABCD都是Knife4j（OpenAPI3）注解。<code>@Controller</code>是Spring
-MVC注解，不属于Knife4j。</p>
+MVC注解，不属于Knife4j。</p></blockquote></section>
 <hr />
-<h3 id="12-多选-04">12-多选-04（★★）</h3>
-<p><strong>统一错误响应 <code>ErrorResponse</code>
-应包含哪些字段？（多选）</strong> A. code（业务错误码） B.
-message（错误信息） C. timestamp（发生时间） D. path（请求路径） E.
-password（用户密码）</p>
-<p><strong>答案</strong>：ABCD
-<strong>解析</strong>：错误响应需含code、message、timestamp、path四要素，便于排查问题。password绝不能出现在响应中。</p>
+<section class="question-card" id="12-多选-04"><p><strong>12-多选-04（★★）</strong></p><p><strong>统一错误响应 <code>ErrorResponse</code> 应包含哪些字段？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">code（业务错误码）</div></li><li><span class="option-label">B</span><div class="option-content">message（错误信息）</div></li><li><span class="option-label">C</span><div class="option-content">timestamp（发生时间）</div></li><li><span class="option-label">D</span><div class="option-content">path（请求路径）</div></li><li><span class="option-label">E</span><div class="option-content">password（用户密码）</div></li></ul></div><blockquote><p><strong>答案</strong>：ABCD
+<strong>解析</strong>：错误响应需含code、message、timestamp、path四要素，便于排查问题。password绝不能出现在响应中。</p></blockquote></section>
 <hr />
-<h3 id="12-多选-05">12-多选-05（★★）</h3>
-<p><strong>下列哪些场景应使用POST方法？（多选）</strong> A. 创建新用户
-B. 用户登录 C. 查询用户列表 D. 上传文件</p>
-<p><strong>答案</strong>：ABD
-<strong>解析</strong>：创建用POST，登录提交敏感信息用POST，文件上传用POST（multipart）。查询列表用GET。</p>
+<section class="question-card" id="12-多选-05"><p><strong>12-多选-05（★★）</strong></p><p><strong>下列哪些场景应使用POST方法？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">创建新用户</div></li><li><span class="option-label">B</span><div class="option-content">用户登录</div></li><li><span class="option-label">C</span><div class="option-content">查询用户列表</div></li><li><span class="option-label">D</span><div class="option-content">上传文件</div></li></ul></div><blockquote><p><strong>答案</strong>：ABD
+<strong>解析</strong>：创建用POST，登录提交敏感信息用POST，文件上传用POST（multipart）。查询列表用GET。</p></blockquote></section>
 <hr />
-<h3 id="12-多选-06">12-多选-06（★★）</h3>
-<p><strong>下列哪些路径设计是"反例"？（多选）</strong> A.
-<code>/api/v1/users/1</code> B.
-<code>/api/v1/projects/1/tasks/2/comments/3/users/4</code> C.
-<code>/api/v1/userProfiles</code> D.
-<code>/api/v1/getAllTasks</code></p>
-<p><strong>答案</strong>：BD
+<section class="question-card" id="12-多选-06"><p><strong>12-多选-06（★★）</strong></p><p><strong>下列哪些路径设计是"反例"？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>/api/v1/users/1</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>/api/v1/projects/1/tasks/2/comments/3/users/4</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>/api/v1/userProfiles</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>/api/v1/getAllTasks</code></div></li></ul></div><blockquote><p><strong>答案</strong>：BD
 <strong>解析</strong>：B嵌套过深（4层），应改为独立资源
 <code>/comments/3</code>；D含动词getAllTasks，应改为
-<code>/api/v1/tasks</code>。A和C符合规范。</p>
+<code>/api/v1/tasks</code>。A和C符合规范。</p></blockquote></section>
 <hr />
-<h3 id="12-多选-07">12-多选-07（★★）</h3>
-<p><strong>RESTful API的版本管理方式有？（多选）</strong> A. URL版本
-<code>/api/v1/users</code> B. Header版本
-<code>Accept: application/vnd.ctts.v1+json</code> C. Query版本
-<code>/api/users?version=1</code> D. Cookie版本</p>
-<p><strong>答案</strong>：ABC
-<strong>解析</strong>：ABC都是常见的版本管理方式。URL版本最推荐，Header版本不可缓存，Query版本易忽略。Cookie版本不用于API版本管理。</p>
+<section class="question-card" id="12-多选-07"><p><strong>12-多选-07（★★）</strong></p><p><strong>RESTful API的版本管理方式有？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">URL版本 <code>/api/v1/users</code></div></li><li><span class="option-label">B</span><div class="option-content">Header版本 <code>Accept: application/vnd.ctts.v1+json</code></div></li><li><span class="option-label">C</span><div class="option-content">Query版本 <code>/api/users?version=1</code></div></li><li><span class="option-label">D</span><div class="option-content">Cookie版本</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC
+<strong>解析</strong>：ABC都是常见的版本管理方式。URL版本最推荐，Header版本不可缓存，Query版本易忽略。Cookie版本不用于API版本管理。</p></blockquote></section>
 <hr />
-<h3 id="12-多选-08">12-多选-08（★★）</h3>
-<p><strong>下列哪些状态码属于"客户端错误"（4xx）？（多选）</strong> A.
-200 B. 400 C. 401 D. 404 E. 500</p>
-<p><strong>答案</strong>：BCD
-<strong>解析</strong>：4xx是客户端错误：400参数错误、401未认证、404未找到。200是成功（2xx），500是服务端错误（5xx）。</p>
+<section class="question-card" id="12-多选-08"><p><strong>12-多选-08（★★）</strong></p><p><strong>下列哪些状态码属于"客户端错误"（4xx）？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">200</div></li><li><span class="option-label">B</span><div class="option-content">400</div></li><li><span class="option-label">C</span><div class="option-content">401</div></li><li><span class="option-label">D</span><div class="option-content">404</div></li><li><span class="option-label">E</span><div class="option-content">500</div></li></ul></div><blockquote><p><strong>答案</strong>：BCD
+<strong>解析</strong>：4xx是客户端错误：400参数错误、401未认证、404未找到。200是成功（2xx），500是服务端错误（5xx）。</p></blockquote></section>
 <hr />
-<h3 id="12-多选-09">12-多选-09（★★★）</h3>
-<p><strong>关于 <code>Result&lt;T&gt;</code>
-统一响应结构的设计，正确的做法是？（多选）</strong> A.
-所有接口都返回HTTP 200，靠code区分业务结果 B.
-成功响应含code、message、data三字段 C. data字段应使用VO而非实体Entity D.
-业务码应有统一规则（如5位数：4xx/5xx + 子码）</p>
-<p><strong>答案</strong>：BCD
+<section class="question-card" id="12-多选-09"><p><strong>12-多选-09（★★★）</strong></p><p><strong>关于 <code>Result&lt;T&gt;</code> 统一响应结构的设计，正确的做法是？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">所有接口都返回HTTP 200，靠code区分业务结果</div></li><li><span class="option-label">B</span><div class="option-content">成功响应含code、message、data三字段</div></li><li><span class="option-label">C</span><div class="option-content">data字段应使用VO而非实体Entity</div></li><li><span class="option-label">D</span><div class="option-content">业务码应有统一规则（如5位数：4xx/5xx + 子码）</div></li></ul></div><blockquote><p><strong>答案</strong>：BCD
 <strong>解析</strong>：B、C、D均正确。A是争议做法，CTTS推荐"HTTP状态码 +
-业务码"配合使用，让HTTP状态码发挥语义，而非全返回200。C避免实体字段（如密码）泄露。</p>
+业务码"配合使用，让HTTP状态码发挥语义，而非全返回200。C避免实体字段（如密码）泄露。</p></blockquote></section>
 <hr />
-<h3 id="12-多选-10">12-多选-10（★★★）</h3>
-<p><strong>下列关于Knife4j <code>@Schema</code>
-注解的说法，正确的有？（多选）</strong> A. 用于描述DTO/VO的字段含义 B.
-可以设置 <code>example</code> 提供示例值 C. 可以用
-<code>requiredMode</code> 标识字段是否必填 D. 可以替代
-<code>@NotNull</code> 进行参数校验</p>
-<p><strong>答案</strong>：ABC
+<section class="question-card" id="12-多选-10"><p><strong>12-多选-10（★★★）</strong></p><p><strong>下列关于Knife4j <code>@Schema</code> 注解的说法，正确的有？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">用于描述DTO/VO的字段含义</div></li><li><span class="option-label">B</span><div class="option-content">可以设置 <code>example</code> 提供示例值</div></li><li><span class="option-label">C</span><div class="option-content">可以用 <code>requiredMode</code> 标识字段是否必填</div></li><li><span class="option-label">D</span><div class="option-content">可以替代 <code>@NotNull</code> 进行参数校验</div></li></ul></div><blockquote><p><strong>答案</strong>：ABC
 <strong>解析</strong>：ABC正确。D错误——<code>@Schema</code>
 仅用于文档描述，不参与运行时校验。校验必须用
 <code>@NotNull</code>/<code>@NotBlank</code>/<code>@Valid</code>
-等jakarta.validation注解。</p>
+等jakarta.validation注解。</p></blockquote></section>
 <hr />
 <h2 id="三判断题20题">三、判断题（20题）</h2>
-<h3 id="12-判断-01">12-判断-01（★）</h3>
-<p><strong>RESTful API中，URL应该使用动词描述操作。</strong></p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="12-判断-01"><p><strong>12-判断-01（★）</strong></p><p><strong>RESTful API中，URL应该使用动词描述操作。</strong></p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：URL应用名词复数描述资源，操作由HTTP方法（GET/POST/PUT/DELETE）表达。如
-<code>/users</code> + GET 表示查询用户列表。</p>
+<code>/users</code> + GET 表示查询用户列表。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-02">12-判断-02（★）</h3>
-<p><strong>GET请求是安全的，不会修改服务器资源。</strong></p>
-<p><strong>答案</strong>：正确
-<strong>解析</strong>：GET语义为"查询"，是安全方法，不应有副作用。POST/PUT/PATCH/DELETE都可能修改资源，是非安全的。</p>
+<section class="question-card" id="12-判断-02"><p><strong>12-判断-02（★）</strong></p><p><strong>GET请求是安全的，不会修改服务器资源。</strong></p><blockquote><p><strong>答案</strong>：正确
+<strong>解析</strong>：GET语义为"查询"，是安全方法，不应有副作用。POST/PUT/PATCH/DELETE都可能修改资源，是非安全的。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-03">12-判断-03（★）</h3>
-<p><strong>POST请求是幂等的。</strong></p>
-<p><strong>答案</strong>：错误
-<strong>解析</strong>：POST用于创建资源，多次调用会创建多个资源，是非幂等的。GET/PUT/DELETE是幂等的。</p>
+<section class="question-card" id="12-判断-03"><p><strong>12-判断-03（★）</strong></p><p><strong>POST请求是幂等的。</strong></p><blockquote><p><strong>答案</strong>：错误
+<strong>解析</strong>：POST用于创建资源，多次调用会创建多个资源，是非幂等的。GET/PUT/DELETE是幂等的。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-04">12-判断-04（★）</h3>
-<p><strong>RESTful API中，资源命名应使用单数形式。</strong></p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="12-判断-04"><p><strong>12-判断-04（★）</strong></p><p><strong>RESTful API中，资源命名应使用单数形式。</strong></p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：资源应用名词复数，如
 <code>/users</code>、<code>/projects</code>。单数 <code>/user/1</code>
-是反例。</p>
+是反例。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-05">12-判断-05（★）</h3>
-<p><strong>HTTP状态码204表示删除成功且无响应体。</strong></p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：204 No Content
-表示请求成功但无内容返回，常用于DELETE成功后的响应。</p>
+<section class="question-card" id="12-判断-05"><p><strong>12-判断-05（★）</strong></p><p><strong>HTTP状态码204表示删除成功且无响应体。</strong></p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：204 No Content
+表示请求成功但无内容返回，常用于DELETE成功后的响应。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-06">12-判断-06（★）</h3>
-<p><strong>Knife4j是Swagger的Java增强版，访问地址是
-<code>/doc.html</code>。</strong></p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="12-判断-06"><p><strong>12-判断-06（★）</strong></p><p><strong>Knife4j是Swagger的Java增强版，访问地址是
+<code>/doc.html</code>。</strong></p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：Knife4j基于OpenAPI3/SpringDoc，提供中文增强UI，默认访问
-<code>/doc.html</code>。</p>
+<code>/doc.html</code>。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-07">12-判断-07（★）</h3>
-<p><strong><code>@Tag</code>
-注解应加在Controller的方法上，用于描述接口。</strong></p>
-<p><strong>答案</strong>：错误 <strong>解析</strong>：<code>@Tag</code>
+<section class="question-card" id="12-判断-07"><p><strong>12-判断-07（★）</strong></p><p><strong><code>@Tag</code>
+注解应加在Controller的方法上，用于描述接口。</strong></p><blockquote><p><strong>答案</strong>：错误 <strong>解析</strong>：<code>@Tag</code>
 加在Controller<strong>类</strong>上，用于接口分组。<code>@Operation</code>
-加在<strong>方法</strong>上描述接口。</p>
+加在<strong>方法</strong>上描述接口。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-08">12-判断-08（★）</h3>
-<p><strong>RESTful
-API中，认证Token应该放在URL的query参数中。</strong></p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="12-判断-08"><p><strong>12-判断-08（★）</strong></p><p><strong>RESTful
+API中，认证Token应该放在URL的query参数中。</strong></p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：Token应放在header（如
-<code>Authorization: Bearer xxx</code>）。query参数会暴露在URL、日志、浏览器历史中，不安全。</p>
+<code>Authorization: Bearer xxx</code>）。query参数会暴露在URL、日志、浏览器历史中，不安全。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-09">12-判断-09（★★）</h3>
-<p><strong>嵌套资源的层级越深越好，能完整表达资源从属关系。</strong></p>
-<p><strong>答案</strong>：错误
-<strong>解析</strong>：嵌套资源一般不超过2层。过深会导致URL难读、耦合度高、服务端实现复杂。深层关系用query或独立资源。</p>
+<section class="question-card" id="12-判断-09"><p><strong>12-判断-09（★★）</strong></p><p><strong>嵌套资源的层级越深越好，能完整表达资源从属关系。</strong></p><blockquote><p><strong>答案</strong>：错误
+<strong>解析</strong>：嵌套资源一般不超过2层。过深会导致URL难读、耦合度高、服务端实现复杂。深层关系用query或独立资源。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-10">12-判断-10（★★）</h3>
-<p><strong>PUT方法用于全量更新，PATCH方法用于部分更新。</strong></p>
-<p><strong>答案</strong>：正确
-<strong>解析</strong>：PUT要求客户端提供完整资源做替换；PATCH只发送需要更新的字段，做部分更新。</p>
+<section class="question-card" id="12-判断-10"><p><strong>12-判断-10（★★）</strong></p><p><strong>PUT方法用于全量更新，PATCH方法用于部分更新。</strong></p><blockquote><p><strong>答案</strong>：正确
+<strong>解析</strong>：PUT要求客户端提供完整资源做替换；PATCH只发送需要更新的字段，做部分更新。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-11">12-判断-11（★★）</h3>
-<p><strong>统一响应结构 <code>Result&lt;T&gt;</code> 中的
-<code>data</code> 字段应直接返回数据库实体Entity。</strong></p>
-<p><strong>答案</strong>：错误
-<strong>解析</strong>：data应返回VO（视图对象），避免Entity中的敏感字段（如密码）或持久层字段（如createTime的内部格式）泄露。</p>
+<section class="question-card" id="12-判断-11"><p><strong>12-判断-11（★★）</strong></p><p><strong>统一响应结构 <code>Result&lt;T&gt;</code> 中的
+<code>data</code> 字段应直接返回数据库实体Entity。</strong></p><blockquote><p><strong>答案</strong>：错误
+<strong>解析</strong>：data应返回VO（视图对象），避免Entity中的敏感字段（如密码）或持久层字段（如createTime的内部格式）泄露。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-12">12-判断-12（★★）</h3>
-<p><strong>Knife4j的 <code>@Schema(example="张三")</code>
-中的example会自动校验请求参数是否符合该示例。</strong></p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="12-判断-12"><p><strong>12-判断-12（★★）</strong></p><p><strong>Knife4j的 <code>@Schema(example="张三")</code>
+中的example会自动校验请求参数是否符合该示例。</strong></p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：<code>example</code>
 仅用于文档展示，不参与运行时校验。校验需用
 <code>@NotBlank</code>/<code>@Size</code>/<code>@Pattern</code>
-等注解。</p>
+等注解。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-13">12-判断-13（★★）</h3>
-<p><strong>RESTful API推荐使用URL版本管理（如
-<code>/api/v1/users</code>），因为直观且可缓存。</strong></p>
-<p><strong>答案</strong>：正确
-<strong>解析</strong>：URL版本最直观、可缓存、易调试，是业界最推荐的方式。</p>
+<section class="question-card" id="12-判断-13"><p><strong>12-判断-13（★★）</strong></p><p><strong>RESTful API推荐使用URL版本管理（如
+<code>/api/v1/users</code>），因为直观且可缓存。</strong></p><blockquote><p><strong>答案</strong>：正确
+<strong>解析</strong>：URL版本最直观、可缓存、易调试，是业界最推荐的方式。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-14">12-判断-14（★★）</h3>
-<p><strong>接口路径末尾应加斜杠，如
-<code>/api/v1/users/</code>。</strong></p>
-<p><strong>答案</strong>：错误
+<section class="question-card" id="12-判断-14"><p><strong>12-判断-14（★★）</strong></p><p><strong>接口路径末尾应加斜杠，如
+<code>/api/v1/users/</code>。</strong></p><blockquote><p><strong>答案</strong>：错误
 <strong>解析</strong>：RESTful规范中URL末尾不应加斜杠，<code>/api/v1/users</code>
-是规范的，<code>/api/v1/users/</code> 是反例。</p>
+是规范的，<code>/api/v1/users/</code> 是反例。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-15">12-判断-15（★★）</h3>
-<p><strong>"查询用户列表并按姓名搜索"应使用
-<code>POST /api/v1/users/search</code> + body传搜索条件。</strong></p>
-<p><strong>答案</strong>：错误
-<strong>解析</strong>：查询应用GET方法，搜索条件放query：<code>GET /api/v1/users?name=张三</code>。用POST做查询违反REST，且不可缓存。</p>
+<section class="question-card" id="12-判断-15"><p><strong>12-判断-15（★★）</strong></p><p><strong>"查询用户列表并按姓名搜索"应使用
+<code>POST /api/v1/users/search</code> + body传搜索条件。</strong></p><blockquote><p><strong>答案</strong>：错误
+<strong>解析</strong>：查询应用GET方法，搜索条件放query：<code>GET /api/v1/users?name=张三</code>。用POST做查询违反REST，且不可缓存。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-16">12-判断-16（★★）</h3>
-<p><strong>HTTP状态码500表示客户端请求错误。</strong></p>
-<p><strong>答案</strong>：错误
-<strong>解析</strong>：500是服务端错误（5xx）。客户端错误是4xx（如400、401、404）。</p>
+<section class="question-card" id="12-判断-16"><p><strong>12-判断-16（★★）</strong></p><p><strong>HTTP状态码500表示客户端请求错误。</strong></p><blockquote><p><strong>答案</strong>：错误
+<strong>解析</strong>：500是服务端错误（5xx）。客户端错误是4xx（如400、401、404）。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-17">12-判断-17（★★）</h3>
-<p><strong>生产环境应关闭Knife4j文档访问，避免接口泄露。</strong></p>
-<p><strong>答案</strong>：正确 <strong>解析</strong>：生产环境应配置
+<section class="question-card" id="12-判断-17"><p><strong>12-判断-17（★★）</strong></p><p><strong>生产环境应关闭Knife4j文档访问，避免接口泄露。</strong></p><blockquote><p><strong>答案</strong>：正确 <strong>解析</strong>：生产环境应配置
 <code>springdoc.api-docs.enabled=false</code>
-关闭文档，防止接口结构被恶意分析。</p>
+关闭文档，防止接口结构被恶意分析。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-18">12-判断-18（★★★）</h3>
-<p><strong>REST的"无状态"约束意味着客户端不能保存任何状态。</strong></p>
-<p><strong>答案</strong>：错误
-<strong>解析</strong>：无状态指<strong>服务器</strong>不保存客户端会话状态，每个请求自包含信息。客户端<strong>可以</strong>保存状态（如缓存、本地存储Token）。</p>
+<section class="question-card" id="12-判断-18"><p><strong>12-判断-18（★★★）</strong></p><p><strong>REST的"无状态"约束意味着客户端不能保存任何状态。</strong></p><blockquote><p><strong>答案</strong>：错误
+<strong>解析</strong>：无状态指<strong>服务器</strong>不保存客户端会话状态，每个请求自包含信息。客户端<strong>可以</strong>保存状态（如缓存、本地存储Token）。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-19">12-判断-19（★★★）</h3>
-<p><strong>HATEOAS是REST成熟度模型的最高级，要求响应中包含可执行操作的链接。</strong></p>
-<p><strong>答案</strong>：正确
+<section class="question-card" id="12-判断-19"><p><strong>12-判断-19（★★★）</strong></p><p><strong>HATEOAS是REST成熟度模型的最高级，要求响应中包含可执行操作的链接。</strong></p><blockquote><p><strong>答案</strong>：正确
 <strong>解析</strong>：HATEOAS（Hypermedia As The Engine Of Application
 State）是Level 3，响应中含可执行操作的链接（如
-<code>"_links": {"self":..., "update":...}</code>）。企业级实际应用较少。</p>
+<code>"_links": {"self":..., "update":...}</code>）。企业级实际应用较少。</p></blockquote></section>
 <hr />
-<h3 id="12-判断-20">12-判断-20（★★★）</h3>
-<p><strong>接口设计一旦发布，字段名、类型、路径的任何变更都无需通知前端，因为前端会自动适配。</strong></p>
-<p><strong>答案</strong>：错误
-<strong>解析</strong>：接口即契约，任何变更都需走变更流程并通知前端，否则会导致前端崩溃。这正是"契约一旦确定就是承诺"的思政要点。</p>
+<section class="question-card" id="12-判断-20"><p><strong>12-判断-20（★★★）</strong></p><p><strong>接口设计一旦发布，字段名、类型、路径的任何变更都无需通知前端，因为前端会自动适配。</strong></p><blockquote><p><strong>答案</strong>：错误
+<strong>解析</strong>：接口即契约，任何变更都需走变更流程并通知前端，否则会导致前端崩溃。这正是"契约一旦确定就是承诺"的思政要点。</p></blockquote></section>
 <hr />
 <h2 id="四填空题10题">四、填空题（10题）</h2>
-<h3 id="12-填空-01">12-填空-01（★）</h3>
-<p><strong>RESTful
-API设计中，资源应使用______（单数/复数）形式的名词表示。</strong></p>
-<p><strong>答案</strong>：复数 <strong>解析</strong>：资源用名词复数，如
-<code>/users</code>、<code>/projects</code>、<code>/tasks</code>。</p>
+<section class="question-card" id="12-填空-01"><p><strong>12-填空-01（★）</strong></p><p><strong>RESTful
+API设计中，资源应使用______（单数/复数）形式的名词表示。</strong></p><blockquote><p><strong>答案</strong>：复数 <strong>解析</strong>：资源用名词复数，如
+<code>/users</code>、<code>/projects</code>、<code>/tasks</code>。</p></blockquote></section>
 <hr />
-<h3 id="12-填空-02">12-填空-02（★）</h3>
-<p><strong>HTTP方法中，______ 用于创建资源，______ 用于查询资源，______
-用于删除资源。</strong></p>
-<p><strong>答案</strong>：POST；GET；DELETE
-<strong>解析</strong>：POST创建、GET查询、PUT全量更新、PATCH部分更新、DELETE删除。</p>
+<section class="question-card" id="12-填空-02"><p><strong>12-填空-02（★）</strong></p><p><strong>HTTP方法中，______ 用于创建资源，______ 用于查询资源，______
+用于删除资源。</strong></p><blockquote><p><strong>答案</strong>：POST；GET；DELETE
+<strong>解析</strong>：POST创建、GET查询、PUT全量更新、PATCH部分更新、DELETE删除。</p></blockquote></section>
 <hr />
-<h3 id="12-填空-03">12-填空-03（★）</h3>
-<p><strong>RESTful API的版本管理推荐使用______版本方式，如
-<code>/api/____/users</code>。</strong></p>
-<p><strong>答案</strong>：URL；v1
+<section class="question-card" id="12-填空-03"><p><strong>12-填空-03（★）</strong></p><p><strong>RESTful API的版本管理推荐使用______版本方式，如
+<code>/api/____/users</code>。</strong></p><blockquote><p><strong>答案</strong>：URL；v1
 <strong>解析</strong>：URL版本最直观、可缓存、易调试，如
-<code>/api/v1/users</code>。</p>
+<code>/api/v1/users</code>。</p></blockquote></section>
 <hr />
-<h3 id="12-填空-04">12-填空-04（★）</h3>
-<p><strong>Knife4j的默认访问地址是
-<code>http://localhost:8080/______</code>。</strong></p>
-<p><strong>答案</strong>：doc.html
+<section class="question-card" id="12-填空-04"><p><strong>12-填空-04（★）</strong></p><p><strong>Knife4j的默认访问地址是
+<code>http://localhost:8080/______</code>。</strong></p><blockquote><p><strong>答案</strong>：doc.html
 <strong>解析</strong>：Knife4j默认访问
 <code>/doc.html</code>，原生Swagger UI是
-<code>/swagger-ui.html</code>。</p>
+<code>/swagger-ui.html</code>。</p></blockquote></section>
 <hr />
-<h3 id="12-填空-05">12-填空-05（★）</h3>
-<p><strong>统一响应结构 <code>Result&lt;T&gt;</code>
+<section class="question-card" id="12-填空-05"><p><strong>12-填空-05（★）</strong></p><p><strong>统一响应结构 <code>Result&lt;T&gt;</code>
 至少包含______、<strong><strong><strong>、</strong></strong></strong>
-三个字段。</strong></p>
-<p><strong>答案</strong>：code；message；data
-<strong>解析</strong>：code业务码、message提示信息、data业务数据。</p>
+三个字段。</strong></p><blockquote><p><strong>答案</strong>：code；message；data
+<strong>解析</strong>：code业务码、message提示信息、data业务数据。</p></blockquote></section>
 <hr />
-<h3 id="12-填空-06">12-填空-06（★★）</h3>
-<p><strong>CTTS系统中，"查询项目1下的任务2"的RESTful路径应为
-<code>/api/v1/______/1/______/2</code>。</strong></p>
-<p><strong>答案</strong>：projects；tasks
+<section class="question-card" id="12-填空-06"><p><strong>12-填空-06（★★）</strong></p><p><strong>CTTS系统中，"查询项目1下的任务2"的RESTful路径应为
+<code>/api/v1/______/1/______/2</code>。</strong></p><blockquote><p><strong>答案</strong>：projects；tasks
 <strong>解析</strong>：嵌套资源用
 <code>/projects/{projectId}/tasks/{id}</code>，即
-<code>/api/v1/projects/1/tasks/2</code>。</p>
+<code>/api/v1/projects/1/tasks/2</code>。</p></blockquote></section>
 <hr />
-<h3 id="12-填空-07">12-填空-07（★★）</h3>
-<p><strong>Knife4j中，______ 注解加在Controller类上用于接口分组，______
-注解加在方法上用于描述接口。</strong></p>
-<p><strong>答案</strong>：@Tag；@Operation
+<section class="question-card" id="12-填空-07"><p><strong>12-填空-07（★★）</strong></p><p><strong>Knife4j中，______ 注解加在Controller类上用于接口分组，______
+注解加在方法上用于描述接口。</strong></p><blockquote><p><strong>答案</strong>：@Tag；@Operation
 <strong>解析</strong>：<code>@Tag(name="用户管理")</code>
-加在类上；<code>@Operation(summary="查询详情")</code> 加在方法上。</p>
+加在类上；<code>@Operation(summary="查询详情")</code> 加在方法上。</p></blockquote></section>
 <hr />
-<h3 id="12-填空-08">12-填空-08（★★）</h3>
-<p><strong>HTTP状态码______ 表示资源不存在，______ 表示未认证，______
-表示无权限。</strong></p>
-<p><strong>答案</strong>：404；401；403 <strong>解析</strong>：404 Not
-Found、401 Unauthorized（未认证）、403 Forbidden（无权限）。</p>
+<section class="question-card" id="12-填空-08"><p><strong>12-填空-08（★★）</strong></p><p><strong>HTTP状态码______ 表示资源不存在，______ 表示未认证，______
+表示无权限。</strong></p><blockquote><p><strong>答案</strong>：404；401；403 <strong>解析</strong>：404 Not
+Found、401 Unauthorized（未认证）、403 Forbidden（无权限）。</p></blockquote></section>
 <hr />
-<h3 id="12-填空-09">12-填空-09（★★）</h3>
-<p><strong>请求参数的四个位置：______ 用于筛选，______
-用于定位资源，______ 用于创建/更新，______ 用于认证。</strong></p>
-<p><strong>答案</strong>：query；path；body；header
-<strong>解析</strong>：query筛选、path定位、body创建更新、header认证。</p>
+<section class="question-card" id="12-填空-09"><p><strong>12-填空-09（★★）</strong></p><p><strong>请求参数的四个位置：______ 用于筛选，______
+用于定位资源，______ 用于创建/更新，______ 用于认证。</strong></p><blockquote><p><strong>答案</strong>：query；path；body；header
+<strong>解析</strong>：query筛选、path定位、body创建更新、header认证。</p></blockquote></section>
 <hr />
-<h3 id="12-填空-10">12-填空-10（★★★）</h3>
-<p><strong>REST成熟度模型（Richardson Maturity
-Model）共______级，正确使用HTTP方法和状态码属于Level______。</strong></p>
-<p><strong>答案</strong>：4；2 <strong>解析</strong>：共4级（Level
-0-3），Level 2是正确使用HTTP方法和状态码，Level 3是HATEOAS。</p>
+<section class="question-card" id="12-填空-10"><p><strong>12-填空-10（★★★）</strong></p><p><strong>REST成熟度模型（Richardson Maturity
+Model）共______级，正确使用HTTP方法和状态码属于Level______。</strong></p><blockquote><p><strong>答案</strong>：4；2 <strong>解析</strong>：共4级（Level
+0-3），Level 2是正确使用HTTP方法和状态码，Level 3是HATEOAS。</p></blockquote></section>
 <hr />
 <h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
-<h3 id="12-论述-01">12-论述-01（★★）</h3>
-<p><strong>请阐述RESTful
-API的六大设计原则，并结合CTTS系统各举一例。</strong></p>
-<p><strong>评分标准</strong>（满分10分）：</p>
-<ul>
+<section class="question-card" id="12-论述-01"><p><strong>12-论述-01（★★）</strong></p><p><strong>请阐述RESTful
+API的六大设计原则，并结合CTTS系统各举一例。</strong></p><p><strong>评分标准</strong>（满分10分）：</p><ul>
 <li>每条原则2分（共6条，每条"命名1分+举例1分"），满分10分后按比例折算</li>
 <li>6条全对且举例准确：10分</li>
 <li>4-5条正确：6-8分</li>
 <li>2-3条正确：4-5分</li>
 <li>0-1条正确：0-3分</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<ol type="1">
+</ul><blockquote><p><strong>参考答案</strong>：</p><ol type="1">
 <li><strong>资源用名词复数</strong>：CTTS中用户资源用
 <code>/users</code>，项目资源用 <code>/projects</code>，不用
 <code>/getUser</code>。</li>
@@ -673,70 +450,49 @@ API的六大设计原则，并结合CTTS系统各举一例。</strong></p>
 <code>Result&lt;T&gt;</code> 结构，含code/message/data三字段。</li>
 <li><strong>版本管理</strong>：URL中体现版本，如
 <code>/api/v1/users</code>，未来升级到v2时保留v1兼容。</li>
-</ol>
+</ol></blockquote></section>
 <hr />
-<h3 id="12-论述-02">12-论述-02（★★）</h3>
-<p><strong>请说明GET与POST的本质区别，并指出"用POST做查询"为什么不推荐。</strong></p>
-<p><strong>评分标准</strong>（满分10分）：</p>
-<ul>
+<section class="question-card" id="12-论述-02"><p><strong>12-论述-02（★★）</strong></p><p><strong>请说明GET与POST的本质区别，并指出"用POST做查询"为什么不推荐。</strong></p><p><strong>评分标准</strong>（满分10分）：</p><ul>
 <li>GET与POST语义区别（3分）</li>
 <li>幂等性/安全性/可缓存性区别（3分）</li>
 <li>POST做查询的3点以上问题（4分）</li>
-</ul>
-<p><strong>参考答案</strong>： <strong>区别</strong>：</p>
-<ol type="1">
+</ul><blockquote><p><strong>参考答案</strong>： <strong>区别</strong>：</p><ol type="1">
 <li><strong>语义</strong>：GET是查询，POST是创建。</li>
 <li><strong>安全性</strong>：GET是安全方法（不修改资源），POST非安全。</li>
 <li><strong>幂等性</strong>：GET幂等（多次调用结果相同），POST非幂等（多次创建多个资源）。</li>
 <li><strong>可缓存</strong>：GET可被浏览器/CDN缓存，POST不可。</li>
 <li><strong>参数位置</strong>：GET参数在URL（query），POST在body。</li>
-</ol>
-<p><strong>POST做查询不推荐的原因</strong>：</p>
-<ol type="1">
+</ol><p><strong>POST做查询不推荐的原因</strong>：</p><ol type="1">
 <li><strong>不可缓存</strong>：失去HTTP缓存能力，重复查询浪费带宽。</li>
 <li><strong>违反语义</strong>：POST语义是创建，用POST查询让接口含义混乱。</li>
 <li><strong>无法被搜索引擎/爬虫正确处理</strong>：POST不被爬虫抓取。</li>
 <li><strong>无法被浏览器历史/书签保存</strong>：GET可保存，POST不行。</li>
 <li><strong>难以做条件请求</strong>：GET支持
 <code>If-Modified-Since</code>/<code>ETag</code>，POST不支持。</li>
-</ol>
+</ol></blockquote></section>
 <hr />
-<h3 id="12-论述-03">12-论述-03（★★★）</h3>
-<p><strong>结合"接口设计责任——契约一旦确定就是承诺"的思政主题，谈谈你对接口文档规范性的认识。</strong></p>
-<p><strong>评分标准</strong>（满分10分）：</p>
-<ul>
+<section class="question-card" id="12-论述-03"><p><strong>12-论述-03（★★★）</strong></p><p><strong>结合"接口设计责任——契约一旦确定就是承诺"的思政主题，谈谈你对接口文档规范性的认识。</strong></p><p><strong>评分标准</strong>（满分10分）：</p><ul>
 <li>理解"接口即契约"的内涵（3分）</li>
 <li>结合具体案例说明不规范接口的危害（3分）</li>
 <li>提出遵守接口规范的具体做法（2分）</li>
 <li>体现工程师职业责任感（2分）</li>
-</ul>
-<p><strong>参考答案</strong>：
-接口文档是前后端签订的"工程合同"，一旦发布就是对前后端、对用户的承诺。</p>
-<p><strong>契约内涵</strong>：接口的字段名、类型、路径、响应结构都是契约的一部分。任何变更都需走"变更流程"——通知前端、提供兼容期、版本升级。这不仅是技术规范，更是工程师的职业诚信。</p>
-<p><strong>不规范危害案例</strong>：某公司后端将 <code>userName</code>
+</ul><blockquote><p><strong>参考答案</strong>：
+接口文档是前后端签订的"工程合同"，一旦发布就是对前后端、对用户的承诺。</p><p><strong>契约内涵</strong>：接口的字段名、类型、路径、响应结构都是契约的一部分。任何变更都需走"变更流程"——通知前端、提供兼容期、版本升级。这不仅是技术规范，更是工程师的职业诚信。</p><p><strong>不规范危害案例</strong>：某公司后端将 <code>userName</code>
 改为 <code>username</code>
-未通知前端，导致App崩溃2小时，影响30万用户，损失80万元。这提醒我们：一个字段的随意修改，可能引发连锁事故。</p>
-<p><strong>遵守规范的做法</strong>：</p>
-<ol type="1">
+未通知前端，导致App崩溃2小时，影响30万用户，损失80万元。这提醒我们：一个字段的随意修改，可能引发连锁事故。</p><p><strong>遵守规范的做法</strong>：</p><ol type="1">
 <li>严格遵循RESTful设计原则，路径规范、方法语义正确。</li>
 <li>使用Knife4j注解让文档"自生成"，避免文档与代码脱节。</li>
 <li>统一响应结构 <code>Result&lt;T&gt;</code>，前端只认一种结构。</li>
 <li>任何接口变更走评审流程，旧版本保留兼容期。</li>
-</ol>
-<p><strong>职业责任感</strong>：中国软件产业要走向高质量，靠的不是一两个"大牛"，而是千千万万遵守规范、敬畏契约的普通工程师。每个接口都要当作"承诺"来写——这是工程师的底线。</p>
+</ol><p><strong>职业责任感</strong>：中国软件产业要走向高质量，靠的不是一两个"大牛"，而是千千万万遵守规范、敬畏契约的普通工程师。每个接口都要当作"承诺"来写——这是工程师的底线。</p></blockquote></section>
 <hr />
-<h3 id="12-论述-04">12-论述-04（★★★）</h3>
-<p><strong>请为CTTS系统设计"任务批量导入"接口，要求：路径规范、参数位置合理、响应结构符合Result<T>，并说明设计理由。</strong></p>
-<p><strong>评分标准</strong>（满分10分）：</p>
-<ul>
+<section class="question-card" id="12-论述-04"><p><strong>12-论述-04（★★★）</strong></p><p><strong>请为CTTS系统设计"任务批量导入"接口，要求：路径规范、参数位置合理、响应结构符合Result<T>，并说明设计理由。</strong></p><p><strong>评分标准</strong>（满分10分）：</p><ul>
 <li>路径设计规范（2分）</li>
 <li>方法选择合理（2分）</li>
 <li>参数位置与DTO设计（3分）</li>
 <li>响应结构设计（2分）</li>
 <li>设计理由说明（1分）</li>
-</ul>
-<p><strong>参考答案</strong>： <strong>接口设计</strong>：</p>
-<ul>
+</ul><blockquote><p><strong>参考答案</strong>： <strong>接口设计</strong>：</p><ul>
 <li><strong>方法</strong>：POST</li>
 <li><strong>路径</strong>：<code>/api/v1/projects/{projectId}/tasks/batch</code></li>
 <li><strong>参数</strong>：
@@ -746,8 +502,7 @@ API的六大设计原则，并结合CTTS系统各举一例。</strong></p>
 </ul></li>
 <li><strong>响应</strong>：<code>Result&lt;TaskBatchResultVO&gt;</code></li>
 </ul>
-<p><strong>DTO设计</strong>：</p>
-<div class="sourceCode" id="cb2"><pre
+<p><strong>DTO设计</strong>：</p><div class="sourceCode" id="cb2"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Schema</span><span class="op">(</span>description <span class="op">=</span> <span class="st">&quot;任务批量导入项&quot;</span><span class="op">)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskBatchImportDTO <span class="op">{</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Schema</span><span class="op">(</span>description <span class="op">=</span> <span class="st">&quot;任务标题&quot;</span><span class="op">,</span> example <span class="op">=</span> <span class="st">&quot;实现登录接口&quot;</span><span class="op">)</span></span>
@@ -757,9 +512,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Long</span> assigneeId<span class="op">;</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Schema</span><span class="op">(</span>description <span class="op">=</span> <span class="st">&quot;截止时间&quot;</span><span class="op">,</span> example <span class="op">=</span> <span class="st">&quot;2026-08-01T23:59:59&quot;</span><span class="op">)</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime deadline<span class="op">;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>响应VO设计</strong>：</p>
-<div class="sourceCode" id="cb3"><pre
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>响应VO设计</strong>：</p><div class="sourceCode" id="cb3"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Schema</span><span class="op">(</span>description <span class="op">=</span> <span class="st">&quot;批量导入结果&quot;</span><span class="op">)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> TaskBatchResultVO <span class="op">{</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Schema</span><span class="op">(</span>description <span class="op">=</span> <span class="st">&quot;成功条数&quot;</span><span class="op">,</span> example <span class="op">=</span> <span class="st">&quot;8&quot;</span><span class="op">)</span></span>
@@ -768,9 +521,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">Integer</span> failCount<span class="op">;</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Schema</span><span class="op">(</span>description <span class="op">=</span> <span class="st">&quot;失败详情列表&quot;</span><span class="op">)</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">List</span><span class="op">&lt;</span>FailDetail<span class="op">&gt;</span> failDetails<span class="op">;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>设计理由</strong>：</p>
-<ol type="1">
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>设计理由</strong>：</p><ol type="1">
 <li><strong>POST</strong>：批量导入是"创建多个资源"，用POST。</li>
 <li><strong>路径
 <code>/projects/{projectId}/tasks/batch</code></strong>：任务从属于项目，用嵌套资源；<code>batch</code>
@@ -779,12 +530,10 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 <li><strong>body传List</strong>：批量数据复杂，必须用body，不能用query。</li>
 <li><strong>响应返回成功/失败条数</strong>：批量操作部分失败不应整体回滚，应返回详细结果让前端处理。</li>
 <li><strong>响应用Result<T></strong>：符合统一响应规范。</li>
-</ol>
+</ol></blockquote></section>
 <hr />
 <h2 id="六程序阅读补全题2题">六、程序阅读补全题（2题）</h2>
-<h3 id="12-程序-01">12-程序-01（★★）</h3>
-<p><strong>阅读以下Controller代码，补全①②③处的Knife4j注解，使接口文档完整。</strong></p>
-<div class="sourceCode" id="cb4"><pre
+<section class="question-card" id="12-程序-01"><p><strong>12-程序-01（★★）</strong></p><p><strong>阅读以下Controller代码，补全①②③处的Knife4j注解，使接口文档完整。</strong></p><div class="sourceCode" id="cb4"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
@@ -806,23 +555,17 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">(</span><span class="kw">new</span> <span class="fu">UserVO</span><span class="op">(</span>id<span class="op">,</span> <span class="st">&quot;张三&quot;</span><span class="op">));</span></span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>答案</strong>：</p>
-<ul>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><blockquote><p><strong>答案</strong>：</p><ul>
 <li>① <code>Tag</code></li>
 <li>② <code>Operation</code></li>
 <li>③ <code>Parameter</code></li>
-</ul>
-<p><strong>解析</strong>：</p>
-<ul>
+</ul><p><strong>解析</strong>：</p><ul>
 <li>① 类上加 <code>@Tag</code> 用于接口分组</li>
 <li>② 方法上加 <code>@Operation</code> 描述接口用途</li>
 <li>③ 参数上加 <code>@Parameter</code> 描述参数含义</li>
-</ul>
+</ul></blockquote></section>
 <hr />
-<h3 id="12-程序-02">12-程序-02（★★★）</h3>
-<p><strong>阅读以下统一响应类代码，补全①②③④处的方法实现，使其符合静态工厂方法规范。</strong></p>
-<div class="sourceCode" id="cb5"><pre
+<section class="question-card" id="12-程序-02"><p><strong>12-程序-02（★★★）</strong></p><p><strong>阅读以下统一响应类代码，补全①②③④处的方法实现，使其符合静态工厂方法规范。</strong></p><div class="sourceCode" id="cb5"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">lombok</span><span class="op">.</span><span class="im">Data</span><span class="op">;</span></span>
@@ -851,47 +594,34 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="bu">Result</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="fu">____③____</span><span class="op">(</span><span class="bu">Integer</span> code<span class="op">,</span> <span class="bu">String</span> message<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Result</span><span class="op">&lt;&gt;(</span>code<span class="op">,</span> message<span class="op">,</span> ____④____<span class="op">);</span></span>
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>答案</strong>：</p>
-<ul>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><blockquote><p><strong>答案</strong>：</p><ul>
 <li>① <code>success</code></li>
 <li>② <code>success</code></li>
 <li>③ <code>fail</code></li>
 <li>④ <code>null</code></li>
-</ul>
-<p><strong>解析</strong>：</p>
-<ul>
+</ul><p><strong>解析</strong>：</p><ul>
 <li>① <code>success()</code> 返回无数据的成功响应，code=200</li>
 <li>② <code>success(T data)</code> 返回带数据的成功响应</li>
 <li>③ <code>fail(Integer code, String message)</code> 返回失败响应</li>
 <li>④ 失败时data为null</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
-<h3 id="12-编程-01">12-编程-01（★★★）</h3>
-<p><strong>请为CTTS系统的"提交模块"设计4个RESTful接口，要求：</strong></p>
-<ol type="1">
+<section class="question-card" id="12-编程-01"><p><strong>12-编程-01（★★★）</strong></p><p><strong>请为CTTS系统的"提交模块"设计4个RESTful接口，要求：</strong></p><ol type="1">
 <li>写出每个接口的方法、路径、参数位置、响应类型</li>
 <li>为每个接口编写带Knife4j注解的Controller方法</li>
 <li>响应统一使用 <code>Result&lt;T&gt;</code> 结构</li>
-</ol>
-<p><strong>接口清单</strong>：</p>
-<ul>
+</ol><p><strong>接口清单</strong>：</p><ul>
 <li>提交任务（创建提交）</li>
 <li>查询提交详情</li>
 <li>评分（部分更新分数）</li>
 <li>撤回提交（删除）</li>
-</ul>
-<p><strong>评分标准</strong>（满分10分）：</p>
-<ul>
+</ul><p><strong>评分标准</strong>（满分10分）：</p><ul>
 <li>路径设计规范（4分，每个接口1分）</li>
 <li>方法选择正确（2分）</li>
 <li>Knife4j注解完整（2分）</li>
 <li>响应结构正确（2分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>接口设计表</strong>：</p>
-<table>
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>接口设计表</strong>：</p><table>
 <thead>
 <tr>
 <th>接口</th>
@@ -931,9 +661,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="
 <td><code>Result&lt;Void&gt;</code></td>
 </tr>
 </tbody>
-</table>
-<p><strong>Controller代码</strong>：</p>
-<div class="sourceCode" id="cb6"><pre
+</table><p><strong>Controller代码</strong>：</p><div class="sourceCode" id="cb6"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
@@ -981,29 +709,21 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="
 <span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>            <span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">();</span></span>
 <span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></blockquote></section>
 <hr />
-<h3 id="12-编程-02">12-编程-02（★★★）</h3>
-<p><strong>请为CTTS系统的"评论模块"设计4个RESTful接口，并编写带Knife4j注解的完整Controller。</strong></p>
-<p><strong>要求</strong>：</p>
-<ol type="1">
+<section class="question-card" id="12-编程-02"><p><strong>12-编程-02（★★★）</strong></p><p><strong>请为CTTS系统的"评论模块"设计4个RESTful接口，并编写带Knife4j注解的完整Controller。</strong></p><p><strong>要求</strong>：</p><ol type="1">
 <li>接口包括：发表评论、查询评论列表、删除评论、点赞评论</li>
 <li>点赞作为独立子资源设计</li>
 <li>查询列表支持按taskId筛选</li>
 <li>所有注解完整，含
 <code>@Tag</code>/<code>@Operation</code>/<code>@Parameter</code></li>
 <li>响应统一 <code>Result&lt;T&gt;</code> 结构</li>
-</ol>
-<p><strong>评分标准</strong>（满分10分）：</p>
-<ul>
+</ol><p><strong>评分标准</strong>（满分10分）：</p><ul>
 <li>路径设计规范（4分）</li>
 <li>点赞子资源设计（2分）</li>
 <li>Knife4j注解完整（2分）</li>
 <li>查询筛选设计（2分）</li>
-</ul>
-<p><strong>参考答案</strong>：</p>
-<p><strong>接口设计表</strong>：</p>
-<table>
+</ul><blockquote><p><strong>参考答案</strong>：</p><p><strong>接口设计表</strong>：</p><table>
 <thead>
 <tr>
 <th>接口</th>
@@ -1043,9 +763,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="
 <td><code>Result&lt;Void&gt;</code></td>
 </tr>
 </tbody>
-</table>
-<p><strong>Controller代码</strong>：</p>
-<div class="sourceCode" id="cb7"><pre
+</table><p><strong>Controller代码</strong>：</p><div class="sourceCode" id="cb7"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">controller</span><span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">ctts</span><span class="op">.</span><span class="im">common</span><span class="op">.</span><span class="im">Result</span><span class="op">;</span></span>
@@ -1095,14 +813,12 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="
 <span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>            <span class="at">@PathVariable</span> <span class="bu">Long</span> id<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">Result</span><span class="op">.</span><span class="fu">success</span><span class="op">();</span></span>
 <span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>设计说明</strong>：</p>
-<ul>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><p><strong>设计说明</strong>：</p><ul>
 <li>点赞作为独立子资源
 <code>/comments/{id}/likes</code>，用POST创建点赞、DELETE取消点赞，符合RESTful"子资源"思想。</li>
 <li>查询列表用GET + query筛选，支持按taskId和type过滤。</li>
 <li>删除用DELETE方法，路径含 <code>{id}</code> 定位资源。</li>
-</ul>
+</ul></blockquote></section>
 <hr />
 <h2 id="题库统计表">题库统计表</h2>
 <h3 id="按题型统计">按题型统计</h3>

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -125,39 +125,58 @@ JOIN 与 resultMap 嵌套映射</td>
 <h3 id="13-项目任务">1.3 项目任务</h3>
 <p>本次课交付 CTTS 系统剩余三张表的持久层：</p>
 <div class="visual">
-  <div class="visual-title">图示 1：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐    ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐    ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span>   task           <span class="tree-token">│</span>    <span class="tree-token">│</span>  task_submission <span class="tree-token">│</span>    <span class="tree-token">│</span>   task_review    <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>   (任务表)        <span class="tree-token">│</span>    <span class="tree-token">│</span>  (提交表)         <span class="tree-token">│</span>    <span class="tree-token">│</span>   (评审表)        <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
-<span class="diagram-line"><span class="tree-token">│</span> id               <span class="tree-token">│</span>◄<span class="tree-token">─</span><span class="tree-token">─</span>┐<span class="tree-token">│</span> id               <span class="tree-token">│</span>◄<span class="tree-token">─</span><span class="tree-token">─</span>┐<span class="tree-token">│</span> id               <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> project_id (FK)  <span class="tree-token">│</span>   <span class="tree-token">│</span><span class="tree-token">│</span> task_id (FK)     <span class="tree-token">│</span>   <span class="tree-token">│</span><span class="tree-token">│</span> submission_id(FK)<span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> title            <span class="tree-token">│</span>   <span class="tree-token">│</span><span class="tree-token">│</span> student_id (FK)  <span class="tree-token">│</span>   <span class="tree-token">│</span><span class="tree-token">│</span> reviewer_id (FK) <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> status           <span class="tree-token">│</span>   <span class="tree-token">│</span><span class="tree-token">│</span> content          <span class="tree-token">│</span>   <span class="tree-token">│</span><span class="tree-token">│</span> score            <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> priority         <span class="tree-token">│</span>   <span class="tree-token">│</span><span class="tree-token">│</span> status           <span class="tree-token">│</span>   <span class="tree-token">│</span><span class="tree-token">│</span> comment          <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> ...              <span class="tree-token">│</span>   <span class="tree-token">│</span><span class="tree-token">│</span> ...              <span class="tree-token">│</span>   <span class="tree-token">│</span><span class="tree-token">│</span> ...              <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘   <span class="tree-token">│</span><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘   <span class="tree-token">│</span><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">                       <span class="tree-token">│</span>                       <span class="tree-token">│</span></span>
-<span class="diagram-line">                       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">                            外键链路</span>
+  <div class="visual-title">图示 1：任务、提交与评审三表职责</div>
+  <div class="edu-diagram">
+    <div class="diagram-grid three">
+      <div class="diagram-panel">
+        <span class="diagram-badge">task</span>
+        <h4>任务表</h4>
+        <div class="diagram-plain">
+          <div class="diagram-plain-line"><code>id</code> 主键</div>
+          <div class="diagram-plain-line"><code>project_id</code> 关联项目</div>
+          <div class="diagram-plain-line"><code>title</code>、<code>status</code>、<code>priority</code></div>
+        </div>
+      </div>
+      <div class="diagram-panel">
+        <span class="diagram-badge">task_submission</span>
+        <h4>提交表</h4>
+        <div class="diagram-plain">
+          <div class="diagram-plain-line"><code>id</code> 主键</div>
+          <div class="diagram-plain-line"><code>task_id</code> 关联任务</div>
+          <div class="diagram-plain-line"><code>student_id</code>、<code>content</code>、<code>status</code></div>
+        </div>
+      </div>
+      <div class="diagram-panel">
+        <span class="diagram-badge good">task_review</span>
+        <h4>评审表</h4>
+        <div class="diagram-plain">
+          <div class="diagram-plain-line"><code>id</code> 主键</div>
+          <div class="diagram-plain-line"><code>submission_id</code> 关联提交</div>
+          <div class="diagram-plain-line"><code>reviewer_id</code>、<code>score</code>、<code>comment</code></div>
+        </div>
+      </div>
+    </div>
+    <div class="diagram-callout">外键链路：项目产生任务，学生提交任务成果，教师对提交记录进行评审。</div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <p>最终交付一个多表关联查询：<strong>查询某学生的所有提交及对应任务信息</strong>（JOIN
 + resultMap 嵌套映射）。</p>
 <h3 id="14-学习路径">1.4 学习路径</h3>
 <div class="visual">
-  <div class="visual-title">图示 2：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">建表SQL  <span class="arrow-token">→</span>  实体类  <span class="arrow-token">→</span>  Mapper接口  <span class="arrow-token">→</span>  XML映射  <span class="arrow-token">→</span>  测试类</span>
-<span class="diagram-line">  <span class="tree-token">│</span>           <span class="tree-token">│</span>           <span class="tree-token">│</span>             <span class="tree-token">│</span>           <span class="tree-token">│</span></span>
-<span class="diagram-line">  ▼           ▼           ▼             ▼           ▼</span>
-<span class="diagram-line">3张表     3个类       3个Mapper     动态SQL       JUnit</span>
-<span class="diagram-line">         注解映射    BaseMapper     JOIN+嵌套     验证</span>
-<span class="diagram-line">                    +自定义查询    resultMap</span>
+  <div class="visual-title">图示 2：持久层综合实践交付路径</div>
+  <div class="edu-diagram">
+    <div class="diagram-flow">
+      <div class="diagram-card"><strong>1</strong><h4>建表 SQL</h4><p>完成 3 张表结构和外键设计。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><strong>2</strong><h4>实体类</h4><p>创建 3 个 Entity，完成字段映射。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><strong>3</strong><h4>Mapper 接口</h4><p>继承 BaseMapper，并定义自定义查询。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><strong>4</strong><h4>XML 映射</h4><p>编写动态 SQL、JOIN 与 resultMap 嵌套映射。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card good"><strong>5</strong><h4>测试类</h4><p>用 JUnit 验证 CRUD、关联查询和映射结果。</p></div>
+    </div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <hr />
 <h2 id="二实践任务总览">二、实践任务总览</h2>
@@ -1149,16 +1168,7 @@ JOIN 性能略优。若存在"任务被删但提交还在"的脏数据，LEFT JO
 <p>JOIN 后两表都有 <code>id</code>、<code>status</code>
 等同名字段，<strong>必须用别名区分</strong>，否则 MyBatis
 无法正确映射：</p>
-<div class="visual">
-  <div class="visual-title">图示 3：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">s.id AS s_id          <span class="arrow-token">→</span>  submission.id</span>
-<span class="diagram-line">s.status AS s_status  <span class="arrow-token">→</span>  submission.status</span>
-<span class="diagram-line">t.id AS t_id          <span class="arrow-token">→</span>  submission.task.id</span>
-<span class="diagram-line">t.status AS t_status  <span class="arrow-token">→</span>  submission.task.status</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 3：s.id AS s_id → submission.id</div> <div class="edu-diagram"> <div class="diagram-flow"><div class="diagram-card"><h4>s.id AS s_id</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>submission.id s.status AS s_status</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>submission.status t.id AS t_id</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>submission.task.id t.status AS t_status</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>submission.task.status</h4></div></div> </div></div>
 <p>resultMap 配置（关键部分）：</p>
 <div class="sourceCode" id="cb28"><pre
 class="sourceCode xml"><code class="sourceCode xml"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">resultMap</span><span class="ot"> id=</span><span class="st">&quot;SubmissionWithTaskMap&quot;</span><span class="ot"> type=</span><span class="st">&quot;com.ctts.vo.TaskSubmissionVO&quot;</span>&gt;</span>
@@ -1352,23 +1362,22 @@ BaseMapper，复杂查询写 XML 或注解 SQL；</li>
               端到端验证 ✓</code></pre>
 <h3 id="63-三张表的关系链">6.3 三张表的关系链</h3>
 <div class="visual">
-  <div class="visual-title">图示 4：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">training_project (项目)</span>
-<span class="diagram-line">       <span class="tree-token">│</span> 1</span>
-<span class="diagram-line">       <span class="tree-token">│</span></span>
-<span class="diagram-line">       <span class="tree-token">│</span> n</span>
-<span class="diagram-line">     task (任务)</span>
-<span class="diagram-line">       <span class="tree-token">│</span> 1</span>
-<span class="diagram-line">       <span class="tree-token">│</span></span>
-<span class="diagram-line">       <span class="tree-token">│</span> n</span>
-<span class="diagram-line">task_submission (提交) <span class="tree-token">─</span><span class="tree-token">─</span> n:1 <span class="tree-token">─</span><span class="tree-token">─</span> sys_user (学生)</span>
-<span class="diagram-line">       <span class="tree-token">│</span> 1</span>
-<span class="diagram-line">       <span class="tree-token">│</span></span>
-<span class="diagram-line">       <span class="tree-token">│</span> n</span>
-<span class="diagram-line">  task_review (评审) <span class="tree-token">─</span><span class="tree-token">─</span> n:1 <span class="tree-token">─</span><span class="tree-token">─</span> sys_user (教师)</span>
+  <div class="visual-title">图示 4：CTTS 项目、任务、提交与评审关系链</div>
+  <div class="edu-diagram">
+    <div class="diagram-flow">
+      <div class="diagram-card"><span class="diagram-badge">1</span><h4>training_project</h4><p>一个项目包含多个任务。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><span class="diagram-badge">N</span><h4>task</h4><p>每个任务属于一个项目，并可产生多次提交。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card"><span class="diagram-badge">N</span><h4>task_submission</h4><p>每条提交属于一个任务和一个学生。</p></div>
+      <div class="flow-arrow">→</div>
+      <div class="diagram-card good"><span class="diagram-badge good">N</span><h4>task_review</h4><p>每条评审对应一次提交，并关联评审教师。</p></div>
+    </div>
+    <div class="diagram-grid two">
+      <div class="diagram-card"><h4>学生关系</h4><p><code>task_submission.student_id</code> N:1 关联 <code>sys_user</code>。</p></div>
+      <div class="diagram-card"><h4>教师关系</h4><p><code>task_review.reviewer_id</code> N:1 关联 <code>sys_user</code>。</p></div>
+    </div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <hr />
 <h2 id="七复习思考题">七、复习思考题</h2>

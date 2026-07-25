@@ -167,813 +167,524 @@ MyBatis-Plus + MySQL + JWT + Knife4j + Maven | 包名：com.ctts
 </ul>
 <hr />
 <h2 id="一单项选择题30题">一、单项选择题（30题）</h2>
-<h3 id="24-单选-01--m1-java-web基础">24-单选-01 ★ M1 Java Web基础</h3>
-<p><strong>HTTP协议中，用于向服务器提交数据并创建资源的请求方法是（
-）。</strong> A. GET B. POST C. PUT D. DELETE</p>
-<details>
+<section class="question-card" id="24-单选-01--m1-java-web基础"><p><strong>24-单选-01 ★ M1 Java Web基础</strong></p><p><strong>HTTP协议中，用于向服务器提交数据并创建资源的请求方法是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">GET</div></li><li><span class="option-label">B</span><div class="option-content">POST</div></li><li><span class="option-label">C</span><div class="option-content">PUT</div></li><li><span class="option-label">D</span><div class="option-content">DELETE</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：POST方法用于向服务器提交数据并创建新资源；GET用于查询；PUT用于更新/替换资源；DELETE用于删除。RESTful风格中POST对应"新增"语义。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-02--m1-java-web基础">24-单选-02 ★ M1 Java Web基础</h3>
-<p><strong>Servlet生命周期中，仅执行一次的方法是（ ）。</strong> A.
-service() B. doGet() C. init() D. destroy()</p>
-<details>
+<section class="question-card" id="24-单选-02--m1-java-web基础"><p><strong>24-单选-02 ★ M1 Java Web基础</strong></p><p><strong>Servlet生命周期中，仅执行一次的方法是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">service()</div></li><li><span class="option-label">B</span><div class="option-content">doGet()</div></li><li><span class="option-label">C</span><div class="option-content">init()</div></li><li><span class="option-label">D</span><div class="option-content">destroy()</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：C</strong></p>
 <p><strong>解析</strong>：init()在Servlet实例化后仅执行一次，完成初始化；service()每次请求都执行；doGet()处理GET请求；destroy()在卸载时执行一次。但题目强调"初始化"的一次性，故选init()。destroy()虽也一次但属销毁阶段。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-03--m1-java-web基础">24-单选-03 ★ M1 Java Web基础</h3>
-<p><strong>Maven项目中，下列哪个坐标元素用于唯一标识一个依赖？（多要素组合）</strong>
-A. groupId B. artifactId C. version D. 以上三者组合</p>
-<details>
+<section class="question-card" id="24-单选-03--m1-java-web基础"><p><strong>24-单选-03 ★ M1 Java Web基础</strong></p><p><strong>Maven项目中，下列哪个坐标元素用于唯一标识一个依赖？（多要素组合）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">groupId</div></li><li><span class="option-label">B</span><div class="option-content">artifactId</div></li><li><span class="option-label">C</span><div class="option-content">version</div></li><li><span class="option-label">D</span><div class="option-content">以上三者组合</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：D</strong></p>
 <p><strong>解析</strong>：Maven通过groupId:artifactId:version三元组唯一标识一个构件（artifact）。三者缺一不可。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-04--m2-springboot">24-单选-04 ★★ M2 SpringBoot</h3>
-<p><strong>SpringBoot 3.x 最低要求JDK版本是（ ）。</strong> A. JDK 8 B.
-JDK 11 C. JDK 17 D. JDK 21</p>
-<details>
+<section class="question-card" id="24-单选-04--m2-springboot"><p><strong>24-单选-04 ★★ M2 SpringBoot</strong></p><p><strong>SpringBoot 3.x 最低要求JDK版本是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">JDK 8</div></li><li><span class="option-label">B</span><div class="option-content">JDK 11</div></li><li><span class="option-label">C</span><div class="option-content">JDK 17</div></li><li><span class="option-label">D</span><div class="option-content">JDK 21</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：C</strong></p>
 <p><strong>解析</strong>：SpringBoot 3.0+基于Spring Framework 6，要求JDK
 17及以上，并迁移到Jakarta EE 9+（包名从javax变为jakarta）。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-05--m2-springboot">24-单选-05 ★★ M2 SpringBoot</h3>
-<p><strong>关于SpringBoot自动配置，下列说法正确的是（ ）。</strong> A.
-<a
-href="mailto:自动配置通过@Bean在application.yml中定义">自动配置通过@Bean在application.yml中定义</a>
-B.
-自动配置类位于spring-boot-autoconfigurejar中，通过@Conditional条件装配
-C. 自动配置意味着所有Bean都被默认加载 D.
-@SpringBootApplication只包含@ComponentScan</p>
-<details>
+<section class="question-card" id="24-单选-05--m2-springboot"><p><strong>24-单选-05 ★★ M2 SpringBoot</strong></p><p><strong>关于SpringBoot自动配置，下列说法正确的是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><a href="mailto:自动配置通过@Bean在application.yml中定义">自动配置通过@Bean在application.yml中定义</a></div></li><li><span class="option-label">B</span><div class="option-content">自动配置类位于spring-boot-autoconfigurejar中，通过@Conditional条件装配</div></li><li><span class="option-label">C</span><div class="option-content">自动配置意味着所有Bean都被默认加载</div></li><li><span class="option-label">D</span><div class="option-content">@SpringBootApplication只包含@ComponentScan</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：自动配置类通过@ConditionalOnClass/@ConditionalOnMissingBean等条件注解按需装配，避免全量加载。@SpringBootApplication是@SpringBootConfiguration+@EnableAutoConfiguration+@ComponentScan的组合。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-06--m2-springboot">24-单选-06 ★ M2 SpringBoot</h3>
-<p><strong>下列哪个注解用于读取application.yml中的配置项并注入Bean属性？</strong>
-A. @Value B. @Autowired C. @Bean D. @Component</p>
-<details>
+<section class="question-card" id="24-单选-06--m2-springboot"><p><strong>24-单选-06 ★ M2 SpringBoot</strong></p><p><strong>下列哪个注解用于读取application.yml中的配置项并注入Bean属性？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Value</div></li><li><span class="option-label">B</span><div class="option-content">@Autowired</div></li><li><span class="option-label">C</span><div class="option-content">@Bean</div></li><li><span class="option-label">D</span><div class="option-content">@Component</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A</strong></p>
 <p><strong>解析</strong>：@Value("${key}")读取单个配置项；@ConfigurationProperties批量绑定前缀配置；@Autowired用于依赖注入；@Bean声明Bean；@Component标记组件。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-07--m2-springboot">24-单选-07 ★★ M2 SpringBoot</h3>
-<p><strong>SpringBoot项目默认内嵌的Web服务器是（ ）。</strong> A. Jetty
-B. Undertow C. Tomcat D. Netty</p>
-<details>
+<section class="question-card" id="24-单选-07--m2-springboot"><p><strong>24-单选-07 ★★ M2 SpringBoot</strong></p><p><strong>SpringBoot项目默认内嵌的Web服务器是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Jetty</div></li><li><span class="option-label">B</span><div class="option-content">Undertow</div></li><li><span class="option-label">C</span><div class="option-content">Tomcat</div></li><li><span class="option-label">D</span><div class="option-content">Netty</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：C</strong></p>
 <p><strong>解析</strong>：spring-boot-starter-web默认引入spring-boot-starter-tomcat，内嵌Tomcat。可通过排除Tomcat依赖、引入Jetty/Undertow替换。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-08--m3-mybatis-plus">24-单选-08 ★ M3 MyBatis-Plus</h3>
-<p><strong>MyBatis-Plus中，继承哪个接口可直接获得通用CRUD方法？</strong>
-A. BaseMapper B. IService C. Repository D. JdbcTemplate</p>
-<details>
+<section class="question-card" id="24-单选-08--m3-mybatis-plus"><p><strong>24-单选-08 ★ M3 MyBatis-Plus</strong></p><p><strong>MyBatis-Plus中，继承哪个接口可直接获得通用CRUD方法？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">BaseMapper</div></li><li><span class="option-label">B</span><div class="option-content">IService</div></li><li><span class="option-label">C</span><div class="option-content">Repository</div></li><li><span class="option-label">D</span><div class="option-content">JdbcTemplate</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A</strong></p>
 <p><strong>解析</strong>：Mapper接口继承BaseMapper<T>即获得insert/deleteById/updateById/selectById/selectList等通用方法，无需写XML。IService是Service层的通用接口。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-09--m3-mybatis-plus">24-单选-09 ★★ M3 MyBatis-Plus</h3>
-<p><strong>启用MyBatis-Plus分页功能，必须配置的组件是（ ）。</strong> A.
-PaginationInnerInterceptor B. PageHelper C. PageInterceptor D.
-LimitInterceptor</p>
-<details>
+<section class="question-card" id="24-单选-09--m3-mybatis-plus"><p><strong>24-单选-09 ★★ M3 MyBatis-Plus</strong></p><p><strong>启用MyBatis-Plus分页功能，必须配置的组件是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">PaginationInnerInterceptor</div></li><li><span class="option-label">B</span><div class="option-content">PageHelper</div></li><li><span class="option-label">C</span><div class="option-content">PageInterceptor</div></li><li><span class="option-label">D</span><div class="option-content">LimitInterceptor</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A</strong></p>
 <p><strong>解析</strong>：MyBatis-Plus需注册MybatisPlusInterceptor并添加PaginationInnerInterceptor分页内部拦截器，否则Page对象的LIMIT不会拼接到SQL。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-10--m3-mybatis-plus">24-单选-10 ★★ M3 MyBatis-Plus</h3>
-<p><strong>LambdaQueryWrapper相比QueryWrapper的主要优势是（
-）。</strong> A. 执行速度更快 B. 字段名编译期检查，避免硬编码字符串 C.
-支持更多数据库 D. 自动生成SQL</p>
-<details>
+<section class="question-card" id="24-单选-10--m3-mybatis-plus"><p><strong>24-单选-10 ★★ M3 MyBatis-Plus</strong></p><p><strong>LambdaQueryWrapper相比QueryWrapper的主要优势是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">执行速度更快</div></li><li><span class="option-label">B</span><div class="option-content">字段名编译期检查，避免硬编码字符串</div></li><li><span class="option-label">C</span><div class="option-content">支持更多数据库</div></li><li><span class="option-label">D</span><div class="option-content">自动生成SQL</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：LambdaQueryWrapper通过方法引用（如User::getName）获取字段名，编译期校验，重构字段名时自动同步，避免QueryWrapper中字符串硬编码导致的运行时错误。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-11--m3-mybatis-plus">24-单选-11 ★ M3 MyBatis-Plus</h3>
-<p><strong>MyBatis-Plus默认主键生成策略是（ ）。</strong> A.
-ASSIGN_ID（雪花算法） B. AUTO（数据库自增） C. UUID D.
-INPUT（手动输入）</p>
-<details>
+<section class="question-card" id="24-单选-11--m3-mybatis-plus"><p><strong>24-单选-11 ★ M3 MyBatis-Plus</strong></p><p><strong>MyBatis-Plus默认主键生成策略是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">ASSIGN_ID（雪花算法）</div></li><li><span class="option-label">B</span><div class="option-content">AUTO（数据库自增）</div></li><li><span class="option-label">C</span><div class="option-content">UUID</div></li><li><span class="option-label">D</span><div class="option-content">INPUT（手动输入）</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A</strong></p>
 <p><strong>解析</strong>：MyBatis-Plus
 3.3+默认IdType.ASSIGN_ID，基于雪花算法生成分布式唯一ID（19位Long）。AUTO需数据库支持且配置IdType.AUTO。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-12--m4-service与事务">24-单选-12 ★ M4 Service与事务</h3>
-<p><strong>关于@Transactional注解，下列说法错误的是（ ）。</strong> A.
-默认仅对public方法生效 B. 默认只回滚RuntimeException及其子类 C.
-同一类内的方法直接调用，事务不生效 D. 标注在private方法上同样生效</p>
-<details>
+<section class="question-card" id="24-单选-12--m4-service与事务"><p><strong>24-单选-12 ★ M4 Service与事务</strong></p><p><strong>关于@Transactional注解，下列说法错误的是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">默认仅对public方法生效</div></li><li><span class="option-label">B</span><div class="option-content">默认只回滚RuntimeException及其子类</div></li><li><span class="option-label">C</span><div class="option-content">同一类内的方法直接调用，事务不生效</div></li><li><span class="option-label">D</span><div class="option-content">标注在private方法上同样生效</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：D</strong></p>
 <p><strong>解析</strong>：@Transactional基于Spring
 AOP代理，private方法无法被代理，标注无效。A/B/C均为正确描述。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-13--m4-service与事务">24-单选-13 ★★ M4
-Service与事务</h3>
-<p><strong>CTTS中Service层调用多个Mapper写操作，应使用什么保证原子性？</strong>
-A. synchronized关键字 B. @Transactional C. @Async D. 数据库锁</p>
-<details>
+<section class="question-card" id="24-单选-13--m4-service与事务"><p><strong>24-单选-13 ★★ M4 Service与事务</strong></p><p><strong>CTTS中Service层调用多个Mapper写操作，应使用什么保证原子性？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">synchronized关键字</div></li><li><span class="option-label">B</span><div class="option-content">@Transactional</div></li><li><span class="option-label">C</span><div class="option-content">@Async</div></li><li><span class="option-label">D</span><div class="option-content">数据库锁</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：@Transactional声明式事务保证多操作原子性，任一异常即整体回滚。synchronized是JVM级锁，不适合跨请求/分布式；@Async是异步；数据库锁粒度不当。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-14--m4-service与事务">24-单选-14 ★ M4 Service与事务</h3>
-<p><strong>统一返回结构Result<T>中，"T"代表（ ）。</strong> A. 时间类型
-B. 泛型数据类型 C. Text文本 D. Thread线程</p>
-<details>
+<section class="question-card" id="24-单选-14--m4-service与事务"><p><strong>24-单选-14 ★ M4 Service与事务</strong></p><p><strong>统一返回结构Result<T>中，"T"代表（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">时间类型</div></li><li><span class="option-label">B</span><div class="option-content">泛型数据类型</div></li><li><span class="option-label">C</span><div class="option-content">Text文本</div></li><li><span class="option-label">D</span><div class="option-content">Thread线程</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：Result<T>使用泛型，data字段可为任意类型（UserVO、PageResult<UserVO>等），保证类型安全与复用性。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-15--m5-接口规范与校验">24-单选-15 ★ M5
-接口规范与校验</h3>
-<p><strong>RESTful风格中，更新资源的标准HTTP方法是（ ）。</strong> A.
-POST B. GET C. PUT D. HEAD</p>
-<details>
+<section class="question-card" id="24-单选-15--m5-接口规范与校验"><p><strong>24-单选-15 ★ M5 接口规范与校验</strong></p><p><strong>RESTful风格中，更新资源的标准HTTP方法是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">POST</div></li><li><span class="option-label">B</span><div class="option-content">GET</div></li><li><span class="option-label">C</span><div class="option-content">PUT</div></li><li><span class="option-label">D</span><div class="option-content">HEAD</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：C</strong></p>
 <p><strong>解析</strong>：PUT用于整体更新/替换资源，PATCH用于部分更新。POST新增，GET查询，HEAD只取响应头。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-16--m5-接口规范与校验">24-单选-16 ★★ M5
-接口规范与校验</h3>
-<p><strong>JSR-303中，校验字符串非null且非空字符串的注解是（
-）。</strong> A. @NotNull B. @NotEmpty C. @NotBlank D. @Size</p>
-<details>
+<section class="question-card" id="24-单选-16--m5-接口规范与校验"><p><strong>24-单选-16 ★★ M5 接口规范与校验</strong></p><p><strong>JSR-303中，校验字符串非null且非空字符串的注解是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@NotNull</div></li><li><span class="option-label">B</span><div class="option-content">@NotEmpty</div></li><li><span class="option-label">C</span><div class="option-content">@NotBlank</div></li><li><span class="option-label">D</span><div class="option-content">@Size</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：C</strong></p>
 <p><strong>解析</strong>：@NotBlank校验字符串非null且trim后长度&gt;0；@NotNull仅校验非null（可空串）；@NotEmpty校验非null且长度&gt;0（不trim）；@Size校验长度范围。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-17--m5-接口规范与校验">24-单选-17 ★★ M5
-接口规范与校验</h3>
-<p><strong>在SpringBoot
-Controller方法参数上启用JSR-303校验，需添加哪个注解？</strong> A.
-@Validated B. @Valid C. @Validated或@Valid均可 D. @Validator</p>
-<details>
+<section class="question-card" id="24-单选-17--m5-接口规范与校验"><p><strong>24-单选-17 ★★ M5 接口规范与校验</strong></p><p><strong>在SpringBoot Controller方法参数上启用JSR-303校验，需添加哪个注解？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Validated</div></li><li><span class="option-label">B</span><div class="option-content">@Valid</div></li><li><span class="option-label">C</span><div class="option-content">@Validated或@Valid均可</div></li><li><span class="option-label">D</span><div class="option-content">@Validator</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：方法参数DTO前加@Valid触发校验；@Validated用于类级或方法级（支持分组校验）。单参数DTO校验用@Valid即可。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-18--m6-安全与鉴权">24-单选-18 ★ M6 安全与鉴权</h3>
-<p><strong>JWT由几部分组成？（用.分隔）</strong> A. 2部分 B. 3部分 C.
-4部分 D. 5部分</p>
-<details>
+<section class="question-card" id="24-单选-18--m6-安全与鉴权"><p><strong>24-单选-18 ★ M6 安全与鉴权</strong></p><p><strong>JWT由几部分组成？（用.分隔）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">2部分</div></li><li><span class="option-label">B</span><div class="option-content">3部分</div></li><li><span class="option-label">C</span><div class="option-content">4部分</div></li><li><span class="option-label">D</span><div class="option-content">5部分</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：JWT由Header（算法类型）、Payload（载荷claims）、Signature（签名）三部分组成，以.拼接，形如xxx.yyy.zzz。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-19--m6-安全与鉴权">24-单选-19 ★★ M6 安全与鉴权</h3>
-<p><strong>CTTS中自定义JWT拦截器应实现哪个接口？</strong> A. Filter B.
-HandlerInterceptor C. HandlerMapping D. WebMvcConfigurer</p>
-<details>
+<section class="question-card" id="24-单选-19--m6-安全与鉴权"><p><strong>24-单选-19 ★★ M6 安全与鉴权</strong></p><p><strong>CTTS中自定义JWT拦截器应实现哪个接口？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Filter</div></li><li><span class="option-label">B</span><div class="option-content">HandlerInterceptor</div></li><li><span class="option-label">C</span><div class="option-content">HandlerMapping</div></li><li><span class="option-label">D</span><div class="option-content">WebMvcConfigurer</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：SpringMVC拦截器实现HandlerInterceptor，重写preHandle/postHandle/afterCompletion。Filter是Servlet规范；WebMvcConfigurer用于注册拦截器。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-20--m6-安全与鉴权">24-单选-20 ★★ M6 安全与鉴权</h3>
-<p><strong>用户密码在数据库中应如何存储最安全？</strong> A. Base64编码
-B. MD5加密 C. 明文存储 D. BCrypt加盐加密</p>
-<details>
+<section class="question-card" id="24-单选-20--m6-安全与鉴权"><p><strong>24-单选-20 ★★ M6 安全与鉴权</strong></p><p><strong>用户密码在数据库中应如何存储最安全？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Base64编码</div></li><li><span class="option-label">B</span><div class="option-content">MD5加密</div></li><li><span class="option-label">C</span><div class="option-content">明文存储</div></li><li><span class="option-label">D</span><div class="option-content">BCrypt加盐加密</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：D</strong></p>
 <p><strong>解析</strong>：BCrypt自带随机盐且可调工作因子，抗彩虹表与暴力破解。MD5已被证明不安全；Base64是编码非加密；明文最危险。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-21--m6-安全与鉴权">24-单选-21 ★★★ M6 安全与鉴权</h3>
-<p><strong>JWT令牌签发后无法主动失效，常见的应对方案是（ ）。</strong>
-A. 改用Session B. 引入RefreshToken + 短有效期 + 黑名单机制 C.
-增大JWT长度 D. 不使用签名</p>
-<details>
+<section class="question-card" id="24-单选-21--m6-安全与鉴权"><p><strong>24-单选-21 ★★★ M6 安全与鉴权</strong></p><p><strong>JWT令牌签发后无法主动失效，常见的应对方案是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">改用Session</div></li><li><span class="option-label">B</span><div class="option-content">引入RefreshToken + 短有效期 + 黑名单机制</div></li><li><span class="option-label">C</span><div class="option-content">增大JWT长度</div></li><li><span class="option-label">D</span><div class="option-content">不使用签名</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：JWT无状态特性导致主动失效困难。常见方案：①令牌短有效期（如30分钟）；②RefreshToken刷新；③Redis维护黑名单（登出/封禁时加入）。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-22--m7-测试与日志">24-单选-22 ★ M7 测试与日志</h3>
-<p><strong>SpringBoot集成测试中，启动整个Spring容器的注解是（
-）。</strong> A. @SpringBootTest B. @WebMvcTest C. @DataJpaTest D.
-@MockBean</p>
-<details>
+<section class="question-card" id="24-单选-22--m7-测试与日志"><p><strong>24-单选-22 ★ M7 测试与日志</strong></p><p><strong>SpringBoot集成测试中，启动整个Spring容器的注解是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@SpringBootTest</div></li><li><span class="option-label">B</span><div class="option-content">@WebMvcTest</div></li><li><span class="option-label">C</span><div class="option-content">@DataJpaTest</div></li><li><span class="option-label">D</span><div class="option-content">@MockBean</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A</strong></p>
 <p><strong>解析</strong>：@SpringBootTest启动完整ApplicationContext；@WebMvcTest只装Controller切片；@DataJpaTest只装数据层；@MockBean用于模拟Bean。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-23--m7-测试与日志">24-单选-23 ★★ M7 测试与日志</h3>
-<p><strong>SpringBoot默认集成的日志框架是（ ）。</strong> A. Log4j2 B.
-Logback C. java.util.logging D. Commons Logging</p>
-<details>
+<section class="question-card" id="24-单选-23--m7-测试与日志"><p><strong>24-单选-23 ★★ M7 测试与日志</strong></p><p><strong>SpringBoot默认集成的日志框架是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Log4j2</div></li><li><span class="option-label">B</span><div class="option-content">Logback</div></li><li><span class="option-label">C</span><div class="option-content">java.util.logging</div></li><li><span class="option-label">D</span><div class="option-content">Commons Logging</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：spring-boot-starter-logging默认引入Logback +
 SLF4J。可通过排除并引入log4j2 starter切换。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-24--m7-测试与日志">24-单选-24 ★★ M7 测试与日志</h3>
-<p><strong>AOP日志切面中，记录接口请求参数应使用哪个通知类型？</strong>
-A. @Before B. @After C. @Around D. @AfterReturning</p>
-<details>
+<section class="question-card" id="24-单选-24--m7-测试与日志"><p><strong>24-单选-24 ★★ M7 测试与日志</strong></p><p><strong>AOP日志切面中，记录接口请求参数应使用哪个通知类型？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@Before</div></li><li><span class="option-label">B</span><div class="option-content">@After</div></li><li><span class="option-label">C</span><div class="option-content">@Around</div></li><li><span class="option-label">D</span><div class="option-content">@AfterReturning</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：C</strong></p>
 <p><strong>解析</strong>：@Around环绕通知可在proceed()前后分别记录请求参数与响应结果、耗时，最适合接口日志。@Before只能记录请求不能记录响应。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-25--m8-部署与交付">24-单选-25 ★ M8 部署与交付</h3>
-<p><strong>Maven打包SpringBoot项目的命令是（ ）。</strong> A. mvn clean
-install B. mvn clean package C. mvn clean compile D. mvn clean
-deploy</p>
-<details>
+<section class="question-card" id="24-单选-25--m8-部署与交付"><p><strong>24-单选-25 ★ M8 部署与交付</strong></p><p><strong>Maven打包SpringBoot项目的命令是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">mvn clean install</div></li><li><span class="option-label">B</span><div class="option-content">mvn clean package</div></li><li><span class="option-label">C</span><div class="option-content">mvn clean compile</div></li><li><span class="option-label">D</span><div class="option-content">mvn clean deploy</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：package执行compile+test+打包，生成可执行jar。install会安装到本地仓库；compile只编译；deploy推送到远程仓库。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-26--m8-部署与交付">24-单选-26 ★★ M8 部署与交付</h3>
-<p><strong>运行SpringBoot可执行jar的正确命令是（ ）。</strong> A. mvn
-run ctts.jar B. java -jar ctts.jar C. javac ctts.jar D. jar -xf
-ctts.jar</p>
-<details>
+<section class="question-card" id="24-单选-26--m8-部署与交付"><p><strong>24-单选-26 ★★ M8 部署与交付</strong></p><p><strong>运行SpringBoot可执行jar的正确命令是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">mvn run ctts.jar</div></li><li><span class="option-label">B</span><div class="option-content">java -jar ctts.jar</div></li><li><span class="option-label">C</span><div class="option-content">javac ctts.jar</div></li><li><span class="option-label">D</span><div class="option-content">jar -xf ctts.jar</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：SpringBoot通过spring-boot-maven-plugin打成可执行jar（内嵌Main-Class与嵌套jar加载器），用java
 -jar直接运行。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-27--m8-部署与交付">24-单选-27 ★★ M8 部署与交付</h3>
-<p><strong>生产环境部署时，关于Knife4j接口文档的推荐做法是（
-）。</strong> A. 始终开放，便于调试 B. 生产环境关闭或加权限保护 C.
-必须开放给所有人 D. 删除所有文档注解</p>
-<details>
+<section class="question-card" id="24-单选-27--m8-部署与交付"><p><strong>24-单选-27 ★★ M8 部署与交付</strong></p><p><strong>生产环境部署时，关于Knife4j接口文档的推荐做法是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">始终开放，便于调试</div></li><li><span class="option-label">B</span><div class="option-content">生产环境关闭或加权限保护</div></li><li><span class="option-label">C</span><div class="option-content">必须开放给所有人</div></li><li><span class="option-label">D</span><div class="option-content">删除所有文档注解</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：B</strong></p>
 <p><strong>解析</strong>：接口文档暴露接口细节，生产环境存在安全风险。应通过profile控制enable=false或加鉴权，避免接口结构泄露。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-28--综合跨模块">24-单选-28 ★★ 综合跨模块</h3>
-<p><strong>CTTS统一返回结构Result<T>中，表示业务成功的code值通常为（
-）。</strong> A. 200 B. 404 C. 500 D. 302</p>
-<details>
+<section class="question-card" id="24-单选-28--综合跨模块"><p><strong>24-单选-28 ★★ 综合跨模块</strong></p><p><strong>CTTS统一返回结构Result<T>中，表示业务成功的code值通常为（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">200</div></li><li><span class="option-label">B</span><div class="option-content">404</div></li><li><span class="option-label">C</span><div class="option-content">500</div></li><li><span class="option-label">D</span><div class="option-content">302</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A</strong></p>
 <p><strong>解析</strong>：约定code=200表示业务成功，4xx为客户端错误，5xx为服务端错误。HTTP状态码与业务code通常一致便于前端处理。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-29--综合跨模块">24-单选-29 ★★★ 综合跨模块</h3>
-<p><strong>CTTS中，学生调用教师专属接口应被拦截，最合适的实现位置是（
-）。</strong> A. Controller方法内if判断 B. Service层判断 C. JWT拦截器 +
-自定义注解+AOP D. 前端控制</p>
-<details>
+<section class="question-card" id="24-单选-29--综合跨模块"><p><strong>24-单选-29 ★★★ 综合跨模块</strong></p><p><strong>CTTS中，学生调用教师专属接口应被拦截，最合适的实现位置是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Controller方法内if判断</div></li><li><span class="option-label">B</span><div class="option-content">Service层判断</div></li><li><span class="option-label">C</span><div class="option-content">JWT拦截器 + 自定义注解+AOP</div></li><li><span class="option-label">D</span><div class="option-content">前端控制</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：C</strong></p>
 <p><strong>解析</strong>：拦截器统一校验登录态与角色粗粒度；自定义注解@RequireRole
 +
 AOP实现方法级细粒度权限。Controller内判断散乱、Service层越权、前端控制不可信。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-单选-30--综合跨模块">24-单选-30 ★★★ 综合跨模块</h3>
-<p><strong>关于DTO、VO、Entity三者在CTTS中的使用，下列描述错误的是（
-）。</strong> A. Entity对应数据库表结构 B. DTO接收前端请求参数 C.
-VO返回给前端的视图对象，可脱敏敏感字段 D. VO与Entity必须字段完全一致</p>
-<details>
+<section class="question-card" id="24-单选-30--综合跨模块"><p><strong>24-单选-30 ★★★ 综合跨模块</strong></p><p><strong>关于DTO、VO、Entity三者在CTTS中的使用，下列描述错误的是（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Entity对应数据库表结构</div></li><li><span class="option-label">B</span><div class="option-content">DTO接收前端请求参数</div></li><li><span class="option-label">C</span><div class="option-content">VO返回给前端的视图对象，可脱敏敏感字段</div></li><li><span class="option-label">D</span><div class="option-content">VO与Entity必须字段完全一致</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：D</strong></p>
 <p><strong>解析</strong>：VO与Entity字段可不一致。VO通常脱敏（如不返回password）、聚合多表数据、按前端需要裁剪字段。三者分离是为关注点分离。</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="二多项选择题10题">二、多项选择题（10题）</h2>
-<h3 id="24-多选-01--m1-java-web基础">24-多选-01 ★★ M1 Java Web基础</h3>
-<p><strong>下列属于HTTP请求方法的有（ ）。</strong> A. GET B. POST C.
-CONNECT D. OPTIONS E. FETCH</p>
-<details>
+<section class="question-card" id="24-多选-01--m1-java-web基础"><p><strong>24-多选-01 ★★ M1 Java Web基础</strong></p><p><strong>下列属于HTTP请求方法的有（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">GET</div></li><li><span class="option-label">B</span><div class="option-content">POST</div></li><li><span class="option-label">C</span><div class="option-content">CONNECT</div></li><li><span class="option-label">D</span><div class="option-content">OPTIONS</div></li><li><span class="option-label">E</span><div class="option-content">FETCH</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A、B、C、D</strong></p>
 <p><strong>解析</strong>：HTTP标准方法含GET/POST/PUT/DELETE/PATCH/HEAD/OPTIONS/TRACE/CONNECT。FETCH不是HTTP方法，是浏览器API。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-多选-02--m2-springboot">24-多选-02 ★★ M2 SpringBoot</h3>
-<p><strong>SpringBoot自动配置的核心注解/机制包括（ ）。</strong> A.
-@EnableAutoConfiguration B. spring.factories /
-META-INF/spring/...imports C. @Conditional系列 D. @Autowired E.
-Starter依赖</p>
-<details>
+<section class="question-card" id="24-多选-02--m2-springboot"><p><strong>24-多选-02 ★★ M2 SpringBoot</strong></p><p><strong>SpringBoot自动配置的核心注解/机制包括（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@EnableAutoConfiguration</div></li><li><span class="option-label">B</span><div class="option-content">spring.factories / META-INF/spring/...imports</div></li><li><span class="option-label">C</span><div class="option-content">@Conditional系列</div></li><li><span class="option-label">D</span><div class="option-content">@Autowired</div></li><li><span class="option-label">E</span><div class="option-content">Starter依赖</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A、B、C、E</strong></p>
 <p><strong>解析</strong>：自动配置通过@EnableAutoConfiguration开启，读取spring.factories（2.x）或SpringBoot
 3的AutoConfiguration.imports，配合@Conditional按需装配。Starter提供依赖与默认配置。@Autowired是依赖注入，与自动配置机制不同。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-多选-03--m3-mybatis-plus">24-多选-03 ★★ M3 MyBatis-Plus</h3>
-<p><strong>MyBatis-Plus提供的内置条件构造器Wrapper的方法包括（
-）。</strong> A. eq B. like C. in D. orderByDesc E. join</p>
-<details>
+<section class="question-card" id="24-多选-03--m3-mybatis-plus"><p><strong>24-多选-03 ★★ M3 MyBatis-Plus</strong></p><p><strong>MyBatis-Plus提供的内置条件构造器Wrapper的方法包括（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">eq</div></li><li><span class="option-label">B</span><div class="option-content">like</div></li><li><span class="option-label">C</span><div class="option-content">in</div></li><li><span class="option-label">D</span><div class="option-content">orderByDesc</div></li><li><span class="option-label">E</span><div class="option-content">join</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A、B、C、D</strong></p>
 <p><strong>解析</strong>：Wrapper提供eq/like/in/orderByDesc/between/ge/le等条件方法。join不在Wrapper中，多表关联需自定义XML或@Select。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-多选-04--m4-service与事务">24-多选-04 ★★ M4
-Service与事务</h3>
-<p><strong>关于Spring事务的传播行为，下列属于有效传播级别的有（
-）。</strong> A. REQUIRED B. REQUIRES_NEW C. NESTED D. SUPPORTS E.
-PARALLEL</p>
-<details>
+<section class="question-card" id="24-多选-04--m4-service与事务"><p><strong>24-多选-04 ★★ M4 Service与事务</strong></p><p><strong>关于Spring事务的传播行为，下列属于有效传播级别的有（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">REQUIRED</div></li><li><span class="option-label">B</span><div class="option-content">REQUIRES_NEW</div></li><li><span class="option-label">C</span><div class="option-content">NESTED</div></li><li><span class="option-label">D</span><div class="option-content">SUPPORTS</div></li><li><span class="option-label">E</span><div class="option-content">PARALLEL</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A、B、C、D</strong></p>
 <p><strong>解析</strong>：Spring定义7种传播行为：REQUIRED/REQUIRES_NEW/NESTED/SUPPORTS/NOT_SUPPORTED/NEVER/MANDATORY。PARALLEL不是Spring传播行为。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-多选-05--m5-接口规范与校验">24-多选-05 ★★ M5
-接口规范与校验</h3>
-<p><strong>下列属于JSR-303校验注解的有（ ）。</strong> A. @NotNull B.
-@Size C. @Pattern D. @Email E. @Column</p>
-<details>
+<section class="question-card" id="24-多选-05--m5-接口规范与校验"><p><strong>24-多选-05 ★★ M5 接口规范与校验</strong></p><p><strong>下列属于JSR-303校验注解的有（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@NotNull</div></li><li><span class="option-label">B</span><div class="option-content">@Size</div></li><li><span class="option-label">C</span><div class="option-content">@Pattern</div></li><li><span class="option-label">D</span><div class="option-content">@Email</div></li><li><span class="option-label">E</span><div class="option-content">@Column</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A、B、C、D</strong></p>
 <p><strong>解析</strong>：@NotNull/@Size/@Pattern/@Email均为JSR-303校验注解。@Column是JPA映射注解，非校验。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-多选-06--m6-安全与鉴权">24-多选-06 ★★ M6 安全与鉴权</h3>
-<p><strong>CTTS中实现"学生不能调用教师接口"的权限控制，可采用的方式有（
-）。</strong> A. JWT拦截器校验role B. 自定义注解@RequireRole + AOP C.
-Spring Security方法级注解 D. 前端按钮隐藏 E. 数据库存储权限表</p>
-<details>
+<section class="question-card" id="24-多选-06--m6-安全与鉴权"><p><strong>24-多选-06 ★★ M6 安全与鉴权</strong></p><p><strong>CTTS中实现"学生不能调用教师接口"的权限控制，可采用的方式有（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">JWT拦截器校验role</div></li><li><span class="option-label">B</span><div class="option-content">自定义注解@RequireRole + AOP</div></li><li><span class="option-label">C</span><div class="option-content">Spring Security方法级注解</div></li><li><span class="option-label">D</span><div class="option-content">前端按钮隐藏</div></li><li><span class="option-label">E</span><div class="option-content">数据库存储权限表</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A、B、C、E</strong></p>
 <p><strong>解析</strong>：A/B/C均为后端权限控制方式；E通过数据库RBAC表+动态鉴权也有效。D前端控制不可信（可绕过），仅作为体验优化，不能作为安全手段。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-多选-07--m6-安全与鉴权">24-多选-07 ★★★ M6 安全与鉴权</h3>
-<p><strong>JWT相比Session的优势有（ ）。</strong> A. 无状态，易横向扩展
-B. 前后端分离友好 C. 可携带自定义声明（claims） D. 天然支持主动失效 E.
-令牌体积小于session id</p>
-<details>
+<section class="question-card" id="24-多选-07--m6-安全与鉴权"><p><strong>24-多选-07 ★★★ M6 安全与鉴权</strong></p><p><strong>JWT相比Session的优势有（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">无状态，易横向扩展</div></li><li><span class="option-label">B</span><div class="option-content">前后端分离友好</div></li><li><span class="option-label">C</span><div class="option-content">可携带自定义声明（claims）</div></li><li><span class="option-label">D</span><div class="option-content">天然支持主动失效</div></li><li><span class="option-label">E</span><div class="option-content">令牌体积小于session id</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A、B、C</strong></p>
 <p><strong>解析</strong>：JWT无状态、跨域友好、可携带claims。但JWT无法主动失效（需黑名单辅助），且令牌体积大于session
 id（含payload与签名）。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-多选-08--m7-测试与日志">24-多选-08 ★★ M7 测试与日志</h3>
-<p><strong>关于SpringBoot单元测试，下列说法正确的有（ ）。</strong> A.
-@SpringBootTest启动完整容器 B. @MockBean可替换容器中的Bean为Mock C.
-@WebMvcTest只装Controller切片 D. @Test注解来自JUnit 5 E.
-测试类必须放在main目录下</p>
-<details>
+<section class="question-card" id="24-多选-08--m7-测试与日志"><p><strong>24-多选-08 ★★ M7 测试与日志</strong></p><p><strong>关于SpringBoot单元测试，下列说法正确的有（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">@SpringBootTest启动完整容器</div></li><li><span class="option-label">B</span><div class="option-content">@MockBean可替换容器中的Bean为Mock</div></li><li><span class="option-label">C</span><div class="option-content">@WebMvcTest只装Controller切片</div></li><li><span class="option-label">D</span><div class="option-content">@Test注解来自JUnit 5</div></li><li><span class="option-label">E</span><div class="option-content">测试类必须放在main目录下</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A、B、C、D</strong></p>
 <p><strong>解析</strong>：A/B/C/D均正确。测试类应放在src/test/java下，不是main目录。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-多选-09--m8-部署与交付">24-多选-09 ★★ M8 部署与交付</h3>
-<p><strong>一个完整的CTTS项目交付物应包含（ ）。</strong> A.
-源码（含README） B. 接口文档 C. 数据库脚本（schema.sql + data.sql） D.
-部署说明 E. 项目报告</p>
-<details>
+<section class="question-card" id="24-多选-09--m8-部署与交付"><p><strong>24-多选-09 ★★ M8 部署与交付</strong></p><p><strong>一个完整的CTTS项目交付物应包含（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">源码（含README）</div></li><li><span class="option-label">B</span><div class="option-content">接口文档</div></li><li><span class="option-label">C</span><div class="option-content">数据库脚本（schema.sql + data.sql）</div></li><li><span class="option-label">D</span><div class="option-content">部署说明</div></li><li><span class="option-label">E</span><div class="option-content">项目报告</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A、B、C、D、E</strong></p>
 <p><strong>解析</strong>：五类交付物缺一不可，体现工程交付完整性。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-多选-10--综合跨模块">24-多选-10 ★★★ 综合跨模块</h3>
-<p><strong>CTTS项目体现的软件工程规范包括（ ）。</strong> A.
-分层架构（Controller/Service/Mapper） B. 统一返回与全局异常处理 C.
-接口文档与版本管理 D. 参数校验与安全鉴权 E. 数据库设计与脚本可复现</p>
-<details>
+<section class="question-card" id="24-多选-10--综合跨模块"><p><strong>24-多选-10 ★★★ 综合跨模块</strong></p><p><strong>CTTS项目体现的软件工程规范包括（ ）。</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">分层架构（Controller/Service/Mapper）</div></li><li><span class="option-label">B</span><div class="option-content">统一返回与全局异常处理</div></li><li><span class="option-label">C</span><div class="option-content">接口文档与版本管理</div></li><li><span class="option-label">D</span><div class="option-content">参数校验与安全鉴权</div></li><li><span class="option-label">E</span><div class="option-content">数据库设计与脚本可复现</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：A、B、C、D、E</strong></p>
 <p><strong>解析</strong>：五个选项均为工程规范体现，是CTTS作为教学项目承载的完整能力训练点。</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="三判断题20题">三、判断题（20题）</h2>
-<h3 id="24-判断-01--m1-java-web基础">24-判断-01 ★ M1 Java Web基础</h3>
-<p><strong>HTTP是无状态协议，服务器不会自动记录上一次请求的状态。</strong></p>
-<details>
+<section class="question-card" id="24-判断-01--m1-java-web基础"><p><strong>24-判断-01 ★ M1 Java Web基础</strong></p><p><strong>HTTP是无状态协议，服务器不会自动记录上一次请求的状态。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：HTTP是无状态协议，状态保持需借助Cookie/Session/JWT等机制。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-02--m1-java-web基础">24-判断-02 ★ M1 Java Web基础</h3>
-<p><strong>Tomcat是Apache开源的Servlet容器，可独立作为Java
-Web服务器运行。</strong></p>
-<details>
+<section class="question-card" id="24-判断-02--m1-java-web基础"><p><strong>24-判断-02 ★ M1 Java Web基础</strong></p><p><strong>Tomcat是Apache开源的Servlet容器，可独立作为Java
+Web服务器运行。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：Tomcat是Servlet/JSP规范的实现，既可独立运行，也是SpringBoot默认内嵌容器。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-03--m1-java-web基础">24-判断-03 ★★ M1 Java Web基础</h3>
-<p><strong>Maven的依赖具有传递性，但相同groupId:artifactId的不同version会按"最短路径优先"原则选择。</strong></p>
-<details>
+<section class="question-card" id="24-判断-03--m1-java-web基础"><p><strong>24-判断-03 ★★ M1 Java Web基础</strong></p><p><strong>Maven的依赖具有传递性，但相同groupId:artifactId的不同version会按"最短路径优先"原则选择。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：Maven依赖传递遵循最短路径优先；路径相同时先声明优先。可通过<exclusions>排除冲突依赖。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-04--m2-springboot">24-判断-04 ★ M2 SpringBoot</h3>
-<p><strong>SpringBoot的核心理念是"约定优于配置"，通过起步依赖和自动配置简化开发。</strong></p>
-<details>
+<section class="question-card" id="24-判断-04--m2-springboot"><p><strong>24-判断-04 ★ M2 SpringBoot</strong></p><p><strong>SpringBoot的核心理念是"约定优于配置"，通过起步依赖和自动配置简化开发。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：约定优于配置（Convention over
 Configuration）是SpringBoot核心，起步依赖聚合常用库，自动配置按需装配Bean。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-05--m2-springboot">24-判断-05 ★★ M2 SpringBoot</h3>
-<p><strong>@SpringBootApplication注解等价于@SpringBootConfiguration +
-@EnableAutoConfiguration + @ComponentScan。</strong></p>
-<details>
+<section class="question-card" id="24-判断-05--m2-springboot"><p><strong>24-判断-05 ★★ M2 SpringBoot</strong></p><p><strong>@SpringBootApplication注解等价于@SpringBootConfiguration +
+@EnableAutoConfiguration + @ComponentScan。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：三者合一是@SpringBootApplication的语义，启动类标注即可开启自动配置与组件扫描。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-06--m3-mybatis-plus">24-判断-06 ★ M3 MyBatis-Plus</h3>
-<p><strong>MyBatis-Plus是MyBatis的增强工具，在不破坏MyBatis原有功能的基础上进行扩展。</strong></p>
-<details>
+<section class="question-card" id="24-判断-06--m3-mybatis-plus"><p><strong>24-判断-06 ★ M3 MyBatis-Plus</strong></p><p><strong>MyBatis-Plus是MyBatis的增强工具，在不破坏MyBatis原有功能的基础上进行扩展。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：MyBatis-Plus秉承"只做增强不做改变"理念，原生MyBatis用法完全兼容。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-07--m3-mybatis-plus">24-判断-07 ★★ M3 MyBatis-Plus</h3>
-<p><strong>MyBatis-Plus的BaseMapper已提供通用CRUD，因此项目中无需再写任何XML映射文件。</strong></p>
-<details>
+<section class="question-card" id="24-判断-07--m3-mybatis-plus"><p><strong>24-判断-07 ★★ M3 MyBatis-Plus</strong></p><p><strong>MyBatis-Plus的BaseMapper已提供通用CRUD，因此项目中无需再写任何XML映射文件。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：错误</strong></p>
 <p><strong>解析</strong>：BaseMapper覆盖单表通用CRUD，但复杂多表关联查询仍需自定义XML或注解@Select。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-08--m4-service与事务">24-判断-08 ★★ M4
-Service与事务</h3>
-<p><strong>@Transactional标注在private方法上同样生效。</strong></p>
-<details>
+<section class="question-card" id="24-判断-08--m4-service与事务"><p><strong>24-判断-08 ★★ M4 Service与事务</strong></p><p><strong>@Transactional标注在private方法上同样生效。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：错误</strong></p>
 <p><strong>解析</strong>：@Transactional基于Spring
 AOP代理，private方法无法被外部代理调用，注解无效。须标注在public方法。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-09--m4-service与事务">24-判断-09 ★ M4 Service与事务</h3>
-<p><strong>Spring事务默认对RuntimeException及其子类回滚，对受检异常不回滚。</strong></p>
-<details>
+<section class="question-card" id="24-判断-09--m4-service与事务"><p><strong>24-判断-09 ★ M4 Service与事务</strong></p><p><strong>Spring事务默认对RuntimeException及其子类回滚，对受检异常不回滚。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：默认rollBackFor=RuntimeException。若需对受检异常回滚，需显式指定@Transactional(rollbackFor
 = Exception.class)。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-10--m5-接口规范与校验">24-判断-10 ★★ M5
-接口规范与校验</h3>
-<p><strong>RESTful风格中，资源路径应使用动词描述操作，如POST
-/createTask。</strong></p>
-<details>
+<section class="question-card" id="24-判断-10--m5-接口规范与校验"><p><strong>24-判断-10 ★★ M5 接口规范与校验</strong></p><p><strong>RESTful风格中，资源路径应使用动词描述操作，如POST
+/createTask。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：错误</strong></p>
 <p><strong>解析</strong>：RESTful资源路径用名词，操作由HTTP方法表达。正确写法：POST
 /tasks（创建任务）。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-11--m5-接口规范与校验">24-判断-11 ★ M5
-接口规范与校验</h3>
-<p><strong>@NotBlank注解只能用于CharSequence（字符串）类型字段的校验。</strong></p>
-<details>
+<section class="question-card" id="24-判断-11--m5-接口规范与校验"><p><strong>24-判断-11 ★ M5 接口规范与校验</strong></p><p><strong>@NotBlank注解只能用于CharSequence（字符串）类型字段的校验。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：@NotBlank专为字符串设计，校验非null且trim后非空。对集合/数字应用@NotEmpty/@NotNull。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-12--m5-接口规范与校验">24-判断-12 ★★ M5
-接口规范与校验</h3>
-<p><strong>Knife4j是Swagger的增强UI实现，可用于生成与调试OpenAPI
-3规范接口文档。</strong></p>
-<details>
+<section class="question-card" id="24-判断-12--m5-接口规范与校验"><p><strong>24-判断-12 ★★ M5 接口规范与校验</strong></p><p><strong>Knife4j是Swagger的增强UI实现，可用于生成与调试OpenAPI
+3规范接口文档。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：Knife4j基于OpenAPI 3，提供比原生Swagger
 UI更友好的中文界面与增强功能。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-13--m6-安全与鉴权">24-判断-13 ★ M6 安全与鉴权</h3>
-<p><strong>JWT的Payload部分经过加密，第三方无法读取其中内容。</strong></p>
-<details>
+<section class="question-card" id="24-判断-13--m6-安全与鉴权"><p><strong>24-判断-13 ★ M6 安全与鉴权</strong></p><p><strong>JWT的Payload部分经过加密，第三方无法读取其中内容。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：错误</strong></p>
 <p><strong>解析</strong>：JWT的Payload仅Base64编码，并非加密，任何人可解码查看。敏感信息不应存入Payload，仅用签名保证完整性。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-14--m6-安全与鉴权">24-判断-14 ★★ M6 安全与鉴权</h3>
-<p><strong>CTTS中通过拦截器校验JWT，并将解析出的用户信息存入ThreadLocal，便于后续业务层使用。</strong></p>
-<details>
+<section class="question-card" id="24-判断-14--m6-安全与鉴权"><p><strong>24-判断-14 ★★ M6 安全与鉴权</strong></p><p><strong>CTTS中通过拦截器校验JWT，并将解析出的用户信息存入ThreadLocal，便于后续业务层使用。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：拦截器preHandle解析JWT→存ThreadLocal→业务层通过ThreadLocalUtil获取当前用户；afterCompletion需清理避免内存泄漏。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-15--m6-安全与鉴权">24-判断-15 ★★ M6 安全与鉴权</h3>
-<p><strong>MD5加密加盐后即足够安全，可用于存储用户密码。</strong></p>
-<details>
+<section class="question-card" id="24-判断-15--m6-安全与鉴权"><p><strong>24-判断-15 ★★ M6 安全与鉴权</strong></p><p><strong>MD5加密加盐后即足够安全，可用于存储用户密码。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：错误</strong></p>
 <p><strong>解析</strong>：MD5加盐虽提升抗彩虹表能力，但MD5计算过快，仍易被GPU暴力破解。推荐BCrypt/PBKDF2/Argon2等慢哈希算法。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-16--m7-测试与日志">24-判断-16 ★ M7 测试与日志</h3>
-<p><strong>@SpringBootTest注解会启动完整的Spring应用上下文，适合集成测试。</strong></p>
-<details>
+<section class="question-card" id="24-判断-16--m7-测试与日志"><p><strong>24-判断-16 ★ M7 测试与日志</strong></p><p><strong>@SpringBootTest注解会启动完整的Spring应用上下文，适合集成测试。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：@SpringBootTest加载完整ApplicationContext，可注入真实Bean进行集成测试；代价是启动慢，单元测试宜用切片注解。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-17--m7-测试与日志">24-判断-17 ★★ M7 测试与日志</h3>
-<p><strong>AOP切面中，@Before通知可以获取方法参数并阻止目标方法执行。</strong></p>
-<details>
+<section class="question-card" id="24-判断-17--m7-测试与日志"><p><strong>24-判断-17 ★★ M7 测试与日志</strong></p><p><strong>AOP切面中，@Before通知可以获取方法参数并阻止目标方法执行。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：错误</strong></p>
 <p><strong>解析</strong>：@Before可获取参数但不能阻止执行。阻止执行需用@Around并通过proceed()控制是否调用目标方法。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-18--m8-部署与交付">24-判断-18 ★ M8 部署与交付</h3>
-<p><strong>SpringBoot项目通过spring-boot-maven-plugin打包后，生成的jar可直接用java
--jar运行。</strong></p>
-<details>
+<section class="question-card" id="24-判断-18--m8-部署与交付"><p><strong>24-判断-18 ★ M8 部署与交付</strong></p><p><strong>SpringBoot项目通过spring-boot-maven-plugin打包后，生成的jar可直接用java
+-jar运行。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：该插件将依赖打入嵌套jar并配置Main-Class，生成可执行jar，java
 -jar即可启动内嵌Tomcat。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-19--m8-部署与交付">24-判断-19 ★★ M8 部署与交付</h3>
-<p><strong>生产环境与开发环境的配置应完全一致，避免环境差异带来的问题。</strong></p>
-<details>
+<section class="question-card" id="24-判断-19--m8-部署与交付"><p><strong>24-判断-19 ★★ M8 部署与交付</strong></p><p><strong>生产环境与开发环境的配置应完全一致，避免环境差异带来的问题。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：错误</strong></p>
 <p><strong>解析</strong>：应通过profile区分环境配置（application-dev.yml/application-prod.yml），生产环境敏感信息（密码、密钥）应通过环境变量/配置中心管理，不与开发混用。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-判断-20--综合跨模块">24-判断-20 ★★ 综合跨模块</h3>
-<p><strong>CTTS项目通过分层架构、统一返回、全局异常、参数校验、安全鉴权等实践，体现了软件工程规范与工程师的职业素养。</strong></p>
-<details>
+<section class="question-card" id="24-判断-20--综合跨模块"><p><strong>24-判断-20 ★★ 综合跨模块</strong></p><p><strong>CTTS项目通过分层架构、统一返回、全局异常、参数校验、安全鉴权等实践，体现了软件工程规范与工程师的职业素养。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：正确</strong></p>
 <p><strong>解析</strong>：完整交付不仅是代码可运行，更是规范的工程实践与责任担当，体现工程师素养。</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="四填空题10题">四、填空题（10题）</h2>
-<h3 id="24-填空-01--m1-java-web基础">24-填空-01 ★ M1 Java Web基础</h3>
-<p><strong>HTTP协议默认端口号是____，HTTPS默认端口号是____。</strong></p>
-<details>
+<section class="question-card" id="24-填空-01--m1-java-web基础"><p><strong>24-填空-01 ★ M1 Java Web基础</strong></p><p><strong>HTTP协议默认端口号是____，HTTPS默认端口号是____。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：80；443</strong></p>
 <p><strong>解析</strong>：HTTP默认80端口，HTTPS默认443端口。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-填空-02--m2-springboot">24-填空-02 ★ M2 SpringBoot</h3>
-<p><strong>SpringBoot项目的启动类通常位于根包下，并标注注解____，它内含自动配置与组件扫描能力。</strong></p>
-<details>
+<section class="question-card" id="24-填空-02--m2-springboot"><p><strong>24-填空-02 ★ M2 SpringBoot</strong></p><p><strong>SpringBoot项目的启动类通常位于根包下，并标注注解____，它内含自动配置与组件扫描能力。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：@SpringBootApplication</strong></p>
 <p><strong>解析</strong>：@SpringBootApplication是@SpringBootConfiguration+@EnableAutoConfiguration+@ComponentScan的组合注解。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-填空-03--m3-mybatis-plus">24-填空-03 ★★ M3 MyBatis-Plus</h3>
-<p><strong>MyBatis-Plus分页插件需在配置类中注册____内部拦截器才能生效。</strong></p>
-<details>
+<section class="question-card" id="24-填空-03--m3-mybatis-plus"><p><strong>24-填空-03 ★★ M3 MyBatis-Plus</strong></p><p><strong>MyBatis-Plus分页插件需在配置类中注册____内部拦截器才能生效。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：PaginationInnerInterceptor</strong></p>
 <p><strong>解析</strong>：注册MybatisPlusInterceptor并addInnerInterceptor(new
 PaginationInnerInterceptor())，否则分页SQL不会拼接LIMIT。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-填空-04--m3-mybatis-plus">24-填空-04 ★★ M3 MyBatis-Plus</h3>
-<p><strong>MyBatis-Plus中，实体类标注____注解可映射数据库表名，标注____注解可映射主键字段。</strong></p>
-<details>
+<section class="question-card" id="24-填空-04--m3-mybatis-plus"><p><strong>24-填空-04 ★★ M3 MyBatis-Plus</strong></p><p><strong>MyBatis-Plus中，实体类标注____注解可映射数据库表名，标注____注解可映射主键字段。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：@TableName；@TableId</strong></p>
 <p><strong>解析</strong>：@TableName("t_user")映射表名；@TableId映射主键，可配type=IdType.AUTO等策略。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-填空-05--m4-service与事务">24-填空-05 ★ M4 Service与事务</h3>
-<p><strong>CTTS统一返回结构Result<T>通常包含三个字段：code、____和data。</strong></p>
-<details>
+<section class="question-card" id="24-填空-05--m4-service与事务"><p><strong>24-填空-05 ★ M4 Service与事务</strong></p><p><strong>CTTS统一返回结构Result<T>通常包含三个字段：code、____和data。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：message</strong></p>
 <p><strong>解析</strong>：code业务状态码，message提示信息，data泛型数据。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-填空-06--m5-接口规范与校验">24-填空-06 ★★ M5
-接口规范与校验</h3>
-<p><strong>RESTful风格中，资源路径应使用____（名词/动词），操作语义由HTTP方法表达。</strong></p>
-<details>
+<section class="question-card" id="24-填空-06--m5-接口规范与校验"><p><strong>24-填空-06 ★★ M5 接口规范与校验</strong></p><p><strong>RESTful风格中，资源路径应使用____（名词/动词），操作语义由HTTP方法表达。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：名词</strong></p>
 <p><strong>解析</strong>：REST资源用名词（如/tasks），操作用HTTP方法（GET查/POST增/PUT改/DELETE删）。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-填空-07--m6-安全与鉴权">24-填空-07 ★★ M6 安全与鉴权</h3>
-<p><strong>JWT由三部分组成：Header、____和Signature，以"."拼接。</strong></p>
-<details>
+<section class="question-card" id="24-填空-07--m6-安全与鉴权"><p><strong>24-填空-07 ★★ M6 安全与鉴权</strong></p><p><strong>JWT由三部分组成：Header、____和Signature，以"."拼接。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：Payload</strong></p>
 <p><strong>解析</strong>：Header（算法类型）、Payload（claims载荷）、Signature（签名）。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-填空-08--m6-安全与鉴权">24-填空-08 ★★ M6 安全与鉴权</h3>
-<p><strong>CTTS中实现登录鉴权的拦截器需实现SpringMVC的____接口，重写preHandle方法完成JWT校验。</strong></p>
-<details>
+<section class="question-card" id="24-填空-08--m6-安全与鉴权"><p><strong>24-填空-08 ★★ M6 安全与鉴权</strong></p><p><strong>CTTS中实现登录鉴权的拦截器需实现SpringMVC的____接口，重写preHandle方法完成JWT校验。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：HandlerInterceptor</strong></p>
 <p><strong>解析</strong>：HandlerInterceptor定义preHandle/postHandle/afterCompletion三方法，preHandle返回false即拦截请求。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-填空-09--m7-测试与日志">24-填空-09 ★★ M7 测试与日志</h3>
-<p><strong>SpringBoot默认日志框架是____，其接口规范基于____（门面）。</strong></p>
-<details>
+<section class="question-card" id="24-填空-09--m7-测试与日志"><p><strong>24-填空-09 ★★ M7 测试与日志</strong></p><p><strong>SpringBoot默认日志框架是____，其接口规范基于____（门面）。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：Logback；SLF4J</strong></p>
 <p><strong>解析</strong>：spring-boot-starter-logging默认引入Logback实现
 + SLF4J门面。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-填空-10--m8-部署与交付">24-填空-10 ★★ M8 部署与交付</h3>
-<p><strong>SpringBoot项目打包命令是____，运行可执行jar的命令是____。</strong></p>
-<details>
+<section class="question-card" id="24-填空-10--m8-部署与交付"><p><strong>24-填空-10 ★★ M8 部署与交付</strong></p><p><strong>SpringBoot项目打包命令是____，运行可执行jar的命令是____。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案：mvn clean package；java -jar xxx.jar</strong></p>
 <p><strong>解析</strong>：package生成可执行jar，java
 -jar启动内嵌Tomcat运行项目。</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
-<h3 id="24-论述-01--m2m4-架构设计">24-论述-01 ★★★ M2/M4 架构设计</h3>
-<p><strong>请论述CTTS项目的分层架构设计，各层职责及这样设计的优势。</strong></p>
-<details>
+<section class="question-card" id="24-论述-01--m2m4-架构设计"><p><strong>24-论述-01 ★★★ M2/M4 架构设计</strong></p><p><strong>请论述CTTS项目的分层架构设计，各层职责及这样设计的优势。</strong></p><details>
 <summary>答案与评分标准</summary>
 
 <p><strong>参考答案要点</strong>：</p>
@@ -1005,12 +716,9 @@ common层（统一返回、全局异常、JWT、拦截器）。</p></li>
 <li>优势分析到位（4分）</li>
 <li>能反思代价（3分）</li>
 </ul>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-论述-02--m6-安全与鉴权">24-论述-02 ★★★ M6 安全与鉴权</h3>
-<p><strong>请论述CTTS项目中JWT鉴权的完整流程，并分析JWT方案的安全风险与应对措施。</strong></p>
-<details>
+<section class="question-card" id="24-论述-02--m6-安全与鉴权"><p><strong>24-论述-02 ★★★ M6 安全与鉴权</strong></p><p><strong>请论述CTTS项目中JWT鉴权的完整流程，并分析JWT方案的安全风险与应对措施。</strong></p><details>
 <summary>答案与评分标准</summary>
 
 <p><strong>参考答案要点</strong>：</p>
@@ -1047,13 +755,9 @@ common层（统一返回、全局异常、JWT、拦截器）。</p></li>
 <li>风险识别全面（5分）</li>
 <li>应对措施得当（5分）</li>
 </ul>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-论述-03--m4-service与事务">24-论述-03 ★★★ M4
-Service与事务</h3>
-<p><strong>请论述Spring声明式事务@Transactional的工作原理、失效场景及使用注意事项。</strong></p>
-<details>
+<section class="question-card" id="24-论述-03--m4-service与事务"><p><strong>24-论述-03 ★★★ M4 Service与事务</strong></p><p><strong>请论述Spring声明式事务@Transactional的工作原理、失效场景及使用注意事项。</strong></p><details>
 <summary>答案与评分标准</summary>
 
 <p><strong>参考答案要点</strong>：</p>
@@ -1084,12 +788,9 @@ AOP动态代理，在方法执行前后通过TransactionInterceptor开启/提交
 <li>失效场景至少列举4种（6分）</li>
 <li>注意事项得当（5分）</li>
 </ul>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-论述-04--综合跨模块">24-论述-04 ★★★ 综合跨模块</h3>
-<p><strong>结合CTTS项目全过程，论述你对"完整交付体现工程师的责任与担当"的理解，并说明在演示、答辩、文档三个环节如何体现职业素养。</strong></p>
-<details>
+<section class="question-card" id="24-论述-04--综合跨模块"><p><strong>24-论述-04 ★★★ 综合跨模块</strong></p><p><strong>结合CTTS项目全过程，论述你对"完整交付体现工程师的责任与担当"的理解，并说明在演示、答辩、文档三个环节如何体现职业素养。</strong></p><details>
 <summary>答案与评分标准</summary>
 
 <p><strong>参考答案要点</strong>：</p>
@@ -1128,13 +829,10 @@ AOP动态代理，在方法执行前后通过TransactionInterceptor开启/提交
 <li>三环节阐述到位（10分，演示3+答辩3+文档4）</li>
 <li>有个人反思加分（+2分上限）</li>
 </ul>
-</details>
-
+</details></section>
 <hr />
 <h2 id="六程序阅读补全题2题">六、程序阅读补全题（2题）</h2>
-<h3 id="24-程序-01--m6-安全与鉴权">24-程序-01 ★★★ M6 安全与鉴权</h3>
-<p><strong>阅读以下JWT拦截器代码，补全①②③处缺失的代码。</strong></p>
-<div class="sourceCode" id="cb1"><pre
+<section class="question-card" id="24-程序-01--m6-安全与鉴权"><p><strong>24-程序-01 ★★★ M6 安全与鉴权</strong></p><p><strong>阅读以下JWT拦截器代码，补全①②③处缺失的代码。</strong></p><div class="sourceCode" id="cb1"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">@Component</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> JwtInterceptor <span class="kw">implements</span> HandlerInterceptor <span class="op">{</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1167,8 +865,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 5. 清理ThreadLocal防止内存泄漏</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        ThreadLocalUtil<span class="op">.</span><span class="fu">remove</span><span class="op">();</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：</p>
@@ -1187,13 +884,9 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="
 ThreadLocalUtil是自定义工具类，存储当前请求用户ID，业务层通过ThreadLocalUtil.get()获取</li>
 </ul>
 <p><strong>评分标准</strong>（满分10分）：每空3分+解析1分。①②③全对得9分，能说明ThreadLocal清理必要性加1分。</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-程序-02--m4m5-service与异常">24-程序-02 ★★★ M4/M5
-Service与异常</h3>
-<p><strong>阅读以下全局异常处理器与统一返回结构代码，补全①②③处。</strong></p>
-<div class="sourceCode" id="cb2"><pre
+<section class="question-card" id="24-程序-02--m4m5-service与异常"><p><strong>24-程序-02 ★★★ M4/M5 Service与异常</strong></p><p><strong>阅读以下全局异常处理器与统一返回结构代码，补全①②③处。</strong></p><div class="sourceCode" id="cb2"><pre
 class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 统一返回结构</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">@Data</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Result</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">{</span></span>
@@ -1242,8 +935,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        log<span class="op">.</span><span class="fu">error</span><span class="op">(</span><span class="st">&quot;系统异常&quot;</span><span class="op">,</span> e<span class="op">);</span></span>
 <span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ③____________<span class="op">;</span></span>
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：</p>
@@ -1261,20 +953,14 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="
 <li>③ 未捕获异常统一返回500，避免堆栈泄露给前端</li>
 </ul>
 <p><strong>评分标准</strong>（满分10分）：每空3分+整体逻辑说明1分。能说明全局异常处理器作用再加1分。</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
-<h3 id="24-编程-01--m5m3m6-接口设计">24-编程-01 ★★★ M5/M3/M6
-接口设计</h3>
-<p><strong>请为CTTS的"教师发布任务"功能设计完整的接口实现，包括：DTO、VO、Controller、Service（接口+实现）、Mapper，要求使用JSR-303校验、统一返回Result、MyBatis-Plus持久化、JWT鉴权，并标注教师权限。</strong></p>
-<p><strong>业务需求</strong>：</p>
-<ul>
+<section class="question-card" id="24-编程-01--m5m3m6-接口设计"><p><strong>24-编程-01 ★★★ M5/M3/M6 接口设计</strong></p><p><strong>请为CTTS的"教师发布任务"功能设计完整的接口实现，包括：DTO、VO、Controller、Service（接口+实现）、Mapper，要求使用JSR-303校验、统一返回Result、MyBatis-Plus持久化、JWT鉴权，并标注教师权限。</strong></p><p><strong>业务需求</strong>：</p><ul>
 <li>仅教师角色可调用</li>
 <li>字段：标题（必填，2-50字）、描述（选填，最多500字）、报名截止时间（必填，未来时间）、容量（必填，1-200）</li>
 <li>发布成功返回任务ID与创建时间</li>
-</ul>
-<details>
+</ul><details>
 <summary>参考答案与评分标准</summary>
 
 <p><strong>参考实现</strong>：</p>
@@ -1415,21 +1101,16 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="
 <li>未从ThreadLocal获取teacherId扣3分</li>
 <li>未标注教师权限扣2分</li>
 </ul>
-</details>
-
+</details></section>
 <hr />
-<h3 id="24-编程-02--m3m4m7-分页查询与测试">24-编程-02 ★★★ M3/M4/M7
-分页查询与测试</h3>
-<p><strong>请为CTTS的"学生查询可报名任务列表"功能设计实现，要求：</strong></p>
-<ol type="1">
+<section class="question-card" id="24-编程-02--m3m4m7-分页查询与测试"><p><strong>24-编程-02 ★★★ M3/M4/M7 分页查询与测试</strong></p><p><strong>请为CTTS的"学生查询可报名任务列表"功能设计实现，要求：</strong></p><ol type="1">
 <li><strong>接口</strong>：GET
 /tasks/page，支持分页参数（page、size）与可选关键字搜索（keyword匹配title）</li>
 <li><strong>权限</strong>：学生角色</li>
 <li><strong>返回</strong>：分页结果PageResult<TaskVO>，含records、total、pages</li>
 <li><strong>附加</strong>：编写对应的Service层单元测试（Mockito Mock
 Mapper），覆盖正常与空结果两种场景</li>
-</ol>
-<details>
+</ol><details>
 <summary>参考答案与评分标准</summary>
 
 <p><strong>参考实现</strong>：</p>
@@ -1626,8 +1307,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="
 <li>条件构造器未做keyword非空判断扣2分</li>
 <li>测试未Mock Mapper扣3分</li>
 </ul>
-</details>
-
+</details></section>
 <hr />
 <h2 id="附题库统计表">附：题库统计表</h2>
 <h3 id="总体统计">总体统计</h3>

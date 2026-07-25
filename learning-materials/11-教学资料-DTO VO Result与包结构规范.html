@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -133,15 +133,7 @@ Boot工程搭建、MyBatis-Plus逆向、以及TrainingProject的基础CRUD接口
 </tbody>
 </table>
 <h3 id="13-学习路径建议">1.3 学习路径建议</h3>
-<div class="visual">
-  <div class="visual-title">图示 1：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">阅读本资料 <span class="arrow-token">→</span> 跟着&quot;知识点详解&quot;敲代码 <span class="arrow-token">→</span> 完成&quot;综合示例&quot; <span class="arrow-token">→</span> 做&quot;复习思考题&quot; <span class="arrow-token">→</span> 完成项目任务 <span class="arrow-token">→</span> 刷题库</span>
-<span class="diagram-line">   ↑                                                              ↓</span>
-<span class="diagram-line">   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>遇到问题查&quot;常见报错排查&quot;←<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 1：阅读本资料 → 跟着&quot;知识点详解&quot;敲代码 → 完成&quot;综合示例&quot; → 做&quot;复习思考题&quot; → 完成项目任务 → 刷题</div> <div class="edu-diagram"> <div class="diagram-flow"><div class="diagram-card"><h4>阅读本资料</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>跟着&quot;知识点详解&quot;敲代码</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>完成&quot;综合示例&quot;</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>做&quot;复习思考题&quot;</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>完成项目任务</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>刷题库 ↑ ↓ 遇到问题查&quot;常见报错排查&quot;←</h4></div></div> </div></div>
 <h3 id="14-前置知识自检">1.4 前置知识自检</h3>
 <p>在开始本课前，请确认你已掌握：</p>
 <ul class="task-list">
@@ -219,16 +211,7 @@ MyBatis-Plus项目中，<strong>Entity类一身二职</strong>——既映射数
 </blockquote>
 <h4 id="2-原理">2. 原理</h4>
 <p>为什么要把对象分这么多类？核心是<strong>职责分离原则（SRP）</strong>：</p>
-<div class="visual">
-  <div class="visual-title">图示 2：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">前端请求 JSON  <span class="tree-token">─</span><span class="tree-token">─</span>反序列化<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span>  DTO（带校验）  <span class="tree-token">─</span><span class="tree-token">─</span>转换<span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span>  Entity（入库）</span>
-<span class="diagram-line">                                                              <span class="tree-token">│</span></span>
-<span class="diagram-line">                                                              ▼</span>
-<span class="diagram-line">前端展示 JSON  ◀<span class="tree-token">─</span><span class="tree-token">─</span>序列化<span class="tree-token">─</span><span class="tree-token">─</span>  VO（脱敏聚合）  ◀<span class="tree-token">─</span><span class="tree-token">─</span>转换<span class="tree-token">─</span><span class="tree-token">─</span>  Entity（查库）</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 2：DTO、Entity、VO 在请求与响应中的位置</div> <div class="edu-diagram"><div class="diagram-grid two"><div class="diagram-panel"><span class="diagram-badge">请求入库方向</span><div class="diagram-flow"><div class="diagram-card"><h4>前端 JSON</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>DTO</h4><p>接收请求并校验</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>Entity</h4><p>转换后入库</p></div></div></div><div class="diagram-panel response"><span class="diagram-badge good">查询返回方向</span><div class="diagram-flow"><div class="diagram-card"><h4>Entity</h4><p>从数据库查询</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>VO</h4><p>脱敏与聚合</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>前端 JSON</h4></div></div></div></div></div></div>
 <ul>
 <li><strong>数据库结构变化</strong>不应影响前端 → Entity与VO解耦</li>
 <li><strong>前端请求字段</strong>与数据库列不完全一致 →
@@ -382,27 +365,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="
 <span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> LocalDateTime createTime<span class="op">;</span></span>
 <span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 id="5-图示">5. 图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 3：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐    ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐    ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line"><span class="tree-token">│</span>   DTO (入参)    <span class="tree-token">│</span>    <span class="tree-token">│</span> Entity (PO)     <span class="tree-token">│</span>    <span class="tree-token">│</span>   VO (出参)     <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>  ProjectDTO     <span class="tree-token">│</span>    <span class="tree-token">│</span> TrainingProject <span class="tree-token">│</span>    <span class="tree-token">│</span>  ProjectVO      <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┤</span>
-<span class="diagram-line"><span class="tree-token">│</span> projectName ★   <span class="tree-token">│</span>    <span class="tree-token">│</span> id              <span class="tree-token">│</span>    <span class="tree-token">│</span> id              <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> description     <span class="tree-token">│</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span><span class="tree-token">│</span> projectName     <span class="tree-token">│</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span><span class="tree-token">│</span> projectName     <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> startTime ★     <span class="tree-token">│</span>转换<span class="tree-token">│</span> description     <span class="tree-token">│</span>转换<span class="tree-token">│</span> description     <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> endTime ★       <span class="tree-token">│</span>    <span class="tree-token">│</span> startTime       <span class="tree-token">│</span>    <span class="tree-token">│</span> startTime       <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> creatorId ★     <span class="tree-token">│</span>    <span class="tree-token">│</span> endTime         <span class="tree-token">│</span>    <span class="tree-token">│</span> endTime         <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>                 <span class="tree-token">│</span>    <span class="tree-token">│</span> creatorId       <span class="tree-token">│</span>    <span class="tree-token">│</span> creatorId       <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span> (校验注解)      <span class="tree-token">│</span>    <span class="tree-token">│</span> createTime      <span class="tree-token">│</span>    <span class="tree-token">│</span> creatorName ★聚合<span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>                 <span class="tree-token">│</span>    <span class="tree-token">│</span> updateTime      <span class="tree-token">│</span>    <span class="tree-token">│</span> createTime      <span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">│</span>                 <span class="tree-token">│</span>    <span class="tree-token">│</span> deleted         <span class="tree-token">│</span>    <span class="tree-token">│</span> (无密码/无deleted)<span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">   前端 <span class="arrow-token">→</span> 后端           数据库                后端 <span class="arrow-token">→</span> 前端</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 3：DTO、Entity、VO 字段职责对比</div> <div class="edu-diagram"><div class="diagram-grid three"><div class="diagram-card"><span class="diagram-badge">DTO 入参</span><h4>ProjectDTO</h4><p>projectName、description、startTime、endTime、creatorId。</p><p>重点：带校验注解，面向前端提交。</p></div><div class="diagram-card"><span class="diagram-badge">Entity 持久化</span><h4>TrainingProject</h4><p>id、projectName、description、startTime、endTime、creatorId、createTime、updateTime、deleted。</p><p>重点：对应数据库表。</p></div><div class="diagram-card"><span class="diagram-badge">VO 出参</span><h4>ProjectVO</h4><p>id、projectName、description、startTime、endTime、creatorId、creatorName、createTime。</p><p>重点：面向展示，可聚合 creatorName，不暴露 deleted 等内部字段。</p></div></div><div class="diagram-callout">流向：前端 → DTO → Entity → 数据库；数据库 → Entity → VO → 前端。</div></div></div>
 <h4 id="6-易错点">6. 易错点</h4>
 <table>
 <thead>
@@ -608,36 +571,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href=
 <span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">final</span> <span class="bu">String</span> message<span class="op">;</span></span>
 <span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 id="5-图示-1">5. 图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 4：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">                 前端发起请求</span>
-<span class="diagram-line">                      <span class="tree-token">│</span></span>
-<span class="diagram-line">                      ▼</span>
-<span class="diagram-line">            ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line">            <span class="tree-token">│</span>   Controller 接口   <span class="tree-token">│</span></span>
-<span class="diagram-line">            <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">                      <span class="tree-token">│</span></span>
-<span class="diagram-line">              ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┴</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line">              ▼               ▼</span>
-<span class="diagram-line">        业务正常           业务异常</span>
-<span class="diagram-line">              <span class="tree-token">│</span>               <span class="tree-token">│</span></span>
-<span class="diagram-line">              ▼               ▼</span>
-<span class="diagram-line">     Result.ok(data)   Result.fail(code,msg)</span>
-<span class="diagram-line">              <span class="tree-token">│</span>               <span class="tree-token">│</span></span>
-<span class="diagram-line">              <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">┬</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">                      ▼</span>
-<span class="diagram-line">            ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line">            <span class="tree-token">│</span>  统一JSON响应体     <span class="tree-token">│</span></span>
-<span class="diagram-line">            <span class="tree-token">│</span>  {code,msg,data}   <span class="tree-token">│</span></span>
-<span class="diagram-line">            <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">                      <span class="tree-token">│</span></span>
-<span class="diagram-line">                      ▼</span>
-<span class="diagram-line">              前端axios拦截器</span>
-<span class="diagram-line">          判断 code===200 ? 成功 : 失败</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 4：Result 统一响应的分支流程</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>前端发起请求</h4></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>Controller 接口</h4></div><div class="flow-arrow">→</div><div class="diagram-card good"><h4>业务正常</h4><p>Result.ok(data)</p></div><div class="flow-arrow">↘</div><div class="diagram-card warn"><h4>业务异常</h4><p>Result.fail(code,msg)</p></div></div><div class="diagram-callout">统一 JSON 响应体：{code,msg,data}。前端 axios 拦截器据此判断成功或失败。</div></div></div>
 <h4 id="6-易错点-1">6. 易错点</h4>
 <table>
 <thead>
@@ -884,23 +818,10 @@ BeanUtils（source在前target在后），大项目上MapStruct（编译期生�
 <p><strong>包结构规范</strong>指Java项目中package的划分约定。Spring
 Boot企业级项目通常按"分层"+"功能"混合划分，以分层为主：</p>
 <div class="visual">
-  <div class="visual-title">图示 5：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">com.ctts</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java         // 启动类</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller                   // 表现层：接收请求、返回响应</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> service                      // 业务层接口</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> impl                     // 业务层实现（serviceImpl）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper                       // 持久层：MyBatis-Plus Mapper接口</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity                       // 实体类（对应数据库表，充当PO）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> dto                          // 数据传输对象（接收请求）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> vo                           // 视图对象（返回响应）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> common                       // 公共类</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> config                       // 配置类（Knife4j、MyBatis-Plus、Cors等）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> utils                        // 工具类</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> exception                    // 自定义异常与全局异常处理</span>
+  <div class="visual-title">图示 5：规范包结构与职责边界</div>
+  <div class="edu-diagram">
+    <div class="diagram-code-tree"><ul><li><span class="tree-label">com.ctts/</span></li><li>CttsApplication.java <span class="tree-comment"># 启动类</span></li><li>controller/ <span class="tree-comment"># 表现层，接收请求、返回响应</span></li><li>service/ 与 service/impl/ <span class="tree-comment"># 业务接口与实现</span></li><li>mapper/ <span class="tree-comment"># MyBatis-Plus Mapper 接口</span></li><li>entity/ <span class="tree-comment"># 数据库表实体，充当 PO</span></li><li>dto/ <span class="tree-comment"># 请求入参对象</span></li><li>vo/ <span class="tree-comment"># 响应视图对象</span></li><li>common/ config/ utils/ exception/ <span class="tree-comment"># 公共、配置、工具与异常</span></li></ul></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h4 id="2-原理-3">2. 原理</h4>
 <p><strong>为什么service要分接口和impl？</strong></p>
@@ -919,102 +840,19 @@ AOP（事务@Transactionall）基于接口动态代理（JDK Proxy）更自然</
 <h4 id="3-问题场景-3">3. 问题/场景</h4>
 <p><strong>场景：包结构混乱的反面教材</strong></p>
 <div class="visual">
-  <div class="visual-title">图示 6：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">com.ctts</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectController.java       // 控制器裸奔</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> UserController.java</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TrainingProject.java         // 实体裸奔</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> SysUser.java</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectMapper.java</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectService.java          // 接口实现混在一起</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectServiceImpl.java</span>
+  <div class="visual-title">图示 6：不规范包结构反例</div>
+  <div class="edu-diagram">
+    <div class="diagram-code-tree"><ul><li><span class="tree-label">com.ctts/</span></li><li>ProjectController.java / UserController.java <span class="tree-comment"># 控制器裸奔</span></li><li>TrainingProject.java / SysUser.java <span class="tree-comment"># 实体与业务对象混放</span></li><li>ProjectMapper.java <span class="tree-comment"># 持久层直接散落根包</span></li><li>ProjectService.java / ProjectServiceImpl.java <span class="tree-comment"># 接口与实现混在一起</span></li><li><span class="tree-comment">问题：职责边界不清，后续扩展 DTO、VO、异常与配置时会越来越乱</span></li></ul></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <p>20个类时还能忍，200个类时找类全靠<code>Ctrl+N</code>，且无法一眼看出类的角色。</p>
 <h4 id="4-完整示例代码-3">4. 完整示例代码</h4>
 <p><strong>CTTS完整包结构树</strong>：</p>
 <div class="visual">
-  <div class="visual-title">图示 7：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">com.ctts</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CttsApplication.java</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller                       // 表现层</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskSubmissionController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskReviewController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> SysUserController.java</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> service                          // 业务接口</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskSubmissionService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskReviewService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> SysUserService.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> impl                         // 业务实现</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectServiceImpl.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskServiceImpl.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskSubmissionServiceImpl.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskReviewServiceImpl.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>       <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> SysUserServiceImpl.java</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> mapper                           // 持久层</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectMapper.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskMapper.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskSubmissionMapper.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskReviewMapper.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> SysUserMapper.java</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity                           // 实体（PO）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TrainingProject.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Task.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskSubmission.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskReview.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> SysUser.java</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> dto                              // 请求参数</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectDTO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectQueryDTO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskDTO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskSubmissionDTO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskReviewDTO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> SysUserDTO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> LoginDTO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> vo                               // 响应数据</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectVO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskVO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskSubmissionVO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> TaskReviewVO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> SysUserVO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> LoginVO.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> PageVO.java                  // 通用分页VO</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> common                           // 公共</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Result.java                  // 统一响应</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ResultCode.java              // 状态码枚举</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> config                           // 配置类</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Knife4jConfig.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> MyBatisPlusConfig.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> CorsConfig.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> WebMvcConfig.java</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> utils                            // 工具类</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> JwtUtils.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> ConvertUtils.java</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> PageUtils.java</span>
-<span class="diagram-line"><span class="tree-token">│</span></span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> exception                        // 异常</span>
-<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> BusinessException.java       // 自定义业务异常</span>
-<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> GlobalExceptionHandler.java  // 全局异常处理</span>
-<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> ProjectException.java</span>
+  <div class="visual-title">图示 7：推荐包结构落地示例</div>
+  <div class="edu-diagram">
+    <div class="diagram-code-tree"><ul><li><span class="tree-label">com.ctts/</span></li><li>controller/ProjectController.java</li><li>service/ProjectService.java</li><li>service/impl/ProjectServiceImpl.java</li><li>mapper/ProjectMapper.java</li><li>entity/TrainingProject.java</li><li>dto/ProjectCreateDTO.java</li><li>vo/ProjectVO.java</li><li>common/Result.java</li><li>exception/GlobalExceptionHandler.java</li></ul></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <p><strong>分页VO通用类（PageVO<T>）</strong>：</p>
 <div class="sourceCode" id="cb21"><pre
@@ -1058,23 +896,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb21-1"><a href=
 <span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h4 id="5-图示-3">5. 图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 8：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">请求 <span class="tree-token">─</span><span class="arrow-token">▶</span> Controller <span class="tree-token">─</span><span class="arrow-token">▶</span> Service(接口) <span class="tree-token">─</span><span class="arrow-token">▶</span> ServiceImpl(实现) <span class="tree-token">─</span><span class="arrow-token">▶</span> Mapper <span class="tree-token">─</span><span class="arrow-token">▶</span> DB</span>
-<span class="diagram-line">           <span class="tree-token">│</span>              <span class="tree-token">│</span>                                      <span class="tree-token">│</span></span>
-<span class="diagram-line">           <span class="tree-token">│</span>              <span class="tree-token">│</span>                                      ▼</span>
-<span class="diagram-line">           <span class="tree-token">│</span>              <span class="tree-token">│</span>                                   Entity</span>
-<span class="diagram-line">           <span class="tree-token">│</span>              <span class="tree-token">│</span>                                      <span class="tree-token">│</span></span>
-<span class="diagram-line">           <span class="tree-token">│</span>              <span class="tree-token">│</span>  DTO ◀<span class="tree-token">─</span><span class="tree-token">─</span> 接收请求                    <span class="tree-token">│</span></span>
-<span class="diagram-line">           <span class="tree-token">│</span>              <span class="tree-token">│</span>  VO  <span class="tree-token">─</span><span class="tree-token">─</span><span class="arrow-token">▶</span> 返回响应  ◀<span class="tree-token">─</span><span class="tree-token">─</span> 转换 ◀<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">           <span class="tree-token">│</span>              <span class="tree-token">│</span></span>
-<span class="diagram-line">           ▼              ▼</span>
-<span class="diagram-line">        Result&lt;T&gt;     common/exception</span>
-<span class="diagram-line">        (统一响应)    (异常处理)</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 8：分层包结构与数据对象流向</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>请求</h4><p>DTO 接收请求</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>Controller</h4><p>入口与参数校验</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>Service / Impl</h4><p>业务逻辑与转换</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>Mapper / DB</h4><p>Entity 入库或查询</p></div></div><div class="diagram-grid two"><div class="diagram-callout">返回响应：Entity → VO → Result&lt;T&gt; → JSON。</div><div class="diagram-callout">横切能力：common/exception 统一处理响应与异常。</div></div></div></div>
 <h4 id="6-易错点-3">6. 易错点</h4>
 <table>
 <thead>
@@ -1282,26 +1104,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb27-1"><a href=
 </tbody>
 </table>
 <h4 id="5-图示-4">5. 图示</h4>
-<div class="visual">
-  <div class="visual-title">图示 9：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">   .java 源码（带@Lombok注解）</span>
-<span class="diagram-line">            <span class="tree-token">│</span></span>
-<span class="diagram-line">            <span class="tree-token">│</span>  javac 编译</span>
-<span class="diagram-line">            ▼</span>
-<span class="diagram-line">   ┌<span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┐</span>
-<span class="diagram-line">   <span class="tree-token">│</span>  Lombok 注解处理器       <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">│</span>  拦截AST，插入方法节点   <span class="tree-token">│</span></span>
-<span class="diagram-line">   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span>┘</span>
-<span class="diagram-line">            <span class="tree-token">│</span></span>
-<span class="diagram-line">            ▼</span>
-<span class="diagram-line">   .class 字节码（含getter/setter等）</span>
-<span class="diagram-line">            <span class="tree-token">│</span></span>
-<span class="diagram-line">            ▼</span>
-<span class="diagram-line">   JVM 运行（与手写代码无差异）</span>
-  </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
-</div>
+<div class="visual"> <div class="visual-title">图示 9：Lombok 在编译期生成方法</div> <div class="edu-diagram"><div class="diagram-flow"><div class="diagram-card"><h4>.java 源码</h4><p>类上标注 @Data、@Builder 等。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>javac 编译</h4><p>Lombok 注解处理器介入。</p></div><div class="flow-arrow">→</div><div class="diagram-card"><h4>修改 AST</h4><p>插入 getter、setter、toString 等方法节点。</p></div><div class="flow-arrow">→</div><div class="diagram-card good"><h4>.class 字节码</h4><p>包含生成的方法，JVM 运行时与手写代码无差异。</p></div></div></div></div>
 <h4 id="6-易错点-4">6. 易错点</h4>
 <table>
 <thead>
@@ -1696,64 +1499,17 @@ href="https://projectlombok.org/features/">https://projectlombok.org/features/</
 <h2 id="五小结与思维导图">五、小结与思维导图</h2>
 <h3 id="51-一页纸小结">5.1 一页纸小结</h3>
 <div class="visual">
-  <div class="visual-title">图示 10：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">第11次课 核心知识图</span>
-<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
-<span class="diagram-line">1. 对象分层（K11-1）</span>
-<span class="diagram-line">   DTO管进、VO管出、Entity管库、PO是概念</span>
-<span class="diagram-line">   前端永远不直接接触Entity</span>
-<span class="diagram-line">2. 统一响应（K11-2）</span>
-<span class="diagram-line">   Result&lt;T&gt;{code, message, data}</span>
-<span class="diagram-line">   ok()/ok(data)/fail()/fail(code,msg) 静态方法</span>
-<span class="diagram-line">   泛型T保证类型安全与文档清晰</span>
-<span class="diagram-line">3. 对象转换（K11-3）</span>
-<span class="diagram-line">   入门：Spring BeanUtils.copyProperties(src, target)</span>
-<span class="diagram-line">   进阶：MapStruct 编译期生成，性能≈手写</span>
-<span class="diagram-line">   聚合字段都要手动补全</span>
-<span class="diagram-line">4. 包结构（K11-4）</span>
-<span class="diagram-line">   controller / service / impl / mapper / entity / dto / vo</span>
-<span class="diagram-line">   common / config / utils / exception</span>
-<span class="diagram-line">   service分接口和impl，启动类放根包</span>
-<span class="diagram-line">5. Lombok（K11-5）</span>
-<span class="diagram-line">   @Data 最常用</span>
-<span class="diagram-line">   @Builder + @NoArgsConstructor + @AllArgsConstructor 三件套</span>
-<span class="diagram-line">   @Accessors(chain=true) 链式</span>
-<span class="diagram-line">   IDEA 开 Annotation Processing</span>
-<span class="diagram-line"><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span><span class="tree-token">─</span></span>
+  <div class="visual-title">图示 10：第 11 次课核心知识地图</div>
+  <div class="edu-diagram">
+    <div class="diagram-grid five"><div class="diagram-card"><h4>DTO</h4><p>接收请求参数，配合校验注解保护入口数据。</p></div><div class="diagram-card"><h4>VO</h4><p>控制响应字段，只返回前端需要展示的数据。</p></div><div class="diagram-card"><h4>Result</h4><p>统一响应结构，承载 code、message、data。</p></div><div class="diagram-card"><h4>包结构</h4><p>按 controller、service、mapper、entity、dto、vo 分层组织。</p></div><div class="diagram-card good"><h4>转换边界</h4><p>Controller 处理 DTO/VO，Service 处理业务与实体转换。</p></div></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <h3 id="52-思维导图文字版">5.2 思维导图（文字版）</h3>
 <div class="visual">
-  <div class="visual-title">图示 11：结构与流程重绘</div>
-  <div class="diagram-lines">
-<span class="diagram-line">DTO/VO/Result与包结构规范</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 对象分层</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> PO <span class="tree-token">─</span><span class="tree-token">─</span> 持久化对象（概念，Entity充当）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> Entity <span class="tree-token">─</span><span class="tree-token">─</span> 对应数据库表</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> DTO <span class="tree-token">─</span><span class="tree-token">─</span> 接收请求（带校验）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> VO <span class="tree-token">─</span><span class="tree-token">─</span> 返回响应（可脱敏聚合）</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> BO <span class="tree-token">─</span><span class="tree-token">─</span> 业务对象（了解）</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 统一响应 Result&lt;T&gt;</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 三字段：code/message/data</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 静态方法：ok()/fail()</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 泛型T：类型安全</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 配套：ResultCode枚举</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 对象转换</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> BeanUtils <span class="tree-token">─</span><span class="tree-token">─</span> 运行期反射，source在前</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> MapStruct <span class="tree-token">─</span><span class="tree-token">─</span> 编译期生成，性能好</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> 注意：属性名/类型一致，聚合字段手动补</span>
-<span class="diagram-line"><span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> 包结构</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> controller/service/impl/mapper</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> entity/dto/vo</span>
-<span class="diagram-line"><span class="tree-token">│</span>   <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> common/config/utils/exception</span>
-<span class="diagram-line"><span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> Lombok</span>
-<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> @Data <span class="tree-token">─</span><span class="tree-token">─</span> 组合注解</span>
-<span class="diagram-line">    <span class="tree-token">├</span><span class="tree-token">─</span><span class="tree-token">─</span> @Builder三件套</span>
-<span class="diagram-line">    <span class="tree-token">└</span><span class="tree-token">─</span><span class="tree-token">─</span> @Accessors(chain) 链式</span>
+  <div class="visual-title">图示 11：DTO、VO、Result 与包结构规范总览</div>
+  <div class="edu-diagram">
+    <div class="diagram-grid four"><div class="diagram-card"><h4>请求入口</h4><p>前端 JSON → DTO → Controller 参数校验。</p></div><div class="diagram-card"><h4>业务处理</h4><p>Service 使用 Entity/PO 完成业务逻辑和持久化。</p></div><div class="diagram-card"><h4>响应出口</h4><p>Entity/聚合结果 → VO → Result.success(data)。</p></div><div class="diagram-card good"><h4>工程组织</h4><p>包结构让对象流向和职责边界在代码目录中可见。</p></div></div>
   </div>
-  <p class="diagram-hint">已由原 Markdown 字符图转换为网页图示，保留原有逻辑关系并优化阅读效果。</p>
 </div>
 <hr />
 <h2 id="六复习思考题">六、复习思考题</h2>

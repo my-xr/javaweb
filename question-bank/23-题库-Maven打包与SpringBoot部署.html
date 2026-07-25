@@ -167,43 +167,25 @@ MySQL + JWT + Knife4j + Maven <strong>题目总数</strong>：78题（30单选 +
 </ul>
 <hr />
 <h2 id="一单选题30题">一、单选题（30题）</h2>
-<h3 id="23-单选-01">23-单选-01</h3>
-<p><strong>Maven执行<code>mvn clean package</code>命令时，以下哪个阶段不会执行？</strong></p>
-<p>A. clean B. compile C. install D. test</p>
-<details>
+<section class="question-card" id="23-单选-01"><p><strong>23-单选-01</strong></p><p><strong>Maven执行<code>mvn clean package</code>命令时，以下哪个阶段不会执行？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">clean</div></li><li><span class="option-label">B</span><div class="option-content">compile</div></li><li><span class="option-label">C</span><div class="option-content">install</div></li><li><span class="option-label">D</span><div class="option-content">test</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：C</p>
 <p><strong>解析</strong>：<code>mvn clean package</code>执行到<code>package</code>阶段为止，包含clean、compile、test、package，但不包含<code>install</code>（将jar安装到本地仓库）和<code>deploy</code>（发布到远程仓库）。<code>install</code>需要单独执行<code>mvn install</code>。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-02">23-单选-02</h3>
-<p><strong>Spring
-Boot项目打包生成的可执行jar，其<code>MANIFEST.MF</code>文件中<code>Main-Class</code>属性指向的是？</strong></p>
-<p>A. <code>com.ctts.CttsApplication</code> B.
-<code>org.springframework.boot.loader.JarLauncher</code> C.
-<code>org.springframework.boot.SpringApplication</code> D.
-<code>org.apache.catalina.startup.Bootstrap</code></p>
-<details>
+<section class="question-card" id="23-单选-02"><p><strong>23-单选-02</strong></p><p><strong>Spring
+Boot项目打包生成的可执行jar，其<code>MANIFEST.MF</code>文件中<code>Main-Class</code>属性指向的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>com.ctts.CttsApplication</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>org.springframework.boot.loader.JarLauncher</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>org.springframework.boot.SpringApplication</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>org.apache.catalina.startup.Bootstrap</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：可执行jar的<code>Main-Class</code>是<code>org.springframework.boot.loader.JarLauncher</code>（Spring
 Boot启动器），而非业务主类。<code>JarLauncher</code>负责加载<code>BOOT-INF/classes</code>和<code>BOOT-INF/lib</code>，然后通过反射调用<code>Start-Class</code>（即<code>com.ctts.CttsApplication</code>）的main方法。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-03">23-单选-03</h3>
-<p><strong>关于<code>-DskipTests</code>和<code>-Dmaven.test.skip=true</code>，以下说法正确的是？</strong></p>
-<p>A. 两者完全等价 B.
-<code>-DskipTests</code>跳过测试编译和执行，<code>-Dmaven.test.skip=true</code>仅跳过测试执行
-C.
-<code>-DskipTests</code>仅跳过测试执行，<code>-Dmaven.test.skip=true</code>跳过测试编译和执行
-D. 两者都不跳过测试编译</p>
-<details>
+<section class="question-card" id="23-单选-03"><p><strong>23-单选-03</strong></p><p><strong>关于<code>-DskipTests</code>和<code>-Dmaven.test.skip=true</code>，以下说法正确的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">两者完全等价</div></li><li><span class="option-label">B</span><div class="option-content"><code>-DskipTests</code>跳过测试编译和执行，<code>-Dmaven.test.skip=true</code>仅跳过测试执行</div></li><li><span class="option-label">C</span><div class="option-content"><code>-DskipTests</code>仅跳过测试执行，<code>-Dmaven.test.skip=true</code>跳过测试编译和执行</div></li><li><span class="option-label">D</span><div class="option-content">两者都不跳过测试编译</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：C</p>
@@ -214,45 +196,28 @@ D. 两者都不跳过测试编译</p>
 </ul>
 <p>生产打包通常用<code>-DskipTests</code>，保留编译可发现测试代码的语法错误。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-04">23-单选-04</h3>
-<p><strong>Spring
-Boot可执行jar的<code>BOOT-INF/lib</code>目录存放的是？</strong></p>
-<p>A. 项目自身编译后的class文件 B. 项目依赖的第三方库 C. Spring
-Boot启动器代码 D. 测试class文件</p>
-<details>
+<section class="question-card" id="23-单选-04"><p><strong>23-单选-04</strong></p><p><strong>Spring
+Boot可执行jar的<code>BOOT-INF/lib</code>目录存放的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">项目自身编译后的class文件</div></li><li><span class="option-label">B</span><div class="option-content">项目依赖的第三方库</div></li><li><span class="option-label">C</span><div class="option-content">Spring Boot启动器代码</div></li><li><span class="option-label">D</span><div class="option-content">测试class文件</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：<code>BOOT-INF/lib</code>存放所有第三方依赖jar（如spring-boot、mybatis-plus、mysql-connector等），这是"fat
 jar"的由来。项目自身class在<code>BOOT-INF/classes</code>，启动器代码在<code>org/springframework/boot/loader/</code>。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-05">23-单选-05</h3>
-<p><strong>执行<code>mvn clean package</code>后，<code>target</code>目录下的<code>ctts.jar.original</code>文件是？</strong></p>
-<p>A. 打包失败生成的备份文件 B. repackage之前的原始jar，仅含项目class C.
-可执行jar的备份 D. 测试报告文件</p>
-<details>
+<section class="question-card" id="23-单选-05"><p><strong>23-单选-05</strong></p><p><strong>执行<code>mvn clean package</code>后，<code>target</code>目录下的<code>ctts.jar.original</code>文件是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">打包失败生成的备份文件</div></li><li><span class="option-label">B</span><div class="option-content">repackage之前的原始jar，仅含项目class</div></li><li><span class="option-label">C</span><div class="option-content">可执行jar的备份</div></li><li><span class="option-label">D</span><div class="option-content">测试报告文件</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：<code>spring-boot-maven-plugin</code>的<code>repackage</code>目标会将原始jar重命名为<code>ctts.jar.original</code>，然后生成新的可执行jar为<code>ctts.jar</code>。<code>.original</code>文件仅含项目自身class，不含依赖和启动器。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-06">23-单选-06</h3>
-<p><strong>以下命令中，能在Linux后台运行Spring
-Boot应用且终端关闭后不退出的是？</strong></p>
-<p>A. <code>java -jar ctts.jar &amp;</code> B.
-<code>java -jar ctts.jar &gt; ctts.log</code> C.
-<code>nohup java -jar ctts.jar &gt; ctts.log 2&gt;&amp;1 &amp;</code> D.
-<code>java -jar ctts.jar --daemon</code></p>
-<details>
+<section class="question-card" id="23-单选-06"><p><strong>23-单选-06</strong></p><p><strong>以下命令中，能在Linux后台运行Spring
+Boot应用且终端关闭后不退出的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>java -jar ctts.jar &amp;</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>java -jar ctts.jar &gt; ctts.log</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>nohup java -jar ctts.jar &gt; ctts.log 2&gt;&amp;1 &amp;</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>java -jar ctts.jar --daemon</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：C</p>
@@ -265,17 +230,10 @@ Boot应用且终端关闭后不退出的是？</strong></p>
 </ul>
 <p>A选项缺少<code>nohup</code>，终端关闭进程会退出；B选项缺少<code>&amp;</code>，是前台运行。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-07">23-单选-07</h3>
-<p><strong>在Spring
-Boot中，以下哪种方式启动时指定端口优先级最高？</strong></p>
-<p>A. <code>application.yml</code>中配置<code>server.port</code> B.
-<code>application-dev.yml</code>中配置<code>server.port</code> C.
-命令行参数<code>--server.port=9090</code> D.
-环境变量<code>SERVER_PORT=9090</code></p>
-<details>
+<section class="question-card" id="23-单选-07"><p><strong>23-单选-07</strong></p><p><strong>在Spring
+Boot中，以下哪种方式启动时指定端口优先级最高？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>application.yml</code>中配置<code>server.port</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>application-dev.yml</code>中配置<code>server.port</code></div></li><li><span class="option-label">C</span><div class="option-content">命令行参数<code>--server.port=9090</code></div></li><li><span class="option-label">D</span><div class="option-content">环境变量<code>SERVER_PORT=9090</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：C</p>
@@ -283,116 +241,69 @@ Boot中，以下哪种方式启动时指定端口优先级最高？</strong></p>
 环境变量 &gt; 外部配置文件 &gt; jar内配置文件 &gt;
 默认值。命令行参数优先级最高。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-08">23-单选-08</h3>
-<p><strong>Spring Boot默认内嵌的Web服务器是？</strong></p>
-<p>A. Jetty B. Undertow C. Tomcat D. Netty</p>
-<details>
+<section class="question-card" id="23-单选-08"><p><strong>23-单选-08</strong></p><p><strong>Spring Boot默认内嵌的Web服务器是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">Jetty</div></li><li><span class="option-label">B</span><div class="option-content">Undertow</div></li><li><span class="option-label">C</span><div class="option-content">Tomcat</div></li><li><span class="option-label">D</span><div class="option-content">Netty</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：C</p>
 <p><strong>解析</strong>：<code>spring-boot-starter-web</code>默认引入<code>spring-boot-starter-tomcat</code>，内嵌Tomcat。如需切换为Jetty或Undertow，需排除tomcat依赖后引入对应starter。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-09">23-单选-09</h3>
-<p><strong>关于Spring
-Boot多环境配置，以下命名规则正确的是？</strong></p>
-<p>A.
-<code>application-dev.yml</code>、<code>application-prod.yml</code> B.
-<code>dev-application.yml</code>、<code>prod-application.yml</code> C.
-<code>application_dev.yml</code>、<code>application_prod.yml</code> D.
-<code>application-dev.properties.yml</code>、<code>application-prod.properties.yml</code></p>
-<details>
+<section class="question-card" id="23-单选-09"><p><strong>23-单选-09</strong></p><p><strong>关于Spring
+Boot多环境配置，以下命名规则正确的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>application-dev.yml</code>、<code>application-prod.yml</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>dev-application.yml</code>、<code>prod-application.yml</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>application_dev.yml</code>、<code>application_prod.yml</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>application-dev.properties.yml</code>、<code>application-prod.properties.yml</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A</p>
 <p><strong>解析</strong>：Spring
 Boot多环境配置命名规则为<code>application-{profile}.yml</code>，如<code>application-dev.yml</code>、<code>application-prod.yml</code>。profile通过<code>spring.profiles.active</code>激活。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-10">23-单选-10</h3>
-<p><strong>以下哪种方式不能激活<code>prod</code>环境的配置文件？</strong></p>
-<p>A.
-<code>application.yml</code>中配置<code>spring.profiles.active: prod</code>
-B. 命令行参数<code>--spring.profiles.active=prod</code> C.
-环境变量<code>SPRING_PROFILES_ACTIVE=prod</code> D.
-在<code>application-prod.yml</code>中配置<code>spring.profiles.active: prod</code></p>
-<details>
+<section class="question-card" id="23-单选-10"><p><strong>23-单选-10</strong></p><p><strong>以下哪种方式不能激活<code>prod</code>环境的配置文件？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>application.yml</code>中配置<code>spring.profiles.active: prod</code></div></li><li><span class="option-label">B</span><div class="option-content">命令行参数<code>--spring.profiles.active=prod</code></div></li><li><span class="option-label">C</span><div class="option-content">环境变量<code>SPRING_PROFILES_ACTIVE=prod</code></div></li><li><span class="option-label">D</span><div class="option-content">在<code>application-prod.yml</code>中配置<code>spring.profiles.active: prod</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：D</p>
 <p><strong>解析</strong>：<code>spring.profiles.active</code>应在主配置<code>application.yml</code>或通过命令行/环境变量设置，不能在<code>application-{profile}.yml</code>中设置自身（会形成循环依赖）。A、B、C均可激活。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-11">23-单选-11</h3>
-<p><strong><code>spring-boot-maven-plugin</code>插件的核心目标是？</strong></p>
-<p>A. <code>compile</code> B. <code>repackage</code> C.
-<code>deploy</code> D. <code>install</code></p>
-<details>
+<section class="question-card" id="23-单选-11"><p><strong>23-单选-11</strong></p><p><strong><code>spring-boot-maven-plugin</code>插件的核心目标是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>compile</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>repackage</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>deploy</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>install</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：<code>spring-boot-maven-plugin</code>的核心目标是<code>repackage</code>，将普通jar重新打包为可执行jar（fat
 jar），添加<code>BOOT-INF</code>结构和<code>JarLauncher</code>启动器。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-12">23-单选-12</h3>
-<p><strong>Linux下查看Spring Boot应用进程的命令是？</strong></p>
-<p>A. <code>ps -ef | grep ctts.jar | grep -v grep</code> B.
-<code>top | grep ctts.jar</code> C. <code>find ctts.jar</code> D.
-<code>ls -l ctts.jar</code></p>
-<details>
+<section class="question-card" id="23-单选-12"><p><strong>23-单选-12</strong></p><p><strong>Linux下查看Spring Boot应用进程的命令是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>ps -ef | grep ctts.jar | grep -v grep</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>top | grep ctts.jar</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>find ctts.jar</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>ls -l ctts.jar</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A</p>
 <p><strong>解析</strong>：<code>ps -ef</code>列出所有进程，<code>grep ctts.jar</code>过滤包含ctts.jar的行，<code>grep -v grep</code>排除grep自身进程。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-13">23-单选-13</h3>
-<p><strong>优雅停止Spring
-Boot应用（处理完当前请求后退出）的kill信号是？</strong></p>
-<p>A. <code>kill -9 PID</code> B. <code>kill -15 PID</code> C.
-<code>kill -3 PID</code> D. <code>kill -2 PID</code></p>
-<details>
+<section class="question-card" id="23-单选-13"><p><strong>23-单选-13</strong></p><p><strong>优雅停止Spring
+Boot应用（处理完当前请求后退出）的kill信号是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>kill -9 PID</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>kill -15 PID</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>kill -3 PID</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>kill -2 PID</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：<code>kill -15</code>（SIGTERM）是优雅终止信号，应用收到信号后会处理完当前请求后退出。<code>kill -9</code>（SIGKILL）是强制终止，立即中断所有处理。需配合<code>server.shutdown: graceful</code>配置。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-14">23-单选-14</h3>
-<p><strong>关于Spring Boot外部配置文件，以下说法正确的是？</strong></p>
-<p>A. 外部配置文件优先级低于jar内配置 B.
-外部配置文件必须放在<code>config/</code>目录 C.
-jar同目录的<code>application.yml</code>会覆盖jar内同名配置 D.
-外部配置文件不生效</p>
-<details>
+<section class="question-card" id="23-单选-14"><p><strong>23-单选-14</strong></p><p><strong>关于Spring Boot外部配置文件，以下说法正确的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">外部配置文件优先级低于jar内配置</div></li><li><span class="option-label">B</span><div class="option-content">外部配置文件必须放在<code>config/</code>目录</div></li><li><span class="option-label">C</span><div class="option-content">jar同目录的<code>application.yml</code>会覆盖jar内同名配置</div></li><li><span class="option-label">D</span><div class="option-content">外部配置文件不生效</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：C</p>
 <p><strong>解析</strong>：外部配置文件优先级<strong>高于</strong>jar内配置。jar同目录的<code>application.yml</code>和<code>config/</code>子目录的<code>application.yml</code>都会覆盖jar内配置，其中<code>config/</code>子目录优先级更高。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-15">23-单选-15</h3>
-<p><strong><code>schema.sql</code>文件的作用是？</strong></p>
-<p>A. 存储初始数据 B. 创建数据库表结构 C. 配置数据源 D. 记录操作日志</p>
-<details>
+<section class="question-card" id="23-单选-15"><p><strong>23-单选-15</strong></p><p><strong><code>schema.sql</code>文件的作用是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">存储初始数据</div></li><li><span class="option-label">B</span><div class="option-content">创建数据库表结构</div></li><li><span class="option-label">C</span><div class="option-content">配置数据源</div></li><li><span class="option-label">D</span><div class="option-content">记录操作日志</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
@@ -400,233 +311,139 @@ jar同目录的<code>application.yml</code>会覆盖jar内同名配置 D.
 TABLE）。<code>data.sql</code>是DML（数据操作语言）脚本，用于插入初始数据（INSERT
 INTO）。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-16">23-单选-16</h3>
-<p><strong>Spring Boot自动执行SQL脚本的配置项是？</strong></p>
-<p>A. <code>spring.sql.init.mode</code> B.
-<code>spring.datasource.init.mode</code> C.
-<code>spring.db.sql.mode</code> D.
-<code>spring.schema.execute</code></p>
-<details>
+<section class="question-card" id="23-单选-16"><p><strong>23-单选-16</strong></p><p><strong>Spring Boot自动执行SQL脚本的配置项是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>spring.sql.init.mode</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>spring.datasource.init.mode</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>spring.db.sql.mode</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>spring.schema.execute</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A</p>
 <p><strong>解析</strong>：Spring Boot
 2.5+使用<code>spring.sql.init.mode</code>配置SQL脚本执行模式，可选值：<code>always</code>（总是执行）、<code>never</code>（不执行）、<code>embedded</code>（仅嵌入式数据库执行）。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-17">23-单选-17</h3>
-<p><strong>生产环境推荐<code>spring.sql.init.mode</code>设置为？</strong></p>
-<p>A. <code>always</code> B. <code>never</code> C. <code>embedded</code>
-D. <code>auto</code></p>
-<details>
+<section class="question-card" id="23-单选-17"><p><strong>23-单选-17</strong></p><p><strong>生产环境推荐<code>spring.sql.init.mode</code>设置为？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>always</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>never</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>embedded</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>auto</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：生产环境设置为<code>never</code>，避免每次启动都执行SQL脚本，防止误覆盖数据。生产环境应手动执行SQL脚本并做好审计。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-18">23-单选-18</h3>
-<p><strong>Nginx反向代理配置中，将请求转发到后端8080端口的指令是？</strong></p>
-<p>A. <code>proxy_pass http://127.0.0.1:8080;</code> B.
-<code>redirect http://127.0.0.1:8080;</code> C.
-<code>forward http://127.0.0.1:8080;</code> D.
-<code>route http://127.0.0.1:8080;</code></p>
-<details>
+<section class="question-card" id="23-单选-18"><p><strong>23-单选-18</strong></p><p><strong>Nginx反向代理配置中，将请求转发到后端8080端口的指令是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>proxy_pass http://127.0.0.1:8080;</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>redirect http://127.0.0.1:8080;</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>forward http://127.0.0.1:8080;</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>route http://127.0.0.1:8080;</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A</p>
 <p><strong>解析</strong>：Nginx使用<code>proxy_pass</code>指令实现反向代理，将请求转发到指定的后端地址。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-19">23-单选-19</h3>
-<p><strong>CentOS 7开放8080端口的命令是？</strong></p>
-<p>A. <code>iptables -A INPUT -p tcp --dport 8080 -j ACCEPT</code> B.
-<code>firewall-cmd --permanent --add-port=8080/tcp</code> C.
-<code>ufw allow 8080</code> D. <code>setenforce 0</code></p>
-<details>
+<section class="question-card" id="23-单选-19"><p><strong>23-单选-19</strong></p><p><strong>CentOS 7开放8080端口的命令是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>iptables -A INPUT -p tcp --dport 8080 -j ACCEPT</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>firewall-cmd --permanent --add-port=8080/tcp</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>ufw allow 8080</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>setenforce 0</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：CentOS
 7使用firewalld作为默认防火墙，开放端口命令为<code>firewall-cmd --permanent --add-port=8080/tcp</code>，然后<code>firewall-cmd --reload</code>生效。A是iptables（旧版），C是ufw（Ubuntu），D是关闭SELinux。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-20">23-单选-20</h3>
-<p><strong>以下哪个配置能让Spring
-Boot获取到Nginx转发的真实客户端IP？</strong></p>
-<p>A. <code>server.forward-headers-strategy: native</code> B.
-<code>server.use-forward-headers: true</code> C.
-<code>spring.forward.headers: true</code> D.
-<code>server.tomcat.remote-ip: true</code></p>
-<details>
+<section class="question-card" id="23-单选-20"><p><strong>23-单选-20</strong></p><p><strong>以下哪个配置能让Spring
+Boot获取到Nginx转发的真实客户端IP？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>server.forward-headers-strategy: native</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>server.use-forward-headers: true</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>spring.forward.headers: true</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>server.tomcat.remote-ip: true</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A</p>
 <p><strong>解析</strong>：Spring Boot
 3.x使用<code>server.forward-headers-strategy: native</code>配置，信任<code>X-Forwarded-*</code>请求头，从而获取Nginx转发的真实IP。需配合Nginx的<code>proxy_set_header X-Real-IP $remote_addr;</code>配置。</p>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-21">23-单选-21</h3>
-<p><strong><code>pom.xml</code>中<code>&lt;finalName&gt;ctts&lt;/finalName&gt;</code>的作用是？</strong></p>
-<p>A. 指定项目最终版本号 B. 指定打包后的jar文件名（不带版本号） C.
-指定Maven仓库路径 D. 指定主类名</p>
-<details>
+<section class="question-card" id="23-单选-21"><p><strong>23-单选-21</strong></p><p><strong><code>pom.xml</code>中<code>&lt;finalName&gt;ctts&lt;/finalName&gt;</code>的作用是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">指定项目最终版本号</div></li><li><span class="option-label">B</span><div class="option-content">指定打包后的jar文件名（不带版本号）</div></li><li><span class="option-label">C</span><div class="option-content">指定Maven仓库路径</div></li><li><span class="option-label">D</span><div class="option-content">指定主类名</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：<code>&lt;finalName&gt;</code>指定打包产物的文件名，默认为<code>${artifactId}-${version}</code>（如ctts-1.0.0）。设置为<code>ctts</code>后，生成的jar为<code>ctts.jar</code>，便于部署脚本引用固定名称。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-22">23-单选-22</h3>
-<p><strong>关于<code>nohup</code>命令，以下说法错误的是？</strong></p>
-<p>A. <code>nohup</code>会忽略SIGHUP信号 B.
-<code>nohup</code>使命令在终端关闭后继续运行 C.
-<code>nohup</code>必须与<code>&amp;</code>配合使用才能后台运行 D.
-<code>nohup</code>会自动将输出重定向到<code>nohup.out</code></p>
-<details>
+<section class="question-card" id="23-单选-22"><p><strong>23-单选-22</strong></p><p><strong>关于<code>nohup</code>命令，以下说法错误的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>nohup</code>会忽略SIGHUP信号</div></li><li><span class="option-label">B</span><div class="option-content"><code>nohup</code>使命令在终端关闭后继续运行</div></li><li><span class="option-label">C</span><div class="option-content"><code>nohup</code>必须与<code>&amp;</code>配合使用才能后台运行</div></li><li><span class="option-label">D</span><div class="option-content"><code>nohup</code>会自动将输出重定向到<code>nohup.out</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：C</p>
 <p><strong>解析</strong>：<code>nohup</code>只是忽略挂断信号，本身并不后台运行。但通常与<code>&amp;</code>配合使用实现后台运行。<code>nohup</code>单独使用时命令仍在前台运行（终端关闭不退出，但占用终端）。如未指定重定向，默认输出到<code>nohup.out</code>。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-23">23-单选-23</h3>
-<p><strong>以下命令中，能查看Spring
-Boot应用是否监听8080端口的是？</strong></p>
-<p>A. <code>ps -ef | grep 8080</code> B.
-<code>netstat -tlnp | grep 8080</code> C. <code>curl 8080</code> D.
-<code>ping 8080</code></p>
-<details>
+<section class="question-card" id="23-单选-23"><p><strong>23-单选-23</strong></p><p><strong>以下命令中，能查看Spring
+Boot应用是否监听8080端口的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>ps -ef | grep 8080</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>netstat -tlnp | grep 8080</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>curl 8080</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>ping 8080</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：<code>netstat -tlnp</code>列出所有监听端口，<code>grep 8080</code>过滤8080端口。<code>-t</code>TCP、<code>-l</code>监听、<code>-n</code>不解析名称、<code>-p</code>显示进程。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-24">23-单选-24</h3>
-<p><strong>Spring
-Boot应用的<code>application.yml</code>中配置<code>spring.profiles.active: dev</code>，启动时通过命令行<code>--spring.profiles.active=prod</code>，最终生效的profile是？</strong></p>
-<p>A. dev B. prod C. 两个都生效 D. 都不生效，使用默认</p>
-<details>
+<section class="question-card" id="23-单选-24"><p><strong>23-单选-24</strong></p><p><strong>Spring
+Boot应用的<code>application.yml</code>中配置<code>spring.profiles.active: dev</code>，启动时通过命令行<code>--spring.profiles.active=prod</code>，最终生效的profile是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">dev</div></li><li><span class="option-label">B</span><div class="option-content">prod</div></li><li><span class="option-label">C</span><div class="option-content">两个都生效</div></li><li><span class="option-label">D</span><div class="option-content">都不生效，使用默认</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：命令行参数优先级高于配置文件，因此<code>prod</code>覆盖<code>dev</code>，最终生效<code>prod</code>。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-25">23-单选-25</h3>
-<p><strong>关于<code>&lt;scope&gt;provided&lt;/scope&gt;</code>依赖，在Spring
-Boot打包时的行为是？</strong></p>
-<p>A. 正常打入jar B. 不打入jar，运行时由容器提供 C. 打入jar但不参与编译
-D. 只在测试时使用</p>
-<details>
+<section class="question-card" id="23-单选-25"><p><strong>23-单选-25</strong></p><p><strong>关于<code>&lt;scope&gt;provided&lt;/scope&gt;</code>依赖，在Spring
+Boot打包时的行为是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">正常打入jar</div></li><li><span class="option-label">B</span><div class="option-content">不打入jar，运行时由容器提供</div></li><li><span class="option-label">C</span><div class="option-content">打入jar但不参与编译</div></li><li><span class="option-label">D</span><div class="option-content">只在测试时使用</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：<code>provided</code>范围的依赖不打入最终jar，预期由运行环境提供。Spring
 Boot项目内嵌Tomcat，一般<strong>不使用</strong>provided，否则运行时缺失依赖。传统WAR部署到外部Tomcat时才用provided。</p>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-26">23-单选-26</h3>
-<p><strong>Linux下手动执行<code>schema.sql</code>建表脚本的命令是？</strong></p>
-<p>A. <code>mysql -u root -p &lt; schema.sql</code> B.
-<code>java -jar schema.sql</code> C. <code>sh schema.sql</code> D.
-<code>python schema.sql</code></p>
-<details>
+<section class="question-card" id="23-单选-26"><p><strong>23-单选-26</strong></p><p><strong>Linux下手动执行<code>schema.sql</code>建表脚本的命令是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>mysql -u root -p &lt; schema.sql</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>java -jar schema.sql</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>sh schema.sql</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>python schema.sql</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A</p>
 <p><strong>解析</strong>：使用<code>mysql</code>命令的输入重定向执行SQL脚本：<code>mysql -u root -p &lt; schema.sql</code>。如需指定数据库：<code>mysql -u root -p ctts &lt; schema.sql</code>。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-27">23-单选-27</h3>
-<p><strong>Nginx配置<code>location /api/</code>且<code>proxy_pass http://127.0.0.1:8080/api/;</code>，访问<code>http://server/api/auth/login</code>实际转发到？</strong></p>
-<p>A. <code>http://127.0.0.1:8080/auth/login</code> B.
-<code>http://127.0.0.1:8080/api/auth/login</code> C.
-<code>http://127.0.0.1:8080/api/api/auth/login</code> D.
-<code>http://127.0.0.1:8080/auth/api/login</code></p>
-<details>
+<section class="question-card" id="23-单选-27"><p><strong>23-单选-27</strong></p><p><strong>Nginx配置<code>location /api/</code>且<code>proxy_pass http://127.0.0.1:8080/api/;</code>，访问<code>http://server/api/auth/login</code>实际转发到？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>http://127.0.0.1:8080/auth/login</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>http://127.0.0.1:8080/api/auth/login</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>http://127.0.0.1:8080/api/api/auth/login</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>http://127.0.0.1:8080/auth/api/login</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：<code>location /api/</code>匹配<code>/api/</code>开头的路径，<code>proxy_pass http://127.0.0.1:8080/api/;</code>带有<code>/api/</code>路径，会将匹配的<code>/api/</code>部分替换为<code>/api/</code>，因此<code>/api/auth/login</code>转发到<code>http://127.0.0.1:8080/api/auth/login</code>。</p>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-28">23-单选-28</h3>
-<p><strong>Spring Boot打包后jar体积较大的主要原因是？</strong></p>
-<p>A. 包含源代码 B. 包含所有依赖库（fat jar） C. 包含测试代码 D.
-包含JDK运行时</p>
-<details>
+<section class="question-card" id="23-单选-28"><p><strong>23-单选-28</strong></p><p><strong>Spring Boot打包后jar体积较大的主要原因是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">包含源代码</div></li><li><span class="option-label">B</span><div class="option-content">包含所有依赖库（fat jar）</div></li><li><span class="option-label">C</span><div class="option-content">包含测试代码</div></li><li><span class="option-label">D</span><div class="option-content">包含JDK运行时</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：Spring Boot可执行jar是"fat
 jar"，将所有第三方依赖都打入<code>BOOT-INF/lib</code>目录，因此体积较大（通常几十MB）。不包含源代码、测试代码和JDK运行时。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-29">23-单选-29</h3>
-<p><strong>以下哪种方式查看Spring Boot应用启动日志最合适？</strong></p>
-<p>A. <code>cat ctts.log</code> B. <code>tail -f ctts.log</code> C.
-<code>head ctts.log</code> D. <code>grep ctts.log</code></p>
-<details>
+<section class="question-card" id="23-单选-29"><p><strong>23-单选-29</strong></p><p><strong>以下哪种方式查看Spring Boot应用启动日志最合适？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>cat ctts.log</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>tail -f ctts.log</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>head ctts.log</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>grep ctts.log</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：B</p>
 <p><strong>解析</strong>：<code>tail -f</code>持续跟踪文件末尾新增内容，适合查看实时日志。<code>cat</code>一次性输出全部，<code>head</code>查看开头，<code>grep</code>过滤关键字。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-单选-30">23-单选-30</h3>
-<p><strong>关于云服务器部署CTTS项目，以下说法错误的是？</strong></p>
-<p>A. 需要在云平台控制台配置安全组规则 B.
-需要在服务器配置防火墙（firewalld/ufw） C.
-安全组和防火墙只需配置其中一个 D. MySQL的3306端口一般不对外暴露</p>
-<details>
+<section class="question-card" id="23-单选-30"><p><strong>23-单选-30</strong></p><p><strong>关于云服务器部署CTTS项目，以下说法错误的是？</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">需要在云平台控制台配置安全组规则</div></li><li><span class="option-label">B</span><div class="option-content">需要在服务器配置防火墙（firewalld/ufw）</div></li><li><span class="option-label">C</span><div class="option-content">安全组和防火墙只需配置其中一个</div></li><li><span class="option-label">D</span><div class="option-content">MySQL的3306端口一般不对外暴露</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：C</p>
 <p><strong>解析</strong>：云服务器部署时，安全组（云平台层面）和防火墙（操作系统层面）是<strong>两层独立的网络控制</strong>，都需要配置。只配一个会导致外部无法访问。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="二多选题10题">二、多选题（10题）</h2>
-<h3 id="23-多选-01">23-多选-01</h3>
-<p><strong>以下哪些是<code>spring-boot-maven-plugin</code>插件的作用？（多选）</strong></p>
-<p>A. 将项目依赖打入jar（fat jar） B. 添加<code>JarLauncher</code>启动器
-C. 生成可执行jar D. 编译Java源代码 E.
-设置<code>MANIFEST.MF</code>的<code>Main-Class</code></p>
-<details>
+<section class="question-card" id="23-多选-01"><p><strong>23-多选-01</strong></p><p><strong>以下哪些是<code>spring-boot-maven-plugin</code>插件的作用？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">将项目依赖打入jar（fat jar）</div></li><li><span class="option-label">B</span><div class="option-content">添加<code>JarLauncher</code>启动器</div></li><li><span class="option-label">C</span><div class="option-content">生成可执行jar</div></li><li><span class="option-label">D</span><div class="option-content">编译Java源代码</div></li><li><span class="option-label">E</span><div class="option-content">设置<code>MANIFEST.MF</code>的<code>Main-Class</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A、B、C、E</p>
@@ -639,20 +456,10 @@ C. 生成可执行jar D. 编译Java源代码 E.
 </ul>
 <p>D错误：编译Java源代码是<code>maven-compiler-plugin</code>的职责。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-多选-02">23-多选-02</h3>
-<p><strong>Spring
-Boot配置加载的优先级从高到低，以下顺序正确的有？（多选）</strong></p>
-<p>A. 命令行参数 &gt; 环境变量 &gt; 外部配置文件 &gt; jar内配置 B.
-命令行参数 &gt; jar内配置 &gt; 外部配置文件 &gt; 默认值 C.
-<code>--server.port</code> &gt; <code>SPRING_APPLICATION_JSON</code>
-&gt; 系统属性 &gt; <code>application.yml</code> D.
-外部<code>config/application.yml</code> &gt;
-外部<code>application.yml</code> &gt;
-jar内<code>application.yml</code></p>
-<details>
+<section class="question-card" id="23-多选-02"><p><strong>23-多选-02</strong></p><p><strong>Spring
+Boot配置加载的优先级从高到低，以下顺序正确的有？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">命令行参数 &gt; 环境变量 &gt; 外部配置文件 &gt; jar内配置</div></li><li><span class="option-label">B</span><div class="option-content">命令行参数 &gt; jar内配置 &gt; 外部配置文件 &gt; 默认值</div></li><li><span class="option-label">C</span><div class="option-content"><code>--server.port</code> &gt; <code>SPRING_APPLICATION_JSON</code> &gt; 系统属性 &gt; <code>application.yml</code></div></li><li><span class="option-label">D</span><div class="option-content">外部<code>config/application.yml</code> &gt; 外部<code>application.yml</code> &gt; jar内<code>application.yml</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A、C、D</p>
@@ -665,15 +472,10 @@ application.yml</li>
 <li>D：正确，<code>config/</code>子目录优先级高于jar同目录，高于jar内</li>
 </ul>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-多选-03">23-多选-03</h3>
-<p><strong>Linux服务器部署Spring
-Boot应用，需要安装的软件有？（多选）</strong></p>
-<p>A. JDK B. MySQL C. Nginx D. Tomcat（独立部署） E.
-Maven（服务器上）</p>
-<details>
+<section class="question-card" id="23-多选-03"><p><strong>23-多选-03</strong></p><p><strong>Linux服务器部署Spring
+Boot应用，需要安装的软件有？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">JDK</div></li><li><span class="option-label">B</span><div class="option-content">MySQL</div></li><li><span class="option-label">C</span><div class="option-content">Nginx</div></li><li><span class="option-label">D</span><div class="option-content">Tomcat（独立部署）</div></li><li><span class="option-label">E</span><div class="option-content">Maven（服务器上）</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A、B、C</p>
@@ -686,15 +488,9 @@ Maven（服务器上）</p>
 <p>D错误：Spring Boot内嵌Tomcat，无需独立部署。
 E错误：服务器上运行jar不需要Maven，Maven是打包工具，在开发机使用。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-多选-04">23-多选-04</h3>
-<p><strong>以下哪些是生产环境配置<code>application-prod.yml</code>相对于开发环境的差异？（多选）</strong></p>
-<p>A. 关闭MyBatis-Plus的SQL打印 B. 日志级别设为INFO（开发为DEBUG） C.
-关闭Knife4j接口文档 D. 数据库密码使用环境变量 E.
-开启<code>spring.sql.init.mode=always</code></p>
-<details>
+<section class="question-card" id="23-多选-04"><p><strong>23-多选-04</strong></p><p><strong>以下哪些是生产环境配置<code>application-prod.yml</code>相对于开发环境的差异？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">关闭MyBatis-Plus的SQL打印</div></li><li><span class="option-label">B</span><div class="option-content">日志级别设为INFO（开发为DEBUG）</div></li><li><span class="option-label">C</span><div class="option-content">关闭Knife4j接口文档</div></li><li><span class="option-label">D</span><div class="option-content">数据库密码使用环境变量</div></li><li><span class="option-label">E</span><div class="option-content">开启<code>spring.sql.init.mode=always</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A、B、C、D</p>
@@ -707,14 +503,9 @@ E错误：服务器上运行jar不需要Maven，Maven是打包工具，在开发
 <li>E错误：生产环境应设为<code>never</code>，手动执行SQL</li>
 </ul>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-多选-05">23-多选-05</h3>
-<p><strong><code>nohup java -jar ctts.jar &gt; ctts.log 2&gt;&amp;1 &amp;</code>命令包含以下哪些操作？（多选）</strong></p>
-<p>A. 忽略SIGHUP信号 B. 标准输出重定向到文件 C. 标准错误重定向到标准输出
-D. 后台运行 E. 自动重启应用</p>
-<details>
+<section class="question-card" id="23-多选-05"><p><strong>23-多选-05</strong></p><p><strong><code>nohup java -jar ctts.jar &gt; ctts.log 2&gt;&amp;1 &amp;</code>命令包含以下哪些操作？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">忽略SIGHUP信号</div></li><li><span class="option-label">B</span><div class="option-content">标准输出重定向到文件</div></li><li><span class="option-label">C</span><div class="option-content">标准错误重定向到标准输出</div></li><li><span class="option-label">D</span><div class="option-content">后台运行</div></li><li><span class="option-label">E</span><div class="option-content">自动重启应用</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A、B、C、D</p>
@@ -727,33 +518,18 @@ D. 后台运行 E. 自动重启应用</p>
 <li>E错误：<code>nohup</code>不提供自动重启功能</li>
 </ul>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-多选-06">23-多选-06</h3>
-<p><strong>Spring
-Boot多环境配置中，激活<code>prod</code>profile的方式有？（多选）</strong></p>
-<p>A.
-<code>application.yml</code>中<code>spring.profiles.active: prod</code>
-B. 命令行<code>--spring.profiles.active=prod</code> C.
-环境变量<code>SPRING_PROFILES_ACTIVE=prod</code> D.
-JVM参数<code>-Dspring.profiles.active=prod</code> E.
-在<code>application-prod.yml</code>中<code>spring.profiles.active: prod</code></p>
-<details>
+<section class="question-card" id="23-多选-06"><p><strong>23-多选-06</strong></p><p><strong>Spring
+Boot多环境配置中，激活<code>prod</code>profile的方式有？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>application.yml</code>中<code>spring.profiles.active: prod</code></div></li><li><span class="option-label">B</span><div class="option-content">命令行<code>--spring.profiles.active=prod</code></div></li><li><span class="option-label">C</span><div class="option-content">环境变量<code>SPRING_PROFILES_ACTIVE=prod</code></div></li><li><span class="option-label">D</span><div class="option-content">JVM参数<code>-Dspring.profiles.active=prod</code></div></li><li><span class="option-label">E</span><div class="option-content">在<code>application-prod.yml</code>中<code>spring.profiles.active: prod</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A、B、C、D</p>
 <p><strong>解析</strong>：A、B、C、D均可激活profile。E错误：不能在<code>application-{profile}.yml</code>中设置自身的<code>spring.profiles.active</code>，会导致循环。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-多选-07">23-多选-07</h3>
-<p><strong>数据库初始化脚本<code>schema.sql</code>中应包含以下哪些语句？（多选）</strong></p>
-<p>A. <code>CREATE DATABASE</code> B. <code>CREATE TABLE</code> C.
-<code>INSERT INTO</code> D. <code>CREATE INDEX</code> E.
-<code>ALTER TABLE</code></p>
-<details>
+<section class="question-card" id="23-多选-07"><p><strong>23-多选-07</strong></p><p><strong>数据库初始化脚本<code>schema.sql</code>中应包含以下哪些语句？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>CREATE DATABASE</code></div></li><li><span class="option-label">B</span><div class="option-content"><code>CREATE TABLE</code></div></li><li><span class="option-label">C</span><div class="option-content"><code>INSERT INTO</code></div></li><li><span class="option-label">D</span><div class="option-content"><code>CREATE INDEX</code></div></li><li><span class="option-label">E</span><div class="option-content"><code>ALTER TABLE</code></div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A、B、D</p>
@@ -766,16 +542,10 @@ JVM参数<code>-Dspring.profiles.active=prod</code> E.
 <p>C错误：<code>INSERT INTO</code>是DML，放在<code>data.sql</code>。
 E：<code>ALTER TABLE</code>是修改表结构，一般不在初始化脚本中（除非升级脚本）。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-多选-08">23-多选-08</h3>
-<p><strong>部署后浏览器访问返回502 Bad
-Gateway，可能的原因有？（多选）</strong></p>
-<p>A. 后端Spring Boot应用未启动 B.
-Nginx配置的<code>proxy_pass</code>端口错误 C. 防火墙未开放80端口 D.
-后端应用监听的端口与Nginx配置不一致 E. Nginx未启动</p>
-<details>
+<section class="question-card" id="23-多选-08"><p><strong>23-多选-08</strong></p><p><strong>部署后浏览器访问返回502 Bad
+Gateway，可能的原因有？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">后端Spring Boot应用未启动</div></li><li><span class="option-label">B</span><div class="option-content">Nginx配置的<code>proxy_pass</code>端口错误</div></li><li><span class="option-label">C</span><div class="option-content">防火墙未开放80端口</div></li><li><span class="option-label">D</span><div class="option-content">后端应用监听的端口与Nginx配置不一致</div></li><li><span class="option-label">E</span><div class="option-content">Nginx未启动</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A、B、D</p>
@@ -788,15 +558,9 @@ Nginx配置的<code>proxy_pass</code>端口错误 C. 防火墙未开放80端口 
 <p>C错误：防火墙未开放80端口会返回"无法访问"或超时，不是502。
 E错误：Nginx未启动会返回"连接拒绝"，不是502。</p>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-多选-09">23-多选-09</h3>
-<p><strong>关于Nginx反向代理的优势，以下说法正确的有？（多选）</strong></p>
-<p>A. 对外只暴露80/443端口，隐藏后端真实端口 B.
-可以实现负载均衡（多后端实例） C. 可以处理SSL证书（HTTPS终结） D.
-可以高效处理静态资源 E. 可以替代Spring Boot内嵌Tomcat</p>
-<details>
+<section class="question-card" id="23-多选-09"><p><strong>23-多选-09</strong></p><p><strong>关于Nginx反向代理的优势，以下说法正确的有？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content">对外只暴露80/443端口，隐藏后端真实端口</div></li><li><span class="option-label">B</span><div class="option-content">可以实现负载均衡（多后端实例）</div></li><li><span class="option-label">C</span><div class="option-content">可以处理SSL证书（HTTPS终结）</div></li><li><span class="option-label">D</span><div class="option-content">可以高效处理静态资源</div></li><li><span class="option-label">E</span><div class="option-content">可以替代Spring Boot内嵌Tomcat</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A、B、C、D</p>
@@ -809,16 +573,9 @@ E错误：Nginx未启动会返回"连接拒绝"，不是502。</p>
 <li>E错误：Nginx是反向代理，不能替代Spring Boot的应用服务器功能</li>
 </ul>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-多选-10">23-多选-10</h3>
-<p><strong>以下哪些是Spring Boot打包时常见错误？（多选）</strong></p>
-<p>A.
-<code>pom.xml</code>缺少<code>spring-boot-maven-plugin</code>，生成的jar无法运行
-B. 测试失败导致打包中断 C. 主类未正确配置 D. 资源文件未打包进jar E.
-JDK版本与项目配置不匹配</p>
-<details>
+<section class="question-card" id="23-多选-10"><p><strong>23-多选-10</strong></p><p><strong>以下哪些是Spring Boot打包时常见错误？（多选）</strong></p><div class="option-list"><ul><li><span class="option-label">A</span><div class="option-content"><code>pom.xml</code>缺少<code>spring-boot-maven-plugin</code>，生成的jar无法运行</div></li><li><span class="option-label">B</span><div class="option-content">测试失败导致打包中断</div></li><li><span class="option-label">C</span><div class="option-content">主类未正确配置</div></li><li><span class="option-label">D</span><div class="option-content">资源文件未打包进jar</div></li><li><span class="option-label">E</span><div class="option-content">JDK版本与项目配置不匹配</div></li></ul></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：A、B、C、D、E</p>
@@ -831,47 +588,35 @@ JDK版本与项目配置不匹配</p>
 <li>E：JDK版本与<code>&lt;java.version&gt;</code>不匹配</li>
 </ul>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="三判断题20题">三、判断题（20题）</h2>
-<h3 id="23-判断-01">23-判断-01</h3>
-<p><strong><code>mvn clean package</code>命令会执行测试用例。</strong></p>
-<details>
+<section class="question-card" id="23-判断-01"><p><strong>23-判断-01</strong></p><p><strong><code>mvn clean package</code>命令会执行测试用例。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：正确 ✓</p>
 <p><strong>解析</strong>：<code>package</code>阶段包含<code>test</code>阶段，会执行测试用例。如需跳过，使用<code>-DskipTests</code>。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-02">23-判断-02</h3>
-<p><strong>Spring Boot可执行jar和普通jar的结构完全相同。</strong></p>
-<details>
+<section class="question-card" id="23-判断-02"><p><strong>23-判断-02</strong></p><p><strong>Spring Boot可执行jar和普通jar的结构完全相同。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
 <p><strong>解析</strong>：可执行jar包含<code>BOOT-INF</code>结构（classes和lib）、<code>org/springframework/boot/loader</code>启动器代码，以及<code>MANIFEST.MF</code>中的<code>Main-Class: JarLauncher</code>。普通jar不包含这些。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-03">23-判断-03</h3>
-<p><strong><code>-DskipTests</code>会跳过测试代码的编译。</strong></p>
-<details>
+<section class="question-card" id="23-判断-03"><p><strong>23-判断-03</strong></p><p><strong><code>-DskipTests</code>会跳过测试代码的编译。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
 <p><strong>解析</strong>：<code>-DskipTests</code>仅跳过测试<strong>执行</strong>，仍会<strong>编译</strong>测试代码。跳过编译需用<code>-Dmaven.test.skip=true</code>。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-04">23-判断-04</h3>
-<p><strong>Spring
-Boot内嵌Tomcat，因此部署时无需单独安装Tomcat服务器。</strong></p>
-<details>
+<section class="question-card" id="23-判断-04"><p><strong>23-判断-04</strong></p><p><strong>Spring
+Boot内嵌Tomcat，因此部署时无需单独安装Tomcat服务器。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：正确 ✓</p>
@@ -879,68 +624,50 @@ Boot内嵌Tomcat，因此部署时无需单独安装Tomcat服务器。</strong><
 Boot内嵌Tomcat，可执行jar包含Tomcat库，<code>java -jar</code>启动时自动启动Tomcat。这是Spring
 Boot相比传统WAR部署的核心优势。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-05">23-判断-05</h3>
-<p><strong><code>nohup java -jar ctts.jar &amp;</code>命令中，<code>&amp;</code>的作用是忽略挂断信号。</strong></p>
-<details>
+<section class="question-card" id="23-判断-05"><p><strong>23-判断-05</strong></p><p><strong><code>nohup java -jar ctts.jar &amp;</code>命令中，<code>&amp;</code>的作用是忽略挂断信号。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
 <p><strong>解析</strong>：<code>&amp;</code>的作用是后台运行。<code>nohup</code>才是忽略挂断信号（SIGHUP），使终端关闭后进程不退出。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-06">23-判断-06</h3>
-<p><strong>命令行参数<code>--server.port=9090</code>的优先级高于<code>application.yml</code>中的<code>server.port</code>配置。</strong></p>
-<details>
+<section class="question-card" id="23-判断-06"><p><strong>23-判断-06</strong></p><p><strong>命令行参数<code>--server.port=9090</code>的优先级高于<code>application.yml</code>中的<code>server.port</code>配置。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：正确 ✓</p>
 <p><strong>解析</strong>：Spring
 Boot配置优先级中，命令行参数最高，高于jar内配置文件。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-07">23-判断-07</h3>
-<p><strong><code>application-dev.yml</code>中可以配置<code>spring.profiles.active: prod</code>来切换到生产环境。</strong></p>
-<details>
+<section class="question-card" id="23-判断-07"><p><strong>23-判断-07</strong></p><p><strong><code>application-dev.yml</code>中可以配置<code>spring.profiles.active: prod</code>来切换到生产环境。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
 <p><strong>解析</strong>：<code>spring.profiles.active</code>应在主配置<code>application.yml</code>或通过命令行/环境变量设置，不能在<code>application-{profile}.yml</code>中设置自身，会导致循环依赖。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-08">23-判断-08</h3>
-<p><strong>jar同目录的<code>application.yml</code>会覆盖jar内的同名配置。</strong></p>
-<details>
+<section class="question-card" id="23-判断-08"><p><strong>23-判断-08</strong></p><p><strong>jar同目录的<code>application.yml</code>会覆盖jar内的同名配置。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：正确 ✓</p>
 <p><strong>解析</strong>：外部配置文件优先级高于jar内配置。jar同目录的<code>application.yml</code>和<code>config/application.yml</code>都会覆盖jar内配置。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-09">23-判断-09</h3>
-<p><strong>生产环境应该配置<code>spring.sql.init.mode=always</code>，让应用启动时自动初始化数据库。</strong></p>
-<details>
+<section class="question-card" id="23-判断-09"><p><strong>23-判断-09</strong></p><p><strong>生产环境应该配置<code>spring.sql.init.mode=always</code>，让应用启动时自动初始化数据库。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
 <p><strong>解析</strong>：生产环境应配置<code>mode=never</code>，手动执行SQL脚本。自动执行有数据覆盖风险，且绕过审计。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-10">23-判断-10</h3>
-<p><strong><code>schema.sql</code>用于插入初始数据，<code>data.sql</code>用于创建表结构。</strong></p>
-<details>
+<section class="question-card" id="23-判断-10"><p><strong>23-判断-10</strong></p><p><strong><code>schema.sql</code>用于插入初始数据，<code>data.sql</code>用于创建表结构。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
@@ -948,105 +675,78 @@ Boot配置优先级中，命令行参数最高，高于jar内配置文件。</p>
 TABLE）；<code>data.sql</code>是DML，用于插入初始数据（INSERT
 INTO）。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-11">23-判断-11</h3>
-<p><strong>Nginx反向代理的作用是将客户端请求转发到后端应用服务器。</strong></p>
-<details>
+<section class="question-card" id="23-判断-11"><p><strong>23-判断-11</strong></p><p><strong>Nginx反向代理的作用是将客户端请求转发到后端应用服务器。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：正确 ✓</p>
 <p><strong>解析</strong>：反向代理（Reverse
 Proxy）接收客户端请求，转发到后端服务器，再将响应返回客户端。客户端感知的是代理服务器，不知道真实后端。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-12">23-判断-12</h3>
-<p><strong><code>kill -9 PID</code>是优雅停止Spring
-Boot应用的方式。</strong></p>
-<details>
+<section class="question-card" id="23-判断-12"><p><strong>23-判断-12</strong></p><p><strong><code>kill -9 PID</code>是优雅停止Spring
+Boot应用的方式。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
 <p><strong>解析</strong>：<code>kill -9</code>（SIGKILL）是强制终止，立即中断所有处理，可能导致数据丢失。优雅停止用<code>kill -15</code>（SIGTERM），配合<code>server.shutdown: graceful</code>。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-13">23-判断-13</h3>
-<p><strong><code>spring-boot-maven-plugin</code>的<code>repackage</code>目标会将所有依赖打入jar。</strong></p>
-<details>
+<section class="question-card" id="23-判断-13"><p><strong>23-判断-13</strong></p><p><strong><code>spring-boot-maven-plugin</code>的<code>repackage</code>目标会将所有依赖打入jar。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：正确 ✓</p>
 <p><strong>解析</strong>：<code>repackage</code>将项目依赖打入<code>BOOT-INF/lib</code>，生成fat
 jar。<code>&lt;scope&gt;provided&lt;/scope&gt;</code>的依赖除外。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-14">23-判断-14</h3>
-<p><strong>Spring
-Boot项目打包后，<code>target/classes</code>目录下的<code>application.yml</code>会被打入jar的<code>BOOT-INF/classes</code>目录。</strong></p>
-<details>
+<section class="question-card" id="23-判断-14"><p><strong>23-判断-14</strong></p><p><strong>Spring
+Boot项目打包后，<code>target/classes</code>目录下的<code>application.yml</code>会被打入jar的<code>BOOT-INF/classes</code>目录。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：正确 ✓</p>
 <p><strong>解析</strong>：<code>target/classes</code>中的所有文件（class、yml、xml等）会打包到jar的<code>BOOT-INF/classes</code>目录。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-15">23-判断-15</h3>
-<p><strong>在Windows系统下，可以使用<code>nohup</code>命令后台运行Spring
-Boot应用。</strong></p>
-<details>
+<section class="question-card" id="23-判断-15"><p><strong>23-判断-15</strong></p><p><strong>在Windows系统下，可以使用<code>nohup</code>命令后台运行Spring
+Boot应用。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
 <p><strong>解析</strong>：<code>nohup</code>是Linux/Unix命令，Windows不支持。Windows下可用<code>start /b java -jar ctts.jar</code>或使用PowerShell的<code>Start-Process</code>。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-16">23-判断-16</h3>
-<p><strong>云服务器部署时，只要配置了操作系统的防火墙，就可以从外部访问应用。</strong></p>
-<details>
+<section class="question-card" id="23-判断-16"><p><strong>23-判断-16</strong></p><p><strong>云服务器部署时，只要配置了操作系统的防火墙，就可以从外部访问应用。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
 <p><strong>解析</strong>：云服务器有<strong>两层</strong>网络控制：安全组（云平台层面）和防火墙（操作系统层面）。两层都需要配置，缺一不可。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-17">23-判断-17</h3>
-<p><strong><code>pom.xml</code>中<code>&lt;finalName&gt;ctts&lt;/finalName&gt;</code>配置后，打包生成的jar文件名为<code>ctts.jar</code>。</strong></p>
-<details>
+<section class="question-card" id="23-判断-17"><p><strong>23-判断-17</strong></p><p><strong><code>pom.xml</code>中<code>&lt;finalName&gt;ctts&lt;/finalName&gt;</code>配置后，打包生成的jar文件名为<code>ctts.jar</code>。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：正确 ✓</p>
 <p><strong>解析</strong>：<code>&lt;finalName&gt;</code>指定打包产物名称，默认为<code>${artifactId}-${version}</code>。设置为<code>ctts</code>后，生成<code>ctts.jar</code>，便于部署脚本引用固定名称。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-18">23-判断-18</h3>
-<p><strong>生产环境的数据库密码应该直接硬编码在<code>application-prod.yml</code>中。</strong></p>
-<details>
+<section class="question-card" id="23-判断-18"><p><strong>23-判断-18</strong></p><p><strong>生产环境的数据库密码应该直接硬编码在<code>application-prod.yml</code>中。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
 <p><strong>解析</strong>：生产环境敏感信息（数据库密码、JWT密钥等）不应硬编码，应使用环境变量<code>${DB_PASSWORD:default}</code>或外部配置文件（文件权限控制）。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-19">23-判断-19</h3>
-<p><strong>Nginx配置<code>proxy_pass http://127.0.0.1:8080/api/;</code>末尾的<code>/</code>可以省略，不影响转发结果。</strong></p>
-<details>
+<section class="question-card" id="23-判断-19"><p><strong>23-判断-19</strong></p><p><strong>Nginx配置<code>proxy_pass http://127.0.0.1:8080/api/;</code>末尾的<code>/</code>可以省略，不影响转发结果。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：错误 ✗</p>
@@ -1058,146 +758,110 @@ Boot应用。</strong></p>
 <p>如<code>location /api/</code> +
 <code>proxy_pass http://x:8080;</code>，访问<code>/api/auth</code>会转发到<code>http://x:8080/api/auth</code>，而不是<code>http://x:8080/auth</code>。</p>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-判断-20">23-判断-20</h3>
-<p><strong>Spring
-Boot应用启动后，可以通过<code>curl http://localhost:8080/actuator/health</code>检查健康状态（如已集成actuator）。</strong></p>
-<details>
+<section class="question-card" id="23-判断-20"><p><strong>23-判断-20</strong></p><p><strong>Spring
+Boot应用启动后，可以通过<code>curl http://localhost:8080/actuator/health</code>检查健康状态（如已集成actuator）。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：正确 ✓</p>
 <p><strong>解析</strong>：Spring Boot
 Actuator提供<code>/actuator/health</code>端点检查应用健康状态，返回<code>{"status":"UP"}</code>表示健康。需引入<code>spring-boot-starter-actuator</code>依赖。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="四填空题10题">四、填空题（10题）</h2>
-<h3 id="23-填空-01">23-填空-01</h3>
-<p><strong>Maven打包Spring
-Boot项目的命令是<code>mvn clean ______</code>，如需跳过测试执行，添加参数<code>______</code>。</strong></p>
-<details>
+<section class="question-card" id="23-填空-01"><p><strong>23-填空-01</strong></p><p><strong>Maven打包Spring
+Boot项目的命令是<code>mvn clean ______</code>，如需跳过测试执行，添加参数<code>______</code>。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：<code>package</code>；<code>-DskipTests</code></p>
 <p><strong>解析</strong>：<code>mvn clean package -DskipTests</code>是生产打包常用命令，清理后打包并跳过测试执行。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-填空-02">23-填空-02</h3>
-<p><strong>Spring
-Boot可执行jar的启动器类是<code>org.springframework.boot.loader.______</code>，它负责加载<code>______</code>目录下的class和依赖。</strong></p>
-<details>
+<section class="question-card" id="23-填空-02"><p><strong>23-填空-02</strong></p><p><strong>Spring
+Boot可执行jar的启动器类是<code>org.springframework.boot.loader.______</code>，它负责加载<code>______</code>目录下的class和依赖。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：<code>JarLauncher</code>；<code>BOOT-INF</code></p>
 <p><strong>解析</strong>：<code>JarLauncher</code>是<code>MANIFEST.MF</code>中<code>Main-Class</code>指向的类，负责加载<code>BOOT-INF/classes</code>（项目class）和<code>BOOT-INF/lib</code>（依赖jar）。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-填空-03">23-填空-03</h3>
-<p><strong>Linux后台运行Spring
-Boot应用的命令格式是<code>______ java -jar ctts.jar &gt; ctts.log ______ &amp;</code>，其中第一个关键字忽略挂断信号，第二个将标准错误重定向到标准输出。</strong></p>
-<details>
+<section class="question-card" id="23-填空-03"><p><strong>23-填空-03</strong></p><p><strong>Linux后台运行Spring
+Boot应用的命令格式是<code>______ java -jar ctts.jar &gt; ctts.log ______ &amp;</code>，其中第一个关键字忽略挂断信号，第二个将标准错误重定向到标准输出。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：<code>nohup</code>；<code>2&gt;&amp;1</code></p>
 <p><strong>解析</strong>：<code>nohup</code>忽略SIGHUP信号，终端关闭后进程不退出；<code>2&gt;&amp;1</code>中<code>2</code>是标准错误，<code>&gt;&amp;1</code>重定向到标准输出（同一文件）。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-填空-04">23-填空-04</h3>
-<p><strong>Spring
-Boot多环境配置文件命名规则是<code>application-______.yml</code>，通过<code>spring.______.active</code>属性激活。</strong></p>
-<details>
+<section class="question-card" id="23-填空-04"><p><strong>23-填空-04</strong></p><p><strong>Spring
+Boot多环境配置文件命名规则是<code>application-______.yml</code>，通过<code>spring.______.active</code>属性激活。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：<code>{profile}</code>；<code>profiles</code></p>
 <p><strong>解析</strong>：命名规则为<code>application-{profile}.yml</code>（如<code>application-dev.yml</code>），通过<code>spring.profiles.active</code>激活对应profile。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-填空-05">23-填空-05</h3>
-<p><strong>数据库初始化脚本中，<code>______.sql</code>用于创建表结构（DDL），<code>______.sql</code>用于插入初始数据（DML）。</strong></p>
-<details>
+<section class="question-card" id="23-填空-05"><p><strong>23-填空-05</strong></p><p><strong>数据库初始化脚本中，<code>______.sql</code>用于创建表结构（DDL），<code>______.sql</code>用于插入初始数据（DML）。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：<code>schema</code>；<code>data</code></p>
 <p><strong>解析</strong>：<code>schema.sql</code>是DDL脚本（CREATE
 TABLE等），<code>data.sql</code>是DML脚本（INSERT INTO等）。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-填空-06">23-填空-06</h3>
-<p><strong>Nginx反向代理的核心配置指令是<code>______</code>，用于将请求转发到后端服务器。</strong></p>
-<details>
+<section class="question-card" id="23-填空-06"><p><strong>23-填空-06</strong></p><p><strong>Nginx反向代理的核心配置指令是<code>______</code>，用于将请求转发到后端服务器。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：<code>proxy_pass</code></p>
 <p><strong>解析</strong>：<code>proxy_pass http://127.0.0.1:8080;</code>将匹配location的请求转发到指定后端地址。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-填空-07">23-填空-07</h3>
-<p><strong>CentOS
-7开放80端口的命令是<code>firewall-cmd --______ --add-port=80/tcp</code>，配置后需执行<code>firewall-cmd --______</code>使配置生效。</strong></p>
-<details>
+<section class="question-card" id="23-填空-07"><p><strong>23-填空-07</strong></p><p><strong>CentOS
+7开放80端口的命令是<code>firewall-cmd --______ --add-port=80/tcp</code>，配置后需执行<code>firewall-cmd --______</code>使配置生效。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：<code>permanent</code>；<code>reload</code></p>
 <p><strong>解析</strong>：<code>--permanent</code>表示永久生效（重启后保留），<code>--reload</code>重新加载防火墙配置使规则生效。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-填空-08">23-填空-08</h3>
-<p><strong>Spring Boot配置优先级从高到低：命令行参数 &gt; ______ &gt;
-外部配置文件 &gt; ______ &gt; 默认值。</strong></p>
-<details>
+<section class="question-card" id="23-填空-08"><p><strong>23-填空-08</strong></p><p><strong>Spring Boot配置优先级从高到低：命令行参数 &gt; ______ &gt;
+外部配置文件 &gt; ______ &gt; 默认值。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：<code>环境变量</code>；<code>jar内配置文件</code></p>
 <p><strong>解析</strong>：完整优先级：命令行参数 &gt; 环境变量 &gt;
 外部配置文件（jar同目录）&gt; jar内配置文件 &gt; 默认值。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-填空-09">23-填空-09</h3>
-<p><strong>在<code>pom.xml</code>中配置<code>&lt;______&gt;ctts&lt;/______&gt;</code>可使打包生成的jar文件名为<code>ctts.jar</code>（不含版本号）。</strong></p>
-<details>
+<section class="question-card" id="23-填空-09"><p><strong>23-填空-09</strong></p><p><strong>在<code>pom.xml</code>中配置<code>&lt;______&gt;ctts&lt;/______&gt;</code>可使打包生成的jar文件名为<code>ctts.jar</code>（不含版本号）。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：<code>finalName</code></p>
 <p><strong>解析</strong>：<code>&lt;finalName&gt;</code>指定打包产物名称，默认为<code>${artifactId}-${version}</code>。设置为<code>ctts</code>后生成<code>ctts.jar</code>，便于部署脚本引用固定名称。</p>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-填空-10">23-填空-10</h3>
-<p><strong>Linux下查看Java进程的命令是<code>______ -ef | grep ctts.jar</code>，查看端口监听的命令是<code>______ -tlnp | grep 8080</code>。</strong></p>
-<details>
+<section class="question-card" id="23-填空-10"><p><strong>23-填空-10</strong></p><p><strong>Linux下查看Java进程的命令是<code>______ -ef | grep ctts.jar</code>，查看端口监听的命令是<code>______ -tlnp | grep 8080</code>。</strong></p><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：<code>ps</code>；<code>netstat</code></p>
 <p><strong>解析</strong>：<code>ps -ef</code>列出所有进程，<code>netstat -tlnp</code>列出所有监听端口（<code>-t</code>TCP、<code>-l</code>监听、<code>-n</code>不解析名称、<code>-p</code>显示进程）。</p>
 <p><strong>难度</strong>：★</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="五论述简答题4题">五、论述简答题（4题）</h2>
-<h3 id="23-论述-01">23-论述-01</h3>
-<p><strong>简述Spring
-Boot可执行jar的内部结构，并说明其启动流程。</strong></p>
-<details>
+<section class="question-card" id="23-论述-01"><p><strong>23-论述-01</strong></p><p><strong>简述Spring
+Boot可执行jar的内部结构，并说明其启动流程。</strong></p><details>
 <summary>答案与评分标准</summary>
 
 <p><strong>参考答案</strong>：</p>
@@ -1241,13 +905,10 @@ Boot可执行jar的内部结构，并说明其启动流程。</strong></p>
 </ul></li>
 </ul>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-论述-02">23-论述-02</h3>
-<p><strong>详细说明Spring
-Boot配置加载的优先级顺序，并举例说明如何利用外部配置文件实现"不改代码、不重新打包"修改生产环境配置。</strong></p>
-<details>
+<section class="question-card" id="23-论述-02"><p><strong>23-论述-02</strong></p><p><strong>详细说明Spring
+Boot配置加载的优先级顺序，并举例说明如何利用外部配置文件实现"不改代码、不重新打包"修改生产环境配置。</strong></p><details>
 <summary>答案与评分标准</summary>
 
 <p><strong>参考答案</strong>：</p>
@@ -1307,12 +968,9 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="
 </ul></li>
 </ul>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-论述-03">23-论述-03</h3>
-<p><strong>描述CTTS项目在Linux服务器上的完整部署流程，从打包到验证访问。</strong></p>
-<details>
+<section class="question-card" id="23-论述-03"><p><strong>23-论述-03</strong></p><p><strong>描述CTTS项目在Linux服务器上的完整部署流程，从打包到验证访问。</strong></p><details>
 <summary>答案与评分标准</summary>
 
 <p><strong>参考答案</strong>：</p>
@@ -1390,12 +1048,9 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href=
 <li>验证步骤（1分）</li>
 </ul>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-论述-04">23-论述-04</h3>
-<p><strong>结合本次课内容，谈谈你对"能运行不等于能交付"的理解，并说明在打包、配置、部署各环节如何体现软件交付责任。</strong></p>
-<details>
+<section class="question-card" id="23-论述-04"><p><strong>23-论述-04</strong></p><p><strong>结合本次课内容，谈谈你对"能运行不等于能交付"的理解，并说明在打包、配置、部署各环节如何体现软件交付责任。</strong></p><details>
 <summary>答案与评分标准</summary>
 
 <p><strong>参考答案</strong>：</p>
@@ -1449,13 +1104,10 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href=
 <li>总结升华（2分）：系统思维、工程师责任意识</li>
 </ul>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="六程序阅读补全题2题">六、程序阅读补全题（2题）</h2>
-<h3 id="23-程序阅读-01">23-程序阅读-01</h3>
-<p><strong>阅读以下<code>pom.xml</code>配置，补全缺失的部分。</strong></p>
-<div class="sourceCode" id="cb15"><pre
+<section class="question-card" id="23-程序阅读-01"><p><strong>23-程序阅读-01</strong></p><p><strong>阅读以下<code>pom.xml</code>配置，补全缺失的部分。</strong></p><div class="sourceCode" id="cb15"><pre
 class="sourceCode xml"><code class="sourceCode xml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span><span class="fu">?&gt;</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">project</span><span class="ot"> xmlns=</span><span class="st">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ot">         xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>&gt;</span>
@@ -1506,8 +1158,7 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb15-1"><a href="#
 <span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>            <span class="er">&lt;/plugin&gt;</span></span>
 <span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>        <span class="er">&lt;/plugins&gt;</span></span>
 <span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;/build&gt;</span></span>
-<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/project&gt;</span></span></code></pre></div>
-<details>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/project&gt;</span></span></code></pre></div><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：</p>
@@ -1566,12 +1217,9 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb20-1"><a href="#
 <li>(4) repackage（2分）</li>
 </ul>
 <p><strong>难度</strong>：★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-程序阅读-02">23-程序阅读-02</h3>
-<p><strong>阅读以下Nginx反向代理配置，补全缺失部分，并回答问题。</strong></p>
-<pre class="nginx"><code># /etc/nginx/conf.d/ctts.conf
+<section class="question-card" id="23-程序阅读-02"><p><strong>23-程序阅读-02</strong></p><p><strong>阅读以下Nginx反向代理配置，补全缺失部分，并回答问题。</strong></p><pre class="nginx"><code># /etc/nginx/conf.d/ctts.conf
 
 server {
     listen       ______(1)______;          # 监听80端口
@@ -1597,14 +1245,11 @@ server {
     location = /health {
         proxy_pass http://127.0.0.1:8080/api/actuator/health;
     }
-}</code></pre>
-<p><strong>问题</strong>：</p>
-<ol type="1">
+}</code></pre><p><strong>问题</strong>：</p><ol type="1">
 <li>补全(1)-(4)的配置</li>
 <li>访问<code>http://192.168.1.100/api/auth/login</code>，Nginx会将请求转发到哪个地址？</li>
 <li>为什么要设置<code>X-Real-IP</code>和<code>X-Forwarded-For</code>请求头？</li>
-</ol>
-<details>
+</ol><details>
 <summary>答案与解析</summary>
 
 <p><strong>答案</strong>：</p>
@@ -1637,15 +1282,11 @@ Boot需配置<code>server.forward-headers-strategy: native</code>才能信任这
 <li>请求头作用说明（2分）</li>
 </ul>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="七编程接口设计题2题">七、编程接口设计题（2题）</h2>
-<h3 id="23-编程-01">23-编程-01</h3>
-<p><strong>编写一个Linux
-Shell脚本<code>deploy.sh</code>，实现CTTS应用的启动、停止、重启和状态查看功能。</strong></p>
-<p><strong>要求</strong>：</p>
-<ol type="1">
+<section class="question-card" id="23-编程-01"><p><strong>23-编程-01</strong></p><p><strong>编写一个Linux
+Shell脚本<code>deploy.sh</code>，实现CTTS应用的启动、停止、重启和状态查看功能。</strong></p><p><strong>要求</strong>：</p><ol type="1">
 <li>脚本支持<code>start</code>、<code>stop</code>、<code>restart</code>、<code>status</code>四个参数</li>
 <li>应用路径为<code>/opt/ctts/ctts.jar</code></li>
 <li>使用<code>nohup</code>后台运行，日志输出到<code>/opt/ctts/ctts.log</code></li>
@@ -1653,8 +1294,7 @@ Shell脚本<code>deploy.sh</code>，实现CTTS应用的启动、停止、重启�
 <li>使用PID文件管理进程（<code>/opt/ctts/ctts.pid</code>）</li>
 <li>启动前检查是否已运行，停止时优先用<code>kill -15</code>，5秒后未退出则<code>kill -9</code></li>
 <li>打印清晰的提示信息</li>
-</ol>
-<details>
+</ol><details>
 <summary>答案与评分标准</summary>
 
 <p><strong>参考答案</strong>：</p>
@@ -1839,13 +1479,9 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href=
 <li>case分支与使用说明（2分）</li>
 </ul>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
-<h3 id="23-编程-02">23-编程-02</h3>
-<p><strong>编写完整的<code>application-prod.yml</code>生产环境配置文件，并编写对应的Linux启动命令（包含JVM调优参数）。</strong></p>
-<p><strong>要求</strong>：</p>
-<ol type="1">
+<section class="question-card" id="23-编程-02"><p><strong>23-编程-02</strong></p><p><strong>编写完整的<code>application-prod.yml</code>生产环境配置文件，并编写对应的Linux启动命令（包含JVM调优参数）。</strong></p><p><strong>要求</strong>：</p><ol type="1">
 <li>数据源配置：MySQL
 8，使用环境变量<code>DB_HOST</code>、<code>DB_USERNAME</code>、<code>DB_PASSWORD</code>，带默认值</li>
 <li>连接池：HikariCP，最大连接数20，最小空闲5</li>
@@ -1855,8 +1491,7 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href=
 <li>Knife4j：生产环境关闭</li>
 <li>优雅关闭：启用graceful shutdown，超时30秒</li>
 <li>启动命令：JVM堆内存512m-1024m，使用G1GC，OOM时生成dump文件</li>
-</ol>
-<details>
+</ol><details>
 <summary>答案与评分标准</summary>
 
 <p><strong>参考答案</strong>：</p>
@@ -2042,8 +1677,7 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href=
 <li>profile激活 + 日志重定向（1分）</li>
 </ul>
 <p><strong>难度</strong>：★★★</p>
-</details>
-
+</details></section>
 <hr />
 <h2 id="八统计表">八、统计表</h2>
 <h3 id="题目数量统计">题目数量统计</h3>
